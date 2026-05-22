@@ -70,11 +70,10 @@ Sezioni README:
 
 Regole todo/:
 
-- ogni file in `todo/` deve avere una riga corrispondente nella tabella Tasks aperti del README
-- la tabella è l'unico punto di ingresso ai task: un file senza riga è invisibile agli agenti e agli utenti futuri
-- la riga contiene priorità, titolo linkato e dipendenze; il file contiene il contesto operativo completo
-- task completato = riga rimossa dalla tabella + file eliminato da todo/; il contesto operativo non sopravvive al completamento (il git log lo conserva se serve)
-- se un task ha una Fase B o un seguito, creare un nuovo file prima di eliminare il precedente
+- il README contiene una tabella Tasks aperti con priorità, titolo linkato al file di dettaglio e dipendenze
+- esiste una corrispondenza uno a uno tra le righe della tabella e i file in `todo/`: ogni riga ha un file, ogni file ha una riga
+- un file senza riga nella tabella è invisibile agli agenti e agli utenti futuri; una riga senza file è un link rotto
+- task completato = riga rimossa dalla tabella + file eliminato da `todo/`
 
 Regole AGENTS:
 
