@@ -27,7 +27,7 @@ Caratteristiche:
 - audit-kb come strumento di salute: check periodici, output appendito a log.md, versionata nel progetto
 - strumenti KB come backend deterministico: script versionati per link, backlink, README e formato dei nodi
 - struttura di progetto replicabile: ogni nuova KB parte da questo schema operativo e lo personalizza al proprio dominio
-- todo/ come spazio operativo: dettagli dei task aperti, non conoscenza permanente
+- todo/ come spazio operativo: dettagli dei task aperti, non conoscenza permanente; la tabella Tasks aperti nel README è l'indice di todo/ — ogni file ha una riga, ogni riga ha un file
 - .claude/skills come interfaccia operativa: skill versionate, preferite ai vecchi comandi
 - .codex/skills come wrapper opzionale: rimanda alle skill Claude senza duplicare workflow
 - revisione-tasks come chiusura sessione: rivedere priorità e dipendenze dei task aperti quando eventi significativi cambiano la KB
@@ -67,6 +67,14 @@ Sezioni README:
 - Tasks aperti con tabella Priorità, Task, Dipende da
 - documentazione o metodi di accesso, se utili
 - indice statico della knowledge base come ultima sezione quando il progetto è principalmente una KB
+
+Regole todo/:
+
+- ogni file in `todo/` deve avere una riga corrispondente nella tabella Tasks aperti del README
+- la tabella è l'unico punto di ingresso ai task: un file senza riga è invisibile agli agenti e agli utenti futuri
+- la riga contiene priorità, titolo linkato e dipendenze; il file contiene il contesto operativo completo
+- task completato = riga rimossa dalla tabella + file eliminato da todo/; il contesto operativo non sopravvive al completamento (il git log lo conserva se serve)
+- se un task ha una Fase B o un seguito, creare un nuovo file prima di eliminare il precedente
 
 Regole AGENTS:
 
