@@ -6,12 +6,21 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Progetti adottanti
 
-| Progetto | Dominio | Note metodologiche |
-| -------- | ------- | ------------------ |
-| [nixos](../nixos/) | Configurazione sistemi NixOS multi-host | principi code-based specifici (Explicit Unfree, Hardware-Specific, Home Manager standalone); audit scripts con sottocomandi nixos-specifici (inventory, facts, coverage, fidelity) |
-| [bi](../bi/) | Business intelligence e sincronizzazione dati | principi operativi specifici (Graceful degradation, Eventual consistency, Tracciabilità operativa); kb_tools.py con facts adattato alla mappa di progetto |
-| [economia](../economia/) | Gestione finanziaria e legale personale | fedelta-cognitiva adattata al dominio legale/finanziario: fonte di verità = output strutturati e documenti autoritativi |
-| [salute](../salute/) | Monitoraggio salute e benessere | adattamento fedelta-cognitiva e design-principles in corso |
+| Progetto                 | Dominio                                       | Note metodologiche                                                                                                                                                                 |
+| ------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [nixos](../nixos/)       | Configurazione sistemi NixOS multi-host       | principi code-based specifici (Explicit Unfree, Hardware-Specific, Home Manager standalone); audit scripts con sottocomandi nixos-specifici (inventory, facts, coverage, fidelity) |
+| [bi](../bi/)             | Business intelligence e sincronizzazione dati | principi operativi specifici (Graceful degradation, Eventual consistency, Tracciabilità operativa); kb_tools.py con facts adattato alla mappa di progetto                          |
+| [economia](../economia/) | Gestione finanziaria e legale personale       | fedelta-cognitiva adattata al dominio legale/finanziario: fonte di verità = output strutturati e documenti autoritativi                                                            |
+| [salute](../salute/)     | Monitoraggio salute e benessere               | adattamento fedelta-cognitiva e design-principles in corso                                                                                                                         |
+
+## Tasks aperti
+
+| Priorità | Task                                                                                         | Dipende da                                     |
+| -------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Bassa    | [Valutazione strumenti, skills e KB cross-repo](todo/valutazione-strumenti-kb-cross-repo.md) | Evoluzione reale dei progetti e dei loro tools |
+
+I task con contesto operativo vivono in `todo/` e vengono rimossi quando
+completati.
 
 ## Come collegare un nuovo progetto
 
