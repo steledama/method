@@ -111,3 +111,5 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [nodo](nodo.md)
 - [strumenti-kb](strumenti-kb.md)
+- [fonte-di-verita](fonte-di-verita.md)
+- [mappa](mappa.md)

@@ -40,6 +40,8 @@ completati.
 
 ## Nodi
 
+### Metodo generale
+
 - [metodo-kb](kb/metodo-kb.md) — Hub del metodo: ricetta metodologica, ciclo operativo, tipi documentali, regole di revisione
 - [nodo](kb/nodo.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
 - [knowledge-base](kb/knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
@@ -51,3 +53,17 @@ completati.
 - [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente
 - [pattern-karpathy](kb/pattern-karpathy.md) — Pattern wiki personale mantenuta da LLM: ingest, query, lint e filing back
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
+
+### Componenti della ricetta
+
+- [agents](kb/agents.md) — Wrapper agent-agnostico: ingresso comune verso README e CLAUDE
+- [claude](kb/claude.md) — Costituzione operativa per agenti: regole d'azione, vincoli e bootstrap
+- [readme](kb/readme.md) — Bootstrap del progetto: orientamento, task, indice e accessi cognitivi
+- [indice](kb/indice.md) — Catalogo statico dei nodi: recupero rapido distinto dalla mappa
+- [task-aperti](kb/task-aperti.md) — Supervisione corrente del lavoro futuro nel README
+- [mappa](kb/mappa.md) — Modello del dominio: entità, fonti di verità, flussi e nodi
+- [todo](kb/todo.md) — Dettagli operativi e contesto dei singoli task aperti
+- [log](kb/log.md) — Memoria interpretativa: perché decisioni e sessioni contano
+- [git-history](kb/git-history.md) — Storia verificabile dei cambiamenti e dei diff
+- [skill](kb/skill.md) — Workflow ricorrenti codificati per agenti
+- [fonte-di-verita](kb/fonte-di-verita.md) — Fonti contro cui verificare ciò che la KB dice

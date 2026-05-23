@@ -13,6 +13,26 @@ Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma
 
 Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o task locale nel progetto interessato.
 
+Indice cognitivo del metodo:
+
+- `AGENTS.md`: dove trovo le istruzioni operative condivise tra agenti?
+- `CLAUDE.md`: come devo agire in questo repo?
+- `README.md`: dove sono e da dove parto?
+- README / indice: quali nodi esistono e come li trovo?
+- README / tasks: cosa dobbiamo fare adesso?
+- mappa: come si tiene insieme questo dominio?
+- nodo: che cosa significa questo concetto specifico?
+- connessioni: a quali altri concetti è legato?
+- `todo/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
+- `log.md`: perché una decisione o una sessione conta?
+- git history: che cosa è cambiato davvero?
+- `scripts/`: quali controlli sono deterministici?
+- skill: quali workflow ricorrenti sono codificati?
+- fonti di verità: contro che cosa verifico ciò che la KB dice?
+- fedeltà cognitiva: la KB aderisce ancora al sistema reale?
+- osservatorio metodo: che cosa impariamo confrontando i progetti?
+- Metodo KB: qual è la ricetta generale?
+
 Ricetta metodologica:
 
 - `kb/`: spazio della conoscenza stabile. Contiene i nodi di metodo e i nodi di dominio. Il nucleo metodologico portabile comprende `metodo-kb`, `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`, `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio richiede verifica anti-drift, `fedelta-cognitiva`. Nei progetti che usano il metodo come dipendenza, questi nodi possono vivere in `metodo/` come symlink o sottoalbero separato, mentre `kb/` resta dedicata al dominio.
@@ -38,7 +58,7 @@ Creazione di un nuovo progetto:
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
 - aggiungere `scripts/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
 
-La ricetta non implica che ogni componente debba sempre avere un nodo autonomo. I nodi separati servono quando un componente ha funzione stabile, regole proprie e bisogno di essere riusato da più progetti. Per questo `nodo`, `struttura-progetto` e `strumenti-kb` sono già nodi autonomi; `README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md` e `todo/` restano invece descritti come componenti della struttura finché non richiedono una semantica più ampia del loro ruolo operativo.
+Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in stato bozza. Il nodo autonomo rende esplicita la funzione cognitiva del componente, permette confronti cross-repo e segnala quali parti del metodo sono mature e quali sono ancora work in progress. Un componente può essere descritto anche in `struttura-progetto`, ma il suo nodo dedicato resta il punto in cui accumulare regole, esempi reali e criteri di revisione.
 
 Evidenza dai progetti adottanti:
 
@@ -113,6 +133,17 @@ Connessioni:
 - [pattern-karpathy](pattern-karpathy.md)
 - [struttura-progetto](struttura-progetto.md)
 - [strumenti-kb](strumenti-kb.md)
+- [agents](agents.md)
+- [claude](claude.md)
+- [readme](readme.md)
+- [indice](indice.md)
+- [task-aperti](task-aperti.md)
+- [mappa](mappa.md)
+- [todo](todo.md)
+- [log](log.md)
+- [git-history](git-history.md)
+- [skill](skill.md)
+- [fonte-di-verita](fonte-di-verita.md)
 - [osservatorio-metodo](osservatorio-metodo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [design-principles](design-principles.md)

@@ -65,3 +65,10 @@ Aggiornato il README con il titolo `Metodo KB` e con l'inquadramento a doppia
 funzione: metodo portabile e osservatorio cross-repo. L'apertura ora esplicita
 che le differenze tra progetti sono materiale di analisi per decidere cosa
 generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
+
+Espanso `kb/metodo-kb.md` con un indice cognitivo del metodo e creati nodi
+bozza per tutti i componenti della ricetta che non avevano ancora un nodo
+autonomo: AGENTS, CLAUDE, README, indice, task aperti, mappa, todo, log, git
+history, skill e fonte di verita. La scelta rende esplicito che il metodo e un
+work in progress pratico: i componenti non maturi possono essere descritti,
+collegati, confrontati tra repo e fatti maturare nel tempo.

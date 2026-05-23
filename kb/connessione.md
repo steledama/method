@@ -51,3 +51,6 @@ Connessioni:
 
 - [metodo-kb](metodo-kb.md)
 - [zettelkasten](zettelkasten.md)
+- [indice](indice.md)
+- [mappa](mappa.md)
+- [nodo](nodo.md)
