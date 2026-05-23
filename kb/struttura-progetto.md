@@ -15,7 +15,7 @@ Il secondo pilastro è CLAUDE.md, con AGENTS.md come wrapper agent-agnostico: co
 
 Il terzo pilastro è log.md: registro append-only delle sessioni significative. Il git log dice cosa è cambiato; log.md dice perché conta. Non registra ogni commit ma le sessioni in cui è emerso qualcosa di rilevante — una decisione strutturale, un cambio di approccio, un ingest importante. È lo strato interpretativo sopra quello analitico del git log.
 
-Il quarto pilastro è la skill audit-kb: health check periodico della KB. Controlla link rotti, nodi orfani, connessioni tra cluster, stato della migrazione ai footer link, convenzioni di naming. L'output è un report strutturato appendito a log.md. La skill è versionata nel progetto, non globale, perché ogni KB ha check specifici diversi. La parte meccanica dell'audit è delegata agli strumenti KB versionati in `scripts/`, così parsing e conteggi restano deterministici.
+Il quarto pilastro è la skill audit-kb: health check periodico della KB. Controlla link rotti, nodi orfani, connessioni tra cluster, stato della migrazione ai footer link, convenzioni di naming. L'output esteso è un report strutturato ricostruibile dagli strumenti versionati; in log.md entra solo una sintesi interpretativa quando l'audit produce una decisione o una revisione significativa. La skill è versionata nel progetto, non globale, perché ogni KB ha check specifici diversi. La parte meccanica dell'audit è delegata agli strumenti KB versionati in `scripts/`, così parsing e conteggi restano deterministici.
 
 Caratteristiche:
 
@@ -24,7 +24,7 @@ Caratteristiche:
 - CLAUDE.md come costituzione operativa: procedure per l'LLM, co-evoluta nel tempo con l'utente
 - AGENTS.md come wrapper agent-agnostico: rimanda a README.md e CLAUDE.md senza duplicare contenuto
 - log.md come strato interpretativo: il perché delle decisioni, non il catalogo dei cambiamenti
-- audit-kb come strumento di salute: check periodici, output appendito a log.md, versionata nel progetto
+- audit-kb come strumento di salute: check periodici, report ricostruibile e sintesi interpretativa in log.md quando serve, versionata nel progetto
 - strumenti KB come backend deterministico: script versionati per link, backlink, README e formato dei nodi
 - struttura di progetto replicabile: ogni nuova KB parte da questo schema operativo e lo personalizza al proprio dominio
 - todo/ come spazio operativo: dettagli dei task aperti, non conoscenza permanente; la tabella Tasks aperti nel README è l'indice di todo/ — ogni file ha una riga, ogni riga ha un file

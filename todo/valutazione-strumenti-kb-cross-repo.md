@@ -3,7 +3,7 @@ data: 2026-05-22
 stato: aperto
 ---
 
-# Valutazione strumenti, skills e KB cross-repo
+# Valutazione osservatorio cross-repo
 
 ## Contesto
 
@@ -13,11 +13,15 @@ perimetro tre categorie di elementi che trascendono i singoli progetti e che
 potrebbero beneficiare di centralizzazione analoga: la CLI Google Workspace,
 gli script di audit KB e le skills Claude Code.
 
-La decisione di escluderli dalla Fase A è stata deliberata: hanno dipendenze
-tecniche (runtime, parametrizzazione, meccanismi di aggiornamento) che
-richiedono analisi separata. Questo task non apre una fase di implementazione:
-serve a osservare l'evoluzione dei progetti e a preparare una valutazione più
-solida prima di centralizzare strumenti o cambiare struttura ai repository.
+La sessione del 2026-05-23 ha ampliato il perimetro: il repo metodo deve
+diventare anche osservatorio periodico dei progetti adottanti. Non basta
+confrontare gli script: bisogna confrontare tutti i componenti della ricetta
+metodologica — README, CLAUDE, AGENTS, log, todo, skill, strumenti, nodi,
+cluster, fonti di verità e segnali di salute.
+
+Questo task è la prima implementazione operativa del nodo
+`kb/osservatorio-metodo.md`: costruire una base di analisi cross-repo che
+produca report comparativi e, quando serve, task locali nei singoli repository.
 
 ## Orientamento prudente
 
@@ -29,9 +33,50 @@ Per il momento la linea guida è conservativa:
   cross-repo chiara;
 - distinguere sempre tra pattern metodologico portabile e implementazione
   specifica di progetto;
+- distinguere tra esiti metodologici, estensioni strumentali e task locali;
 - trattare eventuali rinomini delle cartelle `kb/` come decisione
   architetturale separata, perché impattano link, script, README, skill e uso in
   Obsidian.
+
+## Prima implementazione
+
+### Fase 1 — Inventario componenti
+
+Raccogliere per ogni progetto adottante:
+
+- presenza e dimensione di `README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md`
+- numero file in `todo/` e corrispondenza con tabella Tasks aperti del README
+- numero nodi in `kb/` e presenza dei nodi metodo via symlink o copia locale
+- presenza di `scripts/kb_tools.py`, sottocomandi disponibili e dipendenze
+- presenza di `.claude/skills/` e `.codex/skills/`, elenco skill e wrapper
+- presenza di fonti di verità tecniche o documentali specifiche
+
+Output desiderato: report JSON o markdown ricostruibile dal repo metodo.
+
+### Fase 2 — Confronto qualitativo
+
+Interpretare l'inventario con domande metodologiche:
+
+- il README è bootstrap, indice, router operativo o documento narrativo?
+- CLAUDE contiene solo regole d'azione o anche contenuto di dominio?
+- il log registra decisioni significative o output operativi?
+- i task aperti hanno contesto sufficiente e vita finita?
+- i nodi sono prevalentemente concetti, mappe, reference o runbook?
+- gli strumenti locali preservano una superficie comune?
+- le skill duplicano workflow o aggiungono reale configurazione locale?
+
+Output desiderato: nodo o sezione di report con confronto tra progetti.
+
+### Fase 3 — Azioni derivate
+
+Ogni osservazione deve essere classificata:
+
+- `metodo`: aggiornare un nodo in `~/metodo/kb/`
+- `strumento`: aggiornare `scripts/kb_tools.py` o creare template/skill base
+- `task-locale`: aprire o aggiornare un task nel repo interessato
+- `nessuna-azione`: differenza locale legittima, da registrare ma non correggere
+
+Output desiderato: tabella decisionale con owner e repository target.
 
 ## Candidati
 
@@ -54,18 +99,12 @@ parzialmente diversi (nixos ha `inventory`, `facts`, `coverage`, `fidelity`;
 bi e altri hanno versioni più semplici). Il pattern è comune; i dettagli
 sono specifici del dominio.
 
-- **Opzione A futura**: script canonico in `~/metodo/tools/` che i progetti
-  adattano con fork leggeri — fonte unica per la logica comune, varianti
-  esplicite.
-- **Opzione B conservativa**: solo nodo metodologico in `~/metodo/kb/` che
-  descrive il pattern; gli script restano indipendenti per progetto.
-- **Opzione C intermedia**: libreria minima o template in `~/metodo/tools/`,
-  con entry point locali che mantengono la logica di dominio.
-
-La scelta predefinita resta l'Opzione B finché non emerge duplicazione reale e
-stabile. `~/metodo` oggi è volutamente semplice e quasi solo markdown:
-aggiungere runtime Python crea ownership, versionamento e coordinamento
-cross-repo.
+Decisione parziale 2026-05-23: adottata una variante dell'Opzione C. Il repo
+metodo contiene ora `scripts/kb_tools.py` come backend portabile con comandi
+base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`) e
+comandi generici per codebase (`inventory`, `coverage`). Le logiche
+`facts`/`fidelity` restano locali perché dipendono dalle fonti di verità del
+dominio.
 
 ### Skills Claude Code
 
@@ -103,8 +142,14 @@ assumano il path `kb/`.
 
 Prima di qualsiasi implementazione, raccogliere almeno:
 
-- confronto tra sottocomandi comuni e specifici dei quattro `scripts/kb_tools.py`;
+- confronto tra sottocomandi comuni e specifici dei quattro `scripts/kb_tools.py`
+  rispetto alla superficie portabile in `~/metodo/scripts/kb_tools.py`;
 - confronto tra skill `audit-kb` e `commit` nei quattro progetti;
+- confronto tra README come bootstrap, indice, router e documento narrativo;
+- confronto tra CLAUDE/AGENTS come costituzione operativa e wrapper;
+- confronto tra log come memoria interpretativa e output operativo;
+- confronto quantitativo e qualitativo dei nodi: numero, cluster, hub, orfani,
+  tipi documentali, nodi non indicizzati;
 - mappa dei riferimenti hardcoded a `kb/`, `metodo/`, `.claude/skills/` e
   `.codex/skills/`;
 - impatto di un eventuale rinomino `kb/` sugli indici README, sui link Markdown,

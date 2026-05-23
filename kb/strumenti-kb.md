@@ -9,6 +9,15 @@ Gli strumenti KB sono script versionati che rendono deterministica la manutenzio
 
 Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill audit-kb usa `scripts/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
 
+Il repo metodo contiene la versione portabile di `scripts/kb_tools.py`. Questa versione distingue due livelli:
+
+- strumenti base per qualunque KB: audit strutturale, backlink, orfani, copertura README, migrazione formato e candidati terminologici
+- strumenti generici per progetti code-based: inventario dei file codice e copertura codice → nodi KB
+
+I controlli avanzati che dipendono dal dominio restano locali. In un progetto NixOS possono confrontare host, profili e moduli con `flake.nix`; in un progetto BI possono misurare la documentazione degli script applicativi; in un progetto finanziario possono confrontare nodi e JSON autoritativi. Il metodo fornisce lo scheletro, i progetti aggiungono le fonti di verità.
+
+Dal punto di vista dell'osservatorio metodo, gli strumenti hanno anche una funzione comparativa: rendono possibile misurare periodicamente lo stato dei progetti adottanti con una superficie comune e distinguere ciò che è salute strutturale della KB da ciò che è fedeltà specifica al dominio.
+
 Comandi principali:
 
 - `python3 scripts/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a log.md
@@ -19,10 +28,10 @@ Comandi principali:
 - `python3 scripts/kb_tools.py readme`: verifica copertura e link del catalogo README
 - `python3 scripts/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
 - `python3 scripts/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
-- `python3 scripts/kb_tools.py inventory`: inventario delle entità principali del progetto (host, profili, moduli o equivalenti per dominio)
-- `python3 scripts/kb_tools.py facts`: confronto tra fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
-- `python3 scripts/kb_tools.py coverage`: segnali su aree principali potenzialmente scoperte dalla documentazione
-- `python3 scripts/kb_tools.py fidelity`: aggregatore anti-drift che combina fatti verificabili e warning di copertura
+- `python3 scripts/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
+- `python3 scripts/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica
+- `python3 scripts/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
+- `python3 scripts/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
 
 Regole d'uso:
 
@@ -35,6 +44,7 @@ Regole d'uso:
 - l'audit completo non va appendito integralmente a log.md (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi sotto forma di voce log; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 scripts/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
 - quando una skill può usare uno script versionato, deve preferirlo a regex improvvisate nella sessione
 - gli script devono restare senza dipendenze esterne quando possibile, così funzionano su qualunque host con Python 3
+- le estensioni locali devono preservare i comandi base, così skill e agenti possono contare su una superficie comune tra repository
 
 Skill:
 
@@ -64,6 +74,7 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [struttura-progetto](struttura-progetto.md)
+- [osservatorio-metodo](osservatorio-metodo.md)
 - [connessione](connessione.md)
 - [nodo](nodo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)

@@ -1,5 +1,5 @@
 ---
-data: 2026-05-09
+data: 2026-05-23
 stato: maturo
 ---
 
@@ -9,42 +9,43 @@ Il metodo KB è il modo operativo con cui una knowledge base personale viene cos
 
 Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: README, istruzioni agent, log, strumenti e task aperti.
 
-Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, log, indice e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
+Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
-Componenti portabili:
+Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o task locale nel progetto interessato.
 
-- nodi metodo: metodo-kb, nodo, knowledge-base, pattern-karpathy, struttura-progetto, strumenti-kb, zettelkasten, connessione
-- README.md: bootstrap iniziale per umano e LLM, con presentazione del progetto, metodo, task aperti e indice statico
-- CLAUDE.md: costituzione operativa del progetto, con convenzioni, workflow e regole di manutenzione
-- AGENTS.md: wrapper minimo che indirizza ogni agente a README.md e CLAUDE.md
-- log.md: memoria interpretativa append-only delle sessioni significative
-- todo/: task aperti con contesto operativo, cancellabili quando completati
-- scripts/kb_tools.py: backend deterministico per audit, link, backlink, README, migrazione e candidati terminologici
-- skill audit-kb: interfaccia LLM che usa gli script versionati e interpreta i risultati
-- convenzioni markdown: frontmatter minimale, H1, corpo senza link inline, sezione finale Connessioni
+Ricetta metodologica:
 
-Skeleton minimo:
+- `kb/`: spazio della conoscenza stabile. Contiene i nodi di metodo e i nodi di dominio. Il nucleo metodologico portabile comprende `metodo-kb`, `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`, `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio richiede verifica anti-drift, `fedelta-cognitiva`. Nei progetti che usano il metodo come dipendenza, questi nodi possono vivere in `metodo/` come symlink o sottoalbero separato, mentre `kb/` resta dedicata al dominio.
+- `README.md`: file di bootstrap per umano e LLM. Presenta nome, dominio, scopo, principi locali, task aperti e indice statico della KB. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository. Nei progetti grandi può contenere router per intenzione, cataloghi per cluster e pointer alla mappa canonica.
+- `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
+- `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
+- `log.md`: memoria interpretativa append-only delle sessioni significative. Il git log conserva cosa è cambiato; `log.md` conserva perché una decisione, un ingest, una revisione o un cambio di approccio contano. Non è un archivio di output automatici.
+- `todo/`: spazio dei task futuri con contesto operativo. La tabella Tasks aperti del README ne è l'indice: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, log e nodi aggiornati.
+- `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
+- `.claude/skills/`: interfacce operative per workflow ricorrenti come `audit-kb`, `commit` o revisioni locali. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
+- `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
+- convenzioni markdown: frontmatter minimale, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nel nodo `nodo`.
 
-- kb/: contiene gli otto nodi metodo e i nodi del dominio
-- README.md: descrizione breve, principi, sezione Tasks aperti, indice statico della KB
-- CLAUDE.md: istruzioni operative per gli agenti, incluso leggere README.md a inizio sessione
-- AGENTS.md: wrapper che dice di leggere README.md e poi CLAUDE.md
-- log.md: memoria interpretativa delle sessioni significative
-- todo/: dettagli dei task aperti, con .gitkeep se non ci sono task
-- scripts/: strumenti versionati, incluso kb_tools.py quando il progetto richiede audit deterministico
-- .claude/skills/: skill progetto per audit-kb, commit ed eventuali workflow locali
-- .codex/skills/: wrapper delle skill Claude quando il progetto deve essere usabile anche da Codex
+Creazione di un nuovo progetto:
 
-Prompt di creazione:
-
-- creare la struttura minima del progetto seguendo questi otto nodi metodo
-- personalizzare nome, dominio, scopo, cluster iniziali e task aperti
-- generare README.md come file di bootstrap e indice statico
-- generare CLAUDE.md come costituzione operativa, non come documentazione narrativa
-- generare AGENTS.md come wrapper minimale verso README.md e CLAUDE.md
-- creare log.md vuoto o con una prima entry di fondazione
-- creare todo/ e inserire solo task futuri, mai storico
+- partire dalla ricetta metodologica come checklist, non come gerarchia concettuale
+- personalizzare nome, dominio, scopo, cluster iniziali, fonti di verità e task aperti
+- generare `README.md` come bootstrap e indice statico
+- generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
+- generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
+- creare `log.md` vuoto o con una prima entry di fondazione
+- creare `todo/` e inserirvi solo lavoro futuro, mai storico
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
+- aggiungere `scripts/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
+
+La ricetta non implica che ogni componente debba sempre avere un nodo autonomo. I nodi separati servono quando un componente ha funzione stabile, regole proprie e bisogno di essere riusato da più progetti. Per questo `nodo`, `struttura-progetto` e `strumenti-kb` sono già nodi autonomi; `README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md` e `todo/` restano invece descritti come componenti della struttura finché non richiedono una semantica più ampia del loro ruolo operativo.
+
+Evidenza dai progetti adottanti:
+
+- `nixos` e `bi` usano il metodo come nucleo condiviso linkato da `metodo/`, con README molto forti come router e mappe di progetto specifiche
+- `economia` incorpora una variante locale con file aggiuntivi (`stato.md`, `scadenze.md`, `diario.md`) e fonti di verità JSON, mostrando che la ricetta deve ammettere componenti di dominio senza assorbirli nel nucleo portabile
+- `salute` conserva una forma più narrativa del metodo nel README, utile come traccia storica ma meno separata tra metodo portabile, filosofia locale e indice della KB
+- i progetti tecnici richiedono strumenti anti-drift e fonti di verità verificabili; i progetti riflessivi richiedono soprattutto accessi cognitivi, hub semantici e filing back accurato
 
 Tipi documentali:
 
@@ -93,6 +94,8 @@ Regole di revisione:
   sopprimere automaticamente
 - i file operativi (CLAUDE.md, skill, hook) sono costituzione, non documentazione: le descrizioni di come funziona qualcosa appartengono ai nodi tematici, mai al file operativo, che ne è solo il pointer
 - quando un file operativo cresce a contenere descrizioni del sistema, trasferire il contenuto nei nodi tematici prima di rimuoverlo dal file operativo (mappa per sezione: keep / relocate / remove, poi arricchimento dei nodi target, poi rimozione)
+- quando un elenco metodologico compare in più punti, mantenerlo una sola volta come ricetta e usare gli altri punti per descrivere funzione, variazioni locali o procedura
+- quando un componente del metodo accumula regole proprie, esempi cross-repo e criteri di revisione, promuoverlo a nodo autonomo collegato da questo hub
 
 Personalizzazioni locali:
 
@@ -110,6 +113,8 @@ Connessioni:
 - [pattern-karpathy](pattern-karpathy.md)
 - [struttura-progetto](struttura-progetto.md)
 - [strumenti-kb](strumenti-kb.md)
+- [osservatorio-metodo](osservatorio-metodo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
+- [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)
 - [connessione](connessione.md)

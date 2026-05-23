@@ -1,8 +1,17 @@
-# Metodo
+# Metodo KB
 
-Framework metodologico per knowledge base personali e professionali mantenute con LLM. Definisce forma dei nodi, struttura del progetto, strumenti di manutenzione, principi guida e ciclo di lavoro.
+Framework metodologico e osservatorio cross-repo per knowledge base personali e professionali mantenute con LLM.
 
-Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale — principi, struttura KB, ciclo operativo — mentre le personalizzazioni sono esplicite: ogni progetto estende il metodo con principi e strumenti propri del dominio.
+Questo repository ha due funzioni complementari. La prima è custodire il metodo portabile: forma dei nodi, struttura di progetto, strumenti di manutenzione, principi guida e ciclo di lavoro. La seconda è osservare come il metodo viene applicato nei progetti adottanti, confrontando componenti, strumenti, skill, nodi, task e segnali di salute delle KB.
+
+Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale — principi, struttura KB, ciclo operativo — mentre le personalizzazioni sono esplicite: ogni progetto estende il metodo con principi, fonti di verità e strumenti propri del dominio. Le differenze tra progetti non sono rumore: sono materiale di analisi per capire cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
+
+## Funzioni del repo
+
+- **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, Zettelkasten, pattern Karpathy, struttura di progetto, strumenti, fedeltà cognitiva e principi.
+- **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per rilevare convergenze, drift, duplicazioni, lacune e specificità locali.
+- **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
+- **Coda di lavoro metodologica**: task in `todo/` per valutazioni che possono produrre aggiornamenti del metodo, strumenti comuni o task da aprire nei singoli repository.
 
 ## Progetti adottanti
 
@@ -17,7 +26,7 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 | Priorità | Task                                                                                         | Dipende da                                     |
 | -------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| Bassa    | [Valutazione strumenti, skills e KB cross-repo](todo/valutazione-strumenti-kb-cross-repo.md) | Evoluzione reale dei progetti e dei loro tools |
+| Media    | [Valutazione strumenti, skills e KB cross-repo](todo/valutazione-strumenti-kb-cross-repo.md) | Osservatorio metodo e strumenti comparativi |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
@@ -31,11 +40,12 @@ completati.
 
 ## Nodi
 
-- [metodo-kb](kb/metodo-kb.md) — Il metodo: ciclo operativo, tipi documentali, regole di revisione
+- [metodo-kb](kb/metodo-kb.md) — Hub del metodo: ricetta metodologica, ciclo operativo, tipi documentali, regole di revisione
 - [nodo](kb/nodo.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
 - [knowledge-base](kb/knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
-- [struttura-progetto](kb/struttura-progetto.md) — Quattro pilastri operativi: README, CLAUDE.md, log.md, audit-kb
-- [strumenti-kb](kb/strumenti-kb.md) — Script versionati per audit, backlink, migrazione e candidati terminologici
+- [struttura-progetto](kb/struttura-progetto.md) — Pilastri e componenti operativi: README, CLAUDE.md, AGENTS.md, log.md, todo, skill e strumenti
+- [strumenti-kb](kb/strumenti-kb.md) — Script versionati portabili e profili avanzati per audit, backlink, migrazione, copertura e candidati terminologici
+- [osservatorio-metodo](kb/osservatorio-metodo.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
 - [fedelta-cognitiva](kb/fedelta-cognitiva.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
 - [design-principles](kb/design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente
