@@ -24,7 +24,7 @@ Caratteristiche:
 - atomicità: contiene una sola idea; troppi livelli annidati segnalano che va diviso in più nodi
 - prosa pura nel corpo: nessun link inline; il testo è leggibile senza interruzioni sintattiche
 - interfaccia esplicita: la sezione Connessioni è l'unico punto di uscita verso la rete
-- frontmatter minimalista: solo data (creazione, non ultima modifica) e stato (bozza/maturo)
+- frontmatter minimalista obbligatorio: solo data (creazione, non ultima modifica) e stato (`bozza`, `iniziale`, `maturo`)
 - nome file tutto minuscolo con trattini, singolare come forma canonica
 - lingua italiana per i concetti del dominio
 - H1 obbligatorio: il titolo deve essere leggibile anche fuori dal filename
@@ -35,6 +35,29 @@ Caratteristiche:
 - presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e log.md
 - funzione documentale esplicita: separare quando mappa, concetto, reference e runbook iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a esempi didattici plausibili ma non canonici
+
+## Frontmatter dei nodi
+
+```yaml
+---
+data: YYYY-MM-DD
+stato: bozza | iniziale | maturo
+---
+```
+
+Il frontmatter dei nodi è obbligatorio e volutamente minimale. Serve agli strumenti per distinguere presenza, maturità e stato editoriale del nodo senza trasformare la KB in un database manuale.
+
+`data` è la data di creazione del nodo. Non è la data di ultima modifica: quella appartiene a git. Aggiornare manualmente una data di modifica nel frontmatter creerebbe una seconda storia fragile e incompleta.
+
+`stato` indica la maturità del nodo:
+
+- `bozza`: nodo utile ma incompleto, ancora da espandere o collegare;
+- `iniziale`: nodo appena impostato o ancora poco stabilizzato;
+- `maturo`: nodo stabile, autonomo e sufficientemente collegato.
+
+Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `todo/`, priorità e dipendenze nella tabella del README.
+
+Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
 
 Regole di creazione:
 

@@ -44,7 +44,7 @@ Ricetta metodologica:
 - `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti come `audit-kb`, `commit` o revisioni locali. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
-- convenzioni markdown: frontmatter minimale, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nel nodo `nodo`.
+- convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `todo`.
 
 Creazione di un nuovo progetto:
 
@@ -66,6 +66,8 @@ Evidenza dai progetti adottanti:
 - `economia` incorpora una variante locale con file aggiuntivi (`stato.md`, `scadenze.md`, `diario.md`) e fonti di verità JSON, mostrando che la ricetta deve ammettere componenti di dominio senza assorbirli nel nucleo portabile
 - `salute` conserva una forma più narrativa del metodo nel README, utile come traccia storica ma meno separata tra metodo portabile, filosofia locale e indice della KB
 - i progetti tecnici richiedono strumenti anti-drift e fonti di verità verificabili; i progetti riflessivi richiedono soprattutto accessi cognitivi, hub semantici e filing back accurato
+
+La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
 
 Tipi documentali:
 
@@ -145,6 +147,7 @@ Connessioni:
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)
 - [osservatorio-metodo](osservatorio-metodo.md)
+- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)

@@ -51,6 +51,14 @@ Naming dei file pilastro:
 - nodi kb/ — sempre lowercase con trattini, singolare come forma canonica (regola dettagliata in nodo)
 - la distinzione segnala il costo di caricamento: ciò che è UPPERCASE entra in contesto a ogni sessione e deve restare conciso, ciò che è lowercase viene letto solo quando serve
 
+Frontmatter per tipo di file:
+
+- `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo `nodo`
+- `todo/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo `todo`
+- file root (`README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`): nessun frontmatter
+
+La ragione è funzionale. I nodi e i task sono unità analizzabili dagli strumenti; i file root sono ingressi operativi o registri leggibili direttamente. Aggiungere frontmatter ai file root crea metadati editoriali difficili da mantenere e non aggiunge una funzione metodologica stabile.
+
 Bootstrap di sessione:
 
 - README.md è il primo file letto a inizio sessione: orientamento, principi, task aperti, indice della KB
@@ -93,6 +101,17 @@ Regole CLAUDE:
 - la dimensione è un segnale: oltre ~100 righe è probabile sovrapposizione con la KB
 - mai usata come fonte di fatti per gli audit: il filesystem o i nodi tematici sono le fonti di verità (vedi fedelta-cognitiva)
 
+## Applicazione nei progetti adottanti
+
+| Progetto | Situazione attuale | Confronto con il metodo |
+| -------- | ------------------ | ----------------------- |
+| `nixos` | Ricetta molto coerente: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill e mappa canonica sono presenti e distinti. | È il riferimento operativo per un progetto code-based: pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi. |
+| `bi` | Struttura completa e ricca: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill, presentazione, client e mappa. | Il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale. |
+| `economia` | Struttura completa con componenti locali aggiuntivi: `stato.md`, `scadenze.md`, `diario.md`, config, dati e output JSON. | Mostra che la ricetta deve ammettere file di dominio specializzati senza renderli universali. |
+| `salute` | Struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. | È il caso storico/riflessivo: il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare. |
+
+La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni cognitive: ingresso, regole operative, memoria, task, conoscenza stabile, strumenti e fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, log o nodi.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
@@ -108,3 +127,4 @@ Connessioni:
 - [todo](todo.md)
 - [log](log.md)
 - [skill](skill.md)
+- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)

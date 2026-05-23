@@ -45,6 +45,7 @@ Regole d'uso:
 - quando una skill può usare uno script versionato, deve preferirlo a regex improvvisate nella sessione
 - gli script devono restare senza dipendenze esterne quando possibile, così funzionano su qualunque host con Python 3
 - le estensioni locali devono preservare i comandi base, così skill e agenti possono contare su una superficie comune tra repository
+- i controlli di frontmatter devono distinguere i tipi documentali: obbligatorio nei nodi `kb/`, obbligatorio nei task `todo/`, non richiesto nei file root
 
 Skill:
 
@@ -68,6 +69,26 @@ Requisiti per un nuovo progetto:
 - creare wrapper .codex/skills solo se il progetto deve supportare Codex
 - aggiungere formatter disponibili in CLAUDE.md, senza inventare strumenti non installati
 
+## Applicazione nei progetti adottanti
+
+| Progetto | Situazione attuale | Confronto con il metodo |
+| -------- | ------------------ | ----------------------- |
+| `nixos` | `kb_tools.py` espone comandi base più `inventory`, `facts`, `coverage`, `fidelity`; `scripts/check.sh` aggrega formatter, audit, fact check e fidelity. | È il laboratorio più avanzato per anti-drift code-based: la fonte dichiarativa Nix rende verificabili host, profili, moduli e copertura. |
+| `bi` | `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`). Graphify è strumento locale separato. | Buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna. |
+| `economia` | `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info. | Adattamento utile a un dominio documentale: i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze. |
+| `salute` | `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`). | Adeguato a una KB concettuale: per ora la priorità è salute strutturale e filing back, non inventario tecnico. |
+
+Fotografia audit del 2026-05-23:
+
+| Progetto | Esito strutturale |
+| -------- | ----------------- |
+| `nixos` | 37 nodi, 177 link, nessun link rotto, nessun orfano, nessun cluster isolato |
+| `bi` | 78 nodi, 293 link, nessun link rotto, nessun orfano, nessun cluster isolato |
+| `economia` | 44 nodi, 145 link, 3 link rotti, 2 orfani, 1 cluster isolato |
+| `salute` | 193 nodi, 2175 link, nessun link rotto o orfano; 10 nomi file accentati segnalati |
+
+Il doppio confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
@@ -78,3 +99,4 @@ Connessioni:
 - [connessione](connessione.md)
 - [nodo](nodo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
+- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)

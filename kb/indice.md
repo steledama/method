@@ -18,6 +18,17 @@ Regole:
 - non sostituisce la mappa del dominio
 - va verificato con strumenti deterministici quando possibile
 
+## Applicazione nei progetti adottanti
+
+| Progetto | Situazione attuale | Confronto con il metodo |
+| -------- | ------------------ | ----------------------- |
+| `nixos` | 37 nodi indicizzati, 7 cluster, nessun nodo mancante dal README. | Indice compatto e completo, adatto a un codebase con macro-aree tecniche ben delimitate. |
+| `bi` | 78 nodi indicizzati, 11 cluster, nessun nodo mancante. | Indice molto granulare; funziona perché cluster e mappa separano catalogo e modello del dominio. |
+| `economia` | 44 nodi indicizzati, 4 cluster, nessun nodo mancante. | Indice leggibile, ma l'audit segnala un cluster isolato nella zona strumenti/servizi esterni. |
+| `salute` | 193 nodi indicizzati, 8 cluster, nessun nodo mancante. | Indice esteso ma necessario per una KB concettuale ampia; il rischio è che il README diventi anche mappa. |
+
+La pratica conferma la distinzione: l'indice può essere lungo, ma deve restare catalogo. Nei progetti grandi serve una mappa autonoma per evitare che le descrizioni dei cluster diventino l'unico modello del dominio.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)

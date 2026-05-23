@@ -40,6 +40,23 @@ Per il momento la linea guida è conservativa:
 
 ## Prima implementazione
 
+Primo output stabile prodotto il 2026-05-23:
+
+- [confronto-progetti-adottanti](../kb/confronto-progetti-adottanti.md) sintetizza la fotografia corrente;
+- i nodi dei componenti del metodo contengono una sezione "Applicazione nei progetti adottanti";
+- il README del repo metodo è stato ridotto a elenco dei repository e ambito, rimandando l'analisi alla KB.
+- le azioni locali emerse sono state aperte nei repo interessati:
+  - `bi/todo/revisione-claude-md.md`
+  - `economia/todo/correzione-audit-kb.md`
+  - `salute/todo/mappa-progetto.md`
+  - `salute/todo/principi-specifici-dominio.md`
+- policy frontmatter applicata direttamente:
+  - nodi `kb/`: frontmatter obbligatorio `data` + `stato`
+  - task `todo/`: frontmatter obbligatorio `data` + `stato: aperto`
+  - file root: niente frontmatter
+
+Resta aperta la parte strumentale: produrre un report ricostruibile da script e decidere eventuali ulteriori azioni locali nei singoli repo.
+
 ### Fase 1 — Inventario componenti
 
 Raccogliere per ogni progetto adottante:

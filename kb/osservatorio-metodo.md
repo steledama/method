@@ -48,6 +48,19 @@ La forma ideale è un ciclo leggero:
 
 Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla cognizione: non solo documenta come pensare con una KB, ma osserva come le KB reali evolvono, dove falliscono, dove divergono e quali forme si dimostrano più robuste.
 
+## Prima fotografia cross-repo
+
+La fotografia del 2026-05-23 è sintetizzata nel nodo `confronto-progetti-adottanti`. Il principio adottato è distribuire il confronto: la sintesi tira le somme, mentre i nodi dei singoli componenti contengono la situazione concreta dei quattro progetti e il confronto tra teoria e applicazione pratica.
+
+Questa forma evita due errori opposti. Il README resta leggero e non diventa report analitico; il confronto non resta però confinato in un documento isolato, perché ogni componente del metodo accumula i propri esempi reali.
+
+Esito metodologico iniziale:
+
+- `nixos` è il riferimento per strumenti anti-drift code-based;
+- `bi` è il caso guida per chiarire il confine tra `CLAUDE.md`, nodi KB e strumenti locali;
+- `economia` è il caso guida per fonti autoritative, stato corrente e scadenze;
+- `salute` è il caso guida per KB concettuali, filing back e mappa non tecnica.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
@@ -64,3 +77,4 @@ Connessioni:
 - [git-history](git-history.md)
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)
+- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)

@@ -18,6 +18,12 @@ Regole:
 - sostiene commit piccoli, leggibili e tematici
 - non va usata come discarica per decisioni non documentate
 
+## Applicazione nei progetti adottanti
+
+Tutti i progetti usano git come memoria analitica dei cambiamenti e `log.md` come memoria interpretativa. La differenza è nel peso della storia: `nixos` e `bi` hanno commit frequenti legati a codice e documentazione; `economia` alterna aggiornamenti di dati, nodi e pratiche; `salute` conserva una storia più legata a ingest, rinomine e maturazione metodologica.
+
+Il confronto conferma la regola del metodo: i task completati possono sparire da `todo/` perché git conserva il dettaglio, ma le decisioni che cambiano il modo di lavorare devono essere registrate in `log.md` o nei nodi. La sola git history non basta a ricostruire il perché.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
@@ -25,3 +31,4 @@ Connessioni:
 - [task-aperti](task-aperti.md)
 - [strumenti-kb](strumenti-kb.md)
 - [design-principles](design-principles.md)
+- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)

@@ -15,12 +15,12 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Progetti adottanti
 
-| Progetto                 | Dominio                                       | Note metodologiche                                                                                                                                                                 |
-| ------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [nixos](../nixos/)       | Configurazione sistemi NixOS multi-host       | principi code-based specifici (Explicit Unfree, Hardware-Specific, Home Manager standalone); audit scripts con sottocomandi nixos-specifici (inventory, facts, coverage, fidelity) |
-| [bi](../bi/)             | Business intelligence e sincronizzazione dati | principi operativi specifici (Graceful degradation, Eventual consistency, Tracciabilità operativa); kb_tools.py con facts adattato alla mappa di progetto                          |
-| [economia](../economia/) | Gestione finanziaria e legale personale       | fedelta-cognitiva adattata al dominio legale/finanziario: fonte di verità = output strutturati e documenti autoritativi                                                            |
-| [salute](../salute/)     | Monitoraggio salute e benessere               | adattamento fedelta-cognitiva e design-principles in corso                                                                                                                         |
+| Progetto                 | Ambito                                                |
+| ------------------------ | ----------------------------------------------------- |
+| [nixos](../nixos/)       | Configurazione dichiarativa NixOS multi-host          |
+| [bi](../bi/)             | Business intelligence e sincronizzazione dati         |
+| [economia](../economia/) | Gestione finanziaria, patrimoniale e legale personale |
+| [salute](../salute/)     | Benessere, pratica, filosofia e salute personale      |
 
 ## Tasks aperti
 
@@ -48,6 +48,7 @@ completati.
 - [struttura-progetto](kb/struttura-progetto.md) — Pilastri e componenti operativi: README, CLAUDE.md, AGENTS.md, log.md, todo, skill e strumenti
 - [strumenti-kb](kb/strumenti-kb.md) — Script versionati portabili e profili avanzati per audit, backlink, migrazione, copertura e candidati terminologici
 - [osservatorio-metodo](kb/osservatorio-metodo.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
+- [confronto-progetti-adottanti](kb/confronto-progetti-adottanti.md) — Sintesi della situazione attuale dei quattro progetti che adottano il metodo
 - [fedelta-cognitiva](kb/fedelta-cognitiva.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
 - [design-principles](kb/design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente
