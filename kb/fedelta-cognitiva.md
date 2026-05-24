@@ -20,11 +20,11 @@ dominio.
 
 ## Tre livelli di verifica
 
-| Livello     | Domanda                                              | Esempi                                               |
-| ----------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| strutturale | la KB è integra?                                     | link, orfani, README, frontmatter                    |
-| fattuale    | la KB concorda con le fonti di verità del dominio?   | dipende dal dominio — vedi sezione Adattamento       |
-| semantico   | la KB è ancora una buona interfaccia cognitiva?      | funzione dei nodi, router, confini                   |
+| Livello     | Domanda                                            | Esempi                                         |
+| ----------- | -------------------------------------------------- | ---------------------------------------------- |
+| strutturale | la KB è integra?                                   | link, orfani, README, frontmatter              |
+| fattuale    | la KB concorda con le fonti di verità del dominio? | dipende dal dominio — vedi sezione Adattamento |
+| semantico   | la KB è ancora una buona interfaccia cognitiva?    | funzione dei nodi, router, confini             |
 
 ## Checklist semantica
 
@@ -107,12 +107,12 @@ LLM decidono se un nodo vada rifatto, diviso o lasciato invariato.
 
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | Implementa il ciclo più completo: inventario da `flake.nix` e filesystem, facts, coverage e fidelity. | Aderenza alta: il dominio dichiarativo consente controlli automatici affidabili senza inventare fonti fittizie. |
-| `bi` | Ha audit strutturale maturo e una copertura script-nodi; la mappa dichiara che il livello fattuale va ancora progettato su fonti BI primarie. | Caso intermedio: la complessità applicativa richiede selezionare pochi fatti ad alta fiducia prima di automatizzare fidelity. |
-| `economia` | Usa facts sulla mappa e fonti JSON/documentali; l'audit segnala problemi strutturali reali da correggere. | Buon adattamento finanziario-legale: la fedeltà riguarda situazioni aperte, importi, scadenze e documenti, non solo codice. |
-| `salute` | Strutturalmente sana; la fedeltà è soprattutto semantica e interpretativa, legata a fonti, diario, pratica e coerenza dei concetti. | Mostra il limite dei fact check: in una KB riflessiva serve soprattutto revisione qualitativa del loop teoria-pratica. |
+| Progetto   | Situazione attuale                                                                                                                            | Confronto con il metodo                                                                                                                                          |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | Implementa il ciclo più completo: inventario da `flake.nix` e filesystem, facts, coverage e fidelity.                                         | Aderenza alta: il dominio dichiarativo consente controlli automatici affidabili senza inventare fonti fittizie.                                                  |
+| `bi`       | Ha audit strutturale maturo e una copertura script-nodi; la mappa dichiara che il livello fattuale va ancora progettato su fonti BI primarie. | Caso intermedio: la complessità applicativa richiede selezionare pochi fatti ad alta fiducia prima di automatizzare fidelity.                                    |
+| `economia` | Usa facts sulla mappa e fonti JSON/documentali; l'audit segnala problemi strutturali reali da correggere.                                     | Buon adattamento finanziario-legale: la fedeltà riguarda situazioni aperte, importi, scadenze e documenti, non solo codice.                                      |
+| `salute`   | Strutturalmente sana; la fedeltà è soprattutto semantica e interpretativa, legata a fonti, diario, pratica e coerenza dei concetti.           | Mostra il limite dei fact check: in una KB riflessiva la revisione qualitativa può essere formalizzata come loop teoria -> pratica -> osservazione -> revisione. |
 
 Il confronto tra teoria e pratica suggerisce una regola più precisa: attivare automatismi di fedeltà solo dove esiste una fonte primaria leggibile e stabile. Dove la fonte è interpretativa o personale, il metodo deve fornire checklist e filing back, non simulare test oggettivi.
 

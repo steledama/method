@@ -4,6 +4,19 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-05-24 — Osservatorio salute chiuso
+
+Chiuso il task `osservatorio-salute`: nel repo `salute` sono stati creati
+`kb/mappa-progetto.md`, `kb/principi-salute.md` e
+`kb/verifica-nel-vivere.md`, con aggiornamento di README, CLAUDE e log locali.
+
+Il caso conferma tre regole metodologiche. Primo: le verifiche cross-repo
+restano nel repo `metodo`, ma quando producono contenuto di dominio diventano
+task locali. Secondo: per KB riflessive la mappa non deve simulare una mappa
+tecnica; deve collegare assi concettuali, fonti, pratica e diario. Terzo:
+README-only è accettabile per ingest semplici, mentre interventi strutturali o
+serie di nodi richiedono `todo/` finché non vengono stabilizzati in nodi.
+
 ## 2026-05-22 — Fondazione del repo
 
 Creato il repo `~/metodo` come fonte unica di verità per i nodi metodologici,
@@ -11,6 +24,7 @@ consolidando le versioni sparse in nixos, bi, economia e salute.
 
 La versione nixos era la più evoluta su tutti i nodi. Il diff ha rilevato tre
 contributi non banali dagli altri repo:
+
 - `struttura-progetto`: da economia, aggiunta la nozione di "README come
   artefatto a doppia audience" e "revisione-tasks come chiusura sessione"
 - `strumenti-kb`: da economia, aggiunto il dettaglio "tre livelli

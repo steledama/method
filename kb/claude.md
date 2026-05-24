@@ -22,12 +22,12 @@ Regole:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | 88 righe, bootstrap esplicito, permessi, validazione, formatter, vincoli e riferimenti rapidi. | Molto vicino alla teoria: file operativo, compatto e non usato come fonte di verità del dominio. |
-| `bi` | Revisione completata dopo la fotografia iniziale: `CLAUDE.md` e stato compattato e il task locale di dettaglio e stato chiuso. | Da rivalutare nel prossimo confronto quantitativo: il criterio resta che `CLAUDE.md` deve essere costituzione operativa, non manuale di dominio. |
-| `economia` | 99 righe, bootstrap con `stato.md`, `scadenze.md` e mappa, comandi, risorse esterne e riferimenti rapidi. | Buon adattamento: include vincoli di dominio e stato corrente senza trasformarsi in manuale esteso. |
-| `salute` | 228 righe, project overview, filosofia, struttura, node structure, content guidelines e operazioni. | Eredita la fase storica del progetto: utile, ma contiene spiegazioni metodologiche che oggi dovrebbero essere pointer verso `metodo/` e nodi locali. |
+| Progetto   | Situazione attuale                                                                                                                                                | Confronto con il metodo                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `nixos`    | 88 righe, bootstrap esplicito, permessi, validazione, formatter, vincoli e riferimenti rapidi.                                                                    | Molto vicino alla teoria: file operativo, compatto e non usato come fonte di verità del dominio.                                                 |
+| `bi`       | Revisione completata dopo la fotografia iniziale: `CLAUDE.md` e stato compattato e il task locale di dettaglio e stato chiuso.                                    | Da rivalutare nel prossimo confronto quantitativo: il criterio resta che `CLAUDE.md` deve essere costituzione operativa, non manuale di dominio. |
+| `economia` | 99 righe, bootstrap con `stato.md`, `scadenze.md` e mappa, comandi, risorse esterne e riferimenti rapidi.                                                         | Buon adattamento: include vincoli di dominio e stato corrente senza trasformarsi in manuale esteso.                                              |
+| `salute`   | 229 righe, project overview, filosofia, struttura, node structure, content guidelines e operazioni; ora rimanda a `kb/verifica-nel-vivere.md` per il filing back. | Eredita la fase storica del progetto: utile, ma può alleggerirsi progressivamente usando pointer verso `metodo/` e nodi locali.                  |
 
 Il caso `bi` ha mostrato perché il metodo insiste sulla separazione tra costituzione operativa e documentazione. Più `CLAUDE.md` diventa completo, più diventa costoso da caricare e più rischia di divergere dai nodi. La regola pratica è: se un paragrafo spiega come funziona il sistema, appartiene a `kb/`; se dice cosa l'agente può o deve fare, appartiene a `CLAUDE.md`.
 

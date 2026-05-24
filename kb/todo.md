@@ -39,12 +39,12 @@ Quando un task viene completato, il file viene eliminato insieme alla riga READM
 
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | `todo/` piccolo, con task tecnici puntuali. | Buon uso come spazio temporaneo: il contesto stabile resta nei nodi e nel codice. |
-| `bi` | `todo/` più ampio, con task legati a refactor, dati, fornitori e metodo. | Utile per non trasformare README e CLAUDE in backlog; richiede disciplina nel chiudere o spostare le decisioni in KB/log. |
-| `economia` | `todo/` molto operativo, legato a scadenze, pratiche, immobili, tasse e investimenti. | Caso che chiarisce l'adattamento: `todo/` può contenere pratiche reali e non solo refactor, ma deve restare lavoro futuro. |
-| `salute` | `todo/` contiene alcuni task concettuali, mentre altri ingest sono solo righe README. | Suggerisce una soglia: ingest semplice può stare nel README, ma serie di nodi o loop pratica-verifica richiedono file dedicato. |
+| Progetto   | Situazione attuale                                                                                                   | Confronto con il metodo                                                                                                                                                                |
+| ---------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | `todo/` piccolo, con task tecnici puntuali.                                                                          | Buon uso come spazio temporaneo: il contesto stabile resta nei nodi e nel codice.                                                                                                      |
+| `bi`       | `todo/` più ampio, con task legati a refactor, dati, fornitori e metodo.                                             | Utile per non trasformare README e CLAUDE in backlog; richiede disciplina nel chiudere o spostare le decisioni in KB/log.                                                              |
+| `economia` | `todo/` molto operativo, legato a scadenze, pratiche, immobili, tasse e investimenti.                                | Caso che chiarisce l'adattamento: `todo/` può contenere pratiche reali e non solo refactor, ma deve restare lavoro futuro.                                                             |
+| `salute`   | `todo/` contiene task concettuali e operativi sostanziali, mentre ingest semplici possono restare solo righe README. | Conferma la soglia: ingest semplice può stare nel README, ma serie di nodi, loop pratica-verifica o interventi strutturali richiedono file dedicato finché non diventano nodi stabili. |
 
 La pratica conferma che `todo/` è parte del metodo ma non della KB stabile. Quando un file in `todo/` contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/log.
 

@@ -45,12 +45,13 @@ Le operazioni possono essere rieseguite sugli stessi dati senza effetti collater
 
 ## Principi specifici di progetto
 
-Ogni progetto porta i propri principi specifici nel proprio README, nella sezione dedicata. La distinzione tra principi universali e principi locali va resa esplicita: il lettore deve poter capire a colpo d'occhio cosa appartiene al metodo condiviso e cosa è scelta del singolo progetto.
+Ogni progetto porta i propri principi specifici nel README o in un nodo locale puntato dal README. La distinzione tra principi universali e principi locali va resa esplicita: il lettore deve poter capire a colpo d'occhio cosa appartiene al metodo condiviso e cosa è scelta del singolo progetto.
 
 Esempi di principi specifici adottati nei progetti correnti:
 
 - **nixos**: Home Manager standalone (timeline sistema/utente disaccoppiate), Explicit Unfree (nessun software non-libero entra silenziosamente), Hardware-Specific (moduli hardware corrispondono all'hardware reale)
 - **bi**: Sincronizzazione graduale / Eventual consistency (gli aggiornamenti si propagano gradualmente con meccanismi di riprova), Isolamento degli errori / Graceful degradation (un errore su un elemento non blocca l'intero processo), Tracciabilità operativa (ogni elaborazione automatica produce un log strutturato con riepilogo via email)
+- **salute**: teoria verificata nella pratica, corpo e mente come unico campo, fonti come mappe, diario come materiale grezzo per filing back
 
 Connessioni:
 
