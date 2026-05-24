@@ -24,11 +24,15 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Tasks aperti
 
-| Priorità | Target     | Task                                                                 | Dipende da                        |
-| -------- | ---------- | -------------------------------------------------------------------- | --------------------------------- |
-| Alta     | `bi`       | [Osservatorio metodo su bi](todo/osservatorio-bi.md)                 | Confronto progetti adottanti      |
-| Alta     | `economia` | [Osservatorio metodo su economia](todo/osservatorio-economia.md)     | Caso guida revisione task e fonti |
-| Media    | `nixos`    | [Osservatorio metodo su nixos](todo/osservatorio-nixos.md)           | Strumenti anti-drift code-based   |
+| Priorità | Target     | Task                                                                                      | Dipende da                     |
+| -------- | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
+| Alta     | `salute`   | [Osservazioni dal pilota salute/quadro/](todo/salute-quadro-pilota.md)                    | Uso reale di quadro/ nel tempo |
+| Media    | `bi`       | [Regress check CLAUDE.md bi](todo/bi-claude-regress.md)                                   | —                              |
+| Media    | `economia` | [Formalizza pattern file-dominio](todo/economia-file-dominio-pattern.md)                  | —                              |
+| Media    | `economia` | [Portabilità skill revisione-tasks](todo/economia-revisione-tasks.md)                     | —                              |
+| Media    | multi      | [Confronto skill audit-kb e commit cross-repo](todo/skill-audit-kb-confronto.md)          | —                              |
+| Bassa    | `nixos`    | [Superficie portabile kb_tools.py: comandi avanzati](todo/nixos-kb-tools-portabilita.md)  | —                              |
+| Bassa    | `salute`   | [README narrativo di salute: quando è accettabile?](todo/salute-readme-narrativo.md)      | —                              |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
