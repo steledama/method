@@ -72,3 +72,33 @@ autonomo: AGENTS, CLAUDE, README, indice, task aperti, mappa, todo, log, git
 history, skill e fonte di verita. La scelta rende esplicito che il metodo e un
 work in progress pratico: i componenti non maturi possono essere descritti,
 collegati, confrontati tra repo e fatti maturare nel tempo.
+
+---
+
+## 2026-05-24 — Revisione task come funzione strutturale di sessione
+
+Generalizzata l'intuizione emersa da `economia`: la revisione dei task non e
+solo un adattamento locale per scadenze e pratiche aperte, ma una funzione
+strutturale del metodo. Le sessioni LLM pianificano, analizzano e implementano
+lavoro attraverso task espliciti; se README e `todo/` driftano, la sessione
+parte da una supervisione falsa.
+
+Aggiornati i nodi `task-aperti`, `claude`, `skill` e `struttura-progetto` per
+distinguere tra funzione obbligatoria e implementazione locale: ogni progetto
+deve avere un controllo leggero dei task nel bootstrap operativo; una skill
+dedicata `revisione-tasks` diventa opportuna quando i task sono numerosi,
+dipendono da fonti/scadenze esterne o il drift produce costo reale di sessione.
+
+Formalizzata anche la governance dei task metodologici cross-repo: vivono nel
+repo `metodo` e di norma hanno precedenza sui task di progetto. Anche quando
+targettano un singolo repository, restano centrali finche il motivo del lavoro e
+metodologico; un task locale nasce solo quando l'intervento diventa autonomo di
+dominio. Di conseguenza la verifica su `nixos`, `bi` e `salute` resta nel task
+cross-repo centrale con matrice per repository, mentre `economia` resta il caso
+guida gia allineato.
+
+La coda metodologica e stata poi divisa in task centrali specifici per repo:
+`osservatorio-bi`, `osservatorio-economia`, `osservatorio-nixos` e
+`osservatorio-salute`. Il vecchio task unico di valutazione cross-repo e stato
+rimosso per rendere le priorita ordinabili per target senza duplicare lavoro nei
+repo adottanti.

@@ -14,7 +14,7 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 | Progetto   | Profilo attuale | Segnale principale |
 | ---------- | --------------- | ------------------ |
 | `nixos`   | implementazione più ordinata della ricetta su un codebase dichiarativo | README e mappa forti; strumenti anti-drift più completi |
-| `bi`      | implementazione ricca e operativa su codebase applicativo complesso | KB e mappa mature; `CLAUDE.md` contiene ancora molta documentazione di dominio |
+| `bi`      | implementazione ricca e operativa su codebase applicativo complesso | KB e mappa mature; revisione di `CLAUDE.md` completata dopo la fotografia iniziale |
 | `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; alcuni segnali strutturali da correggere |
 | `salute`  | KB ampia e riflessiva, nata prima della separazione metodologica piena | rete dei nodi molto forte; README e CLAUDE restano più narrativi del metodo ideale |
 
@@ -39,7 +39,7 @@ Le mappe canoniche sono il componente che più chiaramente migliora l'adozione n
 
 ## Divergenze
 
-La divergenza più importante riguarda `CLAUDE.md`. `nixos` ed `economia` sono vicini alla teoria: file brevi, operativi, con riferimenti rapidi. `salute` conserva ancora molta spiegazione metodologica e struttura interna. `bi` è il caso più distante: 824 righe, con standard tecnici, pattern applicativi, comandi, policy e documentazione che in parte dovrebbero vivere nei nodi.
+La divergenza più importante riguarda `CLAUDE.md`. Nella fotografia iniziale `nixos` ed `economia` erano vicini alla teoria: file brevi, operativi, con riferimenti rapidi; `salute` conservava ancora molta spiegazione metodologica e struttura interna; `bi` era il caso più distante, con standard tecnici, pattern applicativi, comandi, policy e documentazione che in parte dovevano vivere nei nodi. La revisione di `bi/CLAUDE.md` e stata completata dopo questa fotografia e va considerata un riallineamento gia effettuato.
 
 La seconda divergenza riguarda la fedeltà cognitiva. `nixos` ha il modello più avanzato, con `inventory`, `facts`, `coverage` e `fidelity`. `bi` ha un audit strutturale buono e un controllo locale di copertura script, ma la fedeltà al dominio deve ancora essere progettata su fonti primarie BI. `economia` ha `facts` adattato alla mappa, ma mostra errori strutturali da correggere. `salute` resta soprattutto semantica: la rete è sana, ma il dominio richiede verifiche qualitative e fonti testuali più che fact check tecnici.
 
@@ -58,9 +58,10 @@ Gli strumenti vanno trattati come backend del metodo, non come metodo stesso. `k
 | Target | Azione | Tipo |
 | ------ | ------ | ---- |
 | metodo | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali | metodo |
-| `bi` | aprire una revisione di `CLAUDE.md` per spostare documentazione di dominio nei nodi pertinenti | task locale |
+| `bi` | revisione di `CLAUDE.md` completata; verificare nel prossimo confronto se il file resta costituzione operativa e non manuale di dominio | completato / monitoraggio |
 | `salute` | valutare un nodo mappa autonomo e principi specifici di dominio | task locale |
 | `economia` | correggere link rotti e orfani emersi dall'audit | task locale |
+| metodo / task | mantenere task metodologici specifici per repo in `metodo/todo/`, senza duplicarli nei repo adottanti | task-metodo |
 | metodo / strumenti | aggiungere un report cross-repo ricostruibile a `scripts/kb_tools.py` o a un futuro wrapper osservatorio | strumento |
 | metodo / skill | confrontare `audit-kb` e `commit` per capire se serva una base portabile con wrapper locali | strumento |
 | metodo / frontmatter | policy chiarita: `kb/` e `todo/` hanno frontmatter minimale; i file root ne restano privi | completato |

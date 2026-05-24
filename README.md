@@ -24,9 +24,12 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Tasks aperti
 
-| Priorità | Task                                                                                         | Dipende da                                     |
-| -------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| Media    | [Valutazione strumenti, skills e KB cross-repo](todo/valutazione-strumenti-kb-cross-repo.md) | Osservatorio metodo e strumenti comparativi |
+| Priorità | Target | Task | Dipende da |
+| -------- | ------ | ---- | ---------- |
+| Alta | `bi` | [Osservatorio metodo su bi](todo/osservatorio-bi.md) | Confronto progetti adottanti |
+| Alta | `economia` | [Osservatorio metodo su economia](todo/osservatorio-economia.md) | Caso guida revisione task e fonti |
+| Media | `nixos` | [Osservatorio metodo su nixos](todo/osservatorio-nixos.md) | Strumenti anti-drift code-based |
+| Media | `salute` | [Osservatorio metodo su salute](todo/osservatorio-salute.md) | Mappa, principi e task README-only |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.

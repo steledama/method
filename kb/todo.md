@@ -18,6 +18,10 @@ Regole:
 - può linkare nodi KB per contesto stabile
 - va ripulita quando il task viene completato
 
+Nel repo `metodo`, `todo/` ha anche una funzione di governance cross-repo: contiene i task metodologici che riguardano uno o piu progetti adottanti. In questi casi il file deve indicare esplicitamente i repository target e distinguere le verifiche metodologiche dagli interventi locali autonomi.
+
+Non si duplicano task metodologici nei `todo/` dei repo adottanti solo per renderli visibili. La visibilita locale va ottenuta dal bootstrap di sessione: quando un agente entra in un repo adottante, deve controllare anche i task metodologici centrali che lo targettano. Il task locale nasce solo quando l'azione non e piu una verifica metodologica, ma un lavoro di progetto con contesto operativo proprio.
+
 ## Frontmatter dei task
 
 ```yaml
