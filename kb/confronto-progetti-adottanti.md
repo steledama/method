@@ -53,6 +53,19 @@ I nodi dei componenti devono quindi contenere esempi reali dei progetti adottant
 
 Gli strumenti vanno trattati come backend del metodo, non come metodo stesso. `kb_tools.py` può avere una superficie portabile comune, ma `facts` e `fidelity` devono restare adattati al dominio finché le fonti primarie non sono comparabili.
 
+## Strato output come componente universale
+
+Sessione del 2026-05-24: lo strato di output, finora trattato come "componente locale aggiuntivo" di alcuni progetti, è stato riconosciuto come funzione cognitiva universale del metodo. Tutti e quattro i progetti adottanti lo implementavano già in forme proprie:
+
+- `nixos`: l'output è la configurazione stessa, in `home/`, `hosts/`, `modules/`
+- `bi`: `presentazione/` Reveal.js per la vista human-readable, scripts notturni per l'automazione
+- `economia`: `output/json/` (macchina) e `output/report*.md` (umano, ancora solo tabellare)
+- `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
+
+La formalizzazione vive in [ponte](ponte.md) (i tre livelli L1 macchina, L2 decisione umana, L3 azione nel mondo) e [ciclo-azione](ciclo-azione.md) (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
+
+La promozione non rimuove la variazione locale: il nome dello strato resta scelta di dominio. Quello che si stabilizza è la funzione (tradurre conoscenza in azione possibile) e i criteri di qualità (visibilità, feedback, mapping, constraint).
+
 ## Azioni suggerite
 
 | Target               | Azione                                                                                                                                  | Tipo                      |
