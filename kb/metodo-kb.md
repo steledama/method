@@ -1,11 +1,11 @@
 ---
-data: 2026-05-23
+data: 2026-05-24
 stato: maturo
 ---
 
 # Metodo KB
 
-Il metodo KB è il modo operativo con cui una knowledge base personale viene costruita, mantenuta e resa navigabile con l'aiuto di un LLM. Nasce dall'incontro tra Zettelkasten e pattern Karpathy: lo Zettelkasten definisce la forma dei nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di manutenzione dell'insieme, dove fonti, domande e sintesi vengono progressivamente compilate in una rete persistente.
+Il metodo KB è il modo operativo con cui una knowledge base personale viene costruita, mantenuta e resa navigabile con l'aiuto di un LLM. Si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di manutenzione dell'insieme, dove fonti, domande e sintesi vengono progressivamente compilate in una rete persistente; Norman fornisce il modello che traduce la KB in azione possibile nel mondo, chiudendo il ciclo tra accumulazione della conoscenza e comportamento reale.
 
 Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: README, istruzioni agent, log, strumenti e task aperti.
 
@@ -44,6 +44,7 @@ Ricetta metodologica:
 - `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti come `audit-kb`, `commit` o revisioni locali. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
+- strato output (ponte): il livello che traduce la KB in azione possibile. Tiene separati tre livelli — L1 (output macchina: dati strutturati per LLM e automazione), L2 (output decisione: schemi e viste leggibili da umano), L3 (output azione: email, parole, gesti, transazioni nel mondo). Il nome locale dipende dal dominio (`quadro/`, `presentazione/`, `output/`, configurazione di sistema) e non dal metodo. La sua funzione è universale: senza strato output, la KB non chiude il ciclo di azione e la conoscenza accumulata non produce comportamento reale. Valutare con i criteri di Norman: visibilità, feedback, mapping, constraint.
 - convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `todo`.
 
 Creazione di un nuovo progetto:
@@ -66,6 +67,7 @@ Evidenza dai progetti adottanti:
 - `economia` incorpora una variante locale con file aggiuntivi (`stato.md`, `scadenze.md`, `diario.md`) e fonti di verità JSON, mostrando che la ricetta deve ammettere componenti di dominio senza assorbirli nel nucleo portabile
 - `salute` conserva una forma più narrativa del metodo nel README, utile come traccia storica ma meno separata tra metodo portabile, filosofia locale e indice della KB
 - i progetti tecnici richiedono strumenti anti-drift e fonti di verità verificabili; i progetti riflessivi richiedono soprattutto accessi cognitivi, hub semantici e filing back accurato
+- ogni progetto adottante ha già uno strato output, anche senza averlo nominato; dove L2 è forte il progetto serve decisioni condivise con altri (`bi`); dove L2 è debole la KB resta introspettiva e fatica a generare azione coordinata
 
 La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
 
@@ -152,3 +154,5 @@ Connessioni:
 - [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)
 - [connessione](connessione.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)

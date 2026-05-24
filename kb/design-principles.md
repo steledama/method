@@ -1,5 +1,5 @@
 ---
-data: 2026-05-22
+data: 2026-05-24
 stato: maturo
 ---
 
@@ -53,8 +53,21 @@ Esempi di principi specifici adottati nei progetti correnti:
 - **bi**: Sincronizzazione graduale / Eventual consistency (gli aggiornamenti si propagano gradualmente con meccanismi di riprova), Isolamento degli errori / Graceful degradation (un errore su un elemento non blocca l'intero processo), Tracciabilità operativa (ogni elaborazione automatica produce un log strutturato con riepilogo via email)
 - **salute**: teoria verificata nella pratica, corpo e mente come unico campo, fonti come mappe, diario come materiale grezzo per filing back
 
+## Principi per lo strato output
+
+Applicabili a tutti i progetti con uno strato output esplicito. Derivano direttamente dai criteri di Norman per il design dell'azione e vanno usati come checklist di revisione del ponte, non come target estetici.
+
+- **Visibilità**: tutti gli stati attivi sono percepibili a colpo d'occhio nell'overview; niente di rilevante è nascosto dietro navigazione o ricerca
+- **Feedback**: dopo ogni evento il sistema mostra l'esito in modo evidente; non serve indagine per sapere cosa è cambiato
+- **Mapping**: la disposizione visiva corrisponde alla struttura reale del dominio, non a un ordine convenzionale o alfabetico
+- **Constraint**: la struttura del file impedisce di dimenticare le parti che servono insieme; le raccomandazioni stanno accanto allo stato, i prossimi passi accanto alla diagnosi
+
+Se l'utente non agisce, lo strato output è mal progettato — non l'utente è pigro. Questi principi si valutano sul comportamento reale, non sulla qualità dei nodi sottostanti.
+
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
 - [struttura-progetto](struttura-progetto.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)

@@ -1,5 +1,5 @@
 ---
-data: 2026-05-23
+data: 2026-05-24
 stato: bozza
 ---
 
@@ -17,6 +17,7 @@ Regole:
 - non sostituisce l'indice completo
 - non deve diventare storico o lista di task
 - può essere diversa per domini tecnici, finanziari o riflessivi
+- include lo strato output come dimensione esplicita: mostra dove vivono L1, L2 e L3 nel progetto e come il ciclo di azione ritorna alla KB come nuova fonte; senza questa dimensione la mappa descrive solo l'accumulo di conoscenza, non il ciclo completo
 
 ## Applicazione nei progetti adottanti
 
@@ -36,3 +37,5 @@ Connessioni:
 - [indice](indice.md)
 - [fonte-di-verita](fonte-di-verita.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)
