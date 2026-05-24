@@ -24,11 +24,12 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Tasks aperti
 
-| Priorità | Target     | Task                                                             | Dipende da                        |
-| -------- | ---------- | ---------------------------------------------------------------- | --------------------------------- |
-| Alta     | `bi`       | [Osservatorio metodo su bi](todo/osservatorio-bi.md)             | Confronto progetti adottanti      |
-| Alta     | `economia` | [Osservatorio metodo su economia](todo/osservatorio-economia.md) | Caso guida revisione task e fonti |
-| Media    | `nixos`    | [Osservatorio metodo su nixos](todo/osservatorio-nixos.md)       | Strumenti anti-drift code-based   |
+| Priorità | Target     | Task                                                                 | Dipende da                        |
+| -------- | ---------- | -------------------------------------------------------------------- | --------------------------------- |
+| Alta     | `metodo`   | [Ponte teoria-pratica (strato output)](todo/ponte-teoria-pratica.md) | Pilota in `salute`                |
+| Alta     | `bi`       | [Osservatorio metodo su bi](todo/osservatorio-bi.md)                 | Confronto progetti adottanti      |
+| Alta     | `economia` | [Osservatorio metodo su economia](todo/osservatorio-economia.md)     | Caso guida revisione task e fonti |
+| Media    | `nixos`    | [Osservatorio metodo su nixos](todo/osservatorio-nixos.md)           | Strumenti anti-drift code-based   |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
