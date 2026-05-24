@@ -54,6 +54,22 @@ Ogni progetto adottante ha già implementato uno strato output, anche senza nomi
 
 Pattern emergente: dove L2 è forte, il progetto serve decisioni condivise con altri (`bi`); dove L2 è debole, la KB resta personale e introspettiva, e fatica a generare azione coordinata.
 
+## Dichiarazione minima dello strato output
+
+Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato output nella mappa o nel README locale. La dichiarazione minima non impone una directory uguale per tutti, ma rende verificabile il circuito:
+
+```markdown
+## Strato output
+
+- L1 macchina:
+- L2 decisione:
+- L3 azione:
+- Fonte di ritorno:
+- Criterio di aggiornamento:
+```
+
+La dichiarazione serve a evitare l'ambiguità più comune: chiamare output una sintesi che non produce azione. L1 e L2 sono output intermedi; lo strato è completo solo se dichiara come L3 produce una fonte di ritorno e come quella fonte aggiorna KB, task, scadenze o nuove viste.
+
 ## Forma locale, funzione universale
 
 Il nome dello strato resta locale e segue il dominio:
@@ -64,6 +80,10 @@ Il nome dello strato resta locale e segue il dominio:
 - `nixos` lo ha già come `home/`, `hosts/`, `modules/` — l'output è la configurazione stessa che gira sul sistema
 
 La funzione è la stessa: tradurre conoscenza in azione possibile. Il nome locale è scelta di dominio, non drift dal metodo. Ogni progetto adottante dichiara esplicitamente la sua forma per L1, L2, L3; livelli assenti vanno nominati come assenti, non lasciati impliciti.
+
+## Segnale di maturità
+
+Uno strato output maturo lascia traccia di cicli completi: L2 rende visibile una decisione, L3 produce un'azione nel mondo, l'azione genera una fonte e la fonte ritorna nella KB o nel quadro operativo. Il criterio empirico minimo per validare un pilota è osservare almeno 2-3 cicli completi, non soltanto la presenza di file ben formattati.
 
 ## Criteri di qualità
 
