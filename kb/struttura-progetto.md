@@ -73,6 +73,8 @@ Sezioni README:
 - titolo e descrizione del progetto
 - principi o approccio
 - Tasks aperti con tabella Priorità, Task, Dipende da
+- strumenti disponibili in forma di elenco breve, con rimandi a CLAUDE.md e nodi
+  dedicati
 - documentazione o metodi di accesso, se utili
 - indice statico della knowledge base come ultima sezione quando il progetto è principalmente una KB
 
@@ -96,21 +98,31 @@ Regole CLAUDE:
 - il contenuto di dominio (architettura, servizi, pattern, comandi, descrizioni di come funziona qualcosa) vive nei nodi kb/; CLAUDE.md ne è solo il pointer
 - apre con il bootstrap di sessione esplicito: ordine di lettura README → mappa del progetto → nodo tematico → CLAUDE.md
 - contiene i vincoli operativi non documentati altrove: cosa l'agente può eseguire autonomamente, comportamenti proibiti, regole di sicurezza
-- può elencare i comandi quotidiani ad alta frequenza (formatter, validazione locale, entry point KB) ma rimanda alla KB per la reference completa
+- contiene la scelta operativa degli strumenti: per ogni intento ricorrente,
+  quale tool usare, il comando minimo e il nodo di approfondimento
+- può elencare i comandi quotidiani ad alta frequenza (formatter, validazione
+  locale, entry point KB) ma rimanda alla KB per la reference completa
 - chiude con una tabella "Riferimenti rapidi" che mappa intenti operativi ai nodi KB
 - la dimensione è un segnale: oltre ~100 righe è probabile sovrapposizione con la KB
 - mai usata come fonte di fatti per gli audit: il filesystem o i nodi tematici sono le fonti di verità (vedi fedelta-cognitiva)
 
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | Ricetta molto coerente: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill e mappa canonica sono presenti e distinti. | È il riferimento operativo per un progetto code-based: pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi. |
-| `bi` | Struttura completa e ricca: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill, presentazione, client e mappa. | Il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale. |
-| `economia` | Struttura completa con componenti locali aggiuntivi: `stato.md`, `scadenze.md`, `diario.md`, config, dati e output JSON. | Mostra che la ricetta deve ammettere file di dominio specializzati senza renderli universali. |
-| `salute` | Struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. | È il caso storico/riflessivo: il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare. |
+| Progetto   | Situazione attuale                                                                                                         | Confronto con il metodo                                                                                                                 |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | Ricetta molto coerente: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill e mappa canonica sono presenti e distinti. | È il riferimento operativo per un progetto code-based: pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi. |
+| `bi`       | Struttura completa e ricca: README, CLAUDE, AGENTS, log, `todo/`, `scripts/`, skill, presentazione, client e mappa.        | Il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.                   |
+| `economia` | Struttura completa con componenti locali aggiuntivi: `stato.md`, `scadenze.md`, `diario.md`, config, dati e output JSON.   | Mostra che la ricetta deve ammettere file di dominio specializzati senza renderli universali.                                           |
+| `salute`   | Struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi.          | È il caso storico/riflessivo: il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.      |
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni cognitive: ingresso, regole operative, memoria, task, conoscenza stabile, strumenti e fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, log o nodi.
+
+Gli strumenti hanno bisogno di tre livelli di esposizione. Nel README devono
+essere visibili in modo brevissimo, perché un agente appena entrato sappia che
+esistono. In CLAUDE.md devono essere operativi, perché l'agente sappia quale
+usare e come invocarlo senza cercare a caso. Nei nodi devono essere spiegati,
+perché procedure, varianti, limiti e troubleshooting sono conoscenza stabile e
+non appartengono ai file root.
 
 Connessioni:
 

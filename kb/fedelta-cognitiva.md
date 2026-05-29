@@ -20,13 +20,21 @@ dominio.
 
 ## Tre livelli di verifica
 
-| Livello     | Domanda                                              | Esempi                                               |
-| ----------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| strutturale | la KB è integra?                                     | link, orfani, README, frontmatter                    |
-| fattuale    | la KB concorda con le fonti di verità del dominio?   | dipende dal dominio — vedi sezione Adattamento       |
-| semantico   | la KB è ancora una buona interfaccia cognitiva?      | funzione dei nodi, router, confini                   |
+| Livello     | Domanda                                            | Esempi                                         |
+| ----------- | -------------------------------------------------- | ---------------------------------------------- |
+| strutturale | la KB è integra?                                   | link, orfani, README, frontmatter              |
+| fattuale    | la KB concorda con le fonti di verità del dominio? | dipende dal dominio — vedi sezione Adattamento |
+| semantico   | la KB è ancora una buona interfaccia cognitiva?    | funzione dei nodi, router, confini             |
 
 ## Checklist semantica
+
+### Router e punti di ingresso
+
+- un audit strutturale pulito sta nascondendo un README cognitivamente sbagliato?
+- README, CLAUDE e mappa descrivono ancora funzioni distinte o si stanno
+  duplicando?
+- i contenuti condivisi tra progetti sono referenziati come dipendenze
+  trans-repo, invece di essere indicizzati come KB locale?
 
 ### Funzione documentale
 
@@ -105,14 +113,21 @@ La fedeltà cognitiva non deve diventare un test fittizio. Gli script verificano
 ciò che il dominio rende verificabile; i warning indirizzano l'attenzione; umano e
 LLM decidono se un nodo vada rifatto, diviso o lasciato invariato.
 
+Un caso tipico: l'audit può dire 0 errori e 0 avvisi mentre il README resta
+cognitivamente infedele, perché indicizza contenuti metodologici condivisi come
+se fossero parte della KB locale. Il controllo corretto non è solo "i link
+funzionano?", ma "questo punto di ingresso ricostruisce ancora il modello reale
+del progetto?". In questi casi lo script può intercettare regressioni note, ma la
+skill deve sempre includere una revisione qualitativa di README, CLAUDE e mappa.
+
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | Implementa il ciclo più completo: inventario da `flake.nix` e filesystem, facts, coverage e fidelity. | Aderenza alta: il dominio dichiarativo consente controlli automatici affidabili senza inventare fonti fittizie. |
-| `bi` | Ha audit strutturale maturo e una copertura script-nodi; la mappa dichiara che il livello fattuale va ancora progettato su fonti BI primarie. | Caso intermedio: la complessità applicativa richiede selezionare pochi fatti ad alta fiducia prima di automatizzare fidelity. |
-| `economia` | Usa facts sulla mappa e fonti JSON/documentali; l'audit segnala problemi strutturali reali da correggere. | Buon adattamento finanziario-legale: la fedeltà riguarda situazioni aperte, importi, scadenze e documenti, non solo codice. |
-| `salute` | Strutturalmente sana; la fedeltà è soprattutto semantica e interpretativa, legata a fonti, diario, pratica e coerenza dei concetti. | Mostra il limite dei fact check: in una KB riflessiva serve soprattutto revisione qualitativa del loop teoria-pratica. |
+| Progetto   | Situazione attuale                                                                                                                            | Confronto con il metodo                                                                                                                                |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `nixos`    | Implementa il ciclo più completo: inventario da `flake.nix` e filesystem, facts, coverage e fidelity.                                         | Aderenza alta: il dominio dichiarativo consente controlli automatici affidabili senza inventare fonti fittizie.                                        |
+| `bi`       | Ha audit strutturale maturo e una copertura script-nodi; la mappa dichiara che il livello fattuale va ancora progettato su fonti BI primarie. | Caso intermedio: la complessità applicativa richiede selezionare pochi fatti ad alta fiducia prima di automatizzare fidelity.                          |
+| `economia` | Usa facts sulla mappa e fonti JSON/documentali; ha introdotto un controllo README contro il drift del metodo trans-repo.                      | Buon adattamento finanziario-legale: la fedeltà riguarda situazioni aperte, importi, scadenze e documenti, ma anche la coerenza dei punti di ingresso. |
+| `salute`   | Strutturalmente sana; la fedeltà è soprattutto semantica e interpretativa, legata a fonti, diario, pratica e coerenza dei concetti.           | Mostra il limite dei fact check: in una KB riflessiva serve soprattutto revisione qualitativa del loop teoria-pratica.                                 |
 
 Il confronto tra teoria e pratica suggerisce una regola più precisa: attivare automatismi di fedeltà solo dove esiste una fonte primaria leggibile e stabile. Dove la fonte è interpretativa o personale, il metodo deve fornire checklist e filing back, non simulare test oggettivi.
 

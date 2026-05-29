@@ -18,6 +18,24 @@ I controlli avanzati che dipendono dal dominio restano locali. In un progetto Ni
 
 Dal punto di vista dell'osservatorio metodo, gli strumenti hanno anche una funzione comparativa: rendono possibile misurare periodicamente lo stato dei progetti adottanti con una superficie comune e distinguere ciò che è salute strutturale della KB da ciò che è fedeltà specifica al dominio.
 
+## Esposizione degli strumenti
+
+Per rendere l'LLM consapevole degli strumenti a disposizione senza creare
+duplicazione, ogni progetto dovrebbe esporli su tre livelli:
+
+- README.md: elenco brevissimo degli strumenti e link ai nodi, per discovery e
+  orientamento iniziale
+- CLAUDE.md: istruzioni operative, cioè quale strumento usare per quale intento,
+  comandi minimi e condizioni di escalation
+- nodi KB: reference stabile del workflow, varianti, limiti, troubleshooting e
+  dettagli che non devono appesantire i file root
+
+La regola pratica è: README orienta, CLAUDE istruisce, KB approfondisce. Quando
+un comando o una procedura compare in più livelli con lo stesso dettaglio, il
+progetto sta creando una futura fonte di drift. Quando invece uno strumento è
+documentato solo in un nodo ma non compare nel README o in CLAUDE, l'agente può
+non scoprirlo o scegliere un workflow peggiore.
+
 Comandi principali:
 
 - `python3 scripts/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a log.md
@@ -71,21 +89,21 @@ Requisiti per un nuovo progetto:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | `kb_tools.py` espone comandi base più `inventory`, `facts`, `coverage`, `fidelity`; `scripts/check.sh` aggrega formatter, audit, fact check e fidelity. | È il laboratorio più avanzato per anti-drift code-based: la fonte dichiarativa Nix rende verificabili host, profili, moduli e copertura. |
-| `bi` | `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`). Graphify è strumento locale separato. | Buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna. |
-| `economia` | `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info. | Adattamento utile a un dominio documentale: i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze. |
-| `salute` | `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`). | Adeguato a una KB concettuale: per ora la priorità è salute strutturale e filing back, non inventario tecnico. |
+| Progetto   | Situazione attuale                                                                                                                                                  | Confronto con il metodo                                                                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `nixos`    | `kb_tools.py` espone comandi base più `inventory`, `facts`, `coverage`, `fidelity`; `scripts/check.sh` aggrega formatter, audit, fact check e fidelity.             | È il laboratorio più avanzato per anti-drift code-based: la fonte dichiarativa Nix rende verificabili host, profili, moduli e copertura.                     |
+| `bi`       | `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`). Graphify è strumento locale separato. | Buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna.                               |
+| `economia` | `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info.                                                    | Adattamento utile a un dominio documentale: i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze. |
+| `salute`   | `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`).                                                          | Adeguato a una KB concettuale: per ora la priorità è salute strutturale e filing back, non inventario tecnico.                                               |
 
 Fotografia audit del 2026-05-23:
 
-| Progetto | Esito strutturale |
-| -------- | ----------------- |
-| `nixos` | 37 nodi, 177 link, nessun link rotto, nessun orfano, nessun cluster isolato |
-| `bi` | 78 nodi, 293 link, nessun link rotto, nessun orfano, nessun cluster isolato |
-| `economia` | 44 nodi, 145 link, 3 link rotti, 2 orfani, 1 cluster isolato |
-| `salute` | 193 nodi, 2175 link, nessun link rotto o orfano; 10 nomi file accentati segnalati |
+| Progetto   | Esito strutturale                                                                 |
+| ---------- | --------------------------------------------------------------------------------- |
+| `nixos`    | 37 nodi, 177 link, nessun link rotto, nessun orfano, nessun cluster isolato       |
+| `bi`       | 78 nodi, 293 link, nessun link rotto, nessun orfano, nessun cluster isolato       |
+| `economia` | 44 nodi, 145 link, 3 link rotti, 2 orfani, 1 cluster isolato                      |
+| `salute`   | 193 nodi, 2175 link, nessun link rotto o orfano; 10 nomi file accentati segnalati |
 
 Il doppio confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
 

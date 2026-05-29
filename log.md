@@ -4,6 +4,27 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-05-29 — Filing back da economia: audit pulito non basta
+
+La revisione di `economia` ha mostrato un drift non rilevato dall'audit
+strutturale: il README indicizzava nodi metodologici condivisi come se fossero
+contenuto locale, pur avendo link validi e audit 0/0/0. Il metodo viene chiarito:
+i progetti adottanti devono dichiarare il repo `metodo` come dipendenza
+trans-repo e tenere separati indice locale, mappa del dominio e contenuto
+metodologico condiviso.
+
+Aggiornati `fedelta-cognitiva`, `skill`, `readme` e `indice`: `audit-kb` fotografa
+lo stato e deve includere una revisione qualitativa di README/CLAUDE/mappa;
+`commit` è il gate più capillare per prevenire drift, perché impone il filing
+back prima che una modifica venga fissata nella storia.
+
+La stessa sessione ha chiarito anche la regola di esposizione degli strumenti:
+devono essere scopribili nel README, operativi in CLAUDE.md e approfonditi nei
+nodi. Questa tripartizione aumenta la consapevolezza dell'LLM senza trasformare
+README o CLAUDE in manuali duplicati.
+
+---
+
 ## 2026-05-22 — Fondazione del repo
 
 Creato il repo `~/metodo` come fonte unica di verità per i nodi metodologici,
@@ -11,6 +32,7 @@ consolidando le versioni sparse in nixos, bi, economia e salute.
 
 La versione nixos era la più evoluta su tutti i nodi. Il diff ha rilevato tre
 contributi non banali dagli altri repo:
+
 - `struttura-progetto`: da economia, aggiunta la nozione di "README come
   artefatto a doppia audience" e "revisione-tasks come chiusura sessione"
 - `strumenti-kb`: da economia, aggiunto il dettaglio "tre livelli
