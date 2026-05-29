@@ -36,18 +36,23 @@ gate di documentazione.
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                 | Confronto con il metodo                                                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `nixos`    | Skill `audit-kb` e `commit`, con wrapper Codex corrispondenti.                     | Caso base: workflow comuni, legati a strumenti versionati e formatter locali.                                                                    |
-| `bi`       | Skill `audit-kb`, `commit`, `graphify`, con wrapper Codex.                         | Mostra una skill realmente locale: Graphify esplora import/call graph e non appartiene automaticamente al metodo.                                |
-| `economia` | Skill `audit-kb`, `commit`, `revisione-tasks`, con wrapper Codex per le prime due. | `audit-kb` ora include revisione cognitiva di README/CLAUDE/mappa; `commit` controlla il filing back prima di fissare cambiamenti significativi. |
-| `salute`   | Skill `audit-kb`, `commit`, `elabora-trascrizione`, con wrapper Codex.             | `elabora-trascrizione` è locale al ciclo ingest fonti; conferma che le skill possono specializzare il metodo senza diventare portabili.          |
+| Progetto   | Situazione attuale                                                               | Confronto con il metodo                                                                                                                      |
+| ---------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | Skill `audit-kb` e `commit`, con wrapper Codex corrispondenti.                   | Caso base: workflow comuni, legati a strumenti versionati e formatter locali.                                                                |
+| `bi`       | Skill `audit-kb`, `commit`, `graphify`, con wrapper Codex.                       | Mostra una skill realmente locale: Graphify esplora import/call graph e non appartiene automaticamente al metodo.                            |
+| `economia` | Skill `audit-kb`, `commit`, `revisione-tasks`, con wrapper Codex corrispondenti. | `audit-kb` include revisione cognitiva di README/CLAUDE/mappa; `commit` controlla il filing back prima di fissare cambiamenti significativi. |
+| `salute`   | Skill `audit-kb`, `commit`, `elabora-trascrizione`, con wrapper Codex.           | `elabora-trascrizione` è locale al ciclo ingest fonti; conferma che le skill possono specializzare il metodo senza diventare portabili.      |
 
-Il confronto indica che solo `audit-kb` e `commit` sono candidate a una base
-comune, proprio perché corrispondono ai due momenti generali della manutenzione:
-diagnosi periodica e gate pre-commit. Le altre skill sono esempi di adattamento
-sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento
-locale.
+Il confronto indica che `audit-kb` e `commit` sono candidate a una base comune,
+proprio perché corrispondono ai due momenti generali della manutenzione: diagnosi
+periodica e gate pre-commit. `revisione-tasks` merita una distinzione: non è
+necessariamente una skill obbligatoria in ogni progetto, ma la funzione che
+incarna è metodologica. Ogni progetto deve avere un controllo dei task aperti nel
+bootstrap operativo; una skill dedicata diventa opportuna quando i task sono
+numerosi, dipendono da scadenze o fonti esterne, oppure quando il drift
+README/todo produce costo reale di sessione.
+
+Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento locale.
 
 Connessioni:
 

@@ -24,9 +24,10 @@ Il confronto deve produrre tre tipi di esito:
 
 - generalizzazione metodologica: una differenza locale rivela una regola portabile e viene integrata nei nodi di metodo
 - estensione strumentale: una duplicazione stabile diventa script, comando, skill base o template riusabile
-- task locale: un problema riguarda un singolo repo e va riportato nel suo `todo/`, non assorbito nel metodo generale
+- task metodologico cross-repo: una verifica o implementazione metodologica riguarda uno o piu repo adottanti e resta tracciata in `metodo/todo/`, con sezioni per repository target
+- task locale: un problema e diventato lavoro autonomo di dominio e va riportato nel `todo/` del repo interessato
 
-La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern, propone interventi e rimanda l'azione al livello giusto.
+La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern, mantiene i task metodologici cross-repo e rimanda ai repo locali solo il lavoro che ha ormai contesto operativo autonomo.
 
 Analisi periodiche:
 
@@ -43,8 +44,9 @@ La forma ideale è un ciclo leggero:
 2. generare un report comparativo nel repo metodo
 3. interpretare il report in una voce di log o in un nodo stabile
 4. aggiornare il metodo se emerge una generalizzazione
-5. aprire task nei repo locali quando il problema è specifico
-6. ripetere periodicamente o dopo sessioni strutturali importanti
+5. aprire o aggiornare task metodologici centrali con sezioni per repo target
+6. aprire task nei repo locali solo quando il lavoro e autonomo rispetto alla verifica metodologica
+7. ripetere periodicamente o dopo sessioni strutturali importanti
 
 Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla cognizione: non solo documenta come pensare con una KB, ma osserva come le KB reali evolvono, dove falliscono, dove divergono e quali forme si dimostrano più robuste.
 

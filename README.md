@@ -8,7 +8,7 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Funzioni del repo
 
-- **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, Zettelkasten, pattern Karpathy, struttura di progetto, strumenti, fedeltà cognitiva e principi.
+- **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (ponte), strumenti, fedeltà cognitiva e principi.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per rilevare convergenze, drift, duplicazioni, lacune e specificità locali.
 - **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
 - **Coda di lavoro metodologica**: task in `todo/` per valutazioni che possono produrre aggiornamenti del metodo, strumenti comuni o task da aprire nei singoli repository.
@@ -24,9 +24,15 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Tasks aperti
 
-| Priorità | Task                                                                                         | Dipende da                                     |
-| -------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| Media    | [Valutazione strumenti, skills e KB cross-repo](todo/valutazione-strumenti-kb-cross-repo.md) | Osservatorio metodo e strumenti comparativi |
+| Priorità | Target     | Task                                                                                      | Dipende da                     |
+| -------- | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
+| Alta     | `salute`   | [Osservazioni dal pilota salute/quadro/](todo/salute-quadro-pilota.md)                    | Uso reale di quadro/ nel tempo |
+| Media    | `bi`       | [Regress check CLAUDE.md bi](todo/bi-claude-regress.md)                                   | —                              |
+| Media    | `economia` | [Formalizza pattern file-dominio](todo/economia-file-dominio-pattern.md)                  | —                              |
+| Media    | `economia` | [Portabilità skill revisione-tasks](todo/economia-revisione-tasks.md)                     | —                              |
+| Media    | multi      | [Confronto skill audit-kb e commit cross-repo](todo/skill-audit-kb-confronto.md)          | —                              |
+| Bassa    | `nixos`    | [Superficie portabile kb_tools.py: comandi avanzati](todo/nixos-kb-tools-portabilita.md)  | —                              |
+| Bassa    | `salute`   | [README narrativo di salute: quando è accettabile?](todo/salute-readme-narrativo.md)      | —                              |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
@@ -53,6 +59,8 @@ completati.
 - [design-principles](kb/design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente
 - [pattern-karpathy](kb/pattern-karpathy.md) — Pattern wiki personale mantenuta da LLM: ingest, query, lint e filing back
+- [ciclo-azione](kb/ciclo-azione.md) — Modello di Norman come terzo gigante del metodo: sette stadi, due gulf (execution, evaluation), quattro proprietà cardine (visibilità, feedback, mapping, constraint) come criteri di L2
+- [ponte](kb/ponte.md) — Strato output del metodo: L1 macchina, L2 decisione umana, L3 azione nel mondo; risoluzione del conflitto Zettelkasten/Karpathy (la sintesi vive nello strato output, non nei nodi)
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 
 ### Componenti della ricetta

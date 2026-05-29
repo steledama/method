@@ -1,5 +1,5 @@
 ---
-data: 2026-05-09
+data: 2026-05-24
 stato: maturo
 ---
 
@@ -30,7 +30,8 @@ Caratteristiche:
 - todo/ come spazio operativo: dettagli dei task aperti, non conoscenza permanente; la tabella Tasks aperti nel README è l'indice di todo/ — ogni file ha una riga, ogni riga ha un file
 - .claude/skills come interfaccia operativa: skill versionate, preferite ai vecchi comandi
 - .codex/skills come wrapper opzionale: rimanda alle skill Claude senza duplicare workflow
-- revisione-tasks come chiusura sessione: rivedere priorità e dipendenze dei task aperti quando eventi significativi cambiano la KB
+- revisione task come funzione strutturale della sessione: controllo leggero a inizio sessione e revisione completa quando eventi significativi cambiano priorità, dipendenze o stato reale del progetto
+- strato output come ponte tra KB e azione: ospita sintesi, viste e dashboard che non possono stare in kb/ senza violare l'atomicità zettelkastiana; il nome è locale e dipende dal dominio (quadro/, presentazione/, output/, configurazione); non compare nel skeleton perché non ha forma fissa, ma ogni progetto deve dichiarare esplicitamente come sono implementati L1, L2 e L3
 
 Skeleton directory:
 
@@ -140,3 +141,5 @@ Connessioni:
 - [log](log.md)
 - [skill](skill.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)

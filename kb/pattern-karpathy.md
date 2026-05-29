@@ -1,5 +1,5 @@
 ---
-data: 2026-05-09
+data: 2026-05-24
 stato: maturo
 ---
 
@@ -10,6 +10,8 @@ Il pattern Karpathy per le knowledge base con LLM descrive un modo di usare l'LL
 La knowledge base diventa così uno strato intermedio tra le fonti grezze e le domande future. Quando entra una nuova fonte, l'LLM non si limita a indicizzarla: la legge, ne estrae i concetti, aggiorna i nodi esistenti, crea quelli mancanti, segnala tensioni o contraddizioni, rafforza le connessioni. La conoscenza non resta dispersa nella chat o nei documenti originali, ma si accumula in un corpo navigabile e versionato.
 
 In questa KB il pattern Karpathy è adattato in forma più autoriale: l'LLM non scrive tutto in autonomia, ma assiste l'utente nella manutenzione. L'umano mantiene la responsabilità del senso, della direzione e dello stile; l'LLM prende in carico il lavoro ripetitivo e strutturale: cross-reference, footer Connessioni, audit, aggiornamento dell'indice, filing back delle sintesi utili.
+
+Il pattern originale di Karpathy include summary pages e viste d'insieme dentro il wiki, mantenute dall'LLM. Nel metodo questa scelta diverge deliberatamente: le sintesi escono da `kb/` e vanno nello strato output (il ponte), così i nodi restano atomici secondo la disciplina zettelkastiana. La tensione tra Zettelkasten (sintesi fuori dai nodi) e Karpathy (sintesi dentro il wiki) si risolve strutturalmente: la KB resta zettelkastiana pura, il ponte ospita le sintesi karpathiane. Il terzo pilastro — Norman — completa il quadro descrivendo come l'utente attraversa il ciclo di azione che va dalla KB all'azione nel mondo e ritorna come nuova fonte.
 
 Architettura:
 
@@ -61,3 +63,5 @@ Connessioni:
 - [struttura-progetto](struttura-progetto.md)
 - [strumenti-kb](strumenti-kb.md)
 - [connessione](connessione.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)

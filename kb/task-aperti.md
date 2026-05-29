@@ -17,6 +17,22 @@ Regole:
 - priorità e dipendenze devono essere esplicite
 - i task completati vanno rimossi, non archiviati in todo/
 - i task locali restano nel repo locale, non nel repo metodo
+- i task metodologici cross-repo restano nel repo metodo, anche quando
+  richiedono verifiche o interventi puntuali in un repo adottante
+
+I task sono parte strutturale del metodo perché le sessioni LLM pianificano, analizzano e implementano lavoro attraverso task espliciti. Se i task driftano, la sessione parte da una supervisione falsa: priorità, dipendenze e prossimo lavoro non rappresentano più lo stato reale del progetto.
+
+La revisione dei task aperti va fatta come controllo leggero a inizio sessione e come controllo completo quando cambiano fatti, scadenze o dipendenze. Nei progetti con una skill dedicata, la skill deve verificare drift README/todo, task superati, nuovi task emersi dai fatti, priorità aggiornate e task consigliato per la sessione corrente.
+
+## Governance cross-repo
+
+I task metodologici vivono nel repo `metodo` e di norma hanno precedenza sui task di progetto. La regola vale anche quando l'implementazione e puntuale su un singolo repository: se il motivo del lavoro e metodologico, la fonte di verita del task resta in `metodo/todo/`.
+
+Quando una sessione parte dentro un repo adottante, il bootstrap deve controllare due code: i task locali del repo e i task metodologici centrali che targettano quel repo. La priorita finale nasce dal confronto tra urgenza metodologica e urgenza di dominio, ma il task metodologico non va copiato nel README locale solo per renderlo visibile.
+
+Un repo adottante riceve un task locale solo quando il lavoro e diventato un intervento autonomo di progetto, con esecuzione e priorita proprie del dominio. La soglia pratica e: metodologico per origine e criterio -> `metodo`; locale per esecuzione autonoma e dominio -> repo specifico.
+
+I task metodologici che riguardano piu progetti devono essere scritti come task centrali con sezioni o tabelle per repository target. Questo mantiene una vista globale delle priorita senza duplicare lo stesso task nei README locali.
 
 ## Applicazione nei progetti adottanti
 

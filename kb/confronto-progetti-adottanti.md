@@ -11,21 +11,21 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 
 ## Stato dei quattro progetti
 
-| Progetto   | Profilo attuale | Segnale principale |
-| ---------- | --------------- | ------------------ |
-| `nixos`   | implementazione più ordinata della ricetta su un codebase dichiarativo | README e mappa forti; strumenti anti-drift più completi |
-| `bi`      | implementazione ricca e operativa su codebase applicativo complesso | KB e mappa mature; `CLAUDE.md` contiene ancora molta documentazione di dominio |
-| `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; alcuni segnali strutturali da correggere |
-| `salute`  | KB ampia e riflessiva, nata prima della separazione metodologica piena | rete dei nodi molto forte; README e CLAUDE restano più narrativi del metodo ideale |
+| Progetto   | Profilo attuale                                                             | Segnale principale                                                                                                         |
+| ---------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | implementazione più ordinata della ricetta su un codebase dichiarativo      | README e mappa forti; strumenti anti-drift più completi                                                                    |
+| `bi`       | implementazione ricca e operativa su codebase applicativo complesso         | KB e mappa mature; revisione di `CLAUDE.md` completata dopo la fotografia iniziale                                         |
+| `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; alcuni segnali strutturali da correggere                                      |
+| `salute`   | KB ampia e riflessiva, nata prima della separazione metodologica piena      | rete dei nodi molto forte; mappa, principi locali e verifica nel vivere ora rendono più esplicito l'adattamento del metodo |
 
 ## Dati strutturali
 
-| Progetto | Nodi KB | Link KB | Cluster README | File todo | Skill locali | Stato audit |
-| -------- | ------- | ------- | -------------- | --------- | ------------ | ----------- |
-| `nixos` | 37 | 177 | 7 | 4 | `audit-kb`, `commit` | nessun link rotto, orfano o cluster isolato |
-| `bi` | 78 | 293 | 11 | 11 | `audit-kb`, `commit`, `graphify` | nessun link rotto, orfano o cluster isolato |
-| `economia` | 44 | 145 | 4 | 16 | `audit-kb`, `commit`, `revisione-tasks` | 3 link rotti, 2 orfani, 1 cluster isolato |
-| `salute` | 193 | 2175 | 8 | 4 | `audit-kb`, `commit`, `elabora-trascrizione` | rete integra; 10 nomi file accentati segnalati |
+| Progetto   | Nodi KB | Link KB | Cluster README | File todo | Skill locali                                 | Stato audit                                    |
+| ---------- | ------- | ------- | -------------- | --------- | -------------------------------------------- | ---------------------------------------------- |
+| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
+| `bi`       | 78      | 293     | 11             | 11        | `audit-kb`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
+| `economia` | 44      | 145     | 4              | 16        | `audit-kb`, `commit`, `revisione-tasks`      | 3 link rotti, 2 orfani, 1 cluster isolato      |
+| `salute`   | 193     | 2175    | 8              | 4         | `audit-kb`, `commit`, `elabora-trascrizione` | rete integra; 10 nomi file accentati segnalati |
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
@@ -35,11 +35,11 @@ Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUD
 
 La separazione `metodo/ -> ../metodo/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
-Le mappe canoniche sono il componente che più chiaramente migliora l'adozione nei progetti applicativi. `nixos`, `bi` ed `economia` hanno una mappa che collega sistema reale, fonti di verità e nodi KB. `salute` non ha ancora un nodo mappa autonomo: il README svolge parzialmente quel ruolo, ma con costo cognitivo più alto.
+Le mappe canoniche sono il componente che più chiaramente migliora l'adozione nei progetti applicativi. `nixos`, `bi` ed `economia` hanno una mappa che collega sistema reale, fonti di verità e nodi KB. `salute` ha aggiunto una mappa autonoma più semantica, centrata su assi concettuali, fonti, pratica, diario e percorsi di accesso.
 
 ## Divergenze
 
-La divergenza più importante riguarda `CLAUDE.md`. `nixos` ed `economia` sono vicini alla teoria: file brevi, operativi, con riferimenti rapidi. `salute` conserva ancora molta spiegazione metodologica e struttura interna. `bi` è il caso più distante: 824 righe, con standard tecnici, pattern applicativi, comandi, policy e documentazione che in parte dovrebbero vivere nei nodi.
+La divergenza più importante riguarda `CLAUDE.md`. Nella fotografia iniziale `nixos` ed `economia` erano vicini alla teoria: file brevi, operativi, con riferimenti rapidi; `salute` conservava ancora molta spiegazione metodologica e struttura interna; `bi` era il caso più distante, con standard tecnici, pattern applicativi, comandi, policy e documentazione che in parte dovevano vivere nei nodi. La revisione di `bi/CLAUDE.md` e stata completata dopo questa fotografia e va considerata un riallineamento gia effettuato.
 
 La seconda divergenza riguarda la fedeltà cognitiva. `nixos` ha il modello più avanzato, con `inventory`, `facts`, `coverage` e `fidelity`. `bi` ha un audit strutturale buono e un controllo locale di copertura script, ma la fedeltà al dominio deve ancora essere progettata su fonti primarie BI. `economia` ha `facts` adattato alla mappa, ma mostra errori strutturali da correggere. `salute` resta soprattutto semantica: la rete è sana, ma il dominio richiede verifiche qualitative e fonti testuali più che fact check tecnici.
 
@@ -53,22 +53,38 @@ I nodi dei componenti devono quindi contenere esempi reali dei progetti adottant
 
 Gli strumenti vanno trattati come backend del metodo, non come metodo stesso. `kb_tools.py` può avere una superficie portabile comune, ma `facts` e `fidelity` devono restare adattati al dominio finché le fonti primarie non sono comparabili.
 
+## Strato output come componente universale
+
+Sessione del 2026-05-24: lo strato di output, finora trattato come "componente locale aggiuntivo" di alcuni progetti, è stato riconosciuto come funzione cognitiva universale del metodo. Tutti e quattro i progetti adottanti lo implementavano già in forme proprie:
+
+- `nixos`: l'output è la configurazione stessa, in `home/`, `hosts/`, `modules/`
+- `bi`: `presentazione/` Reveal.js per la vista human-readable, scripts notturni per l'automazione
+- `economia`: `output/json/` (macchina) e `output/report*.md` (umano, ancora solo tabellare)
+- `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
+
+La formalizzazione vive nei nodi ponte (i tre livelli L1 macchina, L2 decisione umana, L3 azione nel mondo) e ciclo-azione (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
+
+La promozione non rimuove la variazione locale: il nome dello strato resta scelta di dominio. Quello che si stabilizza è la funzione (tradurre conoscenza in azione possibile) e i criteri di qualità (visibilità, feedback, mapping, constraint).
+
 ## Azioni suggerite
 
-| Target | Azione | Tipo |
-| ------ | ------ | ---- |
-| metodo | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali | metodo |
-| `bi` | aprire una revisione di `CLAUDE.md` per spostare documentazione di dominio nei nodi pertinenti | task locale |
-| `salute` | valutare un nodo mappa autonomo e principi specifici di dominio | task locale |
-| `economia` | correggere link rotti e orfani emersi dall'audit | task locale |
-| metodo / strumenti | aggiungere un report cross-repo ricostruibile a `scripts/kb_tools.py` o a un futuro wrapper osservatorio | strumento |
-| metodo / skill | confrontare `audit-kb` e `commit` per capire se serva una base portabile con wrapper locali | strumento |
-| metodo / frontmatter | policy chiarita: `kb/` e `todo/` hanno frontmatter minimale; i file root ne restano privi | completato |
+| Target               | Azione                                                                                                                                  | Tipo                      |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| metodo               | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali                                            | metodo                    |
+| `bi`                 | revisione di `CLAUDE.md` completata; verificare nel prossimo confronto se il file resta costituzione operativa e non manuale di dominio | completato / monitoraggio |
+| `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                | completato                |
+| `economia`           | correggere link rotti e orfani emersi dall'audit                                                                                        | task locale               |
+| metodo / task        | mantenere task metodologici specifici per repo in `metodo/todo/`, senza duplicarli nei repo adottanti                                   | task-metodo               |
+| metodo / strumenti   | aggiungere un report cross-repo ricostruibile a `scripts/kb_tools.py` o a un futuro wrapper osservatorio                                | strumento                 |
+| metodo / skill       | confrontare `audit-kb` e `commit` per capire se serva una base portabile con wrapper locali                                             | strumento                 |
+| metodo / frontmatter | policy chiarita: `kb/` e `todo/` hanno frontmatter minimale; i file root ne restano privi                                               | completato                |
 
 Connessioni:
 
 - [osservatorio-metodo](osservatorio-metodo.md)
 - [metodo-kb](metodo-kb.md)
+- [ponte](ponte.md)
+- [ciclo-azione](ciclo-azione.md)
 - [struttura-progetto](struttura-progetto.md)
 - [readme](readme.md)
 - [claude](claude.md)
