@@ -17,10 +17,12 @@ Regole:
 - ogni riga sostanziale del README deve avere un file quando serve contesto
 - può linkare nodi KB per contesto stabile
 - va ripulita quando il task viene completato
+- nel repo `metodo`, contiene solo task propri del metodo, non verifiche operative
+  sui repo adottanti
 
-Nel repo `metodo`, `todo/` ha anche una funzione di governance cross-repo: contiene i task metodologici che riguardano uno o piu progetti adottanti. In questi casi il file deve indicare esplicitamente i repository target e distinguere le verifiche metodologiche dagli interventi locali autonomi.
+Nel repo `metodo`, `todo/` non è una coda di governance cross-repo. È una coda di manutenzione del metodo: ristrutturazioni, semplificazioni, coerenza dei nodi, formalizzazioni già maturate e strumenti comuni già giustificati dall'uso reale.
 
-Non si duplicano task metodologici nei `todo/` dei repo adottanti solo per renderli visibili. La visibilita locale va ottenuta dal bootstrap di sessione: quando un agente entra in un repo adottante, deve controllare anche i task metodologici centrali che lo targettano. Il task locale nasce solo quando l'azione non e piu una verifica metodologica, ma un lavoro di progetto con contesto operativo proprio.
+Le verifiche operative su un repo adottante vanno nel `todo/` di quel repo, anche quando possono produrre una generalizzazione metodologica. Il filing back verso `metodo` avviene dopo, quando il caso locale ha prodotto un criterio portabile. Questo evita che `metodo/todo/` diventi backlog dei progetti adottanti.
 
 ## Frontmatter dei task
 
@@ -46,7 +48,7 @@ Quando un task viene completato, il file viene eliminato insieme alla riga READM
 | `economia` | `todo/` molto operativo, legato a scadenze, pratiche, immobili, tasse e investimenti.                                | Caso che chiarisce l'adattamento: `todo/` può contenere pratiche reali e non solo refactor, ma deve restare lavoro futuro.                                                             |
 | `salute`   | `todo/` contiene task concettuali e operativi sostanziali, mentre ingest semplici possono restare solo righe README. | Conferma la soglia: ingest semplice può stare nel README, ma serie di nodi, loop pratica-verifica o interventi strutturali richiedono file dedicato finché non diventano nodi stabili. |
 
-La pratica conferma che `todo/` è parte del metodo ma non della KB stabile. Quando un file in `todo/` contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/log.
+La pratica conferma che `todo/` è parte del metodo ma non della KB stabile. Quando un file in `todo/` contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/log. Nel repo `metodo`, la condizione di apertura di un task è ancora più stretta: deve riguardare la custodia del metodo, non l'applicazione puntuale del metodo altrove.
 
 Connessioni:
 

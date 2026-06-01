@@ -17,40 +17,53 @@ Regole:
 - deve dichiarare scope, limiti e comportamento atteso
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
-- deve distinguere audit e prevenzione: `audit-kb` fotografa lo stato,
-  `commit` verifica che le modifiche appena fatte siano documentate nel posto
-  giusto prima di fissarle nella storia
+- ogni progetto adottante deve esporre la triade base ufficiale del metodo:
+  `audit-kb`, `revisione-tasks`, `commit`
+- deve distinguere diagnosi, supervisione e prevenzione: `audit-kb` fotografa lo
+  stato, `revisione-tasks` mantiene viva la coda del lavoro futuro, `commit`
+  verifica che le modifiche appena fatte siano documentate nel posto giusto
+  prima di fissarle nella storia
 
-## Coppia audit/commit
+## Triade base ufficiale
 
-Le skill `audit-kb` e `commit` formano una coppia anti-drift. `audit-kb` misura
-salute strutturale e segnala drift cognitivi visibili a posteriori; `commit`
-intercetta il drift nel punto più capillare, chiedendo per ogni modifica
-significativa se README, CLAUDE, mappa, nodo KB, todo o log siano stati aggiornati
-coerentemente.
+Le tre skill base ufficiali del metodo sono `audit-kb`, `revisione-tasks` e
+`commit`. Ogni progetto adottante deve averle nella propria `.claude/skills/`,
+con wrapper Codex corrispondente quando il progetto espone `.codex/skills/`.
 
-Questa distinzione evita due errori simmetrici: chiedere all'audit di correggere
-automaticamente ciò che deve solo fotografare, oppure committare cambiamenti
-operativi senza filing back nella KB. L'audit resta diagnostico; il commit è il
-gate di documentazione.
+`audit-kb` è la skill diagnostica. Misura salute strutturale, link, copertura,
+frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
+interpretare strumenti locali come `scripts/kb_tools.py`, ma non deve trasformarsi
+in procedura di correzione automatica.
+
+`revisione-tasks` è la skill di supervisione del lavoro futuro. Controlla
+coerenza tra README e `todo/`, rivaluta priorità e dipendenze, individua task
+superati o nuovi task emersi dai fatti e propone il prossimo lavoro. Deve restare
+locale perché i segnali che cambiano i task dipendono dal dominio: scadenze e
+pratiche in `economia`, rebuild e host in `nixos`, flussi dati in `bi`, ingest,
+diario e quadro in `salute`.
+
+`commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
+prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
+mappa, nodo KB, todo o log siano stati aggiornati coerentemente.
+
+Questa triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
+che deve solo fotografare, lasciare che la coda dei task diventi un backlog
+morto, oppure committare cambiamenti operativi senza filing back nella KB.
+L'audit resta diagnostico; la revisione task mantiene vera la supervisione del
+lavoro; il commit è il gate di documentazione.
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                               | Confronto con il metodo                                                                                                                      |
-| ---------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | Skill `audit-kb` e `commit`, con wrapper Codex corrispondenti.                   | Caso base: workflow comuni, legati a strumenti versionati e formatter locali.                                                                |
-| `bi`       | Skill `audit-kb`, `commit`, `graphify`, con wrapper Codex.                       | Mostra una skill realmente locale: Graphify esplora import/call graph e non appartiene automaticamente al metodo.                            |
-| `economia` | Skill `audit-kb`, `commit`, `revisione-tasks`, con wrapper Codex corrispondenti. | `audit-kb` include revisione cognitiva di README/CLAUDE/mappa; `commit` controlla il filing back prima di fissare cambiamenti significativi. |
-| `salute`   | Skill `audit-kb`, `commit`, `elabora-trascrizione`, con wrapper Codex.           | `elabora-trascrizione` è locale al ciclo ingest fonti; conferma che le skill possono specializzare il metodo senza diventare portabili.      |
+| Progetto   | Situazione attuale                                                                        | Confronto con il metodo                                                                                                        |
+| ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `nixos`    | Skill `audit-kb`, `revisione-tasks` e `commit`, con wrapper Codex corrispondenti.         | Caso base: workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.                                     |
+| `bi`       | Skill `audit-kb`, `revisione-tasks`, `commit`, `graphify`, con wrapper Codex.             | `revisione-tasks` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.             |
+| `economia` | Skill `audit-kb`, `revisione-tasks`, `commit`, con wrapper Codex corrispondenti.          | Caso originario della revisione task: priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente. |
+| `salute`   | Skill `audit-kb`, `revisione-tasks`, `commit`, `elabora-trascrizione`, con wrapper Codex. | `revisione-tasks` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.          |
 
-Il confronto indica che `audit-kb` e `commit` sono candidate a una base comune,
-proprio perché corrispondono ai due momenti generali della manutenzione: diagnosi
-periodica e gate pre-commit. `revisione-tasks` merita una distinzione: non è
-necessariamente una skill obbligatoria in ogni progetto, ma la funzione che
-incarna è metodologica. Ogni progetto deve avere un controllo dei task aperti nel
-bootstrap operativo; una skill dedicata diventa opportuna quando i task sono
-numerosi, dipendono da scadenze o fonti esterne, oppure quando il drift
-README/todo produce costo reale di sessione.
+La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
+locale. Il repo `metodo` documenta il pattern; ogni repo adottante possiede la
+propria skill con la stessa struttura e con letture contestuali diverse.
 
 Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento locale.
 

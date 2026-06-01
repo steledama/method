@@ -4,6 +4,118 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-01 — Formalizzazione sviluppo bottom-up del metodo
+
+Formalizzato nei nodi centrali il principio emerso dalla revisione dei task:
+lo sviluppo del metodo è bottom-up. Una modifica metodologica nasce da
+un'esigenza concreta in un repo adottante, viene risolta lì nel merito, poi viene
+riportata in `metodo` solo se produce una generalizzazione portabile. Gli altri
+repo adottanti recepiscono la modifica leggendo i commit del metodo e applicando
+localmente ciò che è pertinente.
+
+Aggiornati `metodo-kb`, `osservatorio-metodo`, `task-aperti`, `todo` e README.
+La conseguenza operativa è che `metodo/todo/` non è una backlog board
+cross-repo: i task qui devono riguardare il metodo stesso, la sua presentazione,
+la coerenza dei nodi, strumenti comuni già giustificati o generalizzazioni
+emerse dall'uso reale.
+
+---
+
+## 2026-06-01 — Chiusura task residui e triade skill ufficiale
+
+Chiusi gli ultimi due task aperti in `metodo`. Il task `Confronto skill
+audit-kb e commit cross-repo` è stato assorbito nella formalizzazione della
+triade ufficiale `audit-kb` / `revisione-tasks` / `commit` in `kb/skill.md`: non
+serve mantenere un task separato di confronto perché i quattro repo adottanti
+espongono già la triade con parametrizzazioni locali.
+
+Chiuso anche `Superficie portabile kb_tools.py: comandi avanzati` senza
+implementazione centrale. I comandi avanzati come `facts`, `fidelity`,
+`coverage` e `inventory` restano locali finché un bisogno concreto in un repo
+adottante non produce una generalizzazione bottom-up. Il repo `metodo` non
+mantiene più task preventivi su strumenti nati in un singolo repo.
+
+Il README ora registra nessun task aperto. Questa è la forma desiderata per il
+repo `metodo`: entrare qui raramente, per ristrutturare, semplificare o custodire
+generalizzazioni già emerse dai repo adottanti.
+
+---
+
+## 2026-06-01 — Skill revisione-tasks applicata ai repo adottanti
+
+Chiuso il task `Portabilità skill revisione-tasks` applicando subito il pattern
+a tutti i repo adottanti. `economia` resta il caso originario; `nixos`, `bi` e
+`salute` hanno ora una skill `.claude/skills/revisione-tasks` con wrapper Codex
+corrispondente, discovery in README e riga operativa in CLAUDE.md.
+
+La decisione metodologica è che la funzione è comune, ma la skill vive locale:
+ogni repo deve rivedere task, priorità e dipendenze rispetto ai propri segnali
+concreti. `kb/skill.md` registra quindi la triade comune `audit-kb` /
+`revisione-tasks` / `commit`, senza introdurre un task centrale top-down.
+
+---
+
+## 2026-06-01 — Task file locali di dominio spostato in economia
+
+Spostato il task `Formalizza pattern file-dominio` dal repo `metodo` al repo
+`economia`, dove ora vive come `todo/file-locali-dominio.md`. Il criterio sui
+componenti locali di dominio deve nascere dall'uso concreto di `stato.md`,
+`scadenze.md` e `diario.md`; `metodo/kb/struttura-progetto.md` riceverà solo il
+filing back se il pattern si dimostra portabile.
+
+Questa chiusura segue la stessa regola bottom-up adottata per `salute/quadro/`:
+il repo adottante produce l'evidenza, il repo metodo custodisce la
+generalizzazione.
+
+---
+
+## 2026-06-01 — Task pilota quadro spostato in salute
+
+Spostato il task `Osservazioni dal pilota salute/quadro/` dal repo `metodo` al
+repo `salute`, dove ora vive come `todo/osservazioni-quadro-pilota.md`. La
+verifica richiede uso reale del quadro, raccolta di cicli L2 -> L3 -> fonte ->
+KB -> quadro e osservazione delle decisioni locali; tenerla in `metodo` la
+rendeva un controllo top-down su un repo adottante.
+
+In `metodo` resta solo la destinazione del filing back: `kb/ponte.md` dovrà
+essere aggiornato se dal pilota di `salute` emergeranno criteri portabili sullo
+strato output. Questa chiusura rafforza la regola operativa bottom-up: il repo
+adottante produce l'evidenza, il repo metodo custodisce la generalizzazione.
+
+---
+
+## 2026-06-01 — Chiusura task README narrativo salute
+
+Chiuso il task centrale `README narrativo di salute: quando è accettabile?`
+senza lavorarlo da `metodo`. Il task era formulato come verifica top-down sul
+README di un repo adottante; secondo la direzione bottom-up emersa nella
+revisione dei task, una revisione del README di `salute` deve nascere dentro
+`salute` da un problema concreto di bootstrap, orientamento o drift.
+
+Se da quel lavoro locale emerge un criterio generalizzabile sulla narratività
+dei README in domini riflessivi, il filing back corretto sarà aggiornare
+`kb/readme.md` in `metodo` dal repo adottante, non mantenere qui un task di
+controllo preventivo su `salute`.
+
+---
+
+## 2026-06-01 — Chiusura regress check CLAUDE.md BI
+
+Chiuso il task `Regress check CLAUDE.md bi` dopo verifica della storia locale
+di `../bi`. Il commit `b195b8ff` (`docs(kb): compatta CLAUDE e chiudi task
+metodo`) ha eliminato il task locale `todo/revisione-claude-md.md`, rimosso la
+riga dal README di BI e registrato in `log.md` la riduzione di `CLAUDE.md` da
+manuale esteso a costituzione operativa. Il commit successivo `a78091c1` ha
+aggiunto solo la tabella operativa degli strumenti propagata da `~/metodo`, non
+un ritorno alla documentazione narrativa di dominio.
+
+Il criterio quantitativo indicato nel task centrale (`~100 righe`) era troppo
+rigido rispetto al caso reale: già dopo la chiusura locale BI `CLAUDE.md` era a
+162 righe, e oggi è a 187 per effetto della tabella strumenti. La soglia utile
+resta qualitativa: `CLAUDE.md` non deve tornare manuale parallelo alla KB.
+
+---
+
 ## 2026-05-29 — Filing back da economia: audit pulito non basta
 
 La revisione di `economia` ha mostrato un drift non rilevato dall'audit

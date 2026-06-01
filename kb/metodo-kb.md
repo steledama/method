@@ -11,7 +11,9 @@ Il principio centrale è che la KB non è una cartella di appunti né un archivi
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
-Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o task locale nel progetto interessato.
+Lo sviluppo del metodo è bottom-up. Una modifica metodologica sana nasce da un'esigenza concreta in un repo adottante: un problema reale di dominio obbliga a inventare o correggere una pratica locale; se la soluzione si dimostra riusabile, viene riportata nel repo `metodo` come generalizzazione portabile; gli altri repo adottanti la ricevono poi leggendo i commit del metodo e applicando solo ciò che è pertinente. Il flusso inverso — aprire in `metodo` task che ordinano interventi nei repo adottanti — è da evitare salvo manutenzioni che riguardino davvero il metodo stesso.
+
+Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o restare lavoro locale nel progetto interessato. Osservare non significa orchestrare: il repo `metodo` custodisce le astrazioni emerse, non sostituisce le code operative dei repo adottanti.
 
 Indice cognitivo del metodo:
 
@@ -42,7 +44,7 @@ Ricetta metodologica:
 - `log.md`: memoria interpretativa append-only delle sessioni significative. Il git log conserva cosa è cambiato; `log.md` conserva perché una decisione, un ingest, una revisione o un cambio di approccio contano. Non è un archivio di output automatici.
 - `todo/`: spazio dei task futuri con contesto operativo. La tabella Tasks aperti del README ne è l'indice: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, log e nodi aggiornati.
 - `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
-- `.claude/skills/`: interfacce operative per workflow ricorrenti come `audit-kb`, `commit` o revisioni locali. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
+- `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade base ufficiale del metodo è `audit-kb` (diagnosi), `revisione-tasks` (supervisione del lavoro futuro) e `commit` (gate di filing back). Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
 - strato output (ponte): il livello che traduce la KB in azione possibile. Tiene separati tre livelli — L1 (output macchina: dati strutturati per LLM e automazione), L2 (output decisione: schemi e viste leggibili da umano), L3 (output azione: email, parole, gesti, transazioni nel mondo). Il nome locale dipende dal dominio (`quadro/`, `presentazione/`, `output/`, configurazione di sistema) e non dal metodo. La sua funzione è universale: senza strato output, la KB non chiude il ciclo di azione e la conoscenza accumulata non produce comportamento reale. Valutare con i criteri di Norman: visibilità, feedback, mapping, constraint.
 - convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `todo`.
@@ -105,6 +107,7 @@ Regole sullo stato:
 - ciò che spiega come lavorare va in CLAUDE.md, skill o strumenti versionati
 - ciò che serve solo come appunto temporaneo non entra nel metodo finché non diventa task, nodo o log
 - la KB permanente descrive il presente; la storia resta in git e log.md salvo che diventi concetto riusabile
+- una generalizzazione metodologica entra in `metodo` solo dopo evidenza locale sufficiente in almeno un repo adottante, e idealmente con verifica di portabilità su almeno un secondo contesto
 
 Regole di revisione:
 
@@ -120,6 +123,7 @@ Regole di revisione:
 - quando un file operativo cresce a contenere descrizioni del sistema, trasferire il contenuto nei nodi tematici prima di rimuoverlo dal file operativo (mappa per sezione: keep / relocate / remove, poi arricchimento dei nodi target, poi rimozione)
 - quando un elenco metodologico compare in più punti, mantenerlo una sola volta come ricetta e usare gli altri punti per descrivere funzione, variazioni locali o procedura
 - quando un componente del metodo accumula regole proprie, esempi cross-repo e criteri di revisione, promuoverlo a nodo autonomo collegato da questo hub
+- quando una tensione metodologica emerge in un repo adottante, risolverla prima lì; aggiornare `metodo` solo dopo aver distinto soluzione locale, criterio portabile e propagazione eventuale agli altri repo
 
 Personalizzazioni locali:
 

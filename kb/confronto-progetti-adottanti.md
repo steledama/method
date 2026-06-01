@@ -20,18 +20,18 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 
 ## Dati strutturali
 
-| Progetto   | Nodi KB | Link KB | Cluster README | File todo | Skill locali                                 | Stato audit                                    |
-| ---------- | ------- | ------- | -------------- | --------- | -------------------------------------------- | ---------------------------------------------- |
-| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
-| `bi`       | 78      | 293     | 11             | 11        | `audit-kb`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
-| `economia` | 44      | 145     | 4              | 16        | `audit-kb`, `commit`, `revisione-tasks`      | 3 link rotti, 2 orfani, 1 cluster isolato      |
-| `salute`   | 193     | 2175    | 8              | 4         | `audit-kb`, `commit`, `elabora-trascrizione` | rete integra; 10 nomi file accentati segnalati |
+| Progetto   | Nodi KB | Link KB | Cluster README | File todo | Skill locali                                                    | Stato audit                                    |
+| ---------- | ------- | ------- | -------------- | --------- | --------------------------------------------------------------- | ---------------------------------------------- |
+| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `revisione-tasks`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
+| `bi`       | 84      | 329     | 11             | 9         | `audit-kb`, `revisione-tasks`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
+| `economia` | 51      | 184     | 3              | 19        | `audit-kb`, `revisione-tasks`, `commit`                         | nessun errore, avviso o nota                   |
+| `salute`   | 197     | 2210    | 8              | 7         | `audit-kb`, `revisione-tasks`, `commit`, `elabora-trascrizione` | rete integra; 10 nomi file accentati segnalati |
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
 ## Convergenze
 
-Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `log.md` come memoria interpretativa, `todo/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, skill `audit-kb` e `commit`, script `scripts/kb_tools.py`.
+Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `log.md` come memoria interpretativa, `todo/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `audit-kb` / `revisione-tasks` / `commit`, script `scripts/kb_tools.py`.
 
 La separazione `metodo/ -> ../metodo/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
@@ -74,9 +74,9 @@ La promozione non rimuove la variazione locale: il nome dello strato resta scelt
 | `bi`                 | revisione di `CLAUDE.md` completata; verificare nel prossimo confronto se il file resta costituzione operativa e non manuale di dominio | completato / monitoraggio |
 | `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                | completato                |
 | `economia`           | correggere link rotti e orfani emersi dall'audit                                                                                        | task locale               |
-| metodo / task        | mantenere task metodologici specifici per repo in `metodo/todo/`, senza duplicarli nei repo adottanti                                   | task-metodo               |
+| metodo / task        | mantenere `metodo/todo/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                    | regola stabile            |
 | metodo / strumenti   | aggiungere un report cross-repo ricostruibile a `scripts/kb_tools.py` o a un futuro wrapper osservatorio                                | strumento                 |
-| metodo / skill       | confrontare `audit-kb` e `commit` per capire se serva una base portabile con wrapper locali                                             | strumento                 |
+| metodo / skill       | mantenere la triade `audit-kb` / `revisione-tasks` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio     | regola stabile            |
 | metodo / frontmatter | policy chiarita: `kb/` e `todo/` hanno frontmatter minimale; i file root ne restano privi                                               | completato                |
 
 Connessioni:

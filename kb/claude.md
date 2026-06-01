@@ -14,7 +14,9 @@ Regole:
 - apre con il bootstrap di sessione
 - contiene comportamenti consentiti, proibiti o da chiedere
 - include il controllo iniziale sui task aperti quando il progetto usa README + todo/
-- nei repo adottanti, include il controllo dei task metodologici centrali in `../metodo/todo/` che targettano il repo corrente
+- nei repo adottanti, può ricordare di controllare la storia recente di `metodo`
+  quando serve recepire generalizzazioni portabili, ma non deve trattare
+  `../metodo/todo/` come backlog operativo locale
 - indica operativamente gli strumenti: quale usare per quale intento, con i
   comandi minimi ad alta frequenza
 - rimanda ai nodi KB per architettura, procedure e spiegazioni stabili

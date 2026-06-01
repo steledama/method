@@ -6,12 +6,14 @@ Questo repository ha due funzioni complementari. La prima è custodire il metodo
 
 Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale — principi, struttura KB, ciclo operativo — mentre le personalizzazioni sono esplicite: ogni progetto estende il metodo con principi, fonti di verità e strumenti propri del dominio. Le differenze tra progetti non sono rumore: sono materiale di analisi per capire cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
 
+Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale.
+
 ## Funzioni del repo
 
 - **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (ponte), strumenti, fedeltà cognitiva e principi.
-- **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per rilevare convergenze, drift, duplicazioni, lacune e specificità locali.
+- **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
-- **Coda di lavoro metodologica**: task in `todo/` per valutazioni che possono produrre aggiornamenti del metodo, strumenti comuni o task da aprire nei singoli repository.
+- **Manutenzione propria del metodo**: task in `todo/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
 
 ## Progetti adottanti
 
@@ -24,15 +26,7 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 ## Tasks aperti
 
-| Priorità | Target     | Task                                                                                      | Dipende da                     |
-| -------- | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
-| Alta     | `salute`   | [Osservazioni dal pilota salute/quadro/](todo/salute-quadro-pilota.md)                    | Uso reale di quadro/ nel tempo |
-| Media    | `bi`       | [Regress check CLAUDE.md bi](todo/bi-claude-regress.md)                                   | —                              |
-| Media    | `economia` | [Formalizza pattern file-dominio](todo/economia-file-dominio-pattern.md)                  | —                              |
-| Media    | `economia` | [Portabilità skill revisione-tasks](todo/economia-revisione-tasks.md)                     | —                              |
-| Media    | multi      | [Confronto skill audit-kb e commit cross-repo](todo/skill-audit-kb-confronto.md)          | —                              |
-| Bassa    | `nixos`    | [Superficie portabile kb_tools.py: comandi avanzati](todo/nixos-kb-tools-portabilita.md)  | —                              |
-| Bassa    | `salute`   | [README narrativo di salute: quando è accettabile?](todo/salute-readme-narrativo.md)      | —                              |
+Nessun task aperto.
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.

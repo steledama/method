@@ -5,9 +5,11 @@ stato: maturo
 
 # Osservatorio metodo
 
-Il repo metodo non è solo una libreria di nodi portabili: è il punto di osservazione da cui il metodo viene riletto mentre viene applicato nei progetti adottanti. La sua funzione meta-cognitiva è raccogliere differenze, convergenze, attriti e drift tra le implementazioni reali, trasformandoli in conoscenza metodologica stabile o in task locali per i singoli repository.
+Il repo metodo non è solo una libreria di nodi portabili: è il punto di osservazione da cui il metodo viene riletto mentre viene applicato nei progetti adottanti. La sua funzione meta-cognitiva è raccogliere differenze, convergenze, attriti e drift tra le implementazioni reali, trasformandoli in conoscenza metodologica stabile quando il pattern è portabile, o lasciandoli come lavoro locale quando appartengono al dominio.
 
 Il metodo nasce e si verifica nei progetti concreti. `nixos`, `bi`, `economia` e `salute` non sono solo consumatori del metodo: sono casi sperimentali con vincoli diversi. Un progetto code-based espone problemi di fedeltà tecnica e copertura del codice; un progetto finanziario espone problemi di fonti autoritative e dati sensibili; un progetto riflessivo espone problemi di hub semantici, accessi cognitivi e filing back. L'osservatorio serve a rendere queste differenze comparabili senza appiattirle.
+
+La direzione ordinaria di sviluppo è bottom-up. Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente.
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
@@ -24,10 +26,10 @@ Il confronto deve produrre tre tipi di esito:
 
 - generalizzazione metodologica: una differenza locale rivela una regola portabile e viene integrata nei nodi di metodo
 - estensione strumentale: una duplicazione stabile diventa script, comando, skill base o template riusabile
-- task metodologico cross-repo: una verifica o implementazione metodologica riguarda uno o piu repo adottanti e resta tracciata in `metodo/todo/`, con sezioni per repository target
-- task locale: un problema e diventato lavoro autonomo di dominio e va riportato nel `todo/` del repo interessato
+- task locale: un problema resta lavoro autonomo di dominio e va tracciato nel `todo/` del repo interessato
+- manutenzione propria del metodo: una generalizzazione già emersa richiede ristrutturazione, semplificazione, rinomina, documentazione o strumenti portabili nel repo `metodo`
 
-La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern, mantiene i task metodologici cross-repo e rimanda ai repo locali solo il lavoro che ha ormai contesto operativo autonomo.
+La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern e custodisce generalizzazioni. Le verifiche operative restano nei repo dove nascono, perché lì vivono fonti, priorità, dipendenze e criteri di chiusura.
 
 Analisi periodiche:
 
@@ -40,13 +42,12 @@ Analisi periodiche:
 
 La forma ideale è un ciclo leggero:
 
-1. raccogliere dati deterministici dai repo adottanti
-2. generare un report comparativo nel repo metodo
-3. interpretare il report in una voce di log o in un nodo stabile
-4. aggiornare il metodo se emerge una generalizzazione
-5. aprire o aggiornare task metodologici centrali con sezioni per repo target
-6. aprire task nei repo locali solo quando il lavoro e autonomo rispetto alla verifica metodologica
-7. ripetere periodicamente o dopo sessioni strutturali importanti
+1. partire da un problema concreto in un repo adottante
+2. risolvere il problema nel merito, con task, log e nodi locali
+3. distinguere cosa è specifico del dominio da cosa è portabile
+4. aggiornare `metodo` solo con la generalizzazione o con uno strumento comune già giustificato dall'uso
+5. propagare agli altri repo tramite lettura dei commit di `metodo`, non tramite task centrali prescrittivi
+6. ripetere quando nuovi casi reali confermano, correggono o limitano la generalizzazione
 
 Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla cognizione: non solo documenta come pensare con una KB, ma osserva come le KB reali evolvono, dove falliscono, dove divergono e quali forme si dimostrano più robuste.
 

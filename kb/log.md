@@ -18,14 +18,36 @@ Regole:
 - deve essere leggibile come memoria del progetto
 - può citare commit, nodi o task quando chiariscono il contesto
 
+## Formato canonico
+
+Il file `log.md` ha un preambolo breve e poi le entry. Il preambolo contiene titolo, funzione del file, formato delle entry, tipi ricorrenti se utili e comandi di consultazione solo quando servono davvero al progetto. Dopo il preambolo deve esserci una riga separatrice `---`; la prima entry inizia sotto quel separatore.
+
+Schema:
+
+```markdown
+# log
+
+Registro append-only...
+
+Formato entry: `## [YYYY-MM-DD] tipo | descrizione`
+
+Tipi: `sessione` · `decisione` · `ingest` · `pattern`
+
+---
+
+## [YYYY-MM-DD] tipo | descrizione
+```
+
+La riga `---` non è decorazione: separa le istruzioni stabili del file dalla memoria append-only. Le nuove entry possono essere aggiunte in ordine cronologico inverso, come nei log correnti dei progetti adottanti, purché la convenzione sia stabile nel progetto e non si riordinino entry storiche senza motivo.
+
 ## Applicazione nei progetti adottanti
 
-| Progetto | Situazione attuale | Confronto con il metodo |
-| -------- | ------------------ | ----------------------- |
-| `nixos` | `log.md` corposo e coerente con cambi strutturali, audit e decisioni tecniche. | Buon esempio di memoria interpretativa sopra git: non sostituisce i diff, spiega perché contano. |
-| `bi` | `log.md` corposo, utile per seguire evoluzioni applicative e refactor. | Adeguato al dominio, ma va mantenuta la distinzione tra decisione e output operativo. |
-| `economia` | `log.md` più breve, affiancato da `stato.md`, `scadenze.md` e `diario.md`. | Adattamento legittimo: il log non deve diventare stato corrente, perché quello vive in file locali specializzati. |
-| `salute` | Il progetto ha `log.md` e anche `diario.md`; il diario è più personale e riflessivo. | Chiarisce una distinzione utile: log = memoria del progetto, diario = materiale personale o filing back potenziale. |
+| Progetto   | Situazione attuale                                                                   | Confronto con il metodo                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| `nixos`    | `log.md` corposo e coerente con cambi strutturali, audit e decisioni tecniche.       | Buon esempio di memoria interpretativa sopra git: non sostituisce i diff, spiega perché contano.                    |
+| `bi`       | `log.md` corposo, utile per seguire evoluzioni applicative e refactor.               | Adeguato al dominio, ma va mantenuta la distinzione tra decisione e output operativo.                               |
+| `economia` | `log.md` più breve, affiancato da `stato.md`, `scadenze.md` e `diario.md`.           | Adattamento legittimo: il log non deve diventare stato corrente, perché quello vive in file locali specializzati.   |
+| `salute`   | Il progetto ha `log.md` e anche `diario.md`; il diario è più personale e riflessivo. | Chiarisce una distinzione utile: log = memoria del progetto, diario = materiale personale o filing back potenziale. |
 
 Il confronto suggerisce che il metodo dovrebbe nominare esplicitamente i file locali affini al log. `diario.md`, `stato.md` e `scadenze.md` non violano la ricetta se la loro funzione è distinta e se non sostituiscono il log interpretativo.
 
