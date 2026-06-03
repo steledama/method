@@ -11,7 +11,7 @@ La distinzione è essenziale. Se CLAUDE.md spiega come funziona il sistema, dive
 
 Regole:
 
-- apre con il bootstrap di sessione
+- apre con il bootstrap di sessione esplicito: ordine di lettura README → mappa del progetto → nodo tematico → CLAUDE.md
 - contiene comportamenti consentiti, proibiti o da chiedere
 - include il controllo iniziale sui task aperti quando il progetto usa README + todo/
 - nei repo adottanti, può ricordare di controllare la storia recente di `metodo`
@@ -19,9 +19,11 @@ Regole:
   `../metodo/todo/` come backlog operativo locale
 - indica operativamente gli strumenti: quale usare per quale intento, con i
   comandi minimi ad alta frequenza
+- può elencare i comandi quotidiani ad alta frequenza (formatter, validazione locale, entry point KB) ma rimanda alla KB per la reference completa
 - rimanda ai nodi KB per architettura, procedure e spiegazioni stabili
+- chiude con una tabella "Riferimenti rapidi" che mappa intenti operativi ai nodi KB
 - non è fonte di fatti per audit o fedeltà cognitiva
-- quando supera il ruolo operativo, il contenuto va trasferito nei nodi tematici
+- la dimensione è un segnale: oltre ~100 righe è probabile sovrapposizione con la KB, e il contenuto in eccesso va trasferito nei nodi tematici
 
 ## Applicazione nei progetti adottanti
 

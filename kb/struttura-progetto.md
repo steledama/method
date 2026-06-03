@@ -69,43 +69,14 @@ Bootstrap di sessione:
 - AGENTS.md indirizza ogni agente verso questo flow senza duplicare le regole
 - l'ordine esplicito (README → mappa → CLAUDE → nodo) abbassa il costo di ricostruzione del modello del dominio in ogni nuova sessione LLM
 
-Sezioni README:
+Regole dettagliate per pilastro:
 
-- titolo e descrizione del progetto
-- principi o approccio
-- Tasks aperti con tabella Priorità, Task, Dipende da
-- strumenti disponibili in forma di elenco breve, con rimandi a CLAUDE.md e nodi
-  dedicati
-- documentazione o metodi di accesso, se utili
-- indice statico della knowledge base come ultima sezione quando il progetto è principalmente una KB
+Questo nodo tiene l'overview dei quattro pilastri; le regole proprie e i criteri di revisione di ciascun componente vivono nel nodo dedicato.
 
-Regole todo/:
-
-- il README contiene una tabella Tasks aperti con priorità, titolo linkato al file di dettaglio e dipendenze
-- esiste una corrispondenza uno a uno tra le righe della tabella e i file in `todo/`: ogni riga ha un file, ogni file ha una riga
-- un file senza riga nella tabella è invisibile agli agenti e agli utenti futuri; una riga senza file è un link rotto
-- task completato = riga rimossa dalla tabella + file eliminato da `todo/`
-
-Regole AGENTS:
-
-- deve essere breve
-- deve indicare che le istruzioni sono in README.md e CLAUDE.md
-- deve esplicitare l'ordine di lettura a inizio sessione (README → mappa del progetto → CLAUDE → nodo tematico)
-- non deve contenere regole operative divergenti
-
-Regole CLAUDE:
-
-- contiene solo regole d'azione per gli agenti, mai contenuto di dominio
-- il contenuto di dominio (architettura, servizi, pattern, comandi, descrizioni di come funziona qualcosa) vive nei nodi kb/; CLAUDE.md ne è solo il pointer
-- apre con il bootstrap di sessione esplicito: ordine di lettura README → mappa del progetto → nodo tematico → CLAUDE.md
-- contiene i vincoli operativi non documentati altrove: cosa l'agente può eseguire autonomamente, comportamenti proibiti, regole di sicurezza
-- contiene la scelta operativa degli strumenti: per ogni intento ricorrente,
-  quale tool usare, il comando minimo e il nodo di approfondimento
-- può elencare i comandi quotidiani ad alta frequenza (formatter, validazione
-  locale, entry point KB) ma rimanda alla KB per la reference completa
-- chiude con una tabella "Riferimenti rapidi" che mappa intenti operativi ai nodi KB
-- la dimensione è un segnale: oltre ~100 righe è probabile sovrapposizione con la KB
-- mai usata come fonte di fatti per gli audit: il filesystem o i nodi tematici sono le fonti di verità (vedi fedelta-cognitiva)
+- README: funzione, doppia audience e sezioni tipiche in `readme`; catalogo e supervisione del lavoro hanno nodi propri (`indice`, `task-aperti`)
+- CLAUDE e AGENTS: regole d'azione, bootstrap esplicito, confini con il dominio e segnale di dimensione in `claude` e `agents`
+- todo/: corrispondenza uno a uno README ↔ file, frontmatter e ciclo di vita del task in `todo`
+- log: formato canonico e distinzione da diario/stato in `log`
 
 ## Applicazione nei progetti adottanti
 
@@ -131,6 +102,7 @@ Connessioni:
 - [agents](agents.md)
 - [claude](claude.md)
 - [readme](readme.md)
+- [indice](indice.md)
 - [task-aperti](task-aperti.md)
 - [todo](todo.md)
 - [log](log.md)
