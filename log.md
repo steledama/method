@@ -4,6 +4,44 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-03 — Revisione qualitativa profonda dei nodi e strato output del metodo
+
+Revisione semantica di tutti i 25 nodi, oltre il lint strutturale (sempre pulito).
+Diagnosi: KB matura e coerente, ma sovradimensionata e ridondante rispetto al suo
+stesso scopo (portabilità, basso costo di comprensione). Ironia di fondo: il
+metodo predica fonte-unica-di-verità e "la sintesi vive nel ponte perché la KB
+resti pura", ma violava entrambe le regole su sé stesso. Intervento in quattro
+passaggi, un commit ciascuno.
+
+Pass 1 — dati cross-repo centralizzati in `confronto-progetti-adottanti`. I
+conteggi per repo (nodi, link, righe CLAUDE, task, audit datati) erano duplicati
+e già stantii in `strumenti-kb`, `indice`, `task-aperti`, `claude`, `agents`:
+mini-fotografie sparse che nessuno risincronizzava. Tolti i numeri fragili,
+lasciata la lezione qualitativa.
+
+Pass 2 — de-duplicati i blocchi concettuali ripetuti, con case canoniche: tre
+giganti → `ciclo-azione`, L1/L2/L3 e conflitto Zettelkasten/Karpathy → `ponte`,
+esposizione strumenti → `strumenti-kb`, quattro proprietà di Norman →
+`ciclo-azione`. Altrove: ruolo proprio del nodo + rimando, niente
+ri-derivazione. Applicata fonte-unica anche ai concetti, non solo ai dati.
+
+Pass 3 — `struttura-progetto` (146→112 righe) ripeteva liste di regole con nodo
+dedicato (`Regole AGENTS/CLAUDE/todo`, `Sezioni README`). Keep/relocate/remove:
+bullet unici spostati in `claude`, liste sostituite da pointer. Il nodo resta
+overview dei pilastri; i criteri di revisione vivono nei nodi-casa. Nessun nodo
+rimosso: `agents` e `git-history` restano sottili ma con funzione distinta, e lo
+stato `bozza` lo segnala onestamente.
+
+Pass 4 — creato il primo strato output del repo `metodo`:
+`presentazione/metodo-in-sintesi.md`, cinque diagrammi Mermaid (tre giganti,
+ciclo dell'azione, anatomia del progetto, sviluppo bottom-up, routing dei
+contenuti). Dogfooding: il metodo applica il proprio principio `ponte` a sé
+stesso — la sintesi vive nello strato output, non in un nodo `kb/`. Il file
+dichiara anche L1/L2/L3 del repo metodo. Era l'L2 mancante: il metodo descriveva
+sé stesso solo a parole, senza una vista a colpo d'occhio.
+
+---
+
 ## 2026-06-03 — Seconda fotografia dell'osservatorio
 
 Rinfrescato `confronto-progetti-adottanti` dopo che la prima fotografia (2026-05-23)

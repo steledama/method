@@ -14,6 +14,7 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
 - **Manutenzione propria del metodo**: task in `todo/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
+- **Strato output**: [`presentazione/metodo-in-sintesi.md`](presentazione/metodo-in-sintesi.md) è l'L2 del repo — cinque diagrammi che reggono il metodo intero (tre giganti, ciclo dell'azione, anatomia del progetto, sviluppo bottom-up, routing dei contenuti). Il metodo applica il proprio principio `ponte` a sé stesso: la sintesi vive qui, non nei nodi.
 
 ## Progetti adottanti
 
