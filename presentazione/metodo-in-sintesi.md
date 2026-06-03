@@ -2,7 +2,7 @@
 
 Strato output (L2) del repo `metodo`: la vista d'insieme leggibile a colpo d'occhio del metodo KB. Non è un nodo della KB — è la sintesi che, per la disciplina zettelkastiana, vive nel ponte e non nei nodi atomici. I cinque diagrammi reggono il metodo intero; il dettaglio sta nei nodi linkati in fondo.
 
-## 1. I tre giganti
+## I tre giganti
 
 Tre pilastri che si dividono il lavoro in modo nitido: come è fatto il nodo, chi tiene aggiornato il sistema, come il sistema produce azione.
 
@@ -19,7 +19,7 @@ flowchart LR
 
 Karpathy risolve il "chi mantiene" che Luhmann non affronta; Norman risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano.
 
-## 2. Il ciclo che si chiude attraverso l'azione
+## Il ciclo che si chiude attraverso l'azione
 
 La KB non è il fine: è strumentale all'azione. Lo strato output traduce la conoscenza in azione possibile su tre livelli, e l'azione nel mondo ritorna come nuova fonte.
 
@@ -40,7 +40,7 @@ flowchart LR
 
 Solo L3 produce effetti reali; L1 e L2 sono strumentali. Senza strato output, la KB accumula conoscenza ma non chiude il ciclo.
 
-## 3. Anatomia di un progetto
+## Anatomia di un progetto
 
 La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. Ogni componente risponde a una domanda.
 
@@ -67,7 +67,7 @@ flowchart TB
     TODO --> LOG
 ```
 
-## 4. Sviluppo bottom-up del metodo
+## Sviluppo bottom-up del metodo
 
 Il metodo non si decreta dall'alto: emerge dall'uso reale. `metodo` custodisce le generalizzazioni, non orchestra i repo.
 
@@ -84,7 +84,7 @@ flowchart LR
     G -->|no| L
 ```
 
-## 5. Dove vive cosa
+## Dove vive cosa
 
 La regola di routing che tiene puliti i confini tra i componenti.
 
