@@ -37,12 +37,7 @@ metodo portabile e cosa appartiene al progetto.
 
 Il confronto chiarisce che il README non deve avere una lunghezza unica. Deve però preservare la funzione: ingresso, orientamento e indice. Quando inizia a contenere spiegazioni di dominio o teoria del metodo, il contenuto va spostato nei nodi e il README deve restare un router.
 
-La stessa regola vale per gli strumenti. Il README deve renderli visibili
-all'umano e all'LLM con una lista breve: quali strumenti esistono e dove
-approfondirli. Non deve contenere procedure complete, flag, troubleshooting o
-decisioni operative; questi appartengono a CLAUDE.md se guidano l'agente, o ai
-nodi KB se spiegano il workflow in modo stabile. La formula pratica è: README
-orienta, CLAUDE istruisce, KB approfondisce.
+La stessa regola vale per gli strumenti: il README li rende visibili con una lista breve — quali esistono e dove approfondirli — non con procedure, flag o troubleshooting. È il primo livello della tripartizione README orienta · CLAUDE istruisce · KB approfondisce, dettagliata in `strumenti-kb`.
 
 Connessioni:
 
@@ -52,3 +47,4 @@ Connessioni:
 - [mappa](mappa.md)
 - [claude](claude.md)
 - [struttura-progetto](struttura-progetto.md)
+- [strumenti-kb](strumenti-kb.md)

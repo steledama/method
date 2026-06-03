@@ -118,12 +118,7 @@ Regole CLAUDE:
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni cognitive: ingresso, regole operative, memoria, task, conoscenza stabile, strumenti e fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, log o nodi.
 
-Gli strumenti hanno bisogno di tre livelli di esposizione. Nel README devono
-essere visibili in modo brevissimo, perché un agente appena entrato sappia che
-esistono. In CLAUDE.md devono essere operativi, perché l'agente sappia quale
-usare e come invocarlo senza cercare a caso. Nei nodi devono essere spiegati,
-perché procedure, varianti, limiti e troubleshooting sono conoscenza stabile e
-non appartengono ai file root.
+Gli strumenti vanno esposti su tre livelli — README orienta, CLAUDE istruisce, nodi approfondiscono — secondo la regola dettagliata in `strumenti-kb`.
 
 Connessioni:
 

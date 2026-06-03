@@ -55,14 +55,9 @@ Esempi di principi specifici adottati nei progetti correnti:
 
 ## Principi per lo strato output
 
-Applicabili a tutti i progetti con uno strato output esplicito. Derivano direttamente dai criteri di Norman per il design dell'azione e vanno usati come checklist di revisione del ponte, non come target estetici.
+Applicabili a tutti i progetti con uno strato output esplicito. Derivano dai criteri di Norman — visibilità, feedback, mapping, constraint — definiti come checklist di revisione del ponte in `ciclo-azione` e `ponte`. Vanno usati come criteri di revisione, non come target estetici.
 
-- **Visibilità**: tutti gli stati attivi sono percepibili a colpo d'occhio nell'overview; niente di rilevante è nascosto dietro navigazione o ricerca
-- **Feedback**: dopo ogni evento il sistema mostra l'esito in modo evidente; non serve indagine per sapere cosa è cambiato
-- **Mapping**: la disposizione visiva corrisponde alla struttura reale del dominio, non a un ordine convenzionale o alfabetico
-- **Constraint**: la struttura del file impedisce di dimenticare le parti che servono insieme; le raccomandazioni stanno accanto allo stato, i prossimi passi accanto alla diagnosi
-
-Se l'utente non agisce, lo strato output è mal progettato — non l'utente è pigro. Questi principi si valutano sul comportamento reale, non sulla qualità dei nodi sottostanti.
+Il principio cardine resta: se l'utente non agisce, lo strato output è mal progettato — non l'utente è pigro. Questi principi si valutano sul comportamento reale, non sulla qualità dei nodi sottostanti.
 
 Connessioni:
 

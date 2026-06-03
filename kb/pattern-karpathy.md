@@ -11,7 +11,7 @@ La knowledge base diventa così uno strato intermedio tra le fonti grezze e le d
 
 In questa KB il pattern Karpathy è adattato in forma più autoriale: l'LLM non scrive tutto in autonomia, ma assiste l'utente nella manutenzione. L'umano mantiene la responsabilità del senso, della direzione e dello stile; l'LLM prende in carico il lavoro ripetitivo e strutturale: cross-reference, footer Connessioni, audit, aggiornamento dell'indice, filing back delle sintesi utili.
 
-Il pattern originale di Karpathy include summary pages e viste d'insieme dentro il wiki, mantenute dall'LLM. Nel metodo questa scelta diverge deliberatamente: le sintesi escono da `kb/` e vanno nello strato output (il ponte), così i nodi restano atomici secondo la disciplina zettelkastiana. La tensione tra Zettelkasten (sintesi fuori dai nodi) e Karpathy (sintesi dentro il wiki) si risolve strutturalmente: la KB resta zettelkastiana pura, il ponte ospita le sintesi karpathiane. Il terzo pilastro — Norman — completa il quadro descrivendo come l'utente attraversa il ciclo di azione che va dalla KB all'azione nel mondo e ritorna come nuova fonte.
+Il pattern originale di Karpathy include summary pages e viste d'insieme dentro il wiki, mantenute dall'LLM. Nel metodo questa scelta diverge deliberatamente: le sintesi escono da `kb/` e vanno nello strato output (il ponte), così i nodi restano atomici secondo la disciplina zettelkastiana. Questa tensione tra Zettelkasten (sintesi fuori dai nodi) e Karpathy (sintesi dentro il wiki), e la sua risoluzione strutturale, sono trattate in `ponte`. Il terzo pilastro — Norman — descrive come l'utente attraversa il ciclo di azione dalla KB al mondo e ritorno come nuova fonte.
 
 Architettura:
 

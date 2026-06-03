@@ -34,10 +34,7 @@ Regole:
 
 Il caso `bi` ha mostrato perché il metodo insiste sulla separazione tra costituzione operativa e documentazione. Più `CLAUDE.md` diventa completo, più diventa costoso da caricare e più rischia di divergere dai nodi. La regola pratica è: se un paragrafo spiega come funziona il sistema, appartiene a `kb/`; se dice cosa l'agente può o deve fare, appartiene a `CLAUDE.md`.
 
-Per gli strumenti, CLAUDE.md è il punto in cui l'agente sviluppa consapevolezza
-operativa. Il README li nomina per renderli scopribili; CLAUDE.md dice quando
-usarli, quali comandi minimi sono sicuri e quando leggere il nodo di dettaglio.
-La reference estesa resta nei nodi o negli script versionati.
+Per gli strumenti, CLAUDE.md è il livello operativo della tripartizione README/CLAUDE/nodi descritta in `strumenti-kb`: dice quando usare uno strumento, quali comandi minimi sono sicuri e quando leggere il nodo di dettaglio; la reference estesa resta nei nodi o negli script versionati.
 
 Connessioni:
 
@@ -46,3 +43,4 @@ Connessioni:
 - [readme](readme.md)
 - [struttura-progetto](struttura-progetto.md)
 - [skill](skill.md)
+- [strumenti-kb](strumenti-kb.md)
