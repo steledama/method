@@ -4,6 +4,34 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-03 — Seconda fotografia dell'osservatorio
+
+Rinfrescato `confronto-progetti-adottanti` dopo che la prima fotografia (2026-05-23)
+era invecchiata di 11 giorni mentre i repo adottanti continuavano a muoversi.
+La rilettura è funzione di osservatorio (lettura dei repo), non orchestrazione,
+quindi coerente col flusso bottom-up.
+
+Cosa è cambiato dai dati reali: `economia` è cresciuta (51→55 nodi, 184→198 link)
+e ha audit pulito — i "segnali strutturali da correggere" del vecchio nodo erano
+ormai falsi; `bi` ha chiuso due task (todo 9→7) restando stabile a 84 nodi;
+`nixos` e `salute` invariati nei numeri. Aggiornate le tre tabelle del nodo
+(stato, dati strutturali, azioni suggerite) e marcate come completate le azioni
+ormai concluse (bi CLAUDE, salute mappa, economia audit).
+
+Due osservazioni metodologiche registrate nel nodo. Primo: i 10 file accentati di
+`salute` (`realtà.md`, `qualità.md`, …) sono un default strumentale che non aderisce
+al dominio, non un drift — la regola "niente accenti nei nomi" è convenzione tecnica
+che una KB riflessiva italiana può legittimamente non seguire; resta decisione locale.
+Secondo: `ponte` e `ciclo-azione` sono ancora `stato: bozza` per scelta, non per
+dimenticanza — la promozione a maturo è un filing back atteso dal pilota
+`salute/quadro/` quando produrrà 2-3 cicli L2→L3→fonte→KB documentati.
+
+Conferma operativa: l'osservatorio si ricostruisce a mano in poche query
+(`kb_tools.py audit` per repo), quindi un report cross-repo automatico resta non
+necessario finché il costo non cresce — niente task preventivo, in linea bottom-up.
+
+---
+
 ## 2026-06-01 — Formalizzazione sviluppo bottom-up del metodo
 
 Formalizzato nei nodi centrali il principio emerso dalla revisione dei task:
