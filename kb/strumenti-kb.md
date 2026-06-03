@@ -98,16 +98,9 @@ Requisiti per un nuovo progetto:
 | `economia` | `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info.                                                    | Adattamento utile a un dominio documentale: i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze. |
 | `salute`   | `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`).                                                          | Adeguato a una KB concettuale: per ora la priorità è salute strutturale e filing back, non inventario tecnico.                                               |
 
-Fotografia audit del 2026-05-23:
+La fotografia strutturale quantitativa per repo (nodi, link, esiti audit, file segnalati) vive nel nodo `confronto-progetti-adottanti`, fonte unica per i dati cross-repo: qui resta solo il confronto qualitativo sulla superficie degli strumenti, che cambia di rado.
 
-| Progetto   | Esito strutturale                                                                 |
-| ---------- | --------------------------------------------------------------------------------- |
-| `nixos`    | 37 nodi, 177 link, nessun link rotto, nessun orfano, nessun cluster isolato       |
-| `bi`       | 78 nodi, 293 link, nessun link rotto, nessun orfano, nessun cluster isolato       |
-| `economia` | 44 nodi, 145 link, 3 link rotti, 2 orfani, 1 cluster isolato                      |
-| `salute`   | 193 nodi, 2175 link, nessun link rotto o orfano; 10 nomi file accentati segnalati |
-
-Il doppio confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
+Il confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
 
 Connessioni:
 
