@@ -81,6 +81,22 @@ il "filing back" di Karpathy, ora fondato strutturalmente e non solo descritto.
 - Gulf of Evaluation = distanza tra i1 (segnale grezzo) e i3 (comprensione formalizzata) →
   ridotto da i2 che interpreta e filtra
 
+## Formulazione fondativa: i tre giganti rispetto alla KB
+
+I tre giganti non sono equivalenti rispetto alla KB — ognuno abita un livello diverso
+del metodo:
+
+- **Luhmann è la KB** — il Zettelkasten *è* una KB; nodi atomici, atomicità, struttura emergente
+- **Karpathy governa la KB** — ingest, query, lint, filing back; il processo che la mantiene viva
+- **Norman connette la KB al mondo** — il ciclo di azione tra conoscenza e azione, tra mondo e conoscenza
+
+Questa formulazione è più precisa dell'attuale "si dividono il lavoro in modo nitido":
+è vera ma non dice *dove* ognuno lavora rispetto alla KB. La nuova formulazione chiarisce
+anche perché Norman è il gigante che giustifica sia lo strato output (esecuzione) sia lo
+strato input (valutazione) — è l'unico dei tre che guarda fuori dalla KB verso il mondo.
+
+Da usare come apertura del nodo sui tre giganti durante la riscrittura.
+
 ## Chiave di lettura possibile: il metodo come estensione di Norman
 
 Norman dà per scontati due elementi ai confini del suo ciclo: il **Goal** (che motiva
