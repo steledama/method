@@ -4,6 +4,152 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-04 — Rifondazione: salto di quota concettuale (artefatto cognitivo)
+
+Sessione di dialogo concettuale, ancora **pre-implementazione** (si seziona prima di
+agire). Il task `rifondazione-input-output` è salito di quota: non più "rinominare e
+chiudere la simmetria", ma rispondere alla domanda di fondo — *cosa è* l'oggetto che
+stiamo costruendo. La risposta riordina tutto il resto e andrà a riscrivere il task.
+
+**Tripartizione (tre parole, tre cose).** Si scioglie la sineddoche "KB = metodo"
+distinguendo:
+1. *Artefatto cognitivo* (Norman stretto, *Cognitive Artifacts* 1991: dispositivo
+   rappresentazionale esterno) = la rappresentazione che si progetta e che persiste —
+   KB + strato output + strato input + struttura. È ciò che il metodo coltiva. **È
+   portabile**: sopravvive al cambio di modello o di harness.
+2. *Sistema cognitivo* (Hutchins, cognizione distribuita) = artefatto + umano + LLM +
+   harness, accoppiati. È *dove la cognizione accade davvero*. Non è portabile (contiene
+   agenti specifici) e non si progetta come oggetto: emerge dall'uso.
+3. *Metodo* = la pratica (il "come") con cui si coltiva l'artefatto perché il sistema
+   performi.
+
+**Argomento decisivo per la definizione artefatto-centrica**: la tesi del progetto
+("harness portabile, vendor-neutro") è dicibile *solo* se l'artefatto è la
+rappresentazione e non il sistema d'interazione. La definizione sistema-centrica toglie
+la parola "portabile". L'utente — laureato in interazione uomo-macchina, tradizione
+ergonomia cognitiva / cognizione distribuita — tende per formazione a pensare "sistema";
+si è convenuto di tenere *entrambi* i concetti ma con nomi distinti, per non perdere ciò
+che quella tradizione coglie (la cognizione vive nell'accoppiamento) senza rinunciare
+alla portabilità.
+
+**Stack a livelli.** L0 modello → L1 harness tecnico (Claude Code/Codex, sostituibile)
+→ L2 = il metodo come *harness cognitivo* portabile e leggibile dall'umano. Norman vive
+a L2 (design dell'interazione: visibilità, feedback, mapping, constraint), non a L1
+(meccanismo). `agents.md` e i wrapper `.codex` sono già la cucitura L1↔L2.
+
+**L0 è un agente, non un artefatto.** La novità — *l'artefatto che legge* — regge solo
+tenendo distinti artefatto (KB) e agente (LLM). Tesi originale che estende Norman: Norman
+scriveva per artefatti passivi; qui l'artefatto è letto e rielaborato da una seconda
+mente. Il ciclo d'azione va riscritto per due agenti che condividono lo stesso system
+image. Conseguenza che chiude un buco: o1 (output macchina) non manca dalla mappatura di
+Norman — è il ciclo applicato al secondo agente. Asimmetria dei modelli mentali: per
+l'umano la KB è impalcatura esterna a un modello che già possiede; per l'LLM la KB *è*
+il modello mentale (riparte da zero ogni sessione).
+
+**Il Goal come confine aperto di Norman.** Il metodo traccia i task (Plan/Specify) ma non
+i Goal (il perché). `goal` / `task` / `todo` sono tre *altitudini*, non sinonimi —
+disciplinabili con la gerarchia dell'activity theory: motivo (attività) → goal (azione) →
+operazione (task). Architettura: i3 (input formalizzato) ha *due* destinazioni, la KB e
+la revisione dei goal — è il Compare→nuovo Goal di Norman. Decisione: **non** rinominare
+`todo/`→`goals/` (nasconderebbe il concetto e mentirebbe sul contenuto attuale); scrivere
+il *nodo* sul Goal e lasciare emergere l'apparato quando il lavoro lo richiede.
+
+**Struttura nodi propensa (taglio B + cerniera)**: `artefatto-cognitivo`,
+`sistema-cognitivo` (cerniera, dove vive l'asimmetria dei modelli mentali), nodo `goal` /
+gerarchia dell'azione; `ciclo-azione` riscritto come ciclo a due agenti.
+
+**Decisioni che superano l'entry precedente**: la lingua del repo è **inglese** (non più
+"aperta"). Servono *più libri di Norman*, non solo DOET: "cognitive artifact" e cognizione
+distribuita vengono da *Things That Make Us Smart* (1993). L'ingest dei libri di Norman
+diventa un **task separato** (`todo/ingest-norman.md`), candidato a essere il primo pilota
+reale dello strato input.
+
+**Forma del ciclo: due cerniere, non uno specchio** (scioglie il filo del "mirror").
+La struttura di Norman non è uno specchio (i3 ↔ o1) ma un *cappio con due cerniere*. Il
+Goal è l'apice (sta sopra entrambi i gulf), il Mondo è il fondo; l'esecuzione (Q2 Plan,
+Q3 Specify = o2 → Q4 Perform = o3) è la discesa, la valutazione (Q5 Perceive = i1 → Q6
+Interpret = i2 → Q7 Compare = i3) è la risalita. Le due cerniere:
+- **Mondo** (Q4→Q5): o3 agisce, i1 percepisce — stesso luogo, due versi: *simmetrico*.
+- **KB** (Q7→Q1): l'apice. i3 *scrive* l'esito nella KB; il Goal *legge* l'intenzione
+  dalla KB. Scrivi-poi-leggi, non riflesso. L'asimmetria al confine KB è **feature**: la
+  KB è la memoria persistente dove il ciclo si chiude.
+o1 non sta su questo arco — vive sul ciclo del *secondo agente* (l'LLM che legge la KB
+per agire), che ha un proprio lato-input macchina (audit, lint, errori, test). Due cicli,
+uno per agente, stessa KB all'apice. Va disegnato così in `ciclo-azione` e nel mermaid
+"ciclo che si chiude" (sostituisce le due colonne speculari). Cautela di fedeltà sul Goal:
+la KB *informa e raffina* il Goal, non lo *genera* — il Goal nasce all'incrocio motivo
+(da sopra) + KB; è l'estensione di Norman "sul Goal".
+
+**Gradiente di autonomia e passaggio di consegne** (concetto nuovo, forse il più
+originale). Il repo versionato è la *traccia* di un passaggio di consegne graduale
+umano→LLM: git registra la delega progressiva mentre l'harness di guardrail e
+autocorrezioni si accumula. Traiettoria human-in → human-*on* (controllo supervisorio,
+Sheridan) → human-out, dove la fase "on" è la più insidiosa — *ironie dell'automazione*
+(Bainbridge 1983): le skill si atrofizzano e la ripresa del controllo è richiesta proprio
+quando è più difficile. L'autonomia non è uno slider unico ma un *profilo per stadio del
+ciclo* (livelli di automazione, Parasuraman/Sheridan) e dipende da **quanto del motivo è
+esternalizzabile nell'artefatto**. Gradiente sui quattro repo: `nixos` (motivo
+codificabile → autonomia alta) → `bi`/`economia` (media, gate umani obbligatori) →
+`salute` (motivo non esternalizzabile → supervisione permanente). Il README di ogni
+progetto dovrebbe dichiarare scopi generali + grado di autonomia attuale/aspirato.
+Conseguenza che ribalta l'obiezione bottom-up sul lato input: **il lato valutazione
+(i1→i2→i3) è il meccanismo di sicurezza che rende possibile l'uscita dell'umano dal
+loop** — non simmetria teorica ma load-bearing. o2 non sparisce con la fine dei PDF: si
+trasforma in *spiegazione resa su richiesta*, perché per le decisioni ad alta posta
+l'umano deve *capire* (formarsi un modello mentale), non solo interrogare — altrimenti
+perde la capacità di valutare. (Fonti: il "flusso" è di Csikszentmihalyi, Norman lo
+adotta.)
+
+**Due principi dell'arco di input (dal caso economia, bottom-up).**
+1. *i2 goal-guidato sulla rilevanza, neutro sulla valenza.* I goal scelgono legittimamente
+   cosa mostrare, granularità, confronti (rilevanza), mai il verdetto buono/cattivo
+   (valenza), che è compito di i3. Test: due persone con goal di valenza opposta devono
+   produrre lo *stesso* i2 e dissentire solo a i3; se i2 differisce già nel giudizio,
+   l'artefatto non ospita una valutazione, riflette il bias. i2 = rappresentazione
+   condivisa e contestabile; i3 = dove avviene il contrasto (cruciale nel multi-stakeholder,
+   es. conti personale/comune di due partner in `economia`). Pattern già presente in
+   `salute/quadro`: i numeri = i2, il termometro/colore = i3. Un i2 goal-saturo distrugge
+   il gulf of evaluation e annulla la funzione di sicurezza dell'arco di input — l'artefatto
+   non può più portare cattive notizie.
+2. *L'arco di input è più ampio dell'arco di valutazione di Norman.* i1 ha due sorgenti:
+   feedback (risposta a o3, chiude un goal esistente, Norman puro) ed esogeno (il mondo
+   agisce da sé — busta paga, normativa, alert — apre spesso un goal nuovo). Quindi i3 ha
+   due modi: verdetto (Compare contro goal esistente) e triage/formazione-goal (per
+   l'esogeno). Conseguenza autonomia: *delega la chiusura di loop noti, tieni l'umano per
+   l'apertura di loop nuovi* (il triage dell'esogeno = decidere cosa conta = formazione del
+   goal, la cosa meno esternalizzabile; eco di Bainbridge). Il metodo apre il confine-Mondo
+   (il mondo non solo risponde, agisce) come apre il confine-Goal: estensione di Norman a
+   entrambi gli estremi.
+
+**Metodo di sviluppo del metodo (concordato).** Validare i concetti teorici calandoli
+bottom-up nei quattro domini, ognuno banco di prova di una parte diversa: `economia`
+(multi-stakeholder, irreversibilità, valenza), `salute` (motivo non esternalizzabile,
+corpo), `nixos` (autonomia alta, determinismo, feedback-heavy, poco esogeno), `bi`
+(decisioni condivise, input esogeno dai colleghi). `nixos` e `bi` sono quasi opposti
+sull'asse feedback/esogeno — il confronto valida la criticità 2. Più si cala la parte poco
+chiara in un dominio, più si illumina l'intero.
+
+**Anti-dogma per costruzione.** Ciò che va "scritto nella pietra" non sono i verdetti
+(output di i3, sempre revisionabili) ma i *meccanismi di autocorrezione* (i2 neutro sulla
+valenza, input come intake del mondo): sono ciò che tiene l'artefatto capace di smentire i
+propri goal e di ascoltare il mondo che agisce. La pietra è l'impegno a restare corrigibili,
+non le conclusioni. Mappa sulla distinzione che il repo già ha: metodo/nodi stabili (pietra)
+vs goal/valutazioni revisionabili (fluido).
+
+**Fili ancora da sezionare** prima di riscrivere il task: il sottoscoping dei file da
+aggiornare (`pattern-karpathy`, `knowledge-base`, `mappa` sono riscritture concettuali,
+non solo link); lo stato bozza/maturo e la dipendenza con `salute/quadro/` tracciata in
+`confronto-progetti-adottanti`; la trappola del grep ("ponte" è anche metafora viva in
+`agents.md`, `mappa.md` e nei `project-map` dei repo adottanti — non sostituire ciecamente).
+
+**Nota di metodo (dogfooding su me stesso)**: in questa sessione avevo salvato gli appunti
+concettuali nello store di memoria dell'harness (`~/.claude/`). È l'anti-pattern
+dell'artefatto portabile — host-locale, opaco, non versionato. Rimossi; la regola "la
+memoria del progetto vive versionata nel repo" è ora in `CLAUDE.md` (sezione `## Memoria`),
+e questi appunti vivono qui, dove dovevano stare.
+
+---
+
 ## 2026-06-04 — Rifondazione input/output: pianificazione e formulazioni fondative
 
 Sessione di pianificazione metodologica con tre prodotti concreti: frontmatter PDF,
