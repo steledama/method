@@ -81,6 +81,32 @@ il "filing back" di Karpathy, ora fondato strutturalmente e non solo descritto.
 - Gulf of Evaluation = distanza tra i1 (segnale grezzo) e i3 (comprensione formalizzata) →
   ridotto da i2 che interpreta e filtra
 
+## Chiave di lettura possibile: il metodo come estensione di Norman
+
+Norman dà per scontati due elementi ai confini del suo ciclo: il **Goal** (che motiva
+l'azione) e il **Mondo** (che risponde all'azione). I sette stadi vivono in mezzo — ma
+né l'origine del Goal né la natura del Mondo vengono spiegati. Sono i confini del modello,
+non il suo contenuto.
+
+Il metodo potrebbe essere letto come un'estensione di Norman verso i suoi due estremi
+irrisolti:
+
+- **Sul Goal**: la KB non è solo uno strumento per eseguire meglio — è il luogo dove i
+  goal si formano, si raffinano, si mettono in discussione. Norman dà il Goal come input
+  del ciclo; il metodo mostra come si costruisce attraverso la conoscenza accumulata.
+
+- **Sul Mondo**: lo strato input (i1/i2/i3) governa come il mondo entra nel sistema —
+  non subire passivamente i segnali grezzi ma avere un processo per trasformarli in
+  conoscenza. Norman tratta il Mondo come una scatola nera che risponde; il metodo lo
+  apre.
+
+In questa lettura il metodo non è un'applicazione di Norman ma un'**estensione** verso
+i suoi due estremi lasciati aperti: cosa c'è prima del Goal, e cosa c'è dopo il Mondo.
+
+Questa chiave di lettura è aperta: va verificata durante la riscrittura dei nodi e
+potrebbe rivelarsi una forzatura oppure il contributo concettuale più originale del
+metodo rispetto alle sue fonti.
+
 ## Scope delle modifiche
 
 ### 1. Rinominare `kb/ponte.md` → `kb/output.md`
