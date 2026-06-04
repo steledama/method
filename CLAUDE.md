@@ -13,6 +13,13 @@ Regole operative per agenti che lavorano su questo repository.
 - aggiornamento di `README.md` e `log.md`
 - commit e operazioni git locali
 
+## Memoria
+
+Non usare il sistema di memoria dell'harness (lo store in `~/.claude/`): è
+host-locale, opaco e non versionato — l'anti-pattern dell'artefatto portabile.
+La memoria del progetto vive versionata nel repo: `log.md` (perché una decisione
+conta), nodi `kb/` (conoscenza stabile), `todo/` (lavoro futuro e contesto).
+
 ## Quando aggiungere un nodo
 
 Un nodo entra in `kb/` solo se il concetto è metodologico e applicabile ad almeno due progetti diversi. I concetti specifici di un singolo progetto restano nella `kb/` locale del progetto.
