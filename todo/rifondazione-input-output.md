@@ -107,6 +107,23 @@ Questa chiave di lettura è aperta: va verificata durante la riscrittura dei nod
 potrebbe rivelarsi una forzatura oppure il contributo concettuale più originale del
 metodo rispetto alle sue fonti.
 
+## Nota terminologica: "KB" come sineddoche del metodo
+
+Nel task e nei nodi esistenti "KB" viene spesso usata come sineddoche del metodo intero
+— la parte per il tutto. La KB in senso stretto è solo i nodi in `kb/`: la conoscenza
+accumulata e formalizzata. Il metodo comprende anche la struttura di progetto, il ciclo
+operativo, gli strati input/output, gli strumenti, le regole d'azione.
+
+La sineddoche è comoda e in parte giustificata — la KB è il nucleo identitario del
+sistema e dà il nome al metodo. Ma crea ambiguità reale: "la KB governa il Goal" e
+"il metodo governa il Goal" dicono cose diverse, e la differenza conta specialmente
+nella chiave di lettura normaniana.
+
+Durante la riscrittura dei nodi in inglese vale la pena usare "the method" quando si
+intende il sistema intero, e "the KB" solo quando si intende specificamente i nodi
+di conoscenza. Non una correzione meccanica a posteriori — una consapevolezza da
+mantenere mentre si scrive.
+
 ## Scope delle modifiche
 
 ### 1. Rinominare `kb/ponte.md` → `kb/output.md`
