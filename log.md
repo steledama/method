@@ -4,6 +4,49 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-04 — Rifondazione input/output: pianificazione e formulazioni fondative
+
+Sessione di pianificazione metodologica con tre prodotti concreti: frontmatter PDF,
+strategia di condivisione con Luigi, task rifondativo aperto.
+
+**Firma PDF**: aggiunto frontmatter YAML a `presentazione/metodo-in-sintesi.md`
+(title, subtitle, author, date). Il template LaTeX esistente in `nixos/modules/home/md2pdf.nix`
+gestisce già `\maketitle` condizionale — nodi senza frontmatter non sono influenzati.
+
+**Strategia GitHub aziendale**: definiti tre livelli di accesso (metodo pubblico,
+`bi` in sola lettura ai colleghi, nixos/salute/economia privati). Redatta email a Luigi
+per invitarlo a creare un account GitHub personale — solo il primo passo, senza condividere
+il metodo finché non dà un segnale concreto di interesse reale.
+
+**Task rifondativo** `todo/rifondazione-input-output.md`: il task più denso aperto finora
+in questo repo. Tre questioni operative (rename ponte→output, L1/L2/L3→o1/o2/o3, lingua
+italiano→inglese) e una ristrutturazione concettuale profonda. Le formulazioni fondative
+emerse durante la sessione, da usare come apertura dei nodi riscritti:
+
+*I tre giganti rispetto alla KB*: Luhmann è la KB — Karpathy governa la KB — Norman
+connette la KB al mondo. Più preciso dell'attuale "si dividono il lavoro in modo nitido":
+dice dove ognuno lavora, non solo cosa porta.
+
+*Il metodo come estensione di Norman*: Norman dà per scontati due elementi ai confini
+del ciclo — il Goal e il Mondo. Il metodo interviene su entrambi: la KB è il luogo dove
+i goal si formano (non sono dati); lo strato input governa come il Mondo entra nel sistema
+(non è una scatola nera). Il metodo non applica Norman: lo estende verso i suoi estremi
+irrisolti.
+
+*KB come sineddoche del metodo*: "KB" viene usata spesso quando si intende il sistema
+intero. La KB in senso stretto è solo i nodi in `kb/`. Durante la riscrittura in inglese:
+"the method" per il sistema intero, "the KB" solo per i nodi di conoscenza.
+
+*Base empirica degli strati input*: il pattern di ingest non governato esiste già nei
+quattro repo — estratti conto e referti in `economia` e `salute`, errori e alert in
+`nixos`, segnalazioni dei colleghi in `bi`. La formalizzazione i1/i2/i3 è bottom-up.
+
+Tre decisioni aperte nel task: nomenclatura (input/output vs esecuzione/valutazione),
+lingua (italiano vs inglese, propensione per l'inglese per fedeltà cognitiva alle fonti),
+strato input come componente obbligatorio o opzionale.
+
+---
+
 ## 2026-06-03 — Revisione qualitativa profonda dei nodi e strato output del metodo
 
 Revisione semantica di tutti i 25 nodi, oltre il lint strutturale (sempre pulito).
