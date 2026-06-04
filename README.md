@@ -27,7 +27,9 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 
 ## Tasks aperti
 
-Nessun task aperto.
+| Task | Priorità | Note |
+| ---- | -------- | ---- |
+| [Rifondazione input/output](todo/rifondazione-input-output.md) | alta | Rename ponte→output, L1/L2/L3→o1/o2/o3, introduce strati i1/i2/i3, chiude l'analogia con Norman |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
