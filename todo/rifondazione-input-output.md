@@ -29,6 +29,27 @@ Tre problemi concreti:
    il design dello strato output, non per fondare la struttura intera. La revisione
    chiude questa asimmetria.
 
+## Base empirica: il pattern di input esiste già nei repo adottanti
+
+La formalizzazione in i1/i2/i3 non è introdotta per simmetria teorica: il problema
+dell'organizzazione degli ingest è emerso dall'uso reale, in particolare in `economia`
+e `salute`, i due repo con le fonti esterne più dense e eterogenee.
+
+| Progetto   | Esempi concreti di input già incontrati                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------- |
+| `economia` | estratti conto, documenti notarili, polizze, comunicazioni del commercialista, delibere condominiali                 |
+| `salute`   | referti medici, cartelle cliniche, esami del sangue, relazioni specialistiche                                        |
+| `nixos`    | messaggi di errore o alert di sistema, nuove esigenze hardware/software, attese anomale nei rebuild, deprecation notice |
+| `bi`       | segnalazioni dei colleghi (a voce o per email), errori nei dati, inefficienze nei processi, richieste di nuove analisi |
+
+Il pattern ricorrente in tutti e quattro: arriva un segnale esterno grezzo (i1) che
+richiede elaborazione (i2) prima di poter diventare conoscenza stabile nella KB (i3)
+o aprire un task. Finora questo percorso era implicito e non governato — ogni repo
+lo gestiva in modo diverso e spesso non lo gestiva affatto.
+
+La formalizzazione è dunque bottom-up: nomina e struttura qualcosa che esiste già,
+non impone un modello calato dall'alto.
+
 ## Analogia completa con Norman
 
 Il ciclo di Norman a sette stadi si divide in due archi che corrispondono punto per punto
