@@ -152,7 +152,15 @@ Progetti adottanti: `nixos`, `bi`, `economia`, `salute`.
 
 ## Decisioni aperte (da risolvere durante l'implementazione)
 
-1. **Strato input come componente obbligatorio o opzionale della struttura di progetto?**
+1. **Nomenclatura dei due lati: input/output o execution/evaluation?**
+   Le due coppie candidate sono:
+   - **input/output** — autoesplicativo, si aggancia alla metafora informatica già presente nel metodo
+   - **esecuzione/valutazione** — fedele a Norman, rende esplicita la derivazione teorica ma meno immediato
+   La corrispondenza è: input ↔ valutazione (evaluation side di Norman), output ↔ esecuzione
+   (execution side di Norman). Non escludere a priori un termine proprio del metodo che emerga
+   durante la scrittura dei nodi. Lasciare aperta fino all'implementazione.
+
+2. **Strato input come componente obbligatorio o opzionale della struttura di progetto?**
    Alcuni progetti hanno fonti grezze ben definite (economia: estratti conto, referti);
    altri meno (nixos: l'input è quasi tutto intenzionale). Probabilmente: dichiarazione
    obbligatoria nella struttura, anche se i1 è vuoto o implicito.
