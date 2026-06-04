@@ -1,4 +1,9 @@
-# Il metodo in sintesi
+---
+title: "Metodo KB"
+subtitle: "Framework metodologico e osservatorio cross-repo per KB personali e professionali con LLM"
+author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/metodo"
+date: "2026.06.04"
+---
 
 Strato output (L2) del repo `metodo`: la vista d'insieme leggibile a colpo d'occhio del metodo KB. Non è un nodo della KB — è la sintesi che, per la disciplina zettelkastiana, vive nel ponte e non nei nodi atomici. I cinque diagrammi reggono il metodo intero; il dettaglio sta nei nodi linkati in fondo.
 
