@@ -160,7 +160,22 @@ Progetti adottanti: `nixos`, `bi`, `economia`, `salute`.
    (execution side di Norman). Non escludere a priori un termine proprio del metodo che emerga
    durante la scrittura dei nodi. Lasciare aperta fino all'implementazione.
 
-2. **Strato input come componente obbligatorio o opzionale della struttura di progetto?**
+2. **Lingua del repo: italiano o inglese?**
+   Il repo è attualmente in italiano. Durante la rifondazione vale la pena decidere se
+   passare all'inglese. Argomenti a favore:
+   - il repo è pubblico e l'inglese ne aumenta la visibilità e leggibilità internazionale
+   - l'inglese è già la lingua naturale del dominio tecnico (git, KB, LLM, repo, skill,
+     frontmatter) — passarci riduce la tensione tra lingua della narrazione e lingua degli strumenti
+   - fedeltà alle fonti: Karpathy e Norman sono anglofoni nativi; Luhmann è tedesco ma il
+     suo lavoro vive nell'accademia internazionale in inglese. Scrivere il metodo in inglese
+     è un avvicinamento linguistico ai tre giganti su cui si appoggia — una forma di fedeltà
+     cognitiva alle fonti, non solo una scelta di visibilità
+   Rischio: la profondità concettuale dei nodi è stata costruita in italiano — una traduzione
+   frettolosa potrebbe appiattirla. Se si decide per l'inglese, tradurre con cura durante
+   la riscrittura dei nodi, non meccanicamente a posteriori.
+   La propensione attuale è per l'inglese, coerente con la scelta di tenere il repo pubblico.
+
+3. **Strato input come componente obbligatorio o opzionale della struttura di progetto?**
    Alcuni progetti hanno fonti grezze ben definite (economia: estratti conto, referti);
    altri meno (nixos: l'input è quasi tutto intenzionale). Probabilmente: dichiarazione
    obbligatoria nella struttura, anche se i1 è vuoto o implicito.
