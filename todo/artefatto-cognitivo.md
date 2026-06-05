@@ -11,24 +11,19 @@ che il metodo coltiva, distinto dal *come funziona* la struttura i/o.
 
 ## Materiale già formulato (in log.md, da portare nei nodi)
 
-- **Tripartizione** (scioglie la sineddoche "KB = metodo"):
-  - *artefatto cognitivo* (Norman, *Cognitive Artifacts* 1991) = la rappresentazione esterna
-    che si progetta e persiste (KB + strato output + strato input + struttura). È ciò che il
-    metodo coltiva; **è portabile** (sopravvive al cambio di modello/harness).
-  - *sistema cognitivo* (Hutchins, cognizione distribuita) = artefatto + umano + LLM + harness
-    accoppiati. È dove la cognizione accade; non portabile, emerge dall'uso.
-  - *metodo* = la pratica con cui si coltiva l'artefatto perché il sistema performi.
-- **Argomento decisivo**: la tesi "harness portabile, vendor-neutro" è dicibile solo con
-  definizione artefatto-centrica, non sistema-centrica.
-- **Ciclo a due agenti**: l'artefatto è letto e rielaborato da una seconda mente (LLM) → il
-  ciclo d'azione va riscritto per due agenti che condividono lo stesso system image.
-  Asimmetria dei modelli mentali: per l'umano la KB è impalcatura esterna a un modello che già
-  possiede; per l'LLM la KB *è* il modello mentale (riparte da zero ogni sessione).
-- **Stack a livelli**: L0 modello → L1 harness tecnico (Claude Code/Codex, sostituibile) → L2
-  metodo come harness cognitivo portabile e leggibile dall'umano. Norman vive a L2.
-- **Gerarchia del Goal** (activity theory): motivo (attività) → goal (azione) → operazione
-  (task). `goal`/`task`/`todo` sono tre altitudini, non sinonimi. Deciso: **non** rinominare
-  `todo/`→`goals/`; scrivere il *nodo* sul Goal e far emergere l'apparato quando serve.
+- ✅ **Tripartizione** → `kb/artefatto-cognitivo.md` + `kb/sistema-cognitivo.md`:
+  - *artefatto cognitivo* = rappresentazione esterna progettata e persistente; portabile
+  - *sistema cognitivo* = artefatto + umano + LLM + harness accoppiati; emerge dall'uso
+  - *metodo* = la pratica con cui si coltiva l'artefatto perché il sistema performi
+- ✅ **Argomento decisivo** (portabilità) → `kb/sistema-cognitivo.md`, sezione Tripartizione
+- ✅ **Asimmetria dei modelli mentali** → `kb/sistema-cognitivo.md`, sezione omonima
+- ⏳ **Ciclo a due agenti**: `ciclo-azione` da riscrivere per due agenti — cfr. nodi candidati
+- ⏳ **Stack a livelli** (L0 modello → L1 harness → L2 metodo): accennato in
+  `sistema-cognitivo` ma non sviluppato come nodo autonomo; valutare se serve nodo separato
+  o se basta espandere `sistema-cognitivo`
+- ⏳ **Gerarchia del Goal** (activity theory): motivo → goal → operazione. `goal`/`task`/`todo`
+  sono tre altitudini, non sinonimi. Deciso: non rinominare `todo/`→`goals/`; scrivere il
+  nodo `goal` e far emergere l'apparato quando serve.
 
 ## Due gerarchie e la relazione genus/species (2026-06-05)
 
@@ -69,6 +64,9 @@ cross-repo: il *genere* è ciò che generalizza, i *tratti di specie* sono ciò 
 — *di cosa un artefatto è fatto come specie*. Temporale (ciclo → ciclo): sviluppo → runtime,
 dentro ogni artefatto — *come un artefatto si produce e si valuta nel tempo* (cfr.
 `ciclo-azione`, sezione cicli annidati).
+
+⏳ Questo materiale non è ancora in nessun nodo — candidato a espandere `sistema-cognitivo`
+o a un nodo dedicato `genus-species` / `osservatorio-metodo`.
 
 ## Nodi candidati
 
