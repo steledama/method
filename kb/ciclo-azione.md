@@ -38,6 +38,8 @@ Nel metodo KB il ciclo si materializza sul triplo strato di output: ponte, L1/L2
 - esecuzione (Goal → Plan → Specify → Perform): KB → L2 → decisione → L3
 - valutazione (Perceive → Interpret → Compare): L3 → nuove fonti → KB → L2 aggiornata → confronto con il goal
 
+Plan e Specify si materializzano in due strati distinti non per due stadi diversi di Norman, ma per due *consumatori* diversi: L1 è la versione macchina (fatti strutturati per l'LLM che continua il lavoro tra sessioni), L2 la versione umana (vista leggibile per la decisione). Non sono due punti del ciclo — sono lo stesso Plan/Specify rivolto ai due agenti che lo portano avanti.
+
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto, che diventa nuova fonte, che aggiorna `storia-clinica`, che ridipinge il termometro nel quadro.
 
 ## I due gulf
@@ -49,6 +51,19 @@ Nel metodo KB i due gulf si traducono così:
 - L1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
 - L2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
 - L3 è dove l'azione effettivamente accade — il "perform" del ciclo, fuori dal repo, nel mondo
+
+## Cicli annidati: i progetti code-based
+
+Nei progetti basati su codice il ciclo d'azione non è uno solo: ce ne sono due, annidati. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è un sistema software, l'artefatto stesso è il prodotto di un ciclo d'azione precedente.
+
+- **Ciclo di sviluppo**: Goal (serve una capacità) → Plan/Specify (il `todo`, dettagliato) → Perform (il commit). Il suo "mondo" è il codebase; il suo L3 — l'azione nel mondo — *è il codice*.
+- **Ciclo runtime**: il codice, eseguito, compie il proprio ciclo. Legge le fonti e produce L1 (artefatto macchina), L2 (vista di decisione), L3 (azione nel mondo reale: un'email, una transazione, un payload pubblicato).
+
+Il codice è insieme il L3 del ciclo di sviluppo e la macchina che esegue il ciclo runtime. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → todo → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `log` e `todo` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+
+È il senso in cui il metodo *estende* Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; in un progetto code-based il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è il L3 di un ciclo che lo precede.
+
+**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua *assunzione* non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `log.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (vedi [fedelta-cognitiva](fedelta-cognitiva.md)).
 
 ## Le quattro proprietà cardine come criteri di qualità per L2
 
@@ -85,3 +100,4 @@ Connessioni:
 - [metodo-kb](metodo-kb.md)
 - [knowledge-base](knowledge-base.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [fedelta-cognitiva](fedelta-cognitiva.md)

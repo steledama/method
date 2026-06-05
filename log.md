@@ -4,6 +4,57 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-05 — Cicli annidati e il guasto del gulf di valutazione (caso bi/1018022)
+
+Sessione mista: confronto terminologico + un caso reale di `bi` usato come banco di prova,
+sfociata in due modifiche ai nodi.
+
+**Terminologia input/output — deciso di tenerla.** Vagliata l'alternativa
+`esecuzione/valutazione` (fedele a Norman, più "vestita"). Tenuto `input/output` perché:
+le sigle `i1..i3`/`o1..o3` derivano dalle iniziali e sono sistematiche (due regole, sei
+sigle derivabili), mentre i nomi di Norman vanno memorizzati uno a uno; in inglese
+*execution* ed *evaluation* collidono sulla `e`; e — punto dirimente — la circolarità del
+ciclo (Norman è opportunistico: può partire dal goal o dallo stimolo/affordance) toglie
+ogni "ordine corretto", lasciando intatto solo il significato *direzionale* di input/output
+(dentro/fuori dal sistema), che è invariante rispetto al punto d'innesco. Scartata l'idea
+di usare i nomi-stadio di Norman come etichette degli strati: gli stadi sono *atti
+cognitivi* (verbi), gli strati sono *artefatti* (il referto non "percepisce", è il
+percepito) — mismatch ontologico. Sintesi adottata: sigla i/o come struttura, verbo di
+Norman come *glossa* d'insegnamento.
+
+**Cicli annidati (contributo nuovo, in `ciclo-azione`).** Un progetto code-based non ha un
+ciclo d'azione ma due, annidati: il *ciclo di sviluppo* (Goal → todo → commit; mondo = il
+codebase; il suo `o3`/L3 *è il codice*) dentro il *ciclo runtime* (il codice esegue e
+produce L1/L2/L3). Il codice è insieme L3 del primo e macchina del secondo. Risalire da un
+output al task — `output → codice → commit → todo → goal` — è attraversare l'annidamento:
+`git-history`/`log`/`todo` sono le fonti che registrano il ciclo di cui ogni artefatto è un
+fossile. È il senso preciso in cui il metodo *estende* Norman: il Mondo, scatola nera per
+Norman, qui è esso stesso un artefatto con provenienza — il metodo la apre.
+
+**Affinata `o1`/`o2` (continuità col 2026-06-04).** Non due stadi diversi di Norman ma lo
+stesso Plan/Specify rivolto a due *consumatori* (macchina/umano) — la stessa intuizione già
+annotata ieri ("o1 non manca: è il ciclo applicato al secondo agente"), ora portata nel
+corpo del nodo.
+
+**Il guasto e il nuovo check di fedeltà.** Caso `bi`/1018022: un cliente ha comprato 2 pezzi
+contro giacenza 1, perché il payload pubblicato portava `backorders: notify` + `preordine`
++ `supplier_name: nd` su un prodotto a *solo magazzino*. Radice: il commit 25848303
+ripristinò un comportamento storico ("presente nei backorders ⇒ fornitore esterno") *dopo*
+che il 26-05 il modello dati aveva cambiato significato (la sorgente interna era entrata nei
+backorders). Il guasto non vive nel runtime ma nel **gulf of evaluation del ciclo di
+sviluppo**: la decisione fu eseguita (commit) ma la sua *assunzione* non fu formalizzata in
+`log.md` — visse nel messaggio di commit — quindi mai ri-valutata quando i dati cambiarono.
+Da qui un check in `fedelta-cognitiva` ("Decisioni e assunzioni"): una decisione di
+compatibilità deve registrare *su quale assunzione poggia*, non solo cosa preserva — "X
+presuppone Y; se Y cambia, riaprire". Il caso 1018022 è anche la prima prova empirica,
+event-driven, che lo strato input non è simmetria teorica: un `o3` non riconciliato via `i3`
+produce drift silenzioso che esplode mesi dopo nel mondo.
+
+**Nota d'implementazione.** I due nodi sono scritti in `L1/L2/L3`, non in `o1/o2/o3`, per
+non frammentarli: la conversione la fa in blocco `rifondazione-input-output`, che già lista
+`ciclo-azione` tra i file da convertire. Questa stessa voce di log è l'`i3` del ciclo di
+sviluppo di oggi — scritta apposta per non ricadere nel guasto che ha appena formalizzato.
+
 ## 2026-06-04 — Rifondazione: salto di quota concettuale (artefatto cognitivo)
 
 Sessione di dialogo concettuale, ancora **pre-implementazione** (si seziona prima di
