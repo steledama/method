@@ -27,7 +27,7 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 
 ## Tasks aperti
 
-Nessun task aperto al 2026-06-05.
+- [affinamento-o2](todo/affinamento-o2.md) — rilettura ravvicinata della presentazione (`metodo-in-sintesi.md`) e l'o2 come strumento diagnostico condiviso tra umano e LLM
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando completati.
 
