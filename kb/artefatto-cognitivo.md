@@ -32,6 +32,7 @@ L'artefatto cognitivo si distingue dal *sistema cognitivo* in cui opera. L'artef
 
 Connessioni:
 
+- [sistema-cognitivo](sistema-cognitivo.md)
 - [ciclo-azione](ciclo-azione.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)

@@ -72,8 +72,9 @@ dentro ogni artefatto — *come un artefatto si produce e si valuta nel tempo* (
 
 ## Nodi candidati
 
-- `artefatto-cognitivo` (nuovo)
-- `sistema-cognitivo` (nuovo, cerniera — dove vive l'asimmetria dei modelli mentali)
+- ✅ `artefatto-cognitivo` → `kb/artefatto-cognitivo.md` (bozza, 2026-06-05)
+- ✅ `sistema-cognitivo` → `kb/sistema-cognitivo.md` (bozza, 2026-06-05) — asimmetria dei
+  modelli mentali, tripartizione artefatto/sistema/metodo; manca fonte primaria Hutchins
 - `goal` (nuovo, gerarchia dell'azione)
 - `ciclo-azione` (riscritto come ciclo a due agenti) — **cerniera con
   `rifondazione-input-output`**: coordinare con la conversione L→o/i, stessa passata sul nodo
