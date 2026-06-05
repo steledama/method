@@ -94,6 +94,9 @@ Una conseguenza forte di questa critica, che resta come principio di valutazione
 
 Connessioni:
 
+- [affordance-signifier](affordance-signifier.md)
+- [system-image](system-image.md)
+- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [ponte](ponte.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)

@@ -3,3 +3,8 @@
 # artefatti derivati dello strato output: il sorgente .md è la fonte unica,
 # il PDF si rigenera con md2pdf quando serve stamparlo o distribuirlo
 *.pdf
+
+# fonti grezze (i1): binari sotto copyright, repo pubblico → non versionati.
+# Versionato solo il manifest di provenienza che alimenta i ## Riferimenti (i3).
+sources/*
+!sources/README.md

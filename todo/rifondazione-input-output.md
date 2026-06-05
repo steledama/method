@@ -250,10 +250,16 @@ Progetti adottanti: `nixos`, `bi`, `economia`, `salute`.
 
 ## Decisioni ancora aperte
 
-1. **Dove vivono le fonti grezze (i1) nel repo?** — *decisione cardine, da sciogliere col
-   dogfooding, non a scrivania.* Il repo non ha `fonti/`. Posare *un* i1 reale (il segnale
-   `bi`/1018022 o un estratto di Norman, cfr. `ingest-norman`) e farlo passare per i1→i2→i3
-   prima di scrivere la sezione "strato input" di `output.md`. Bottom-up.
+1. **Dove vivono le fonti grezze (i1) e le note distillate (i2)?** — *sciolta col dogfooding
+   (2026-06-05).*
+   - **i1**: gli EPUB/PDF di Norman vivono in **`sources/`**, binari **non versionati**
+     (`sources/*` + `!sources/README.md` in `.gitignore`: copyright + repo pubblico), con un
+     **manifest versionato** (`sources/README.md`) che registra la provenienza.
+   - **i2**: **nessuna casa separata — l'i2 è un nodo `kb/` in `stato: bozza`**; il passaggio
+     i2→i3 è la maturazione `bozza→maturo`. Primo i2 posato: `kb/affordance-signifier.md`.
+   - Implicazione per la sezione "strato input" di `output.md`: i1 ha una collocazione
+     fisica dedicata e gitignorata; i2/i3 vivono entrambi in `kb/`, distinti solo dallo
+     `stato`. Questo va scritto nel nodo. Vedi `ingest-norman`.
 
 2. **Strato input obbligatorio o opzionale nella struttura di progetto?** Alcuni progetti
    hanno fonti grezze dense (economia, salute), altri quasi solo input intenzionale (nixos).

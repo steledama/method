@@ -4,6 +4,87 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-05 — Primo arco input dogfoodato: `i1` Norman in `sources/`, tre `i2` come nodi bozza
+
+Sessione breve e operativa, ma scioglie una decisione che era ferma sulla carta. Il task
+`ingest-norman` prevedeva il primo pilota dello strato input; `rifondazione-input-output`
+aveva la decisione cardine #1 ("dove vivono le fonti grezze i1?") esplicitamente sospesa,
+*da sciogliere col dogfooding, non a scrivania*. Questa sessione fa proprio quello: posa un
+i1 reale e lascia che sia la posa a decidere la struttura.
+
+**`sources/`, non `fonti/`.** Scelto l'inglese: anticipa la traduzione del repo già decisa,
+si allinea alla nomenclatura i1/i2/i3 e tiene il nome separato dalla sigla (la cartella è
+*dove vivono gli i1*, non si chiama `i1`).
+
+**I binari non si versionano, la provenienza sì.** Tre ragioni convergono: i libri sono
+sotto copyright e il repo è pubblico (versionarli = distribuirli); metodologicamente l'i1
+grezzo sta *separato* dai nodi distillati (il repo versiona i2/i3, non il binario); e il
+`.gitignore` già escludeva i `*.pdf` — ma per l'altro motivo (output derivati), e l'EPUB
+sarebbe sfuggito. Sistemato con `sources/*` + `!sources/README.md`. Il manifest versionato
+registra edizione, formato e ISBN di ogni fonte: è la base dei `## Riferimenti` (i3, fedeltà
+alle fonti — *quale libro per quale idea*), riproducibile senza distribuire i file.
+
+**La scelta della copia è un atto di fedeltà, non di igiene.** Erano arrivate quattro copie
+di DOET. Tenuta solo l'**EPUB 2013 Revised and Expanded** perché è l'edizione che *aggiunge*
+affordance e signifier rispetto all'orig. 1988 — i concetti che servono — e perché l'EPUB ha
+testo nativo, qualità superiore al PDF per la distillazione i1→i2. Scartate l'ed. 2002 (priva
+di signifier), una scansione da 23 MB senza strato testo (5 caratteri estraibili in 5 pagine,
+inservibile) e il PDF 2013 ridondante. *Emotional Design* (2004) resta come copia unica.
+Registrato anche il gap noto: *Things That Make Us Smart* (1993) — fonte dei concetti nuovi
+(artefatto cognitivo, cognizione distribuita) — non ancora reperito.
+
+**Primo i2, e la decisione su dove vive.** Nella stessa sessione il passaggio è andato avanti
+fino all'i2: la prima nota distillata, dal testo *reale* dell'EPUB (estratto con `pandoc`,
+non a memoria — fedeltà alla fonte). Concetto scelto: **affordance e signifier**, Cap. 1 di
+DOET 2013 — esattamente l'aggiunta per cui avevamo tenuto questa edizione (Norman la dichiara
+«the most important addition to the chapter»). Decisione sciolta col dogfooding: **l'i2 non
+ha una casa separata, *è* un nodo bozza in `kb/`**, e il passaggio i2→i3 *è* la maturazione
+`bozza→maturo`. Coerente con come il repo già fa maturare i nodi (`ponte`, `ciclo-azione`
+sono bozza per scelta); scartate la co-locazione in `sources/` e una cartella `i2/` dedicata
+perché avrebbero introdotto una terza casa per qualcosa che è già conoscenza in formazione.
+
+Due i2 posati nella stessa sessione, entrambi bozza, collegati a/da `ciclo-azione`,
+indicizzati, lint pulito. Il guadagno concettuale non è didascalico: in entrambi è la *fonte*
+a fondare l'estensione del metodo, non il metodo a forzare la fonte.
+
+- `kb/affordance-signifier.md`: la definizione di Norman dell'agente che interagisce — «a
+  person, animal, **or machine**» — fonda testualmente il ciclo a due agenti. I due strati
+  output (L1 macchina, L2 umano) sono i signifier di cui ciascun agente ha bisogno.
+- `kb/system-image.md`: il triangolo design model / system image / user's model, con «the
+  entire burden of communication is on the system image», fonda testualmente la tesi *la KB è
+  il system image condiviso dai due agenti*. L'asimmetria già annotata il 04-06 trova qui la
+  sua radice in Norman: per l'umano la KB è impalcatura esterna a un modello che già possiede,
+  per l'LLM il system image e lo user's model coincidono (riparte da zero). E un aggancio non
+  cercato: Norman dice che un modello semplificato vale «only as long as the assumptions that
+  support them hold true» — è il meccanismo esatto del guasto `bi`/1018022 e la giustificazione
+  del check "decisioni e assunzioni" in `fedelta-cognitiva`.
+- `kb/visceral-behavioral-reflective.md` (da *Emotional Design* 2004): i tre livelli di
+  elaborazione. La KB è lo strato *reflective* — «the learning of new concepts and
+  generalizations about the world» —, e l'esempio della staccionata di Norman (riflettere
+  sull'esito, «move the fence... so we don't have to walk around next time... also tell other
+  people») *è* il filing back, parola per parola. Il limite del riflessivo, «it does not have
+  direct access to the control of behavior... it watches over and tries to bias the behavioral
+  level», è il gulf of execution in termini neuropsicologici e la ragione per cui lo strato
+  output esiste: il sapere non agisce, condiziona l'azione altrui. Questa fonte aggiunge ciò
+  che le altre due non danno — la dimensione affettiva (orgoglio/possesso/storia del repo),
+  che tiene l'umano nel loop quando il behavioral è delegato alla macchina.
+
+Sono anche i primi tre `## Riferimenti` posati con provenienza esatta (edizione, capitolo,
+sezione) invece della citazione vaga di seconda mano — il payoff dell'i3 sulla fedeltà.
+
+**Cos'è l'estrazione testuale di una fonte.** Domanda emersa dogfoodando: il `.txt` prodotto
+da `pandoc`/`pdftotext` è i1 o i2? È **i1 in forma testuale canonica** — stesso contenuto del
+binario, nessuna interpretazione; la linea i1→i2 è l'*interpretazione*, e lì non ce n'è. Vive
+in `sources/` accanto al binario come superficie di lavoro (greppabile, verificabile), e per
+copyright è ignorata esattamente come il binario — anzi a maggior ragione, essendo testo
+pieno cercabile. Il manifest ora versiona la *ricetta di rigenerazione*, non il testo.
+
+**Cosa resta.** La decisione cardine #1 è sciolta su entrambe le metà (i1 in `sources/`, i2
+come nodo bozza), e le fonti che abbiamo sono ora distillate (tre i2, due da DOET, uno da
+*Emotional Design*). Restano: il gap di *Things That Make Us Smart* (artefatto cognitivo,
+cognizione distribuita) che tiene zoppo l'i3 sui nodi `artefatto-cognitivo`/`sistema-cognitivo`;
+e la maturazione `bozza→maturo` dei tre nuovi nodi, primo i2→i3 da osservare nell'uso.
+
 ## 2026-06-05 — Cicli annidati e il guasto del gulf di valutazione (caso bi/1018022)
 
 Sessione mista: confronto terminologico + un caso reale di `bi` usato come banco di prova,
