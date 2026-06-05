@@ -4,6 +4,34 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-05 — Chiusura del ciclo concettuale: tre nodi nuovi, sweep nomenclatura, todo/ svuotato
+
+Sessione esecutiva che chiude il lavoro concettuale avviato il 04-06 e portato in pianificazione il 05-06 mattina. Due filoni paralleli: (1) tre nuovi nodi di quota superiore fondati su fonti; (2) sweep completo della rifondazione input/output.
+
+**`representation.pdf` scioglie il gap di fonte.** In `sources/` erano già presenti i testi di Norman distillati nelle sessioni precedenti; oggi è apparso anche `representation.pdf` — il Capitolo 3 di *Things That Make Us Smart* (1993), con due estrazioni testuali (`pdftotext` e GLM-OCR). È esattamente la fonte che mancava per fondare `artefatto-cognitivo` e `sistema-cognitivo` su un testo reale invece che su citazioni di seconda mano. Il gap registrato in `sources/README.md` e in `ingest-norman` si chiude parzialmente: il Cap. 3 è ora distillato, il volume completo resta da reperire.
+
+**Tre nodi di quota superiore.** Il lavoro concettuale del 04-06 — tripartizione artefatto/sistema/metodo, gerarchia del goal, genus/species — era rimasto in `log.md` e in `todo/artefatto-cognitivo.md`. Questa sessione lo porta nei nodi:
+
+- `kb/artefatto-cognitivo.md` — fondato sul Cap. 3 di Norman: definizione di artefatto cognitivo, sistema di rappresentazione (represented/representing world), distinzione cognizione esperienziale vs riflessiva, principio di naturalezza (Simon: "solving a problem simply means representing it so as to make the solution transparent"). Aggancio diretto al metodo: la KB è ben progettata quando la risposta giusta emerge per ispezione, non per calcolo.
+- `kb/sistema-cognitivo.md` — fondato su Hutchins (*Cognition in the Wild*, 1995) e Norman (1991): il sistema cognitivo come accoppiamento dinamico artefatto + umano + LLM; asimmetria strutturale tra i due agenti (per l'LLM la KB *è* il modello mentale, non un promemoria); tripartizione artefatto/sistema/metodo con la distinzione operativa portabile/emergente. Aggiunta nella seconda passata la sezione Genus e species: lo stack di messa-in-opera (A) vs la discendenza degli artefatti (B); il metodo come genere, i quattro repo come specie; auto-riferimento del metodo che si applica a sé stesso.
+- `kb/goal.md` — fondato su Leontiev (activity theory): gerarchia motivo → goal → operazione; `goal`/`task`/`todo` come tre altitudini non sinonime. Confine aperto di Norman: il ciclo presuppone il goal ma non lo forma. Due modi di i3: verdetto (loop noti, delegabile) e triage/formazione-goal (esogeno, la cosa meno esternalizzabile — eco di Bainbridge).
+
+I tre nodi completano il vocabolario che il metodo non aveva: sapeva cosa produce (output), come lo produce (ciclo), dove lo conserva (KB), ma non aveva il nome preciso di *cosa è* l'oggetto che coltiva né di *cosa vuole* chi lo usa.
+
+**Sweep nomenclatura: rifondazione completata.** La conversione `ponte → output`, `L1/L2/L3 → o1/o2/o3` era pianificata da settimane e sempre posticipata perché toccava molti file. Questa sessione la esegue per intero:
+
+- `kb/output.md` — nodo nuovo che sostituisce `ponte.md`: o1/o2/o3 + strati input i1/i2/i3 + cappio con due cerniere asimmetriche (Mondo e KB). Il cappio era formulato nel log del 04-06 e mai disegnato; ora è nel corpo del nodo e nel diagramma mermaid della presentazione.
+- `kb/ciclo-azione.md` — tabella sinottica Norman → o/i; sezione gulf estesa a i1/i2/i3; cappio a due cerniere come struttura del ciclo. La nomenclatura L è eliminata ovunque.
+- `presentazione/metodo-in-sintesi.md` — il diagramma "ciclo che si chiude" mostra ora entrambi gli archi (o1/o2/o3 e i1/i2/i3) con la freccia di ritorno i3→KB.
+- Sweep in 10 nodi: affordance-signifier, confronto-progetti-adottanti, design-principles, knowledge-base, mappa, metodo-kb, pattern-karpathy, strumenti-kb, struttura-progetto, zettelkasten.
+- `kb/ponte.md` eliminato.
+
+**`todo/` svuotato.** Per la prima volta da quando la rifondazione era stata aperta, `todo/` è vuoto. I tre task (`rifondazione-input-output`, `ingest-norman`, `artefatto-cognitivo`) sono stati eliminati — non marcati completato nel frontmatter, eliminati: il contenuto era tutto nei nodi, il perché in questo log, la storia in git. La regola del metodo applicata a sé stessa.
+
+**Cosa resta aperto (non come task, come stato dei nodi).** I cinque nuovi nodi bozza del 05-06 (`artefatto-cognitivo`, `sistema-cognitivo`, `goal`, `output`, più i tre del mattino) attendono la maturazione `bozza→maturo` che arriverà dall'uso reale. Il volume completo di *Things That Make Us Smart* non è ancora reperito: Hutchins e Leontiev sono citati nei Riferimenti ma non in `sources/`. La fonte primaria Hutchins per `sistema-cognitivo` e la fonte Leontiev per `goal` sono debit di fedeltà da colmare.
+
+---
+
 ## 2026-06-05 — Primo arco input dogfoodato: `i1` Norman in `sources/`, tre `i2` come nodi bozza
 
 Sessione breve e operativa, ma scioglie una decisione che era ferma sulla carta. Il task
