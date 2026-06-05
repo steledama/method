@@ -64,8 +64,12 @@ vivono i2 (note distillate) e come si dichiara lo strato input nei progetti adot
      è il gulf of execution e la ragione dello strato output. Aggiunge la dimensione affettiva.
    - ✅ fonti disponibili esaurite. (Le estrazioni `.txt` di lavoro stanno in `sources/`,
      ignorate: sono i1 in forma testuale, non i2 — vedi `sources/README.md`.)
-   - ⛔ artefatto cognitivo, cognizione distribuita → richiedono *Things That Make Us Smart*
-     (non reperito, vedi gap sotto).
+   - ✅ **artefatto cognitivo** → `kb/artefatto-cognitivo.md` (bozza), Cap. 3 *Things That
+     Make Us Smart* (PDF `sources/representation.pdf`). Aggancio chiave: il principio di
+     naturalezza (cognizione esperienziale vs riflessiva) è il criterio di progetto dello
+     strato output; distinzione artefatto cognitivo / sistema cognitivo fonda la portabilità.
+   - ⛔ cognizione distribuita → richiede capitoli ulteriori di *Things That Make Us Smart*
+     (volume completo non ancora reperito).
 4. i3 — i concetti distillati maturano/creano i nodi (`artefatto-cognitivo`,
    `sistema-cognitivo`, `ciclo-azione`, `goal`); aggiornare i `## Riferimenti` con la fonte
    corretta per ogni concetto (fedeltà alle fonti: quale libro per quale idea). Primo
@@ -73,9 +77,10 @@ vivono i2 (note distillate) e come si dichiara lo strato input nei progetti adot
 
 ## Gap di fonte ancora aperto
 
-*Things That Make Us Smart* (1993) — fonte dei concetti nuovi (artefatto cognitivo,
-cognizione distribuita) — **non ancora reperito**. Registrato in `sources/README.md`. I3 sui
-nodi `artefatto-cognitivo`/`sistema-cognitivo` resta zoppo finché manca questa fonte.
+*Things That Make Us Smart* (1993) — il **Cap. 3** è ora disponibile (`sources/representation.pdf`)
+e distillato in `kb/artefatto-cognitivo.md`. Resta aperto il volume completo: i capitoli
+sulla cognizione distribuita e su artefatti esperienziali in altri contesti non sono ancora
+disponibili. `sistema-cognitivo` resta da scrivere come nodo separato.
 
 ## Connessioni
 

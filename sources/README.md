@@ -29,6 +29,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 | --- | --- | --- | --- | --- |
 | *The Design of Everyday Things* | Revised and Expanded, 2013 | EPUB | 978-0465050659 | Fonte canonica per `ciclo-azione`. L'ed. 2013 è quella che **aggiunge** affordance e signifier rispetto all'orig. 1988. Scelto l'EPUB (testo nativo riflowabile) come miglior i1 per la distillazione. |
 | *Emotional Design — Why We Love (or Hate) Everyday Things* | 2004 | PDF | 978-0465051366 | Citata in `ciclo-azione`; copia unica, strato testo verificato. |
+| *Things That Make Us Smart* — Cap. 3 «The Power of Representation» | 1993 | PDF (estratto) | 978-0201626957 | Fonte per `artefatto-cognitivo`. Capitolo disponibile; testo estratto con pdftotext (`representation.txt`) e GLM-OCR (`representation-glm-ocr.txt`, con indicatori di pagina — qualità superiore). L'intero volume non è ancora reperito. |
 
 ### Scelta delle copie (2026-06-05)
 
@@ -41,7 +42,8 @@ testo (inservibile), e il PDF 2013 (ridondante con l'EPUB).
 
 ## Gap noto
 
-- *Things That Make Us Smart* (1993, ISBN 978-0201626957) — **non ancora reperito.** È la
-  fonte dei concetti nuovi emersi nella rifondazione (artefatto cognitivo, cognizione
-  distribuita, cognizione esperienziale vs riflessiva) e oggi non è citata in nessun nodo.
-  Quando reperita, aggiungerla qui e farla passare per i1→i2→i3.
+- *Things That Make Us Smart* (1993, ISBN 978-0201626957) — il **Cap. 3 «The Power of
+  Representation»** è ora disponibile come PDF (`representation.pdf`) e distillato in
+  `kb/artefatto-cognitivo.md` (bozza). Il volume completo (in particolare i capitoli su
+  cognizione distribuita e sugli artefatti esperienziali vs riflessivi negli altri contesti)
+  non è ancora reperito.
