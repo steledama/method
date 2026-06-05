@@ -140,6 +140,24 @@ intende il sistema intero, e "the KB" solo quando si intende specificamente i no
 di conoscenza. Non una correzione meccanica a posteriori — una consapevolezza da
 mantenere mentre si scrive.
 
+## Fuori scope: lo scorporo concettuale (2026-06-05)
+
+Le sessioni 04-06 e 05-06 hanno alzato la quota oltre la rinomina i/o. Per non gonfiare
+questo task — che resta focalizzato sulla *struttura input/output* — i concetti di quota
+superiore si scorporano in un task dedicato (`todo/artefatto-cognitivo.md`): tripartizione
+artefatto cognitivo / sistema cognitivo / metodo, ciclo d'azione a *due agenti* (umano + LLM
+che condividono il system image), gerarchia del Goal (motivo → goal → operazione), stack
+L0/L1/L2. Sono un asse diverso — *cosa è* l'oggetto — dal *come funziona* la struttura i/o.
+
+Cerniera: `ciclo-azione` è toccato da entrambi i task (qui per la conversione L→o/i, là per
+la riscrittura a due agenti). Coordinare: le due modifiche al nodo vanno fatte nella stessa
+passata, non in due sweep separati.
+
+Già fatto in questa sessione (in nomenclatura `L`, in attesa di conversione i/o):
+`ciclo-azione` ha la sezione "Cicli annidati" e l'affinamento o1/o2 (stesso Plan/Specify, due
+consumatori); `fedelta-cognitiva` ha il check "Decisioni e assunzioni". La conversione L→o/i
+li spazza insieme al resto.
+
 ## Scope delle modifiche
 
 ### 1. Rinominare `kb/ponte.md` → `kb/output.md`
@@ -209,46 +227,48 @@ Tuttavia verificare se qualche progetto adottante:
 
 Progetti adottanti: `nixos`, `bi`, `economia`, `salute`.
 
-## Decisioni aperte (da risolvere durante l'implementazione)
+## Decisioni risolte (2026-06-05)
 
-1. **Nomenclatura dei due lati: input/output o execution/evaluation?**
-   Le due coppie candidate sono:
-   - **input/output** — autoesplicativo, si aggancia alla metafora informatica già presente nel metodo
-   - **esecuzione/valutazione** — fedele a Norman, rende esplicita la derivazione teorica ma meno immediato
-   La corrispondenza è: input ↔ valutazione (evaluation side di Norman), output ↔ esecuzione
-   (execution side di Norman). Non escludere a priori un termine proprio del metodo che emerga
-   durante la scrittura dei nodi. Lasciare aperta fino all'implementazione.
+1. **Nomenclatura dei due lati → `input/output` (+ sigle `i1..i3` / `o1..o3`).**
+   Scartata `esecuzione/valutazione` benché fedele a Norman. Ragioni: le sigle i/o derivano
+   dalle iniziali e sono *sistematiche* (due regole, sei sigle derivabili), mentre i
+   nomi-stadio di Norman vanno memorizzati uno a uno; in inglese *execution* ed *evaluation*
+   collidono sulla `e`; e la circolarità del ciclo (Norman è opportunistico — può partire dal
+   goal o dallo stimolo/affordance) toglie ogni "ordine corretto", lasciando intatto solo il
+   significato *direzionale* di input/output (dentro/fuori dal sistema), invariante rispetto
+   al punto d'innesco. I nomi-stadio di Norman (perceive/interpret/compare,
+   plan/specify/perform) **non** diventano etichette degli strati — sono atti cognitivi, gli
+   strati sono artefatti (il referto non "percepisce", è il percepito): entrano come *glossa*
+   d'insegnamento accanto alla sigla, non al suo posto.
 
-2. **Lingua del repo: italiano o inglese?**
-   Il repo è attualmente in italiano. Durante la rifondazione vale la pena decidere se
-   passare all'inglese. Argomenti a favore:
-   - il repo è pubblico e l'inglese ne aumenta la visibilità e leggibilità internazionale
-   - l'inglese è già la lingua naturale del dominio tecnico (git, KB, LLM, repo, skill,
-     frontmatter) — passarci riduce la tensione tra lingua della narrazione e lingua degli strumenti
-   - fedeltà alle fonti: Karpathy e Norman sono anglofoni nativi; Luhmann è tedesco ma il
-     suo lavoro vive nell'accademia internazionale in inglese. Scrivere il metodo in inglese
-     è un avvicinamento linguistico ai tre giganti su cui si appoggia — una forma di fedeltà
-     cognitiva alle fonti, non solo una scelta di visibilità
-   Rischio: la profondità concettuale dei nodi è stata costruita in italiano — una traduzione
-   frettolosa potrebbe appiattirla. Se si decide per l'inglese, tradurre con cura durante
-   la riscrittura dei nodi, non meccanicamente a posteriori.
-   La propensione attuale è per l'inglese, coerente con la scelta di tenere il repo pubblico.
+2. **Lingua → inglese.** Tradurre con cura nodo per nodo durante la riscrittura, mai
+   meccanicamente a posteriori (la profondità concettuale è stata costruita in italiano).
+   Motivazioni: repo pubblico; l'inglese è già la lingua del dominio tecnico (git, KB, LLM,
+   frontmatter); fedeltà alle fonti (i tre giganti vivono nell'accademia anglofona).
+   Conseguenza operativa: usare "the method" per il sistema intero e "the KB" solo per i nodi
+   di conoscenza (cfr. nota sulla sineddoche).
 
-3. **Strato input come componente obbligatorio o opzionale della struttura di progetto?**
-   Alcuni progetti hanno fonti grezze ben definite (economia: estratti conto, referti);
-   altri meno (nixos: l'input è quasi tutto intenzionale). Probabilmente: dichiarazione
-   obbligatoria nella struttura, anche se i1 è vuoto o implicito.
+## Decisioni ancora aperte
 
-2. **Rinominare anche i1/i2/i3 in modo specifico per dominio?** Come per L1/L2/L3
-   nei progetti adottanti (es. `salute` chiama l'output "quadro/"), anche l'input
-   potrebbe avere nomi locali. La struttura metodologica usa i1/i2/i3; i nomi locali
-   sono liberi.
+1. **Dove vivono le fonti grezze (i1) nel repo?** — *decisione cardine, da sciogliere col
+   dogfooding, non a scrivania.* Il repo non ha `fonti/`. Posare *un* i1 reale (il segnale
+   `bi`/1018022 o un estratto di Norman, cfr. `ingest-norman`) e farlo passare per i1→i2→i3
+   prima di scrivere la sezione "strato input" di `output.md`. Bottom-up.
 
-3. **Dove dichiarare lo strato input nei progetti adottanti?** Nella mappa, nel README,
-   in un file dedicato? La dichiarazione minima di `ponte.md` riguardava l'output; va
-   estesa simmetricamente.
+2. **Strato input obbligatorio o opzionale nella struttura di progetto?** Alcuni progetti
+   hanno fonti grezze dense (economia, salute), altri quasi solo input intenzionale (nixos).
+   Propensione: dichiarazione obbligatoria, anche se i1 è vuoto o implicito.
+
+3. **Nomi locali per i1/i2/i3?** Come per l'output (`salute` chiama l'output "quadro/"): la
+   struttura usa i1/i2/i3, i nomi locali sono liberi.
+
+4. **Dove dichiarare lo strato input nei progetti adottanti?** Mappa, README, file dedicato?
+   La dichiarazione minima di `ponte.md` riguardava l'output; va estesa simmetricamente.
 
 ## Sequenza suggerita
+
+**Prima dello sweep** (deciso 2026-06-05): (a) questo consolidamento del task; (b) dogfood di
+*un* i1 reale per fissare la struttura fisica dell'input (decisione aperta #1). Solo dopo:
 
 1. Creare `kb/output.md` con il nuovo contenuto (non rinominare subito `ponte.md` —
    scrivere prima il nodo nuovo, poi eliminare il vecchio)

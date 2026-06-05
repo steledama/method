@@ -31,6 +31,7 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 | ---- | -------- | ---- |
 | [Rifondazione input/output](todo/rifondazione-input-output.md) | alta | Rename ponte→output, L1/L2/L3→o1/o2/o3, introduce strati i1/i2/i3, chiude l'analogia con Norman |
 | [Ingest dei libri di Norman](todo/ingest-norman.md) | media | Fonte grezza versionata; primo pilota dello strato input; dipende dalla rifondazione |
+| [Scorporo concettuale](todo/artefatto-cognitivo.md) | alta | Artefatto/sistema/metodo, ciclo a due agenti, gerarchia del Goal; cerniera su `ciclo-azione` con la rifondazione |
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando
 completati.
