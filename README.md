@@ -10,11 +10,11 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 
 ## Funzioni del repo
 
-- **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (ponte), strumenti, fedeltà cognitiva e principi.
+- **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (o1/o2/o3) e input (i1/i2/i3), strumenti, fedeltà cognitiva e principi.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
 - **Manutenzione propria del metodo**: task in `todo/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Strato output**: [`presentazione/metodo-in-sintesi.md`](presentazione/metodo-in-sintesi.md) è l'L2 del repo — cinque diagrammi che reggono il metodo intero (tre giganti, ciclo dell'azione, anatomia del progetto, sviluppo bottom-up, routing dei contenuti). Il metodo applica il proprio principio `ponte` a sé stesso: la sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (L3) si rigenera con `cd presentazione && md2pdf metodo-in-sintesi.md` e non viene versionato.
+- **Strato output**: [`presentazione/metodo-in-sintesi.md`](presentazione/metodo-in-sintesi.md) è l'o2 del repo — cinque diagrammi che reggono il metodo intero (tre giganti, ciclo dell'azione con o/i, anatomia del progetto, sviluppo bottom-up, routing dei contenuti). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (o3) si rigenera con `cd presentazione && md2pdf metodo-in-sintesi.md` e non viene versionato.
 
 ## Progetti adottanti
 
@@ -27,14 +27,9 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 
 ## Tasks aperti
 
-| Task | Priorità | Note |
-| ---- | -------- | ---- |
-| [Rifondazione input/output](todo/rifondazione-input-output.md) | alta | Rename ponte→output, L1/L2/L3→o1/o2/o3, introduce strati i1/i2/i3, chiude l'analogia con Norman |
-| [Ingest dei libri di Norman](todo/ingest-norman.md) | media | Fonte grezza versionata; primo pilota dello strato input; dipende dalla rifondazione |
-| [Scorporo concettuale](todo/artefatto-cognitivo.md) | alta | Artefatto/sistema/metodo, ciclo a due agenti, gerarchia del Goal; cerniera su `ciclo-azione` con la rifondazione |
+Nessun task aperto al 2026-06-05.
 
-I task con contesto operativo vivono in `todo/` e vengono rimossi quando
-completati.
+I task con contesto operativo vivono in `todo/` e vengono rimossi quando completati.
 
 ## Come collegare un nuovo progetto
 
@@ -65,7 +60,7 @@ completati.
 - [artefatto-cognitivo](kb/artefatto-cognitivo.md) — Strumento cognitivo esterno (Norman/Hutchins): la KB come artefatto che amplifica la mente; cognizione esperienziale vs riflessiva; principio di naturalezza come criterio di progetto dello strato output
 - [sistema-cognitivo](kb/sistema-cognitivo.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria dei due agenti (per l'LLM la KB è il modello mentale completo)
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; due modi di i3 (verdetto vs formazione-goal)
-- [ponte](kb/ponte.md) — Strato output del metodo: L1 macchina, L2 decisione umana, L3 azione nel mondo; risoluzione del conflitto Zettelkasten/Karpathy (la sintesi vive nello strato output, non nei nodi)
+- [output](kb/output.md) — Strato output (o1/o2/o3) e input (i1/i2/i3) del metodo: risoluzione del conflitto Zettelkasten/Karpathy; il cappio con due cerniere (Mondo e KB); criteri di Norman per o2
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 
 ### Componenti della ricetta

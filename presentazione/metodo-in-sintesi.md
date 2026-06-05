@@ -5,7 +5,7 @@ author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/metodo
 date: "2026.06.04"
 ---
 
-Strato output (L2) del repo `metodo`: la vista d'insieme leggibile a colpo d'occhio del metodo KB. Non è un nodo della KB — è la sintesi che, per la disciplina zettelkastiana, vive nel ponte e non nei nodi atomici. I cinque diagrammi reggono il metodo intero; il dettaglio sta nei nodi linkati in fondo.
+Strato output (o2) del repo `metodo`: la vista d'insieme leggibile a colpo d'occhio del metodo KB. Non è un nodo della KB — è la sintesi che, per la disciplina zettelkastiana, vive nello strato output e non nei nodi atomici. I cinque diagrammi reggono il metodo intero; il dettaglio sta nei nodi linkati in fondo.
 
 ## I tre giganti
 
@@ -31,19 +31,23 @@ La KB non è il fine: è strumentale all'azione. Lo strato output traduce la con
 ```mermaid
 flowchart LR
     KB[("KB<br/>nodi atomici")]
-    L1["<b>L1</b> · macchina<br/>JSON, dati, .nix"]
-    L2["<b>L2</b> · decisione<br/>schemi, viste, slide"]
-    L3{{"<b>L3</b> · azione nel mondo<br/>email, parole, gesti, transazioni"}}
-    F["fonte di ritorno<br/>referto, paper trail, diario"]
-    KB --> L1
-    KB --> L2
-    L2 --> L3
-    L1 -.->|continua il lavoro tra sessioni| L2
-    L3 --> F
-    F -.->|filing back| KB
+    o1["<b>o1</b> · macchina<br/>JSON, dati, .nix"]
+    o2["<b>o2</b> · decisione<br/>schemi, viste, slide"]
+    o3{{"<b>o3</b> · azione nel mondo<br/>email, parole, gesti, transazioni"}}
+    i1["<b>i1</b> · segnale grezzo<br/>referto, log, documento"]
+    i2["<b>i2</b> · distillato<br/>nota, sintesi (bozza KB)"]
+    i3["<b>i3</b> · formalizzato<br/>nodo KB · verdetto · Goal"]
+    KB --> o1
+    KB --> o2
+    o2 --> o3
+    o1 -.->|continua il lavoro tra sessioni| o2
+    o3 --> i1
+    i1 --> i2
+    i2 --> i3
+    i3 -.->|aggiorna KB e forma il Goal| KB
 ```
 
-Solo L3 produce effetti reali; L1 e L2 sono strumentali. Senza strato output, la KB accumula conoscenza ma non chiude il ciclo.
+Solo o3 produce effetti reali; o1 e o2 sono strumentali. Lo strato input (i1/i2/i3) chiude il ciclo: il segnale del mondo ritorna nella KB e alimenta il prossimo Goal.
 
 ## Anatomia di un progetto
 
@@ -59,7 +63,7 @@ flowchart TB
     TODO["<b>todo/</b><br/><i>cosa devo fare adesso?</i>"]
     LOG["<b>log.md</b><br/><i>perché una decisione conta?</i>"]
     S["<b>scripts/ · skill</b><br/><i>quali controlli e workflow?</i>"]
-    OUT["<b>strato output (ponte)</b><br/><i>come traduco la KB in azione?</i>"]
+    OUT["<b>strato output</b><br/><i>come traduco la KB in azione?</i>"]
 
     A --> R
     R --> C
@@ -101,17 +105,18 @@ flowchart TB
     Q -->|perché una decisione conta| LOG["log.md"]
     Q -->|come agire / workflow| OP["CLAUDE.md · skill"]
     Q -->|orientamento e indice| R["README.md"]
-    Q -->|sintesi · vista · dashboard| OUT["strato output (ponte)"]
+    Q -->|sintesi · vista · dashboard| OUT["strato output"]
 ```
 
 ## Lo strato output di questo repo
 
-Dichiarazione minima del ponte del repo `metodo`, applicata a sé stesso:
+Dichiarazione minima dello strato output del repo `metodo`, applicata a sé stesso:
 
-- **L1 macchina**: `kb/` in markdown consumato dagli LLM via symlink; output di `scripts/kb_tools.py` (audit JSON/markdown)
-- **L2 decisione**: questo file — i cinque diagrammi del metodo in sintesi
-- **L3 azione**: il metodo applicato nei quattro repo adottanti (nodi creati, commit, KB mantenute)
-- **Fonte di ritorno**: l'osservatorio rilegge i repo adottanti e aggiorna `kb/confronto-progetti-adottanti.md`
+- **o1 macchina**: `kb/` in markdown consumato dagli LLM via symlink; output di `scripts/kb_tools.py` (audit JSON/markdown)
+- **o2 decisione**: questo file — i cinque diagrammi del metodo in sintesi
+- **o3 azione**: il metodo applicato nei quattro repo adottanti (nodi creati, commit, KB mantenute)
+- **i1 grezzo**: osservazioni dai repo adottanti (commit, task, log)
+- **Fonte di ritorno (i3)**: l'osservatorio rilegge i repo adottanti e aggiorna `kb/confronto-progetti-adottanti.md`
 - **Criterio di aggiornamento**: quando un gigante, un livello o un componente cambia nei nodi, qui si aggiorna il diagramma corrispondente
 
 ## Approfondimento
@@ -119,7 +124,7 @@ Dichiarazione minima del ponte del repo `metodo`, applicata a sé stesso:
 I diagrammi comprimono; i nodi spiegano.
 
 - tre giganti → `kb/ciclo-azione.md`, `kb/zettelkasten.md`, `kb/pattern-karpathy.md`
-- strato output e L1/L2/L3 → `kb/ponte.md`
+- strato output (o1/o2/o3) e strato input (i1/i2/i3) → `kb/output.md`
 - anatomia del progetto → `kb/struttura-progetto.md`
 - sviluppo bottom-up e osservatorio → `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`
 - dove vive cosa → `kb/metodo-kb.md` (regole sullo stato), `kb/zettelkasten.md` (regola pratica)

@@ -37,5 +37,5 @@ Connessioni:
 - [indice](indice.md)
 - [fonte-di-verita](fonte-di-verita.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)

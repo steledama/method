@@ -23,6 +23,16 @@ Il sistema cognitivo del metodo ha un'asimmetria strutturale tra i due agenti ch
 
 Questa asimmetria ha conseguenze di progetto: l'artefatto deve essere autosufficiente per l'agente che non porta nulla, senza per questo essere ridondante per l'agente che porta già molto. Non è un equilibrio facile — è la tensione che motiva la distinzione L1/L2 nello strato output, e che richiede che certe cose (assunzioni, contesto, ragioni di una decisione) siano esplicite nell'artefatto anche quando l'umano le ricorderebbe.
 
+## Genus e species
+
+Il sistema cognitivo del metodo si struttura su due gerarchie ortogonali da non sovrapporre.
+
+*(A) Stack di messa-in-opera* — il sistema cognitivo per sessione: agente (LLM, L0) + infrastruttura (harness, L1) + artefatto (l'istanza-di-metodo, L2). I tre livelli non sono tre "artefatti" dello stesso tipo — sono un agente, un'infrastruttura e una rappresentazione. Chiamarli tutti con lo stesso nome cancellerebbe la tesi di portabilità, che vive nel distinguere cosa è portabile (la rappresentazione) da cosa è sostituibile (agente + harness).
+
+*(B) Discendenza degli artefatti* — genus → species: il metodo è il genere (pattern d'artefatto portabile), i progetti `bi`/`salute`/`economia`/`nixos` sono le specie (lo stesso pattern applicato a un dominio specifico). Ogni specie è un artefatto cognitivo con i propri goal e i propri cicli d'azione. Auto-riferimento: `metodo` è un artefatto cognitivo il cui dominio è "costruire artefatti cognitivi di dominio" — di secondo ordine, si applica a sé stesso, ed è insieme il genere e una quinta specie su cui si può lavorare.
+
+Il legame: L2 nello stack (A) non è una cosa sola — è un *tipo* con istanze, cioè la gerarchia (B). Questo dà il vocabolario all'osservatorio cross-repo: il genere è ciò che generalizza, i tratti di specie sono ciò che resta locale. La domanda "cosa generalizzare, cosa lasciare locale" del README diventa precisa.
+
 ## Tripartizione
 
 I tre concetti — artefatto, sistema, metodo — si dividono il lavoro in modo netto:

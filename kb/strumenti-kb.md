@@ -51,7 +51,7 @@ Comandi principali:
 - `python3 scripts/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
 - `python3 scripts/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
 
-Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `todo/`. Non copre lo strato output (ponte), che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
+Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `todo/`. Non copre lo strato output, che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
 
 Regole d'uso:
 
@@ -113,5 +113,5 @@ Connessioni:
 - [nodo](nodo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)

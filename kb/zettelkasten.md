@@ -37,9 +37,9 @@ Regola pratica:
 - se spiega una decisione già presa, va in log.md
 - se istruisce un agente, va in CLAUDE.md o in una skill
 - se orienta il lettore, va in README.md
-- se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto (ponte), non in kb/
+- se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto, non in kb/
 
-Nel metodo KB, lo Zettelkasten è il primo dei tre pilastri metodologici. Fornisce la disciplina che regola la forma dei nodi: ogni nodo è atomico, le sintesi non stanno nel nodo. Il ponte — strato output del metodo — è il corollario diretto di questa disciplina: ospita le sintesi karpathiane, le viste e i dashboard che non possono entrare in kb/ senza violare l'atomicità. Senza lo strato output, la pressione di sintesi finisce dentro i nodi e corrompe il principio fondante.
+Nel metodo KB, lo Zettelkasten è il primo dei tre pilastri metodologici. Fornisce la disciplina che regola la forma dei nodi: ogni nodo è atomico, le sintesi non stanno nel nodo. Lo strato output è il corollario diretto di questa disciplina: ospita le sintesi karpathiane, le viste e i dashboard che non possono entrare in kb/ senza violare l'atomicità. Senza lo strato output, la pressione di sintesi finisce dentro i nodi e corrompe il principio fondante.
 
 Connessioni:
 
@@ -48,5 +48,5 @@ Connessioni:
 - [pattern-karpathy](pattern-karpathy.md)
 - [nodo](nodo.md)
 - [connessione](connessione.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)

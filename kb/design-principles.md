@@ -55,7 +55,7 @@ Esempi di principi specifici adottati nei progetti correnti:
 
 ## Principi per lo strato output
 
-Applicabili a tutti i progetti con uno strato output esplicito. Derivano dai criteri di Norman — visibilità, feedback, mapping, constraint — definiti come checklist di revisione del ponte in `ciclo-azione` e `ponte`. Vanno usati come criteri di revisione, non come target estetici.
+Applicabili a tutti i progetti con uno strato output esplicito. Derivano dai criteri di Norman — visibilità, feedback, mapping, constraint — definiti come checklist di revisione in `ciclo-azione` e `output`. Vanno usati come criteri di revisione, non come target estetici.
 
 Il principio cardine resta: se l'utente non agisce, lo strato output è mal progettato — non l'utente è pigro. Questi principi si valutano sul comportamento reale, non sulla qualità dei nodi sottostanti.
 
@@ -64,5 +64,5 @@ Connessioni:
 - [metodo-kb](metodo-kb.md)
 - [struttura-progetto](struttura-progetto.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)

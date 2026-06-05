@@ -64,11 +64,11 @@ Sessione del 2026-05-24: lo strato di output, finora trattato come "componente l
 - `economia`: `output/json/` (macchina) e `output/report*.md` (umano, ancora solo tabellare)
 - `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
 
-La formalizzazione vive nei nodi ponte (i tre livelli L1 macchina, L2 decisione umana, L3 azione nel mondo) e ciclo-azione (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
+La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 azione nel mondo; + strato input i1/i2/i3) e ciclo-azione (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
 
 La promozione non rimuove la variazione locale: il nome dello strato resta scelta di dominio. Quello che si stabilizza è la funzione (tradurre conoscenza in azione possibile) e i criteri di qualità (visibilità, feedback, mapping, constraint).
 
-Stato al 2026-06-03: i nodi `ponte` e `ciclo-azione` esistono, sono integrati nell'hub e referenziati dai progetti, ma restano `stato: bozza`. La maturazione era attesa dall'uso reale del pilota `salute/quadro/` (registro di cicli L2→L3→fonte→KB→quadro). La verifica vive ora come task locale `salute/todo/osservazioni-quadro-pilota.md`: finché quel pilota non produce 2-3 cicli completi documentati, i due nodi restano bozza per scelta, non per dimenticanza. La promozione a `maturo` è un filing back atteso da `salute`, coerente col flusso bottom-up.
+Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazione input/output), `ciclo-azione` aggiornato con la nomenclatura o/i e il cappio a due cerniere. Entrambi restano `stato: bozza` — la promozione a `maturo` è un filing back atteso dal pilota `salute/quadro/` quando produrrà 2-3 cicli completi documentati.
 
 ## Azioni suggerite
 
@@ -78,7 +78,7 @@ Stato al 2026-06-03: i nodi `ponte` e `ciclo-azione` esistono, sono integrati ne
 | `bi`                 | `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo    | monitoraggio              |
 | `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                | completato                |
 | `economia`           | audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti                                                    | completato                |
-| metodo / ponte       | promuovere `ponte` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati             | filing back atteso        |
+| metodo / output      | promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati            | filing back atteso        |
 | metodo / task        | mantenere `metodo/todo/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                    | regola stabile            |
 | metodo / strumenti   | un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce | bottom-up: in attesa      |
 | metodo / skill       | mantenere la triade `audit-kb` / `revisione-tasks` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio     | regola stabile            |
@@ -88,7 +88,7 @@ Connessioni:
 
 - [osservatorio-metodo](osservatorio-metodo.md)
 - [metodo-kb](metodo-kb.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
 - [struttura-progetto](struttura-progetto.md)
 - [readme](readme.md)

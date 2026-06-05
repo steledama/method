@@ -46,7 +46,7 @@ Ricetta metodologica:
 - `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade base ufficiale del metodo è `audit-kb` (diagnosi), `revisione-tasks` (supervisione del lavoro futuro) e `commit` (gate di filing back). Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
-- strato output (ponte): il livello che traduce la KB in azione possibile, separando output macchina (L1), decisione umana (L2) e azione nel mondo (L3). Il nome locale dipende dal dominio (`quadro/`, `presentazione/`, `output/`, configurazione di sistema), non dal metodo. La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `ponte` e `ciclo-azione`.
+- strato output: il livello che traduce la KB in azione possibile (o1 macchina / o2 decisione / o3 azione nel mondo) e che riceve il segnale di ritorno (i1 grezzo → i2 distillato → i3 formalizzato). Il nome locale dipende dal dominio (`quadro/`, `presentazione/`, `output/`, configurazione di sistema), non dal metodo. La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `output` e `ciclo-azione`.
 - convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `todo`.
 
 Creazione di un nuovo progetto:
@@ -158,5 +158,5 @@ Connessioni:
 - [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)
 - [connessione](connessione.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [ciclo-azione](ciclo-azione.md)

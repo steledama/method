@@ -33,14 +33,23 @@ Il modello canonico di Norman procede in sequenza:
 - Interpret — capisco cosa significa
 - Compare — confronto con il goal iniziale
 
-Nel metodo KB il ciclo si materializza sul triplo strato di output: ponte, L1/L2/L3.
+Nel metodo KB il ciclo si materializza sul doppio strato output/input:
 
-- esecuzione (Goal → Plan → Specify → Perform): KB → L2 → decisione → L3
-- valutazione (Perceive → Interpret → Compare): L3 → nuove fonti → KB → L2 aggiornata → confronto con il goal
+| Norman    | Metodo                                                         |
+| --------- | -------------------------------------------------------------- |
+| Plan      | o1 (macchina) + o2 (umano) — stesso stadio, due consumatori    |
+| Specify   | (idem — o1 e o2 non sono due stadi, sono due agenti)           |
+| Perform   | o3 — azione nel mondo                                          |
+| Perceive  | i1 — segnale grezzo (referto, log, export)                     |
+| Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza       |
+| Compare   | i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal |
 
-Plan e Specify si materializzano in due strati distinti non per due stadi diversi di Norman, ma per due *consumatori* diversi: L1 è la versione macchina (fatti strutturati per l'LLM che continua il lavoro tra sessioni), L2 la versione umana (vista leggibile per la decisione). Non sono due punti del ciclo — sono lo stesso Plan/Specify rivolto ai due agenti che lo portano avanti.
+**Il cappio con due cerniere.** La struttura non è uno specchio ma un cappio con due giunture asimmetriche. Il Goal è l'apice; il Mondo è il fondo.
 
-Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto, che diventa nuova fonte, che aggiorna `storia-clinica`, che ridipinge il termometro nel quadro.
+- Cerniera Mondo (o3 → i1): l'azione produce segnali, la percezione li raccoglie — stesso luogo, due versi.
+- Cerniera KB (i3 → Goal): i3 *scrive* l'esito; il Goal *legge* l'intenzione — scrivi-poi-leggi, non riflesso. La KB è la memoria persistente dove il ciclo si chiude.
+
+Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 
 ## I due gulf
 
@@ -48,28 +57,29 @@ Norman chiama gulf of execution la distanza tra "so cosa voglio" e "so come farl
 
 Nel metodo KB i due gulf si traducono così:
 
-- L1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
-- L2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
-- L3 è dove l'azione effettivamente accade — il "perform" del ciclo, fuori dal repo, nel mondo
+- o1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
+- o2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
+- o3 è dove l'azione effettivamente accade — il "Perform" del ciclo, fuori dal repo, nel mondo
+- i1/i2/i3 riducono il gulf of evaluation: trasformano il segnale grezzo del mondo in conoscenza interpretata e formalizzata, abbassando la distanza tra "il sistema mostra X" e "capisco cosa significa per me"
 
 ## Cicli annidati: i progetti code-based
 
 Nei progetti basati su codice il ciclo d'azione non è uno solo: ce ne sono due, annidati. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è un sistema software, l'artefatto stesso è il prodotto di un ciclo d'azione precedente.
 
-- **Ciclo di sviluppo**: Goal (serve una capacità) → Plan/Specify (il `todo`, dettagliato) → Perform (il commit). Il suo "mondo" è il codebase; il suo L3 — l'azione nel mondo — *è il codice*.
-- **Ciclo runtime**: il codice, eseguito, compie il proprio ciclo. Legge le fonti e produce L1 (artefatto macchina), L2 (vista di decisione), L3 (azione nel mondo reale: un'email, una transazione, un payload pubblicato).
+- **Ciclo di sviluppo**: Goal (serve una capacità) → Plan/Specify (il `todo`, dettagliato) → Perform (il commit). Il suo "mondo" è il codebase; il suo o3 — l'azione nel mondo — *è il codice*.
+- **Ciclo runtime**: il codice, eseguito, compie il proprio ciclo. Legge le fonti e produce o1 (artefatto macchina), o2 (vista di decisione), o3 (azione nel mondo reale: un'email, una transazione, un payload pubblicato).
 
-Il codice è insieme il L3 del ciclo di sviluppo e la macchina che esegue il ciclo runtime. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → todo → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `log` e `todo` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+Il codice è insieme l'o3 del ciclo di sviluppo e la macchina che esegue il ciclo runtime. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → todo → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `log` e `todo` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
 
 È il senso in cui il metodo *estende* Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; in un progetto code-based il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è il L3 di un ciclo che lo precede.
 
 **Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua *assunzione* non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `log.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (vedi [fedelta-cognitiva](fedelta-cognitiva.md)).
 
-## Le quattro proprietà cardine come criteri di qualità per L2
+## Le quattro proprietà cardine come criteri di qualità per o2
 
-Norman riassume il buon design in quattro proprietà. Diventano direttamente criteri di valutazione per lo strato L2 del metodo:
+Norman riassume il buon design in quattro proprietà. Diventano direttamente criteri di valutazione per o2 (output decisione):
 
-| Norman     | Criterio per L2                                                                                                      |
+| Norman     | Criterio per o2                                                                                                      |
 | ---------- | -------------------------------------------------------------------------------------------------------------------- |
 | Visibilità | tutti gli stati attivi sono percepibili a colpo d'occhio nell'overview, niente di rilevante è nascosto               |
 | Feedback   | dopo ogni evento il sistema mostra l'esito in modo evidente; non serve indagine per sapere cosa è cambiato           |
@@ -97,7 +107,8 @@ Connessioni:
 - [affordance-signifier](affordance-signifier.md)
 - [system-image](system-image.md)
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
-- [ponte](ponte.md)
+- [output](output.md)
+- [goal](goal.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)
 - [metodo-kb](metodo-kb.md)

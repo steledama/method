@@ -37,6 +37,6 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [system-image](system-image.md)
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
-- [ponte](ponte.md)
+- [output](output.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [metodo-kb](metodo-kb.md)
