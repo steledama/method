@@ -64,6 +64,7 @@ completati.
 - [visceral-behavioral-reflective](kb/visceral-behavioral-reflective.md) — I tre livelli di Norman (*Emotional Design*): la KB è lo strato riflessivo, che non agisce ma condiziona il behavioral attraverso l'output; emozione e cognizione si intrecciano
 - [artefatto-cognitivo](kb/artefatto-cognitivo.md) — Strumento cognitivo esterno (Norman/Hutchins): la KB come artefatto che amplifica la mente; cognizione esperienziale vs riflessiva; principio di naturalezza come criterio di progetto dello strato output
 - [sistema-cognitivo](kb/sistema-cognitivo.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria dei due agenti (per l'LLM la KB è il modello mentale completo)
+- [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; due modi di i3 (verdetto vs formazione-goal)
 - [ponte](kb/ponte.md) — Strato output del metodo: L1 macchina, L2 decisione umana, L3 azione nel mondo; risoluzione del conflitto Zettelkasten/Karpathy (la sintesi vive nello strato output, non nei nodi)
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 

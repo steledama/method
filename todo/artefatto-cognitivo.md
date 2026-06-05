@@ -21,9 +21,9 @@ che il metodo coltiva, distinto dal *come funziona* la struttura i/o.
 - ⏳ **Stack a livelli** (L0 modello → L1 harness → L2 metodo): accennato in
   `sistema-cognitivo` ma non sviluppato come nodo autonomo; valutare se serve nodo separato
   o se basta espandere `sistema-cognitivo`
-- ⏳ **Gerarchia del Goal** (activity theory): motivo → goal → operazione. `goal`/`task`/`todo`
-  sono tre altitudini, non sinonimi. Deciso: non rinominare `todo/`→`goals/`; scrivere il
-  nodo `goal` e far emergere l'apparato quando serve.
+- ✅ **Gerarchia del Goal** → `kb/goal.md` (bozza, 2026-06-05): motivo/goal/operazione
+  (Leontiev), goal come confine aperto di Norman, due modi di i3, KB informa il goal senza
+  generarlo; fonte primaria Leontiev non in `sources/`
 
 ## Due gerarchie e la relazione genus/species (2026-06-05)
 
