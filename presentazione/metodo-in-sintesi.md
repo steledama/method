@@ -18,7 +18,7 @@ La knowledge base non è il metodo: il metodo è più generale e la contiene. Tr
 ```mermaid
 flowchart TB
     MET["<b>METODO</b> · la pratica portabile<br/>più generale della KB: la contiene e la coltiva"]
-    subgraph SIS["SISTEMA COGNITIVO · accoppiamento in opera · emergente, non portabile"]
+    subgraph SIS["SISTEMA COGNITIVO"]
         direction LR
         H(["umano"])
         ART["<b>ARTEFATTO COGNITIVO</b> · portabile<br/>la rappresentazione che persiste<br/>KB + strato output + input + struttura"]
@@ -52,40 +52,35 @@ flowchart LR
 
 Karpathy risolve il "chi mantiene" che Luhmann non affronta; Norman risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano.
 
-## Il ciclo dell'azione: uno specchio simmetrico
+## Il ciclo dell'azione
 
-La KB non è il fine: è strumentale all'azione. Il ciclo di Norman qui resta quello che è in Norman — uno **specchio simmetrico**: l'esecuzione scende dalla KB al Mondo, la valutazione risale dal Mondo alla KB. Il **Goal** è l'apice, il **Mondo** è il fondo.
+La KB non è il fine: è strumentale all'azione. Il ciclo è quello di Norman, nella sua forma originale: il **Goal** in cima (la KB è la memoria all'apice), il **Mondo** in fondo, l'esecuzione che scende a sinistra (Plan → Specify → Perform) e la valutazione che risale a destra (Perceive → Interpret → Compare).
 
 ```mermaid
 flowchart TB
-    GOAL["<b>GOAL</b> · l'apice"]
     KB[("KB")]
-    o1["<b>o1</b> · macchina<br/>JSON, dati, .nix"]
-    o2["<b>o2</b> · decisione<br/>schemi, viste, slide"]
-    o3{{"<b>o3</b> · azione nel mondo"}}
-    i1["<b>i1</b> · segnale grezzo<br/>referto, log, documento"]
-    i2["<b>i2</b> · distillato<br/>nota, sintesi (bozza KB)"]
-    i3["<b>i3</b> · formalizzato<br/>nodo · verdetto"]
-    MONDO[/"MONDO · il fondo"/]
+    GOAL(["<b>GOAL</b>"])
+    o1["<b>o1</b> · Plan<br/>macchina"]
+    o2["<b>o2</b> · Specify<br/>decisione"]
+    o3["<b>o3</b> · Perform<br/>azione"]
+    i3["<b>i3</b> · Compare<br/>formalizzato"]
+    i2["<b>i2</b> · Interpret<br/>distillato"]
+    i1["<b>i1</b> · Perceive<br/>segnale grezzo"]
+    MONDO[/"<b>MONDO</b>"/]
 
-    KB -->|legge l'intenzione| GOAL
-    GOAL -->|esecuzione · scende| o1
+    KB --> GOAL
+    GOAL --> o1
     o1 --> o2
     o2 --> o3
     o3 -->|cerniera Mondo| MONDO
-    MONDO -->|valutazione · risale| i1
-    i1 --> i2
-    i2 --> i3
-    i3 -->|cerniera KB · scrive l'esito| KB
-
-    o1 -. specchio .- i3
-    o2 -. specchio .- i2
-    o3 -. specchio .- i1
+    GOAL --> i3
+    i3 --> i2
+    i2 --> i1
+    i1 --> MONDO
+    i3 -.->|cerniera KB| KB
 ```
 
-Lo specchio accoppia per **altitudine**, non per numero: **o3 e i1** al Mondo (agisco / percepisco), **o2 e i2** in mezzo (decisione / interpretazione), **o1 e i3** alla KB (piano strutturato / conoscenza formalizzata). I numeri sembrano non combaciare solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale.
-
-Le due cerniere sono diverse. Al **Mondo** la cerniera è simmetrica — o3 agisce, i1 percepisce, stesso luogo due versi. Alla **KB** è *scrivi-poi-leggi*: i3 scrive l'esito nella memoria persistente, il Goal vi legge l'intenzione. È l'unica vera asimmetria, ed è del vertice — non rompe la simmetria degli archi. Il metodo *estende* Norman ai suoi due estremi: apre il confine-Mondo (il mondo non solo risponde, agisce) e il confine-Goal (il goal non è dato, si forma).
+Le due cerniere non sono uguali. Al **Mondo** è simmetrica — o3 agisce, i1 percepisce, stesso luogo due versi. Alla **KB** è *scrivi-poi-leggi*: i3 scrive l'esito nella memoria persistente, il Goal vi legge l'intenzione. È l'unica asimmetria, e non si vede dalla forma — per questo va detta. È qui che il metodo estende Norman ai suoi due estremi: apre il confine-Mondo (il mondo agisce, non solo risponde) e il confine-Goal (il goal si forma, non è dato).
 
 ## Cicli annidati: due Mondi
 
