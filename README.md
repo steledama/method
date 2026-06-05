@@ -62,6 +62,8 @@ completati.
 - [affordance-signifier](kb/affordance-signifier.md) — Distinzione di Norman (aggiunta del 2013) tra azione possibile e segnale di dove agire; l'agente «person, animal, or machine» fonda i due strati output (L1 macchina, L2 umano)
 - [system-image](kb/system-image.md) — Triangolo di Norman (design model / system image / user's model): la KB è il system image che porta tutto il peso della comunicazione tra i due agenti che non si parlano (umano nel tempo, LLM tra sessioni)
 - [visceral-behavioral-reflective](kb/visceral-behavioral-reflective.md) — I tre livelli di Norman (*Emotional Design*): la KB è lo strato riflessivo, che non agisce ma condiziona il behavioral attraverso l'output; emozione e cognizione si intrecciano
+- [artefatto-cognitivo](kb/artefatto-cognitivo.md) — Strumento cognitivo esterno (Norman/Hutchins): la KB come artefatto che amplifica la mente; cognizione esperienziale vs riflessiva; principio di naturalezza come criterio di progetto dello strato output
+- [sistema-cognitivo](kb/sistema-cognitivo.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria dei due agenti (per l'LLM la KB è il modello mentale completo)
 - [ponte](kb/ponte.md) — Strato output del metodo: L1 macchina, L2 decisione umana, L3 azione nel mondo; risoluzione del conflitto Zettelkasten/Karpathy (la sintesi vive nello strato output, non nei nodi)
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 
