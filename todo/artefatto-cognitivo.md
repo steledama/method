@@ -30,6 +30,46 @@ che il metodo coltiva, distinto dal *come funziona* la struttura i/o.
   (task). `goal`/`task`/`todo` sono tre altitudini, non sinonimi. Deciso: **non** rinominare
   `todo/`→`goals/`; scrivere il *nodo* sul Goal e far emergere l'apparato quando serve.
 
+## Due gerarchie e la relazione genus/species (2026-06-05)
+
+Riflessione che affina la tripartizione e blocca un appiattimento. Stessa sessione del
+caso `bi`/1018022.
+
+**Non rinominare L→a.** I tre livelli `L0/L1/L2` (modello → harness → metodo) **non** sono
+tre "artefatti" dello stesso tipo: sono un agente, un'infrastruttura e una rappresentazione.
+Chiamarli tutti `a0/a1/a2` (artefatto) cancella due distinzioni costate al 04-06: che L0
+(LLM) è un *agente*, non un artefatto (l'originalità "l'artefatto che legge" regge solo se
+artefatto ≠ agente — materialmente il modello è un oggetto, ma nel sistema cognitivo occupa
+il *ruolo* di agente); e che il metodo è la rappresentazione portabile, non un peer
+sostituibile dell'agente. Il costo dell'appiattimento è la tesi di portabilità stessa, che
+vive nel distinguere *cosa è portabile* (rappresentazione) da *cosa è sostituibile* (agente +
+harness). Tenere quindi `L0/L1/L2` come livelli neutri e riservare "artefatto cognitivo" alle
+sole KB (rappresentazioni).
+
+**Due gerarchie ortogonali, da non conflare.**
+
+- *(A) Stack di messa-in-opera* = il sistema cognitivo di Hutchins, per sessione: agente
+  (LLM, L0) + infrastruttura (harness, L1) + artefatto (l'istanza-di-metodo, L2).
+- *(B) Discendenza degli artefatti* = genus → species: il **metodo è il genere** (pattern
+  d'artefatto portabile), i progetti `bi`/`salute`/`economia`/`nixos` sono le **specie** (lo
+  stesso pattern personalizzato su un dominio). Ognuna è un artefatto cognitivo con i propri
+  Goal e i propri cicli d'azione annidati.
+
+Legame fra le due: **L2 in (A) non è una cosa sola — è un *tipo* con istanze, cioè la
+gerarchia (B).** Lavorando su `bi`, l'artefatto-L2 nello stack è "la KB di bi" (il genere
+istanziato). Auto-riferimento: `metodo` è un artefatto cognitivo *il cui dominio è "costruire
+artefatti cognitivi di dominio"* — di secondo ordine, si applica a sé stesso, ed è insieme il
+genere **e** una quinta specie su cui si può lavorare.
+
+**Payoff sulla missione del repo.** Il genus/species dà il vocabolario all'osservatorio
+cross-repo: il *genere* è ciò che generalizza, i *tratti di specie* sono ciò che resta locale
+— la domanda "cosa generalizzare, cosa lasciare locale" del README diventa precisa.
+
+**Due annidamenti diversi, non sovrapporli.** Verticale (tipo → istanza): metodo → progetti
+— *di cosa un artefatto è fatto come specie*. Temporale (ciclo → ciclo): sviluppo → runtime,
+dentro ogni artefatto — *come un artefatto si produce e si valuta nel tempo* (cfr.
+`ciclo-azione`, sezione cicli annidati).
+
 ## Nodi candidati
 
 - `artefatto-cognitivo` (nuovo)
