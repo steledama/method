@@ -23,7 +23,7 @@ Il metodo si appoggia su due pilastri con una tensione mai nominata. Lo Zettelka
 
 o3 è dove l'output produce effetti reali. Tutto il resto è strumentale. o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso è inutile per la decisione umana, un'infografica colorata è inefficiente per l'LLM.
 
-o1 e o2 non sono due stadi del ciclo di Norman — sono lo stesso stadio Plan/Specify rivolto ai due agenti che lo portano avanti (cfr. `ciclo-azione`).
+o1 e o2 sono due *altitudini* dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `ciclo-azione`.
 
 ## Lo strato input
 
@@ -39,14 +39,16 @@ Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i
 
 i1 ha due sorgenti: feedback (risposta a o3, chiude un goal esistente) ed esogeno (il mondo agisce da sé — busta paga, normativa, alert — e apre spesso un goal nuovo). Per questo i3 ha due modi: verdetto (Compare contro un goal esistente) e triage/formazione-goal (per l'esogeno). Cfr. `goal`.
 
-## Il cappio con due cerniere
+## Lo specchio e le due cerniere
 
-La struttura del ciclo non è uno specchio (i3 ↔ o1) ma un cappio con due cerniere asimmetriche.
+I due archi — output (esecuzione) e input (valutazione) — sono speculari, accoppiati per altitudine: **o3 ↔ i1** al Mondo, **o2 ↔ i2** in mezzo, **o1 ↔ i3** alla KB. L'output scende dalla KB al Mondo, l'input risale dal Mondo alla KB. La simmetria è quella di Norman; o1 è il vertice-macchina dell'arco di output — non manca e non appartiene a «un altro ciclo».
 
-- **Cerniera Mondo** (o3 → i1): o3 agisce, i1 percepisce — stesso luogo, due versi. Simmetrica: il mondo risponde all'azione. La cerniera è una porta bidirezionale.
-- **Cerniera KB** (i3 → Goal): i3 *scrive* l'esito nella KB; il Goal *legge* l'intenzione dalla KB. Scrivi-poi-leggi, non riflesso — l'asimmetria è una feature. La KB è la memoria persistente dove il ciclo si chiude. Da qui il principio: una decisione non scritta nella KB è una decisione persa.
+La simmetria convive con un'asimmetria *locale ai vertici*:
 
-o1 non sta sull'arco principale — vive sul ciclo del secondo agente (l'LLM che legge la KB per agire), che ha un proprio lato-input (audit, lint, errori). Due cicli, uno per agente, stessa KB all'apice.
+- **Cerniera Mondo** (o3 → i1): porta bidirezionale — o3 agisce, i1 percepisce, stesso luogo due versi. Simmetrica: il mondo risponde all'azione.
+- **Cerniera KB** (i3 → Goal): i3 *scrive* l'esito nella KB, il Goal *legge* l'intenzione — scrivi-poi-leggi attraverso la memoria persistente, non riflesso. È l'unica vera asimmetria, e riguarda il vertice. Da qui il principio: una decisione non scritta nella KB è una decisione persa.
+
+I *due* cicli non sono «uno per agente» ma **annidati per Mondo**: il ciclo runtime agisce sulla realtà, il ciclo di sviluppo agisce sull'artefatto stesso (o3 = un commit, i1 = lint/audit/test). o1/o2/o3 e i1/i2/i3 si raddoppiano di conseguenza. L'agente (umano/LLM) e il livello (1/2/3) sono dimensioni *ortogonali*, non la stessa cosa — cfr. `ciclo-azione`.
 
 ## Stato dei progetti adottanti
 

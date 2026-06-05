@@ -4,6 +4,56 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-05 — Il ciclo è uno specchio simmetrico, i cicli annidati sono la spina dorsale: ritratto «o1 = secondo agente»
+
+La revisione della presentazione (o2) ha fatto emergere una contraddizione interna alla KB,
+non un difetto della slide. `output.md` e `ciclo-azione.md` dicevano insieme due cose
+incompatibili: (A) «cappio a due cerniere asimmetriche, *non* uno specchio; o1 non sta
+sull'arco principale, vive sul ciclo del secondo agente (l'LLM); due cicli, uno per agente»;
+(B) «cicli annidati: sviluppo (mondo = il codice) dentro runtime (mondo = la realtà)». La (A)
+spiegava *dov'è o1* assegnandolo a un altro agente; la (B) spiegava il raddoppio con
+l'annidamento. Le due non combaciano.
+
+**Risoluzione (confronto con Stefano, che aveva in mente fin dall'inizio il doppio cappio
+simmetrico alla Norman).**
+
+- *La simmetria resta.* Ogni ciclo è lo specchio di Norman: esecuzione che scende, valutazione
+  che risale, Goal all'apice, Mondo in fondo. Lo specchio è **per altitudine**: o3↔i1 al Mondo
+  (Perform/Perceive), o2↔i2 in mezzo (decisione/interpretazione), o1↔i3 alla KB (piano
+  strutturato / conoscenza formalizzata). Lo «specchio o1↔i3» che il 04-06 aveva *negato* è in
+  realtà quello corretto. I numeri sembrano non combaciare solo perché contano la distanza
+  dall'inizio dell'arco (output scende, input risale).
+- *L'asimmetria è locale all'apice.* La cerniera-KB è scrivi-poi-leggi (i3 scrive, il Goal legge
+  dalla memoria persistente). È reale, ma è proprietà del vertice — non ampùta la simmetria degli
+  archi. Si tengono entrambe: archi speculari + apice speciale.
+- *o1 non manca e non è «di un altro agente».* È il livello-macchina dell'arco di output.
+  L'errore era collassare il **livello** (1/2/3) nell'**agente** (umano/LLM): sono dimensioni
+  *ortogonali*.
+- *I due cicli sono annidati per Mondo, non divisi per agente.* Runtime agisce sulla realtà,
+  sviluppo agisce sull'artefatto. o1/2/3 e i1/2/3 si raddoppiano: o3-sul-mondo (transazione) vs
+  o3-sull'artefatto (commit); i1-dal-mondo (referto) vs i1-dall'artefatto (lint/audit/test).
+  L'o3 del ciclo di sviluppo *è* la macchina del ciclo runtime — è l'incastro dell'annidamento.
+- *Quattro dimensioni ortogonali.* Ogni elemento del metodo si colloca su: agente (umano/LLM),
+  annidamento (runtime/sviluppo), livello (1/2/3), lato del cappio (output/input). La matrice
+  sostituisce il taglio rigido «per agente» e la tabella piatta «stato dei progetti adottanti»
+  come lente per confrontare i domini e leggere cosa è sviluppato, cosa manca perché inutile,
+  cosa manca e servirebbe.
+
+**Ritrattazione.** Rimosse da `output.md` e `ciclo-azione.md` le affermazioni «o1 vive sul ciclo
+del secondo agente / due cicli uno per agente» e «o1 e o2 sono lo stesso stadio per due agenti».
+Promossi i cicli annidati da caso particolare code-based a struttura portante del modello.
+
+**Perché conta.** È la prima volta che la revisione dell'o2 (la presentazione di sintesi) ritorna
+come correzione nei *nodi* canonici: l'arco di input del ciclo di sviluppo che lavora sul metodo
+stesso. Il dubbio era di Stefano fin dall'inizio (il doppio cappio simmetrico); la presentazione
+ha reso la contraddizione interna abbastanza visibile da scioglierla. Bottom-up, dogfooded.
+
+**Resta aperto.** Riallineare i capitoli 2/3/4/6 della presentazione al modello corretto (la
+matrice 4D sostituisce «due agenti»; i cicli annidati diventano un capitolo); la confusione
+`AGENTS.md` vs `CLAUDE.md` nell'anatomia.
+
+---
+
 ## 2026-06-05 — La presentazione (o2) riallineata alla rifondazione: da 5 a 8 diagrammi
 
 Lo sweep nomenclatura del 06-05 aveva già toccato `presentazione/metodo-in-sintesi.md`

@@ -33,21 +33,29 @@ Il modello canonico di Norman procede in sequenza:
 - Interpret — capisco cosa significa
 - Compare — confronto con il goal iniziale
 
-Nel metodo KB il ciclo si materializza sul doppio strato output/input:
+Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
 
 | Norman    | Metodo                                                         |
 | --------- | -------------------------------------------------------------- |
-| Plan      | o1 (macchina) + o2 (umano) — stesso stadio, due consumatori    |
-| Specify   | (idem — o1 e o2 non sono due stadi, sono due agenti)           |
+| Plan      | o1 — piano in forma macchina, vicino alla KB                   |
+| Specify   | o2 — vista di decisione per l'umano                            |
 | Perform   | o3 — azione nel mondo                                          |
 | Perceive  | i1 — segnale grezzo (referto, log, export)                     |
 | Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza       |
 | Compare   | i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal |
 
-**Il cappio con due cerniere.** La struttura non è uno specchio ma un cappio con due giunture asimmetriche. Il Goal è l'apice; il Mondo è il fondo.
+**Lo specchio per altitudine.** I due archi sono speculari, accoppiati per altitudine e non per numero. Il Goal è l'apice; il Mondo è il fondo.
 
-- Cerniera Mondo (o3 → i1): l'azione produce segnali, la percezione li raccoglie — stesso luogo, due versi.
-- Cerniera KB (i3 → Goal): i3 *scrive* l'esito; il Goal *legge* l'intenzione — scrivi-poi-leggi, non riflesso. La KB è la memoria persistente dove il ciclo si chiude.
+- in basso, al Mondo: **o3 ↔ i1** (Perform ↔ Perceive) — agisco / percepisco, stesso luogo, due versi;
+- in mezzo: **o2 ↔ i2** — vista di decisione / nota interpretata;
+- in alto, alla KB: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata.
+
+I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due *altitudini* dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
+
+**Le due cerniere.** La simmetria degli archi convive con un'asimmetria *locale ai vertici*:
+
+- Cerniera Mondo (o3 → i1): porta bidirezionale, l'azione produce segnali e la percezione li raccoglie — simmetrica.
+- Cerniera KB (i3 → Goal): i3 *scrive* l'esito, il Goal *legge* l'intenzione — scrivi-poi-leggi attraverso la memoria persistente, non riflesso. È l'unica vera asimmetria, e riguarda il vertice, non la forma degli archi.
 
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 
@@ -62,16 +70,27 @@ Nel metodo KB i due gulf si traducono così:
 - o3 è dove l'azione effettivamente accade — il "Perform" del ciclo, fuori dal repo, nel mondo
 - i1/i2/i3 riducono il gulf of evaluation: trasformano il segnale grezzo del mondo in conoscenza interpretata e formalizzata, abbassando la distanza tra "il sistema mostra X" e "capisco cosa significa per me"
 
-## Cicli annidati: i progetti code-based
+## Cicli annidati: due specchi, due Mondi
 
-Nei progetti basati su codice il ciclo d'azione non è uno solo: ce ne sono due, annidati. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è un sistema software, l'artefatto stesso è il prodotto di un ciclo d'azione precedente.
+Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per *cosa sia il loro Mondo* in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
 
-- **Ciclo di sviluppo**: Goal (serve una capacità) → Plan/Specify (il `todo`, dettagliato) → Perform (il commit). Il suo "mondo" è il codebase; il suo o3 — l'azione nel mondo — *è il codice*.
-- **Ciclo runtime**: il codice, eseguito, compie il proprio ciclo. Legge le fonti e produce o1 (artefatto macchina), o2 (vista di decisione), o3 (azione nel mondo reale: un'email, una transazione, un payload pubblicato).
+- **Ciclo runtime**: il suo Mondo è la realtà. o3 agisce fuori (un'email, una transazione, un payload pubblicato, un gesto); i1 percepisce il segnale del mondo (referto, payload di ritorno, alert).
+- **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 agisce sull'artefatto (un commit, una modifica alla KB); i1 percepisce la risposta dell'artefatto (lint, audit, test, errore).
 
-Il codice è insieme l'o3 del ciclo di sviluppo e la macchina che esegue il ciclo runtime. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → todo → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `log` e `todo` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+Per questo o1/o2/o3 e i1/i2/i3 si *raddoppiano*: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → todo → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `log` e `todo` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
 
-È il senso in cui il metodo *estende* Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; in un progetto code-based il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è il L3 di un ciclo che lo precede.
+È il senso in cui il metodo *estende* Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è l'o3 di un ciclo che lo precede.
+
+## Le quattro dimensioni di un elemento del metodo
+
+Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni *ortogonali* — e l'errore di collassarne due (livello e agente) è ciò che aveva fatto «sparire» o1:
+
+1. **agente** — umano oppure LLM (il modello, non l'harness)
+2. **annidamento** — ciclo runtime (agisce sul mondo) oppure ciclo di sviluppo (agisce sull'artefatto)
+3. **livello** — 1 (macchina, vicino alla KB), 2 (decisione), 3 (al Mondo)
+4. **lato del cappio** — output (esecuzione, discesa) oppure input (valutazione, risalita)
+
+La matrice che ne risulta è la lente per confrontare i progetti adottanti: per ogni dominio si legge cosa è sviluppato, cosa manca perché non serve (es. `nixos` ha poco esogeno sul lato input runtime), e cosa manca ma servirebbe. Sostituisce sia il taglio rigido «stadi divisi per agente» sia la fotografia piatta dello stato dei progetti.
 
 **Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua *assunzione* non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `log.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (vedi [fedelta-cognitiva](fedelta-cognitiva.md)).
 
