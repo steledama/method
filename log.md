@@ -4,6 +4,46 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-05 — La presentazione (o2) riallineata alla rifondazione: da 5 a 8 diagrammi
+
+Lo sweep nomenclatura del 06-05 aveva già toccato `presentazione/metodo-in-sintesi.md`
+(diagramma del ciclo con o/i, freccia di ritorno i3→KB), ma la presentazione era rimasta
+ferma *a metà*: spiegava la *meccanica* del metodo (i tre giganti) senza il *salto di quota*
+della rifondazione — lo strato che sta sopra i giganti, *cosa è* l'oggetto e *cosa vuole* chi
+lo usa. L'o2 mostrava come funziona il metodo ma non diceva mai cosa coltiva.
+
+**Scelta di scope: rifondazione piena, non refresh minimo.** Vagliate tre opzioni (solo
+data+link; cornice ontologica; tutti i diagrammi). Scelta la piena, accettando il rischio di
+gonfiare l'o2, perché la tripartizione è la cornice che dà senso a tutto il resto: tenerla
+fuori dalla vista d'insieme la lasciava implicita proprio dove serve esplicita. Tensione reale
+registrata e non nascosta: l'o2 distilla il *stabile*, ma i tre nodi nuovi sono `bozza`. Risolta
+con una nota di fedeltà nell'intro — lo strato concettuale superiore è dichiarato come
+rifondazione recente in maturazione `bozza→maturo`, non spacciato per consolidato.
+
+**Arco esplicito ontologia → meccanica → processo.** Da 5 a 8 diagrammi:
+- *Cosa è: artefatto, sistema, metodo* (nuovo) — tripartizione con l'artefatto al centro tra i
+  due agenti dentro il sistema; il metodo che lo coltiva. Include l'argomento decisivo: la tesi
+  "artefatto portabile, vendor-neutro" è dicibile solo con la definizione artefatto-centrica.
+- *I tre giganti* (tenuto, riposizionato sotto l'ontologia) — formula "Luhmann è la KB /
+  Karpathy la governa / Norman la connette al mondo".
+- *Il cappio a due cerniere* (rifatto dal "ciclo che si chiude") — Goal apice, Mondo fondo,
+  discesa esecuzione / risalita valutazione; cerniera Mondo simmetrica, cerniera KB scrivi-poi-leggi.
+- *Il goal: tre altitudini* (nuovo) — motivo/goal/operazione, confine aperto, i due modi di i3.
+- *I due agenti sulla stessa KB* (nuovo) — o1 vs o2, asimmetria dei modelli mentali, gradiente
+  di autonomia.
+- *Anatomia / Bottom-up / Dove vive cosa* (tenuti invariati).
+
+**Collaterali.** Data `06.04→06.05`; sezione "strato output di questo repo" aggiornata (i1 cita
+ora `sources/`); Approfondimento linka i tre nodi nuovi. README: riscritta la riga che parlava
+di "cinque diagrammi" con il nuovo arco. PDF (o3) rigenerato con `md2pdf`, non versionato.
+
+Dogfooding: questa è la prima volta che l'o2 del repo metodo viene riallineato a un cambiamento
+*concettuale* dei nodi, non solo nomenclaturale — il criterio di aggiornamento dichiarato nel
+file ("quando un gigante, un livello, un componente o un concetto fondativo cambia, qui si
+aggiorna il diagramma") applicato a sé stesso.
+
+---
+
 ## 2026-06-05 — Chiusura del ciclo concettuale: tre nodi nuovi, sweep nomenclatura, todo/ svuotato
 
 Sessione esecutiva che chiude il lavoro concettuale avviato il 04-06 e portato in pianificazione il 05-06 mattina. Due filoni paralleli: (1) tre nuovi nodi di quota superiore fondati su fonti; (2) sweep completo della rifondazione input/output.

@@ -14,7 +14,7 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura README, migrazione, candidati terminologici e segnali generici sui progetti code-based.
 - **Manutenzione propria del metodo**: task in `todo/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Strato output**: [`presentazione/metodo-in-sintesi.md`](presentazione/metodo-in-sintesi.md) è l'o2 del repo — cinque diagrammi che reggono il metodo intero (tre giganti, ciclo dell'azione con o/i, anatomia del progetto, sviluppo bottom-up, routing dei contenuti). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (o3) si rigenera con `cd presentazione && md2pdf metodo-in-sintesi.md` e non viene versionato.
+- **Strato output**: [`presentazione/metodo-in-sintesi.md`](presentazione/metodo-in-sintesi.md) è l'o2 del repo — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, cappio a due cerniere con o/i, goal, due agenti) al processo (anatomia, sviluppo bottom-up, routing). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (o3) si rigenera con `cd presentazione && md2pdf metodo-in-sintesi.md` e non viene versionato.
 
 ## Progetti adottanti
 
