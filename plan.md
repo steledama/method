@@ -11,6 +11,5 @@ nei nodi aggiornati.
 
 ## Task aperti
 
-- [sostanza-why](tasks/sostanza-why.md) — runbook per ribaltare `why.md` da log datato a memoria per motivazione, un repo per sessione. `metodo` ✅ e `bi` ✅ fatti; **prossimo `nixos`**, ed `economia`/`salute` quando raggiungibili
 - [fonti-pace-layering](tasks/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [de-cablaggio-agenti](tasks/de-cablaggio-agenti.md) — de-cablaggio fatto (binomio «due agenti» ammorbidito a caso saliente nei nodi); resta solo la maturazione di `agente`, bottom-up, quando l'uso multi-agente diventa reale

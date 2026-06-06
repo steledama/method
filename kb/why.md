@@ -1,6 +1,6 @@
 ---
 data: 2026-06-06
-stato: bozza
+stato: maturo
 ---
 
 # Why
@@ -9,7 +9,7 @@ stato: bozza
 
 Il git log dice cosa è cambiato. `why.md` dice perché quel cambiamento ha importanza, quale problema risolve, quale decisione stabilizza o quale direzione apre. Questa distinzione evita sia il diario prolisso sia la perdita del contesto decisionale.
 
-La chiave organizzativa è la **motivazione**, non la data. Le entry si raggruppano per la decisione o il filo concettuale che illuminano; la data è un metadato che vive *dentro* il gruppo. È una scelta di affordance ([[affordance-signifier]]): il signifier «log datato» invita ad accodare note di sessione e compete con git sull'asse che git già possiede — il tempo. Indicizzare per motivazione rende `why` ortogonale e complementare a git, che resta la fonte dell'asse cronologico completo.
+La chiave organizzativa è la **motivazione**, non la data. Le entry si raggruppano per la decisione o il filo concettuale che illuminano; la data è un metadato che vive _dentro_ il gruppo. È una scelta di affordance ([[affordance-signifier]]): il signifier «log datato» invita ad accodare note di sessione e compete con git sull'asse che git già possiede — il tempo. Indicizzare per motivazione rende `why` ortogonale e complementare a git, che resta la fonte dell'asse cronologico completo.
 
 Regole:
 
@@ -34,7 +34,7 @@ La chiave è la motivazione; la data vive dentro il gruppo.
 
 ## La motivazione / il filo concettuale
 
-*Una riga che inquadra cosa tiene insieme questo gruppo.*
+_Una riga che inquadra cosa tiene insieme questo gruppo._
 
 ### [YYYY-MM-DD] La decisione, scritta come tesi
 
@@ -50,12 +50,12 @@ Regole di forma:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                   | Confronto con il metodo                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | `why.md` corposo; ancora nella forma vecchia (header «append-only», entry `## [data] tipo \| titolo`). Ha già 8 entry `[storico]` senza data e un ordine non strettamente cronologico. | Allineamento per-motivazione pendente (vedi task `sostanza-why`). Le `[storico]` mostrano che la data è di fatto già demota. |
-| `bi`       | `why.md` corposo, stessa forma vecchia, **+ dump grezzi di `audit-kb`** incollati nel file. | La distinzione decisione vs output operativo *non* è stata mantenuta: i dump vanno fuori da `why` (sono i1 rigenerabili). Allineamento pendente (task `sostanza-why`). |
-| `economia` | `why.md` più breve, affiancato da `stato.md`, `scadenze.md` e `diario.md`.           | Adattamento legittimo: la memoria non deve diventare stato corrente, perché quello vive in file locali specializzati.   |
-| `salute`   | Il progetto ha `why.md` e anche `diario.md`; il diario è più personale e riflessivo. | Chiarisce una distinzione utile: why = memoria del progetto, diario = materiale personale o filing back potenziale. |
+| Progetto   | Situazione attuale                                                               | Confronto con il metodo                                                                               |
+| ---------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `nixos`    | 9 gruppi per motivazione; i dump erano già potati.                               | Le entry `[storico]` confermano che la data è asse secondario.                                        |
+| `bi`       | 7 gruppi per motivazione; dump audit estratti in uno snapshot operativo.         | Decisioni e output macchina sono nuovamente separati.                                                 |
+| `economia` | 4 gruppi per motivazione, affiancati da `stato.md`, `scadenze.md` e `diario.md`. | La memoria resta distinta da stato corrente, prossime azioni e resoconto periodico.                   |
+| `salute`   | 4 gruppi per motivazione; `diario.md`, storia clinica e quadro restano separati. | La memoria del progetto resta distinta da esperienza personale, cronologia clinica e stato operativo. |
 
 Il confronto suggerisce che il metodo dovrebbe nominare esplicitamente i file locali affini. `diario.md`, `stato.md` e `scadenze.md` non violano la ricetta se la loro funzione è distinta e se non sostituiscono la memoria interpretativa.
 

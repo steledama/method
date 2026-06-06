@@ -199,13 +199,20 @@ print('righe-dump estratte (attese FUORI dal why):',
 - 8 marcatori `> ↳` fra supersessioni e rimandi multi-tema. Verifica verbatim dopo Prettier:
   0 righe di corpo perse. Audit: 55 nodi, 0 link rotti, 0 orfani.
 
-### `salute` (rimasto, fuori host)
+### `salute` ✅ fatto (2026-06-06, commit `b356017`)
 
-- Aprire la sessione _nel_ repo dove è raggiungibile.
-- **Precondizione:** se il file è ancora `log.md` invece di `why.md`, fare prima `git mv
-log.md why.md` (il layout potrebbe non essere migrato).
-- Ha `why.md` + `diario.md` (più personale/riflessivo): stessa cautela — why = memoria del
-  progetto, diario = materiale personale.
+- Era 382 righe, **53 entry interpretative/riassunti** e 2 corpi-dump `audit-kb`; `why.md`
+  era già presente, quindi la precondizione `git mv log.md why.md` non è servita.
+- I 2 dump grezzi sono usciti dal `why`. Nessuno snapshot creato: il repo non aveva una sede
+  preesistente per output macchina e il report è rigenerabile con `kb_tools.py audit`. Rimossi
+  anche `--append-why` e le istruzioni della skill che avrebbero reintrodotto il drift.
+- **4 gruppi** emersi bottom-up dal dominio salute: tradizioni come mappe da mettere in
+  dialogo · teoria verificata nel corpo, nella pratica e nell'azione · KB come rete cognitiva,
+  non archivio · sistema portabile, sobrio e indipendente dagli strumenti.
+- `diario.md`, `scadenze.md`, `kb/storia-clinica.md` e `quadro/` sono rimasti separati:
+  nessuna esperienza grezza, scadenza, cronologia clinica o stato operativo è stato assorbito.
+- 10 marcatori `> ↳` fra supersessioni e rimandi multi-tema. Verifica verbatim dopo Prettier:
+  0 righe di corpo perse. Audit: 197 nodi, 0 link rotti, 0 orfani.
 
 ## Filing back / chiusura
 
@@ -214,7 +221,7 @@ quando raggiungibili) sono allineati e verificati, il task si chiude: la riga sp
 `plan.md`, lo storico resta in git e nei `why.md`. La maturazione del nodo `why` da `bozza` a
 `maturo` è il filing back atteso a refactor completo.
 
-**Stato:** `metodo` ✅ fatto (2026-06-06, commit `a9fbb82`) — caso di riferimento. `bi` ✅ fatto
-(2026-06-06, commit `59059c43`). `nixos` ✅ fatto (2026-06-06, commit `d318485`). `economia`
-✅ fatto (2026-06-06, commit `a7198c5`). Resta `salute`, fuori host: il task si chiude (e il
-nodo `why` matura da `bozza` a `maturo`) quando sarà raggiungibile e allineato.
+**Stato:** completato. `metodo` ✅ (2026-06-06, commit `a9fbb82`) · `bi` ✅ (commit
+`59059c43`) · `nixos` ✅ (commit `d318485`) · `economia` ✅ (commit `a7198c5`) · `salute` ✅
+(commit `b356017`). Tutti gli adottanti sono allineati; il task è chiuso e il nodo `why` è
+maturo.
