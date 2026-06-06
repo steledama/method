@@ -13,10 +13,10 @@ La direzione ordinaria di sviluppo è bottom-up. Si parte da un'esigenza concret
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
-- README: funzione di bootstrap, qualità dei router, indice statico, task aperti, relazione con la mappa di progetto
+- README: funzione di bootstrap, qualità dei router, puntatori al cruscotto (map/plan/index), relazione con la mappa di progetto
 - CLAUDE.md e AGENTS.md: chiarezza operativa, separazione tra regole d'azione e contenuto di dominio, costo di caricamento
-- log.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
-- todo/: corrispondenza con README, qualità del contesto operativo, presenza di task morti
+- why.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
+- tasks/: corrispondenza con `plan.md`, qualità del contesto operativo, presenza di task morti
 - nodi KB: quantità, cluster, hub, orfani, formato, link, copertura delle aree reali, equilibrio tra mappa, concetto, reference e runbook
 - strumenti: comandi comuni, estensioni locali, dipendenze, output ricostruibili, confine tra audit strutturale e fedeltà cognitiva
 - skill: workflow ricorrenti, differenze locali, duplicazioni, possibilità di template o wrapper comuni
@@ -26,24 +26,24 @@ Il confronto deve produrre tre tipi di esito:
 
 - generalizzazione metodologica: una differenza locale rivela una regola portabile e viene integrata nei nodi di metodo
 - estensione strumentale: una duplicazione stabile diventa script, comando, skill base o template riusabile
-- task locale: un problema resta lavoro autonomo di dominio e va tracciato nel `todo/` del repo interessato
+- task locale: un problema resta lavoro autonomo di dominio e va tracciato nel `tasks/` del repo interessato
 - manutenzione propria del metodo: una generalizzazione già emersa richiede ristrutturazione, semplificazione, rinomina, documentazione o strumenti portabili nel repo `metodo`
 
 La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern e custodisce generalizzazioni. Le verifiche operative restano nei repo dove nascono, perché lì vivono fonti, priorità, dipendenze e criteri di chiusura.
 
 Analisi periodiche:
 
-- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, log, todo, scripts, skill, nodi metodo e nodi dominio
+- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map, plan, why, tasks, scripts, skill, nodi metodo e nodi dominio
 - confronto strumenti: sottocomandi comuni, comandi locali, dipendenze, output, compatibilità della superficie base
 - confronto skill: scopo, istruzioni, path, formatter, relazione con script versionati
 - confronto KB: numero nodi, link, orfani, hub, cluster, tipi documentali, nodi non indicizzati, accessi cognitivi
 - confronto fedeltà: fonti di verità disponibili, fatti verificabili, aree scoperte, segnali anti-drift
-- confronto operativo: task aperti, log significativi, problemi ricorrenti e interventi rimandati ai repo locali
+- confronto operativo: task aperti, voci why significative, problemi ricorrenti e interventi rimandati ai repo locali
 
 La forma ideale è un ciclo leggero:
 
 1. partire da un problema concreto in un repo adottante
-2. risolvere il problema nel merito, con task, log e nodi locali
+2. risolvere il problema nel merito, con task, why e nodi locali
 3. distinguere cosa è specifico del dominio da cosa è portabile
 4. aggiornare `metodo` solo con la generalizzazione o con uno strumento comune già giustificato dall'uso
 5. propagare agli altri repo tramite lettura dei commit di `metodo`, non tramite task centrali prescrittivi
@@ -74,9 +74,9 @@ Connessioni:
 - [readme](readme.md)
 - [claude](claude.md)
 - [agents](agents.md)
-- [task-aperti](task-aperti.md)
-- [todo](todo.md)
-- [log](log.md)
+- [plan](plan.md)
+- [tasks](tasks.md)
+- [why](why.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)

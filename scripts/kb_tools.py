@@ -16,9 +16,12 @@ from typing import Iterable
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 WORD_RE = re.compile(r"\b[a-zàèéìòù][a-zàèéìòù-]{5,}\b", re.IGNORECASE)
-README_DOC_RE = re.compile(r"\((?P<path>(?:kb|metodo)/[^)]*\.md)\)")
+CATALOG_LINK_RE = re.compile(r"\[[^\]]+\]\((?P<path>[^)]+\.md)\)")
 
 DOC_DIRS = ("kb", "metodo")
+# Register/file-meta esclusi dal conteggio dei nodi: cataloghi, non unità atomiche.
+FILE_META = {"index.md"}
+CATALOG_NAME = "index.md"
 OPTIONAL_DOC_DIRS = ("tech", "docs")
 CODE_EXTENSIONS = {
     ".js",
@@ -90,10 +93,10 @@ STOPWORDS = {
 class AuditResult:
     total_nodes: int
     total_links: int
-    readme_links: int
-    readme_unique_links: int
-    readme_broken: list[str]
-    readme_missing_nodes: list[str]
+    catalog_links: int
+    catalog_unique_links: int
+    catalog_broken: list[str]
+    catalog_missing_nodes: list[str]
     broken_links: list[str]
     orphans: list[str]
     isolated: list[str]
@@ -144,7 +147,16 @@ def doc_files(root: Path) -> list[Path]:
         path
         for directory in existing_doc_dirs(root)
         for path in directory.glob("*.md")
+        if path.name not in FILE_META
     )
+
+
+def catalog_path(root: Path) -> Path | None:
+    for directory in existing_doc_dirs(root):
+        candidate = directory / CATALOG_NAME
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def node_key(root: Path, path: Path) -> str:
@@ -192,16 +204,29 @@ def backlink_map(
     return backlinks
 
 
-def readme_index(root: Path) -> tuple[list[str], list[str], list[str]]:
-    readme_path = root / "README.md"
-    if not readme_path.exists():
-        return [], ["README.md"], [node_key(root, path) for path in doc_files(root)]
+def catalog_index(root: Path) -> tuple[list[str], list[str], list[str]]:
+    catalog = catalog_path(root)
+    if catalog is None:
+        return [], [CATALOG_NAME], [node_key(root, path) for path in doc_files(root)]
 
-    readme = readme_path.read_text(encoding="utf-8")
-    paths = [match.group("path") for match in README_DOC_RE.finditer(readme)]
-    broken = [path for path in paths if not (root / path).exists()]
+    text = catalog.read_text(encoding="utf-8")
+    paths: list[str] = []
+    broken: list[str] = []
+    for match in CATALOG_LINK_RE.finditer(text):
+        target = match.group("path")
+        resolved = resolve_link(catalog, target)
+        if resolved is None:
+            continue
+        if not resolved.exists():
+            broken.append(target)
+            continue
+        paths.append(node_key(root, resolved))
     indexed = set(paths)
-    missing = sorted(node_key(root, path) for path in doc_files(root) if node_key(root, path) not in indexed)
+    missing = sorted(
+        node_key(root, path)
+        for path in doc_files(root)
+        if node_key(root, path) not in indexed
+    )
     return paths, broken, missing
 
 
@@ -239,22 +264,24 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
 
 
 def cluster_state(root: Path, links: dict[str, list[str]]) -> tuple[dict[str, set[str]], dict[str, set[str]]]:
-    readme_path = root / "README.md"
-    if not readme_path.exists():
+    catalog = catalog_path(root)
+    if catalog is None:
         return {}, {}
 
     clusters: dict[str, set[str]] = defaultdict(set)
     current: str | None = None
-    for line in readme_path.read_text(encoding="utf-8").splitlines():
-        heading = re.match(r"### (.+)", line)
+    for line in catalog.read_text(encoding="utf-8").splitlines():
+        heading = re.match(r"## (.+)", line)
         if heading:
             current = heading.group(1).strip()
             continue
-        if line.startswith("## "):
+        if line.startswith("# "):
             current = None
         if current:
-            for match in README_DOC_RE.finditer(line):
-                clusters[current].add(match.group("path"))
+            for match in CATALOG_LINK_RE.finditer(line):
+                resolved = resolve_link(catalog, match.group("path"))
+                if resolved is not None and resolved.exists():
+                    clusters[current].add(node_key(root, resolved))
 
     node_cluster: dict[str, str] = {}
     for cluster, nodes in clusters.items():
@@ -368,7 +395,7 @@ def run_audit(root: Path) -> AuditResult:
     inventory = {node_key(root, path) for path in doc_files(root)}
     links, broken = link_map(root)
     backlinks = backlink_map(links, inventory)
-    readme_paths, readme_broken, readme_missing = readme_index(root)
+    catalog_paths, catalog_broken, catalog_missing = catalog_index(root)
     accented, invalid = filename_findings(root)
     frontmatter, connessioni, body_inline = migration_state(root)
     clusters, cluster_out = cluster_state(root, links)
@@ -383,10 +410,10 @@ def run_audit(root: Path) -> AuditResult:
     return AuditResult(
         total_nodes=len(inventory),
         total_links=sum(len(targets) for targets in links.values()),
-        readme_links=len(readme_paths),
-        readme_unique_links=len(set(readme_paths)),
-        readme_broken=readme_broken,
-        readme_missing_nodes=readme_missing,
+        catalog_links=len(catalog_paths),
+        catalog_unique_links=len(set(catalog_paths)),
+        catalog_broken=catalog_broken,
+        catalog_missing_nodes=catalog_missing,
         broken_links=broken,
         orphans=orphans,
         isolated=isolated,
@@ -408,8 +435,8 @@ def markdown_report(result: AuditResult) -> str:
     problem_count = (
         len(result.orphans)
         + len(result.broken_links)
-        + len(result.readme_broken)
-        + len(result.readme_missing_nodes)
+        + len(result.catalog_broken)
+        + len(result.catalog_missing_nodes)
         + len(result.invalid_names)
         + len(result.cluster_isolated)
         + len(result.body_inline_links)
@@ -421,8 +448,8 @@ def markdown_report(result: AuditResult) -> str:
         "",
         f"- {result.total_nodes} nodi verificati",
         f"- {result.total_links} link interni tra nodi, {len(result.broken_links)} link rotti",
-        f"- {result.readme_links} link README.md ({result.readme_unique_links} unici)",
-        f"- {result.total_nodes - len(result.readme_missing_nodes)} nodi indicizzati nel README",
+        f"- {result.catalog_links} link kb/index.md ({result.catalog_unique_links} unici)",
+        f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in kb/index.md",
         f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `data` + `stato`",
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
@@ -436,8 +463,8 @@ def markdown_report(result: AuditResult) -> str:
     problems: list[str] = []
     problems += [f"- [ORFANO] {node} — nessun backlink" for node in result.orphans]
     problems += [f"- [LINK-ROTTO] {item}" for item in result.broken_links]
-    problems += [f"- [README-LINK-ROTTO] README.md -> {item}" for item in result.readme_broken]
-    problems += [f"- [README-MISSING] {item}" for item in result.readme_missing_nodes]
+    problems += [f"- [CATALOGO-LINK-ROTTO] kb/index.md -> {item}" for item in result.catalog_broken]
+    problems += [f"- [CATALOGO-MISSING] {item}" for item in result.catalog_missing_nodes]
     problems += [f"- [NOME-INVALIDO] {item}" for item in result.invalid_names]
     problems += [f"- [CLUSTER-ISOLATO] {item}" for item in result.cluster_isolated]
     problems += [f"- [LINK-INLINE-CORPO] {item}" for item in result.body_inline_links]
@@ -476,19 +503,19 @@ def output_result(data: object, fmt: str) -> None:
         print_json(asdict(data) if hasattr(data, "__dataclass_fields__") else data)
 
 
-def append_log(root: Path, report: str) -> None:
-    log_path = root / "log.md"
-    current = log_path.read_text(encoding="utf-8") if log_path.exists() else "# log.md\n"
+def append_why(root: Path, report: str) -> None:
+    why_path = root / "why.md"
+    current = why_path.read_text(encoding="utf-8") if why_path.exists() else "# why.md\n"
     separator = "" if current.endswith("\n\n") else "\n"
-    log_path.write_text(current + separator + report, encoding="utf-8")
+    why_path.write_text(current + separator + report, encoding="utf-8")
 
 
 def command_audit(args: argparse.Namespace) -> None:
     result = run_audit(repo_root())
-    if args.append_log:
+    if args.append_why:
         if args.format != "markdown":
-            raise SystemExit("--append-log richiede --format markdown")
-        append_log(repo_root(), markdown_report(result))
+            raise SystemExit("--append-why richiede --format markdown")
+        append_why(repo_root(), markdown_report(result))
     output_result(result, args.format)
 
 
@@ -515,7 +542,7 @@ def command_orphans(args: argparse.Namespace) -> None:
 
 
 def command_readme(args: argparse.Namespace) -> None:
-    paths, broken, missing = readme_index(repo_root())
+    paths, broken, missing = catalog_index(repo_root())
     print_json({"links": len(paths), "unique": len(set(paths)), "broken": broken, "missing_nodes": missing})
 
 
@@ -543,7 +570,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit = sub.add_parser("audit", help="audit strutturale della KB")
     audit.add_argument("--format", choices=["markdown", "json"], default="markdown")
-    audit.add_argument("--append-log", action="store_true", help="appende il report markdown a log.md")
+    audit.add_argument("--append-why", action="store_true", help="appende il report markdown a why.md")
     audit.set_defaults(func=command_audit)
 
     backlinks = sub.add_parser("backlinks", help="mostra link in/out di un nodo")
@@ -553,7 +580,7 @@ def build_parser() -> argparse.ArgumentParser:
     orphans = sub.add_parser("orphans", help="lista nodi senza backlink")
     orphans.set_defaults(func=command_orphans)
 
-    readme = sub.add_parser("readme", help="verifica copertura README")
+    readme = sub.add_parser("readme", help="verifica copertura del catalogo kb/index.md")
     readme.set_defaults(func=command_readme)
 
     migration = sub.add_parser("migration", help="verifica frontmatter e footer Connessioni")

@@ -14,10 +14,10 @@ contenuto maturo (a conferma, non unilaterale).
 
 - `README.md` (metodo): «Lo sviluppo del metodo è bottom-up» → riformulare come alternanza dei due
   movimenti, puntando a [[sviluppo-metodo]];
-- [[task-aperti]], sezione «Sviluppo bottom-up del metodo»: stesso ammorbidimento (è un nodo, si
+- [[plan]], sezione «Sviluppo bottom-up del metodo»: stesso ammorbidimento (è un nodo, si
   propaga via symlink ai 4 progetti — verificare che regga lì);
 - [[metodo-kb]] dove enuncia lo sviluppo bottom-up;
-- `presentazione/metodo-in-sintesi.md`: il diagramma o la sezione sullo sviluppo bottom-up;
+- `presentation/metodo-in-sintesi.md`: il diagramma o la sezione sullo sviluppo bottom-up;
 - verificare che l'ammorbidimento non indebolisca la guardia contro la sovra-ingegnerizzazione: il
   dal-basso resta il polo che protegge dal costruire per futuri immaginati.
 

@@ -38,12 +38,12 @@ non scoprirlo o scegliere un workflow peggiore.
 
 Comandi principali:
 
-- `python3 scripts/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a log.md
+- `python3 scripts/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a why.md
 - `python3 scripts/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
-- `python3 scripts/kb_tools.py audit --format markdown --append-log`: appende direttamente il report a log.md
+- `python3 scripts/kb_tools.py audit --format markdown --append-why`: appende direttamente il report a why.md
 - `python3 scripts/kb_tools.py backlinks nodo.md`: mostra link in uscita e backlink di un nodo
 - `python3 scripts/kb_tools.py orphans`: elenca i nodi senza backlink
-- `python3 scripts/kb_tools.py readme`: verifica copertura e link del catalogo README
+- `python3 scripts/kb_tools.py readme`: verifica copertura e link del catalogo `kb/index.md`
 - `python3 scripts/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
 - `python3 scripts/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
 - `python3 scripts/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
@@ -51,7 +51,7 @@ Comandi principali:
 - `python3 scripts/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
 - `python3 scripts/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
 
-Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `todo/`. Non copre lo strato output, che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
+Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `tasks/`. Non copre lo strato output, che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
 
 Regole d'uso:
 
@@ -61,11 +61,11 @@ Regole d'uso:
   quando una fonte di verità è chiara
 - `audit` misura la salute strutturale della rete; `fidelity` misura segnali di
   aderenza al dominio e non sostituisce la checklist semantica
-- l'audit completo non va appendito integralmente a log.md (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi sotto forma di voce log; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 scripts/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
+- l'audit completo non va appendito integralmente a why.md (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi sotto forma di voce in why.md; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 scripts/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
 - quando una skill può usare uno script versionato, deve preferirlo a regex improvvisate nella sessione
 - gli script devono restare senza dipendenze esterne quando possibile, così funzionano su qualunque host con Python 3
 - le estensioni locali devono preservare i comandi base, così skill e agenti possono contare su una superficie comune tra repository
-- i controlli di frontmatter devono distinguere i tipi documentali: obbligatorio nei nodi `kb/`, obbligatorio nei task `todo/`, non richiesto nei file root
+- i controlli di frontmatter devono distinguere i tipi documentali: obbligatorio nei nodi `kb/`, obbligatorio nei task `tasks/`, non richiesto nei file root
 
 Skill:
 

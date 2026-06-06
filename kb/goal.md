@@ -11,12 +11,12 @@ In Norman il goal è l'apice del ciclo di azione: il punto da cui parte l'esecuz
 
 ## Il goal nel metodo
 
-`goal`, `task` e `todo` sono tre altitudini, non sinonimi. Nel metodo:
+`goal`, `task` e `tasks/` sono tre altitudini, non sinonimi. Nel metodo:
 - *goal* = l'obiettivo che orienta un arco di lavoro (livello azione, Leontiev)
 - *task* = il compito operativo che lo realizza (livello operazione)
-- `todo/` = la coda di operazioni concrete, eseguibili
+- `tasks/` = la coda di operazioni concrete, eseguibili
 
-Rinominare `todo/`→`goals/` sarebbe sbagliato: mescolarebbe altitudini e descriverebbe il contenuto in modo falso. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
+Rinominare `tasks/`→`goals/` sarebbe sbagliato: mescolarebbe altitudini e descriverebbe il contenuto in modo falso. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
 
 ## La KB informa il Goal, non lo genera
 

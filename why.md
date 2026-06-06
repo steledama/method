@@ -1,8 +1,43 @@
-# log.md
+# why.md
 
-Registro interpretativo delle sessioni significative. Il git log dice cosa è cambiato; questo file dice perché conta.
+Registro interpretativo delle sessioni significative. Il git log dice cosa è cambiato; questo file dice perché conta. La decisione è la chiave dell'entry, la data un metadato, il commit un puntatore citabile inline.
 
 ---
+
+## 2026-06-06 — Il root è il cruscotto del ciclo di sviluppo: la fondazione del file che il ridisegno ha ribattezzato
+
+Questa è la prima entry di `why.md`, ed è il perché del file stesso. La migrazione del layout ha
+ribattezzato `log.md` in `why.md` e con essa l'intero top level dei repo. La decisione di fondo:
+**la root non è "ciò che è più stabile" ma il cruscotto del ciclo di sviluppo** — i pochi artefatti
+letti a ogni sessione per capire il tutto. Il vecchio criterio «più in alto = più stabile» era già
+stato demolito da `pace-layering`; mancava cosa mettesse al suo posto. La risposta è la triade
+ora in `struttura-progetto`: (1) root = bootstrap-essenziali del ciclo, (2) cartelle = collezioni
+atomiche con file-meta dentro solo se on-demand, (3) la pace decide cosa non fondere, non la
+profondità. Quando altezza e pace confliggono, l'altezza decide la collocazione (per questo `plan`
+e `why` stanno in root pur essendo veloci) e la pace decide che restino file separati (per questo
+`map` e `plan` non si fondono nel README).
+
+**Cosa cambia, e perché ognuna conta.**
+
+- `log.md` → `why.md`: il nome dice la funzione (il perché), non il tipo di file. Nuovo modello di
+  entry: decisione come titolo-tesi, data come metadato, commit inline.
+- catalogo dei nodi dal README → register `kb/index.md`: il catalogo è il file-meta di una
+  collezione consultata on-demand, quindi vive *dentro* `kb/`, non in root. Il README si alleggerisce
+  e punta.
+- lista task dal README → `plan.md` in root: la meta-istanza dei task è lo stadio Plan del ciclo,
+  letta a ogni sessione; l'altezza la solleva fuori da `tasks/`. Distinta da o1, il Plan del runtime.
+- `mappa` → `map.md` in root: il modello del dominio (o2) come file root conciso, separato dal README
+  per pace; nel `metodo` la presentazione resta l'o2/o3 ricco, `map` ne è la versione di bootstrap.
+- `todo/` → `tasks/`, e i nodi `task-aperti`→`plan`, `todo`→`tasks`, `mappa`→`map`, `log`→`why`:
+  allineamento al vocabolario del metodo (nome del nodo = nome dell'artefatto).
+- policy linguistica: forma in inglese per gli artefatti strutturali vivi (`map`/`plan`/`why`/`index`),
+  italiano per nodi-concetto e prosa. La coppia `kb/index.md` (vivo) / `kb/indice.md` (doc) è il
+  significante della policy.
+
+Il ridisegno è applicazione di `sviluppo-metodo`: cornice posata dall'alto (il ciclo di Norman) e
+verificata dal basso contro le root reali dei quattro adottanti — da cui è emerso il punto 4 della
+triade, la root estensibile con file di dominio (`stato.md`, `scadenze.md`, `diario.md`). Migrazione
+eseguita su `metodo`, `nixos` e `bi`; `economia` e `salute` seguiranno con lo stesso passaggio.
 
 ## 2026-06-05 — Il ciclo è uno specchio simmetrico, i cicli annidati sono la spina dorsale: ritratto «o1 = secondo agente»
 

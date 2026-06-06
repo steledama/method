@@ -7,7 +7,7 @@ stato: maturo
 
 Il metodo KB è il modo operativo con cui una knowledge base personale viene costruita, mantenuta e resa navigabile con l'aiuto di un LLM. Si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di manutenzione dell'insieme, dove fonti, domande e sintesi vengono progressivamente compilate in una rete persistente; Norman fornisce il modello che traduce la KB in azione possibile nel mondo, chiudendo il ciclo tra accumulazione della conoscenza e comportamento reale.
 
-Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: README, istruzioni agent, log, strumenti e task aperti.
+Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: il cruscotto in root (README, map, plan, regole agent, why), gli strumenti e la collezione dei nodi.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
@@ -20,13 +20,13 @@ Indice cognitivo del metodo:
 - `AGENTS.md`: dove trovo le istruzioni operative condivise tra agenti?
 - `CLAUDE.md`: come devo agire in questo repo?
 - `README.md`: dove sono e da dove parto?
-- README / indice: quali nodi esistono e come li trovo?
-- README / tasks: cosa dobbiamo fare adesso?
-- mappa: come si tiene insieme questo dominio?
+- `kb/index.md`: quali nodi esistono e come li trovo?
+- `plan.md`: cosa dobbiamo fare adesso?
+- `map.md`: come si tiene insieme questo dominio?
 - nodo: che cosa significa questo concetto specifico?
 - connessioni: a quali altri concetti è legato?
-- `todo/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
-- `log.md`: perché una decisione o una sessione conta?
+- `tasks/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
+- `why.md`: perché una decisione o una sessione conta?
 - git history: che cosa è cambiato davvero?
 - `scripts/`: quali controlli sono deterministici?
 - skill: quali workflow ricorrenti sono codificati?
@@ -38,26 +38,28 @@ Indice cognitivo del metodo:
 Ricetta metodologica:
 
 - `kb/`: spazio della conoscenza stabile. Contiene i nodi di metodo e i nodi di dominio. Il nucleo metodologico portabile comprende `metodo-kb`, `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`, `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio richiede verifica anti-drift, `fedelta-cognitiva`. Nei progetti che usano il metodo come dipendenza, questi nodi possono vivere in `metodo/` come symlink o sottoalbero separato, mentre `kb/` resta dedicata al dominio.
-- `README.md`: file di bootstrap per umano e LLM. Presenta nome, dominio, scopo, principi locali, task aperti e indice statico della KB. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository. Nei progetti grandi può contenere router per intenzione, cataloghi per cluster e pointer alla mappa canonica.
+- `README.md`: file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali, e punta al resto del cruscotto (`map.md`, `plan.md`, `kb/index.md`). È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository, restando conciso: il modello sta in `map`, i task in `plan`, il catalogo in `kb/index`.
 - `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
 - `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
-- `log.md`: memoria interpretativa append-only delle sessioni significative. Il git log conserva cosa è cambiato; `log.md` conserva perché una decisione, un ingest, una revisione o un cambio di approccio contano. Non è un archivio di output automatici.
-- `todo/`: spazio dei task futuri con contesto operativo. La tabella Tasks aperti del README ne è l'indice: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, log e nodi aggiornati.
+- `map.md`: il modello del dominio in root (vista o2), letto come secondo passo del bootstrap. Tenuto conciso e separato dal README per pace; collega entità, fonti di verità, flussi e nodi. Dettaglio nel nodo `map`.
+- `why.md`: memoria interpretativa append-only delle sessioni significative. Il git log conserva cosa è cambiato; `why.md` conserva perché una decisione, un ingest, una revisione o un cambio di approccio contano. Non è un archivio di output automatici.
+- `plan.md` + `tasks/`: il Plan in root supervisiona il lavoro futuro; `tasks/` ne tiene i dettagli operativi. `plan.md` è l'indice di `tasks/`: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, why e nodi aggiornati.
 - `scripts/`: strumenti versionati per la parte deterministica della manutenzione. `scripts/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli script devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade base ufficiale del metodo è `audit-kb` (diagnosi), `revisione-tasks` (supervisione del lavoro futuro) e `commit` (gate di filing back). Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
-- strato output: il livello che traduce la KB in azione possibile (o1 macchina / o2 decisione / o3 azione nel mondo) e che riceve il segnale di ritorno (i1 grezzo → i2 distillato → i3 formalizzato). Il nome locale dipende dal dominio (`quadro/`, `presentazione/`, `output/`, configurazione di sistema), non dal metodo. La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `output` e `ciclo-azione`.
-- convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `todo`.
+- strato output: il livello che traduce la KB in azione possibile (o1 macchina / o2 decisione / o3 azione nel mondo) e che riceve il segnale di ritorno (i1 grezzo → i2 distillato → i3 formalizzato). Il nome locale dipende dal dominio (`quadro/`, `presentation/`, `output/`, configurazione di sistema), non dal metodo. La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `output` e `ciclo-azione`.
+- convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `tasks`.
 
 Creazione di un nuovo progetto:
 
 - partire dalla ricetta metodologica come checklist, non come gerarchia concettuale
 - personalizzare nome, dominio, scopo, cluster iniziali, fonti di verità e task aperti
-- generare `README.md` come bootstrap e indice statico
+- generare `README.md` come bootstrap conciso che punta a `map.md`, `plan.md`, `kb/index.md`
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
-- creare `log.md` vuoto o con una prima entry di fondazione
-- creare `todo/` e inserirvi solo lavoro futuro, mai storico
+- creare `map.md` con il modello iniziale del dominio e `kb/index.md` come catalogo dei nodi
+- creare `why.md` vuoto o con una prima entry di fondazione
+- creare `plan.md` come Plan e `tasks/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
 - aggiungere `scripts/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
 
@@ -75,12 +77,12 @@ La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`.
 
 Tipi documentali:
 
-- mappa: orienta sull'insieme e collega concetti a fonti di verità
+- map: orienta sull'insieme e collega concetti a fonti di verità
 - nodo concettuale: spiega un'idea stabile e riusabile
 - reference: rende accessibili dati o convenzioni da consultare rapidamente
 - runbook: guida un'azione operativa con sequenza e verifiche
-- todo/: conserva lavoro futuro e contesto transitorio
-- log.md: conserva motivazioni e decisioni nel tempo
+- tasks/: conserva lavoro futuro e contesto transitorio
+- why.md: conserva motivazioni e decisioni nel tempo
 
 Le categorie non sono gabbie formali, ma aiutano a preservare funzione e
 aspettative di lettura. Quando più tipi iniziano a convivere nello stesso file,
@@ -101,12 +103,12 @@ Operazioni ricorrenti:
 Regole sullo stato:
 
 - ciò che è stabile e riusabile diventa nodo in kb/
-- ciò che è da fare resta nella tabella Tasks aperti del README o in todo/
-- ciò che è stato fatto sparisce da todo/ e viene conservato da git, log.md e dai nodi aggiornati
-- ciò che spiega perché una decisione conta va in log.md
+- ciò che è da fare resta in `plan.md` o, con contesto, in tasks/
+- ciò che è stato fatto sparisce da tasks/ e viene conservato da git, why.md e dai nodi aggiornati
+- ciò che spiega perché una decisione conta va in why.md
 - ciò che spiega come lavorare va in CLAUDE.md, skill o strumenti versionati
-- ciò che serve solo come appunto temporaneo non entra nel metodo finché non diventa task, nodo o log
-- la KB permanente descrive il presente; la storia resta in git e log.md salvo che diventi concetto riusabile
+- ciò che serve solo come appunto temporaneo non entra nel metodo finché non diventa task, nodo o why
+- la KB permanente descrive il presente; la storia resta in git e why.md salvo che diventi concetto riusabile
 - una generalizzazione metodologica entra in `metodo` solo dopo evidenza locale sufficiente in almeno un repo adottante, e idealmente con verifica di portabilità su almeno un secondo contesto
 
 Regole di revisione:
@@ -128,7 +130,7 @@ Regole di revisione:
 Personalizzazioni locali:
 
 - nome, dominio e scopo del progetto
-- cluster dell'indice README
+- cluster del catalogo `kb/index.md`
 - fonti e directory specialistiche
 - task aperti e priorità
 - lessico specifico del dominio
@@ -145,10 +147,10 @@ Connessioni:
 - [claude](claude.md)
 - [readme](readme.md)
 - [indice](indice.md)
-- [task-aperti](task-aperti.md)
-- [mappa](mappa.md)
-- [todo](todo.md)
-- [log](log.md)
+- [plan](plan.md)
+- [map](map.md)
+- [tasks](tasks.md)
+- [why](why.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)

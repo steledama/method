@@ -107,7 +107,7 @@ flowchart LR
     ART ==>|è la macchina di| RUN
 ```
 
-Per questo o1/o2/o3 e i1/i2/i3 si **raddoppiano**: c'è un o3 che agisce sul mondo e uno che agisce sull'artefatto, un i1 che viene dal mondo e uno che viene dall'artefatto. L'incastro è che l'**o3 del ciclo di sviluppo è la macchina del ciclo runtime** — il commit produce il codice che gira. Risalire da un output al task che l'ha generato — `output → codice → commit → todo → goal` — è attraversare l'annidamento; `git-history`, `log` e `todo` ne registrano la traccia. È il senso in cui il metodo apre la scatola nera che Norman lasciava chiusa: ogni sistema è l'o3 di un ciclo che lo precede.
+Per questo o1/o2/o3 e i1/i2/i3 si **raddoppiano**: c'è un o3 che agisce sul mondo e uno che agisce sull'artefatto, un i1 che viene dal mondo e uno che viene dall'artefatto. L'incastro è che l'**o3 del ciclo di sviluppo è la macchina del ciclo runtime** — il commit produce il codice che gira. Risalire da un output al task che l'ha generato — `output → codice → commit → tasks → goal` — è attraversare l'annidamento; `git-history`, `why` e `tasks` ne registrano la traccia. È il senso in cui il metodo apre la scatola nera che Norman lasciava chiusa: ogni sistema è l'o3 di un ciclo che lo precede.
 
 ## Le quattro dimensioni
 
@@ -124,13 +124,13 @@ La matrice è la lente per confrontare i domini. Qualche elemento collocato: il 
 
 ## Il goal: tre altitudini, un confine aperto
 
-Norman dà il Goal per scontato. Il metodo lo disciplina con la gerarchia dell'activity theory (Leontiev): `goal` / `task` / `todo` non sono sinonimi, sono tre altitudini.
+Norman dà il Goal per scontato. Il metodo lo disciplina con la gerarchia dell'activity theory (Leontiev): `goal` / `task` / `tasks/` non sono sinonimi, sono tre altitudini.
 
 ```mermaid
 flowchart TB
     M["<b>motivo</b> · attività<br/><i>il perché di fondo — la cosa meno esternalizzabile</i>"]
     G["<b>goal</b> · azione<br/><i>cosa ottenere — informato dalla KB, non generato da essa</i>"]
-    O["<b>operazione</b> · task<br/><i>todo/ — il come, nel contesto</i>"]
+    O["<b>operazione</b> · task<br/><i>tasks/ — il come, nel contesto</i>"]
     M --> G --> O
 ```
 
@@ -138,27 +138,29 @@ La KB *informa e raffina* il Goal, non lo *genera*: il Goal nasce all'incrocio t
 
 ## Anatomia di un progetto
 
-La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
+La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La **root è il cruscotto del ciclo di sviluppo** — i pochi artefatti letti a ogni sessione per capire il tutto. La collocazione segue altezza nel ciclo + pace, non profondità: `plan` e `why` stanno in root pur cambiando in fretta perché la loro altezza lo impone. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
 
 ```mermaid
 flowchart TB
-    R["<b>README.md</b><br/><i>dove sono, da dove parto?</i>"]
+    R["<b>README.md</b><br/><i>Goal: dove sono, da dove parto?</i>"]
+    MAP["<b>map.md</b><br/><i>come si tiene insieme il dominio?</i>"]
+    PLAN["<b>plan.md</b><br/><i>Plan: cosa devo fare adesso?</i>"]
     C["<b>CLAUDE.md</b> · <small>via AGENTS.md</small><br/><i>come agisco qui?</i>"]
-    MAP["<b>mappa</b><br/><i>come si tiene insieme il dominio?</i>"]
-    KB["<b>kb/</b><br/><i>cosa significa questo concetto?</i>"]
-    TODO["<b>todo/</b><br/><i>cosa devo fare adesso?</i>"]
-    LOG["<b>log.md</b><br/><i>perché una decisione conta?</i>"]
+    WHY["<b>why.md</b><br/><i>perché una decisione conta?</i>"]
+    KB["<b>kb/</b> <small>+ index.md</small><br/><i>cosa significa questo concetto?</i>"]
+    TASKS["<b>tasks/</b><br/><i>i dettagli operativi del task</i>"]
     S["<b>scripts/ · skill</b><br/><i>quali controlli e workflow?</i>"]
     OUT["<b>strato output</b><br/><i>come traduco la KB in azione?</i>"]
 
-    R --> C
     R --> MAP
-    R --> TODO
+    R --> PLAN
+    R --> C
     MAP --> KB
+    PLAN --> TASKS
     C --> S
     KB --> OUT
-    OUT --> LOG
-    TODO --> LOG
+    OUT --> WHY
+    TASKS --> WHY
 ```
 
 ## Sviluppo bottom-up del metodo
@@ -168,7 +170,7 @@ Il metodo non si decreta dall'alto: emerge dall'uso reale. `metodo` custodisce l
 ```mermaid
 flowchart LR
     P["esigenza concreta<br/>in un repo adottante"]
-    S["soluzione locale<br/>task · log · nodi"]
+    S["soluzione locale<br/>task · why · nodi"]
     G{"è<br/>generalizzabile?"}
     M["filing back in metodo<br/>nodo · regola · strumento"]
     PR["altri repo leggono i commit<br/>e applicano il pertinente"]
@@ -185,11 +187,12 @@ La regola di routing che tiene puliti i confini tra i componenti.
 ```mermaid
 flowchart TB
     Q{"che tipo di<br/>contenuto?"}
-    Q -->|concetto stabile e riusabile| KB["kb/"]
-    Q -->|lavoro futuro| TODO["README + todo/"]
-    Q -->|perché una decisione conta| LOG["log.md"]
+    Q -->|concetto stabile e riusabile| KB["kb/ + index.md"]
+    Q -->|lavoro futuro| TODO["plan.md + tasks/"]
+    Q -->|perché una decisione conta| LOG["why.md"]
     Q -->|come agire / workflow| OP["CLAUDE.md · skill"]
-    Q -->|orientamento e indice| R["README.md"]
+    Q -->|modello del dominio| MAP["map.md"]
+    Q -->|orientamento / ingresso| R["README.md"]
     Q -->|sintesi · vista · dashboard| OUT["strato output"]
 ```
 
@@ -200,7 +203,7 @@ Dichiarazione minima dello strato output del repo `metodo`, applicata a sé stes
 - **o1 macchina**: `kb/` in markdown consumato dagli LLM via symlink; output di `scripts/kb_tools.py` (audit JSON/markdown)
 - **o2 decisione**: questo file — i diagrammi del metodo in sintesi
 - **o3 azione**: il metodo applicato nei quattro repo adottanti (nodi creati, commit, KB mantenute)
-- **i1 grezzo**: osservazioni dai repo adottanti (commit, task, log) e fonti in `sources/` (i libri di Norman, Hutchins, Leontiev)
+- **i1 grezzo**: osservazioni dai repo adottanti (commit, task, why) e fonti in `sources/` (i libri di Norman, Hutchins, Leontiev)
 - **i3 di ritorno**: l'osservatorio rilegge i repo adottanti e aggiorna `kb/confronto-progetti-adottanti.md`
 - **Criterio di aggiornamento**: quando un gigante, un livello, un componente o un concetto fondativo cambia nei nodi, qui si aggiorna il diagramma corrispondente
 

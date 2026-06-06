@@ -33,6 +33,6 @@ Connessioni:
 
 - [metodo-kb](metodo-kb.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [mappa](mappa.md)
+- [map](map.md)
 - [strumenti-kb](strumenti-kb.md)
 - [knowledge-base](knowledge-base.md)

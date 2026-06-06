@@ -4,21 +4,24 @@ Regole operative per agenti che lavorano su questo repository.
 
 ## Bootstrap di sessione
 
-1. `README.md` — scopo del repo, progetti adottanti, indice nodi
-2. nodo pertinente alla modifica richiesta
+Ordine: `README → map → CLAUDE → nodo`.
+
+1. `README.md` — scopo del repo, progetti adottanti, puntatori al cruscotto
+2. `map.md` — il modello del dominio; `plan.md` per lo stato del lavoro, `kb/index.md` per il catalogo dei nodi
+3. nodo pertinente alla modifica richiesta
 
 ## Operazioni consentite senza autorizzazione
 
 - modifica ai nodi in `kb/`
-- aggiornamento di `README.md` e `log.md`
+- aggiornamento di `README.md`, `map.md`, `plan.md` e `why.md`
 - commit e operazioni git locali
 
 ## Memoria
 
 Non usare il sistema di memoria dell'harness (lo store in `~/.claude/`): è
 host-locale, opaco e non versionato — l'anti-pattern dell'artefatto portabile.
-La memoria del progetto vive versionata nel repo: `log.md` (perché una decisione
-conta), nodi `kb/` (conoscenza stabile), `todo/` (lavoro futuro e contesto).
+La memoria del progetto vive versionata nel repo: `why.md` (perché una decisione
+conta), nodi `kb/` (conoscenza stabile), `tasks/` (lavoro futuro e contesto).
 
 ## Quando aggiungere un nodo
 

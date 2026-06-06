@@ -37,7 +37,7 @@ Regole del progetto:
 - le connessioni puntano a filename relativi nello stesso folder quando sono nodi della stessa KB
 - i link cross-folder tra kb/ e altre directory sono evitati nei nodi
 - README può linkare liberamente ai nodi perché è un indice, non un nodo
-- todo/ può linkare a kb/ con percorso esplicito quando serve contesto operativo
+- tasks/ può linkare a kb/ con percorso esplicito quando serve contesto operativo
 - le rinominazioni richiedono aggiornamento dei link e audit
 
 Ordinamento:
@@ -52,5 +52,5 @@ Connessioni:
 - [metodo-kb](metodo-kb.md)
 - [zettelkasten](zettelkasten.md)
 - [indice](indice.md)
-- [mappa](mappa.md)
+- [map](map.md)
 - [nodo](nodo.md)

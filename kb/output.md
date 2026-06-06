@@ -55,7 +55,7 @@ I *due* cicli non sono «uno per agente» ma **annidati per Mondo**: il ciclo ru
 | Progetto   | o1                                                          | o2                                                         | o3                                                                  |
 | ---------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------- |
 | `nixos`    | `.nix` in `home/`, `hosts/`, `modules/` (forte)             | testo descrittivo in `kb/` (debole, no diagrammi)          | sistema in esecuzione, deploy, switch (forte)                       |
-| `bi`       | scripts notturni (forte)                                    | `presentazione/` Reveal.js (forte)                         | decisioni business, riunioni (forte)                                |
+| `bi`       | scripts notturni (forte)                                    | `presentation/` Reveal.js (forte)                         | decisioni business, riunioni (forte)                                |
 | `economia` | `output/json/` (forte)                                      | `output/report*.md` tabelle (medio)                        | email amministratori, riunioni famigliari (forte)                   |
 | `salute`   | implicito sparso (scadenze, cronologia in `storia-clinica`) | `quadro/` con termometro e file per area (pilota in bozza) | yoga, controlli, alimentazione, conversazioni mediche (medio-forte) |
 
@@ -78,7 +78,7 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 
 ## Forma locale, funzione universale
 
-Il nome dello strato resta locale e segue il dominio: `salute` lo chiama `quadro/`, `bi` ha già `presentazione/`, `economia` ha `output/`, `nixos` ha `home/hosts/modules/` (l'output *è* la configurazione che gira). La funzione è la stessa: tradurre conoscenza in azione possibile. Il nome locale è scelta di dominio, non drift dal metodo.
+Il nome dello strato resta locale e segue il dominio: `salute` lo chiama `quadro/`, `bi` ha già `presentation/`, `economia` ha `output/`, `nixos` ha `home/hosts/modules/` (l'output *è* la configurazione che gira). La funzione è la stessa: tradurre conoscenza in azione possibile. Il nome locale è scelta di dominio, non drift dal metodo.
 
 ## Criteri di qualità
 

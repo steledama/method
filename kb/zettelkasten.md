@@ -24,17 +24,17 @@ Caratteristiche:
 Adattamento operativo:
 
 - i nodi non sono categorie, ma unità interrogabili
-- l'indice README è una mappa di accesso, non una gerarchia rigida
+- il catalogo `kb/index.md` è una mappa di accesso, non una gerarchia rigida
 - i cluster dell'indice possono cambiare senza rinominare i nodi
-- i task aperti non sono nodi: vivono in README e todo/
+- i task aperti non sono nodi: vivono in `plan.md` e tasks/
 - le fonti non sono nodi: alimentano la creazione o revisione dei nodi
-- il log non è nodo: conserva il senso storico delle decisioni
+- il why non è nodo: conserva il senso storico delle decisioni
 
 Regola pratica:
 
 - se il contenuto serve a capire un concetto, va in kb/
-- se serve a fare una cosa futura, va in todo/
-- se spiega una decisione già presa, va in log.md
+- se serve a fare una cosa futura, va in tasks/
+- se spiega una decisione già presa, va in why.md
 - se istruisce un agente, va in CLAUDE.md o in una skill
 - se orienta il lettore, va in README.md
 - se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto, non in kb/

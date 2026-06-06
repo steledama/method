@@ -1,0 +1,57 @@
+---
+data: 2026-06-06
+stato: bozza
+---
+
+# Plan
+
+Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è il file root `plan.md`, sollevato dall'altezza nel ciclo fuori dalla cartella `tasks/` — è la meta-istanza dei task, letta a ogni sessione, quindi sale in root anche se cambia in fretta (l'altezza vince sulla pace).
+
+`plan` è il Plan dello *sviluppo* (l'azione sull'artefatto), distinto da o1 (il Plan del *runtime* in ciclo-azione, l'azione sul mondo): tenerli separati evita una contraddizione tra nodi.
+
+Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, `why.md` e nei nodi aggiornati.
+
+Regole:
+
+- vive in root come `plan.md`, vista sintetica e supervisionabile
+- ogni task sostanziale può avere un file in `tasks/`
+- ogni file in `tasks/` deve avere una riga corrispondente in `plan.md`
+- priorità e dipendenze devono essere esplicite
+- i task completati vanno rimossi, non archiviati in `tasks/`
+- i task locali restano nel repo locale, non nel repo metodo
+- i task del repo `metodo` riguardano solo il metodo stesso: ristrutturazione,
+  semplificazione, coerenza dei nodi, strumenti portabili già giustificati o
+  generalizzazioni emerse dai repo adottanti
+- le verifiche operative su un repo adottante restano nel repo adottante, anche
+  quando possono produrre filing back metodologico
+
+I task sono parte strutturale del metodo perché le sessioni LLM pianificano, analizzano e implementano lavoro attraverso task espliciti. Se i task driftano, la sessione parte da una supervisione falsa: priorità, dipendenze e prossimo lavoro non rappresentano più lo stato reale del progetto.
+
+La revisione del plan va fatta come controllo leggero a inizio sessione e come controllo completo quando cambiano fatti, scadenze o dipendenze. Nei progetti adottanti questa funzione è codificata nella skill base `revisione-tasks`, che deve verificare drift `plan`/`tasks`, task superati, nuovi task emersi dai fatti, priorità aggiornate e task consigliato per la sessione corrente.
+
+## Sviluppo del metodo e perimetro dei task
+
+Lo sviluppo del metodo parte dai repo adottanti. Un task nasce dove esiste il problema concreto, con le fonti, le dipendenze e i criteri di chiusura del dominio. Se durante quel lavoro emerge una regola generale, il filing back aggiorna `metodo`; il task però resta locale finché richiede evidenza locale (il movimento dal basso descritto in sviluppo-metodo).
+
+Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve contenere task del tipo "controlla X in repo Y". Questi task hanno senso solo nel repo che deve produrre l'evidenza. `metodo` riceve il risultato quando diventa principio, nodo, skill base, strumento comune o criterio di revisione. Nel repo `metodo` i task dovrebbero essere rari.
+
+## Applicazione nei progetti adottanti
+
+| Progetto   | Situazione attuale                                                                       | Confronto con il metodo                                                                                                        |
+| ---------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `nixos`    | coda piccola, `plan` compatto.                                                          | Molto aderente: pochi task vivi, legati a cambi tecnici concreti.                                                              |
+| `bi`       | coda media, `plan` con priorità e dipendenze.                                           | Adeguato alla complessità del dominio; i task sono spesso strutturali e vanno tenuti distinti dai nodi stabili.                |
+| `economia` | coda ampia legata a scadenze, adempimenti e situazioni aperte.                          | La numerosità è legittima perché il dominio è operativo e calendariale; serve però revisione frequente per evitare task morti. |
+| `salute`   | coda media; può contenere anche task senza file per elaborazione fonti.                 | Adattamento accettabile per ingest semplici, ma i task più sostanziali dovrebbero avere contesto in `tasks/`.                  |
+
+Il metodo deve ammettere granularità diverse. Nei domini tecnici il task tende a essere un intervento verificabile; in `economia` può essere una pratica aperta; in `salute` può essere ingest o sviluppo concettuale. La regola comune resta la stessa: ciò che è futuro e operativo non deve diventare nodo permanente.
+
+Connessioni:
+
+- [metodo-kb](metodo-kb.md)
+- [readme](readme.md)
+- [tasks](tasks.md)
+- [why](why.md)
+- [git-history](git-history.md)
+- [ciclo-azione](ciclo-azione.md)
+- [struttura-progetto](struttura-progetto.md)

@@ -36,7 +36,7 @@ interpretare strumenti locali come `scripts/kb_tools.py`, ma non deve trasformar
 in procedura di correzione automatica.
 
 `revisione-tasks` è la skill di supervisione del lavoro futuro. Controlla
-coerenza tra README e `todo/`, rivaluta priorità e dipendenze, individua task
+coerenza tra `plan.md` e `tasks/`, rivaluta priorità e dipendenze, individua task
 superati o nuovi task emersi dai fatti e propone il prossimo lavoro. Deve restare
 locale perché i segnali che cambiano i task dipendono dal dominio: scadenze e
 pratiche in `economia`, rebuild e host in `nixos`, flussi dati in `bi`, ingest,
@@ -44,7 +44,7 @@ diario e quadro in `salute`.
 
 `commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
-mappa, nodo KB, todo o log siano stati aggiornati coerentemente.
+map, nodo KB, tasks o why siano stati aggiornati coerentemente.
 
 Questa triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
 che deve solo fotografare, lasciare che la coda dei task diventi un backlog

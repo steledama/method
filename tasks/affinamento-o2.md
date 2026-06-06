@@ -6,7 +6,7 @@ stato: aperto
 # Affinamento dell'o2 come strumento diagnostico condiviso
 
 Aperto il 2026-06-06 a chiusura della sessione che ha riscritto la presentazione
-(`presentazione/metodo-in-sintesi.md`). La presentazione migliora a ogni passata ma restano
+(`presentation/metodo-in-sintesi.md`). La presentazione migliora a ogni passata ma restano
 «cose da approfondire»: il task tiene il filo per la prossima sessione e, insieme, registra
 la cornice metodologica emersa — perché è quella che dà valore al compito.
 

@@ -30,9 +30,9 @@ Caratteristiche:
 Confini:
 
 - kb/ contiene conoscenza stabile, non task aperti
-- todo/ contiene lavoro futuro e contesto operativo temporaneo
-- log.md contiene il perché delle sessioni significative, non una lista di commit
-- README.md contiene l'orientamento e l'indice statico, non tutta la conoscenza
+- tasks/ contiene lavoro futuro e contesto operativo temporaneo
+- why.md contiene il perché delle sessioni significative, non una lista di commit
+- README.md contiene l'orientamento e punta al catalogo `kb/index.md`, non tutta la conoscenza
 - CLAUDE.md contiene regole operative per agenti, non contenuto di dominio
 - fonti o data contengono materiali grezzi o elaborati, non nodi atomici
 

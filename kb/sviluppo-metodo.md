@@ -17,6 +17,6 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [pace-layering](pace-layering.md)
-- [task-aperti](task-aperti.md)
+- [plan](plan.md)
 - [knowledge-base](knowledge-base.md)
 - [design-principles](design-principles.md)

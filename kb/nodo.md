@@ -31,8 +31,8 @@ Caratteristiche:
 - sezioni non gerarchiche: preferire label testuali e bullet di primo livello a heading annidati
 - stato bozza: nodo utile ma incompleto, da espandere o collegare meglio
 - stato maturo: nodo stabile, collegato e sufficientemente autonomo
-- niente storico operativo: task, checklist temporanee e piani di lavoro vivono in todo/
-- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e log.md
+- niente storico operativo: task, checklist temporanee e piani di lavoro vivono in tasks/
+- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e why.md
 - funzione documentale esplicita: separare quando mappa, concetto, reference e runbook iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a esempi didattici plausibili ma non canonici
 
@@ -55,9 +55,9 @@ Il frontmatter dei nodi è obbligatorio e volutamente minimale. Serve agli strum
 - `iniziale`: nodo appena impostato o ancora poco stabilizzato;
 - `maturo`: nodo stabile, autonomo e sufficientemente collegato.
 
-Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `todo/`, priorità e dipendenze nella tabella del README.
+Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `tasks/`, priorità e dipendenze in `plan.md`.
 
-Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `log.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
+Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `plan.md`, `why.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
 
 Regole di creazione:
 
