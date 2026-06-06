@@ -13,7 +13,7 @@ Il sistema poggia su tre pilastri metodologici — Zettelkasten (forma del nodo 
 
 La KB non è il fine: è strumentale all'azione. Lo strato output — con nomi locali nei singoli progetti — traduce la conoscenza in azione possibile (o1/o2/o3) e riceve di ritorno il segnale del mondo (i1/i2/i3), definiti in `output`. Senza questo strato, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e comportamento.
 
-La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema.
+La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema. Umano e LLM sono qui il caso saliente di una popolazione di agenti più ampia (cfr. `agente`): la stessa divisione del lavoro può ripartirsi tra livelli di agente — per capacità e per stadio del ciclo — quando l'uso multi-agente diventa reale.
 
 Caratteristiche:
 
@@ -56,3 +56,4 @@ Connessioni:
 - [connessione](connessione.md)
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
+- [agente](agente.md)

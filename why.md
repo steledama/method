@@ -4,6 +4,34 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-06 — De-cablaggio del binomio «due agenti»: il caso saliente non è la struttura
+
+Il metodo era nato descrivendo due agenti — l'umano e un singolo LLM — e su quel binomio aveva
+cablato la sua asimmetria in più nodi come se fosse *la* struttura. Con la creazione del nodo
+`agente` (bozza, stessa giornata) il binomio è stato riconosciuto per ciò che è: il **caso
+saliente** di una popolazione di agenti più ampia. Norman definisce l'agente come «person, animal,
+or machine», e la categoria macchina non è un punto ma un gradiente — un LLM di frontiera che
+pianifica e un agente locale che esegue non sono lo stesso lettore, anche sulla stessa KB.
+
+Questa sessione esegue la prima metà del task `de-cablaggio-agenti`: l'ammorbidimento dei nodi che
+portavano la falsa certezza. Principio di lavoro: **additivo, non distruttivo**. L'asimmetria
+umano/LLM non si cancella — resta vera *come caso* —, le si toglie solo lo statuto di struttura
+unica. Tre nodi: `system-image` (il binomio dichiarato caso saliente, non struttura), `sistema-cognitivo`
+(la sezione «asimmetria dei due agenti» diventa «asimmetria umano / LLM», con la cornice di
+popolazione in apertura) e `knowledge-base` (maturo, tocco minimo: una frase *condizionale* — la
+divisione del lavoro può ripartirsi tra livelli di agente «quando l'uso multi-agente diventa reale»).
+
+Due scelte di metodo che contano. *Perché condizionale e non descrittivo:* la seconda metà del task
+— la maturazione di `agente`, la biforcazione di o1 per capacità, l'asse fiducia/privacy, la
+divisione per stadio del ciclo — resta esplicitamente **bottom-up, non anticipata**. Si aspetta che
+un secondo livello di agente entri nell'uso reale; scrivere ora quegli arredi sarebbe inventare
+struttura prima dell'evidenza, l'opposto di come il metodo si sviluppa. *Perché additivo basta per
+gli adottanti:* i nodi sono condivisi via symlink da nixos/bi/economia/salute; un ammorbidimento che
+preserva il caso umano/LLM non rompe il senso a valle, dove quel caso è ancora l'unico in uso.
+
+Effetto collaterale che chiude un debito: i tre nodi ora linkano `agente`, che era nato orfano —
+il de-cablaggio ripara anche il backlink mancante (audit: 0 link rotti, nessun orfano residuo).
+
 ## 2026-06-06 — Il root è il cruscotto del ciclo di sviluppo: la fondazione del file che il ridisegno ha ribattezzato
 
 Questa è la prima entry di `why.md`, ed è il perché del file stesso. La migrazione del layout ha

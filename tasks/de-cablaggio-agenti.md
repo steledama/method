@@ -10,13 +10,21 @@ Aperto il 2026-06-06 con la creazione del nodo [[agente]] in bozza. Il metodo ca
 popolazione di agenti più ampia. Il task tiene il filo di due lavori distinti: togliere la falsa
 certezza dove già esiste, e maturare il nodo quando l'uso multi-agente diventa reale.
 
-## De-cablaggio (additivo, da fare a conferma sui nodi maturi)
+## De-cablaggio — fatto il 2026-06-06
 
-- [[system-image]]: «due agenti che non si parlano» → riformulare come popolazione di agenti senza
-  perdere l'asimmetria umano/LLM, che resta vera come caso;
-- [[sistema-cognitivo]]: «asimmetria dei due agenti» → stesso ammorbidimento;
-- [[knowledge-base]]: la divisione del lavoro umano/LLM va letta come caso del gradiente più ampio;
-- verificare che l'ammorbidimento non rompa il senso negli altri progetti adottanti.
+Ammorbidimento additivo applicato ai tre nodi: il binomio umano/LLM resta come *caso saliente*
+di una popolazione di agenti più ampia (cfr. [[agente]]), senza perdere l'asimmetria.
+
+- [[system-image]]: nella sezione «Perché conta», il binomio umano + LLM è ora dichiarato caso
+  saliente di una popolazione, non struttura unica;
+- [[sistema-cognitivo]]: sezione rinominata «L'asimmetria umano / LLM» con cornice di popolazione
+  in apertura;
+- [[knowledge-base]] (maturo): aggiunta una frase condizionale — la divisione del lavoro può
+  ripartirsi tra livelli di agente quando l'uso multi-agente diventa reale;
+- bonus: i tre nodi ora linkano [[agente]] (era orfano), così il de-cablaggio chiude anche il
+  backlink mancante;
+- verifica adottanti: la modifica è additiva e condizionale, i nodi sono condivisi via symlink e
+  preservano il caso umano/LLM → nessuna rottura di senso.
 
 ## Maturazione (bottom-up, non anticipare)
 

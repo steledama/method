@@ -17,9 +17,9 @@ Nel metodo il sistema cognitivo è l'accoppiamento che prende vita a ogni sessio
 
 Questo lo distingue dall'artefatto cognitivo, che invece è portabile: il repo sopravvive al cambio di modello, al cambio di harness, al cambio di utente. Il metodo coltiva l'artefatto *perché* il sistema funzioni; ma l'artefatto e il sistema non sono la stessa cosa.
 
-## L'asimmetria dei due agenti
+## L'asimmetria umano / LLM
 
-Il sistema cognitivo del metodo ha un'asimmetria strutturale tra i due agenti che leggono l'artefatto. Per l'umano la KB è impalcatura esterna a un modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM la KB *è* il modello mentale: riparte da zero a ogni sessione e non ha altra fonte. Lo user's model di Norman (cfr. `system-image`) coincide, per l'LLM, con il system image — non c'è strato intermedio.
+Il sistema cognitivo del metodo ha un'asimmetria strutturale tra gli agenti che leggono l'artefatto. Il caso saliente — quello su cui il metodo si è formato — è il binomio umano + LLM, che resta vero come caso di una popolazione di agenti più ampia (cfr. `agente`). Per l'umano la KB è impalcatura esterna a un modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM la KB *è* il modello mentale: riparte da zero a ogni sessione e non ha altra fonte. Lo user's model di Norman (cfr. `system-image`) coincide, per l'LLM, con il system image — non c'è strato intermedio.
 
 Questa asimmetria ha conseguenze di progetto: l'artefatto deve essere autosufficiente per l'agente che non porta nulla, senza per questo essere ridondante per l'agente che porta già molto. Non è un equilibrio facile — è la tensione che motiva la distinzione L1/L2 nello strato output, e che richiede che certe cose (assunzioni, contesto, ragioni di una decisione) siano esplicite nell'artefatto anche quando l'umano le ricorderebbe.
 
@@ -57,3 +57,4 @@ Connessioni:
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)
 - [metodo-kb](metodo-kb.md)
+- [agente](agente.md)
