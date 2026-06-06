@@ -9,7 +9,8 @@ La migrazione del layout aveva cambiato il **nome** (`log.md → why.md`), non l
 gli adottanti restano log datati, append-only, con la decisione relegata a sottotitolo
 dell'header `## [DATA] tipo | titolo`. Questo runbook porta la **sostanza** a coincidere col
 nome — memoria interpretativa indicizzata per _motivazione_, non per data — replicando su
-ogni repo il refactor già eseguito su `metodo` e `bi` (2026-06-06). Prossimo target: **`nixos`**.
+ogni repo il refactor già eseguito su `metodo`, `bi` e `nixos` (2026-06-06). Restano **`economia`**
+e **`salute`**, fuori dall'host corrente.
 
 ## La decisione (forma A — già applicata a `metodo`, fissata nel nodo)
 
@@ -21,12 +22,20 @@ quel repo_. Riassunto della forma:
 1. **Chiave primaria = motivazione** (gruppo `##`, con una riga di intro in corsivo); la
    data è asse secondario _dentro_ il gruppo (`### [YYYY-MM-DD] tesi`, dalla più recente).
    Git possiede l'asse del tempo; `why` aggiunge quello del significato. **Guardia
-   bottom-up:** solo temi già stabilizzati, niente scaffali vuoti.
+   bottom-up:** solo temi già stabilizzati, niente scaffali vuoti — e nemmeno l'opposto.
+   **Entry orfane:** un'entry isolata si **accorpa al filo più vicino per motivazione**; un
+   gruppo mono-entry è ammesso solo se il filo è un principio guida riconosciuto del repo;
+   mai un gruppo "varie". **Tie-break dell'ordine intra-gruppo:** a parità di data (o più
+   `[storico]` senza data) vale l'ordine narrativo; una **sequenza numerata** (es. Fasi 1/2/3)
+   resta adiacente e nell'ordine che si legge meglio, anche se viola il recent-first.
 2. **Asse `tipo` eliminato** dalla forma finale, ma **usato come indizio di clustering**
    durante il refactor (i tag `architettura|pattern|fix|integrazione|…` aiutano a raggruppare).
 3. **Supersessione esplicita:** un'entry superata resta in posizione e riceve una riga
    `> ↳ …` verso quella che la corregge. Mai cancellare (git conserva).
-4. **Multi-tema:** entry nel gruppo più pertinente + rimandi agli altri.
+4. **Multi-tema:** entry nel gruppo più pertinente + rimandi agli altri. Anche il rimando è
+   una riga `> ↳ …` sotto l'header: stesso meccanismo della supersessione, **verbo diverso** —
+   «superata da …» per la supersessione, «vedi anche …» / «conseguenza di …» per il cross-link.
+   Il dict `markers` dello script ospita entrambi gli usi.
 5. **Dump audit/lint FUORI dal `why`:** sono output macchina (i1), rigenerabili — non
    memoria interpretativa. Vanno spostati in una collocazione dedicata all'output operativo,
    come **snapshot sovrascritto** (non storia append-only). Non reintrodurre un archivio di
@@ -56,8 +65,9 @@ cross-repo, nessun coordinamento.
    righe-riassunto a corpo vuoto). Attenzione alle righe-riassunto a **corpo vuoto** (il dump
    le seguiva subito): l'informazione sta nel titolo, restano come entry `###` senza corpo.
 2. **Clusterizzare per motivazione** (giudizio di dominio). Raggruppare le entry nei fili
-   concettuali _già stabilizzati_ del repo. Una entry per gruppo-chiave; multi-tema con
-   rimando. Ordine intra-gruppo: dalla più recente.
+   concettuali _già stabilizzati_ del repo. Una entry per gruppo-chiave; orfane e multi-tema
+   secondo le regole di forma sopra (accorpa al filo vicino, rimando `> ↳`). Ordine
+   intra-gruppo: dalla più recente, con i tie-break del punto 1.
 3. **Riorganizzazione meccanica con corpo verbatim — via script** (vedi sotto). Il corpo di
    ogni entry si **sposta**, non si riscrive: garantisce fedeltà e rende il diff revisionabile.
 4. **Marcatori di supersessione** dove un'entry successiva ritratta/raffina una precedente;
@@ -70,7 +80,8 @@ cross-repo, nessun coordinamento.
    «ex log.md», «Formato voce: ## [DATA] tipo | titolo» → convenzioni del nodo). **Il nodo
    `kb/why.md` NON si tocca: è ereditato.**
 7. **Entry di sessione** in testa al gruppo pertinente, che registra _questo_ refactor (è
-   l'i3 del ciclo di sviluppo della sessione), con puntatore al commit `metodo` di riferimento.
+   l'i3 del ciclo di sviluppo della sessione), con puntatori ai commit di riferimento (`metodo`
+   `a9fbb82` e i repo già fatti).
 
 ## Lo script (template riusabile — adattare `clusters`, `markers`, e il regex dell'header)
 
@@ -94,7 +105,8 @@ for k,(i,date,rest) in enumerate(hs):
     if not title: tipo, title = '', rest          # entry-dump o senza tipo
     entries.append({'date':date,'tipo':tipo,'title':title.strip(),'body':body,'idx':k})
 # 1) stampare entries per decidere clusters; 2) marcare i dump da estrarre
-# clusters = [("Titolo gruppo","intro",[idx,...]), ...]   markers = {idx: "> ↳ ..."}
+# clusters = [("Titolo gruppo","intro",[idx,...]), ...]
+# markers = {idx: "> ↳ ..."}  # supersessione («superata da…») o cross-link («vedi anche…»)
 # dump_idx = {idx,...}  -> scritti altrove (snapshot), non nel why
 covered = [i for _,_,idxs in clusters for i in idxs]
 assert len(covered) == len(set(covered)), 'indici duplicati nei cluster'
@@ -108,6 +120,12 @@ prima/dopo con eccezioni da scontare a mano (preambolo, dump) — è fragile. Pi
 le righe di corpo (non-header, non-`---`, non vuote) delle **sole entry tenute** (escluse quelle
 in `dump_idx`) e verificare che siano un _sottoinsieme_ del nuovo file. Niente eccezioni: il
 preambolo è sostituito per costruzione, i dump sono esclusi a monte.
+
+**Attenzione all'ordine col formatter:** lo script qui sotto verifica `result` _in memoria_,
+prima di scrivere. Ma CLAUDE.md impone i formatter pre-commit, che girano **dopo**. Quindi la
+verifica decisiva è la **seconda**, dopo `prettier`/`alejandra`/`ruff`, fatta contro il file su
+disco rispetto a `git show HEAD:why.md` (vedi gate). Se `prose-wrap` non è `preserve`, prettier
+reflowa il prosa e romperebbe il verbatim senza che il primo check se ne accorga.
 
 ```python
 def body_lines(s):
@@ -123,12 +141,19 @@ print('righe-dump estratte (attese FUORI dal why):',
 
 ## Verifica (gate, prima del commit)
 
-- check verbatim: 0 righe di corpo perse (al netto di preambolo e dump estratti).
+- check verbatim (1ª, in memoria): 0 righe di corpo perse (al netto di preambolo e dump estratti).
+- **formatter, poi 2ª verifica:** esegui i formatter pre-commit (`prettier --write why.md`, ecc.),
+  poi **ri-controlla il verbatim contro `git show HEAD:why.md`** — è questa, sul file finale, a
+  fare fede. (Vedi nota sull'ordine col formatter sopra.)
 - `python3 scripts/kb_tools.py audit` → 0 link rotti, 0 nodi isolati.
-- grep header del `why.md`: nessun residuo `append-only`, `ex log.md`, `tipo |`.
-- dump audit/lint non più nel `why.md`; snapshot al suo posto.
-- entry di sessione in testa al gruppo giusto, con puntatore al commit `metodo` di riferimento.
+- grep residui di forma vecchia: **ancorare a `^## \[`** (un `### [data]` contiene la
+  sottostringa `## [`, falso positivo garantito); le menzioni di `append-only` / `tipo |`
+  **tra virgolette** nei corpi verbatim e nell'entry di sessione sono attese, non residui.
+- dump audit/lint non più nel `why.md`; snapshot al suo posto (o no-op se già potati).
+- entry di sessione in testa al gruppo giusto, con puntatori ai commit di riferimento.
 - commit in-repo `refactor(why): ribalta la memoria per motivazione`. **Push mai automatico.**
+- **chiusura:** aggiorna la scheda per-repo e la riga `Stato` di questo runbook col commit
+  appena fatto (commit separato nel repo `metodo`).
 
 ## Schede per-repo
 
@@ -158,10 +183,17 @@ print('righe-dump estratte (attese FUORI dal why):',
 - 2 marcatori `> ↳` (GUI-at-system → simmetria server; forma append-only → indicizzazione per
   motivazione). Verifica verbatim: 0 righe di corpo perse. Audit: 41 nodi, 0 link rotti, 0 orfani.
 
-### `economia` / `salute`
+### `economia` / `salute` (rimasti, fuori host)
 
-- **Non presenti su questo host.** Quando raggiungibili, stessa procedura. (Si assume il
-  layout già migrato; se il `why.md` fosse ancora `log.md`, fare prima la rinomina `git mv`.)
+- **Non presenti su questo host.** Aprire la sessione _nel_ repo dove sono raggiungibili.
+- **Precondizione:** se il file è ancora `log.md` invece di `why.md`, fare prima `git mv
+log.md why.md` (il layout potrebbe non essere migrato).
+- **`economia` ha file affiancati** `stato.md` / `scadenze.md` / `diario.md`: **NON** assorbire
+  stato corrente, scadenze o materiale di diario dentro `why.md` — il `why` è memoria
+  interpretativa, lo stato vive in quei file. Clusterizza solo le decisioni. Il `why` di
+  economia è più breve: attesi **meno gruppi**, non forzare scaffali (vedi «Entry orfane»).
+- **`salute`** ha `why.md` + `diario.md` (più personale/riflessivo): stessa cautela — why =
+  memoria del progetto, diario = materiale personale.
 
 ## Filing back / chiusura
 
