@@ -11,6 +11,7 @@ nei nodi aggiornati.
 
 ## Task aperti
 
+- [migrazione-layout-adottanti](tasks/migrazione-layout-adottanti.md) — runbook esecutivo per portare economia e salute al layout cruscotto (Parte A meccanica + Parte B di dominio); una sessione per repo, da eseguire dai rispettivi repo
 - [affinamento-o2](tasks/affinamento-o2.md) — rilettura ravvicinata della presentazione (`metodo-in-sintesi.md`) e l'o2 come strumento diagnostico condiviso (lo stadio Compare del ciclo di sviluppo)
 - [fonti-pace-layering](tasks/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [de-cablaggio-agenti](tasks/de-cablaggio-agenti.md) — togliere il binomio cablato «due agenti» dai nodi e maturare `agente` quando l'uso multi-agente diventa reale
