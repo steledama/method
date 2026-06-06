@@ -30,6 +30,7 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 - [affinamento-o2](todo/affinamento-o2.md) — rilettura ravvicinata della presentazione (`metodo-in-sintesi.md`) e l'o2 come strumento diagnostico condiviso tra umano e LLM
 - [fonti-pace-layering](todo/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [de-cablaggio-agenti](todo/de-cablaggio-agenti.md) — togliere il binomio cablato «due agenti» dai nodi e maturare `agente` quando l'uso multi-agente diventa reale
+- [ristrutturazione-layout](todo/ristrutturazione-layout.md) — disegno unico del nuovo top level (mappa nel README, indice e lista nelle cartelle, `log→why`, `todo→tasks`) e migrazione atomica sui 5 repo
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando completati.
 
