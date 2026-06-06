@@ -1,6 +1,6 @@
 ---
 data: 2026-06-06
-stato: bozza
+stato: maturo
 ---
 
 # Sviluppo del metodo

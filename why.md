@@ -20,6 +20,11 @@ In ognuno il dal-basso resta nominato come il polo che protegge dal costruire pe
 guardia non si è persa, ha smesso di travestirsi da legge. Nel nodo `plan` la riformulazione resta a
 livello di metodo («uno dei due movimenti») così da reggere identica in tutti gli adottanti.
 
+Allineato in un secondo passaggio anche `osservatorio-metodo`, dove «la direzione ordinaria è
+bottom-up» diventa «la direzione che l'osservatorio governa è il movimento dal basso», con nota su come
+il movimento dall'alto rilegge l'insieme dei componenti senza passare da quel flusso. Con il nodo ormai
+referenziato e propagato in tutto il corpus, `sviluppo-metodo` passa da `bozza` a `maturo`.
+
 ---
 
 ## 2026-06-06 — Ri-derivazione dell'o2: il metodo gira il proprio Compare su sé stesso

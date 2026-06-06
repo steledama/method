@@ -9,7 +9,7 @@ Il repo metodo non è solo una libreria di nodi portabili: è il punto di osserv
 
 Il metodo nasce e si verifica nei progetti concreti. `nixos`, `bi`, `economia` e `salute` non sono solo consumatori del metodo: sono casi sperimentali con vincoli diversi. Un progetto code-based espone problemi di fedeltà tecnica e copertura del codice; un progetto finanziario espone problemi di fonti autoritative e dati sensibili; un progetto riflessivo espone problemi di hub semantici, accessi cognitivi e filing back. L'osservatorio serve a rendere queste differenze comparabili senza appiattirle.
 
-La direzione ordinaria di sviluppo è bottom-up. Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente.
+La direzione che l'osservatorio governa è il movimento dal basso (uno dei due di `sviluppo-metodo`, e quello che protegge dal generalizzare per esigenze immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente. Il movimento dall'alto — importare una cornice teorica e verificarla contro i domini reali — non passa da questo flusso: non genera task negli adottanti, ma rilegge l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
@@ -67,6 +67,7 @@ Esito metodologico iniziale:
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
+- [sviluppo-metodo](sviluppo-metodo.md)
 - [strumenti-kb](strumenti-kb.md)
 - [struttura-progetto](struttura-progetto.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
