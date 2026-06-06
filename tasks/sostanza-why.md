@@ -183,17 +183,29 @@ print('righe-dump estratte (attese FUORI dal why):',
 - 2 marcatori `> ↳` (GUI-at-system → simmetria server; forma append-only → indicizzazione per
   motivazione). Verifica verbatim: 0 righe di corpo perse. Audit: 41 nodi, 0 link rotti, 0 orfani.
 
-### `economia` / `salute` (rimasti, fuori host)
+### `economia` ✅ fatto (2026-06-06, commit `a7198c5`)
 
-- **Non presenti su questo host.** Aprire la sessione _nel_ repo dove sono raggiungibili.
+- Era 500 righe, **38 entry**: 35 decisioni/riassunti e 3 corpi-dump `audit-kb`; `why.md` era
+  già presente, quindi la precondizione `git mv log.md why.md` non è servita.
+- I 3 dump grezzi sono usciti dal `why`; lo snapshot corrente viene sovrascritto in
+  `output/kb-audit-snapshot.md` (output macchina non versionato). Le 4 righe-riassunto lint
+  sono rimaste come entry brevi.
+- **4 gruppi** emersi bottom-up dal dominio legale/finanziario: separare il patrimonio
+  condiviso senza sacrificare valore · governare Fiano con numeri, titoli e paper trail ·
+  documenti primari come fonte di titoli, obblighi e fatti · KB come infrastruttura
+  decisionale distinta da stato e storia.
+- `stato.md`, `scadenze.md` e `diario.md` sono rimasti separati: nessuno stato corrente,
+  scadenza o materiale di diario è stato assorbito nel `why`.
+- 8 marcatori `> ↳` fra supersessioni e rimandi multi-tema. Verifica verbatim dopo Prettier:
+  0 righe di corpo perse. Audit: 55 nodi, 0 link rotti, 0 orfani.
+
+### `salute` (rimasto, fuori host)
+
+- Aprire la sessione _nel_ repo dove è raggiungibile.
 - **Precondizione:** se il file è ancora `log.md` invece di `why.md`, fare prima `git mv
 log.md why.md` (il layout potrebbe non essere migrato).
-- **`economia` ha file affiancati** `stato.md` / `scadenze.md` / `diario.md`: **NON** assorbire
-  stato corrente, scadenze o materiale di diario dentro `why.md` — il `why` è memoria
-  interpretativa, lo stato vive in quei file. Clusterizza solo le decisioni. Il `why` di
-  economia è più breve: attesi **meno gruppi**, non forzare scaffali (vedi «Entry orfane»).
-- **`salute`** ha `why.md` + `diario.md` (più personale/riflessivo): stessa cautela — why =
-  memoria del progetto, diario = materiale personale.
+- Ha `why.md` + `diario.md` (più personale/riflessivo): stessa cautela — why = memoria del
+  progetto, diario = materiale personale.
 
 ## Filing back / chiusura
 
@@ -203,6 +215,6 @@ quando raggiungibili) sono allineati e verificati, il task si chiude: la riga sp
 `maturo` è il filing back atteso a refactor completo.
 
 **Stato:** `metodo` ✅ fatto (2026-06-06, commit `a9fbb82`) — caso di riferimento. `bi` ✅ fatto
-(2026-06-06, commit `59059c43`). `nixos` ✅ fatto (2026-06-06, commit `d318485`). Restano
-`economia`/`salute`, fuori host: il task si chiude (e il nodo `why` matura da `bozza` a `maturo`)
-quando saranno raggiungibili e allineati.
+(2026-06-06, commit `59059c43`). `nixos` ✅ fatto (2026-06-06, commit `d318485`). `economia`
+✅ fatto (2026-06-06, commit `a7198c5`). Resta `salute`, fuori host: il task si chiude (e il
+nodo `why` matura da `bozza` a `maturo`) quando sarà raggiungibile e allineato.
