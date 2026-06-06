@@ -143,11 +143,20 @@ print('righe-dump estratte (attese FUORI dal why):',
   strumenti/ambiente/automazione · metodo, KB e documentazione · audit e lint.
 - 3 marcatori `> ↳` (rotta `ecomm1 → wl1`, dead code canonico, forma del file stesso).
 
-### `nixos` (prossimo)
+### `nixos` ✅ fatto (2026-06-06, commit `d318485`)
 
-- ~370 righe, ~40 entry, stesso header. **8 entry `[storico]`** (data assente → la data è
-  già demota: confermano la forma). `nixos` aveva già potato i suoi dump (entry «log pruning»):
-  lo step 5 è verosimilmente un no-op, niente snapshot da creare (confermare in recon).
+- Era ~370 righe, **40 entry**, header `## [DATA] tipo | titolo`, asse `tipo`; 8 `[storico]`
+  senza data (confermavano la forma: data già demota).
+- Step 5 **no-op confermato in recon**: i dump erano già potati (entry «log pruning»). Le 4
+  voci `audit kb-nixos` erano già righe-riassunto interpretative (1 riga ciascuna), non corpi
+  grezzi — rimaste come entry brevi. Nessuno snapshot creato.
+- **9 gruppi** emersi bottom-up: simmetria dei server gemelli e fonti uniche di verità ·
+  livello e trasparenza della configurazione di sistema · rete, accessi e servizi esposti ·
+  disponibilità dei Drive personali via rclone · la KB come interfaccia cognitiva · il metodo
+  come dipendenza trans-repo · CLAUDE.md come costituzione operativa · strumenti per agenti AI ·
+  audit, lint e disciplina della memoria interpretativa.
+- 2 marcatori `> ↳` (GUI-at-system → simmetria server; forma append-only → indicizzazione per
+  motivazione). Verifica verbatim: 0 righe di corpo perse. Audit: 41 nodi, 0 link rotti, 0 orfani.
 
 ### `economia` / `salute`
 
@@ -162,4 +171,6 @@ quando raggiungibili) sono allineati e verificati, il task si chiude: la riga sp
 `maturo` è il filing back atteso a refactor completo.
 
 **Stato:** `metodo` ✅ fatto (2026-06-06, commit `a9fbb82`) — caso di riferimento. `bi` ✅ fatto
-(2026-06-06, commit `59059c43`). Resta `nixos` (prossimo), e `economia`/`salute` fuori host.
+(2026-06-06, commit `59059c43`). `nixos` ✅ fatto (2026-06-06, commit `d318485`). Restano
+`economia`/`salute`, fuori host: il task si chiude (e il nodo `why` matura da `bozza` a `maturo`)
+quando saranno raggiungibili e allineati.
