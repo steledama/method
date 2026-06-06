@@ -4,6 +4,24 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-06 — Riallineata l'enfasi «solo bottom-up» ai due movimenti
+
+Il nodo `sviluppo-metodo` (creato in giornata) ha corretto un'asserzione che il metodo ripeteva piatta
+in più punti: «lo sviluppo del metodo è bottom-up». Era giusta come *guardia* contro la
+sovra-ingegnerizzazione, ma falsa come *regola unica* — e contraddiceva il gigante adottato, il ciclo
+dell'azione di Norman, che è un anello a due movimenti (gulf of evaluation / gulf of execution), non un
+cricchetto a senso unico. Il dal-basso legge il mondo; il dall'alto vi imprime una cornice teorica
+importata che dà forma a ciò che dal basso si avverte ma non si sa nominare.
+
+Ammorbiditi i quattro punti che enunciavano il bottom-up come regola: `README.md`, il nodo `metodo-kb`,
+il nodo `plan` (sezione perimetro dei task, che si propaga via symlink ai quattro adottanti) e
+`presentation/metodo-in-sintesi.md` (titolo e prosa della sezione, più l'indice degli approfondimenti).
+In ognuno il dal-basso resta nominato come il polo che protegge dal costruire per futuri immaginati: la
+guardia non si è persa, ha smesso di travestirsi da legge. Nel nodo `plan` la riformulazione resta a
+livello di metodo («uno dei due movimenti») così da reggere identica in tutti gli adottanti.
+
+---
+
 ## 2026-06-06 — Ri-derivazione dell'o2: il metodo gira il proprio Compare su sé stesso
 
 Il task `affinamento-o2` chiedeva una «rilettura ravvicinata» della presentazione, ma alla luce dei

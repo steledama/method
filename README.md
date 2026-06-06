@@ -6,7 +6,7 @@ Questo repository ha due funzioni complementari. La prima è custodire il metodo
 
 Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale — principi, struttura KB, ciclo operativo — mentre le personalizzazioni sono esplicite: ogni progetto estende il metodo con principi, fonti di verità e strumenti propri del dominio. Le differenze tra progetti non sono rumore: sono materiale di analisi per capire cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
 
-Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale.
+Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo](kb/sviluppo-metodo.md)). Dal basso, un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Dall'alto, una cornice teorica importata — un gigante, una distinzione — dà forma a ciò che dal basso si avverte come disagio ma non si sa ancora inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale e le cornici che lo reggono.
 
 ## Orientarsi
 

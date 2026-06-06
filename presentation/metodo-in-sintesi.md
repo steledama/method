@@ -163,9 +163,9 @@ flowchart TB
     TASKS --> WHY
 ```
 
-## Sviluppo bottom-up del metodo
+## Sviluppo del metodo: dal basso e dall'alto
 
-Il metodo non si decreta dall'alto: emerge dall'uso reale. `metodo` custodisce le generalizzazioni, non orchestra i repo.
+Il metodo cresce per due movimenti in alternanza. Dal basso emerge dall'uso reale: un'esigenza concreta in un repo adottante si stabilizza e risale solo se generalizzabile (il diagramma sotto). Dall'alto una cornice teorica importata dà forma a ciò che dal basso si avverte ma non si sa nominare. Il dal-basso è la guardia contro la sovra-ingegnerizzazione; `metodo` custodisce le generalizzazioni, non orchestra i repo.
 
 ```mermaid
 flowchart LR
@@ -223,5 +223,5 @@ I diagrammi comprimono; i nodi spiegano.
 - l'agente come popolazione · system image condivisa → `kb/agente.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/visceral-behavioral-reflective.md`
 - il goal · tre altitudini → `kb/goal.md`
 - anatomia del progetto → `kb/struttura-progetto.md`
-- sviluppo bottom-up e osservatorio → `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`
+- sviluppo del metodo (due movimenti) e osservatorio → `kb/sviluppo-metodo.md`, `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`
 - dove vive cosa → `kb/metodo-kb.md` (regole sullo stato), `kb/zettelkasten.md` (regola pratica)

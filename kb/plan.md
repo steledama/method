@@ -31,7 +31,7 @@ La revisione del plan va fatta come controllo leggero a inizio sessione e come c
 
 ## Sviluppo del metodo e perimetro dei task
 
-Lo sviluppo del metodo parte dai repo adottanti. Un task nasce dove esiste il problema concreto, con le fonti, le dipendenze e i criteri di chiusura del dominio. Se durante quel lavoro emerge una regola generale, il filing back aggiorna `metodo`; il task però resta locale finché richiede evidenza locale (il movimento dal basso descritto in sviluppo-metodo).
+Sul perimetro dei task lo sviluppo del metodo segue il movimento dal basso — uno dei due descritti in sviluppo-metodo, e quello che protegge dal costruire per futuri immaginati. Un task nasce dove esiste il problema concreto, con le fonti, le dipendenze e i criteri di chiusura del dominio. Se durante quel lavoro emerge una regola generale, il filing back aggiorna `metodo`; il task però resta locale finché richiede evidenza locale.
 
 Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve contenere task del tipo "controlla X in repo Y". Questi task hanno senso solo nel repo che deve produrre l'evidenza. `metodo` riceve il risultato quando diventa principio, nodo, skill base, strumento comune o criterio di revisione. Nel repo `metodo` i task dovrebbero essere rari.
 
