@@ -21,7 +21,8 @@ vs `kb/indice.md` nodo-concetto). Aggiunge `presentazione/ → presentation/` al
 ## Principio guida — la triade (da fissare in [[struttura-progetto]] dentro la migrazione)
 
 1. **Root = artefatti bootstrap-essenziali di livello-progetto**, letti per capire *il tutto* a
-   prescindere dalla pace. Il root è il **cruscotto del ciclo dell'azione**: README (Goal), `map`
+   prescindere dalla pace. Il root è il **cruscotto del ciclo di sviluppo** (quello che agisce
+   sull'artefatto, non sul mondo): README (Goal), `map`
    (modello), `plan` (Plan: prossime azioni), CLAUDE/AGENTS (regole), `why` (memoria di valutazione).
    `plan` e `why` stanno in root pur essendo veloci: la loro **altezza nel ciclo vince sulla pace**.
 2. **Cartelle = collezioni di unità atomiche.** Una cartella ha un file-meta *dentro di sé* solo se
@@ -36,6 +37,14 @@ vs `kb/indice.md` nodo-concetto). Aggiunge `presentazione/ → presentation/` al
 
 Sostituisce «più in alto = più stabile», già demolita da [[pace-layering]]. Il principio stesso è
 applicazione di [[sviluppo-metodo]]: cornice dall'alto (Norman) verificata dal basso (le root reali).
+
+**Nota — il cruscotto è il ciclo di *sviluppo*, e non è simmetrico a sette caselle.** `plan` è il
+Plan dello sviluppo, **non** o1 (il Plan del runtime): distinzione da fissare in [[struttura-progetto]]
+per non creare una contraddizione `plan`/o1 tra nodi. Il lato esecuzione sono *intenzioni scritte*
+(Goal/Plan → file a root); il lato valutazione sono *operazioni* (audit, [[fedelta-cognitiva]]) il
+cui residuo rientra in `why` e nei nodi. Il Compare (i3 in [[ciclo-azione]]) non vuole un
+`compare.md`: quando si cristallizza è l'**o2/termometro** (quadro, stato.md, la presentazione) nello
+strato output — vista generata, non intenzione.
 
 ## Verifica dal basso (root dei 4 progetti, 2026-06-06)
 

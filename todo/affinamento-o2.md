@@ -43,3 +43,8 @@ questioni profonde che, a livello di nodi `kb/`, per un umano sono più faticose
 
 Se la tesi regge un paio di cicli d'uso, candidarla a diventare una nota dentro [[system-image]]
 o [[output]] — l'o2 non solo come prodotto ma come *organo di valutazione* del metodo su sé stesso.
+
+**Aggancio a Norman (2026-06-06).** Quell'«organo di valutazione» ha un nome preciso nel ciclo: è lo
+**stadio Compare** (i3 in [[ciclo-azione]]). L'o2 è la forma cristallizzata del Compare del ciclo di
+sviluppo — il termometro che confronta stato e goal e alimenta il prossimo. Emerso per simmetria con
+`plan.md` (lo stadio Plan) durante la [[ristrutturazione-layout]].
