@@ -30,7 +30,8 @@ Lo sviluppo del metodo è bottom-up: un'esigenza nasce in un repo adottante ment
 - [affinamento-o2](todo/affinamento-o2.md) — rilettura ravvicinata della presentazione (`metodo-in-sintesi.md`) e l'o2 come strumento diagnostico condiviso tra umano e LLM
 - [fonti-pace-layering](todo/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [de-cablaggio-agenti](todo/de-cablaggio-agenti.md) — togliere il binomio cablato «due agenti» dai nodi e maturare `agente` quando l'uso multi-agente diventa reale
-- [ristrutturazione-layout](todo/ristrutturazione-layout.md) — disegno unico del nuovo top level (mappa nel README, indice e lista nelle cartelle, `log→why`, `todo→tasks`) e migrazione atomica sui 5 repo
+- [ristrutturazione-layout](todo/ristrutturazione-layout.md) — disegno unico del nuovo top level (root come cruscotto del ciclo: `map.md`, `plan.md`, `why.md`; `kb/index.md`; `todo→tasks`) e migrazione atomica sui 5 repo
+- [riallineo-sviluppo-metodo](todo/riallineo-sviluppo-metodo.md) — ammorbidire le asserzioni «solo bottom-up» nei nodi e nella presentazione verso il nodo `sviluppo-metodo`
 
 I task con contesto operativo vivono in `todo/` e vengono rimossi quando completati.
 
@@ -67,6 +68,7 @@ I task con contesto operativo vivono in `todo/` e vengono rimossi quando complet
 - [output](kb/output.md) — Strato output (o1/o2/o3) e input (i1/i2/i3) del metodo: risoluzione del conflitto Zettelkasten/Karpathy; il cappio con due cerniere (Mondo e KB); criteri di Norman per o2
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione dei componenti
+- [sviluppo-metodo](kb/sviluppo-metodo.md) — I due movimenti (bottom-up e top-down) in alternanza e contraddittorio; corregge l'enfasi solo-dal-basso, che tradiva l'anello di Norman
 
 ### Componenti della ricetta
 
