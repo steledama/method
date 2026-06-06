@@ -2,7 +2,7 @@
 title: "Metodo KB"
 subtitle: "Framework metodologico e osservatorio cross-repo per KB personali e professionali con LLM"
 author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/metodo"
-date: "2026.06.05"
+date: "2026.06.06"
 ---
 
 Questa è la vista d'insieme del **metodo KB**: il metodo per costruire e mantenere *knowledge base* — basi di conoscenza personali e professionali, da qui in poi «KB» — insieme a un modello linguistico (LLM).
@@ -30,7 +30,7 @@ flowchart TB
 ```
 
 - L'**artefatto cognitivo** è la rappresentazione esterna che persiste e si progetta — KB + strato output + input + struttura. È *portabile*: sopravvive al cambio di modello o di harness. È ciò che si coltiva.
-- Il **sistema cognitivo** è dove la cognizione accade davvero: l'artefatto accoppiato all'umano e all'LLM (col suo harness), in opera. Non si progetta come oggetto: emerge dall'uso, e non è portabile.
+- Il **sistema cognitivo** è dove la cognizione accade davvero: l'artefatto accoppiato all'umano e all'LLM (col suo harness), in opera — il *caso saliente* di una popolazione di agenti più ampia. Non si progetta come oggetto: emerge dall'uso, e non è portabile.
 - Il **metodo** è la pratica con cui si coltiva l'artefatto perché il sistema performi.
 
 LLM e harness sono cose diverse: l'**LLM** è il modello (Claude, ChatGPT, DeepSeek…), l'**harness** è lo strumento che lo mette al lavoro (Claude Code, Codex…). La tesi del progetto — *artefatto portabile, vendor-neutro* — è dicibile solo perché l'artefatto è la rappresentazione, non il sistema d'interazione: cambi modello e harness, l'artefatto resta.
@@ -111,11 +111,11 @@ Per questo o1/o2/o3 e i1/i2/i3 si **raddoppiano**: c'è un o3 che agisce sul mon
 
 ## Le quattro dimensioni
 
-«Dividere gli stadi per agente» sarebbe un taglio rigido: nasconde che agente e livello sono cose diverse — l'errore che aveva fatto «sparire» o1. Ogni elemento del metodo si colloca invece su quattro dimensioni *ortogonali*.
+«Dividere gli stadi per agente» sarebbe un taglio rigido: nasconde che agente e livello sono cose diverse — l'errore che aveva fatto «sparire» o1. Ogni elemento del metodo si colloca invece su quattro dimensioni *ortogonali*. E l'agente stesso non è un binario ma una popolazione — Norman: «person, animal, or machine» —: il binomio umano/LLM è il caso saliente, con la macchina che varia per capacità (un LLM di frontiera che pianifica, un agente locale che esegue).
 
 | dimensione          | valori                                                      |
 | ------------------- | ---------------------------------------------------------- |
-| **agente**          | umano · LLM                                                |
+| **agente**          | umano · LLM *(caso saliente di una popolazione)*           |
 | **annidamento**     | runtime (→ mondo) · sviluppo (→ artefatto)                 |
 | **livello**         | 1 macchina · 2 decisione · 3 azione                        |
 | **lato del cappio** | output (esecuzione) · input (valutazione)                  |
@@ -207,6 +207,12 @@ Dichiarazione minima dello strato output del repo `metodo`, applicata a sé stes
 - **i3 di ritorno**: l'osservatorio rilegge i repo adottanti e aggiorna `kb/confronto-progetti-adottanti.md`
 - **Criterio di aggiornamento**: quando un gigante, un livello, un componente o un concetto fondativo cambia nei nodi, qui si aggiorna il diagramma corrispondente
 
+## L'o2 è lo stadio Compare del metodo su sé stesso
+
+Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione** del metodo. Nel ciclo dell'azione il Compare (i3) confronta lo stato con il goal; cristallizzato come artefatto, quel confronto *è* l'o2 — il termometro del ciclo di **sviluppo**, simmetrico a `plan.md`, che ne è lo stadio Plan.
+
+Funziona per una proprietà dei nodi: sono atomici e *localmente* coerenti (Luhmann), e una contraddizione che vive *tra* due nodi è invisibile da dentro ciascuno. Comprimere il metodo intero in pochi diagrammi costringe alla co-presenza e fa affiorare le tensioni *non-locali*. Da qui la disciplina — **l'o2 rivela, i nodi risolvono**: ogni tensione trovata si chiude *giù* nei nodi (la fonte di verità), poi l'o2 si *ri-deriva*. Aggiornare questa pagina non è rifinirla: è far girare lo stadio Compare del metodo su sé stesso — come questa stessa revisione, derivata dal de-cablaggio appena chiuso nei nodi.
+
 ## Approfondimento
 
 I diagrammi comprimono; i nodi spiegano.
@@ -214,7 +220,7 @@ I diagrammi comprimono; i nodi spiegano.
 - cosa è (artefatto / sistema / metodo) → `kb/artefatto-cognitivo.md`, `kb/sistema-cognitivo.md`
 - tre giganti → `kb/ciclo-azione.md`, `kb/zettelkasten.md`, `kb/pattern-karpathy.md`
 - il ciclo · specchio simmetrico · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/output.md`
-- i due agenti · system image condivisa → `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/visceral-behavioral-reflective.md`
+- l'agente come popolazione · system image condivisa → `kb/agente.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/visceral-behavioral-reflective.md`
 - il goal · tre altitudini → `kb/goal.md`
 - anatomia del progetto → `kb/struttura-progetto.md`
 - sviluppo bottom-up e osservatorio → `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`

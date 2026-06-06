@@ -4,6 +4,40 @@ Registro interpretativo delle sessioni significative. Il git log dice cosa è ca
 
 ---
 
+## 2026-06-06 — Ri-derivazione dell'o2: il metodo gira il proprio Compare su sé stesso
+
+Il task `affinamento-o2` chiedeva una «rilettura ravvicinata» della presentazione, ma alla luce dei
+refactor recenti la parola era riduttiva: non un affinamento, ma una **ri-derivazione** — l'`i1→i2→i3`
+che la disciplina dell'o2 prescrive da sé («l'o2 rivela, i nodi risolvono, poi si ri-deriva l'o2»). I
+nodi avevano appena risolto (de-cablaggio, stessa giornata); toccava all'o2 ri-derivare.
+
+Prima la calibrazione onesta, perché conta: l'o2 **non era largamente stale**. L'allineamento al
+cruscotto (anatomia, routing, `AGENTS.md` come wrapper) e i cambi del 05-06 (la matrice 4D che
+rimpiazza «due agenti», i cicli annidati come capitolo) erano già dentro; le «cose da approfondire»
+del task erano per lo più già fatte. Riscrivere da capo sarebbe stato disonesto verso ciò che reggeva.
+La ri-derivazione ha quindi propagato solo i due deltas davvero pendenti.
+
+**Delta 1 — de-cablaggio propagato.** L'agente, ancora cablato come binario «umano · LLM» in tre
+punti (diagramma *Cosa è*, matrice *Quattro dimensioni*, *Approfondimento*), è diventato «caso
+saliente di una popolazione» — con la glossa di Norman «person, animal, or machine» e il gradiente
+per capacità. Vincolo rispettato: **niente anticipazione** della struttura multi-agente (la
+maturazione di `agente` resta bottom-up); si è solo tolto al binomio lo statuto di struttura unica,
+esattamente come nei nodi.
+
+**Delta 2 — o2-come-Compare elevato.** L'intro della presentazione prometteva da tempo «perché
+questa pagina ne sia un esempio, si chiarisce più avanti» e non manteneva. Una nuova sezione scioglie
+la promessa: l'o2 è la forma cristallizzata dello **stadio Compare** (i3) del ciclo di sviluppo,
+simmetrico a `plan.md` (lo stadio Plan); rivela le contraddizioni *non-locali* invisibili da dentro i
+nodi atomici, che poi si risolvono giù nei nodi. È la prima volta che la tesi «o2 come organo di
+valutazione» — annotata nel task come maturazione attesa — atterra *nell'o2 stesso*: dogfooding, la
+pagina dice cosa è e cita la propria revisione come esempio.
+
+Verifica: PDF rigenerato con `md2pdf` e ispezionato pagina per pagina — i diagrammi rendono, i tre
+punti del de-cablaggio e la nuova sezione 11 ci sono; il PDF (o3) non è versionato. Con la verifica
+fatta, `affinamento-o2` è completo e **chiuso**: la sua tesi vive ora nell'o2 e in questa entry, lo
+storico in git. La maturazione facoltativa — condensare «o2 come Compare» in una nota di nodo dentro
+`system-image` o `output` — resta da far emergere dall'uso, non come task in piedi.
+
 ## 2026-06-06 — De-cablaggio del binomio «due agenti»: il caso saliente non è la struttura
 
 Il metodo era nato descrivendo due agenti — l'umano e un singolo LLM — e su quel binomio aveva
