@@ -16,6 +16,19 @@ La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I *file-cic
 - aggiornamento di `README.md`, `map.md`, `plan.md` e `why.md`
 - commit e operazioni git locali
 
+## Skill
+
+La triade base del metodo vive versionata anche qui (`metodo` fa dogfooding ed è la
+copia canonica di riferimento): `.claude/skills/` con wrapper Codex in
+`.codex/skills/`.
+
+- `/audit-kb` — health check della KB via `tools/kb_tools.py` (diagnosi, non corregge)
+- `/tasks-review` — supervisione di `plan.md`/`tasks/`: drift, priorità, dipendenze, prossimo task
+- `/commit` — gate di filing back prima di fissare le modifiche nella storia
+
+Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
+[skill](kb/skill.md). Gli adottanti forkano questa triade e la parametrizzano.
+
 ## Memoria
 
 Non usare il sistema di memoria dell'harness (lo store in `~/.claude/`): è

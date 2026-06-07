@@ -18,6 +18,8 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
 
 ## skill
 
-`metodo` non versiona skill (nessun `.claude/skills/`): la triade base — `audit-kb`,
-`tasks-review`, `commit` — vive nei repo adottanti, perché ogni KB ha check, fonti e segnali
-locali diversi. Cfr. [skill](kb/skill.md).
+`metodo` versiona la triade base canonica in `.claude/skills/` (`audit-kb`,
+`tasks-review`, `commit`) con wrapper Codex in `.codex/skills/`. È dogfooding: il
+repo-modello applica a sé gli strumenti che teorizza, ed è la copia di riferimento
+che gli adottanti forkano e parametrizzano sui propri check, fonti e segnali
+locali. Cfr. [skill](kb/skill.md).

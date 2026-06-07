@@ -738,6 +738,21 @@ serie di nodi richiedono `todo/` finché non vengono stabilizzati in nodi.
 
 *I task di controllo top-down sui repo adottanti si chiudono o si spostano localmente; resta la triade skill comune audit-kb / tasks-review / commit.*
 
+### [2026-06-07] `metodo` dogfooda la triade: skill canoniche nel repo-modello
+
+Aggiunta la triade base `audit-kb` / `tasks-review` / `commit` a `metodo` stesso
+(`.claude/skills/` + wrapper `.codex/skills/`), parametrizzata sul dominio
+«manutenzione della KB del metodo». Ritrattata la regola «`metodo` non versiona
+skill»: confondeva due cose distinte — che le skill siano parametrizzate
+per-progetto (vero) e che `metodo` ne sia esente (non-sequitur). `metodo` è esso
+stesso una KB di ~25 nodi con `plan`/`tasks`/`why`: l'audit lo giriamo via
+`kb_tools.py`, prova che la skill serviva anche qui. Coerente con il dogfooding già
+praticato (`sviluppo-metodo`, l'arco input `i1`/`i2` in `sources/`) e con
+l'autocritica dell'entry [2026-06-03] sul non applicare a sé le proprie regole.
+Framing scelto: **modello canonico** — la triade di `metodo` è la copia di
+riferimento che gli adottanti forkano e specializzano, non un quarto adottante
+qualsiasi. Aggiornati `tools.md`, `kb/skill.md`, `README.md`, `CLAUDE.md`.
+
 ### [2026-06-07] Skill `revisione-tasks` → `tasks-review`: la triade allineata alla policy linguistica
 
 Rinominata la skill `revisione-tasks` in `tasks-review` in tutti e quattro gli
@@ -782,6 +797,11 @@ La decisione metodologica è che la funzione è comune, ma la skill vive locale:
 ogni repo deve rivedere task, priorità e dipendenze rispetto ai propri segnali
 concreti. `kb/skill.md` registra quindi la triade comune `audit-kb` /
 `revisione-tasks` / `commit`, senza introdurre un task centrale top-down.
+
+> ↳ **Superata in parte (2026-06-07).** Restava implicito che la skill vivesse
+> *solo* negli adottanti e che `metodo` ne fosse esente. Corretto: anche `metodo`
+> versiona la triade (dogfooding, copia canonica). La parte valida — skill
+> parametrizzate per-progetto — resta. Vedi «`metodo` dogfooda la triade».
 
 ### [2026-06-01] Task file locali di dominio spostato in economia
 
