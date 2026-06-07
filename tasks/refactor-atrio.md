@@ -13,7 +13,9 @@ procedura e la mappa d'impatto, non la teoria.
 ## Stato
 
 - **`metodo` ✅ fatto** (commit `c66cf82`): rename, tooling, nodi, file-ciclo, why, audit pulito.
-- **Propagazione ai figli — da fare**: aprire i task locali autonomi (sezione finale).
+- **Propagazione**: `nixos` ✅ (task `adotta-atrio`, commit `cd25028`), `bi` ✅ (commit
+  `383f8f92`); `economia` e `salute` ⏳ via il carrier `propaga-atrio-economia-salute.md`
+  (host di casa). Ogni figlio esegue e chiude in sessione propria.
 
 ## Decisione (Filosofia B, con una condizione)
 
