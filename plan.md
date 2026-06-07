@@ -11,7 +11,5 @@ nei nodi aggiornati.
 
 ## Task aperti
 
-- [readme-bussola](tasks/readme-bussola.md) — README come bussola (orienta·punta, non immagazzina); ritiro di `map.md`, scomposizione in bussola/modello/indice; prototipo metodo fatto, da propagare ai 4 adottanti
 - [fonti-pace-layering](tasks/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [fonti-mente-estesa](tasks/fonti-mente-estesa.md) — ingest delle fonti di Andy Clark (mente estesa) e vaglio del filone come pavimento del metodo; disciplina i1→i2→i3, niente nodo dal sentito dire
-- [de-cablaggio-agenti](tasks/de-cablaggio-agenti.md) — de-cablaggio fatto (binomio «due agenti» ammorbidito a caso saliente nei nodi); resta solo la maturazione di `agente`, bottom-up, quando l'uso multi-agente diventa reale

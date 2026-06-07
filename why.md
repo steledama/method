@@ -877,7 +877,9 @@ Visto così la **pace del 06-06 è rispettata meglio**: lo strato veloce (il mod
 
 **La regola istituzionalizzata, rigorosa: il README orienta e punta, non immagazzina.** Principi guida e obiettivi, quando estesi, sono un nodo (`design-principles`); il README li sintetizza e rimanda. **Naming unificato**: un solo nome per l'indice-territorio, `map.md` (coppia register/concetto con `kb/map.md`), che supera il drift `project-map.md`/`mappa-progetto.md`. **Bootstrap**: `README → map → CLAUDE → nodo` → `README → CLAUDE → nodo` (map è una porta, non un file-ciclo).
 
-Eseguito come **prototipo su `metodo`**: README riscritto come bussola; `map.md` ritirato (dominio astratto, modello in nodi+presentations); `kb/readme.md` con la regola rigorosa; `kb/map.md` ri-mirato sul register-territorio; `struttura-progetto`/`metodo-kb`/`kb.md`/`CLAUDE`/`AGENTS`/`claude`/`osservatorio` allineati. Propagazione ai quattro adottanti nel task [`readme-bussola`](tasks/readme-bussola.md), con la promozione `project-map`/`mappa-progetto` → `map.md` root e la questione dei backlink da risolvere lì.
+Eseguito come **prototipo su `metodo`**: README riscritto come bussola; `map.md` ritirato (dominio astratto, modello in nodi+presentations); `kb/readme.md` con la regola rigorosa; `kb/map.md` ri-mirato sul register-territorio; `struttura-progetto`/`metodo-kb`/`kb.md`/`CLAUDE`/`AGENTS`/`claude`/`osservatorio` allineati.
+
+> ↳ **Propagazione completata (2026-06-07).** Tutti gli adottanti hanno recepito la scomposizione: `nixos` `8c7ec7a`, `bi` `7b931516`, `economia` `5c12abe`, `salute` `c3cb950`. I register locali sono ora `map.md` root, senza frontmatter o backlink; il bootstrap è `README → CLAUDE → nodo`.
 
 ### [2026-06-07] La root come atrio: il system image che si auto-descrive
 
