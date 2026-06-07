@@ -10,6 +10,11 @@ i task locali dei repo adottanti citeranno; il modello vero, però, vive nei nod
 (soprattutto [[struttura-progetto]]) e nell'entry `why.md` — condivisi per symlink. Qui sta la
 procedura e la mappa d'impatto, non la teoria.
 
+## Stato
+
+- **`metodo` ✅ fatto** (commit `c66cf82`): rename, tooling, nodi, file-ciclo, why, audit pulito.
+- **Propagazione ai figli — da fare**: aprire i task locali autonomi (sezione finale).
+
 ## Decisione (Filosofia B, con una condizione)
 
 La root passa da **cruscotto del ciclo** (solo ciò che si legge ogni sessione) a **atrio /

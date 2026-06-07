@@ -11,7 +11,7 @@ nei nodi aggiornati.
 
 ## Task aperti
 
-- [refactor-atrio](tasks/refactor-atrio.md) — ridisegno della root come atrio/system image (Filosofia B): porte-collezione in root, tooling adeguato, nodi e why aggiornati, poi propagazione ai figli
+- [refactor-atrio](tasks/refactor-atrio.md) — ridisegno della root come atrio/system image (Filosofia B): `metodo` ✅ (commit c66cf82); resta la propagazione ai figli via task locali autonomi
 
 - [fonti-pace-layering](tasks/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [fonti-mente-estesa](tasks/fonti-mente-estesa.md) — ingest delle fonti di Andy Clark (mente estesa) e vaglio del filone come pavimento del metodo; disciplina i1→i2→i3, niente nodo dal sentito dire
