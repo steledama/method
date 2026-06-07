@@ -35,13 +35,13 @@ Il modello canonico di Norman procede in sequenza:
 
 Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
 
-| Norman    | Metodo                                                         |
-| --------- | -------------------------------------------------------------- |
-| Plan      | o1 — piano in forma macchina, vicino alla KB                   |
-| Specify   | o2 — vista di decisione per l'umano                            |
-| Perform   | o3 — azione nel mondo                                          |
-| Perceive  | i1 — segnale grezzo (referto, log, export)                     |
-| Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza       |
+| Norman    | Metodo                                                             |
+| --------- | ------------------------------------------------------------------ |
+| Plan      | o1 — piano in forma macchina, vicino alla KB                       |
+| Specify   | o2 — vista di decisione per l'umano                                |
+| Perform   | o3 — azione nel mondo                                              |
+| Perceive  | i1 — segnale grezzo (referto, log, export)                         |
+| Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza           |
 | Compare   | i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal |
 
 **Lo specchio per altitudine.** I due archi sono speculari, accoppiati per altitudine e non per numero. Il Goal è l'apice; il Mondo è il fondo.
@@ -50,12 +50,12 @@ Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecu
 - in mezzo: **o2 ↔ i2** — vista di decisione / nota interpretata;
 - in alto, alla KB: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata.
 
-I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due *altitudini* dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
+I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due _altitudini_ dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
 
-**Le due cerniere.** La simmetria degli archi convive con un'asimmetria *locale ai vertici*:
+**Le due cerniere.** La simmetria degli archi convive con un'asimmetria _locale ai vertici_:
 
 - Cerniera Mondo (o3 → i1): porta bidirezionale, l'azione produce segnali e la percezione li raccoglie — simmetrica.
-- Cerniera KB (i3 → Goal): i3 *scrive* l'esito, il Goal *legge* l'intenzione — scrivi-poi-leggi attraverso la memoria persistente, non riflesso. È l'unica vera asimmetria, e riguarda il vertice, non la forma degli archi.
+- Cerniera KB (i3 → Goal): i3 _scrive_ l'esito, il Goal _legge_ l'intenzione — scrivi-poi-leggi attraverso la memoria persistente, non riflesso. È l'unica vera asimmetria, e riguarda il vertice, non la forma degli archi.
 
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 
@@ -72,18 +72,18 @@ Nel metodo KB i due gulf si traducono così:
 
 ## Cicli annidati: due specchi, due Mondi
 
-Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per *cosa sia il loro Mondo* in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
+Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per _cosa sia il loro Mondo_ in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
 
 - **Ciclo runtime**: il suo Mondo è la realtà. o3 agisce fuori (un'email, una transazione, un payload pubblicato, un gesto); i1 percepisce il segnale del mondo (referto, payload di ritorno, alert).
 - **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 agisce sull'artefatto (un commit, una modifica alla KB); i1 percepisce la risposta dell'artefatto (lint, audit, test, errore).
 
-Per questo o1/o2/o3 e i1/i2/i3 si *raddoppiano*: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → tasks → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `why` e `tasks` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → tasks → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `why` e `tasks` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
 
-È il senso in cui il metodo *estende* Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è l'o3 di un ciclo che lo precede.
+È il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è l'o3 di un ciclo che lo precede.
 
 ## Le quattro dimensioni di un elemento del metodo
 
-Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni *ortogonali* — e l'errore di collassarne due (livello e agente) è ciò che aveva fatto «sparire» o1:
+Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni _ortogonali_ — e l'errore di collassarne due (livello e agente) è ciò che aveva fatto «sparire» o1:
 
 1. **agente** — umano oppure LLM (il modello, non l'harness)
 2. **annidamento** — ciclo runtime (agisce sul mondo) oppure ciclo di sviluppo (agisce sull'artefatto)
@@ -92,7 +92,7 @@ Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si collo
 
 La matrice che ne risulta è la lente per confrontare i progetti adottanti: per ogni dominio si legge cosa è sviluppato, cosa manca perché non serve (es. `nixos` ha poco esogeno sul lato input runtime), e cosa manca ma servirebbe. Sostituisce sia il taglio rigido «stadi divisi per agente» sia la fotografia piatta dello stato dei progetti.
 
-**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua *assunzione* non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `why.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (vedi [fedelta-cognitiva](fedelta-cognitiva.md)).
+**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `why.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `fedelta-cognitiva`).
 
 ## Le quattro proprietà cardine come criteri di qualità per o2
 
