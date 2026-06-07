@@ -11,8 +11,7 @@ nei nodi aggiornati.
 
 ## Task aperti
 
-- [refactor-atrio](tasks/refactor-atrio.md) — ridisegno della root come atrio/system image (Filosofia B): `metodo` ✅ (commit c66cf82); nixos ✅, bi ✅; restano economia e salute
-- [propaga-atrio-economia-salute](tasks/propaga-atrio-economia-salute.md) — carrier transitorio: bozze dei task `adotta-atrio` da instanziare su economia e salute da un host di casa; si elimina a propagazione completa
+- [refactor-atrio](tasks/refactor-atrio.md) — ridisegno della root come atrio/system image (Filosofia B): `metodo` ✅ (commit c66cf82); nixos ✅, bi ✅; economia e salute hanno il task `adotta-atrio` aperto (carrier eseguito)
 
 - [fonti-pace-layering](tasks/fonti-pace-layering.md) — verifica delle fonti (Duffy, Brand) e maturazione del nodo `pace-layering` da bozza a maturo
 - [fonti-mente-estesa](tasks/fonti-mente-estesa.md) — ingest delle fonti di Andy Clark (mente estesa) e vaglio del filone come pavimento del metodo; disciplina i1→i2→i3, niente nodo dal sentito dire
