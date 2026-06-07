@@ -2,6 +2,10 @@
 
 Wrapper agent-agnostico per questo repository.
 
+La root è l'atrio dell'artefatto: un `ls` dichiara l'inventario (file-ciclo letti a
+ogni sessione; porte-collezione `kb.md`/`tools.md`/`presentations.md`/`sources.md` aperte
+on-demand).
+
 Ordine di lettura a inizio sessione:
 
 1. `README.md`

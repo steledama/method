@@ -823,7 +823,27 @@ resta qualitativa: `CLAUDE.md` non deve tornare manuale parallelo alla KB.
 
 ## Il cruscotto del ciclo di sviluppo: il layout della root
 
-*La root ridefinita come cruscotto del ciclo di sviluppo — i pochi artefatti letti a ogni sessione. La migrazione che ha ribattezzato log.md in why.md (questo file ne è la continuazione sulla forma).*
+*La root come layout del ciclo: prima «cruscotto» (i pochi artefatti letti a ogni sessione), poi **atrio**/system image che dichiara l'inventario completo. La migrazione che ha ribattezzato log.md in why.md (questo file ne è la continuazione sulla forma).*
+
+### [2026-06-07] La root come atrio: il system image che si auto-descrive
+
+Il ridisegno del 06-06 aveva ribattezzato la root «cruscotto del ciclo» — i pochi artefatti letti a ogni sessione — e collocato i cataloghi on-demand *dentro* le cartelle (`kb/index.md`), riservando la root a ciò che ha altezza nel ciclo. Stefano ha colto che `map.md`, nel suo ruolo di spiegare il layout, era diventato il cartello «tirare» di Norman: un signifier appiccicato a compensare un'affordance mancante. Se serve un documento per dire com'è fatta la root, la root non parla da sé.
+
+**Decisione: la root è l'atrio, cioè il system image dell'artefatto.** Un `ls` deve dichiarare l'inventario completo — quali classi di componente esistono — senza aprire nulla. Ogni collezione ha la sua *porta* in root: `kb.md`, `tools.md`, `presentations.md`, `sources.md`. Il fondamento non è l'economia di lettura dell'LLM (il criterio del 06-06) ma l'altra metà di Norman che il metodo già possiede — [`affordance-signifier`] e [`system-image`]: «the entire burden of communication is on the system image». La struttura di directory *è* system image; farle portare il peso è più fedele a Norman, non meno. Per un LLM che riparte da zero ogni sessione, un `ls` che mostra l'anatomia è cold-start migliore.
+
+**Condizione che tiene in piedi l'atrio: visibilità ≠ caricamento.** «In root» non significa più «letto al bootstrap» — era questa la conflazione su cui poggiava l'argomento dell'altezza. La root ha due specie di file: i *file-ciclo* (README, map, plan, why, CLAUDE/AGENTS) letti ogni sessione, e le *porte-collezione* viste sempre ma aperte on-demand. Il signifier che dice cosa leggere è l'ordine di bootstrap in CLAUDE/AGENTS, non la posizione. Questo supera la regola «file-meta dentro la cartella se on-demand»: un catalogo on-demand può vivere in root come porta. `plan` resta `plan.md` e non diventa `tasks.md`: è uno stadio del ciclo, non l'indice di `tasks/` — l'atrio contiene il vecchio criterio di altezza come caso speciale.
+
+**`map` resta separato** (qui e nei figli): vince la pace — README è l'ingresso stabile, `map` il modello che evolve con la teoria; fonderli sporcherebbe il tappeto di benvenuto a ogni raffinamento. Verificato anche un argomento sbagliato e scartato: «MAIUSCOLO = letto al bootstrap» non è regola dell'harness (Claude Code auto-carica solo `CLAUDE.md`; README/AGENTS si leggono per convenzione), quindi non era una ragione per fondere `map` in README.
+
+**Uniformità: struttura uniforme, carattere nel contenuto.** I nomi delle collezioni standard si uniformano tra i progetti; il colore del dominio vive nel contenuto, non nel nome. Supera il principio «il nome dello strato output è locale»: un nome di dominio che contraddice il contenuto è un signifier che mente — caso emblematico `quadro/` in `salute`, che evoca il quadro *clinico* in una KB che rifiuta la separazione corpo/mente. Resta distinto l'output di altra natura ontologica (la configurazione che gira in `nixos`, o1/runtime, non una porta `presentations/`).
+
+**Esecuzione su `metodo`.** `kb/index.md`→`kb.md`; `scripts/`→`tools/`+`tools.md`; `presentation/`→`presentations/`+`presentations.md`; `sources/README.md`→`sources.md` (con i link rotti a `../todo/` ripuliti); `tools/kb_tools.py` adeguato (catalogo in root, stringhe del report); [`struttura-progetto`] riscritto come modello canonico (due specie di file, visibilità≠caricamento, uniformità, porte generate dai tool); README/map/CLAUDE/AGENTS rifondati sull'atrio; presentazione con i riferimenti d'anatomia aggiornati. Audit pulito.
+
+**Propagazione (corregge il pattern del 06-06).** Niente runbook personalizzato in `metodo` con write-back dai figli. Il canone vive nei nodi ([`struttura-progetto`]) e in questa entry, condivisi per symlink; da qui si aprono in ciascun figlio task locali autonomi e committati, che puntano al commit canonico e si chiudono lì. Il task di `metodo` si chiude qui, indipendente dai figli.
+
+**Il pavimento filosofico (filone aperto, non concluso).** La propensione per l'atrio è, sotto, una propensione per la cognizione *estesa* di Andy Clark contro il «teatro interiore»: non si carica la rappresentazione, si attraversa la struttura. Ma Hinton ricorda che l'LLM, senza corpo né mondo, è spinto verso la rappresentazione (legge token); l'embodiment dell'atrio è reale per l'umano, parziale per l'LLM — il che ricade sull'asimmetria già nei nodi. Sintesi candidata: l'artefatto versionato *è* il corpo/ambiente ingegnerizzato che diamo all'LLM senza corpo. Aperto come `tasks/fonti-mente-estesa.md` con disciplina i1→i2→i3 (l'innesco era un estratto di seconda mano, non una fonte).
+
+**Nota di metodo: top-down che arricchisce un dominio.** La stessa riflessione astratta ha prodotto non solo un cambio di metodo (uniformità) ma un arricchimento concreto di `salute`: la presentazione lì non è il quadro clinico ma la sintesi olistica del vivere meglio, ogni slide tiene insieme corpo e mente, con disegni personalizzati come strato visceral. È [`sviluppo-metodo`] esteso: il movimento dall'alto può atterrare direttamente in un artefatto di dominio, non solo nel metodo. Versato nel task locale di salute, non qui (resta portabile).
 
 ### [2026-06-06] Da `log` a `why`: la sostanza segue il nome — `why.md` ribaltato per motivazione
 
@@ -860,6 +880,8 @@ condiviso via symlink, gli adottanti lo ereditano e non lo toccano. La maturazio
 del nodo è il filing back atteso a refactor completo.
 
 ### [2026-06-06] Il root è il cruscotto del ciclo di sviluppo: la fondazione del file che il ridisegno ha ribattezzato
+
+> ↳ **Raffinato** da «La root come atrio» (2026-06-07, in cima a questo gruppo): la root non è «il cruscotto / i pochi artefatti letti a ogni sessione» ma l'**atrio** che dichiara l'inventario; i cataloghi on-demand salgono in root come porte-collezione (la regola «file-meta dentro la cartella se on-demand» è superata), con visibilità ≠ caricamento.
 
 Questa è la prima entry di `why.md`, ed è il perché del file stesso. La migrazione del layout ha
 ribattezzato `log.md` in `why.md` e con essa l'intero top level dei repo. La decisione di fondo:

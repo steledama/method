@@ -7,9 +7,9 @@ stato: maturo
 
 Gli strumenti KB sono script versionati che rendono deterministica la manutenzione della knowledge base. Non sostituiscono il giudizio dell'LLM o dell'utente: spostano però la parte fragile e ripetitiva del lavoro — parsing dei link markdown, conteggi dei backlink, verifica del README, controllo del formato dei nodi — dentro codice stabile, testabile e riusabile.
 
-Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill audit-kb usa `scripts/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
+Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill audit-kb usa `tools/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
 
-Il repo metodo contiene la versione portabile di `scripts/kb_tools.py`. Questa versione distingue due livelli:
+Il repo metodo contiene la versione portabile di `tools/kb_tools.py`. Questa versione distingue due livelli:
 
 - strumenti base per qualunque KB: audit strutturale, backlink, orfani, copertura README, migrazione formato e candidati terminologici
 - strumenti generici per progetti code-based: inventario dei file codice e copertura codice → nodi KB
@@ -38,18 +38,18 @@ non scoprirlo o scegliere un workflow peggiore.
 
 Comandi principali:
 
-- `python3 scripts/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a why.md
-- `python3 scripts/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
-- `python3 scripts/kb_tools.py audit --format markdown --append-why`: appende direttamente il report a why.md
-- `python3 scripts/kb_tools.py backlinks nodo.md`: mostra link in uscita e backlink di un nodo
-- `python3 scripts/kb_tools.py orphans`: elenca i nodi senza backlink
-- `python3 scripts/kb_tools.py readme`: verifica copertura e link del catalogo `kb/index.md`
-- `python3 scripts/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
-- `python3 scripts/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
-- `python3 scripts/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
-- `python3 scripts/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica
-- `python3 scripts/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
-- `python3 scripts/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
+- `python3 tools/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a why.md
+- `python3 tools/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
+- `python3 tools/kb_tools.py audit --format markdown --append-why`: appende direttamente il report a why.md
+- `python3 tools/kb_tools.py backlinks nodo.md`: mostra link in uscita e backlink di un nodo
+- `python3 tools/kb_tools.py orphans`: elenca i nodi senza backlink
+- `python3 tools/kb_tools.py readme`: verifica copertura e link del catalogo `kb.md`
+- `python3 tools/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
+- `python3 tools/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
+- `python3 tools/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
+- `python3 tools/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica
+- `python3 tools/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
+- `python3 tools/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
 
 Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `tasks/`. Non copre lo strato output, che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
 
@@ -61,7 +61,7 @@ Regole d'uso:
   quando una fonte di verità è chiara
 - `audit` misura la salute strutturale della rete; `fidelity` misura segnali di
   aderenza al dominio e non sostituisce la checklist semantica
-- l'audit completo non va appendito integralmente a why.md (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi sotto forma di voce in why.md; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 scripts/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
+- l'audit completo non va appendito integralmente a why.md (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi sotto forma di voce in why.md; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 tools/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
 - quando una skill può usare uno script versionato, deve preferirlo a regex improvvisate nella sessione
 - gli script devono restare senza dipendenze esterne quando possibile, così funzionano su qualunque host con Python 3
 - le estensioni locali devono preservare i comandi base, così skill e agenti possono contare su una superficie comune tra repository
@@ -83,7 +83,7 @@ Wrapper Codex:
 
 Requisiti per un nuovo progetto:
 
-- copiare o creare scripts/kb_tools.py se serve audit strutturale
+- copiare o creare tools/kb_tools.py se serve audit strutturale
 - creare .claude/skills/audit-kb con istruzioni locali e backend script
 - creare .claude/skills/commit se il progetto ha convenzioni di commit
 - creare wrapper .codex/skills solo se il progetto deve supportare Codex

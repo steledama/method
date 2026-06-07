@@ -1,9 +1,9 @@
 # Fonti grezze (i1)
 
-Questa cartella è il primo pilota dello **strato input**: i segnali grezzi (i1) che,
-attraverso elaborazione (i2), diventano conoscenza formalizzata nei nodi (i3).
-Cfr. [ingest-norman](../todo/ingest-norman.md) e
-[rifondazione-input-output](../todo/rifondazione-input-output.md).
+Porta-collezione di `sources/` nell'atrio di root: il manifest dello **strato input**. La
+cartella `sources/` tiene i segnali grezzi (i1) che, attraverso elaborazione (i2), diventano
+conoscenza formalizzata nei nodi (i3). La rifondazione input/output è documentata in
+[why.md](why.md).
 
 I file binari **non sono versionati** (vedi `.gitignore`): sono sotto copyright e il repo
 è pubblico. Versionato è solo questo manifest, che registra la *provenienza* delle fonti —

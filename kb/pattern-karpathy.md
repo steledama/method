@@ -33,10 +33,10 @@ Operazioni:
 
 Ciclo di bootstrap:
 
-- l'agente legge README.md per orientamento; il catalogo in `kb/index.md`, i task in `plan.md`
+- l'agente legge README.md per orientamento; il catalogo in `kb.md`, i task in `plan.md`
 - l'agente legge CLAUDE.md per regole operative e comandi sicuri
 - l'agente apre solo i nodi necessari alla domanda o al task corrente
-- l'agente usa scripts/kb_tools.py per controlli strutturali invece di improvvisare parser
+- l'agente usa tools/kb_tools.py per controlli strutturali invece di improvvisare parser
 - l'agente propone filing back quando una conversazione produce conoscenza durevole
 - l'agente aggiorna README, why, tasks e nodi solo secondo il ruolo di ciascun file
 

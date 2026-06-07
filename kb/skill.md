@@ -32,7 +32,7 @@ con wrapper Codex corrispondente quando il progetto espone `.codex/skills/`.
 
 `audit-kb` è la skill diagnostica. Misura salute strutturale, link, copertura,
 frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
-interpretare strumenti locali come `scripts/kb_tools.py`, ma non deve trasformarsi
+interpretare strumenti locali come `tools/kb_tools.py`, ma non deve trasformarsi
 in procedura di correzione automatica.
 
 `revisione-tasks` è la skill di supervisione del lavoro futuro. Controlla

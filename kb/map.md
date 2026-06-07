@@ -13,7 +13,7 @@ Regole:
 
 - è un file root (`map.md`), nel cruscotto del ciclo, letta come secondo passo del bootstrap (`README → map → CLAUDE → nodo`)
 - collega sistema reale, fonti di verità e nodi
-- non sostituisce il catalogo completo dei nodi (`kb/index.md`)
+- non sostituisce il catalogo completo dei nodi (`kb.md`)
 - non deve diventare storico o lista di task
 - può essere diversa per domini tecnici, finanziari o riflessivi
 - include lo strato output come dimensione esplicita: mostra dove vivono o1, o2, o3 nel progetto e come il ciclo di azione ritorna alla KB come nuova fonte; senza questa dimensione la mappa descrive solo l'accumulo di conoscenza, non il ciclo completo

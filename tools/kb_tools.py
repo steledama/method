@@ -20,8 +20,10 @@ CATALOG_LINK_RE = re.compile(r"\[[^\]]+\]\((?P<path>[^)]+\.md)\)")
 
 DOC_DIRS = ("kb", "metodo")
 # Register/file-meta esclusi dal conteggio dei nodi: cataloghi, non unità atomiche.
+# Il catalogo è ora la porta-collezione kb.md in root (fuori da DOC_DIRS, quindi già
+# non contato come nodo); FILE_META resta per retro-compatibilità con kb/index.md.
 FILE_META = {"index.md"}
-CATALOG_NAME = "index.md"
+CATALOG_NAME = "kb.md"
 OPTIONAL_DOC_DIRS = ("tech", "docs")
 CODE_EXTENSIONS = {
     ".js",
@@ -152,10 +154,14 @@ def doc_files(root: Path) -> list[Path]:
 
 
 def catalog_path(root: Path) -> Path | None:
+    # Il catalogo è la porta-collezione in root; fallback storico dentro le doc dir.
+    candidate = root / CATALOG_NAME
+    if candidate.exists():
+        return candidate
     for directory in existing_doc_dirs(root):
-        candidate = directory / CATALOG_NAME
-        if candidate.exists():
-            return candidate
+        legacy = directory / "index.md"
+        if legacy.exists():
+            return legacy
     return None
 
 
@@ -448,8 +454,8 @@ def markdown_report(result: AuditResult) -> str:
         "",
         f"- {result.total_nodes} nodi verificati",
         f"- {result.total_links} link interni tra nodi, {len(result.broken_links)} link rotti",
-        f"- {result.catalog_links} link kb/index.md ({result.catalog_unique_links} unici)",
-        f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in kb/index.md",
+        f"- {result.catalog_links} link kb.md ({result.catalog_unique_links} unici)",
+        f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in kb.md",
         f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `data` + `stato`",
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
@@ -463,7 +469,7 @@ def markdown_report(result: AuditResult) -> str:
     problems: list[str] = []
     problems += [f"- [ORFANO] {node} — nessun backlink" for node in result.orphans]
     problems += [f"- [LINK-ROTTO] {item}" for item in result.broken_links]
-    problems += [f"- [CATALOGO-LINK-ROTTO] kb/index.md -> {item}" for item in result.catalog_broken]
+    problems += [f"- [CATALOGO-LINK-ROTTO] kb.md -> {item}" for item in result.catalog_broken]
     problems += [f"- [CATALOGO-MISSING] {item}" for item in result.catalog_missing_nodes]
     problems += [f"- [NOME-INVALIDO] {item}" for item in result.invalid_names]
     problems += [f"- [CLUSTER-ISOLATO] {item}" for item in result.cluster_isolated]
@@ -580,7 +586,7 @@ def build_parser() -> argparse.ArgumentParser:
     orphans = sub.add_parser("orphans", help="lista nodi senza backlink")
     orphans.set_defaults(func=command_orphans)
 
-    readme = sub.add_parser("readme", help="verifica copertura del catalogo kb/index.md")
+    readme = sub.add_parser("readme", help="verifica copertura del catalogo kb.md")
     readme.set_defaults(func=command_readme)
 
     migration = sub.add_parser("migration", help="verifica frontmatter e footer Connessioni")

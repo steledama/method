@@ -5,6 +5,6 @@
 *.pdf
 
 # fonti grezze (i1): binari sotto copyright, repo pubblico → non versionati.
-# Versionato solo il manifest di provenienza che alimenta i ## Riferimenti (i3).
+# Il manifest di provenienza che alimenta i ## Riferimenti (i3) è la porta-collezione
+# sources.md in root (versionata); la cartella sources/ tiene solo i binari ignorati.
 sources/*
-!sources/README.md

@@ -10,13 +10,21 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo
 
 ## Orientarsi
 
-La root è il cruscotto del ciclo di sviluppo, letto a ogni sessione:
+La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di file ([struttura-progetto](kb/struttura-progetto.md)).
+
+**File-ciclo** — letti a ogni sessione:
 
 - **[map.md](map.md)** — il modello del dominio (l'o2 conciso): ontologia, i tre giganti, gli strati, il layout
 - **[plan.md](plan.md)** — lo stadio Plan: i task aperti, prioritizzati, con dipendenze
-- **[kb/index.md](kb/index.md)** — il catalogo di tutti i nodi, consultato on-demand
 - **[why.md](why.md)** — la memoria interpretativa: perché le decisioni contano
 - **CLAUDE.md** / **AGENTS.md** — le regole operative
+
+**Porte-collezione** — viste nell'atrio, aperte on-demand:
+
+- **[kb.md](kb.md)** — il catalogo di tutti i nodi
+- **[tools.md](tools.md)** — strumenti e skill dell'artefatto
+- **[presentations.md](presentations.md)** — lo strato output o2/o3
+- **[sources.md](sources.md)** — il manifest delle fonti i1
 
 L'ordine di bootstrap è `README → map → CLAUDE → nodo`.
 
@@ -24,9 +32,9 @@ L'ordine di bootstrap è `README → map → CLAUDE → nodo`.
 
 - **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (o1/o2/o3) e input (i1/i2/i3), strumenti, fedeltà cognitiva e principi.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
-- **Strumenti comuni**: `scripts/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based.
+- **Strumenti comuni**: `tools/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based.
 - **Manutenzione propria del metodo**: task in `tasks/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Strato output**: [`presentation/metodo-in-sintesi.md`](presentation/metodo-in-sintesi.md) è l'o2/o3 del repo — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (o3) si rigenera con `cd presentation && md2pdf metodo-in-sintesi.md` e non viene versionato.
+- **Strato output**: [`presentations.md`](presentations.md) è la porta verso lo strato o2/o3; [`presentations/metodo-in-sintesi.md`](presentations/metodo-in-sintesi.md) ne è la sintesi — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; il PDF per stampa/distribuzione (o3) si rigenera con `cd presentations && md2pdf metodo-in-sintesi.md` e non viene versionato.
 
 ## Progetti adottanti
 

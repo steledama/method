@@ -24,7 +24,7 @@ Caratteristiche:
 Adattamento operativo:
 
 - i nodi non sono categorie, ma unità interrogabili
-- il catalogo `kb/index.md` è una mappa di accesso, non una gerarchia rigida
+- il catalogo `kb.md` è una mappa di accesso, non una gerarchia rigida
 - i cluster dell'indice possono cambiare senza rinominare i nodi
 - i task aperti non sono nodi: vivono in `plan.md` e tasks/
 - le fonti non sono nodi: alimentano la creazione o revisione dei nodi

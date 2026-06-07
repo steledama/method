@@ -76,9 +76,9 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 - Criterio di aggiornamento:
 ```
 
-## Forma locale, funzione universale
+## Nome uniforme, carattere nel contenuto
 
-Il nome dello strato resta locale e segue il dominio: `salute` lo chiama `quadro/`, `bi` ha già `presentation/`, `economia` ha `output/`, `nixos` ha `home/hosts/modules/` (l'output *è* la configurazione che gira). La funzione è la stessa: tradurre conoscenza in azione possibile. Il nome locale è scelta di dominio, non drift dal metodo.
+Lo strato di sintesi-documento ha nome **uniforme** tra i progetti: `presentations/`. Il carattere del dominio vive nel contenuto, non nel nome della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel contenuto»): `salute` migra `quadro/`→`presentations/`, perché il nome clinico contraddiceva l'essenza non-dualista corpo/mente della KB. Resta distinto ciò che è output di altra natura ontologica: in `nixos` l'output *è* la configurazione che gira (`home/`, `hosts/`, `modules/`), o1/runtime, non la porta `presentations/`. La funzione è la stessa ovunque: tradurre conoscenza in azione possibile.
 
 ## Criteri di qualità
 

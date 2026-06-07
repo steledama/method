@@ -138,7 +138,7 @@ La KB *informa e raffina* il Goal, non lo *genera*: il Goal nasce all'incrocio t
 
 ## Anatomia di un progetto
 
-La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La **root è il cruscotto del ciclo di sviluppo** — i pochi artefatti letti a ogni sessione per capire il tutto. La collocazione segue altezza nel ciclo + pace, non profondità: `plan` e `why` stanno in root pur cambiando in fretta perché la loro altezza lo impone. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
+La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La **root è l'atrio dell'artefatto**: l'`ls` ne dichiara l'inventario completo. Due specie di file — i *file-ciclo* (README, map, plan, why, CLAUDE/AGENTS) letti a ogni sessione, e le *porte-collezione* (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) viste sempre ma aperte on-demand. La collocazione segue la funzione + pace, non la profondità: `plan` e `why` stanno in root pur cambiando in fretta perché la loro altezza lo impone. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
 
 ```mermaid
 flowchart TB
@@ -147,9 +147,9 @@ flowchart TB
     PLAN["<b>plan.md</b><br/><i>Plan: cosa devo fare adesso?</i>"]
     C["<b>CLAUDE.md</b> · <small>via AGENTS.md</small><br/><i>come agisco qui?</i>"]
     WHY["<b>why.md</b><br/><i>perché una decisione conta?</i>"]
-    KB["<b>kb/</b> <small>+ index.md</small><br/><i>cosa significa questo concetto?</i>"]
+    KB["<b>kb.md → kb/</b><br/><i>cosa significa questo concetto?</i>"]
     TASKS["<b>tasks/</b><br/><i>i dettagli operativi del task</i>"]
-    S["<b>scripts/ · skill</b><br/><i>quali controlli e workflow?</i>"]
+    S["<b>tools.md → tools/ · skill</b><br/><i>quali controlli e workflow?</i>"]
     OUT["<b>strato output</b><br/><i>come traduco la KB in azione?</i>"]
 
     R --> MAP
@@ -187,7 +187,7 @@ La regola di routing che tiene puliti i confini tra i componenti.
 ```mermaid
 flowchart TB
     Q{"che tipo di<br/>contenuto?"}
-    Q -->|concetto stabile e riusabile| KB["kb/ + index.md"]
+    Q -->|concetto stabile e riusabile| KB["kb.md → kb/"]
     Q -->|lavoro futuro| TODO["plan.md + tasks/"]
     Q -->|perché una decisione conta| LOG["why.md"]
     Q -->|come agire / workflow| OP["CLAUDE.md · skill"]
@@ -200,7 +200,7 @@ flowchart TB
 
 Dichiarazione minima dello strato output del repo `metodo`, applicata a sé stesso:
 
-- **o1 macchina**: `kb/` in markdown consumato dagli LLM via symlink; output di `scripts/kb_tools.py` (audit JSON/markdown)
+- **o1 macchina**: `kb/` in markdown consumato dagli LLM via symlink; output di `tools/kb_tools.py` (audit JSON/markdown)
 - **o2 decisione**: questo file — i diagrammi del metodo in sintesi
 - **o3 azione**: il metodo applicato nei quattro repo adottanti (nodi creati, commit, KB mantenute)
 - **i1 grezzo**: osservazioni dai repo adottanti (commit, task, why) e fonti in `sources/` (i libri di Norman, Hutchins, Leontiev)
