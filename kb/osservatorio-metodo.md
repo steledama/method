@@ -13,7 +13,7 @@ La direzione che l'osservatorio governa è il movimento dal basso (uno dei due d
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
-- README: funzione di bootstrap, qualità dei router, puntatori al cruscotto (map/plan/index), relazione con la mappa di progetto
+- README: funzione di bussola (orienta e punta, non immagazzina), qualità dei router, puntatori al cruscotto (plan, catalogo, modello, indice-di-dominio dove esiste)
 - CLAUDE.md e AGENTS.md: chiarezza operativa, separazione tra regole d'azione e contenuto di dominio, costo di caricamento
 - why.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
 - tasks/: corrispondenza con `plan.md`, qualità del contesto operativo, presenza di task morti

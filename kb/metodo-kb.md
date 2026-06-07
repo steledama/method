@@ -7,7 +7,7 @@ stato: maturo
 
 Il metodo KB è il modo operativo con cui una knowledge base personale viene costruita, mantenuta e resa navigabile con l'aiuto di un LLM. Si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di manutenzione dell'insieme, dove fonti, domande e sintesi vengono progressivamente compilate in una rete persistente; Norman fornisce il modello che traduce la KB in azione possibile nel mondo, chiudendo il ciclo tra accumulazione della conoscenza e comportamento reale.
 
-Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: il cruscotto in root (README, map, plan, regole agent, why), gli strumenti e la collezione dei nodi.
+Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: il cruscotto in root (README, plan, regole agent, why), le porte-collezione (catalogo `kb`, indice-di-dominio `map` dove esiste, strumenti, output, fonti) e la collezione dei nodi.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
@@ -22,7 +22,7 @@ Indice cognitivo del metodo:
 - `README.md`: dove sono e da dove parto?
 - `kb.md`: quali nodi esistono e come li trovo?
 - `plan.md`: cosa dobbiamo fare adesso?
-- `map.md`: come si tiene insieme questo dominio?
+- `map.md`: com'è fatto il territorio reale del dominio, e come si lega ai nodi? (dove esiste)
 - nodo: che cosa significa questo concetto specifico?
 - connessioni: a quali altri concetti è legato?
 - `tasks/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
@@ -38,13 +38,13 @@ Indice cognitivo del metodo:
 Ricetta metodologica:
 
 - `kb/`: spazio della conoscenza stabile. Contiene i nodi di metodo e i nodi di dominio. Il nucleo metodologico portabile comprende `metodo-kb`, `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`, `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio richiede verifica anti-drift, `fedelta-cognitiva`. Nei progetti che usano il metodo come dipendenza, questi nodi possono vivere in `metodo/` come symlink o sottoalbero separato, mentre `kb/` resta dedicata al dominio.
-- `README.md`: file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali, e punta al resto del cruscotto (`map.md`, `plan.md`, `kb.md`). È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository, restando conciso: il modello sta in `map`, i task in `plan`, il catalogo in `kb`.
+- `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `plan`, il catalogo in `kb`, il modello nei nodi e in `presentations/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
 - `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
 - `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
-- `map.md`: il modello del dominio in root (vista o2), letto come secondo passo del bootstrap. Tenuto conciso e separato dal README per pace; collega entità, fonti di verità, flussi e nodi. Dettaglio nel nodo `map`.
+- `map.md`: l'**indice-di-dominio** in root, una porta-collezione aperta on-demand (come `kb.md`). Collega il territorio reale — entità, fonti di verità, flussi — ai nodi che lo spiegano. Presente dove il dominio ha un territorio da indicizzare; assente dove è astratto (in `metodo` non c'è). Non è la bussola (quella è il README) né il modello (che vive nei nodi e in `presentations/`). Dettaglio nel nodo `map`.
 - `why.md`: memoria interpretativa append-only delle sessioni significative. Il git log conserva cosa è cambiato; `why.md` conserva perché una decisione, un ingest, una revisione o un cambio di approccio contano. Non è un archivio di output automatici.
 - `plan.md` + `tasks/`: il Plan in root supervisiona il lavoro futuro; `tasks/` ne tiene i dettagli operativi. `plan.md` è l'indice di `tasks/`: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, why e nodi aggiornati.
-- `tools/`: strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di *sviluppo*, distinta dagli `scripts/` di output del *runtime* nei repo code-based). `tools/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
+- `tools/`: strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di _sviluppo_, distinta dagli `scripts/` di output del _runtime_ nei repo code-based). `tools/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade base ufficiale del metodo è `audit-kb` (diagnosi), `tasks-review` (supervisione del lavoro futuro) e `commit` (gate di filing back). Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
 - strato output: il livello che traduce la KB in azione possibile (o1 macchina / o2 decisione / o3 azione nel mondo) e che riceve il segnale di ritorno (i1 grezzo → i2 distillato → i3 formalizzato). Lo strato di sintesi-documento ha nome uniforme tra i progetti, `presentations/`; il carattere del dominio vive nel contenuto, non nel nome (cfr. struttura-progetto). Resta distinto l'output di altra natura ontologica, come la configurazione che gira in `nixos` (o1/runtime). La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `output` e `ciclo-azione`.
@@ -54,10 +54,10 @@ Creazione di un nuovo progetto:
 
 - partire dalla ricetta metodologica come checklist, non come gerarchia concettuale
 - personalizzare nome, dominio, scopo, cluster iniziali, fonti di verità e task aperti
-- generare `README.md` come bootstrap conciso che punta a `map.md`, `plan.md`, `kb.md`
+- generare `README.md` come bussola concisa che orienta e punta a `plan.md`, `kb.md` e al modello (nodi/`presentations`, e `map.md` dove esiste)
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
-- creare `map.md` con il modello iniziale del dominio e `kb.md` come catalogo dei nodi
+- creare `kb.md` come catalogo dei nodi e, dove il dominio ha un territorio da indicizzare, `map.md` come indice-di-dominio
 - creare `why.md` vuoto o con una prima entry di fondazione
 - creare `plan.md` come Plan e `tasks/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
@@ -77,7 +77,7 @@ La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`.
 
 Tipi documentali:
 
-- map: orienta sull'insieme e collega concetti a fonti di verità
+- map: indice-di-dominio — collega il territorio reale a fonti di verità e nodi (dove esiste)
 - nodo concettuale: spiega un'idea stabile e riusabile
 - reference: rende accessibili dati o convenzioni da consultare rapidamente
 - runbook: guida un'azione operativa con sequenza e verifiche

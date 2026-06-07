@@ -35,9 +35,9 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 
 - [agents](kb/agents.md) — Wrapper agent-agnostico: ingresso comune verso README e CLAUDE
 - [claude](kb/claude.md) — Costituzione operativa per agenti: regole d'azione, vincoli e bootstrap
-- [readme](kb/readme.md) — Bootstrap del progetto: orientamento, accessi cognitivi, puntatori a map/plan/kb
+- [readme](kb/readme.md) — La bussola dell'artefatto: orienta e punta, non immagazzina; ingresso per umano e LLM
 - [indice](kb/indice.md) — Catalogo statico dei nodi: recupero rapido distinto dalla mappa; nodo-concetto del register `kb.md`
-- [map](kb/map.md) — Modello del dominio: entità, fonti di verità, flussi e nodi; istanza root `map.md` (vista o2)
+- [map](kb/map.md) — Indice-di-dominio: il territorio reale (entità, sistemi, fonti) legato ai nodi; register root `map.md`, porta on-demand
 - [plan](kb/plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza root `plan.md`
 - [tasks](kb/tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `tasks/`, stadio Specify
 - [why](kb/why.md) — Memoria interpretativa: perché decisioni e sessioni contano; istanza root `why.md`, append-only

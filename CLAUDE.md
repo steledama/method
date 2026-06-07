@@ -4,16 +4,15 @@ Regole operative per agenti che lavorano su questo repository.
 
 ## Bootstrap di sessione
 
-La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I *file-ciclo* si leggono a ogni sessione; le *porte-collezione* (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) si vedono ma si aprono on-demand. Ordine: `README → map → CLAUDE → nodo`.
+La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-ciclo_ si leggono a ogni sessione; le _porte-collezione_ (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) si vedono ma si aprono on-demand. Ordine: `README → CLAUDE → nodo`.
 
-1. `README.md` — scopo del repo, progetti adottanti, atrio dei componenti
-2. `map.md` — il modello del dominio; `plan.md` per lo stato del lavoro, `kb.md` per il catalogo (on-demand)
-3. nodo pertinente alla modifica richiesta
+1. `README.md` — la bussola: scopo, dominio in breve, orientamento operativo; punta a `plan.md` (lavoro), `kb.md` (catalogo), `presentations/` e nodi (modello)
+2. nodo pertinente alla modifica richiesta
 
 ## Operazioni consentite senza autorizzazione
 
 - modifica ai nodi in `kb/`
-- aggiornamento di `README.md`, `map.md`, `plan.md` e `why.md`
+- aggiornamento di `README.md`, `plan.md` e `why.md`
 - commit e operazioni git locali
 
 ## Skill

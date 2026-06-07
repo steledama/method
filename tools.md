@@ -1,8 +1,8 @@
 # Strumenti e skill
 
 Porta-collezione di `tools/` nell'atrio di root: gli strumenti di manutenzione dell'artefatto —
-la macchina del ciclo di *sviluppo* (agisce sull'artefatto), distinta dagli `scripts/` di output
-del *runtime* (o3) nei repo code-based. Si vede a colpo d'occhio, si usa on-demand.
+la macchina del ciclo di _sviluppo_ (agisce sull'artefatto), distinta dagli `scripts/` di output
+del _runtime_ (o3) nei repo code-based. Si vede a colpo d'occhio, si usa on-demand.
 Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operativa in `CLAUDE.md`.
 
 ## tools/

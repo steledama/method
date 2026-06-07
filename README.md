@@ -1,4 +1,4 @@
-# Metodo KB
+# Artefatti di cognizione condivisa tra uomo e modelli di intelligenza artificiale
 
 Framework metodologico e osservatorio cross-repo per knowledge base personali e professionali mantenute con LLM.
 
@@ -8,13 +8,16 @@ Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale �
 
 Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo](kb/sviluppo-metodo.md)). Dal basso, un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Dall'alto, una cornice teorica importata — un gigante, una distinzione — dà forma a ciò che dal basso si avverte come disagio ma non si sa ancora inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale e le cornici che lo reggono.
 
+## Il dominio in breve
+
+Il dominio di questo repo è il metodo stesso: il «mondo» su cui agisce il ciclo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [presentations/metodo-in-sintesi.md](presentations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+
 ## Orientarsi
 
 La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di file ([struttura-progetto](kb/struttura-progetto.md)).
 
-**File-ciclo** — letti a ogni sessione:
+**File-ciclo** — il cruscotto del lavoro:
 
-- **[map.md](map.md)** — il modello del dominio (l'o2 conciso): ontologia, i tre giganti, gli strati, il layout
 - **[plan.md](plan.md)** — lo stadio Plan: i task aperti, prioritizzati, con dipendenze
 - **[why.md](why.md)** — la memoria interpretativa: perché le decisioni contano
 - **CLAUDE.md** / **AGENTS.md** — le regole operative
@@ -26,7 +29,9 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di
 - **[presentations.md](presentations.md)** — lo strato output o2/o3
 - **[sources.md](sources.md)** — il manifest delle fonti i1
 
-L'ordine di bootstrap è `README → map → CLAUDE → nodo`.
+Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `presentations/`.
+
+L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 ## Funzioni del repo
 
