@@ -50,7 +50,7 @@ Decisioni fissate, valide per tutti gli adottanti:
 
 - [x] **metodo** — prototipo. README-bussola + nuovo titolo-banner; `map.md` ritirato; `kb/readme.md` (regola rigorosa); `kb/map.md` (register-territorio); `struttura-progetto`/`metodo-kb`/`kb.md`/`CLAUDE`/`AGENTS`/`claude`/`osservatorio` allineati; 06-06 segnato superato. Commit `0ba053f`. Audit pulito.
 - [x] **nixos** — `kb/project-map.md` → `map.md`; 8 backlink rimossi; `kb_tools.py` (3 path), `CLAUDE`/`AGENTS`/README/skill `tasks-review`; frontmatter tolto. Commit `8c7ec7a`. Audit/facts/fidelity puliti.
-- [ ] **bi** — _non iniziato, intatto_ (rimandabile ad altro account). Specifico: 1 solo footer backlink (`kb/graphify.md`), **nessun** hardcoding nei tool. Riferimenti da aggiornare: `kb.md` (riga prosa + riga catalogo), `CLAUDE.md` (bootstrap), README (bootstrap righe 22-23), 3 skill (`audit-kb`/`tasks-review`/`commit`), `tasks/kb-tools-facts-coverage-fidelity.md`, menzione inline in `kb/graphify.md:55` (testo "BI non ha ancora una mappa…" ormai stale, da correggere). AGENTS minimale, nessuna modifica.
+- [x] **bi** — `kb/project-map.md` → `map.md` (frontmatter tolto, H1 `# Map`, footer `Connessioni:` rimosso: register monodirezionale come `kb.md`); 1 backlink rimosso (`kb/graphify.md`) + menzione inline stale corretta; `kb.md` (prosa + catalogo), `CLAUDE`/README bootstrap → `README → CLAUDE → nodo` con `map.md` tra le porte; 3 skill, `tasks/kb-tools-facts-coverage-fidelity`. `architettura-database` ricollega `obiettivi-strategici` (orfano dopo il ritiro del footer). Nessun hardcoding nei tool. Commit `7b931516`. Audit pulito.
 - [ ] **economia** — _priorità_. Vedi "Extra" sopra (compass→README + `kb/mappa-progetto.md`→`map.md`).
 - [ ] **salute** — _priorità_. Come economia.
 
