@@ -24,16 +24,16 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 
 | Progetto   | Nodi KB | Link KB | Cluster index | File tasks | Skill locali                                                    | Stato audit                                    |
 | ---------- | ------- | ------- | -------------- | --------- | --------------------------------------------------------------- | ---------------------------------------------- |
-| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `revisione-tasks`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
-| `bi`       | 84      | 329     | 11             | 7         | `audit-kb`, `revisione-tasks`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
-| `economia` | 55      | 198     | 3              | 21        | `audit-kb`, `revisione-tasks`, `commit`                         | nessun errore, avviso o nota                   |
-| `salute`   | 197     | 2210    | 8              | 7         | `audit-kb`, `revisione-tasks`, `commit`, `elabora-trascrizione` | rete integra; audit pulito                     |
+| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `tasks-review`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
+| `bi`       | 84      | 329     | 11             | 7         | `audit-kb`, `tasks-review`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
+| `economia` | 55      | 198     | 3              | 21        | `audit-kb`, `tasks-review`, `commit`                         | nessun errore, avviso o nota                   |
+| `salute`   | 197     | 2210    | 8              | 7         | `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione` | rete integra; audit pulito                     |
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
 ## Convergenze
 
-Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `why.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `audit-kb` / `revisione-tasks` / `commit`, script `tools/kb_tools.py`.
+Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `why.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `audit-kb` / `tasks-review` / `commit`, script `tools/kb_tools.py`.
 
 La separazione `metodo/ -> ../metodo/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
@@ -81,7 +81,7 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 | metodo / output      | promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati            | filing back atteso        |
 | metodo / task        | mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                    | regola stabile            |
 | metodo / strumenti   | un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce | bottom-up: in attesa      |
-| metodo / skill       | mantenere la triade `audit-kb` / `revisione-tasks` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio     | regola stabile            |
+| metodo / skill       | mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio     | regola stabile            |
 | metodo / frontmatter | policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi                                               | completato                |
 
 Connessioni:

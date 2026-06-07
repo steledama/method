@@ -18,15 +18,15 @@ Regole:
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
 - ogni progetto adottante deve esporre la triade base ufficiale del metodo:
-  `audit-kb`, `revisione-tasks`, `commit`
+  `audit-kb`, `tasks-review`, `commit`
 - deve distinguere diagnosi, supervisione e prevenzione: `audit-kb` fotografa lo
-  stato, `revisione-tasks` mantiene viva la coda del lavoro futuro, `commit`
+  stato, `tasks-review` mantiene viva la coda del lavoro futuro, `commit`
   verifica che le modifiche appena fatte siano documentate nel posto giusto
   prima di fissarle nella storia
 
 ## Triade base ufficiale
 
-Le tre skill base ufficiali del metodo sono `audit-kb`, `revisione-tasks` e
+Le tre skill base ufficiali del metodo sono `audit-kb`, `tasks-review` e
 `commit`. Ogni progetto adottante deve averle nella propria `.claude/skills/`,
 con wrapper Codex corrispondente quando il progetto espone `.codex/skills/`.
 
@@ -35,7 +35,7 @@ frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
 interpretare strumenti locali come `tools/kb_tools.py`, ma non deve trasformarsi
 in procedura di correzione automatica.
 
-`revisione-tasks` è la skill di supervisione del lavoro futuro. Controlla
+`tasks-review` è la skill di supervisione del lavoro futuro. Controlla
 coerenza tra `plan.md` e `tasks/`, rivaluta priorità e dipendenze, individua task
 superati o nuovi task emersi dai fatti e propone il prossimo lavoro. Deve restare
 locale perché i segnali che cambiano i task dipendono dal dominio: scadenze e
@@ -56,10 +56,10 @@ lavoro; il commit è il gate di documentazione.
 
 | Progetto   | Situazione attuale                                                                        | Confronto con il metodo                                                                                                        |
 | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `nixos`    | Skill `audit-kb`, `revisione-tasks` e `commit`, con wrapper Codex corrispondenti.         | Caso base: workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.                                     |
-| `bi`       | Skill `audit-kb`, `revisione-tasks`, `commit`, `graphify`, con wrapper Codex.             | `revisione-tasks` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.             |
-| `economia` | Skill `audit-kb`, `revisione-tasks`, `commit`, con wrapper Codex corrispondenti.          | Caso originario della revisione task: priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente. |
-| `salute`   | Skill `audit-kb`, `revisione-tasks`, `commit`, `elabora-trascrizione`, con wrapper Codex. | `revisione-tasks` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.          |
+| `nixos`    | Skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti.         | Caso base: workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.                                     |
+| `bi`       | Skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex.             | `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.             |
+| `economia` | Skill `audit-kb`, `tasks-review`, `commit`, con wrapper Codex corrispondenti.          | Caso originario della revisione task: priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente. |
+| `salute`   | Skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. | `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.          |
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 locale. Il repo `metodo` documenta il pattern; ogni repo adottante possiede la

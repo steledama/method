@@ -52,7 +52,7 @@ Il cruscotto ha due lati. Il lato esecuzione sono *intenzioni scritte* — Goal 
 
 ## La triade di skill base
 
-`audit-kb`, `revisione-tasks` e `commit`. `audit-kb` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il file-meta `kb.md` dal conteggio dei nodi. `revisione-tasks` mantiene vera la supervisione: coerenza `plan`/`tasks`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli strumenti in `tools/`, così parsing e conteggi restano deterministici.
+`audit-kb`, `tasks-review` e `commit`. `audit-kb` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il file-meta `kb.md` dal conteggio dei nodi. `tasks-review` mantiene vera la supervisione: coerenza `plan`/`tasks`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli strumenti in `tools/`, così parsing e conteggi restano deterministici.
 
 ## Struttura uniforme, carattere nel contenuto
 

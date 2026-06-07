@@ -736,7 +736,22 @@ serie di nodi richiedono `todo/` finché non vengono stabilizzati in nodi.
 
 ## Governance dei task: la triade skill e le chiusure bottom-up
 
-*I task di controllo top-down sui repo adottanti si chiudono o si spostano localmente; resta la triade skill comune audit-kb / revisione-tasks / commit.*
+*I task di controllo top-down sui repo adottanti si chiudono o si spostano localmente; resta la triade skill comune audit-kb / tasks-review / commit.*
+
+### [2026-06-07] Skill `revisione-tasks` → `tasks-review`: la triade allineata alla policy linguistica
+
+Rinominata la skill `revisione-tasks` in `tasks-review` in tutti e quattro gli
+adottanti. Motivo: la *policy linguistica* (vedi gruppo «Il root è il cruscotto»)
+vuole forma inglese per gli identificatori strutturali vivi; la triade aveva due
+nomi già inglesi (`audit-kb`, `commit`) e un solo residuo italiano. `tasks-review`
+(nome+oggetto) è coerente con `audit-kb`, non con la forma verbale di `commit`. La
+prosa interna dei `SKILL.md` resta in italiano: si è tradotto *solo lo slug*,
+l'identificatore, non la documentazione del concetto — stessa linea della coppia
+`kb/index.md`/`kb/indice.md`. Propagazione: rinominate le directory `.claude/skills/`
+e i wrapper `.codex/skills/` (8 dir), aggiornati `name`/trigger/heading/path nei
+wrapper, e tutti i riferimenti di stato-corrente in `metodo` (`tools.md`, nodi `kb/`)
+e negli adottanti (`CLAUDE.md`, `README.md`, `tools.md`, `plan.md`). Le entry `why.md`
+datate restano col nome d'epoca: registrano cosa accadde allora, non lo stato attuale.
 
 ### [2026-06-01] Chiusura task residui e triade skill ufficiale
 

@@ -19,5 +19,5 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
 ## skill
 
 `metodo` non versiona skill (nessun `.claude/skills/`): la triade base — `audit-kb`,
-`revisione-tasks`, `commit` — vive nei repo adottanti, perché ogni KB ha check, fonti e segnali
+`tasks-review`, `commit` — vive nei repo adottanti, perché ogni KB ha check, fonti e segnali
 locali diversi. Cfr. [skill](kb/skill.md).
