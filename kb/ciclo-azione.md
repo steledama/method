@@ -73,6 +73,22 @@ Nel metodo KB i due gulf si traducono così:
 - o3 è dove l'azione effettivamente accade — il "Perform" del ciclo, fuori dal repo, nel mondo
 - i1/i2/i3 riducono il gulf of evaluation: trasformano il segnale grezzo del mondo in conoscenza interpretata e formalizzata, abbassando la distanza tra "il sistema mostra X" e "capisco cosa significa per me"
 
+## Le sette domande, feedforward e feedback
+
+Ciascuno dei sette stadi è il punto in cui un agente si pone una domanda, e ogni domanda è un tema di design: il sistema è ben progettato se fornisce l'informazione per rispondervi.
+
+- Goal — cosa voglio realizzare?
+- Plan — quali sono le alternative?
+- Specify — cosa posso fare ora?
+- Perform — come lo faccio?
+- Perceive — cosa è successo?
+- Interpret — cosa significa?
+- Compare — va bene?
+
+Il Mondo, ottavo elemento del metodo, non ha domanda: è il terreno muto. Anche i due poli tacciono in modo diverso — il Goal ha la sua domanda ma a provenienza aperta (da dove venga il goal Norman non lo dice, è il confine aperto di `goal`), il Mondo tace del tutto (è la scatola nera che l'annidamento apre).
+
+Il design risponde a queste domande con vincoli, mapping, significanti, modelli concettuali, feedback e visibilità (cfr. `vincolo`, `affordance-signifier`, `system-image`). Norman distingue l'informazione per direzione: il **feedforward** risponde alle domande di esecuzione (cosa posso fare, come), il **feedback** a quelle di valutazione (cosa è successo, cosa significa, va bene). Nel metodo i due archi portano esattamente queste due informazioni: l'arco output (o1/o2/o3) è il feedforward che colma il gulf of execution; l'arco input (i1/i2/i3) è il feedback che colma il gulf of evaluation. Il criterio che ne segue, valido per ogni componente del repo: questo file dà l'informazione per rispondere alla domanda del suo stadio?
+
 ## Cicli annidati: due specchi, due Mondi
 
 Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per _cosa sia il loro Mondo_ in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
@@ -127,6 +143,7 @@ Una conseguenza forte di questa critica, che resta come principio di valutazione
 Connessioni:
 
 - [affordance-signifier](affordance-signifier.md)
+- [vincolo](vincolo.md)
 - [system-image](system-image.md)
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [output](output.md)

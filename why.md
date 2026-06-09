@@ -16,6 +16,14 @@ Convenzioni:
 
 _Il riconoscimento dello strato di output come componente universale del metodo, e di Norman come terzo gigante accanto a Luhmann e Karpathy._
 
+### [2026-06-09] i2/i3 risolti, feedforward/feedback, e il nodo vincolo
+
+Rilettura dell'arco di input che chiude le due caselle prima vuote nella matrice. **i2 (Interpret)** non lavora sul grezzo: il suo substrato è la sintesi — la stessa superficie che, prodotta, è o2 (specchio o2↔i2); la forma segue il dominio (grafica per i dati, testuale per i concetti), col vincolo «neutra sulla valenza», o l'interpretazione diventa persuasione. **i3 (Compare)** è il verdetto «va bene?», e il suo residuo scritto è `why.md` — il nodo già lo diceva, ora è esplicito, con la disciplina anti-log (un'entry porta un verdetto, non una cronaca: la cronaca è di git). Niente rename a `compare.md`: «why» è più largo (nutre anche la formazione del goal) e l'i3 scrive anche nei nodi.
+
+Due conferme cadute da sole, non cercate: le domande per-stadio sono quelle canoniche di Norman (Plan «quali alternative?» … Compare «va bene?»), e gli archi o/i sono il suo **feedforward/feedback** (esecuzione/valutazione). Le sette domande sono sette temi di design → criterio: ogni file dà l'informazione per rispondere alla domanda del suo stadio?
+
+Nuovo nodo `vincolo` (il guardrail): l'unico meccanismo di design di Norman che si _costruisce_ invece di valutare, e che mancava; è il presidio strutturale che regge quando il check riflessivo cede — la lezione dell'hook rotto. Entra nel gate `/commit` come i due check i2 («è cambiato il significato? ri-derivare?») e i3 («va bene? aggiornare why?»). Matrice aggiornata: i2/i3 riempite mappando su artefatti reali, zero forzati — ma provvisorio finché non si testa un repo nato senza il metodo.
+
 ### [2026-06-09] Nodo presentazione: il deploy dell'o2 va versionato (l'hook rotto di bi)
 
 Operativo lo strato o2 in un nodo-runbook portabile, `presentazione`: sorgente markdown unica (un solo `.md` → documento GitHub, deck Reveal da CDN, PDF dall'export, niente doppia sorgente), strumento del deck uniforme tra i repo, e la regola di pubblicazione — servire dalla sorgente per un percorso versionato, dietro confine di rete (LAN/VPN, mai WAN), mai a mano. Il principio di Karpathy «la forma segue la domanda» entra come repertorio o2 (pagina, tabella, deck, grafico, canvas); resta da filare anche in `pattern-karpathy`/`output`.

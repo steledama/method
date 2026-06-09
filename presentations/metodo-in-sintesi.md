@@ -229,7 +229,7 @@ La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietr
 
 ## L'o2 è lo stadio Compare del metodo su sé stesso
 
-Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione**. Cristallizzato, il Compare (i3) _è_ l'o2 — il termometro del ciclo di sviluppo, simmetrico a `plan.md`, che ne è lo stadio Plan.
+Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione**. Ma non _è_ lo stadio Compare — ne è il **substrato**: la sintesi _rivela_ (è l'i2, rende co-presenti le tensioni), e il _verdetto_ (i3) che ne segue si chiude nei nodi e in `why.md` — il termometro del ciclo di sviluppo, simmetrico a `plan.md` (lo stadio Plan), per la simmetria o1 ↔ i3.
 
 I nodi sono atomici e _localmente_ coerenti (Luhmann): una contraddizione che vive _tra_ due nodi è invisibile da dentro ciascuno. Comprimere il metodo in pochi diagrammi forza la co-presenza e fa affiorare le tensioni _non-locali_. Disciplina: **l'o2 rivela, i nodi risolvono** — ogni tensione si chiude giù nei nodi (la fonte di verità), poi l'o2 si _ri-deriva_. Aggiornare questa pagina è far girare lo stadio Compare del metodo su sé stesso — come questa stessa revisione.
 

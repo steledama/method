@@ -5,7 +5,9 @@ stato: maturo
 
 # Why
 
-`why.md` è la memoria interpretativa delle decisioni significative. Risponde alla domanda: perché una decisione o una sessione conta? Non registra tutto ciò che accade; registra ciò che serve a capire il senso delle evoluzioni del progetto. Sta in root, nel cruscotto del ciclo di sviluppo, come lato valutazione: il residuo scritto delle operazioni di Compare.
+`why.md` è la memoria interpretativa delle decisioni significative. Risponde alla domanda: perché una decisione o una sessione conta? Non registra tutto ciò che accade; registra ciò che serve a capire il senso delle evoluzioni del progetto. Sta in root, nel cruscotto del ciclo di sviluppo, come lato valutazione: è il **residuo scritto dello stadio Compare (i3)** — la domanda «va bene?» rispetto agli obiettivi, sedimentata perché il Goal successivo la legga (la cerniera KB: i3 scrive, il Goal legge).
+
+Da qui la linea che separa `why` dal log, e il modo tipico in cui un `why.md` tradisce la sua funzione: un'entry che racconta _cosa_ è stato fatto appartiene a git; un'entry di `why` porta un _verdetto_ — perché conta, se va bene, cosa cambia nella valutazione. Il drift verso la cronaca di azioni è esattamente ciò che la distinzione «git dice cosa, `why` dice perché conta» deve presidiare.
 
 Il git log dice cosa è cambiato. `why.md` dice perché quel cambiamento ha importanza, quale problema risolve, quale decisione stabilizza o quale direzione apre. Questa distinzione evita sia il diario prolisso sia la perdita del contesto decisionale.
 
@@ -14,6 +16,7 @@ La chiave organizzativa è la **motivazione**, non la data. Le entry si raggrupp
 Regole:
 
 - registra decisioni, revisioni strutturali, ingest importanti e cambi di approccio
+- ogni entry porta un verdetto (perché conta / va bene?), non una cronaca di azioni: la cronaca è di git
 - non archivia output automatici completi
 - non sostituisce git history
 - non contiene task futuri se non come conseguenza interpretativa

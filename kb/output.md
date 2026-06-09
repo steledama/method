@@ -43,6 +43,10 @@ Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i
 
 i1 ha due sorgenti: feedback (risposta a o3, chiude un goal esistente) ed esogeno (il mondo agisce da sé — busta paga, normativa, alert — e apre spesso un goal nuovo). Per questo i3 ha due modi: verdetto (Compare contro un goal esistente) e triage/formazione-goal (per l'esogeno). Cfr. `goal`.
 
+## L'i2 ha bisogno di un substrato
+
+L'i2 (Interpret) non lavora sul grezzo: da centinaia di segnali (i1) non si interpreta nulla. È la **sintesi** — la torta delle spese, il trend, il termometro — il luogo dove l'interpretazione accade. Per questo i2 e o2 sono lo stesso artefatto visto dai due archi (lo specchio o2↔i2): la sintesi è o2 quando la si produce (feedforward, scende), è substrato dell'i2 quando la si legge per interpretare (feedback, risale). La forma segue il dominio: grafica dove i dati sono molti (`economia`, `bi`), testuale dove il dominio è concettuale (`salute`). Vincolo di sicurezza: la sintesi che interpreta dev'essere goal-guidata sulla rilevanza ma neutra sulla valenza, o l'i2 diventa ragionamento motivato e la stessa superficie che dovrebbe far capire finisce per persuadere (cfr. `goal`).
+
 ## Lo specchio e le due cerniere
 
 I due archi — output (esecuzione) e input (valutazione) — sono speculari, accoppiati per altitudine: **o3 ↔ i1** al Mondo, **o2 ↔ i2** in mezzo, **o1 ↔ i3** alla KB. L'output scende dalla KB al Mondo, l'input risale dal Mondo alla KB. La simmetria è quella di Norman; o1 è il vertice-macchina dell'arco di output — non manca e non appartiene a «un altro ciclo».

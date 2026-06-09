@@ -20,6 +20,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [pattern-karpathy](kb/pattern-karpathy.md) — Pattern wiki personale mantenuta da LLM: ingest, query, lint e filing back
 - [ciclo-azione](kb/ciclo-azione.md) — Modello di Norman come terzo gigante del metodo: sette stadi, due gulf, quattro proprietà cardine come criteri di o2
 - [affordance-signifier](kb/affordance-signifier.md) — Distinzione di Norman tra azione possibile e segnale di dove agire; l'agente «person, animal, or machine» fonda i due strati output
+- [vincolo](kb/vincolo.md) — La limitazione progettata (guardrail): tipi di Norman, presidio strutturale sotto il check riflessivo, l'errore reso impossibile o rumoroso
 - [agente](kb/agente.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti; distinto da `agents`, che è il file
 - [system-image](kb/system-image.md) — Triangolo di Norman: la KB è il system image che porta il peso della comunicazione tra agenti che non si parlano
 - [visceral-behavioral-reflective](kb/visceral-behavioral-reflective.md) — I tre livelli di Norman: la KB è lo strato riflessivo, che condiziona il behavioral attraverso l'output

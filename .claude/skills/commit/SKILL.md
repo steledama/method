@@ -19,6 +19,11 @@ formatter e fonti di verità.
 
 **2. Entry in why.md** — Valuta se la sessione ha prodotto qualcosa di significativo: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiungere un'entry in why.md per questa sessione?"_. Se sì, proponi un'entry nel formato canonico di `why.md` (raggruppata per motivazione, `### [YYYY-MM-DD] titolo-tesi` con 1-3 righe sul perché conta — non un elenco di file ma il significato del cambiamento). Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
 
+**3. I due check del ciclo di valutazione (i2/i3)** — Prompt leggeri, non burocrazia: se la risposta è no, si procede.
+
+- **i2 — è cambiato il significato?** Questo commit cambia il senso di un artefatto di sintesi (`output/`, `presentations/`) rispetto a nuovi input o a goal appena emersi? Se sì, l'artefatto va _ri-derivato_, non lasciato stale: è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
+- **i3 — va bene?** Ciò che è cambiato altera il verdetto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento dell'entry in `why.md` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit.
+
 Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
 1. Esegui in parallelo per capire lo stato attuale:
