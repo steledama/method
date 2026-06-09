@@ -44,6 +44,10 @@ Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecu
 | Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza           |
 | Compare   | i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal |
 
+**Sei atti, due poli.** I sette stadi di Norman non sono dello stesso tipo. Il Goal non è un atto ma uno _stato_ — il punto verso cui si tende; gli altri sei (Plan, Specify, Perform, Perceive, Interpret, Compare) sono _operazioni_. Il metodo rende esplicito ciò che Norman teneva implicito: il secondo polo, il **Mondo**, il fondo verso cui gli atti scendono e da cui risalgono (cfr. `mondo`). La forma canonica nel metodo è dunque **6 atti + 2 poli**, non sette stadi: sei operazioni che corrono tra Goal (in alto) e Mondo (in basso). I poli non si eseguono, si _costituiscono_ ai bordi — il Goal viene dal motivo (la vita, il committente), il Mondo viene ritagliato dall'infinito per rilevanza guidata dai goal. Ne risultano due triadi speculari, ciascuna stretta attorno a un polo: alta {Compare (i3), Goal, Plan (o1)}, bassa {Perform (o3), Mondo, Perceive (i1)}; in mezzo, alla vita del ciclo, restano i due atti che non toccano nessun polo, Specify (o2) e Interpret (i2). Le due triadi e la vita corrispondono ai tre livelli di elaborazione di Norman — riflessivo in alto, behavioral in mezzo, viscerale al Mondo (cfr. `visceral-behavioral-reflective`).
+
+**La KB non è uno stadio.** Né i poli né gli atti _sono_ la KB. La KB è il _system image_ di Norman: il medium attraverso cui gli atti leggono e scrivono, non una stazione del ciclo (cfr. `system-image`). Il ciclo corre tra due poli attraverso due medium persistenti — la KB all'interno, il Mondo all'esterno.
+
 **Lo specchio per altitudine.** I due archi sono speculari, accoppiati per altitudine e non per numero. Il Goal è l'apice; il Mondo è il fondo.
 
 - in basso, al Mondo: **o3 ↔ i1** (Perform ↔ Perceive) — agisco / percepisco, stesso luogo, due versi;
@@ -52,10 +56,9 @@ Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecu
 
 I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due _altitudini_ dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
 
-**Le due cerniere.** La simmetria degli archi convive con un'asimmetria _locale ai vertici_:
+**Le due cerniere e la loro vera asimmetria.** A lungo questo nodo ha detto che la cerniera Mondo è simmetrica e quella KB è «l'unica vera asimmetria». Era una semplificazione, e va corretta. Le due cerniere hanno la _stessa_ forma: scrivi-poi-leggi attraverso un medium persistente. Al Mondo, o3 scrive un effetto e i1 lo rilegge più tardi come segnale — il mondo trattiene lo stato nell'intervallo, esattamente come la KB lo trattiene tra i3 e il Goal. In nessuno dei due vertici c'è riflesso immediato.
 
-- Cerniera Mondo (o3 → i1): porta bidirezionale, l'azione produce segnali e la percezione li raccoglie — simmetrica.
-- Cerniera KB (i3 → Goal): i3 _scrive_ l'esito, il Goal _legge_ l'intenzione — scrivi-poi-leggi attraverso la memoria persistente, non riflesso. È l'unica vera asimmetria, e riguarda il vertice, non la forma degli archi.
+L'asimmetria reale è altrove: **il mondo persiste da solo, la KB persiste solo se qualcuno la scrive.** Il mondo si ricorda della mail spedita, della transazione eseguita, del gesto compiuto, che l'artefatto faccia altro o no; la KB dimentica a meno che l'i3 non depositi l'esito. È il contenuto operativo del principio «una decisione non scritta è una decisione persa» — non un'esortazione morale, ma la conseguenza dell'unico dei due medium che non si mantiene da sé. Per questo la KB ha bisogno di un custode e il mondo no.
 
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 
@@ -128,6 +131,8 @@ Connessioni:
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [output](output.md)
 - [goal](goal.md)
+- [mondo](mondo.md)
+- [matrice-ciclo-azione](matrice-ciclo-azione.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)
 - [metodo-kb](metodo-kb.md)

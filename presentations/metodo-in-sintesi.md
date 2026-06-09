@@ -5,9 +5,9 @@ author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/metodo
 date: "2026.06.06"
 ---
 
-Questa è la vista d'insieme del **metodo KB**: il metodo per costruire e mantenere *knowledge base* — basi di conoscenza personali e professionali, da qui in poi «KB» — insieme a un modello linguistico (LLM).
+Questa è la vista d'insieme del **metodo KB**: il metodo per costruire e mantenere _knowledge base_ — basi di conoscenza personali e professionali, da qui in poi «KB» — insieme a un modello linguistico (LLM).
 
-I diagrammi comprimono il metodo intero e si leggono dall'alto in basso: *cosa è* l'oggetto che si coltiva, *come* funziona (i tre giganti, il ciclo dell'azione, il goal), *come cresce* nel tempo. Ognuno è una porta: il dettaglio vive nei nodi della KB linkati in fondo.
+I diagrammi comprimono il metodo intero e si leggono dall'alto in basso: _cosa è_ l'oggetto che si coltiva, _come_ funziona (i tre giganti, il ciclo dell'azione, il goal), _come cresce_ nel tempo. Ognuno è una porta: il dettaglio vive nei nodi della KB linkati in fondo.
 
 Questo documento non è un nodo della KB ma una sua sintesi — e per la disciplina zettelkastiana le sintesi vivono fuori dai nodi atomici, in uno strato dedicato. Cosa sia quello strato, e perché questa pagina ne sia un esempio, si chiarisce più avanti.
 
@@ -29,15 +29,15 @@ flowchart TB
     MET -->|coltiva| ART
 ```
 
-- L'**artefatto cognitivo** è la rappresentazione esterna che persiste e si progetta — KB + strato output + input + struttura. È *portabile*: sopravvive al cambio di modello o di harness. È ciò che si coltiva.
-- Il **sistema cognitivo** è dove la cognizione accade davvero: l'artefatto accoppiato all'umano e all'LLM (col suo harness), in opera — il *caso saliente* di una popolazione di agenti più ampia. Non si progetta come oggetto: emerge dall'uso, e non è portabile.
+- L'**artefatto cognitivo** è la rappresentazione esterna che persiste e si progetta — KB + strato output + input + struttura. È _portabile_: sopravvive al cambio di modello o di harness. È ciò che si coltiva.
+- Il **sistema cognitivo** è dove la cognizione accade davvero: l'artefatto accoppiato all'umano e all'LLM (col suo harness), in opera — il _caso saliente_ di una popolazione di agenti più ampia. Non si progetta come oggetto: emerge dall'uso, e non è portabile.
 - Il **metodo** è la pratica con cui si coltiva l'artefatto perché il sistema performi.
 
-LLM e harness sono cose diverse: l'**LLM** è il modello (Claude, ChatGPT, DeepSeek…), l'**harness** è lo strumento che lo mette al lavoro (Claude Code, Codex…). La tesi del progetto — *artefatto portabile, vendor-neutro* — è dicibile solo perché l'artefatto è la rappresentazione, non il sistema d'interazione: cambi modello e harness, l'artefatto resta.
+LLM e harness sono cose diverse: l'**LLM** è il modello (Claude, ChatGPT, DeepSeek…), l'**harness** è lo strumento che lo mette al lavoro (Claude Code, Codex…). La tesi del progetto — _artefatto portabile, vendor-neutro_ — è dicibile solo perché l'artefatto è la rappresentazione, non il sistema d'interazione: cambi modello e harness, l'artefatto resta.
 
 ## I tre giganti
 
-Sotto l'ontologia, tre pilastri si dividono il lavoro in modo nitido: come è fatto il nodo, chi tiene aggiornato il sistema, come il sistema produce azione. Luhmann *è* la KB — Karpathy la *governa* — Norman la *connette al mondo*.
+Sotto l'ontologia, tre pilastri si dividono il lavoro in modo nitido: come è fatto il nodo, chi tiene aggiornato il sistema, come il sistema produce azione. Luhmann _è_ la KB — Karpathy la _governa_ — Norman la _connette al mondo_.
 
 ```mermaid
 flowchart LR
@@ -80,11 +80,11 @@ flowchart TB
     i3 -.->|cerniera KB| KB
 ```
 
-Le due cerniere non sono uguali. Al **Mondo** è simmetrica — o3 agisce, i1 percepisce, stesso luogo due versi. Alla **KB** è *scrivi-poi-leggi*: i3 scrive l'esito nella memoria persistente, il Goal vi legge l'intenzione. È l'unica asimmetria, e non si vede dalla forma — per questo va detta. È qui che il metodo estende Norman ai suoi due estremi: apre il confine-Mondo (il mondo agisce, non solo risponde) e il confine-Goal (il goal si forma, non è dato).
+Le due cerniere hanno la stessa forma — _scrivi-poi-leggi attraverso un medium_: al **Mondo** o3 scrive un effetto e i1 lo rilegge più tardi (il mondo trattiene lo stato); alla **KB** i3 scrive l'esito e il Goal vi legge l'intenzione. L'unica vera asimmetria non è tra le cerniere ma tra i medium: il mondo persiste da sé, la KB solo se scritta — per questo una decisione non scritta è persa. È qui che il metodo estende Norman ai suoi due estremi: apre il confine-Mondo (il mondo agisce, non solo risponde) e il confine-Goal (il goal si forma, non è dato).
 
 ## Cicli annidati: due Mondi
 
-Il ciclo non è uno solo: sono due, annidati, ciascuno lo specchio appena visto. Si distinguono per *cosa è il loro Mondo* in fondo.
+Il ciclo non è uno solo: sono due, annidati, ciascuno lo specchio appena visto. Si distinguono per _cosa è il loro Mondo_ in fondo.
 
 ```mermaid
 flowchart LR
@@ -111,14 +111,14 @@ Per questo o1/o2/o3 e i1/i2/i3 si **raddoppiano**: c'è un o3 che agisce sul mon
 
 ## Le quattro dimensioni
 
-«Dividere gli stadi per agente» sarebbe un taglio rigido: nasconde che agente e livello sono cose diverse — l'errore che aveva fatto «sparire» o1. Ogni elemento del metodo si colloca invece su quattro dimensioni *ortogonali*. E l'agente stesso non è un binario ma una popolazione — Norman: «person, animal, or machine» —: il binomio umano/LLM è il caso saliente, con la macchina che varia per capacità (un LLM di frontiera che pianifica, un agente locale che esegue).
+«Dividere gli stadi per agente» sarebbe un taglio rigido: nasconde che agente e livello sono cose diverse — l'errore che aveva fatto «sparire» o1. Ogni elemento del metodo si colloca invece su quattro dimensioni _ortogonali_. E l'agente stesso non è un binario ma una popolazione — Norman: «person, animal, or machine» —: il binomio umano/LLM è il caso saliente, con la macchina che varia per capacità (un LLM di frontiera che pianifica, un agente locale che esegue).
 
-| dimensione          | valori                                                      |
-| ------------------- | ---------------------------------------------------------- |
-| **agente**          | umano · LLM *(caso saliente di una popolazione)*           |
-| **annidamento**     | runtime (→ mondo) · sviluppo (→ artefatto)                 |
-| **livello**         | 1 macchina · 2 decisione · 3 azione                        |
-| **lato del cappio** | output (esecuzione) · input (valutazione)                  |
+| dimensione          | valori                                           |
+| ------------------- | ------------------------------------------------ |
+| **agente**          | umano · LLM _(caso saliente di una popolazione)_ |
+| **annidamento**     | runtime (→ mondo) · sviluppo (→ artefatto)       |
+| **livello**         | 1 macchina · 2 decisione · 3 azione              |
+| **lato del cappio** | output (esecuzione) · input (valutazione)        |
 
 La matrice è la lente per confrontare i domini. Qualche elemento collocato: il `.nix` di `nixos` è {LLM, sviluppo, livello 1, output}; un referto in `salute` è {umano, runtime, livello 1, input}; il termometro del `quadro` è {umano, runtime, livello 2, output}; un test che fallisce è {LLM, sviluppo, livello 1, input}. Letta per dominio dice cosa è sviluppato, cosa manca perché non serve (`nixos` ha pochissimo input esogeno dal mondo), e cosa manca ma servirebbe.
 
@@ -134,11 +134,11 @@ flowchart TB
     M --> G --> O
 ```
 
-La KB *informa e raffina* il Goal, non lo *genera*: il Goal nasce all'incrocio tra motivo (da sopra) e KB. Da qui i due modi di i3: **verdetto** (Compare contro un goal esistente — loop noto, delegabile) e **formazione del goal** (triage dell'esogeno, decidere cosa conta — la cosa meno esternalizzabile, eco delle ironie dell'automazione di Bainbridge).
+La KB _informa e raffina_ il Goal, non lo _genera_: il Goal nasce all'incrocio tra motivo (da sopra) e KB. Da qui i due modi di i3: **verdetto** (Compare contro un goal esistente — loop noto, delegabile) e **formazione del goal** (triage dell'esogeno, decidere cosa conta — la cosa meno esternalizzabile, eco delle ironie dell'automazione di Bainbridge).
 
 ## Anatomia di un progetto
 
-La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La **root è l'atrio dell'artefatto**: l'`ls` ne dichiara l'inventario completo. Due specie di file — i *file-ciclo* (README, map, plan, why, CLAUDE/AGENTS) letti a ogni sessione, e le *porte-collezione* (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) viste sempre ma aperte on-demand. La collocazione segue la funzione + pace, non la profondità: `plan` e `why` stanno in root pur cambiando in fretta perché la loro altezza lo impone. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
+La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La **root è l'atrio dell'artefatto**: l'`ls` ne dichiara l'inventario completo. Due specie di file — i _file-ciclo_ (README, map, plan, why, CLAUDE/AGENTS) letti a ogni sessione, e le _porte-collezione_ (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) viste sempre ma aperte on-demand. La collocazione segue la funzione + pace, non la profondità: `plan` e `why` stanno in root pur cambiando in fretta perché la loro altezza lo impone. Ogni componente risponde a una domanda. (`AGENTS.md` non è una funzione a sé: è il wrapper sottile, agnostico rispetto all'agente, che instrada verso README e CLAUDE.)
 
 ```mermaid
 flowchart TB
@@ -209,9 +209,9 @@ Dichiarazione minima dello strato output del repo `metodo`, applicata a sé stes
 
 ## L'o2 è lo stadio Compare del metodo su sé stesso
 
-Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione** del metodo. Nel ciclo dell'azione il Compare (i3) confronta lo stato con il goal; cristallizzato come artefatto, quel confronto *è* l'o2 — il termometro del ciclo di **sviluppo**, simmetrico a `plan.md`, che ne è lo stadio Plan.
+Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione** del metodo. Nel ciclo dell'azione il Compare (i3) confronta lo stato con il goal; cristallizzato come artefatto, quel confronto _è_ l'o2 — il termometro del ciclo di **sviluppo**, simmetrico a `plan.md`, che ne è lo stadio Plan.
 
-Funziona per una proprietà dei nodi: sono atomici e *localmente* coerenti (Luhmann), e una contraddizione che vive *tra* due nodi è invisibile da dentro ciascuno. Comprimere il metodo intero in pochi diagrammi costringe alla co-presenza e fa affiorare le tensioni *non-locali*. Da qui la disciplina — **l'o2 rivela, i nodi risolvono**: ogni tensione trovata si chiude *giù* nei nodi (la fonte di verità), poi l'o2 si *ri-deriva*. Aggiornare questa pagina non è rifinirla: è far girare lo stadio Compare del metodo su sé stesso — come questa stessa revisione, derivata dal de-cablaggio appena chiuso nei nodi.
+Funziona per una proprietà dei nodi: sono atomici e _localmente_ coerenti (Luhmann), e una contraddizione che vive _tra_ due nodi è invisibile da dentro ciascuno. Comprimere il metodo intero in pochi diagrammi costringe alla co-presenza e fa affiorare le tensioni _non-locali_. Da qui la disciplina — **l'o2 rivela, i nodi risolvono**: ogni tensione trovata si chiude _giù_ nei nodi (la fonte di verità), poi l'o2 si _ri-deriva_. Aggiornare questa pagina non è rifinirla: è far girare lo stadio Compare del metodo su sé stesso — come questa stessa revisione, derivata dal de-cablaggio appena chiuso nei nodi.
 
 ## Approfondimento
 

@@ -17,17 +17,17 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 | ---------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `nixos`    | implementazione più ordinata della ricetta su un codebase dichiarativo      | README e mappa forti; strumenti anti-drift più completi                                                                    |
 | `bi`       | implementazione ricca e operativa su codebase applicativo complesso         | KB e mappa mature; revisione di `CLAUDE.md` completata dopo la fotografia iniziale                                         |
-| `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; audit ora pulito; coda `tasks/` molto attiva (21 file di lavoro reale)          |
+| `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; audit ora pulito; coda `tasks/` molto attiva (21 file di lavoro reale)        |
 | `salute`   | KB ampia e riflessiva, nata prima della separazione metodologica piena      | rete dei nodi molto forte; mappa, principi locali e verifica nel vivere ora rendono più esplicito l'adattamento del metodo |
 
 ## Dati strutturali
 
-| Progetto   | Nodi KB | Link KB | Cluster index | File tasks | Skill locali                                                    | Stato audit                                    |
-| ---------- | ------- | ------- | -------------- | --------- | --------------------------------------------------------------- | ---------------------------------------------- |
-| `nixos`    | 37      | 177     | 7              | 4         | `audit-kb`, `tasks-review`, `commit`                         | nessun link rotto, orfano o cluster isolato    |
-| `bi`       | 84      | 329     | 11             | 7         | `audit-kb`, `tasks-review`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato    |
-| `economia` | 55      | 198     | 3              | 21        | `audit-kb`, `tasks-review`, `commit`                         | nessun errore, avviso o nota                   |
-| `salute`   | 197     | 2210    | 8              | 7         | `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione` | rete integra; audit pulito                     |
+| Progetto   | Nodi KB | Link KB | Cluster index | File tasks | Skill locali                                                 | Stato audit                                 |
+| ---------- | ------- | ------- | ------------- | ---------- | ------------------------------------------------------------ | ------------------------------------------- |
+| `nixos`    | 37      | 177     | 7             | 4          | `audit-kb`, `tasks-review`, `commit`                         | nessun link rotto, orfano o cluster isolato |
+| `bi`       | 84      | 329     | 11            | 7          | `audit-kb`, `tasks-review`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato |
+| `economia` | 55      | 198     | 3             | 21         | `audit-kb`, `tasks-review`, `commit`                         | nessun errore, avviso o nota                |
+| `salute`   | 197     | 2210    | 8             | 7          | `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione` | rete integra; audit pulito                  |
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
@@ -72,17 +72,17 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 
 ## Azioni suggerite
 
-| Target               | Azione                                                                                                                                  | Tipo                      |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| metodo               | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali                                            | metodo                    |
-| `bi`                 | `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo    | monitoraggio              |
-| `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                | completato                |
-| `economia`           | audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti                                                    | completato                |
-| metodo / output      | promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati            | filing back atteso        |
-| metodo / task        | mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                    | regola stabile            |
-| metodo / strumenti   | un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce | bottom-up: in attesa      |
-| metodo / skill       | mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio     | regola stabile            |
-| metodo / frontmatter | policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi                                               | completato                |
+| Target               | Azione                                                                                                                                           | Tipo                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| metodo               | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali                                                     | metodo               |
+| `bi`                 | `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo             | monitoraggio         |
+| `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                         | completato           |
+| `economia`           | audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti                                                             | completato           |
+| metodo / output      | promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati                      | filing back atteso   |
+| metodo / task        | mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                            | regola stabile       |
+| metodo / strumenti   | un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce | bottom-up: in attesa |
+| metodo / skill       | mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio                 | regola stabile       |
+| metodo / frontmatter | policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi                                                       | completato           |
 
 Connessioni:
 
@@ -90,6 +90,7 @@ Connessioni:
 - [metodo-kb](metodo-kb.md)
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
+- [matrice-ciclo-azione](matrice-ciclo-azione.md)
 - [struttura-progetto](struttura-progetto.md)
 - [readme](readme.md)
 - [claude](claude.md)

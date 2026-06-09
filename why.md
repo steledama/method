@@ -16,6 +16,18 @@ Convenzioni:
 
 _Il riconoscimento dello strato di output come componente universale del metodo, e di Norman come terzo gigante accanto a Luhmann e Karpathy._
 
+### [2026-06-09] Il ciclo a due poli: Mondo, asimmetria dei medium, tre livelli, matrice come falsificatore
+
+Sessione di approfondimento teorico nata da un'intuizione dell'utente: dare al «Mondo» di Norman — lasciato implicito come scatola nera — un nodo proprio e un posto nel modello. Ne è uscita una rifondazione del ciclo a **due poli** (Goal in alto, Mondo in basso) con **6 atti + 2 poli** al posto dei «sette stadi»: Goal e Mondo non sono atti ma poli costituiti ai bordi, l'uno dal motivo, l'altro ritagliato dall'infinito per rilevanza guidata dai goal. Nasce il nodo `mondo`, con il Mondo runtime vs di sviluppo e — correzione di una formulazione precedente nel README — il Mondo del metodo come i progetti adottanti, non solo i nodi `kb/`.
+
+Correzione di una formulazione precedente: la cerniera Mondo non è «simmetrica/immediata» e quella KB «l'unica asimmetria». Entrambe sono scrivi-poi-leggi attraverso un medium; **l'asimmetria vera è tra i medium** — il mondo persiste da sé, la KB solo se scritta. È il fondamento strutturale, non morale, di «una decisione non scritta è persa», e la ragione per cui la KB ha bisogno di un custode. Corretta in `ciclo-azione`, `output`, `goal`, `mondo` e nella slide `metodo-in-sintesi`.
+
+Terza acquisizione: i tre livelli di Norman (viscerale/behavioral/reflective) **stratificano il ciclo per altezza** — triade alta riflessiva (KB), vita behaviorale (o2/i2), triade bassa viscerale (Mondo) — con grounding testuale (il viscerale di Norman è giudizio sensoriale rapido più output motorio, cioè i1+o3). Conseguenza di progetto: l'o2 deve raggiungere il viscerale per muovere l'azione, e la stasi di `salute` è un guasto di rappresentazione, non pigrizia.
+
+Strumento nuovo: `matrice-ciclo-azione`, verifica a 40 caselle degli 8 elementi sui 5 artefatti, con verdetto solido/debole/forzato e un monito esplicito contro l'auto-accondiscendenza. Il primo passaggio è onesto, non trionfale: i venti S di bordo sono quasi tautologici (li abbiamo definiti noi), l'interno è debole o da verificare, lo zero-forzati è sospetto perché le caselle più dure (i2/i3) sono ancora vuote. Lo strumento serve a falsificare la simmetria, non a incoronarla.
+
+Decisione di metodo sullo strato o2: Reveal.js come strumento unico per tutti i repo (sovrainsieme dell'HTML statico, sorgente markdown versionabile, Mermaid dentro per i diagrammi strutturali); infografiche viscerali generate da prompt versionato verso asset, con `goam` locale per i domini sensibili (salute, economia) e API esterna per gli altri; pilota `salute`. La decisione resta da far maturare bottom-up dal pilota prima di indurirla nel nodo `output`.
+
 ### [2026-06-03] Revisione qualitativa profonda dei nodi e strato output del metodo
 
 Revisione semantica di tutti i 25 nodi, oltre il lint strutturale (sempre pulito).

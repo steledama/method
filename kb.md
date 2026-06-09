@@ -26,6 +26,8 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [artefatto-cognitivo](kb/artefatto-cognitivo.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [sistema-cognitivo](kb/sistema-cognitivo.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
+- [mondo](kb/mondo.md) — Il fondo del ciclo d'azione opposto al Goal: cerniera o3↔i1, Mondo runtime vs di sviluppo, di cosa è fatto in ogni artefatto
+- [matrice-ciclo-azione](kb/matrice-ciclo-azione.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
 - [output](kb/output.md) — Strato output (o1/o2/o3) e input (i1/i2/i3): conflitto Zettelkasten/Karpathy, il cappio con due cerniere, criteri di Norman per o2
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione

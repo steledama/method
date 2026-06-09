@@ -10,7 +10,7 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso: il «mondo» su cui agisce il ciclo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [presentations/metodo-in-sintesi.md](presentations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due [mondi](kb/mondo.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [presentations/metodo-in-sintesi.md](presentations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Orientarsi
 
