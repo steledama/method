@@ -89,6 +89,7 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
 - [mondo](mondo.md)
+- [presentazione](presentazione.md)
 - [artefatto-cognitivo](artefatto-cognitivo.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)

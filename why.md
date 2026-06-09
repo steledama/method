@@ -16,6 +16,12 @@ Convenzioni:
 
 _Il riconoscimento dello strato di output come componente universale del metodo, e di Norman come terzo gigante accanto a Luhmann e Karpathy._
 
+### [2026-06-09] Nodo presentazione: il deploy dell'o2 va versionato (l'hook rotto di bi)
+
+Operativo lo strato o2 in un nodo-runbook portabile, `presentazione`: sorgente markdown unica (un solo `.md` → documento GitHub, deck Reveal da CDN, PDF dall'export, niente doppia sorgente), strumento del deck uniforme tra i repo, e la regola di pubblicazione — servire dalla sorgente per un percorso versionato, dietro confine di rete (LAN/VPN, mai WAN), mai a mano. Il principio di Karpathy «la forma segue la domanda» entra come repertorio o2 (pagina, tabella, deck, grafico, canvas); resta da filare anche in `pattern-karpathy`/`output`.
+
+La conferma sul campo. Cercando l'hook di deploy di `bi` su norvegia e svezia si è trovato che esisteva — `post-merge`/`post-commit` in `.git/hooks/`, non versionato — ma si era rotto in silenzio quando la cartella `presentazione/` è stata rinominata `presentations/`: l'hook cerca ancora il vecchio nome, la copia non parte, e la presentazione servita è ferma a maggio, identica al repo solo perché il contenuto non è cambiato. È «una decisione non scritta è persa» portata sull'o3, gemello di `bi/1018022`. Il fix — copia in uno script versionato più rimozione degli hook — è un task aperto in `bi`, non in `metodo`.
+
 ### [2026-06-09] Il ciclo a due poli: Mondo, asimmetria dei medium, tre livelli, matrice come falsificatore
 
 Sessione di approfondimento teorico nata da un'intuizione dell'utente: dare al «Mondo» di Norman — lasciato implicito come scatola nera — un nodo proprio e un posto nel modello. Ne è uscita una rifondazione del ciclo a **due poli** (Goal in alto, Mondo in basso) con **6 atti + 2 poli** al posto dei «sette stadi»: Goal e Mondo non sono atti ma poli costituiti ai bordi, l'uno dal motivo, l'altro ritagliato dall'infinito per rilevanza guidata dai goal. Nasce il nodo `mondo`, con il Mondo runtime vs di sviluppo e — correzione di una formulazione precedente nel README — il Mondo del metodo come i progetti adottanti, non solo i nodi `kb/`.
