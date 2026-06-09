@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metodo KB — sintesi</title>
+
+    <!-- Reveal.js da CDN (come bi) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+
+    <style>
+      :root {
+        --r-main-font-size: 30px;
+      }
+      .reveal h1 { font-size: 2em; }
+      .reveal h2 { font-size: 1.3em; text-align: left; }
+      .reveal section { text-align: left; }
+      .reveal section.title-slide { text-align: center; }
+      .reveal table { font-size: 0.62em; }
+      .reveal pre { width: 100%; box-shadow: none; font-size: 0.5em; }
+      .reveal .mermaid-rendered { text-align: center; }
+      .reveal .mermaid-rendered svg { max-height: 62vh; height: auto; width: auto; max-width: 100%; }
+      .reveal small { font-size: 0.6em; }
+      .reveal ul { display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section><h2>Caricamento…</h2></section>
+      </div>
+    </div>
+
+    <!-- Reveal core + plugin (non-module, eseguiti prima del modulo) -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
+      const slides = document.querySelector(".reveal .slides");
+
+      // Crea una <section data-markdown> con il chunk come template.
+      function mdSection(md, cls) {
+        const sec = document.createElement("section");
+        sec.setAttribute("data-markdown", "");
+        if (cls) sec.className = cls;
+        const tpl = document.createElement("script");
+        tpl.type = "text/template";
+        tpl.textContent = md;
+        sec.appendChild(tpl);
+        return sec;
+      }
+
+      // Mermaid: rendering fuori-DOM (mermaid.render), evita il bug di sizing
+      // sulle slide nascoste da Reveal.
+      async function renderMermaid() {
+        const blocks = [...document.querySelectorAll(".reveal code.mermaid, .reveal code.language-mermaid")];
+        let i = 0;
+        for (const el of blocks) {
+          const code = el.textContent;
+          const id = "mmd-" + i++;
+          try {
+            const { svg } = await mermaid.render(id, code);
+            const div = document.createElement("div");
+            div.className = "mermaid-rendered";
+            div.innerHTML = svg;
+            (el.closest("pre") || el).replaceWith(div);
+          } catch (e) {
+            console.error("mermaid render error", e);
+          }
+        }
+        if (window.Reveal && Reveal.layout) Reveal.layout();
+      }
+
+      async function build() {
+        let md;
+        try {
+          const res = await fetch("metodo-in-sintesi.md");
+          if (!res.ok) throw new Error(res.status);
+          md = await res.text();
+        } catch (e) {
+          slides.innerHTML =
+            '<section><h2>Errore di caricamento</h2><p>Apri il deck da un server HTTP — <code>fetch</code> non funziona su <code>file://</code>.</p><pre>cd presentations &amp;&amp; python3 -m http.server 8000</pre><p>poi <code>http://localhost:8000</code></p></section>';
+          return;
+        }
+
+        // Frontmatter YAML → slide di titolo.
+        const meta = {};
+        const fm = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+        if (fm) {
+          for (const line of fm[1].split(/\r?\n/)) {
+            const m = line.match(/^(\w+):\s*"?(.*?)"?\s*$/);
+            if (m) meta[m[1]] = m[2];
+          }
+          md = md.slice(fm[0].length);
+        }
+
+        slides.innerHTML = "";
+
+        const titleMd =
+          `# ${meta.title || "Metodo KB"}\n\n` +
+          (meta.subtitle ? `### ${meta.subtitle}\n\n` : "") +
+          (meta.author ? `<small>${meta.author}</small>\n\n` : "") +
+          (meta.date ? `<small>${meta.date}</small>` : "");
+        slides.appendChild(mdSection(titleMd, "title-slide"));
+
+        // Una slide per ogni titolo di secondo livello; l'introduzione (prima del
+        // primo "## ") diventa la slide che segue il titolo.
+        const chunks = md.split(/\r?\n(?=## )/);
+        for (const ch of chunks) {
+          if (ch.trim()) slides.appendChild(mdSection(ch));
+        }
+
+        mermaid.initialize({ startOnLoad: false, theme: "neutral", securityLevel: "loose" });
+        Reveal.on("ready", renderMermaid);
+
+        await Reveal.initialize({
+          hash: true,
+          slideNumber: "c/t",
+          width: 1180,
+          height: 740,
+          margin: 0.05,
+          center: false,
+          plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
+      }
+
+      build();
+    </script>
+  </body>
+</html>

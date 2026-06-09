@@ -12,5 +12,8 @@ legge e si distribuisce on-demand.
   specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia,
   sviluppo, routing). Cristallizza lo stadio Compare del ciclo di sviluppo.
 
-Il `.md` è la fonte unica; il PDF (o3) per stampa/distribuzione si rigenera con
-`cd presentations && md2pdf metodo-in-sintesi.md` e non è versionato.
+Il `.md` è la fonte unica; `index.html` lo rende come deck Reveal.js (caricato da CDN,
+diagrammi Mermaid inclusi). Il deck carica il markdown via `fetch`, quindi si apre servendo
+la cartella — `cd presentations && python3 -m http.server`, poi `localhost:8000` — non con un
+doppio-clic su `file://`. Il PDF (o3) per stampa/distribuzione esce dall'export del deck
+(apertura con `?print-pdf` e stampa, oppure `decktape`), non da `md2pdf`, e non è versionato.
