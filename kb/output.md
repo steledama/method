@@ -25,6 +25,10 @@ o3 è dove l'output produce effetti reali. Tutto il resto è strumentale. o1 e o
 
 o1 e o2 sono due _altitudini_ dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `ciclo-azione`.
 
+## La forma dell'o2 segue la domanda
+
+L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `pattern-karpathy`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `presentazione`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
+
 ## Lo strato input
 
 Il lato simmetrico del ciclo. Il segnale grezzo del mondo ritorna nel sistema e attraversa tre stadi prima di diventare conoscenza stabile:
