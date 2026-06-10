@@ -34,6 +34,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione
 - [sviluppo-metodo](kb/sviluppo-metodo.md) — I due movimenti (bottom-up e top-down) in alternanza e contraddittorio
+- [consenso](kb/consenso.md) — Proporre, attendere consenso esplicito, non scambiare un sì parziale per un sì totale; gemello sul lato verifica
 
 ## Componenti della ricetta
 
