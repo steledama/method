@@ -905,7 +905,7 @@ Da `bi` (commit `6ba766a0`) è emersa una forma migliore del `plan.md`: tabella 
 
 Conseguenza: la forma `#`/footer entra nel nodo come descrizione unica; il `plan.md` di root di `metodo` resta un elenco che si auto-spiega (coda minima, niente macchina `#`/footer); e `bi` ha un follow-up locale — snellire il proprio `plan.md` dalle istruzioni embedded e rimandare al nodo da `CLAUDE`/`AGENTS`. Quel riallineamento nasce come task in `bi`, non da qui. Nota di metodo: questa entry _è_ il dogfooding del Compare riflessivo — una forma adottata in fretta in un repo, rimessa in discussione prima di indurirla nel canone.
 
-> ↳ **Superata in parte (2026-06-10, vedi entry sopra).** La conclusione «il `plan.md` di root di `metodo` resta un elenco per coda minima» cade con la decisione di uniformità: la forma è la stessa su tutti i repo, anche `metodo`. Conformare il plan di root resta da fare.
+> ↳ **Superata in parte (2026-06-10, vedi entry sopra).** La conclusione «il `plan.md` di root di `metodo` resta un elenco per coda minima» cade con la decisione di uniformità: la forma è la stessa su tutti i repo, anche `metodo`. Il plan di root è stato conformato alla forma `#`/footer; restano pendenti `nixos`, `economia`, `salute`.
 
 ### [2026-06-07] README come bussola: scomposizione della mappa, ritiro di `map.md`
 
