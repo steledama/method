@@ -121,6 +121,21 @@ Decisione: pilota prima in `salute/quadro/`, formalizzazione meta dopo. Aperto i
 
 _Da «ponte» a o1/o2/o3 + i1/i2/i3, e il salto di quota che distingue l'artefatto cognitivo (portabile), il sistema cognitivo (emergente) e il metodo (la pratica)._
 
+### [2026-06-10] La memoria dell'harness: regola portabile a L2, enforcement versionato a L1 (nixos)
+
+Questione emersa dal basso, generalizzata top-down. Innesco concreto e ironico: questa sessione si è aperta con lo store `~/.claude/projects/<repo>/memory/` già montato e istruzioni di memoria iniettate — _malgrado_ la regola di `CLAUDE.md ## Memoria` («non usare lo store dell'harness»). La regola-come-contenuto non ferma l'host dal riabilitare la feature (`auto-memory`): è L1, e L1 è host-bound.
+
+**Distinzione che scioglie il falso problema.** «Host-locale, opaco, non versionato» (la critica del 06-04, nota più giù) confonde _due oggetti_. Lo **store-contenuto** (le note che l'harness scrive) resta esattamente l'anti-pattern — la doc ufficiale lo conferma _verbatim_: «machine-local … not shared across machines». Ma l'**interruttore** che spegne la feature è config, e la config _è versionabile_: su un host gestito da `nixos`, `~/.claude/settings.json` è un symlink nel nix store, dichiarato in `modules/home/claude-code.nix`. La critica è dunque _host-specifica_ — vera sullo store, falsa sul toggle dove il substrato è dichiarativo.
+
+**Meccanismo verificato (i1, doppia fonte concorde: `claude-code-guide` + doc `code.claude.com/docs/.../memory`, `env-vars`).** Due interruttori mirati, senza ricorrere a `--bare` (che spegne troppo, anche l'auto-discovery di `CLAUDE.md`): la chiave `autoMemoryEnabled: false` (settabile in sorgente `project`, committabile) e l'env var `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` (con `=0` che _forza ON_, scavalcando perfino `--bare`). Richiede `v2.1.59+`.
+
+**La forma giusta: divisione del lavoro tra gli artefatti a strati, non un'eccezione alla propagazione.** Lo stack L0→L1→L2 dà la collocazione di ciascun pezzo:
+- la **regola** (la memoria di progetto vive versionata, non nello store opaco) è L2, [`artefatto-cognitivo`] portabile, invariata — vive in `metodo` e propaga per symlink come sempre;
+- l'**enforcement del substrato** è L1, e il suo posto è `nixos`, l'adottante il cui mestiere è versionare il substrato su cui girano le sessioni di _tutti_ gli altri adottanti. Si dichiara lì specchiando `DISABLE_AUTOUPDATER` (env var `CLAUDE_CODE_DISABLE_AUTO_MEMORY`), uniforme su ogni host nix e ogni repo;
+- coda non-portabile, dichiarata onesta: **Codex** (non legge questi settings) → solo regola scritta + disciplina; e il **blind spot di `method-review`**, che lavora sul `git log` dei repo e la config host — fuori dai repo — non la vede comunque.
+
+Correzione del primo istinto («trattamento speciale _da metodo_»): metodo non entra negli host — sarebbe il runbook-che-orchestra-i-figli già sepolto il 06-07. E l'asse davvero «eccezionale» non è la _propagazione_ (anche l'enforcement è contenuto versionato, solo in un altro artefatto), ma la _verificabilità automatica_: `method-review` è strutturalmente cieca su ciò che non sta in un repo. Quella è l'eccezione, ed è stretta. Belt-and-suspenders opzionale: `.claude/settings.json` per-repo con `autoMemoryEnabled: false` copre anche host non-nix e viaggia col clone — più superficie, non necessario finché gli host reali sono nix.
+
 ### [2026-06-05] Chiusura del ciclo concettuale: tre nodi nuovi, sweep nomenclatura, todo/ svuotato
 
 Sessione esecutiva che chiude il lavoro concettuale avviato il 04-06 e portato in pianificazione il 05-06 mattina. Due filoni paralleli: (1) tre nuovi nodi di quota superiore fondati su fonti; (2) sweep completo della rifondazione input/output.
@@ -376,6 +391,8 @@ concettuali nello store di memoria dell'harness (`~/.claude/`). È l'anti-patter
 dell'artefatto portabile — host-locale, opaco, non versionato. Rimossi; la regola "la
 memoria del progetto vive versionata nel repo" è ora in `CLAUDE.md` (sezione `## Memoria`),
 e questi appunti vivono qui, dove dovevano stare.
+
+> ↳ **Raffinata (2026-06-10, vedi «La memoria dell'harness: regola portabile a L2…»).** La critica «host-locale, opaco, non versionato» vale per lo _store-contenuto_, non per l'_interruttore_: su host nix il toggle è versionato in `nixos`. La regola resta; guadagna un enforcement dichiarativo (`autoMemoryEnabled` / `CLAUDE_CODE_DISABLE_AUTO_MEMORY`).
 
 ### [2026-06-04] Rifondazione input/output: pianificazione e formulazioni fondative
 

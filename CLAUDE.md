@@ -30,10 +30,16 @@ Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 
 ## Memoria
 
-Non usare il sistema di memoria dell'harness (lo store in `~/.claude/`): è
-host-locale, opaco e non versionato — l'anti-pattern dell'artefatto portabile.
-La memoria del progetto vive versionata nel repo: `why.md` (perché una decisione
-conta), nodi `kb/` (conoscenza stabile), `tasks/` (lavoro futuro e contesto).
+Non usare il sistema di memoria dell'harness (`auto-memory`, store in
+`~/.claude/projects/.../memory/`): il contenuto è host-locale, opaco e non versionato
+— l'anti-pattern dell'artefatto portabile. La memoria del progetto vive versionata nel
+repo: `why.md` (perché una decisione conta), nodi `kb/` (conoscenza stabile), `tasks/`
+(lavoro futuro e contesto).
+
+L'enforcement (spegnere la feature) è invece versionabile: vive in `nixos` — env var
+`CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `modules/home/claude-code.nix`, specchio di
+`DISABLE_AUTOUPDATER`. Su harness che non leggono questi settings (Codex) vale solo
+questa regola.
 
 ## Quando aggiungere un nodo
 
