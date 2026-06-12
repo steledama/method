@@ -41,6 +41,10 @@ L'enforcement (spegnere la feature) è invece versionabile: vive in `nixos` — 
 `DISABLE_AUTOUPDATER`. Su harness che non leggono questi settings (Codex) vale solo
 questa regola.
 
+## Tabelle vs elenchi
+
+Le tabelle markdown sono illeggibili su schermi stretti (mobile): preferire elenchi puntati per confronti e liste di voci. Eccezione: `plan.md` (forma tabellare canonica, cfr. `kb/plan.md`).
+
 ## Quando aggiungere un nodo
 
 Un nodo entra in `kb/` solo se il concetto è metodologico e applicabile ad almeno due progetti diversi. I concetti specifici di un singolo progetto restano nella `kb/` locale del progetto.
