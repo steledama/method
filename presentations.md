@@ -12,8 +12,12 @@ legge e si distribuisce on-demand.
   specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia,
   sviluppo, routing). Cristallizza lo stadio Compare del ciclo di sviluppo.
 
-Il `.md` è la fonte unica; `index.html` lo rende come deck Reveal.js (caricato da CDN,
-diagrammi Mermaid inclusi). Il deck carica il markdown via `fetch`, quindi si apre servendo
-la cartella — `cd presentations && python3 -m http.server`, poi `localhost:8000` — non con un
-doppio-clic su `file://`. Il PDF (o3) per stampa/distribuzione esce dall'export del deck
-(apertura con `?print-pdf` e stampa, oppure `decktape`), non da `md2pdf`, e non è versionato.
+`index.html` è generato dalla sorgente markdown con
+`tools/build-presentation.sh`, rende la sintesi come deck Reveal.js (caricato da
+CDN) ed è apribile direttamente dal checkout. Diagrammi e componenti visivi
+sono HTML/CSS nativi, con SVG inline disponibile per geometrie che lo
+richiedono: nessun motore grafico JavaScript interviene a runtime. Il server
+Python è solo un'opzione di condivisione temporanea su LAN/VPN:
+`python3 -m http.server 8000 --bind 0.0.0.0 --directory presentations`; per
+client remoti la porta deve essere ammessa dal firewall sulla sola rete privata.
+Il PDF per stampa/distribuzione esce dall'export del deck e non è versionato.

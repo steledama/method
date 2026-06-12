@@ -16,6 +16,20 @@ Convenzioni:
 
 _Il riconoscimento dello strato di output come componente universale del metodo, e di Norman come terzo gigante accanto a Luhmann e Karpathy._
 
+### [2026-06-12] Dati operativi fuori da Git, presentazioni dentro
+
+Il caso `economia` ha chiarito che fonte di verità e file versionato sono
+proprietà distinte: dati personali, voluminosi o rigenerabili possono vivere in
+un workspace locale `data/`, mentre Git conserva trasformazioni, regole e
+superfici o2 curate in `presentations/`. La presentazione resta versionata anche
+quando generata, perché è un risultato editoriale revisionabile; backup e
+recuperabilità dei dati sono responsabilità separate.
+
+Nella stessa sessione il pattern Reveal emerso da `bi` è stato consolidato:
+HTML apribile direttamente dal checkout, grafica nativa HTML/CSS e rete solo
+on-demand. Il deck del metodo è stato ri-derivato senza cerniere, con i cicli
+verticali e con la propagazione top-down accanto al filing back bottom-up.
+
 ### [2026-06-09] i2/i3 risolti, feedforward/feedback, e il nodo vincolo
 
 Rilettura dell'arco di input che chiude le due caselle prima vuote nella matrice. **i2 (Interpret)** non lavora sul grezzo: il suo substrato è la sintesi — la stessa superficie che, prodotta, è o2 (specchio o2↔i2); la forma segue il dominio (grafica per i dati, testuale per i concetti), col vincolo «neutra sulla valenza», o l'interpretazione diventa persuasione. **i3 (Compare)** è il verdetto «va bene?», e il suo residuo scritto è `why.md` — il nodo già lo diceva, ora è esplicito, con la disciplina anti-log (un'entry porta un verdetto, non una cronaca: la cronaca è di git). Niente rename a `compare.md`: «why» è più largo (nutre anche la formazione del goal) e l'i3 scrive anche nei nodi.
@@ -130,6 +144,7 @@ Questione emersa dal basso, generalizzata top-down. Innesco concreto e ironico: 
 **Meccanismo verificato (i1, doppia fonte concorde: `claude-code-guide` + doc `code.claude.com/docs/.../memory`, `env-vars`).** Due interruttori mirati, senza ricorrere a `--bare` (che spegne troppo, anche l'auto-discovery di `CLAUDE.md`): la chiave `autoMemoryEnabled: false` (settabile in sorgente `project`, committabile) e l'env var `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` (con `=0` che _forza ON_, scavalcando perfino `--bare`). Richiede `v2.1.59+`.
 
 **La forma giusta: divisione del lavoro tra gli artefatti a strati, non un'eccezione alla propagazione.** Lo stack L0→L1→L2 dà la collocazione di ciascun pezzo:
+
 - la **regola** (la memoria di progetto vive versionata, non nello store opaco) è L2, [`artefatto-cognitivo`] portabile, invariata — vive in `metodo` e propaga per symlink come sempre;
 - l'**enforcement del substrato** è L1, e il suo posto è `nixos`, l'adottante il cui mestiere è versionare il substrato su cui girano le sessioni di _tutti_ gli altri adottanti. Si dichiara lì specchiando `DISABLE_AUTOUPDATER` (env var `CLAUDE_CODE_DISABLE_AUTO_MEMORY`), uniforme su ogni host nix e ogni repo;
 - coda non-portabile, dichiarata onesta: **Codex** (non legge questi settings) → solo regola scritta + disciplina; e il **blind spot di `method-review`**, che lavora sul `git log` dei repo e la config host — fuori dai repo — non la vede comunque.

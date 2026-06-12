@@ -15,6 +15,9 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
   - `migration` — frontmatter e footer Connessioni
   - `terms` — candidati a nuovi nodi da termini ricorrenti
   - `inventory` / `coverage` — inventario e copertura del codice (progetti code-based)
+- `build-presentation.sh` — genera il deck Reveal standalone
+  `presentations/index.html` dalla sorgente `presentations/metodo-in-sintesi.md`
+  tramite Pandoc
 
 ## skill
 

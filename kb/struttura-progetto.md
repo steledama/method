@@ -76,6 +76,8 @@ Resta distinto ciò che non è una collezione di sintesi-documento ma output di 
 - file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `why.md`
 - porte-collezione: `kb.md` · `map.md` (dove il dominio ha un territorio) · `tools.md` · `presentations.md` · `sources.md`
 - collezioni: `kb/` · `tools/` · `presentations/` · `sources/` · `tasks/`
+- workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
+  compilati e intermedi che non appartengono alla storia dell'artefatto
 - `.claude/skills/` · `.codex/skills/`
 
 ## Naming dei file
@@ -117,7 +119,11 @@ Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno l
 
 - **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `why`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
 - **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `why`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
-- **`economia`** — situazione attuale: struttura completa con file di dominio in root: `stato.md`, `scadenze.md`, `diario.md`, config, dati e output JSON. Confronto con il metodo: conferma la root estensibile dal basso — la root ammette file bootstrap di dominio senza renderli universali.
+- **`economia`** — situazione attuale: struttura completa con file di dominio
+  in root, `data/` locale non versionato per fonti e JSON, e `presentations/`
+  versionata per le viste decisionali. Confronto con il metodo: conferma sia la
+  root estensibile dal basso sia la separazione tra stato operativo e risultato
+  editoriale.
 - **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le presentazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, why o nodi.

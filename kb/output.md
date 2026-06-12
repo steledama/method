@@ -15,13 +15,38 @@ Il metodo si appoggia su due pilastri con una tensione mai nominata. Lo Zettelka
 
 ## I tre livelli dell'output
 
-- **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo
+- **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo se è parte dell'artefatto, in `data/` locale se è stato operativo o sensibile
 - **o2 — decisione** — audience: umano (utente, collaboratori); forma: schemi, diagrammi, slides, termometri; dove vive: nel repo
 - **o3 — azione** — audience: mondo; forma: email, parole dette, transazioni, gesti corporei; dove vive: fuori dal repo, nel mondo
 
 o3 è dove l'output produce effetti reali. Tutto il resto è strumentale. o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso è inutile per la decisione umana, un'infografica colorata è inefficiente per l'LLM.
 
 o1 e o2 sono due _altitudini_ dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `ciclo-azione`.
+
+## Dati operativi e presentazione
+
+La fonte di verità non coincide necessariamente con ciò che Git deve
+versionare. Nei domini con dati personali, voluminosi o rigenerabili, la
+separazione di default è:
+
+- `data/` — workspace locale ignorato da Git: fonti grezze, dati compilati,
+  cache, intermedi e report strutturati destinati alle macchine
+- `presentations/` — superfici curate per lettura e decisione: HTML, CSS, SVG,
+  markdown editoriale e altri artefatti o2 intenzionalmente versionati
+- `scripts/`, `config/`, schemi e fixture anonime — trasformazione
+  riproducibile, versionata
+
+La distinzione non è «generato contro scritto a mano». Anche una presentazione
+generata si versiona quando è un risultato editoriale che deve aprirsi
+direttamente, essere revisionabile nel tempo e incorporare affinamenti di
+design. Anche un JSON può essere versionato quando è configurazione, schema,
+fixture o parte costitutiva dell'artefatto. I dati operativi, invece, non
+entrano nella storia Git soltanto perché alimentano la presentazione.
+
+Questa separazione riduce esposizione di dati sensibili, rumore nei diff e peso
+della storia. La riproducibilità è affidata alla trasformazione versionata e
+alla provenienza dichiarata delle fonti; il backup dei dati resta una
+responsabilità distinta da Git.
 
 ## La forma dell'o2 segue la domanda
 
@@ -57,9 +82,9 @@ I _due_ cicli non sono «uno per agente» ma **annidati per Mondo**: il ciclo ru
 ## Stato dei progetti adottanti
 
 - **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/` (forte); o2: testo descrittivo in `kb/` (debole, no diagrammi); o3: sistema in esecuzione, deploy, switch (forte)
-- **`bi`** — o1: scripts notturni (forte); o2: `presentation/` Reveal.js (forte); o3: decisioni business, riunioni (forte)
-- **`economia`** — o1: `output/json/` (forte); o2: `output/report*.md` tabelle (medio); o3: email amministratori, riunioni famigliari (forte)
-- **`salute`** — o1: implicito sparso (scadenze, cronologia in `storia-clinica`); o2: `quadro/` con termometro e file per area (pilota in bozza); o3: yoga, controlli, alimentazione, conversazioni mediche (medio-forte)
+- **`bi`** — o1: scripts notturni (forte); o2: `presentations/index.html` Reveal.js autonomo (forte); o3: decisioni business, riunioni (forte)
+- **`economia`** — o1: `data/json/` locale e non versionato (forte); o2: fotografia finanziaria versionata in `presentations/index.html`, derivata dai dati (forte); o3: email amministratori, riunioni famigliari (forte)
+- **`salute`** — o1: implicito sparso (scadenze, cronologia in `storia-clinica`); o2: deck Reveal in `presentations/index.html` con file di dettaglio per area (forte); o3: yoga, controlli, alimentazione, conversazioni mediche (medio-forte)
 
 Pattern emergente: dove o2 è forte, il progetto serve decisioni condivise con altri (`bi`); dove o2 è debole, la KB resta personale e fatica a generare azione coordinata.
 

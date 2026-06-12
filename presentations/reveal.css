@@ -1,0 +1,431 @@
+:root {
+  --r-main-font-size: 30px;
+  --diagram-ink: #233142;
+  --diagram-muted: #607284;
+  --diagram-line: #8ba0b3;
+  --diagram-soft: #f3f6f8;
+  --diagram-accent: #dcecf2;
+  --diagram-primary: #e8e2f3;
+  --diagram-world: #f6e6d5;
+}
+
+.reveal h1 {
+  font-size: 2em;
+}
+
+.reveal h2 {
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.reveal section {
+  text-align: left;
+}
+
+.reveal #title-slide {
+  text-align: center;
+}
+
+.reveal pre {
+  width: 100%;
+  box-shadow: none;
+  font-size: 0.5em;
+}
+
+.reveal .diagram {
+  box-sizing: border-box;
+  color: var(--diagram-ink);
+  font-size: 0.63em;
+  line-height: 1.15;
+  margin: 0.7em auto;
+  max-height: 63vh;
+  max-width: 1050px;
+  text-align: center;
+}
+
+.reveal .diagram * {
+  box-sizing: border-box;
+}
+
+.reveal .diagram-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.reveal .card {
+  align-items: center;
+  background: white;
+  border: 2px solid var(--diagram-line);
+  border-radius: 0.55em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 3.2em;
+  padding: 0.55em 0.8em;
+}
+
+.reveal .card strong,
+.reveal .card span,
+.reveal .card small {
+  display: block;
+}
+
+.reveal .card span,
+.reveal .card small {
+  color: var(--diagram-muted);
+  margin-top: 0.2em;
+}
+
+.reveal .card small {
+  font-size: 0.82em;
+}
+
+.reveal .card.accent {
+  background: var(--diagram-accent);
+  border-color: #6096a9;
+}
+
+.reveal .card.primary {
+  background: var(--diagram-primary);
+  border-color: #756394;
+}
+
+.reveal .card.pill,
+.reveal .card.pole {
+  border-radius: 2em;
+}
+
+.reveal .card.world {
+  background: var(--diagram-world);
+  border-color: #b37a45;
+}
+
+.reveal .frame {
+  border: 2px solid var(--diagram-line);
+  border-radius: 0.7em;
+  padding: 1.25em 1em 0.8em;
+  position: relative;
+}
+
+.reveal .frame-title {
+  background: white;
+  color: var(--diagram-muted);
+  font-size: 0.82em;
+  font-weight: 700;
+  left: 1em;
+  letter-spacing: 0.08em;
+  padding: 0 0.5em;
+  position: absolute;
+  top: -0.55em;
+}
+
+.reveal .line {
+  background: var(--diagram-line);
+  height: 2px;
+  width: 2em;
+}
+
+.reveal .arrow {
+  color: var(--diagram-muted);
+  flex: 0 0 auto;
+  font-size: 0.85em;
+  position: relative;
+}
+
+.reveal .arrow.down,
+.reveal .arrow.up {
+  height: 1.35em;
+  margin: 0 auto;
+  width: 2px;
+}
+
+.reveal .arrow.down {
+  border-left: 2px solid var(--diagram-line);
+}
+
+.reveal .arrow.down::after {
+  border-left: 0.32em solid transparent;
+  border-right: 0.32em solid transparent;
+  border-top: 0.42em solid var(--diagram-line);
+  bottom: -0.05em;
+  content: "";
+  left: -0.36em;
+  position: absolute;
+}
+
+.reveal .arrow.up {
+  border-left: 2px solid var(--diagram-line);
+}
+
+.reveal .arrow.up::after {
+  border-bottom: 0.42em solid var(--diagram-line);
+  border-left: 0.32em solid transparent;
+  border-right: 0.32em solid transparent;
+  content: "";
+  left: -0.36em;
+  position: absolute;
+  top: -0.05em;
+}
+
+.reveal .arrow.down span {
+  left: 0.8em;
+  position: absolute;
+  top: 0.1em;
+  white-space: nowrap;
+}
+
+.reveal .arrow.right {
+  border-top: 2px solid var(--diagram-line);
+  height: 2px;
+  margin: 0 0.4em;
+  width: 2em;
+}
+
+.reveal .arrow.right::after {
+  border-bottom: 0.32em solid transparent;
+  border-left: 0.42em solid var(--diagram-line);
+  border-top: 0.32em solid transparent;
+  content: "";
+  position: absolute;
+  right: -0.05em;
+  top: -0.35em;
+}
+
+.reveal .arrow.right span {
+  bottom: 0.55em;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.reveal .ontology > .card {
+  margin: auto;
+  width: 62%;
+}
+
+.reveal .ontology .frame .card {
+  min-width: 18%;
+}
+
+.reveal .ontology .frame .primary {
+  width: 46%;
+}
+
+.reveal .cards-3 {
+  gap: 1em;
+}
+
+.reveal .cards-3 > * {
+  flex: 1;
+}
+
+.reveal .giants .card {
+  min-height: 7em;
+}
+
+.reveal .giants > .pill {
+  margin: 0 auto;
+  min-height: 2.8em;
+  width: 28%;
+}
+
+.reveal .merge-arrows,
+.reveal .branch-arrows {
+  display: flex;
+  height: 2.2em;
+  justify-content: space-around;
+}
+
+.reveal .merge-arrows i,
+.reveal .branch-arrows i {
+  border-left: 2px solid var(--diagram-line);
+  display: block;
+}
+
+.reveal .action-cycle {
+  width: 72%;
+}
+
+.reveal .action-cycle > .pole {
+  margin: auto;
+  width: 30%;
+}
+
+.reveal .cycle-columns {
+  display: grid;
+  gap: 7em;
+  grid-template-columns: 1fr 1fr;
+  margin: 0.25em 0;
+}
+
+.reveal .cycle-side .card {
+  min-height: 2.7em;
+}
+
+.reveal .side-title {
+  color: var(--diagram-muted);
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-bottom: 0.25em;
+  text-transform: uppercase;
+}
+
+.reveal .nested-cycles {
+  display: grid;
+  font-size: 0.54em;
+  gap: 0.4em;
+  grid-template-columns: 1fr;
+  width: 68%;
+}
+
+.reveal .vertical-cycle {
+  margin: auto;
+  padding: 0.75em 4em 0.45em;
+  width: 100%;
+}
+
+.reveal .vertical-cycle .card {
+  min-height: 2.1em;
+}
+
+.reveal .return-step {
+  color: var(--diagram-muted);
+  font-size: 0.82em;
+  margin-top: 0.35em;
+}
+
+.reveal .handoff {
+  color: var(--diagram-muted);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+}
+
+.reveal .handoff b {
+  font-size: 1.5em;
+}
+
+.reveal .altitude {
+  width: 74%;
+}
+
+.reveal .altitude .card {
+  min-height: 3.8em;
+}
+
+.reveal .project-anatomy > .accent {
+  margin: auto;
+  width: 40%;
+}
+
+.reveal .project-anatomy .cards-3 {
+  align-items: flex-start;
+}
+
+.reveal .track .card {
+  min-height: 4.1em;
+}
+
+.reveal .track .destination {
+  background: var(--diagram-soft);
+}
+
+.reveal .method-development {
+  width: 84%;
+}
+
+.reveal .adopters {
+  padding: 1.15em 2em 0.7em;
+}
+
+.reveal .adopters .card {
+  flex: 1;
+}
+
+.reveal .movement {
+  align-items: center;
+  color: var(--diagram-muted);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  margin: 0.15em 0;
+}
+
+.reveal .movement b {
+  font-size: 1.55em;
+  line-height: 0.8;
+}
+
+.reveal .decision-row {
+  margin: 0 auto 0.25em;
+  width: 88%;
+}
+
+.reveal .decision-row .theory {
+  width: 30%;
+}
+
+.reveal .card.diamond {
+  background: var(--diagram-soft);
+  border-radius: 0;
+  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  margin: 0 1.8em;
+  min-height: 3.8em;
+  padding: 0.8em 1.5em;
+  width: 11em;
+}
+
+.reveal .routing > .diamond {
+  margin: 1.8em auto 2.4em;
+  width: 10em;
+}
+
+.reveal .split {
+  color: var(--diagram-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.reveal .method-development > .primary,
+.reveal .method-development > .accent {
+  margin: auto;
+  width: 52%;
+}
+
+.reveal .feedback {
+  color: var(--diagram-muted);
+  font-size: 0.8em;
+  margin-top: 0.25em;
+}
+
+.reveal .routing {
+  display: grid;
+  gap: 3.5em;
+  grid-template-columns: 30% 1fr;
+}
+
+.reveal .routing-list {
+  display: grid;
+  gap: 0.35em;
+}
+
+.reveal .routing-list div {
+  align-items: center;
+  background: var(--diagram-soft);
+  border-left: 3px solid var(--diagram-line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.42em 0.7em;
+  text-align: left;
+}
+
+.reveal .routing-list span {
+  color: var(--diagram-muted);
+}
+
+.reveal ul {
+  display: block;
+}

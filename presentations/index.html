@@ -1,137 +1,809 @@
 <!doctype html>
-<html lang="it">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metodo KB — sintesi</title>
-
-    <!-- Reveal.js da CDN (come bi) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
-
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="author"
+      content="Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method"
+    />
+    <title>Metodo KB</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
     <style>
-      :root {
-        --r-main-font-size: 30px;
+      .reveal .sourceCode {
+        /* see #7635 */
+        overflow: visible;
       }
-      .reveal h1 { font-size: 2em; }
-      .reveal h2 { font-size: 1.3em; text-align: left; }
-      .reveal section { text-align: left; }
-      .reveal section.title-slide { text-align: center; }
-      .reveal table { font-size: 0.62em; }
-      .reveal pre { width: 100%; box-shadow: none; font-size: 0.5em; }
-      .reveal .mermaid-rendered { text-align: center; }
-      .reveal .mermaid-rendered svg { max-height: 62vh; height: auto; width: auto; max-width: 100%; }
-      .reveal small { font-size: 0.6em; }
-      .reveal ul { display: block; }
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      div.columns {
+        display: flex;
+        gap: min(4vw, 1.5em);
+      }
+      div.column {
+        flex: auto;
+        overflow-x: auto;
+      }
+      div.hanging-indent {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+      /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+      ul.task-list[class] {
+        list-style: none;
+      }
+      ul.task-list li input[type="checkbox"] {
+        font-size: inherit;
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1.6em;
+        vertical-align: middle;
+      }
+      .display.math {
+        display: block;
+        text-align: center;
+        margin: 0.5rem auto;
+      }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="reveal.css" />
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section><h2>Caricamento…</h2></section>
+        <section id="title-slide">
+          <h1 class="title">Metodo KB</h1>
+          <p class="subtitle">
+            Framework metodologico e osservatorio cross-repo per KB personali e
+            professionali con LLM
+          </p>
+          <p class="author">
+            Stefano Pompa · stefano.pompa@gmail.com ·
+            github.com/steledama/method
+          </p>
+          <p class="date">2026.06.09</p>
+        </section>
+
+        <section class="slide level2">
+          <p>
+            Vista d’insieme del <strong>metodo KB</strong>: costruire e
+            mantenere <em>knowledge base</em> — personali e professionali —
+            insieme a un LLM. I diagrammi comprimono; il dettaglio vive nei nodi
+            linkati in fondo.
+          </p>
+          <p>
+            Questo non è un nodo della KB ma una sua <strong>sintesi</strong> —
+            e per la disciplina zettelkastiana le sintesi vivono fuori dai nodi
+            atomici, in uno strato dedicato. Perché questa pagina ne sia un
+            esempio si chiarisce all’ultima slide.
+          </p>
+        </section>
+        <section id="cosa-è-artefatto-sistema-metodo" class="slide level2">
+          <h2>Cosa è: artefatto, sistema, metodo</h2>
+          <p>
+            La KB non è il metodo: il metodo la contiene. Tre parole per tre
+            cose, a lungo confuse nella sineddoche «KB = metodo».
+          </p>
+          <div class="diagram ontology">
+            <div class="card accent">
+              <strong>METODO</strong
+              ><span
+                >la pratica portabile più generale della KB: la contiene e la
+                coltiva</span
+              >
+            </div>
+            <div class="arrow down">
+              <span>coltiva</span>
+            </div>
+            <div class="frame">
+              <div class="frame-title">SISTEMA COGNITIVO</div>
+              <div class="diagram-row">
+                <div class="card pill">umano</div>
+                <div class="line"></div>
+                <div class="card primary">
+                  <strong>ARTEFATTO COGNITIVO</strong
+                  ><span>portabile · la rappresentazione che persiste</span
+                  ><small>KB + strato output + input + struttura</small>
+                </div>
+                <div class="line"></div>
+                <div class="card pill">
+                  <strong>LLM</strong><span>Claude · ChatGPT · DeepSeek…</span
+                  ><small>+ harness · Claude Code · Codex…</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <strong>Artefatto</strong> — la rappresentazione che persiste e si
+              progetta; <em>portabile</em>, sopravvive al cambio di modello o
+              harness.
+            </li>
+            <li>
+              <strong>Sistema</strong> — l’artefatto in opera, accoppiato a
+              umano e LLM: dove la cognizione accade. Emerge dall’uso, non è
+              portabile.
+            </li>
+            <li>
+              <strong>Metodo</strong> — la pratica con cui si coltiva
+              l’artefatto perché il sistema performi.
+            </li>
+          </ul>
+          <p>
+            L’artefatto resta vendor-neutro perché è la
+            <em>rappresentazione</em>, non il sistema d’interazione (LLM e
+            harness sono diversi e sostituibili).
+          </p>
+        </section>
+        <section id="i-tre-giganti" class="slide level2">
+          <h2>I tre giganti</h2>
+          <p>
+            Luhmann <em>è</em> la KB (forma del nodo), Karpathy la
+            <em>governa</em> (manutenzione), Norman la
+            <em>connette al mondo</em> (azione).
+          </p>
+          <div class="diagram giants">
+            <div class="diagram-row cards-3">
+              <div class="card">
+                <strong>Luhmann · Zettelkasten</strong
+                ><span>forma del nodo</span
+                ><small
+                  >atomico · interconnesso<br />sintesi fuori dal nodo</small
+                >
+              </div>
+              <div class="card">
+                <strong>Karpathy · LLM KB</strong
+                ><span>manutenzione dell’insieme</span
+                ><small>ingest · query · lint<br />filing back</small>
+              </div>
+              <div class="card">
+                <strong>Norman · ciclo di azione</strong
+                ><span>interfaccia KB ↔︎ mondo</span
+                ><small>visibilità · feedback<br />mapping · constraint</small>
+              </div>
+            </div>
+            <div class="merge-arrows"><i></i><i></i><i></i></div>
+            <div class="card pill accent">METODO KB</div>
+          </div>
+          <p>
+            Karpathy risolve il «chi mantiene» assente in Luhmann; Norman il
+            «come l’utente agisce» assente in entrambi.
+          </p>
+        </section>
+        <section id="il-ciclo-dellazione-6-atti-2-poli" class="slide level2">
+          <h2>Il ciclo dell’azione: 6 atti + 2 poli</h2>
+          <p>
+            La KB non è il fine: è strumentale all’azione. Il ciclo di Norman,
+            riletto: ai vertici due <strong>poli</strong> — il
+            <strong>Goal</strong> (apice, il motivo) e il
+            <strong>Mondo</strong> (fondo) — e fra loro sei
+            <strong>atti</strong>, l’esecuzione che scende e la valutazione che
+            risale.
+          </p>
+          <div class="diagram action-cycle">
+            <div class="card pole">GOAL</div>
+            <div class="cycle-columns">
+              <div class="cycle-side execution">
+                <div class="side-title">esecuzione ↓</div>
+                <div class="card">
+                  <strong>o1 · Plan</strong><span>macchina</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>o2 · Specify</strong><span>decisione</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>o3 · Perform</strong><span>azione</span>
+                </div>
+              </div>
+              <div class="cycle-side evaluation">
+                <div class="side-title">↑ valutazione</div>
+                <div class="card">
+                  <strong>i3 · Compare</strong><span>formalizzato</span>
+                </div>
+                <div class="arrow up"></div>
+                <div class="card">
+                  <strong>i2 · Interpret</strong><span>distillato</span>
+                </div>
+                <div class="arrow up"></div>
+                <div class="card">
+                  <strong>i1 · Perceive</strong><span>segnale grezzo</span>
+                </div>
+              </div>
+            </div>
+            <div class="card pole world">MONDO</div>
+          </div>
+          <p>
+            I poli non si eseguono: si <em>costituiscono</em> ai bordi. Il Mondo
+            non preesiste — lo ritaglia l’artefatto, dall’infinito, per
+            rilevanza guidata dai goal.
+          </p>
+        </section>
+        <section
+          id="i-tre-livelli-perché-un-o2-solo-riflessivo-non-muove"
+          class="slide level2"
+        >
+          <h2>I tre livelli: perché un o2 solo riflessivo non muove</h2>
+          <p>
+            I tre livelli di Norman stratificano il ciclo per altezza:
+            <strong>riflessivo</strong> in alto (la KB — pensa, non agisce
+            direttamente), <strong>behavioral</strong> in mezzo (o2/i2 —
+            l’operare), <strong>viscerale</strong> al Mondo (o3/i1 — giudizio
+            sensoriale rapido e gesto).
+          </p>
+          <p>
+            Conseguenza per il design: il riflessivo può solo
+            <em>condizionare</em> l’azione, attraverso l’output. Per muovere
+            davvero, l’o2 deve raggiungere il <strong>viscerale</strong> —
+            apparenza, impatto immediato, affetto. Un o2 solo riflessivo (testo,
+            schemi) sa ma non muove: è la stasi. «Attractive things work better»
+            non è estetica, è la condizione perché il sapere arrivi al gesto.
+          </p>
+        </section>
+        <section id="cicli-annidati-due-mondi" class="slide level2">
+          <h2>Cicli annidati: due Mondi</h2>
+          <p>
+            Due cicli annidati, distinti da <em>cosa è il loro Mondo</em> in
+            fondo.
+          </p>
+          <div class="diagram nested-cycles">
+            <div class="frame vertical-cycle">
+              <div class="frame-title">CICLO DI SVILUPPO</div>
+              <div class="card pill">Goal di sviluppo</div>
+              <div class="arrow down"></div>
+              <div class="card">o3 · commit</div>
+              <div class="arrow down"></div>
+              <div class="card pole world">
+                <strong>Mondo di sviluppo</strong><span>ARTEFATTO</span>
+              </div>
+              <div class="return-step">↻ i1 · lint · audit · test · errore</div>
+            </div>
+            <div class="handoff">
+              <span>l’artefatto è la macchina del runtime</span><b>↓</b>
+            </div>
+            <div class="frame vertical-cycle">
+              <div class="frame-title">CICLO RUNTIME</div>
+              <div class="card pill">Goal runtime</div>
+              <div class="arrow down"></div>
+              <div class="card">o3 · email · transazione · gesto</div>
+              <div class="arrow down"></div>
+              <div class="card pole world">
+                <strong>Mondo runtime</strong><span>realtà del dominio</span>
+              </div>
+              <div class="return-step">↻ i1 · referto · payload · alert</div>
+            </div>
+          </div>
+          <p>
+            L’o3 di sviluppo è la macchina del runtime — il commit produce il
+            codice che gira. Per questo il metodo apre la scatola nera di
+            Norman: ogni sistema è l’o3 di un ciclo che lo precede.
+          </p>
+        </section>
+        <section id="le-quattro-dimensioni" class="slide level2">
+          <h2>Le quattro dimensioni</h2>
+          <p>
+            Agente e livello sono cose diverse — confonderli aveva fatto
+            «sparire» o1. Ogni elemento sta su quattro dimensioni
+            <em>ortogonali</em>.
+          </p>
+          <ul>
+            <li>
+              <strong>agente</strong> — umano · LLM
+              <em>(caso saliente di una popolazione)</em>
+            </li>
+            <li>
+              <strong>annidamento</strong> — runtime (→ mondo) · sviluppo (→
+              artefatto)
+            </li>
+            <li>
+              <strong>livello</strong> — 1 macchina · 2 decisione · 3 azione
+            </li>
+            <li>
+              <strong>lato del cappio</strong> — output (esecuzione) · input
+              (valutazione)
+            </li>
+          </ul>
+          <p>
+            La matrice è la lente per confrontare i domini: cosa è sviluppato,
+            cosa manca perché non serve, cosa manca ma servirebbe.
+          </p>
+        </section>
+        <section
+          id="il-goal-tre-altitudini-un-confine-aperto"
+          class="slide level2"
+        >
+          <h2>Il goal: tre altitudini, un confine aperto</h2>
+          <p>
+            Norman dà il Goal per scontato; il metodo lo disciplina con
+            Leontiev: <code>goal</code> / <code>task</code> /
+            <code>tasks/</code> sono tre altitudini.
+          </p>
+          <div class="diagram altitude">
+            <div class="card">
+              <strong>motivo · attività</strong
+              ><span>il perché di fondo · la cosa meno esternalizzabile</span>
+            </div>
+            <div class="arrow down"></div>
+            <div class="card primary">
+              <strong>goal · azione</strong
+              ><span
+                >cosa ottenere · informato dalla KB, non generato da essa</span
+              >
+            </div>
+            <div class="arrow down"></div>
+            <div class="card">
+              <strong>operazione · task</strong
+              ><span><code>tasks/</code> · il come, nel contesto</span>
+            </div>
+          </div>
+          <p>
+            La KB <em>informa</em> il Goal, non lo <em>genera</em>: nasce
+            all’incrocio motivo × KB. Da qui i due modi di i3 —
+            <strong>verdetto</strong> (Compare su goal noto, delegabile) e
+            <strong>formazione del goal</strong> (triage dell’esogeno, la cosa
+            meno esternalizzabile).
+          </p>
+        </section>
+        <section
+          id="la-matrice-di-verifica-contro-lauto-accondiscendenza"
+          class="slide level2"
+        >
+          <h2>La matrice di verifica: contro l’auto-accondiscendenza</h2>
+          <p>
+            La simmetria a 8 elementi non si dà per scontata: si mette alla
+            prova. Gli 8 elementi × 5 artefatti, verdetto
+            <strong>solido / debole / forzato</strong>.
+          </p>
+          <p>
+            Il rischio è la complicità con sé stessi — chi cerca simmetria la
+            trova. Primo passaggio onesto: i venti S di bordo sono quasi
+            tautologici (li definiamo noi), l’interno è debole o da verificare,
+            e lo zero-forzati è sospetto perché le caselle dure (i2/i3) sono
+            ancora vuote.
+          </p>
+          <p>
+            Lo strumento serve a <em>falsificare</em> la teoria, non a
+            incoronarla.
+          </p>
+        </section>
+        <section id="anatomia-di-un-progetto" class="slide level2">
+          <h2>Anatomia di un progetto</h2>
+          <p>
+            La struttura replicabile non è un albero identico: è la presenza
+            esplicita delle funzioni cognitive. La root è l’<strong
+              >atrio</strong
+            >
+            — l’<code>ls</code> ne dichiara l’inventario. Due specie:
+            <em>file-ciclo</em> (letti ogni sessione) e
+            <em>porte-collezione</em> (viste, aperte on-demand). La collocazione
+            segue funzione + pace, non profondità.
+          </p>
+          <div class="diagram project-anatomy">
+            <div class="card accent">
+              <strong>README.md</strong
+              ><span>Goal · dove sono, da dove parto?</span>
+            </div>
+            <div class="branch-arrows"><i></i><i></i><i></i></div>
+            <div class="diagram-row cards-3">
+              <div class="track">
+                <div class="card">
+                  <strong>map.md</strong
+                  ><span>come si tiene insieme il dominio?</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>kb.md → kb/</strong
+                  ><span>cosa significa questo concetto?</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>strato output</strong
+                  ><span>come traduco la KB in azione?</span>
+                </div>
+              </div>
+              <div class="track">
+                <div class="card">
+                  <strong>plan.md</strong
+                  ><span>Plan · cosa devo fare adesso?</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>tasks/</strong
+                  ><span>i dettagli operativi del task</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card destination">
+                  <strong>why.md</strong
+                  ><span>perché una decisione conta?</span>
+                </div>
+              </div>
+              <div class="track">
+                <div class="card">
+                  <strong>CLAUDE.md</strong><small>via AGENTS.md</small
+                  ><span>come agisco qui?</span>
+                </div>
+                <div class="arrow down"></div>
+                <div class="card">
+                  <strong>tools.md → tools/ · skill</strong
+                  ><span>quali controlli e workflow?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="sviluppo-del-metodo-dal-basso-e-dallalto"
+          class="slide level2"
+        >
+          <h2>Sviluppo del metodo: dal basso e dall’alto</h2>
+          <div class="diagram method-development">
+            <div class="frame adopters">
+              <div class="frame-title">PROGETTI ADOTTANTI</div>
+              <div class="diagram-row">
+                <div class="card">esigenza concreta</div>
+                <div class="arrow right"></div>
+                <div class="card">soluzione locale</div>
+              </div>
+            </div>
+            <div class="movement bottom-up">
+              <b>↓</b><span>bottom-up · filing back</span>
+            </div>
+            <div class="diagram-row decision-row">
+              <div class="card theory">
+                cornice teorica<br /><small>gigante · distinzione</small>
+              </div>
+              <div class="arrow right">
+                <span>inquadramento</span>
+              </div>
+              <div class="card diamond">generalizzabile?</div>
+              <div class="split"><span>no → resta locale</span><b>↓ sì</b></div>
+            </div>
+            <div class="card primary">METODO · nodo · regola · strumento</div>
+            <div class="movement top-down">
+              <b>↓</b><span>top-down · propagazione</span>
+            </div>
+            <div class="card accent">adozione e verifica nei domini</div>
+            <div class="feedback">↻ feedback · nuove esigenze</div>
+          </div>
+          <p>
+            Due movimenti in alternanza. Dal basso, un’esigenza concreta risale
+            a <code>metodo</code> solo se generalizzabile. Dall’alto, il metodo
+            restituisce la generalizzazione agli adottanti, dove viene adattata
+            e verificata; una cornice teorica può inoltre dare forma a ciò che
+            dal basso si avverte ma non si sa nominare.
+            <code>metodo</code> custodisce e propaga il canone, senza
+            trasformarsi nel backlog operativo dei repo.
+          </p>
+        </section>
+        <section id="dove-vive-cosa" class="slide level2">
+          <h2>Dove vive cosa</h2>
+          <p>
+            La regola di routing che tiene puliti i confini tra i componenti.
+          </p>
+          <div class="diagram routing">
+            <div class="card diamond accent">che tipo di contenuto?</div>
+            <div class="routing-list">
+              <div>
+                <span>concetto stabile e riusabile</span
+                ><strong>kb.md → kb/</strong>
+              </div>
+              <div>
+                <span>lavoro futuro</span><strong>plan.md + tasks/</strong>
+              </div>
+              <div>
+                <span>perché una decisione conta</span><strong>why.md</strong>
+              </div>
+              <div>
+                <span>come agire · workflow</span
+                ><strong>CLAUDE.md · skill</strong>
+              </div>
+              <div><span>modello del dominio</span><strong>map.md</strong></div>
+              <div>
+                <span>orientamento · ingresso</span><strong>README.md</strong>
+              </div>
+              <div>
+                <span>sintesi · vista · dashboard</span
+                ><strong>strato output</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="lo-strato-output-di-questo-repo" class="slide level2">
+          <h2>Lo strato output di questo repo</h2>
+          <p>Dichiarazione minima, applicata a sé stessa:</p>
+          <ul>
+            <li>
+              <strong>o1 macchina</strong>: <code>kb/</code> in markdown via
+              symlink; output di <code>tools/kb_tools.py</code>
+            </li>
+            <li>
+              <strong>o2 decisione</strong>: <em>questo deck</em> (Reveal sulla
+              sorgente <code>metodo-in-sintesi.md</code>) — e la forma segue la
+              domanda: deck per la sintesi che si scorre, ma il repertorio o2 è
+              più largo (pagina, tabella, grafico, canvas)
+            </li>
+            <li>
+              <strong>o3 azione</strong>: il metodo applicato nei repo adottanti
+              (nodi, commit, KB mantenute)
+            </li>
+            <li>
+              <strong>i1/i3 di ritorno</strong>: osservazioni dai repo →
+              <code>confronto-progetti-adottanti</code>
+            </li>
+          </ul>
+          <p>
+            La pubblicazione (o3) si serve dalla sorgente, per un percorso
+            versionato, dietro confine di rete (cfr.
+            <code>presentazione</code>).
+          </p>
+        </section>
+        <section
+          id="lo2-è-lo-stadio-compare-del-metodo-su-sé-stesso"
+          class="slide level2"
+        >
+          <h2>L’o2 è lo stadio Compare del metodo su sé stesso</h2>
+          <p>
+            Ecco perché questa pagina è un esempio dello strato che descrive.
+            L’o2 non è solo un prodotto: è l’<strong
+              >organo di valutazione</strong
+            >. Ma non <em>è</em> lo stadio Compare — ne è il
+            <strong>substrato</strong>: la sintesi <em>rivela</em> (è l’i2,
+            rende co-presenti le tensioni), e il <em>verdetto</em> (i3) che ne
+            segue si chiude nei nodi e in <code>why.md</code> — il termometro
+            del ciclo di sviluppo, simmetrico a <code>plan.md</code> (lo stadio
+            Plan), per la simmetria o1 ↔︎ i3.
+          </p>
+          <p>
+            I nodi sono atomici e <em>localmente</em> coerenti (Luhmann): una
+            contraddizione che vive <em>tra</em> due nodi è invisibile da dentro
+            ciascuno. Comprimere il metodo in pochi diagrammi forza la
+            co-presenza e fa affiorare le tensioni <em>non-locali</em>.
+            Disciplina: <strong>l’o2 rivela, i nodi risolvono</strong> — ogni
+            tensione si chiude giù nei nodi (la fonte di verità), poi l’o2 si
+            <em>ri-deriva</em>. Aggiornare questa pagina è far girare lo stadio
+            Compare del metodo su sé stesso — come questa stessa revisione.
+          </p>
+        </section>
+        <section id="approfondimento" class="slide level2">
+          <h2>Approfondimento</h2>
+          <p>I diagrammi comprimono; i nodi spiegano.</p>
+          <ul>
+            <li>
+              cosa è (artefatto / sistema / metodo) →
+              <code>kb/artefatto-cognitivo.md</code>,
+              <code>kb/sistema-cognitivo.md</code>
+            </li>
+            <li>
+              tre giganti → <code>kb/ciclo-azione.md</code>,
+              <code>kb/zettelkasten.md</code>,
+              <code>kb/pattern-karpathy.md</code>
+            </li>
+            <li>
+              ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni →
+              <code>kb/ciclo-azione.md</code>, <code>kb/mondo.md</code>,
+              <code>kb/output.md</code>
+            </li>
+            <li>
+              i tre livelli · system image · agente come popolazione →
+              <code>kb/visceral-behavioral-reflective.md</code>,
+              <code>kb/system-image.md</code>,
+              <code>kb/affordance-signifier.md</code>, <code>kb/agente.md</code>
+            </li>
+            <li>il goal · tre altitudini → <code>kb/goal.md</code></li>
+            <li>
+              la matrice di verifica → <code>kb/matrice-ciclo-azione.md</code>
+            </li>
+            <li>
+              strato output · repertorio o2 · pubblicazione →
+              <code>kb/output.md</code>, <code>kb/presentazione.md</code>
+            </li>
+            <li>
+              anatomia del progetto → <code>kb/struttura-progetto.md</code>
+            </li>
+            <li>
+              sviluppo del metodo e osservatorio →
+              <code>kb/sviluppo-metodo.md</code>,
+              <code>kb/osservatorio-metodo.md</code>,
+              <code>kb/metodo-kb.md</code>
+            </li>
+            <li>
+              dove vive cosa → <code>kb/metodo-kb.md</code>,
+              <code>kb/zettelkasten.md</code>
+            </li>
+          </ul>
+        </section>
       </div>
     </div>
 
-    <!-- Reveal core + plugin (non-module, eseguiti prima del modulo) -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+
+    <!-- reveal.js plugins -->
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
 
-    <script type="module">
-      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    <script>
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
 
-      const slides = document.querySelector(".reveal .slides");
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
 
-      // Crea una <section data-markdown> con il chunk come template.
-      function mdSection(md, cls) {
-        const sec = document.createElement("section");
-        sec.setAttribute("data-markdown", "");
-        if (cls) sec.className = cls;
-        const tpl = document.createElement("script");
-        tpl.type = "text/template";
-        tpl.textContent = md;
-        sec.appendChild(tpl);
-        return sec;
-      }
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: "bottom-right",
 
-      // Mermaid: rendering fuori-DOM (mermaid.render), evita il bug di sizing
-      // sulle slide nascoste da Reveal.
-      async function renderMermaid() {
-        const blocks = [...document.querySelectorAll(".reveal code.mermaid, .reveal code.language-mermaid")];
-        let i = 0;
-        for (const el of blocks) {
-          const code = el.textContent;
-          const id = "mmd-" + i++;
-          try {
-            const { svg } = await mermaid.render(id, code);
-            const div = document.createElement("div");
-            div.className = "mermaid-rendered";
-            div.innerHTML = svg;
-            (el.closest("pre") || el).replaceWith(div);
-          } catch (e) {
-            console.error("mermaid render error", e);
-          }
-        }
-        if (window.Reveal && Reveal.layout) Reveal.layout();
-      }
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: "faded",
 
-      async function build() {
-        let md;
-        try {
-          const res = await fetch("metodo-in-sintesi.md");
-          if (!res.ok) throw new Error(res.status);
-          md = await res.text();
-        } catch (e) {
-          slides.innerHTML =
-            '<section><h2>Errore di caricamento</h2><p>Apri il deck da un server HTTP — <code>fetch</code> non funziona su <code>file://</code>.</p><pre>cd presentations &amp;&amp; python3 -m http.server 8000</pre><p>poi <code>http://localhost:8000</code></p></section>';
-          return;
-        }
+        // Display a presentation progress bar
+        progress: true,
 
-        // Frontmatter YAML → slide di titolo.
-        const meta = {};
-        const fm = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
-        if (fm) {
-          for (const line of fm[1].split(/\r?\n/)) {
-            const m = line.match(/^(\w+):\s*"?(.*?)"?\s*$/);
-            if (m) meta[m[1]] = m[2];
-          }
-          md = md.slice(fm[0].length);
-        }
+        // Display the page number of the current slide
+        slideNumber: true,
 
-        slides.innerHTML = "";
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: "all",
 
-        const titleMd =
-          `# ${meta.title || "Metodo KB"}\n\n` +
-          (meta.subtitle ? `### ${meta.subtitle}\n\n` : "") +
-          (meta.author ? `<small>${meta.author}</small>\n\n` : "") +
-          (meta.date ? `<small>${meta.date}</small>` : "");
-        slides.appendChild(mdSection(titleMd, "title-slide"));
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
 
-        // Una slide per ogni titolo di secondo livello; l'introduzione (prima del
-        // primo "## ") diventa la slide che segue il titolo.
-        const chunks = md.split(/\r?\n(?=## )/);
-        for (const ch of chunks) {
-          if (ch.trim()) slides.appendChild(mdSection(ch));
-        }
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
 
-        mermaid.initialize({ startOnLoad: false, theme: "neutral", securityLevel: "loose" });
-        Reveal.on("ready", renderMermaid);
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
 
-        await Reveal.initialize({
-          hash: true,
-          slideNumber: "c/t",
-          width: 1180,
-          height: 740,
-          margin: 0.05,
-          center: false,
-          plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-        });
-      }
+        // Push each slide change to the browser history
+        history: false,
 
-      build();
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: "default",
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: "block",
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: "slide",
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: "default",
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: "fade",
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1180,
+
+        height: 740,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+
+        // reveal.js plugins
+        plugins: [RevealNotes, RevealSearch, RevealZoom],
+      });
     </script>
   </body>
 </html>

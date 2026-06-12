@@ -57,7 +57,8 @@ Sessione del 2026-05-24: lo strato di output, finora trattato come "componente l
 
 - `nixos`: l'output è la configurazione stessa, in `home/`, `hosts/`, `modules/`
 - `bi`: `presentation/` Reveal.js per la vista human-readable, scripts notturni per l'automazione
-- `economia`: `output/json/` (macchina) e `output/report*.md` (umano, ancora solo tabellare)
+- `economia`: `data/json/` locale non versionato (macchina) e
+  `presentations/index.html` Reveal.js versionato (umano)
 - `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
 
 La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 azione nel mondo; + strato input i1/i2/i3) e ciclo-azione (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.

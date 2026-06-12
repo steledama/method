@@ -13,19 +13,20 @@ Questo non è un nodo della KB ma una sua **sintesi** — e per la disciplina ze
 
 La KB non è il metodo: il metodo la contiene. Tre parole per tre cose, a lungo confuse nella sineddoche «KB = metodo».
 
-```mermaid
-flowchart TB
-    MET["<b>METODO</b> · la pratica portabile<br/>più generale della KB: la contiene e la coltiva"]
-    subgraph SIS["SISTEMA COGNITIVO"]
-        direction LR
-        H(["umano"])
-        ART["<b>ARTEFATTO COGNITIVO</b> · portabile<br/>la rappresentazione che persiste<br/>KB + strato output + input + struttura"]
-        AG(["<b>LLM</b> Claude · ChatGPT · DeepSeek…<br/>+<br/><b>harness</b> Claude Code · Codex…"])
-        H --- ART
-        ART --- AG
-    end
-    MET -->|coltiva| ART
-```
+<div class="diagram ontology">
+  <div class="card accent"><strong>METODO</strong><span>la pratica portabile più generale della KB: la contiene e la coltiva</span></div>
+  <div class="arrow down"><span>coltiva</span></div>
+  <div class="frame">
+    <div class="frame-title">SISTEMA COGNITIVO</div>
+    <div class="diagram-row">
+      <div class="card pill">umano</div>
+      <div class="line"></div>
+      <div class="card primary"><strong>ARTEFATTO COGNITIVO</strong><span>portabile · la rappresentazione che persiste</span><small>KB + strato output + input + struttura</small></div>
+      <div class="line"></div>
+      <div class="card pill"><strong>LLM</strong><span>Claude · ChatGPT · DeepSeek…</span><small>+ harness · Claude Code · Codex…</small></div>
+    </div>
+  </div>
+</div>
 
 - **Artefatto** — la rappresentazione che persiste e si progetta; _portabile_, sopravvive al cambio di modello o harness.
 - **Sistema** — l'artefatto in opera, accoppiato a umano e LLM: dove la cognizione accade. Emerge dall'uso, non è portabile.
@@ -37,16 +38,15 @@ L'artefatto resta vendor-neutro perché è la _rappresentazione_, non il sistema
 
 Luhmann _è_ la KB (forma del nodo), Karpathy la _governa_ (manutenzione), Norman la _connette al mondo_ (azione).
 
-```mermaid
-flowchart LR
-    L["<b>Luhmann</b> · Zettelkasten<br/><br/>forma del nodo:<br/>atomico, interconnesso<br/>sintesi fuori dal nodo"]
-    K["<b>Karpathy</b> · LLM KB<br/><br/>manutenzione dell'insieme:<br/>ingest · query · lint<br/>filing back"]
-    N["<b>Norman</b> · ciclo di azione<br/><br/>interfaccia KB ↔ mondo:<br/>visibilità · feedback<br/>mapping · constraint"]
-    M(["METODO KB"])
-    L --> M
-    K --> M
-    N --> M
-```
+<div class="diagram giants">
+  <div class="diagram-row cards-3">
+    <div class="card"><strong>Luhmann · Zettelkasten</strong><span>forma del nodo</span><small>atomico · interconnesso<br>sintesi fuori dal nodo</small></div>
+    <div class="card"><strong>Karpathy · LLM KB</strong><span>manutenzione dell'insieme</span><small>ingest · query · lint<br>filing back</small></div>
+    <div class="card"><strong>Norman · ciclo di azione</strong><span>interfaccia KB ↔ mondo</span><small>visibilità · feedback<br>mapping · constraint</small></div>
+  </div>
+  <div class="merge-arrows"><i></i><i></i><i></i></div>
+  <div class="card pill accent">METODO KB</div>
+</div>
 
 Karpathy risolve il «chi mantiene» assente in Luhmann; Norman il «come l'utente agisce» assente in entrambi.
 
@@ -54,39 +54,30 @@ Karpathy risolve il «chi mantiene» assente in Luhmann; Norman il «come l'uten
 
 La KB non è il fine: è strumentale all'azione. Il ciclo di Norman, riletto: ai vertici due **poli** — il **Goal** (apice, il motivo) e il **Mondo** (fondo) — e fra loro sei **atti**, l'esecuzione che scende e la valutazione che risale.
 
-```mermaid
-flowchart TB
-    KB[("KB")]
-    GOAL(["<b>GOAL</b>"])
-    o1["<b>o1</b> · Plan<br/>macchina"]
-    o2["<b>o2</b> · Specify<br/>decisione"]
-    o3["<b>o3</b> · Perform<br/>azione"]
-    i3["<b>i3</b> · Compare<br/>formalizzato"]
-    i2["<b>i2</b> · Interpret<br/>distillato"]
-    i1["<b>i1</b> · Perceive<br/>segnale grezzo"]
-    MONDO[/"<b>MONDO</b>"/]
-
-    KB --> GOAL
-    GOAL --> o1
-    o1 --> o2
-    o2 --> o3
-    o3 -->|cerniera Mondo| MONDO
-    GOAL --> i3
-    i3 --> i2
-    i2 --> i1
-    i1 --> MONDO
-    i3 -.->|cerniera KB| KB
-```
+<div class="diagram action-cycle">
+  <div class="card pole">GOAL</div>
+  <div class="cycle-columns">
+    <div class="cycle-side execution">
+      <div class="side-title">esecuzione ↓</div>
+      <div class="card"><strong>o1 · Plan</strong><span>macchina</span></div>
+      <div class="arrow down"></div>
+      <div class="card"><strong>o2 · Specify</strong><span>decisione</span></div>
+      <div class="arrow down"></div>
+      <div class="card"><strong>o3 · Perform</strong><span>azione</span></div>
+    </div>
+    <div class="cycle-side evaluation">
+      <div class="side-title">↑ valutazione</div>
+      <div class="card"><strong>i3 · Compare</strong><span>formalizzato</span></div>
+      <div class="arrow up"></div>
+      <div class="card"><strong>i2 · Interpret</strong><span>distillato</span></div>
+      <div class="arrow up"></div>
+      <div class="card"><strong>i1 · Perceive</strong><span>segnale grezzo</span></div>
+    </div>
+  </div>
+  <div class="card pole world">MONDO</div>
+</div>
 
 I poli non si eseguono: si _costituiscono_ ai bordi. Il Mondo non preesiste — lo ritaglia l'artefatto, dall'infinito, per rilevanza guidata dai goal.
-
-## Le due cerniere: l'asimmetria è tra i medium
-
-Le due cerniere hanno la stessa forma — _scrivi-poi-leggi attraverso un medium_: al Mondo o3 scrive un effetto e i1 lo rilegge (il mondo trattiene lo stato); alla KB i3 scrive l'esito e il Goal lo legge.
-
-L'unica vera asimmetria è **tra i medium**: il mondo persiste da sé, la KB solo se qualcuno la scrive. Da qui «una decisione non scritta è persa», e la ragione per cui la KB ha bisogno di un custode.
-
-È dove il metodo estende Norman ai due estremi: il Mondo _agisce_ (non solo risponde), il Goal _si forma_ (non è dato).
 
 ## I tre livelli: perché un o2 solo riflessivo non muove
 
@@ -98,26 +89,27 @@ Conseguenza per il design: il riflessivo può solo _condizionare_ l'azione, attr
 
 Due cicli annidati, distinti da _cosa è il loro Mondo_ in fondo.
 
-```mermaid
-flowchart LR
-    subgraph DEV["ciclo di SVILUPPO · Mondo = l'artefatto"]
-        direction TB
-        dG["Goal"]
-        dO["<b>o3</b> · un commit<br/>agisce sull'artefatto"]
-        dI["<b>i1</b> · lint, audit, test, errore"]
-        dG --> dO --> dI --> dG
-    end
-    ART[("ARTEFATTO<br/>il codice · la KB")]
-    subgraph RUN["ciclo RUNTIME · Mondo = la realtà"]
-        direction TB
-        rG["Goal"]
-        rO["<b>o3</b> · email, transazione, gesto<br/>agisce sul mondo"]
-        rI["<b>i1</b> · referto, payload, alert"]
-        rG --> rO --> rI --> rG
-    end
-    DEV ==>|produce| ART
-    ART ==>|è la macchina di| RUN
-```
+<div class="diagram nested-cycles">
+  <div class="frame vertical-cycle">
+    <div class="frame-title">CICLO DI SVILUPPO</div>
+    <div class="card pill">Goal di sviluppo</div>
+    <div class="arrow down"></div>
+    <div class="card">o3 · commit</div>
+    <div class="arrow down"></div>
+    <div class="card pole world"><strong>Mondo di sviluppo</strong><span>ARTEFATTO</span></div>
+    <div class="return-step">↻ i1 · lint · audit · test · errore</div>
+  </div>
+  <div class="handoff"><span>l'artefatto è la macchina del runtime</span><b>↓</b></div>
+  <div class="frame vertical-cycle">
+    <div class="frame-title">CICLO RUNTIME</div>
+    <div class="card pill">Goal runtime</div>
+    <div class="arrow down"></div>
+    <div class="card">o3 · email · transazione · gesto</div>
+    <div class="arrow down"></div>
+    <div class="card pole world"><strong>Mondo runtime</strong><span>realtà del dominio</span></div>
+    <div class="return-step">↻ i1 · referto · payload · alert</div>
+  </div>
+</div>
 
 L'o3 di sviluppo è la macchina del runtime — il commit produce il codice che gira. Per questo il metodo apre la scatola nera di Norman: ogni sistema è l'o3 di un ciclo che lo precede.
 
@@ -136,13 +128,13 @@ La matrice è la lente per confrontare i domini: cosa è sviluppato, cosa manca 
 
 Norman dà il Goal per scontato; il metodo lo disciplina con Leontiev: `goal` / `task` / `tasks/` sono tre altitudini.
 
-```mermaid
-flowchart TB
-    M["<b>motivo</b> · attività<br/><i>il perché di fondo — la cosa meno esternalizzabile</i>"]
-    G["<b>goal</b> · azione<br/><i>cosa ottenere — informato dalla KB, non generato da essa</i>"]
-    O["<b>operazione</b> · task<br/><i>tasks/ — il come, nel contesto</i>"]
-    M --> G --> O
-```
+<div class="diagram altitude">
+  <div class="card"><strong>motivo · attività</strong><span>il perché di fondo · la cosa meno esternalizzabile</span></div>
+  <div class="arrow down"></div>
+  <div class="card primary"><strong>goal · azione</strong><span>cosa ottenere · informato dalla KB, non generato da essa</span></div>
+  <div class="arrow down"></div>
+  <div class="card"><strong>operazione · task</strong><span><code>tasks/</code> · il come, nel contesto</span></div>
+</div>
 
 La KB _informa_ il Goal, non lo _genera_: nasce all'incrocio motivo × KB. Da qui i due modi di i3 — **verdetto** (Compare su goal noto, delegabile) e **formazione del goal** (triage dell'esogeno, la cosa meno esternalizzabile).
 
@@ -158,61 +150,61 @@ Lo strumento serve a _falsificare_ la teoria, non a incoronarla.
 
 La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La root è l'**atrio** — l'`ls` ne dichiara l'inventario. Due specie: _file-ciclo_ (letti ogni sessione) e _porte-collezione_ (viste, aperte on-demand). La collocazione segue funzione + pace, non profondità.
 
-```mermaid
-flowchart TB
-    R["<b>README.md</b><br/><i>Goal: dove sono, da dove parto?</i>"]
-    MAP["<b>map.md</b><br/><i>come si tiene insieme il dominio?</i>"]
-    PLAN["<b>plan.md</b><br/><i>Plan: cosa devo fare adesso?</i>"]
-    C["<b>CLAUDE.md</b> · <small>via AGENTS.md</small><br/><i>come agisco qui?</i>"]
-    WHY["<b>why.md</b><br/><i>perché una decisione conta?</i>"]
-    KB["<b>kb.md → kb/</b><br/><i>cosa significa questo concetto?</i>"]
-    TASKS["<b>tasks/</b><br/><i>i dettagli operativi del task</i>"]
-    S["<b>tools.md → tools/ · skill</b><br/><i>quali controlli e workflow?</i>"]
-    OUT["<b>strato output</b><br/><i>come traduco la KB in azione?</i>"]
-
-    R --> MAP
-    R --> PLAN
-    R --> C
-    MAP --> KB
-    PLAN --> TASKS
-    C --> S
-    KB --> OUT
-    OUT --> WHY
-    TASKS --> WHY
-```
+<div class="diagram project-anatomy">
+  <div class="card accent"><strong>README.md</strong><span>Goal · dove sono, da dove parto?</span></div>
+  <div class="branch-arrows"><i></i><i></i><i></i></div>
+  <div class="diagram-row cards-3">
+    <div class="track"><div class="card"><strong>map.md</strong><span>come si tiene insieme il dominio?</span></div><div class="arrow down"></div><div class="card"><strong>kb.md → kb/</strong><span>cosa significa questo concetto?</span></div><div class="arrow down"></div><div class="card"><strong>strato output</strong><span>come traduco la KB in azione?</span></div></div>
+    <div class="track"><div class="card"><strong>plan.md</strong><span>Plan · cosa devo fare adesso?</span></div><div class="arrow down"></div><div class="card"><strong>tasks/</strong><span>i dettagli operativi del task</span></div><div class="arrow down"></div><div class="card destination"><strong>why.md</strong><span>perché una decisione conta?</span></div></div>
+    <div class="track"><div class="card"><strong>CLAUDE.md</strong><small>via AGENTS.md</small><span>come agisco qui?</span></div><div class="arrow down"></div><div class="card"><strong>tools.md → tools/ · skill</strong><span>quali controlli e workflow?</span></div></div>
+  </div>
+</div>
 
 ## Sviluppo del metodo: dal basso e dall'alto
 
-```mermaid
-flowchart LR
-    P["esigenza concreta<br/>in un repo adottante"]
-    S["soluzione locale<br/>task · why · nodi"]
-    G{"è<br/>generalizzabile?"}
-    M["filing back in metodo<br/>nodo · regola · strumento"]
-    PR["altri repo leggono i commit<br/>e applicano il pertinente"]
-    L["resta lavoro locale"]
-    P --> S --> G
-    G -->|sì| M --> PR
-    G -->|no| L
-```
+<div class="diagram method-development">
+  <div class="frame adopters">
+    <div class="frame-title">PROGETTI ADOTTANTI</div>
+    <div class="diagram-row">
+      <div class="card">esigenza concreta</div><div class="arrow right"></div><div class="card">soluzione locale</div>
+    </div>
+  </div>
+  <div class="movement bottom-up"><b>↓</b><span>bottom-up · filing back</span></div>
+  <div class="diagram-row decision-row">
+    <div class="card theory">cornice teorica<br><small>gigante · distinzione</small></div>
+    <div class="arrow right"><span>inquadramento</span></div>
+    <div class="card diamond">generalizzabile?</div>
+    <div class="split"><span>no → resta locale</span><b>↓ sì</b></div>
+  </div>
+  <div class="card primary">METODO · nodo · regola · strumento</div>
+  <div class="movement top-down"><b>↓</b><span>top-down · propagazione</span></div>
+  <div class="card accent">adozione e verifica nei domini</div>
+  <div class="feedback">↻ feedback · nuove esigenze</div>
+</div>
 
-Due movimenti in alternanza. Dal basso: un'esigenza concreta risale a `metodo` solo se generalizzabile — la guardia contro la sovra-ingegnerizzazione. Dall'alto: una cornice teorica importata dà forma a ciò che dal basso si avverte ma non si sa nominare. `metodo` custodisce le generalizzazioni, non orchestra i repo.
+Due movimenti in alternanza. Dal basso, un'esigenza concreta risale a `metodo`
+solo se generalizzabile. Dall'alto, il metodo restituisce la generalizzazione
+agli adottanti, dove viene adattata e verificata; una cornice teorica può inoltre
+dare forma a ciò che dal basso si avverte ma non si sa nominare. `metodo`
+custodisce e propaga il canone, senza trasformarsi nel backlog operativo dei
+repo.
 
 ## Dove vive cosa
 
 La regola di routing che tiene puliti i confini tra i componenti.
 
-```mermaid
-flowchart TB
-    Q{"che tipo di<br/>contenuto?"}
-    Q -->|concetto stabile e riusabile| KB["kb.md → kb/"]
-    Q -->|lavoro futuro| TODO["plan.md + tasks/"]
-    Q -->|perché una decisione conta| LOG["why.md"]
-    Q -->|come agire / workflow| OP["CLAUDE.md · skill"]
-    Q -->|modello del dominio| MAP["map.md"]
-    Q -->|orientamento / ingresso| R["README.md"]
-    Q -->|sintesi · vista · dashboard| OUT["strato output"]
-```
+<div class="diagram routing">
+  <div class="card diamond accent">che tipo di contenuto?</div>
+  <div class="routing-list">
+    <div><span>concetto stabile e riusabile</span><strong>kb.md → kb/</strong></div>
+    <div><span>lavoro futuro</span><strong>plan.md + tasks/</strong></div>
+    <div><span>perché una decisione conta</span><strong>why.md</strong></div>
+    <div><span>come agire · workflow</span><strong>CLAUDE.md · skill</strong></div>
+    <div><span>modello del dominio</span><strong>map.md</strong></div>
+    <div><span>orientamento · ingresso</span><strong>README.md</strong></div>
+    <div><span>sintesi · vista · dashboard</span><strong>strato output</strong></div>
+  </div>
+</div>
 
 ## Lo strato output di questo repo
 
@@ -237,7 +229,7 @@ I diagrammi comprimono; i nodi spiegano.
 
 - cosa è (artefatto / sistema / metodo) → `kb/artefatto-cognitivo.md`, `kb/sistema-cognitivo.md`
 - tre giganti → `kb/ciclo-azione.md`, `kb/zettelkasten.md`, `kb/pattern-karpathy.md`
-- ciclo (6 atti + 2 poli) · cerniere e asimmetria dei medium · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/mondo.md`, `kb/output.md`
+- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/mondo.md`, `kb/output.md`
 - i tre livelli · system image · agente come popolazione → `kb/visceral-behavioral-reflective.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agente.md`
 - il goal · tre altitudini → `kb/goal.md`
 - la matrice di verifica → `kb/matrice-ciclo-azione.md`

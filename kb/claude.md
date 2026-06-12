@@ -21,7 +21,11 @@ Regole:
   comandi minimi ad alta frequenza
 - può elencare i comandi quotidiani ad alta frequenza (formatter, validazione locale, entry point KB) ma rimanda alla KB per la reference completa
 - rimanda ai nodi KB per architettura, procedure e spiegazioni stabili
-- chiude con una tabella "Riferimenti rapidi" che mappa intenti operativi ai nodi KB
+- chiude con un elenco "Riferimenti rapidi" che mappa intenti operativi ai nodi KB
+- preferisce elenchi puntati alle tabelle markdown per confronti, riferimenti e
+  liste di voci, perché le tabelle diventano illeggibili su schermi stretti;
+  restano ammesse le forme intrinsecamente tabulari, come `plan.md`, matrici di
+  lookup e dati numerici nei quali la conversione perderebbe informazione
 - non è fonte di fatti per audit o fedeltà cognitiva
 - la dimensione è un segnale: oltre ~100 righe è probabile sovrapposizione con la KB, e il contenuto in eccesso va trasferito nei nodi tematici
 
@@ -33,6 +37,15 @@ Regole:
 - **`salute`** — situazione attuale: il più esteso: project overview, filosofia, struttura, guidelines e operazioni; ora rimanda a `kb/verifica-nel-vivere.md` per il filing back. Confronto con il metodo: eredita la fase storica del progetto — utile, ma può alleggerirsi progressivamente usando pointer verso `metodo/` e nodi locali.
 
 Il caso `bi` ha mostrato perché il metodo insiste sulla separazione tra costituzione operativa e documentazione. Più `CLAUDE.md` diventa completo, più diventa costoso da caricare e più rischia di divergere dai nodi. La regola pratica è: se un paragrafo spiega come funziona il sistema, appartiene a `kb/`; se dice cosa l'agente può o deve fare, appartiene a `CLAUDE.md`.
+
+La preferenza per gli elenchi è emersa bottom-up in `nixos`: la conversione di
+`CLAUDE.md` e `map.md` ha risolto un problema concreto di lettura su schermi
+stretti. Il criterio è stato poi generalizzato in `method`, applicato ai
+confronti nella KB e infine propagato nei `CLAUDE.md` e nella documentazione dei
+quattro progetti adottanti. Le eccezioni conservate durante la propagazione
+chiariscono il confine: il problema non è la sintassi tabellare in sé, ma usarla
+per contenuti discorsivi o comparativi che un elenco rende riflowable senza
+perdita.
 
 Per gli strumenti, CLAUDE.md è il livello operativo della tripartizione README/CLAUDE/nodi descritta in `strumenti-kb`: dice quando usare uno strumento, quali comandi minimi sono sicuri e quando leggere il nodo di dettaglio; la reference estesa resta nei nodi o negli script versionati.
 
