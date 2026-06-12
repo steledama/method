@@ -66,3 +66,4 @@ Connessioni:
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
+- [consenso](consenso.md)

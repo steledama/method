@@ -27,12 +27,10 @@ Regole:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                                                                            | Confronto con il metodo                                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | bootstrap esplicito, permessi, validazione, formatter, vincoli e riferimenti rapidi.                                                          | Molto vicino alla teoria: file operativo, compatto e non usato come fonte di verità del dominio.                                |
-| `bi`       | revisione completata dopo la fotografia iniziale: `CLAUDE.md` compattato e task locale di dettaglio chiuso.                                   | Sotto monitoraggio qualitativo: il criterio resta che `CLAUDE.md` deve essere costituzione operativa, non manuale di dominio.   |
-| `economia` | bootstrap con `stato.md`, `scadenze.md` e mappa, comandi, risorse esterne e riferimenti rapidi.                                               | Buon adattamento: include vincoli di dominio e stato corrente senza trasformarsi in manuale esteso.                             |
-| `salute`   | il più esteso: project overview, filosofia, struttura, guidelines e operazioni; ora rimanda a `kb/verifica-nel-vivere.md` per il filing back. | Eredita la fase storica del progetto: utile, ma può alleggerirsi progressivamente usando pointer verso `metodo/` e nodi locali. |
+- **`nixos`** — situazione attuale: bootstrap esplicito, permessi, validazione, formatter, vincoli e riferimenti rapidi. Confronto con il metodo: molto vicino alla teoria — file operativo, compatto e non usato come fonte di verità del dominio.
+- **`bi`** — situazione attuale: revisione completata dopo la fotografia iniziale: `CLAUDE.md` compattato e task locale di dettaglio chiuso. Confronto con il metodo: sotto monitoraggio qualitativo — il criterio resta che `CLAUDE.md` deve essere costituzione operativa, non manuale di dominio.
+- **`economia`** — situazione attuale: bootstrap con `stato.md`, `scadenze.md` e mappa, comandi, risorse esterne e riferimenti rapidi. Confronto con il metodo: buon adattamento — include vincoli di dominio e stato corrente senza trasformarsi in manuale esteso.
+- **`salute`** — situazione attuale: il più esteso: project overview, filosofia, struttura, guidelines e operazioni; ora rimanda a `kb/verifica-nel-vivere.md` per il filing back. Confronto con il metodo: eredita la fase storica del progetto — utile, ma può alleggerirsi progressivamente usando pointer verso `metodo/` e nodi locali.
 
 Il caso `bi` ha mostrato perché il metodo insiste sulla separazione tra costituzione operativa e documentazione. Più `CLAUDE.md` diventa completo, più diventa costoso da caricare e più rischia di divergere dai nodi. La regola pratica è: se un paragrafo spiega come funziona il sistema, appartiene a `kb/`; se dice cosa l'agente può o deve fare, appartiene a `CLAUDE.md`.
 

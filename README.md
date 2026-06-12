@@ -43,16 +43,14 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 ## Progetti adottanti
 
-| Progetto                 | Ambito                                                |
-| ------------------------ | ----------------------------------------------------- |
-| [nixos](../nixos/)       | Configurazione dichiarativa NixOS multi-host          |
-| [bi](../bi/)             | Business intelligence e sincronizzazione dati         |
-| [economia](../economia/) | Gestione finanziaria, patrimoniale e legale personale |
-| [salute](../salute/)     | Benessere, pratica, filosofia e salute personale      |
+- **[nixos](../nixos/)** — Configurazione dichiarativa NixOS multi-host
+- **[bi](../bi/)** — Business intelligence e sincronizzazione dati
+- **[economia](../economia/)** — Gestione finanziaria, patrimoniale e legale personale
+- **[salute](../salute/)** — Benessere, pratica, filosofia e salute personale
 
 ## Come collegare un nuovo progetto
 
 1. Crea il symlink: `ln -s ../metodo/kb metodo` dalla root del progetto.
-2. Aggiungi una riga alla tabella dei progetti adottanti.
+2. Aggiungi una voce all'elenco dei progetti adottanti.
 3. Nel README del progetto, referenzia `metodo/metodo-kb.md` come nodo centrale del metodo e aggiungi una sezione con i principi specifici del progetto.
 4. Aggiorna i path in `CLAUDE.md` del progetto: `kb/metodo-kb.md` → `metodo/metodo-kb.md` (e analogamente per gli altri nodi metodologici).

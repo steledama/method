@@ -13,11 +13,12 @@ Il modello sostiene che ogni interazione produttiva con un sistema passa attrave
 
 Il metodo si appoggia su tre pilastri che si dividono il lavoro in modo nitido:
 
-| Gigante                     | Cosa ci dà                                                                                                                   |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Luhmann / Zettelkasten      | la disciplina dell'unità atomica — come è fatto il singolo nodo, come si lega ad altri, perché la sintesi non sta nel nodo   |
-| Karpathy / LLM KB           | il pattern di manutenzione — chi tiene aggiornato il sistema, come ingest/query/lint, come l'LLM compone la KB               |
-| Norman / design dell'azione | l'interfaccia tra KB e mondo — come il sistema rende visibile l'azione possibile, come riceve feedback, come chiude il ciclo |
+- **Luhmann / Zettelkasten** — la disciplina dell'unità atomica: come è fatto il singolo
+  nodo, come si lega ad altri, perché la sintesi non sta nel nodo
+- **Karpathy / LLM KB** — il pattern di manutenzione: chi tiene aggiornato il sistema,
+  come ingest/query/lint, come l'LLM compone la KB
+- **Norman / design dell'azione** — l'interfaccia tra KB e mondo: come il sistema rende
+  visibile l'azione possibile, come riceve feedback, come chiude il ciclo
 
 Karpathy ha risolto il "chi mantiene" del Zettelkasten. Norman risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano davvero. Luhmann era un produttore solitario di scrittura; Karpathy parla soprattutto di esplorazione e rendering. Nessuno dei due ha pensato esplicitamente al ciclo di azione tra utente e sistema, che è esattamente il problema dello strato L3 e del filing back. Norman entra a colmare questa lacuna.
 
@@ -35,14 +36,12 @@ Il modello canonico di Norman procede in sequenza:
 
 Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
 
-| Norman    | Metodo                                                             |
-| --------- | ------------------------------------------------------------------ |
-| Plan      | o1 — piano in forma macchina, vicino alla KB                       |
-| Specify   | o2 — vista di decisione per l'umano                                |
-| Perform   | o3 — azione nel mondo                                              |
-| Perceive  | i1 — segnale grezzo (referto, log, export)                         |
-| Interpret | i2 — distillato (nota, sintesi) in `kb/` come nodo bozza           |
-| Compare   | i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal |
+- **Plan** → o1 — piano in forma macchina, vicino alla KB
+- **Specify** → o2 — vista di decisione per l'umano
+- **Perform** → o3 — azione nel mondo
+- **Perceive** → i1 — segnale grezzo (referto, log, export)
+- **Interpret** → i2 — distillato (nota, sintesi) in `kb/` come nodo bozza
+- **Compare** → i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal
 
 **Sei atti, due poli.** I sette stadi di Norman non sono dello stesso tipo. Il Goal non è un atto ma uno _stato_ — il punto verso cui si tende; gli altri sei (Plan, Specify, Perform, Perceive, Interpret, Compare) sono _operazioni_. Il metodo rende esplicito ciò che Norman teneva implicito: il secondo polo, il **Mondo**, il fondo verso cui gli atti scendono e da cui risalgono (cfr. `mondo`). La forma canonica nel metodo è dunque **6 atti + 2 poli**, non sette stadi: sei operazioni che corrono tra Goal (in alto) e Mondo (in basso). I poli non si eseguono, si _costituiscono_ ai bordi — il Goal viene dal motivo (la vita, il committente), il Mondo viene ritagliato dall'infinito per rilevanza guidata dai goal. Ne risultano due triadi speculari, ciascuna stretta attorno a un polo: alta {Compare (i3), Goal, Plan (o1)}, bassa {Perform (o3), Mondo, Perceive (i1)}; in mezzo, alla vita del ciclo, restano i due atti che non toccano nessun polo, Specify (o2) e Interpret (i2). Le due triadi e la vita corrispondono ai tre livelli di elaborazione di Norman — riflessivo in alto, behavioral in mezzo, viscerale al Mondo (cfr. `visceral-behavioral-reflective`).
 
@@ -117,12 +116,10 @@ La matrice che ne risulta è la lente per confrontare i progetti adottanti: per 
 
 Norman riassume il buon design in quattro proprietà. Diventano direttamente criteri di valutazione per o2 (output decisione):
 
-| Norman     | Criterio per o2                                                                                                      |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| Visibilità | tutti gli stati attivi sono percepibili a colpo d'occhio nell'overview, niente di rilevante è nascosto               |
-| Feedback   | dopo ogni evento il sistema mostra l'esito in modo evidente; non serve indagine per sapere cosa è cambiato           |
-| Mapping    | la disposizione visiva corrisponde alla struttura reale del dominio, non a un ordine convenzionale                   |
-| Constraint | la struttura del file impedisce di dimenticare le parti che servono insieme (es. raccomandazioni accanto allo stato) |
+- **Visibilità** — tutti gli stati attivi sono percepibili a colpo d'occhio nell'overview, niente di rilevante è nascosto
+- **Feedback** — dopo ogni evento il sistema mostra l'esito in modo evidente; non serve indagine per sapere cosa è cambiato
+- **Mapping** — la disposizione visiva corrisponde alla struttura reale del dominio, non a un ordine convenzionale
+- **Constraint** — la struttura del file impedisce di dimenticare le parti che servono insieme (es. raccomandazioni accanto allo stato)
 
 Esempio applicato: nel `quadro/quadro-corporeo.md` di `salute` la visibilità è garantita dalla tabella overview che mostra tutte le aree attive con banda e score; il feedback dal fatto che dopo ogni evento il termometro si aggiorna; il mapping dal colore proporzionato alla banda di allarme; la constraint dalla struttura del file area, che costringe a dichiarare prossimi step e raccomandazioni accanto allo stato.
 

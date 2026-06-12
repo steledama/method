@@ -13,21 +13,17 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 
 ## Stato dei quattro progetti
 
-| Progetto   | Profilo attuale                                                             | Segnale principale                                                                                                         |
-| ---------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | implementazione più ordinata della ricetta su un codebase dichiarativo      | README e mappa forti; strumenti anti-drift più completi                                                                    |
-| `bi`       | implementazione ricca e operativa su codebase applicativo complesso         | KB e mappa mature; revisione di `CLAUDE.md` completata dopo la fotografia iniziale                                         |
-| `economia` | variante domain-specific con stato, scadenze, dati e documenti autoritativi | buon adattamento a fonti legali/finanziarie; audit ora pulito; coda `tasks/` molto attiva (21 file di lavoro reale)        |
-| `salute`   | KB ampia e riflessiva, nata prima della separazione metodologica piena      | rete dei nodi molto forte; mappa, principi locali e verifica nel vivere ora rendono più esplicito l'adattamento del metodo |
+- **`nixos`** — profilo: implementazione più ordinata della ricetta su un codebase dichiarativo; segnale: README e mappa forti; strumenti anti-drift più completi
+- **`bi`** — profilo: implementazione ricca e operativa su codebase applicativo complesso; segnale: KB e mappa mature; revisione di `CLAUDE.md` completata dopo la fotografia iniziale
+- **`economia`** — profilo: variante domain-specific con stato, scadenze, dati e documenti autoritativi; segnale: buon adattamento a fonti legali/finanziarie; audit ora pulito; coda `tasks/` molto attiva (21 file di lavoro reale)
+- **`salute`** — profilo: KB ampia e riflessiva, nata prima della separazione metodologica piena; segnale: rete dei nodi molto forte; mappa, principi locali e verifica nel vivere ora rendono più esplicito l'adattamento del metodo
 
 ## Dati strutturali
 
-| Progetto   | Nodi KB | Link KB | Cluster index | File tasks | Skill locali                                                 | Stato audit                                 |
-| ---------- | ------- | ------- | ------------- | ---------- | ------------------------------------------------------------ | ------------------------------------------- |
-| `nixos`    | 37      | 177     | 7             | 4          | `audit-kb`, `tasks-review`, `commit`                         | nessun link rotto, orfano o cluster isolato |
-| `bi`       | 84      | 329     | 11            | 7          | `audit-kb`, `tasks-review`, `commit`, `graphify`             | nessun link rotto, orfano o cluster isolato |
-| `economia` | 55      | 198     | 3             | 21         | `audit-kb`, `tasks-review`, `commit`                         | nessun errore, avviso o nota                |
-| `salute`   | 197     | 2210    | 8             | 7          | `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione` | rete integra; audit pulito                  |
+- **`nixos`** — nodi KB: 37; link KB: 177; cluster index: 7; file tasks: 4; skill locali: `audit-kb`, `tasks-review`, `commit`; stato audit: nessun link rotto, orfano o cluster isolato
+- **`bi`** — nodi KB: 84; link KB: 329; cluster index: 11; file tasks: 7; skill locali: `audit-kb`, `tasks-review`, `commit`, `graphify`; stato audit: nessun link rotto, orfano o cluster isolato
+- **`economia`** — nodi KB: 55; link KB: 198; cluster index: 3; file tasks: 21; skill locali: `audit-kb`, `tasks-review`, `commit`; stato audit: nessun errore, avviso o nota
+- **`salute`** — nodi KB: 197; link KB: 2210; cluster index: 8; file tasks: 7; skill locali: `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`; stato audit: rete integra; audit pulito
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
@@ -72,17 +68,15 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 
 ## Azioni suggerite
 
-| Target               | Azione                                                                                                                                           | Tipo                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
-| metodo               | mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali                                                     | metodo               |
-| `bi`                 | `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo             | monitoraggio         |
-| `salute`             | mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale                                                         | completato           |
-| `economia`           | audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti                                                             | completato           |
-| metodo / output      | promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati                      | filing back atteso   |
-| metodo / task        | mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti                            | regola stabile       |
-| metodo / strumenti   | un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce | bottom-up: in attesa |
-| metodo / skill       | mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio                 | regola stabile       |
-| metodo / frontmatter | policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi                                                       | completato           |
+- **metodo** — azione: mantenere questo nodo come sintesi periodica e aggiornare i nodi componente con esempi reali; tipo: metodo
+- **`bi`** — azione: `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo; tipo: monitoraggio
+- **`salute`** — azione: mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale; tipo: completato
+- **`economia`** — azione: audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti; tipo: completato
+- **metodo / output** — azione: promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
+- **metodo / task** — azione: mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
+- **metodo / strumenti** — azione: un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce; tipo: bottom-up: in attesa
+- **metodo / skill** — azione: mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
+- **metodo / frontmatter** — azione: policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi; tipo: completato
 
 Connessioni:
 

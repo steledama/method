@@ -20,16 +20,14 @@ Strumento di verifica sul campo della teoria del ciclo di azione: applica gli ot
 
 Riempito solo dove esiste grounding diretto (`output.md`, `goal.md`, `mondo.md`, ispezione delle `presentations/`); il resto è marcato `?` per onestà, non per cautela.
 
-| Elemento       | `nixos` | `bi` | `economia` | `salute` | `metodo` |
-| -------------- | ------- | ---- | ---------- | -------- | -------- |
-| Goal (polo)    | S       | S    | S          | S        | S        |
-| Plan · o1      | S       | S    | S          | D        | S        |
-| Specify · o2   | D       | S    | D          | D        | D        |
-| Perform · o3   | S       | S    | S          | S        | S        |
-| Perceive · i1  | S       | S    | S          | S        | S        |
-| Interpret · i2 | D       | S    | D          | D        | D        |
-| Compare · i3   | D       | S    | S          | D        | S        |
-| Mondo (polo)   | S       | S    | S          | S        | S        |
+- **Goal (polo)** — `nixos`: S; `bi`: S; `economia`: S; `salute`: S; `metodo`: S
+- **Plan · o1** — `nixos`: S; `bi`: S; `economia`: S; `salute`: D; `metodo`: S
+- **Specify · o2** — `nixos`: D; `bi`: S; `economia`: D; `salute`: D; `metodo`: D
+- **Perform · o3** — `nixos`: S; `bi`: S; `economia`: S; `salute`: S; `metodo`: S
+- **Perceive · i1** — `nixos`: S; `bi`: S; `economia`: S; `salute`: S; `metodo`: S
+- **Interpret · i2** — `nixos`: D; `bi`: S; `economia`: D; `salute`: D; `metodo`: D
+- **Compare · i3** — `nixos`: D; `bi`: S; `economia`: S; `salute`: D; `metodo`: S
+- **Mondo (polo)** — `nixos`: S; `bi`: S; `economia`: S; `salute`: S; `metodo`: S
 
 Conteggio: 29 S, 11 D, 0 ?, 0 F (dopo aver riempito i2/i3 — vedi sotto).
 

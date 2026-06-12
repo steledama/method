@@ -45,12 +45,10 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                    | Confronto con il metodo                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | coda piccola, `plan` compatto.                                                        | Molto aderente: pochi task vivi, legati a cambi tecnici concreti.                                                                                                           |
-| `bi`       | coda media; tabella stretta con puntatore `#` e footer per titolo (forma emersa qui). | Adeguato alla complessità del dominio. Le istruzioni d'uso sono ancora incorporate nel file: follow-up locale per snellirle verso il nodo e rimandare da `CLAUDE`/`AGENTS`. |
-| `economia` | coda ampia legata a scadenze, adempimenti e situazioni aperte.                        | La numerosità è legittima perché il dominio è operativo e calendariale; serve però revisione frequente per evitare task morti.                                              |
-| `salute`   | coda media; può contenere anche task senza file per elaborazione fonti.               | Adattamento accettabile per ingest semplici, ma i task più sostanziali dovrebbero avere contesto in `tasks/`.                                                               |
+- **`nixos`** — situazione attuale: coda piccola, `plan` compatto. Confronto con il metodo: molto aderente — pochi task vivi, legati a cambi tecnici concreti.
+- **`bi`** — situazione attuale: coda media; tabella stretta con puntatore `#` e footer per titolo (forma emersa qui). Confronto con il metodo: adeguato alla complessità del dominio. Le istruzioni d'uso sono ancora incorporate nel file: follow-up locale per snellirle verso il nodo e rimandare da `CLAUDE`/`AGENTS`.
+- **`economia`** — situazione attuale: coda ampia legata a scadenze, adempimenti e situazioni aperte. Confronto con il metodo: la numerosità è legittima perché il dominio è operativo e calendariale; serve però revisione frequente per evitare task morti.
+- **`salute`** — situazione attuale: coda media; può contenere anche task senza file per elaborazione fonti. Confronto con il metodo: adattamento accettabile per ingest semplici, ma i task più sostanziali dovrebbero avere contesto in `tasks/`.
 
 Il metodo deve ammettere granularità diverse. Nei domini tecnici il task tende a essere un intervento verificabile; in `economia` può essere una pratica aperta; in `salute` può essere ingest o sviluppo concettuale. La regola comune resta la stessa: ciò che è futuro e operativo non deve diventare nodo permanente.
 

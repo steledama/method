@@ -21,3 +21,4 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
+- [consenso](consenso.md)

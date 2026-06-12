@@ -20,12 +20,10 @@ Regole:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                                                                      | Confronto con il metodo                                                                                                                |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | wrapper breve con ordine esplicito README → mappa → CLAUDE → nodo.                                                                      | È il modello più chiaro: breve, agent-agnostico e coerente con il bootstrap reale.                                                     |
-| `bi`       | wrapper minimale.                                                                                                                       | Aderisce alla brevità, ma potrebbe esplicitare meglio l'ordine completo di lettura come fa `nixos`.                                    |
-| `economia` | wrapper minimale.                                                                                                                       | Funziona come ponte, ma il bootstrap effettivo include anche `stato.md`, `scadenze.md` e mappa; AGENTS potrebbe renderlo più visibile. |
-| `salute`   | wrapper minimale; il bootstrap locale ora passa da README verso `mappa-progetto`, `principi-salute` e `verifica-nel-vivere`.            | Adeguato come wrapper; potrebbe esplicitare il percorso completo se il costo di scoperta torna alto.                                   |
+- **`nixos`** — situazione attuale: wrapper breve con ordine esplicito README → mappa → CLAUDE → nodo. Confronto con il metodo: è il modello più chiaro — breve, agent-agnostico e coerente con il bootstrap reale.
+- **`bi`** — situazione attuale: wrapper minimale. Confronto con il metodo: aderisce alla brevità, ma potrebbe esplicitare meglio l'ordine completo di lettura come fa `nixos`.
+- **`economia`** — situazione attuale: wrapper minimale. Confronto con il metodo: funziona come ponte, ma il bootstrap effettivo include anche `stato.md`, `scadenze.md` e mappa; AGENTS potrebbe renderlo più visibile.
+- **`salute`** — situazione attuale: wrapper minimale; il bootstrap locale ora passa da README verso `mappa-progetto`, `principi-salute` e `verifica-nel-vivere`. Confronto con il metodo: adeguato come wrapper; potrebbe esplicitare il percorso completo se il costo di scoperta torna alto.
 
 Il confronto conferma che AGENTS deve restare piccolo. La differenza da osservare non è la quantità di contenuto, ma la precisione del percorso di bootstrap: quando il progetto ha file locali obbligatori (`stato.md`, `scadenze.md`, mappa), il wrapper deve indirizzarli senza duplicare regole operative.
 

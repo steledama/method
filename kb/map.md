@@ -24,12 +24,10 @@ Regole:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                                                  | Confronto con il metodo                                                                                           |
-| ---------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `nixos`    | indice host, profili home, macro-aree, fonti Nix e nodi (da uniformare a `map.md` root).            | Esempio forte di indice-territorio code-based: trasforma filesystem e configurazione in modello leggibile.        |
-| `bi`       | indice sistemi, flussi dati, script, moduli, fonti tecniche e task strutturali (da uniformare).     | Indice necessario per alta complessità applicativa; riduce la dipendenza da CLAUDE e README.                      |
-| `economia` | indice conti, investimenti, immobili, persone, successioni, dati e nodi (da uniformare a `map.md`). | Buon adattamento non-code: rende verificabile il ponte tra entità reali, output dati e KB.                        |
-| `salute`   | indice assi concettuali, fonti, pratica, diario e percorsi (da uniformare a `map.md`).              | Conferma che una KB riflessiva ha bisogno di un indice meno tecnico: assi, fonti, pratica, diario invece di host. |
+- **`nixos`** — situazione attuale: indice host, profili home, macro-aree, fonti Nix e nodi (da uniformare a `map.md` root). Confronto con il metodo: esempio forte di indice-territorio code-based — trasforma filesystem e configurazione in modello leggibile.
+- **`bi`** — situazione attuale: indice sistemi, flussi dati, script, moduli, fonti tecniche e task strutturali (da uniformare). Confronto con il metodo: indice necessario per alta complessità applicativa; riduce la dipendenza da CLAUDE e README.
+- **`economia`** — situazione attuale: indice conti, investimenti, immobili, persone, successioni, dati e nodi (da uniformare a `map.md`). Confronto con il metodo: buon adattamento non-code — rende verificabile il ponte tra entità reali, output dati e KB.
+- **`salute`** — situazione attuale: indice assi concettuali, fonti, pratica, diario e percorsi (da uniformare a `map.md`). Confronto con il metodo: conferma che una KB riflessiva ha bisogno di un indice meno tecnico — assi, fonti, pratica, diario invece di host.
 
 Il confronto mostra che la mappa è il componente più adattabile del metodo: nei repo tecnici indicizza codice e flussi, in `economia` entità e dati, in `salute` assi concettuali e pratica. Due punti ormai fissati: l'istanza vive in **root** come register (`map.md`), porta-collezione on-demand, con nome uniforme; e **non** è la bussola — l'orientamento d'ingresso è il README, che alla mappa _punta_.
 

@@ -125,12 +125,10 @@ L'o3 di sviluppo è la macchina del runtime — il commit produce il codice che 
 
 Agente e livello sono cose diverse — confonderli aveva fatto «sparire» o1. Ogni elemento sta su quattro dimensioni _ortogonali_.
 
-| dimensione          | valori                                           |
-| ------------------- | ------------------------------------------------ |
-| **agente**          | umano · LLM _(caso saliente di una popolazione)_ |
-| **annidamento**     | runtime (→ mondo) · sviluppo (→ artefatto)       |
-| **livello**         | 1 macchina · 2 decisione · 3 azione              |
-| **lato del cappio** | output (esecuzione) · input (valutazione)        |
+- **agente** — umano · LLM _(caso saliente di una popolazione)_
+- **annidamento** — runtime (→ mondo) · sviluppo (→ artefatto)
+- **livello** — 1 macchina · 2 decisione · 3 azione
+- **lato del cappio** — output (esecuzione) · input (valutazione)
 
 La matrice è la lente per confrontare i domini: cosa è sviluppato, cosa manca perché non serve, cosa manca ma servirebbe.
 

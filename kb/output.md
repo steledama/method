@@ -15,11 +15,9 @@ Il metodo si appoggia su due pilastri con una tensione mai nominata. Lo Zettelka
 
 ## I tre livelli dell'output
 
-| Livello        | Audience                      | Forma                                            | Dove vive                 |
-| -------------- | ----------------------------- | ------------------------------------------------ | ------------------------- |
-| o1 — macchina  | LLM, sistema, automazione     | JSON, dati strutturati, `.nix` compilato         | nel repo                  |
-| o2 — decisione | umano (utente, collaboratori) | schemi, diagrammi, slides, termometri            | nel repo                  |
-| o3 — azione    | mondo                         | email, parole dette, transazioni, gesti corporei | fuori dal repo, nel mondo |
+- **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo
+- **o2 — decisione** — audience: umano (utente, collaboratori); forma: schemi, diagrammi, slides, termometri; dove vive: nel repo
+- **o3 — azione** — audience: mondo; forma: email, parole dette, transazioni, gesti corporei; dove vive: fuori dal repo, nel mondo
 
 o3 è dove l'output produce effetti reali. Tutto il resto è strumentale. o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso è inutile per la decisione umana, un'infografica colorata è inefficiente per l'LLM.
 
@@ -33,11 +31,9 @@ L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda �
 
 Il lato simmetrico del ciclo. Il segnale grezzo del mondo ritorna nel sistema e attraversa tre stadi prima di diventare conoscenza stabile:
 
-| Livello           | Natura                         | Forma                                              | Dove vive                         |
-| ----------------- | ------------------------------ | -------------------------------------------------- | --------------------------------- |
-| i1 — grezzo       | percezione del segnale esterno | referto, log, export, documento, messaggio         | `sources/` (o locale al progetto) |
-| i2 — distillato   | interpretazione e sintesi      | nota di lettura, analisi, estratto commentato      | `kb/` in `stato: bozza`           |
-| i3 — formalizzato | conoscenza stabile o verdetto  | nodo KB aggiornato, fonte di verità, input al Goal | `kb/` in `stato: maturo`          |
+- **i1 — grezzo** — natura: percezione del segnale esterno; forma: referto, log, export, documento, messaggio; dove vive: `sources/` (o locale al progetto)
+- **i2 — distillato** — natura: interpretazione e sintesi; forma: nota di lettura, analisi, estratto commentato; dove vive: `kb/` in `stato: bozza`
+- **i3 — formalizzato** — natura: conoscenza stabile o verdetto; forma: nodo KB aggiornato, fonte di verità, input al Goal; dove vive: `kb/` in `stato: maturo`
 
 Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i3 = Compare. Il passaggio i2→i3 non è automatico — è il giudizio che decide se un'interpretazione è abbastanza stabile da entrare nella KB. Per questo i2 vive in `kb/` come nodo in `stato: bozza`: la forma è quella del nodo, ma la funzione è ancora di elaborazione. La maturazione `bozza→maturo` è il passaggio i2→i3.
 
@@ -60,12 +56,10 @@ I _due_ cicli non sono «uno per agente» ma **annidati per Mondo**: il ciclo ru
 
 ## Stato dei progetti adottanti
 
-| Progetto   | o1                                                          | o2                                                         | o3                                                                  |
-| ---------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------- |
-| `nixos`    | `.nix` in `home/`, `hosts/`, `modules/` (forte)             | testo descrittivo in `kb/` (debole, no diagrammi)          | sistema in esecuzione, deploy, switch (forte)                       |
-| `bi`       | scripts notturni (forte)                                    | `presentation/` Reveal.js (forte)                          | decisioni business, riunioni (forte)                                |
-| `economia` | `output/json/` (forte)                                      | `output/report*.md` tabelle (medio)                        | email amministratori, riunioni famigliari (forte)                   |
-| `salute`   | implicito sparso (scadenze, cronologia in `storia-clinica`) | `quadro/` con termometro e file per area (pilota in bozza) | yoga, controlli, alimentazione, conversazioni mediche (medio-forte) |
+- **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/` (forte); o2: testo descrittivo in `kb/` (debole, no diagrammi); o3: sistema in esecuzione, deploy, switch (forte)
+- **`bi`** — o1: scripts notturni (forte); o2: `presentation/` Reveal.js (forte); o3: decisioni business, riunioni (forte)
+- **`economia`** — o1: `output/json/` (forte); o2: `output/report*.md` tabelle (medio); o3: email amministratori, riunioni famigliari (forte)
+- **`salute`** — o1: implicito sparso (scadenze, cronologia in `storia-clinica`); o2: `quadro/` con termometro e file per area (pilota in bozza); o3: yoga, controlli, alimentazione, conversazioni mediche (medio-forte)
 
 Pattern emergente: dove o2 è forte, il progetto serve decisioni condivise con altri (`bi`); dove o2 è debole, la KB resta personale e fatica a generare azione coordinata.
 

@@ -59,13 +59,11 @@ lavoro; il commit è il gate di documentazione.
 
 ## Applicazione nei repo del metodo
 
-| Progetto   | Situazione attuale                                                                        | Confronto con il metodo                                                                                                        |
-| ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `metodo`   | Triade canonica `audit-kb`, `tasks-review`, `commit` in `.claude/skills/`, con wrapper Codex. | Copia di riferimento e dogfooding: il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui. |
-| `nixos`    | Skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti.         | Caso base: workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.                                     |
-| `bi`       | Skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex.             | `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.             |
-| `economia` | Skill `audit-kb`, `tasks-review`, `commit`, con wrapper Codex corrispondenti.          | Caso originario della revisione task: priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente. |
-| `salute`   | Skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. | `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.          |
+- **`metodo`** — situazione attuale: triade canonica `audit-kb`, `tasks-review`, `commit` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
+- **`nixos`** — situazione attuale: skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso base — workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.
+- **`bi`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex. Confronto con il metodo: `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.
+- **`economia`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso originario della revisione task — priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente.
+- **`salute`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. Confronto con il metodo: `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il

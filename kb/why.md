@@ -53,12 +53,10 @@ Regole di forma:
 
 ## Applicazione nei progetti adottanti
 
-| Progetto   | Situazione attuale                                                               | Confronto con il metodo                                                                               |
-| ---------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `nixos`    | 9 gruppi per motivazione; i dump erano già potati.                               | Le entry `[storico]` confermano che la data è asse secondario.                                        |
-| `bi`       | 7 gruppi per motivazione; dump audit estratti in uno snapshot operativo.         | Decisioni e output macchina sono nuovamente separati.                                                 |
-| `economia` | 4 gruppi per motivazione, affiancati da `stato.md`, `scadenze.md` e `diario.md`. | La memoria resta distinta da stato corrente, prossime azioni e resoconto periodico.                   |
-| `salute`   | 4 gruppi per motivazione; `diario.md`, storia clinica e quadro restano separati. | La memoria del progetto resta distinta da esperienza personale, cronologia clinica e stato operativo. |
+- **`nixos`** — situazione attuale: 9 gruppi per motivazione; i dump erano già potati. Confronto con il metodo: le entry `[storico]` confermano che la data è asse secondario.
+- **`bi`** — situazione attuale: 7 gruppi per motivazione; dump audit estratti in uno snapshot operativo. Confronto con il metodo: decisioni e output macchina sono nuovamente separati.
+- **`economia`** — situazione attuale: 4 gruppi per motivazione, affiancati da `stato.md`, `scadenze.md` e `diario.md`. Confronto con il metodo: la memoria resta distinta da stato corrente, prossime azioni e resoconto periodico.
+- **`salute`** — situazione attuale: 4 gruppi per motivazione; `diario.md`, storia clinica e quadro restano separati. Confronto con il metodo: la memoria del progetto resta distinta da esperienza personale, cronologia clinica e stato operativo.
 
 Il confronto suggerisce che il metodo dovrebbe nominare esplicitamente i file locali affini. `diario.md`, `stato.md` e `scadenze.md` non violano la ricetta se la loro funzione è distinta e se non sostituiscono la memoria interpretativa.
 
