@@ -1,7 +1,7 @@
 ---
 title: "Metodo KB"
 subtitle: "Framework metodologico e osservatorio cross-repo per KB personali e professionali con LLM"
-author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/metodo"
+author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method"
 date: "2026.06.09"
 ---
 

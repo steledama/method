@@ -1,6 +1,6 @@
-# Artefatti di cognizione condivisa tra uomo e modelli di intelligenza artificiale
+# Progettare la cognizione condivisa tra uomo e modelli di intelligenza artificiale
 
-Framework metodologico e osservatorio cross-repo per knowledge base personali e professionali mantenute con LLM.
+Framework metodologico e osservatorio cross-repo per knowledge base (KB) personali e professionali mantenute con LLM.
 
 Questo repository ha due funzioni complementari. La prima è custodire il metodo portabile: forma dei nodi, struttura di progetto, strumenti di manutenzione, principi guida e ciclo di lavoro. La seconda è osservare come il metodo viene applicato nei progetti adottanti, confrontando componenti, strumenti, skill, nodi, task e segnali di salute delle KB.
 
@@ -50,7 +50,7 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 ## Come collegare un nuovo progetto
 
-1. Crea il symlink: `ln -s ../metodo/kb metodo` dalla root del progetto.
+1. Crea il symlink: `ln -s ../method/kb method` dalla root del progetto.
 2. Aggiungi una voce all'elenco dei progetti adottanti.
-3. Nel README del progetto, referenzia `metodo/metodo-kb.md` come nodo centrale del metodo e aggiungi una sezione con i principi specifici del progetto.
-4. Aggiorna i path in `CLAUDE.md` del progetto: `kb/metodo-kb.md` → `metodo/metodo-kb.md` (e analogamente per gli altri nodi metodologici).
+3. Nel README del progetto, referenzia `method/metodo-kb.md` come nodo centrale del metodo e aggiungi una sezione con i principi specifici del progetto.
+4. Aggiorna i path in `CLAUDE.md` del progetto: `kb/metodo-kb.md` → `method/metodo-kb.md` (e analogamente per gli altri nodi metodologici).

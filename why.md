@@ -1044,6 +1044,18 @@ eseguita su `metodo`, `nixos` e `bi`; `economia` e `salute` seguiranno con lo st
 
 _La nascita del repo come fonte unica dei nodi metodologici e come osservatorio cross-repo._
 
+### [2026-06-12] Rename del repo: `metodo` → `method`
+
+Rinominato l'identificatore strutturale del repo da `metodo` a `method`:
+repository remoto (`steledama/metodo` → `steledama/method`, redirect attivi su
+GitHub), directory locale (`~/metodo` → `~/method`) e symlink nei quattro
+adottanti (`metodo/ → ../metodo/kb` diventa `method/ → ../method/kb`). La
+prosa e i concetti restano in italiano (`metodo` come termine), la policy
+riguarda solo il nome tecnico esposto nel filesystem, nei path e nel
+repository remoto. Le menzioni storiche sotto a questa nota che usano
+`~/metodo`, `../metodo` o `metodo/` come path/repo si riferiscono al nome
+allora in vigore e non sono state riscritte.
+
 ### [2026-05-23] Metodo KB come hub della ricetta metodologica
 
 Riorganizzato `kb/metodo-kb.md` per eliminare la ripetizione tra componenti

@@ -9,9 +9,6 @@ Progettare una skill base condivisa `method-review`, canonica in `metodo` e
 replicata nei repo adottanti, per verificare il drift locale rispetto
 all'evoluzione del metodo senza aprire task centrali di propagazione.
 
-Dipende dal completamento del rename strutturale `metodo` → `method`, per
-progettare path e marker direttamente sul nome definitivo senza introdurre churn.
-
 La skill si esegue nel repo adottante. Legge i commit di `metodo` successivi
 all'ultima revisione registrata, confronta le generalizzazioni portabili con
 l'implementazione locale e distingue:

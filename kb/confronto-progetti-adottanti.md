@@ -31,7 +31,7 @@ Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo d
 
 Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `why.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `audit-kb` / `tasks-review` / `commit`, script `tools/kb_tools.py`.
 
-La separazione `metodo/ -> ../metodo/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
+La separazione `method/ -> ../method/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
 Le mappe canoniche sono il componente che più chiaramente migliora l'adozione nei progetti applicativi. `nixos`, `bi` ed `economia` hanno una mappa che collega sistema reale, fonti di verità e nodi KB. `salute` ha aggiunto una mappa autonoma più semantica, centrata su assi concettuali, fonti, pratica, diario e percorsi di accesso.
 

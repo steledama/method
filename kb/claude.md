@@ -14,9 +14,9 @@ Regole:
 - apre con il bootstrap di sessione esplicito: ordine di lettura `README → CLAUDE → nodo` (`CLAUDE.md` è già in contesto; le porte-collezione, incluso `map` dove esiste, si aprono on-demand)
 - contiene comportamenti consentiti, proibiti o da chiedere
 - include il controllo iniziale sui task aperti quando il progetto usa `plan.md` + tasks/
-- nei repo adottanti, può ricordare di controllare la storia recente di `metodo`
+- nei repo adottanti, può ricordare di controllare la storia recente di `method`
   quando serve recepire generalizzazioni portabili, ma non deve trattare
-  `../metodo/tasks/` come backlog operativo locale
+  `../method/tasks/` come backlog operativo locale
 - indica operativamente gli strumenti: quale usare per quale intento, con i
   comandi minimi ad alta frequenza
 - può elencare i comandi quotidiani ad alta frequenza (formatter, validazione locale, entry point KB) ma rimanda alla KB per la reference completa
