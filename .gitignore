@@ -1,5 +1,8 @@
 .obsidian/
 
+# cache dello strumento di lint/format Python (rigenerata)
+.ruff_cache/
+
 # artefatti derivati dello strato output: il sorgente .md è la fonte unica,
 # il PDF si rigenera con md2pdf quando serve stamparlo o distribuirlo
 *.pdf
