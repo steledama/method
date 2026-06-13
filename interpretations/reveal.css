@@ -1,12 +1,16 @@
 :root {
   --r-main-font-size: 30px;
-  --diagram-ink: #233142;
-  --diagram-muted: #607284;
-  --diagram-line: #8ba0b3;
-  --diagram-soft: #f3f6f8;
-  --diagram-accent: #dcecf2;
-  --diagram-primary: #e8e2f3;
-  --diagram-world: #f6e6d5;
+  --diagram-ink: #1a2230;
+  --diagram-muted: #4a5a6a;
+  --diagram-line: #7c93a6;
+  --diagram-soft: #eef2f5;
+  --diagram-accent: #cfe4ec;
+  --diagram-primary: #ddd3ee;
+  --diagram-world: #f2d8bd;
+  /* L'accento è caldo: il viscerale è la membrana `world`, e ne porta il calore. */
+  --accent: #c2410c;
+  --accent-ink: #9a3412;
+  --hero-bg: #161d29;
 }
 
 .reveal h1 {
@@ -14,7 +18,12 @@
 }
 
 .reveal h2 {
-  font-size: 1.3em;
+  border-left: 0.18em solid var(--accent);
+  color: var(--diagram-ink);
+  font-size: 1.32em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  padding-left: 0.45em;
   text-align: left;
 }
 
@@ -22,8 +31,74 @@
   text-align: left;
 }
 
+/* Cover: primo contatto viscerale — contrasto e una barra d'accento netta. */
 .reveal #title-slide {
+  text-align: left;
+}
+
+.reveal #title-slide h1 {
+  border-left: 0.14em solid var(--accent);
+  color: var(--diagram-ink);
+  font-size: 2.1em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  padding-left: 0.4em;
+}
+
+.reveal #title-slide .subtitle {
+  color: var(--diagram-muted);
+  font-size: 0.92em;
+  line-height: 1.3;
+  margin: 0.7em 0 0 1.1em;
+  max-width: 80%;
+}
+
+.reveal #title-slide .author,
+.reveal #title-slide .date {
+  color: var(--accent-ink);
+  font-size: 0.7em;
+  margin-left: 1.5em;
+}
+
+/* Slide-eroe: il colpo dopo il respiro. Fondo scuro, una sola idea, grande. */
+.reveal section.hero {
   text-align: center;
+}
+
+.reveal section.hero h2 {
+  border: 0;
+  color: white;
+  font-size: 2.3em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0 auto 0.5em;
+  max-width: 16em;
+  padding: 0;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.reveal section.hero p {
+  color: #c9d4de;
+  font-size: 1.05em;
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 24em;
+  text-align: center;
+}
+
+.reveal section.hero .accent-word,
+.reveal section.hero strong {
+  color: #fb923c;
+  font-weight: 800;
+}
+
+/* Enfasi in-corpo: la frase che deve colpire esce dal peso del testo. */
+.reveal .punch {
+  color: var(--accent-ink);
+  font-weight: 700;
 }
 
 .reveal pre {
@@ -98,7 +173,12 @@
 
 .reveal .card.world {
   background: var(--diagram-world);
-  border-color: #b37a45;
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.reveal .card.world strong {
+  color: var(--accent-ink);
 }
 
 .reveal .frame {

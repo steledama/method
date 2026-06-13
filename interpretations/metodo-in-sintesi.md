@@ -5,6 +5,10 @@ author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method
 date: "2026.06.09"
 ---
 
+## Progettare la mente che condividiamo con la macchina {.hero data-background-color="#161d29"}
+
+Non un prompt, non un mucchio di note: un **artefatto** che persiste, sopravvive al cambio di modello, e regge la cognizione condivisa lungo tutto il ciclo d'azione.
+
 ## Cosa è: artefatto, sistema, metodo
 
 La KB non è il metodo: il metodo la contiene. Tre parole per tre cose, a lungo confuse nella sineddoche «KB = metodo».
@@ -79,7 +83,11 @@ I poli non si eseguono: si _costituiscono_ ai bordi. Il Mondo non preesiste — 
 
 I tre livelli di Norman stratificano il ciclo per altezza: **riflessivo** in alto (la KB — pensa, non agisce direttamente), **behavioral** in mezzo (o2/i2 — l'operare), **viscerale** alla membrana (atto/grezzo in `world`, prescrizione/cattura in o3/i1).
 
-Conseguenza per il design: il riflessivo può solo _condizionare_ l'azione, attraverso l'output. Per muovere davvero, l'o2 deve raggiungere il **viscerale** — apparenza, impatto immediato, affetto. Un o2 solo riflessivo (testo, schemi) sa ma non muove: è la stasi. «Attractive things work better» non è estetica, è la condizione perché il sapere arrivi al gesto.
+Conseguenza per il design: il riflessivo può solo _condizionare_ l'azione, attraverso l'output. Per muovere davvero, l'o2 deve raggiungere il **viscerale** — apparenza, impatto immediato, affetto. Un o2 solo riflessivo (testo, schemi) sa ma non muove: è la stasi.
+
+## Attractive things work better {.hero data-background-color="#161d29"}
+
+Non è estetica. È la condizione perché il sapere attraversi i tre livelli — riflessivo, behavioral, viscerale — **fino al gesto**.
 
 ## Cicli annidati: due Mondi
 
@@ -138,9 +146,9 @@ La KB _informa_ il Goal, non lo _genera_: nasce all'incrocio motivo × KB. Da qu
 
 La simmetria a 8 elementi non si dà per scontata: si mette alla prova. Gli 8 elementi × 5 artefatti, verdetto **solido / debole / forzato**.
 
-Il rischio è la complicità con sé stessi — chi cerca simmetria la trova. Primo passaggio onesto: i venti S di bordo sono quasi tautologici (li definiamo noi), l'interno è debole o da verificare, e lo zero-forzati è sospetto perché le caselle dure (i2/i3) sono ancora vuote.
+Il rischio è la complicità con sé stessi — [chi cerca simmetria la trova]{.punch}. Primo passaggio onesto: i venti S di bordo sono quasi tautologici (li definiamo noi), l'interno è debole o da verificare, e lo zero-forzati è sospetto perché le caselle dure (i2/i3) sono ancora vuote.
 
-Lo strumento serve a _falsificare_ la teoria, non a incoronarla.
+[Lo strumento serve a _falsificare_ la teoria, non a incoronarla.]{.punch}
 
 ## Anatomia di un progetto
 
@@ -217,7 +225,11 @@ La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietr
 
 Ecco perché questa pagina è un esempio dello strato che descrive. Il deck non è solo un prodotto: è l'**organo di interpretazione** — ogni sezione è un'interpretazione i2-macro che rende co-presenti le tensioni tra nodi altrimenti invisibili da dentro ciascuno (Luhmann: i nodi sono atomici e _localmente_ coerenti). Il _verdetto_ (i3) che ne segue si chiude nei nodi e in `verdict.md` — il termometro del ciclo di sviluppo, simmetrico a `plan.md` (lo stadio Plan), per la simmetria o1 ↔ i3.
 
-Comprimere il metodo in poche interpretazioni forza la co-presenza e fa affiorare le tensioni _non-locali_. Disciplina: **il deck rivela, i nodi risolvono** — ogni tensione si chiude giù nei nodi (la fonte di verità), poi il deck si _ri-deriva_. Aggiornare questa pagina è far girare l'i2-macro del metodo su sé stesso — come questa stessa revisione.
+Comprimere il metodo in poche interpretazioni forza la co-presenza e fa affiorare le tensioni _non-locali_. Disciplina: il deck rivela, i nodi risolvono — ogni tensione si chiude giù nei nodi (la fonte di verità), poi il deck si _ri-deriva_. Aggiornare questa pagina è far girare l'i2-macro del metodo su sé stesso — come questa stessa revisione.
+
+## Il deck rivela, i nodi risolvono {.hero data-background-color="#161d29"}
+
+Comprimere il metodo in poche interpretazioni fa **affiorare** le tensioni non-locali. Ma ogni tensione si chiude giù nei nodi — la fonte di verità — e poi il deck si _ri-deriva_.
 
 ## Approfondimento
 

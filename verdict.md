@@ -71,8 +71,12 @@ l'uniformità del protocollo non deve
 interferire con opzioni applicative omonime: `--append-note` resta dominio,
 `--append-why` era infrastruttura di audit. Il caso salute conferma che privacy,
 diario, scadenze, fonti e skill di ingest sono adattamenti di contenuto e
-workflow, non eccezioni alla struttura comune. Una tensione resta aperta.
-_Ri-derivazione del deck_:
-il framing i2-micro/macro è appena entrato in `action-cycle`; resta da decidere, sotto
-il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi
-per esprimerlo o se la cornice nel nodo basti.
+workflow, non eccezioni alla struttura comune. _Ri-derivazione del deck_: chiusa.
+Il deck è stato ri-derivato — esprime il framing i2-micro/macro e ha ricevuto un
+restage viscerale che applica `processing-layers` a sé stesso. La slide che diagnostica
+«un o2 solo riflessivo non muove» era resa in registro puramente riflessivo: il deck
+commetteva il peccato che descrive. Ora contrasto, gerarchia e tre slide-eroe (con
+l'accento caldo che lega il viscerale alla membrana `world`) portano la sintesi fino al
+viscerale; il colpo «Attractive things work better» segue la slide della stasi, così il
+deck _performa_ la lezione invece di solo enunciarla. La disciplina del nodo `deck`
+(HTML/CSS nativi, build unica `pandoc`+`prettier`) è rimasta intatta.
