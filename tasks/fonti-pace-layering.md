@@ -14,7 +14,7 @@ verifica delle fonti e della maturazione del nodo verso `stato: maturo`.
 ## Lavoro
 
 - verificare e citare con precisione le fonti primarie: Frank Duffy (origine degli "shearing
-  layers"), Stewart Brand *How Buildings Learn* (1994, i sei strati) e *The Clock of the Long Now*
+  layers"), Stewart Brand _How Buildings Learn_ (1994, i sei strati) e _The Clock of the Long Now_
   (1999, il pace layering della civiltà); recuperare la formulazione canonica di Brand sul rapporto
   fast/slow;
 - verificare l'applicazione del concetto all'architettura dell'informazione e dei sistemi software,

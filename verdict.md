@@ -76,3 +76,26 @@ _Ri-derivazione del deck_:
 il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi
 per esprimerlo o se la cornice nel nodo basti.
+
+## La membrana Mondo e l'identità del metodo
+
+Sessione di questo commit (task `world-membrana`, `metodo-kb-riconcezione`): due
+verdetti direzionali, decisi qui, eseguibili nei task collegati. I nodi `kb/`
+riflettono ancora il modello precedente — qui resta scritto il _perché_ del refactor.
+
+**La membrana `world`.** Il Mondo è una membrana non versionata attraversata nei due
+versi; i1 (`perceptions/`) e o3 (canovacci, promemoria) sono i suoi due riflessi
+versionati on-demand, per lo specchio o3↔i1. Conseguenza che corregge `output.md`: o3
+non è l'atto nel mondo (quello è `world`) ma la **prescrizione versionata** dell'atto;
+simmetricamente l'i1 ha due tessiture (estrazione 1:1 / distillazione filtrata) ed
+entrambe restano i1, perché **il confine i1→i2 è la valenza, non la fedeltà**.
+Convenzione concreta: symlink `world` → cartella di progetto su Drive, nessun manifest.
+È la materializzazione fisica del nodo `mondo` (→ `world`).
+
+**L'identità del metodo.** Lavorare la membrana ha reso esplicito che la KB è solo lo
+strato riflessivo: chiamare l'hub `metodo-kb` nomina la parte per il tutto. Il metodo è
+il **design di artefatti cognitivi per la cognizione condivisa umano-LLM**, esteso a
+tutto il ciclo d'azione. L'hub va rinominato `cognitive-artifact-design` e il suo
+incipit riconcepito. Da qui anche la migrazione graduale dei nomi-nodo verso l'inglese,
+tracciata come task finito-a-termine invece che come regola permanente in `CLAUDE.md`,
+che invecchierebbe a migrazione conclusa.
