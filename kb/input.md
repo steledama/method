@@ -64,5 +64,5 @@ Connessioni:
 - [world](world.md)
 - [knowledge-base](knowledge-base.md)
 - [affordance-signifier](affordance-signifier.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [processing-layers](processing-layers.md)

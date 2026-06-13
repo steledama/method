@@ -132,7 +132,7 @@ Connessioni:
 - [artefatto-cognitivo](artefatto-cognitivo.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [struttura-progetto](struttura-progetto.md)

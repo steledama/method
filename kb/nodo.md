@@ -73,7 +73,7 @@ Regole di creazione:
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [zettelkasten](zettelkasten.md)
 - [knowledge-base](knowledge-base.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)

@@ -5,7 +5,7 @@ stato: maturo
 
 # Principi Guida
 
-Principi che governano l'architettura e lo sviluppo dei progetti che adottano il metodo KB. I principi universali si applicano a qualsiasi progetto indipendentemente dal dominio; i principi code-based si applicano ai progetti con codebase attiva. Ogni progetto può aggiungere principi specifici nel proprio README — deviazioni dai principi universali vanno motivate in `verdict.md`.
+Principi che governano l'architettura e lo sviluppo dei progetti che adottano il cognitive artifact design. I principi universali si applicano a qualsiasi progetto indipendentemente dal dominio; i principi code-based si applicano ai progetti con codebase attiva. Ogni progetto può aggiungere principi specifici nel proprio README — deviazioni dai principi universali vanno motivate in `verdict.md`.
 
 ## Principi universali
 
@@ -61,7 +61,7 @@ Il principio cardine resta: se l'utente non agisce, lo strato output è mal prog
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [struttura-progetto](struttura-progetto.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [output](output.md)

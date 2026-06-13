@@ -64,7 +64,7 @@ Il commit `abc1234` è il puntatore alla storia verificabile, se serve.
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
 - [affordance-signifier](affordance-signifier.md)

@@ -7,7 +7,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 
 ## Metodo generale
 
-- [metodo-kb](kb/metodo-kb.md) — Hub del metodo: ricetta metodologica, ciclo operativo, tipi documentali, regole di revisione
+- [cognitive-artifact-design](kb/cognitive-artifact-design.md) — Hub del metodo: design dell'artefatto cognitivo completo per la cognizione condivisa umano-LLM
 - [nodo](kb/nodo.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
 - [knowledge-base](kb/knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
 - [struttura-progetto](kb/struttura-progetto.md) — La root come atrio/system image: file-ciclo e porte-collezione, pace come criterio di compagnia

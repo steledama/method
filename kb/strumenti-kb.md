@@ -101,7 +101,7 @@ Il confronto chiarisce il confine dello strumento portabile. La superficie base 
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [struttura-progetto](struttura-progetto.md)

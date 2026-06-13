@@ -58,7 +58,7 @@ Rischi:
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [zettelkasten](zettelkasten.md)
 - [nodo](nodo.md)

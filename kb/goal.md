@@ -83,4 +83,4 @@ Connessioni:
 - [sistema-cognitivo](sistema-cognitivo.md)
 - [artefatto-cognitivo](artefatto-cognitivo.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)

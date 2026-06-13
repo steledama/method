@@ -11,7 +11,11 @@ Per essere davvero utile a un LLM, però, la KB non deve solo contenere conoscen
 
 Il sistema poggia su tre pilastri metodologici — Zettelkasten (forma del nodo atomico), pattern Karpathy (manutenzione dell'insieme con l'LLM), Norman (ciclo di azione tra utente e sistema). La trattazione completa dei tre giganti vive in `ciclo-azione`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
 
-La KB non è il fine: è strumentale all'azione. Lo strato output — con nomi locali nei singoli progetti — traduce la conoscenza in azione possibile (o1/o2/o3) e riceve di ritorno il segnale del mondo (i1/i2/i3), definiti in `output`. Senza questo strato, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e comportamento.
+La KB non è il fine: è lo strato riflessivo dell'artefatto. Lo strato output
+traduce la conoscenza in azione possibile (o1/o2/o3); lo strato input cattura e
+interpreta il ritorno (i1/i2/i3); l'atto e il grezzo attraversano la membrana
+`world`. Senza questi strati, la KB accumula conoscenza ma non chiude il ciclo
+tra comprensione e comportamento.
 
 La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema. Umano e LLM sono qui il caso saliente di una popolazione di agenti più ampia (cfr. `agente`): la stessa divisione del lavoro può ripartirsi tra livelli di agente — per capacità e per stadio del ciclo — quando l'uso multi-agente diventa reale.
 
@@ -38,15 +42,15 @@ Confini:
 
 Portabilità:
 
-- un nuovo progetto può partire dagli otto nodi metodo come nucleo iniziale
+- un nuovo progetto può partire dai nodi del nucleo portabile
 - ogni progetto deve poi aggiungere nodi specifici del dominio
-- gli otto nodi metodo non devono dipendere da dettagli di un singolo repository
+- i nodi del nucleo portabile non devono dipendere da dettagli di un singolo repository
 - le parti locali vanno in README.md, CLAUDE.md, skill e nodi dominio
 - quando il metodo cambia in un progetto, valutare se la modifica è portabile agli altri
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [nodo](nodo.md)
 - [zettelkasten](zettelkasten.md)
 - [pattern-karpathy](pattern-karpathy.md)

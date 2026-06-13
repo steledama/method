@@ -40,4 +40,4 @@ Connessioni:
 - [processing-layers](processing-layers.md)
 - [output](output.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)

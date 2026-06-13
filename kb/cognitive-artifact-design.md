@@ -1,13 +1,49 @@
 ---
-data: 2026-05-24
+data: 2026-06-13
 stato: maturo
 ---
 
-# Metodo KB
+# Cognitive artifact design
 
-Il metodo KB è il modo operativo con cui una knowledge base personale viene costruita, mantenuta e resa navigabile con l'aiuto di un LLM. Si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di manutenzione dell'insieme, dove fonti, domande e sintesi vengono progressivamente compilate in una rete persistente; Norman fornisce il modello che traduce la KB in azione possibile nel mondo, chiudendo il ciclo tra accumulazione della conoscenza e comportamento reale.
+Il _cognitive artifact design_ è la pratica con cui si progettano e si
+mantengono artefatti cognitivi per la cognizione condivisa tra umano e LLM. Non
+progetta soltanto una knowledge base: progetta l'intero ciclo che collega Goal,
+rappresentazioni persistenti, decisione, azione nel `world`, percezione del
+ritorno e revisione. La KB è lo strato riflessivo dell'artefatto, necessario ma
+non sufficiente.
 
-Il principio centrale è che la KB non è una cartella di appunti né un archivio da interrogare occasionalmente. È un artefatto cumulativo: ogni ingest, query, lint o filing back deve lasciare il sistema più chiaro, più collegato o più verificabile di prima. La struttura non viene imposta dall'alto con categorie rigide; emerge dalle connessioni tra i nodi. La struttura esplicita appartiene invece al progetto che ospita la KB: il cruscotto in root (README, plan, regole agent, verdict), le porte-collezione (catalogo `kb`, indice-di-dominio `map` dove esiste, strumenti, output, fonti) e la collezione dei nodi.
+L'oggetto progettato è l'**artefatto cognitivo**: il repository portabile con la
+sua anatomia, le rappresentazioni e i vincoli. Il risultato nell'uso è il
+**sistema cognitivo**: l'accoppiamento dinamico tra artefatto, umano, LLM,
+harness e ambiente. Il metodo coltiva il primo perché il secondo possa
+funzionare, senza confondere ciò che persiste con agenti e infrastrutture che
+cambiano.
+
+Il ciclo completo comprende tre altitudini. In alto, la KB accumula concetti,
+assunzioni e verdetti nello strato riflessivo. In mezzo, o2/i2 rende la sintesi
+leggibile per specificare e interpretare. In basso, o3 e i1 sono i riflessi
+versionati on-demand della membrana `world`: prescrizione dell'atto e cattura
+del segnale. L'atto e il grezzo restano nel Mondo non versionato. Progettare
+l'artefatto significa rendere attraversabili entrambi i gulf, non soltanto
+organizzare bene i nodi.
+
+Il grado di automazione non è uniforme. Le operazioni note e verificabili
+possono essere delegate; formazione del Goal, triage dei segnali esogeni e
+decisioni ad alta posta richiedono supervisione umana. Il gradiente di autonomia
+si progetta per stadio, dominio e rischio, mantenendo espliciti feedback,
+vincoli e punti di controllo.
+
+Il metodo si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei
+nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di
+manutenzione dell'insieme con l'LLM; Norman fornisce il modello che collega
+conoscenza, rappresentazione e azione attraverso il ciclo completo.
+
+Il principio centrale è che l'artefatto non è una cartella di appunti né un
+archivio da interrogare occasionalmente. È cumulativo: ogni ingest, query, lint
+o filing back deve lasciarlo più chiaro, più collegato o più verificabile
+di prima. La struttura della KB emerge dalle connessioni tra i nodi; la
+struttura esplicita appartiene al progetto intero: cruscotto in root,
+porte-collezione, strati input/output e membrana `world`.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
@@ -33,11 +69,20 @@ Indice cognitivo del metodo:
 - fonti di verità: contro che cosa verifico ciò che la KB dice?
 - fedeltà cognitiva: la KB aderisce ancora al sistema reale?
 - osservatorio metodo: che cosa impariamo confrontando i progetti?
-- Metodo KB: qual è la ricetta generale?
+- cognitive artifact design: come si progetta l'artefatto cognitivo completo?
 
 Ricetta metodologica:
 
-- `kb/`: spazio della conoscenza stabile. Contiene i nodi di metodo e i nodi di dominio. Il nucleo metodologico portabile comprende `metodo-kb`, `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`, `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio richiede verifica anti-drift, `fedelta-cognitiva`. Nei progetti che usano il metodo come dipendenza, questi nodi possono vivere in `metodo/` come symlink o sottoalbero separato, mentre `kb/` resta dedicata al dominio.
+- artefatto completo: cruscotto, KB, rappresentazioni input/output, strumenti e
+  membrana `world` formano un solo sistema progettato; nessuna parte è il metodo
+  per intero
+- `kb/`: strato riflessivo della conoscenza stabile. Contiene i nodi di metodo e
+  di dominio. Il nucleo portabile comprende `cognitive-artifact-design`,
+  `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`,
+  `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio
+  richiede verifica anti-drift, `fedelta-cognitiva`. Negli adottanti questi nodi
+  possono vivere in `method/` come symlink, mentre `kb/` resta dedicata al
+  dominio.
 - `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `plan`, il catalogo in `kb`, il modello nei nodi e in `interpretations/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
 - `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
 - `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
@@ -47,7 +92,15 @@ Ricetta metodologica:
 - `tools/`: strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di _sviluppo_, distinta dagli `scripts/` di output del _runtime_ nei repo code-based). `tools/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade operativa ufficiale è `kb-review` (diagnosi), `tasks-review` (supervisione del lavoro futuro) e `commit` (gate di filing back); `method-review` verifica l'allineamento dell'adottante ai commit del metodo. Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
-- strato output: il livello che traduce la KB in azione possibile (o1 macchina / o2 decisione / o3 prescrizione versionata) e che riceve il segnale di ritorno (i1 cattura valenza-neutra → i2 interpretazione → i3 formalizzazione). Lo strato di sintesi-documento ha nome uniforme tra i progetti, `interpretations/`; il carattere del dominio vive nel contenuto, non nel nome (cfr. struttura-progetto). La stessa superficie è o2 quando viene prodotta come vista di decisione e substrato i2 quando viene letta per attribuire significato ai dati (cfr. `ciclo-azione`, sezione i2 micro/macro). Resta distinto l'output di altra natura ontologica, come la configurazione che gira in `nixos` (o1/runtime). La funzione è universale: senza strato output la KB non chiude il ciclo di azione e la conoscenza non produce comportamento reale. Modello completo e criteri di Norman in `output` e `ciclo-azione`.
+- strato output: traduce la KB in azione possibile (o1 macchina / o2 decisione
+  / o3 prescrizione versionata). Lo strato di sintesi-documento ha nome
+  uniforme, `interpretations/`; la stessa superficie è o2 quando viene prodotta
+  e substrato i2 quando viene letta.
+- strato input: cattura il ritorno (i1 valenza-neutro → i2 interpretazione → i3
+  formalizzazione) e permette all'artefatto di ascoltare ciò che lo smentisce.
+- `world/`: membrana host-local non versionata verso il Mondo runtime. L'atto e
+  il grezzo vivono qui; o3/i1 ne sono i riflessi versionati quando precisione o
+  durata lo richiedono. Non ha manifest.
 - convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `tasks`.
 
 Creazione di un nuovo progetto:
@@ -58,6 +111,8 @@ Creazione di un nuovo progetto:
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
 - creare `kb.md` come catalogo dei nodi e, dove il dominio ha un territorio da indicizzare, `map.md` come indice-di-dominio
+- dichiarare la membrana `world/` e gli strati input/output del dominio, senza
+  creare riflessi versionati che l'uso non richiede ancora
 - creare `verdict.md` vuoto o con un primo filo di fondazione
 - creare `plan.md` come Plan e `tasks/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
@@ -67,11 +122,14 @@ Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in
 
 Evidenza dai progetti adottanti:
 
-- `nixos` e `bi` usano il metodo come nucleo condiviso linkato da `metodo/`, con README molto forti come router e mappe di progetto specifiche
+- `nixos` e `bi` usano il metodo come nucleo condiviso linkato da `method/`, con README molto forti come router e mappe di progetto specifiche
 - `economia` incorpora una variante locale con file aggiuntivi (`stato.md`, `scadenze.md`, `diario.md`) e fonti di verità JSON, mostrando che la ricetta deve ammettere componenti di dominio senza assorbirli nel nucleo portabile
 - `salute` conserva una forma più narrativa del metodo nel README, utile come traccia storica ma meno separata tra metodo portabile, filosofia locale e indice della KB
 - i progetti tecnici richiedono strumenti anti-drift e fonti di verità verificabili; i progetti riflessivi richiedono soprattutto accessi cognitivi, hub semantici e filing back accurato
-- ogni progetto adottante ha già uno strato output, anche senza averlo nominato; dove L2 è forte il progetto serve decisioni condivise con altri (`bi`); dove L2 è debole la KB resta introspettiva e fatica a generare azione coordinata
+- ogni progetto adottante attraversa già `world` e ha strati input/output, anche
+  senza averli nominati; dove o2 è forte il progetto serve decisioni condivise
+  con altri (`bi`), mentre un artefatto solo riflessivo fatica a generare azione
+  coordinata
 
 La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
 
@@ -138,6 +196,11 @@ Personalizzazioni locali:
 
 Connessioni:
 
+- [artefatto-cognitivo](artefatto-cognitivo.md)
+- [sistema-cognitivo](sistema-cognitivo.md)
+- [world](world.md)
+- [input](input.md)
+- [processing-layers](processing-layers.md)
 - [nodo](nodo.md)
 - [knowledge-base](knowledge-base.md)
 - [pattern-karpathy](pattern-karpathy.md)

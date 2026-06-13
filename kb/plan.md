@@ -99,7 +99,7 @@ Il metodo deve ammettere granularità diverse. Nei domini tecnici il task tende 
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [readme](readme.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)

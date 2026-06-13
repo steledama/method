@@ -231,5 +231,5 @@ I diagrammi comprimono; i nodi spiegano.
 - la matrice di verifica → `kb/matrice-ciclo-azione.md`
 - strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/deck.md`
 - anatomia del progetto → `kb/struttura-progetto.md`
-- sviluppo del metodo e osservatorio → `kb/sviluppo-metodo.md`, `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`
-- dove vive cosa → `kb/metodo-kb.md`, `kb/zettelkasten.md`
+- sviluppo del metodo e osservatorio → `kb/sviluppo-metodo.md`, `kb/osservatorio-metodo.md`, `kb/cognitive-artifact-design.md`
+- dove vive cosa → `kb/cognitive-artifact-design.md`, `kb/zettelkasten.md`

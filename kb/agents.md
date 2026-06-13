@@ -29,7 +29,7 @@ Il confronto conferma che AGENTS deve restare piccolo. La differenza da osservar
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [claude](claude.md)
 - [readme](readme.md)
 - [struttura-progetto](struttura-progetto.md)

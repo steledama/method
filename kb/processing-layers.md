@@ -64,7 +64,7 @@ Connessioni:
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [world](world.md)
 - [input](input.md)
 - [output](output.md)

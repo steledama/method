@@ -7,7 +7,7 @@ stato: bozza
 
 La git history è la storia verificabile dei cambiamenti. Risponde alla domanda: che cosa è cambiato davvero? Conserva diff, commit, autori, date e messaggi, rendendo ricostruibile l'evoluzione del progetto senza trasformare la KB in archivio storico.
 
-Nel metodo KB la git history sostiene la leggerezza della documentazione. I nodi descrivono il presente permanente; verdict.md interpreta le decisioni significative; git conserva il dettaglio analitico di ogni modifica. Quando serve sapere esattamente cosa è cambiato, si torna al commit.
+Nel metodo la git history sostiene la leggerezza della documentazione. I nodi descrivono il presente permanente; verdict.md interpreta le decisioni significative; git conserva il dettaglio analitico di ogni modifica. Quando serve sapere esattamente cosa è cambiato, si torna al commit.
 
 Regole:
 
@@ -26,7 +26,7 @@ Il confronto conferma la regola del metodo: i task completati possono sparire da
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [verdict](verdict.md)
 - [plan](plan.md)
 - [strumenti-kb](strumenti-kb.md)

@@ -5,7 +5,7 @@ stato: bozza
 
 # Confronto progetti adottanti
 
-Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il metodo KB: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `verdict`, `strumenti-kb`, `skill`, `fonte-di-verita`, `fedelta-cognitiva`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il cognitive artifact design: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `verdict`, `strumenti-kb`, `skill`, `fonte-di-verita`, `fedelta-cognitiva`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -91,7 +91,7 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 Connessioni:
 
 - [osservatorio-metodo](osservatorio-metodo.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
 - [matrice-ciclo-azione](matrice-ciclo-azione.md)

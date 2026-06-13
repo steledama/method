@@ -51,7 +51,7 @@ Per gli strumenti, CLAUDE.md è il livello operativo della tripartizione README/
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [agents](agents.md)
 - [readme](readme.md)
 - [struttura-progetto](struttura-progetto.md)

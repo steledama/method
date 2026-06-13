@@ -149,7 +149,7 @@ Il confronto tra teoria e pratica suggerisce una regola più precisa: attivare a
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [nodo](nodo.md)
 - [strumenti-kb](strumenti-kb.md)

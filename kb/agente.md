@@ -13,7 +13,7 @@ Riconoscere la popolazione di agenti invece del binomio ha una conseguenza sul m
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [agents](agents.md)
 - [affordance-signifier](affordance-signifier.md)
 - [system-image](system-image.md)

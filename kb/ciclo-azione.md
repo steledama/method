@@ -7,7 +7,7 @@ stato: bozza
 
 Modello del rapporto tra utente e sistema secondo Donald Norman, distillato come fondamento metodologico per lo strato di output del metodo. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo collega al ciclo dell'azione che il metodo deve sostenere.
 
-Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo KB eredita questo modello per progettare lo strato output così che chiuda davvero il ciclo, non solo che lo descriva.
+Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo eredita questo modello per progettare l'artefatto così che chiuda davvero il ciclo, non solo che lo descriva.
 
 ## I tre giganti del metodo
 
@@ -34,7 +34,7 @@ Il modello canonico di Norman procede in sequenza:
 - Interpret — capisco cosa significa
 - Compare — confronto con il goal iniziale
 
-Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
+Nel metodo il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
 
 - **Plan** → o1 — piano in forma macchina, vicino alla KB
 - **Specify** → o2 — vista di decisione per l'umano
@@ -89,7 +89,7 @@ Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, ve
 
 Norman chiama gulf of execution la distanza tra "so cosa voglio" e "so come farlo col sistema"; gulf of evaluation la distanza tra "il sistema mostra X" e "capisco cosa significa per me". Sono i due punti critici dove il design fallisce o riesce.
 
-Nel metodo KB i due gulf si traducono così:
+Nel metodo i due gulf si traducono così:
 
 - o1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
 - o2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
@@ -189,7 +189,7 @@ Connessioni:
 - [matrice-ciclo-azione](matrice-ciclo-azione.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)

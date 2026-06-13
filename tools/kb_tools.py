@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Strumenti deterministici portabili per repository basati sul metodo KB."""
+"""Strumenti deterministici portabili per repository basati sul metodo."""
 
 from __future__ import annotations
 

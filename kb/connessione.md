@@ -49,7 +49,7 @@ Ordinamento:
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [zettelkasten](zettelkasten.md)
 - [indice](indice.md)
 - [map](map.md)

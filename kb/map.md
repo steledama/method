@@ -33,7 +33,7 @@ Il confronto mostra che la mappa è il componente più adattabile del metodo: ne
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [readme](readme.md)
 - [indice](indice.md)
 - [fonte-di-verita](fonte-di-verita.md)

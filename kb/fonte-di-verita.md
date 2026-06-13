@@ -35,7 +35,7 @@ Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità" n
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [map](map.md)
 - [strumenti-kb](strumenti-kb.md)

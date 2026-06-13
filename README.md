@@ -1,10 +1,22 @@
 # Cognizione condivisa
 
-Framework metodologico e osservatorio cross-repo per la progettazione di artefatti di supporto alla cognizione condivisa tra uomo e modelli di intelligenza artificiale tramite knowledge base (KB).
+Framework metodologico e osservatorio cross-repo per il _cognitive artifact
+design_: la progettazione di artefatti cognitivi che sostengono la cognizione
+condivisa tra umano e modelli di intelligenza artificiale lungo l'intero ciclo
+d'azione.
 
-Questo repository ha due funzioni complementari. La prima è custodire il metodo portabile: forma dei nodi, struttura di progetto, strumenti di manutenzione, principi guida e ciclo di lavoro. La seconda è osservare come il metodo viene applicato nei progetti adottanti, confrontando componenti, strumenti, skill, nodi, task e segnali di salute delle KB.
+Questo repository ha due funzioni complementari. La prima è custodire il metodo
+portabile: KB riflessiva, strati input/output, membrana `world`, struttura di
+progetto, strumenti, principi guida e ciclo di lavoro. La seconda è osservare
+come il metodo viene applicato nei progetti adottanti, confrontando artefatti,
+componenti, strumenti, skill, nodi, task e segnali di salute.
 
-Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale — principi, struttura KB, ciclo operativo — mentre le personalizzazioni sono esplicite: ogni progetto estende il metodo con principi, fonti di verità e strumenti propri del dominio. Le differenze tra progetti non sono rumore: sono materiale di analisi per capire cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
+Il metodo è portabile tra progetti di natura diversa. Il nucleo è universale —
+principi, anatomia dell'artefatto e ciclo operativo — mentre le
+personalizzazioni sono esplicite: ogni progetto estende il metodo con Goal,
+Mondo, fonti di verità, rappresentazioni e strumenti propri del dominio. Le
+differenze tra progetti non sono rumore: sono materiale di analisi per capire
+cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
 
 Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo](kb/sviluppo-metodo.md)). Dal basso, un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Dall'alto, una cornice teorica importata — un gigante, una distinzione — dà forma a ciò che dal basso si avverte come disagio ma non si sa ancora inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale e le cornici che lo reggono.
 
@@ -52,5 +64,11 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 1. Crea il symlink: `ln -s ../method/kb method` dalla root del progetto.
 2. Aggiungi una voce all'elenco dei progetti adottanti.
-3. Nel README del progetto, referenzia `method/metodo-kb.md` come nodo centrale del metodo e aggiungi una sezione con i principi specifici del progetto.
-4. Aggiorna i path in `CLAUDE.md` del progetto: `kb/metodo-kb.md` → `method/metodo-kb.md` (e analogamente per gli altri nodi metodologici).
+3. Nel README del progetto, referenzia
+   `method/cognitive-artifact-design.md` come hub del metodo e aggiungi una
+   sezione con i principi specifici del progetto.
+4. Aggiorna i path in `CLAUDE.md` del progetto:
+   `kb/cognitive-artifact-design.md` → `method/cognitive-artifact-design.md` (e
+   analogamente per gli altri nodi metodologici).
+5. Dichiara gli strati input/output e la membrana `world/` del dominio; crea il
+   symlink host-local solo quando il progetto viene messo in uso.

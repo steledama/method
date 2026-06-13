@@ -66,7 +66,7 @@ Esito metodologico iniziale:
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [sviluppo-metodo](sviluppo-metodo.md)
 - [strumenti-kb](strumenti-kb.md)
 - [struttura-progetto](struttura-progetto.md)

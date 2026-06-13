@@ -34,7 +34,7 @@ I conteggi aggiornati (nodi, cluster) vivono in confronto-progetti-adottanti. La
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [readme](readme.md)
 - [map](map.md)
 - [nodo](nodo.md)

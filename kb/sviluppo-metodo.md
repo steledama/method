@@ -13,7 +13,7 @@ L'antidoto non è scegliere: è l'alternanza e il contraddittorio tra i due. Il 
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [ciclo-azione](ciclo-azione.md)
 - [processing-layers](processing-layers.md)
 - [pace-layering](pace-layering.md)

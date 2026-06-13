@@ -40,5 +40,5 @@ Connessioni:
 - [processing-layers](processing-layers.md)
 - [knowledge-base](knowledge-base.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [agente](agente.md)

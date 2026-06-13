@@ -20,11 +20,6 @@ righe `Connessioni` di tutti i nodi citanti, il catalogo in `README.md`/`kb.md`,
 e i link nei `CLAUDE.md`/`README.md` dei repo adottanti. `tools/kb_tools.py` ha
 supporto migrazione/backlink da sfruttare.
 
-## Già coperti in altri task
-
-- `metodo-kb.md` → `cognitive-artifact-design.md` — in
-  `tasks/metodo-kb-riconcezione.md`
-
 ## Lista (nome attuale → target proposto, da confermare al rename)
 
 - `agente.md` → `agent.md`

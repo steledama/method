@@ -50,7 +50,7 @@ La pratica conferma che `tasks/` è parte del metodo ma non della KB stabile. Qu
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [plan](plan.md)
 - [readme](readme.md)
 - [verdict](verdict.md)

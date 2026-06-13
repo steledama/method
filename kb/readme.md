@@ -44,7 +44,7 @@ Il confronto chiarisce che il README non deve avere una lunghezza unica. Deve pe
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [indice](indice.md)
 - [plan](plan.md)
 - [map](map.md)

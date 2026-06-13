@@ -147,7 +147,7 @@ Gli strumenti vanno esposti su tre livelli — README orienta, CLAUDE istruisce,
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [nodo](nodo.md)

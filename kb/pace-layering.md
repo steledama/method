@@ -14,13 +14,13 @@ Da qui il criterio operativo che mancava per decidere dove vive una cosa. Metter
 Fonti:
 
 - Frank Duffy, architetto, origine dell'idea che un edificio sia una sovrapposizione di strati a diversa longevità ("shearing layers")
-- Stewart Brand, *How Buildings Learn: What Happens After They're Built* (1994), che espande gli strati a Site, Structure, Skin, Services, Space plan, Stuff
-- Stewart Brand, *The Clock of the Long Now* (1999), che generalizza il concetto a "pace layering" della civiltà (fashion, commerce, infrastructure, governance, culture, nature)
+- Stewart Brand, _How Buildings Learn: What Happens After They're Built_ (1994), che espande gli strati a Site, Structure, Skin, Services, Space plan, Stuff
+- Stewart Brand, _The Clock of the Long Now_ (1999), che generalizza il concetto a "pace layering" della civiltà (fashion, commerce, infrastructure, governance, culture, nature)
 - applicazione del concetto all'architettura dell'informazione e dei sistemi software (da verificare e citare con precisione nel task dedicato)
 
 Connessioni:
 
-- [metodo-kb](metodo-kb.md)
+- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [struttura-progetto](struttura-progetto.md)
 - [map](map.md)
 - [knowledge-base](knowledge-base.md)
