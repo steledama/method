@@ -29,6 +29,7 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
 - [output](output.md)
+- [input](input.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [osservatorio-metodo](osservatorio-metodo.md)

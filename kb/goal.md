@@ -68,6 +68,7 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 Connessioni:
 
 - [ciclo-azione](ciclo-azione.md)
+- [input](input.md)
 - [mondo](mondo.md)
 - [plan](plan.md)
 - [tasks](tasks.md)

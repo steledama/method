@@ -162,6 +162,7 @@ Connessioni:
 - [system-image](system-image.md)
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [output](output.md)
+- [input](input.md)
 - [goal](goal.md)
 - [mondo](mondo.md)
 - [matrice-ciclo-azione](matrice-ciclo-azione.md)

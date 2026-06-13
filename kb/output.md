@@ -5,7 +5,7 @@ stato: bozza
 
 # Output
 
-Lo strato output del metodo: il livello che traduce la conoscenza accumulata nella KB in azione possibile nel mondo, e che riceve il segnale del mondo di ritorno per chiudere il ciclo. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
+Lo strato output del metodo: il livello che traduce la conoscenza accumulata nella KB in azione possibile nel mondo — l'**arco di esecuzione** del ciclo d'azione, che scende dalla KB al Mondo. È il simmetrico dello strato `input` (l'arco di valutazione, che risale dal Mondo alla KB e chiude il ciclo); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `ciclo-azione`. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
 
 Lo strato output esiste perché la KB possa restare pura. È la sua condizione di possibilità, non un'aggiunta opzionale. Senza, la pressione di sintesi finisce dentro ai nodi (caso paradigmatico: `salute/kb/storia-clinica.md`, diventato di fatto un mini-dashboard improprio), violando l'atomicità che è il principio fondante dello Zettelkasten.
 
@@ -53,33 +53,6 @@ responsabilità distinta da Git.
 
 L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `pattern-karpathy`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `presentazione`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
 
-## Lo strato input
-
-Il lato simmetrico del ciclo. Il segnale grezzo del mondo ritorna nel sistema e attraversa tre stadi prima di diventare conoscenza stabile:
-
-- **i1 — grezzo** — natura: percezione del segnale esterno; forma: referto, log, export, documento, messaggio; dove vive: `sources/` (o locale al progetto)
-- **i2 — distillato** — natura: interpretazione e sintesi; forma: nota di lettura, analisi, estratto commentato; dove vive: `kb/` in `stato: bozza`
-- **i3 — formalizzato** — natura: conoscenza stabile o verdetto; forma: nodo KB aggiornato, fonte di verità, input al Goal; dove vive: `kb/` in `stato: maturo`
-
-Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i3 = Compare. Il passaggio i2→i3 non è automatico — è il giudizio che decide se un'interpretazione è abbastanza stabile da entrare nella KB. Per questo i2 vive in `kb/` come nodo in `stato: bozza`: la forma è quella del nodo, ma la funzione è ancora di elaborazione. La maturazione `bozza→maturo` è il passaggio i2→i3.
-
-i1 ha due sorgenti: feedback (risposta a o3, chiude un goal esistente) ed esogeno (il mondo agisce da sé — busta paga, normativa, alert — e apre spesso un goal nuovo). Per questo i3 ha due modi: verdetto (Compare contro un goal esistente) e triage/formazione-goal (per l'esogeno). Cfr. `goal`.
-
-## L'i2 ha bisogno di un substrato
-
-L'i2 (Interpret) non lavora sul grezzo: da centinaia di segnali (i1) non si interpreta nulla. È la **sintesi** — la torta delle spese, il trend, il termometro — il luogo dove l'interpretazione accade. Per questo i2 e o2 sono lo stesso artefatto visto dai due archi (lo specchio o2↔i2): la sintesi è o2 quando la si produce (feedforward, scende), è substrato dell'i2 quando la si legge per interpretare (feedback, risale). La forma segue il dominio: grafica dove i dati sono molti (`economia`, `bi`), testuale dove il dominio è concettuale (`salute`). Vincolo di sicurezza: la sintesi che interpreta dev'essere goal-guidata sulla rilevanza ma neutra sulla valenza, o l'i2 diventa ragionamento motivato e la stessa superficie che dovrebbe far capire finisce per persuadere (cfr. `goal`).
-
-## Lo specchio e le due cerniere
-
-I due archi — output (esecuzione) e input (valutazione) — sono speculari, accoppiati per altitudine: **o3 ↔ i1** al Mondo, **o2 ↔ i2** in mezzo, **o1 ↔ i3** alla KB. L'output scende dalla KB al Mondo, l'input risale dal Mondo alla KB. La simmetria è quella di Norman; o1 è il vertice-macchina dell'arco di output — non manca e non appartiene a «un altro ciclo».
-
-La simmetria convive con un'asimmetria _locale ai vertici_:
-
-- **Cerniera Mondo** (o3 → i1): o3 scrive un effetto nel mondo, i1 lo rilegge più tardi come segnale. Il mondo trattiene lo stato nell'intervallo — è scrivi-poi-leggi attraverso un medium, non riflesso immediato.
-- **Cerniera KB** (i3 → Goal): i3 _scrive_ l'esito nella KB, il Goal _legge_ l'intenzione — stessa forma, attraverso la memoria persistente. L'asimmetria vera non è tra le cerniere ma tra i medium: il mondo persiste da sé, la KB persiste solo se scritta. Da qui il principio: una decisione non scritta nella KB è una decisione persa.
-
-I _due_ cicli non sono «uno per agente» ma **annidati per Mondo**: il ciclo runtime agisce sulla realtà, il ciclo di sviluppo agisce sull'artefatto stesso (o3 = un commit, i1 = lint/audit/test). o1/o2/o3 e i1/i2/i3 si raddoppiano di conseguenza. L'agente (umano/LLM) e il livello (1/2/3) sono dimensioni _ortogonali_, non la stessa cosa — cfr. `ciclo-azione`.
-
 ## Stato dei progetti adottanti
 
 - **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/` (forte); o2: testo descrittivo in `kb/` (debole, no diagrammi); o3: sistema in esecuzione, deploy, switch (forte)
@@ -114,6 +87,7 @@ Lo strato output va valutato sui criteri di Norman: visibilità, feedback, mappi
 
 Connessioni:
 
+- [input](input.md)
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
 - [mondo](mondo.md)
