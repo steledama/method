@@ -1,5 +1,5 @@
 ---
-data: 2026-06-10
+data: 2026-06-13
 stato: bozza
 ---
 
@@ -16,7 +16,7 @@ Regole:
 - vive in root come `plan.md`, vista sintetica e supervisionabile
 - ogni task sostanziale può avere un file in `tasks/`
 - ogni file in `tasks/` deve avere una riga corrispondente in `plan.md`
-- priorità e dipendenze devono essere esplicite
+- ordine e dipendenze devono rendere esplicita la priorità
 - i task completati vanno rimossi, non archiviati in `tasks/`
 - i task locali restano nel repo locale, non nel repo metodo
 - i task del repo `metodo` riguardano solo il metodo stesso: ristrutturazione,
@@ -33,9 +33,43 @@ La revisione del plan va fatta come controllo leggero a inizio sessione e come c
 
 La forma del `plan.md` istanza si descrive **una volta sola, qui nel nodo**: il file non ripete le istruzioni. Letto, si auto-spiega — una tabella ordinata per esecuzione e un footer di link sono leggibili a colpo d'occhio — e le convenzioni che la forma non rende evidenti da sé vivono in questo nodo, a cui `CLAUDE.md`/`AGENTS.md` rimandano invece di duplicarle. È la fonte-unica-di-verità applicata al plan, e il vantaggio dei symlink preservato: cambiare la forma è un edit solo, ereditato da tutti gli adottanti — incorporare le istruzioni in ogni `plan.md` lo annullerebbe.
 
-La forma tiene separati **due identificatori con vite diverse**. Il numero `#` è un puntatore locale **effimero**: ordine di esecuzione, vive solo nella tabella, si rinumera lì quando l'ordine cambia, e serve a riferire un task in conversazione e nella colonna «Dipende da» (`#2` invece del titolo intero). Il link al file `tasks/` è invece **stabile**: vive in un footer ordinato per titolo, disaccoppiato dall'ordine. L'identità (il file) sta in un posto, l'ordine (il `#`) in un altro, e non si rincorrono: riordinare le priorità tocca una lista sola, non due.
+La forma tiene separati **due identificatori con vite diverse**. Il numero `#` è un puntatore locale **effimero**: ordine di esecuzione, vive solo nella tabella, si rinumera lì quando l'ordine cambia, e serve a riferire un task in conversazione e nella colonna `Dip.` (`#2` invece del titolo intero). Il link al file `tasks/` è invece **stabile**: vive in un footer ordinato per titolo, disaccoppiato dall'ordine. L'identità (il file) sta in un posto, l'ordine (il `#`) in un altro, e non si rincorrono: riordinare le priorità tocca una lista sola, non due.
 
-La tabella resta **stretta e portabile** — `# · Priorità · Task · Dipende da` — con i collegamenti fuori dalle celle. «Priorità» (`alta`/`media`/`bassa`) indica l'importanza, non l'ordine; «Dipende da» usa `#n` per le dipendenze interne e testo libero per quelle esterne, e riflette dipendenze reali, non preferenze d'ordine. Nei commit e nella documentazione i task si citano per titolo, non per numero: il `#` è un puntatore conversazionale, non un'identità. La forma è **uniforme su tutti i repo adottanti**: la granularità del dominio vive nel contenuto — quanti task, di che natura — non nella forma. È la regola dell'atrio applicata al plan (struttura uniforme, carattere nel contenuto): un nodo in `kb/` contiene solo l'invariante generale, e ciò che è qui si applica ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
+La tabella resta **stretta e portabile** — `# · Task · Dip.` — con i
+collegamenti fuori dalle celle. L'ordine di esecuzione esprime la priorità tra i
+task non bloccati; `Dip.` spiega perché un task importante non può ancora
+salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
+dipendenze codificano la priorità**.
+
+`Dip.` usa `#n` per le dipendenze interne e marcatori `[a]`, `[b]`, ... per
+condizioni esterne. I marcatori vengono spiegati subito sotto la tabella in una
+breve sezione `Legenda dipendenze esterne`; il testo libero non gonfia le celle.
+Le dipendenze devono essere reali, non preferenze d'ordine. Nei commit e nella
+documentazione i task si citano per titolo, non per numero: il `#` è un
+puntatore conversazionale, non un'identità.
+
+La larghezza di circa 80 caratteri per riga resta una guida, non una regola. Il
+titolo usa lo spazio che rimane dopo le colonne necessarie al dominio.
+
+La forma è **uniforme su tutti i repo adottanti**: la granularità del dominio
+vive nel contenuto — quanti task, di che natura — non nella forma. È la regola
+dell'atrio applicata al plan (struttura uniforme, carattere nel contenuto): un
+nodo in `kb/` contiene solo l'invariante generale, e ciò che è qui si applica
+ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
+
+## Scadenze e fonti da elaborare
+
+`plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
+solo quando una data esterna interagisce con la priorità dei task. La scadenza è
+input esogeno: avvicinandosi può far salire il lavoro collegato. Un calendario
+di adempimenti che non modifica la coda resta invece nel file di dominio
+dedicato, per esempio `scadenze.md`.
+
+Le righe di ingest semplici possono non avere un file in `tasks/`. Quando i path
+delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
+tabella e i path completi vivono in `## Fonti da elaborare`, dopo `## Dettagli
+task`. Se l'ingest richiede contesto, decisioni o più passaggi, resta un task
+sostanziale e deve avere il proprio file.
 
 ## Sviluppo del metodo e perimetro dei task
 
@@ -45,10 +79,21 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 
 ## Applicazione nei progetti adottanti
 
-- **`nixos`** — situazione attuale: coda piccola, `plan` compatto. Confronto con il metodo: molto aderente — pochi task vivi, legati a cambi tecnici concreti.
-- **`bi`** — situazione attuale: coda media; tabella stretta con puntatore `#` e footer per titolo (forma emersa qui). Confronto con il metodo: adeguato alla complessità del dominio. Le istruzioni d'uso sono ancora incorporate nel file: follow-up locale per snellirle verso il nodo e rimandare da `CLAUDE`/`AGENTS`.
-- **`economia`** — situazione attuale: coda ampia legata a scadenze, adempimenti e situazioni aperte. Confronto con il metodo: la numerosità è legittima perché il dominio è operativo e calendariale; serve però revisione frequente per evitare task morti.
-- **`salute`** — situazione attuale: coda media; può contenere anche task senza file per elaborazione fonti. Confronto con il metodo: adattamento accettabile per ingest semplici, ma i task più sostanziali dovrebbero avere contesto in `tasks/`.
+- **`nixos`** — situazione attuale: coda piccola e compatta, ancora sulla
+  tabella precedente con `Priorità` e dipendenze testuali. Confronto con il
+  metodo: contenuto aderente; la nuova forma va recepita localmente.
+- **`bi`** — situazione attuale: coda media, ancora sulla tabella precedente
+  con `Priorità` e dipendenze testuali. Confronto con il metodo: contenuto
+  adeguato alla complessità del dominio; la nuova forma e lo snellimento delle
+  istruzioni incorporate vanno recepiti localmente.
+- **`economia`** — situazione attuale: coda ampia legata a scadenze,
+  adempimenti e situazioni aperte. Confronto con il metodo: mantiene
+  `scadenze.md` separato perché il calendario è una funzione di dominio più
+  ampia della priorità dei task.
+- **`salute`** — situazione attuale: coda media; usa la forma canonica e può
+  affiancare `## Scadenze` quando le date cambiano la priorità e `## Fonti da
+elaborare` per ingest semplici senza file dedicato. I task sostanziali
+  conservano contesto in `tasks/`.
 
 Il metodo deve ammettere granularità diverse. Nei domini tecnici il task tende a essere un intervento verificabile; in `economia` può essere una pratica aperta; in `salute` può essere ingest o sviluppo concettuale. La regola comune resta la stessa: ciò che è futuro e operativo non deve diventare nodo permanente.
 

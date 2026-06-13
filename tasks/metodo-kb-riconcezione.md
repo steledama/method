@@ -42,10 +42,10 @@ Scartati: `shared-cognition` (legge come concetto, si sovrappone a
 - aggiornare il catalogo `README.md`/`kb.md` e l'eventuale auto-citazione
   nell'indice cognitivo del nodo («Metodo KB: qual è la ricetta generale?»).
 
-## Dipendenza
+## Dipendenza soddisfatta
 
-Dipende da `tasks/world-membrana.md` (#1): l'hub deve **riflettere** il modello
-del ciclo già consolidato (world, o3, processing-layers), non anticiparlo.
+La membrana `world`, o3 e `processing-layers` sono consolidati nei nodi dal
+commit `37a2508`; l'hub può ora riflettere il modello invece di anticiparlo.
 
 Connessioni:
 

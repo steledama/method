@@ -43,6 +43,15 @@ La seconda divergenza riguarda la fedeltà cognitiva. `nixos` ha il modello più
 
 La terza divergenza riguarda i componenti locali aggiuntivi. `economia` ha `stato.md`, `scadenze.md` e `diario.md`; `salute` ha `diario.md`, `scadenze.md` e `fonti/`; `bi` ha presentation, client Windows e Graphify; `nixos` ha script tecnici e moduli Nix. Il metodo deve ammettere questi componenti senza trasformarli in nucleo universale.
 
+La forma del plan è stata stabilizzata dal caso `salute`: tabella canonica
+`# · Task · Dip.`, con ordine e dipendenze che codificano la priorità,
+marcatori per condizioni esterne e sezioni opzionali per scadenze e fonti da
+elaborare. `salute` usa le scadenze nel plan quando cambiano l'ordine del lavoro;
+`economia` conserva invece `scadenze.md` come calendario di dominio autonomo.
+La differenza non è drift: dipende dal fatto che la data interagisca o no con la
+supervisione dei task. `nixos` e `bi` conservano ancora la tabella precedente:
+è drift di forma da recepire localmente, non una variante di dominio.
+
 ## Implicazioni per il metodo
 
 Il metodo deve chiarire che ogni componente ha una parte universale e una soglia di adattamento locale. La ricetta non è "tutti i progetti hanno gli stessi file", ma "tutti i progetti esplicitano quali file svolgono le funzioni cognitive della ricetta".

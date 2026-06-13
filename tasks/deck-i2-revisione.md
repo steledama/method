@@ -6,8 +6,8 @@ stato: differito
 # Migliorare il deck i2 (dopo la propagazione)
 
 Task **terminale**: da affrontare alla fine di tutto, dopo che la ri-fondazione
-della membrana `world` (cfr. `tasks/world-membrana.md`) si è propagata ai repo
-adottanti. A quel punto tornare in `method` e rivedere il deck come superficie
+della membrana `world` (cfr. `world`) si è propagata ai repo adottanti. A quel
+punto tornare in `method` e rivedere il deck come superficie
 i2/o2 (`kb/deck.md`, `presentations/`), che ha ampi margini di aggiornamento e
 miglioramento.
 
@@ -19,10 +19,12 @@ forma-default della sintesi che si scorre: il miglioramento va orientato a far
 scendere la sintesi fino al viscerale, non solo ad arricchire il contenuto
 riflessivo.
 
-Dipende da: membrana `world` propagata + forma canonica `plan.md`.
+Dipende da: membrana `world` propagata. La forma canonica di `plan.md` è già
+stabilizzata.
 
 Connessioni:
 
 - [deck](../kb/deck.md)
 - [output](../kb/output.md)
 - [processing-layers](../kb/processing-layers.md)
+- [world](../kb/world.md)

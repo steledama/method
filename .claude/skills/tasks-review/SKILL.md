@@ -70,7 +70,7 @@ Applica modifiche a `plan.md` e `tasks/` solo dopo conferma esplicita dell'utent
 ## Note operative
 
 - Mantieni i titoli brevi e coerenti con la tabella esistente
-- La colonna "Dipende da" deve riflettere dipendenze reali, non preferenze d'ordine
+- La colonna `Dip.` deve riflettere dipendenze reali, non preferenze d'ordine
 - I task completati si rimuovono da `plan.md` e `tasks/`; lo storico resta in git,
   `verdict.md` e nodi aggiornati
 - Dopo la revisione, suggerisci `/commit` per chiudere la sessione quando ci sono
