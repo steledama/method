@@ -65,7 +65,10 @@ ovunque, con il carattere nel contenuto. La propagazione ora ha un protocollo:
 adottante. `economia` è il primo pilot committato; `nixos` è il secondo, committato
 in `5d076ae`, e conferma il carve-out per output di altra natura ontologica
 (configurazione Nix runtime, nessuna porta `interpretations/` vuota). Restano da
-riallineare `bi` e `salute` (`plan` #1). Una tensione resta aperta.
+riallineare `salute` (`plan` #1); `bi` è fissato nella storia dal commit
+`48f9e2cc`. Il caso BI conferma che l'uniformità del protocollo non deve
+interferire con opzioni applicative omonime: `--append-note` resta dominio,
+`--append-why` era infrastruttura di audit. Una tensione resta aperta.
 _Ri-derivazione del deck_:
 il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi

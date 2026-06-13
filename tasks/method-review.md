@@ -212,6 +212,30 @@ facts e 9 macro-aree allineati, fidelity senza segnali, `tools/check.sh` e
 Il secondo pilot è validato e fissato nella storia di `nixos` dal commit
 `5d076aec247fa1e776929c1035f32c0cfd12861f`.
 
+## Terzo pilot su bi (2026-06-13)
+
+Intervallo revisionato:
+`b593899b6459c806f751875907cf1b9e3dae92aa..18424f8af8111876e3da3943fc3e62748aadb73b`.
+Nove commit classificati in 2 cambiamenti già soddisfatti, 3 diretti, 2
+adattamenti BI e 2 non pertinenti. Il marker è `aligned` a
+`18424f8af8111876e3da3943fc3e62748aadb73b`; la seconda esecuzione ha intervallo
+vuoto e worktree invariato.
+
+Il pilot ha migrato `why.md`→`verdict.md`, riducendo il log storico a tre fili
+correnti; rinominato `presentations/`→`interpretations/` e la relativa porta;
+rinominato `/audit-kb`→`/kb-review`; installato `method-review`; rimosso
+`--append-why`; aggiornato `/commit` con i check i2/i3 e la policy
+harness-agnostic, preservando i guardrail BI. I riferimenti a `output`, `input` e
+`deck` sono allineati; gli undici usi applicativi di `--append-note` restano
+intatti perché non appartengono al protocollo di audit.
+
+Verifiche riferite dal pilot: audit pulito su 82 nodi, 315 link e 45 script
+documentati; Prettier, Ruff, `py_compile`, audit JSON e `git diff --check`
+superati; nessun riferimento ai nomi precedenti; deck e CSS serviti on-demand
+con HTTP 200 e contenuti byte-identici dopo il rename. Configurazioni host
+esterne non verificate. Il terzo pilot è validato e fissato nella storia di `bi`
+dal commit `48f9e2ccf3fd802a75fbefc36db51ceaa0aad4aa`.
+
 ## Criterio di chiusura
 
 La skill è presente e documentata in `metodo`, validata su un adottante e
