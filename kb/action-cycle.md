@@ -3,7 +3,7 @@ data: 2026-05-24
 stato: bozza
 ---
 
-# Ciclo di azione
+# Action cycle
 
 Modello del rapporto tra utente e sistema secondo Donald Norman, distillato come fondamento metodologico per lo strato di output del metodo. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo collega al ciclo dell'azione che il metodo deve sostenere.
 
@@ -112,7 +112,7 @@ Ciascuno dei sette stadi è il punto in cui un agente si pone una domanda, e ogn
 
 Il Mondo, ottavo elemento del metodo, non ha domanda: è il terreno muto. Anche i due poli tacciono in modo diverso — il Goal ha la sua domanda ma a provenienza aperta (da dove venga il goal Norman non lo dice, è il confine aperto di `goal`), il Mondo tace del tutto (è la scatola nera che l'annidamento apre).
 
-Il design risponde a queste domande con vincoli, mapping, significanti, modelli concettuali, feedback e visibilità (cfr. `vincolo`, `affordance-signifier`, `system-image`). Norman distingue l'informazione per direzione: il **feedforward** risponde alle domande di esecuzione (cosa posso fare, come), il **feedback** a quelle di valutazione (cosa è successo, cosa significa, va bene). Nel metodo i due archi portano esattamente queste due informazioni: l'arco output (o1/o2/o3) è il feedforward che colma il gulf of execution; l'arco input (i1/i2/i3) è il feedback che colma il gulf of evaluation. Il criterio che ne segue, valido per ogni componente del repo: questo file dà l'informazione per rispondere alla domanda del suo stadio?
+Il design risponde a queste domande con vincoli, mapping, significanti, modelli concettuali, feedback e visibilità (cfr. `constraint`, `affordance-signifier`, `system-image`). Norman distingue l'informazione per direzione: il **feedforward** risponde alle domande di esecuzione (cosa posso fare, come), il **feedback** a quelle di valutazione (cosa è successo, cosa significa, va bene). Nel metodo i due archi portano esattamente queste due informazioni: l'arco output (o1/o2/o3) è il feedforward che colma il gulf of execution; l'arco input (i1/i2/i3) è il feedback che colma il gulf of evaluation. Il criterio che ne segue, valido per ogni componente del repo: questo file dà l'informazione per rispondere alla domanda del suo stadio?
 
 ## Cicli annidati: due specchi, due Mondi
 
@@ -149,7 +149,7 @@ Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si collo
 
 La matrice che ne risulta è la lente per confrontare i progetti adottanti: per ogni dominio si legge cosa è sviluppato, cosa manca perché non serve (es. `nixos` ha poco esogeno sul lato input runtime), e cosa manca ma servirebbe. Sostituisce sia il taglio rigido «stadi divisi per agente» sia la fotografia piatta dello stato dei progetti.
 
-**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `verdict.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `fedelta-cognitiva`).
+**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `verdict.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `cognitive-fidelity`).
 
 ## Le quattro proprietà cardine come criteri di qualità per o2
 
@@ -179,17 +179,17 @@ Una conseguenza forte di questa critica, che resta come principio di valutazione
 Connessioni:
 
 - [affordance-signifier](affordance-signifier.md)
-- [vincolo](vincolo.md)
+- [constraint](constraint.md)
 - [system-image](system-image.md)
 - [processing-layers](processing-layers.md)
 - [output](output.md)
 - [input](input.md)
 - [goal](goal.md)
 - [world](world.md)
-- [matrice-ciclo-azione](matrice-ciclo-azione.md)
-- [pattern-karpathy](pattern-karpathy.md)
+- [action-cycle-matrix](action-cycle-matrix.md)
+- [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [adopter-comparison](adopter-comparison.md)
+- [cognitive-fidelity](cognitive-fidelity.md)

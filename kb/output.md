@@ -5,7 +5,7 @@ stato: bozza
 
 # Output
 
-Lo strato output del metodo: il livello che traduce la conoscenza accumulata nella KB in azione possibile nel mondo — l'**arco di esecuzione** del ciclo d'azione, che scende dalla KB al Mondo. È il simmetrico dello strato `input` (l'arco di valutazione, che risale dal Mondo alla KB e chiude il ciclo); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `ciclo-azione`. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
+Lo strato output del metodo: il livello che traduce la conoscenza accumulata nella KB in azione possibile nel mondo — l'**arco di esecuzione** del ciclo d'azione, che scende dalla KB al Mondo. È il simmetrico dello strato `input` (l'arco di valutazione, che risale dal Mondo alla KB e chiude il ciclo); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `action-cycle`. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
 
 Lo strato output esiste perché la KB possa restare pura. È la sua condizione di possibilità, non un'aggiunta opzionale. Senza, la pressione di sintesi finisce dentro ai nodi (caso paradigmatico: `salute/kb/storia-clinica.md`, diventato di fatto un mini-dashboard improprio), violando l'atomicità che è il principio fondante dello Zettelkasten.
 
@@ -31,7 +31,7 @@ o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso
 è inutile per la decisione umana, un'infografica colorata è inefficiente per
 l'LLM.
 
-o1 e o2 sono due _altitudini_ dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `ciclo-azione`.
+o1 e o2 sono due _altitudini_ dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `action-cycle`.
 
 ## Dati operativi e presentazione
 
@@ -43,7 +43,7 @@ separazione di default è:
   cache, intermedi e report strutturati destinati alle macchine
 - `interpretations/` — superfici curate per lettura, decisione e interpretazione:
   HTML, CSS, SVG, markdown editoriale e altri artefatti i2/o2 intenzionalmente
-  versionati (cfr. `ciclo-azione`, sezione i2 micro/macro)
+  versionati (cfr. `action-cycle`, sezione i2 micro/macro)
 - `scripts/`, `config/`, schemi e fixture anonime — trasformazione
   riproducibile, versionata
 
@@ -61,7 +61,7 @@ responsabilità distinta da Git.
 
 ## La forma dell'o2 segue la domanda
 
-L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `pattern-karpathy`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `deck`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
+L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `karpathy-pattern`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `deck`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
 
 ## Stato dei progetti adottanti
 
@@ -109,7 +109,7 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 
 Lo strato di sintesi-documento ha nome **uniforme** tra i progetti:
 `interpretations/`. Il carattere del dominio vive nel contenuto, non nel nome
-della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel
+della cartella (cfr. project-structure, «struttura uniforme, carattere nel
 contenuto»): anche una fotografia finanziaria seleziona, aggrega e rappresenta i
 numeri secondo i goal, dunque interpreta. La stessa superficie è o2 quando viene
 prodotta come vista di decisione e substrato i2 quando viene letta per attribuire
@@ -120,20 +120,20 @@ ovunque: tradurre conoscenza in azione possibile.
 
 ## Criteri di qualità
 
-Lo strato output va valutato sui criteri di Norman: visibilità, feedback, mapping, constraint (cfr. `ciclo-azione`). La bellezza dei nodi della KB non basta. Se l'utente non agisce, l'output è mal progettato, non l'utente è pigro.
+Lo strato output va valutato sui criteri di Norman: visibilità, feedback, mapping, constraint (cfr. `action-cycle`). La bellezza dei nodi della KB non basta. Se l'utente non agisce, l'output è mal progettato, non l'utente è pigro.
 
 Connessioni:
 
 - [input](input.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [goal](goal.md)
 - [world](world.md)
 - [deck](deck.md)
-- [artefatto-cognitivo](artefatto-cognitivo.md)
-- [pattern-karpathy](pattern-karpathy.md)
+- [cognitive-artifact](cognitive-artifact.md)
+- [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [struttura-progetto](struttura-progetto.md)
+- [adopter-comparison](adopter-comparison.md)
+- [project-structure](project-structure.md)
 - [processing-layers](processing-layers.md)

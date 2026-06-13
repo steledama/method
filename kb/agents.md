@@ -32,4 +32,4 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [claude](claude.md)
 - [readme](readme.md)
-- [struttura-progetto](struttura-progetto.md)
+- [project-structure](project-structure.md)

@@ -3,7 +3,7 @@ data: 2026-05-16
 stato: maturo
 ---
 
-# Fedeltà cognitiva
+# Cognitive fidelity
 
 La fedeltà cognitiva è la capacità di una knowledge base di restare non solo
 formalmente sana, ma anche aderente al sistema reale e facile da ricostruire per
@@ -56,7 +56,7 @@ dominio.
 
 Una decisione registrata solo nel commit è un atto nel `world` del ciclo di
 sviluppo senza il ritorno versionato che la rende ri-valutabile: il _gulf of
-evaluation_ resta non attraversato (cfr. `ciclo-azione`). Il
+evaluation_ resta non attraversato (cfr. `action-cycle`). Il
 commit dice "ho preservato X"; `verdict.md` deve dire "X presuppone Y; se Y cambia,
 riaprire" — perché è l'assunzione, non il comportamento, che va ri-controllata
 quando il modello dati evolve. Caso reale: `bi`/1018022, dove il ripristino di un
@@ -151,9 +151,9 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [nodo](nodo.md)
-- [strumenti-kb](strumenti-kb.md)
-- [fonte-di-verita](fonte-di-verita.md)
+- [node](node.md)
+- [kb-tools](kb-tools.md)
+- [source-of-truth](source-of-truth.md)
 - [map](map.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [ciclo-azione](ciclo-azione.md)
+- [adopter-comparison](adopter-comparison.md)
+- [action-cycle](action-cycle.md)

@@ -3,9 +3,9 @@ data: 2026-06-03
 stato: bozza
 ---
 
-# Confronto progetti adottanti
+# Adopter comparison
 
-Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il cognitive artifact design: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `verdict`, `strumenti-kb`, `skill`, `fonte-di-verita`, `fedelta-cognitiva`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il cognitive artifact design: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -70,11 +70,11 @@ Sessione del 2026-05-24: lo strato di output, finora trattato come "componente l
   `presentations/index.html` Reveal.js versionato (umano)
 - `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
 
-La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 prescrizione versionata; + strato input i1/i2/i3), world (membrana fisica) e ciclo-azione (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
+La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 prescrizione versionata; + strato input i1/i2/i3), world (membrana fisica) e action-cycle (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
 
 La promozione non rimuove la variazione locale: il nome dello strato resta scelta di dominio. Quello che si stabilizza è la funzione (tradurre conoscenza in azione possibile) e i criteri di qualità (visibilità, feedback, mapping, constraint).
 
-Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazione input/output), `ciclo-azione` aggiornato con la nomenclatura o/i e il cappio a due cerniere. Entrambi restano `stato: bozza` — la promozione a `maturo` è un filing back atteso dal pilota `salute/quadro/` quando produrrà 2-3 cicli completi documentati.
+Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazione input/output), `action-cycle` aggiornato con la nomenclatura o/i e il cappio a due cerniere. Entrambi restano `stato: bozza` — la promozione a `maturo` è un filing back atteso dal pilota `salute/quadro/` quando produrrà 2-3 cicli completi documentati.
 
 ## Azioni suggerite
 
@@ -82,7 +82,7 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 - **`bi`** — azione: `CLAUDE.md` a 190 righe: tabella strumenti propagata, non manuale di dominio. Resta sotto monitoraggio qualitativo, non quantitativo; tipo: monitoraggio
 - **`salute`** — azione: mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale; tipo: completato
 - **`economia`** — azione: audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti; tipo: completato
-- **metodo / output** — azione: promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
+- **metodo / output** — azione: promuovere `output` e `action-cycle` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
 - **metodo / task** — azione: mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
 - **metodo / strumenti** — azione: un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce; tipo: bottom-up: in attesa
 - **metodo / skill** — azione: mantenere la triade `kb-review` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
@@ -90,12 +90,12 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 
 Connessioni:
 
-- [osservatorio-metodo](osservatorio-metodo.md)
+- [method-observatory](method-observatory.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
-- [matrice-ciclo-azione](matrice-ciclo-azione.md)
-- [struttura-progetto](struttura-progetto.md)
+- [action-cycle](action-cycle.md)
+- [action-cycle-matrix](action-cycle-matrix.md)
+- [project-structure](project-structure.md)
 - [readme](readme.md)
 - [claude](claude.md)
 - [agents](agents.md)
@@ -103,7 +103,7 @@ Connessioni:
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)
 - [skill](skill.md)
-- [fonte-di-verita](fonte-di-verita.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [source-of-truth](source-of-truth.md)
+- [cognitive-fidelity](cognitive-fidelity.md)

@@ -3,7 +3,7 @@ data: 2026-05-23
 stato: bozza
 ---
 
-# Fonte di verità
+# Source of truth
 
 Una fonte di verità è ciò contro cui si verifica ciò che la KB dice. Risponde alla domanda: contro che cosa verifico ciò che la KB dice? Può essere codice, configurazione, JSON, documento autoritativo, database, output strutturato o mappa mantenuta manualmente.
 
@@ -36,7 +36,7 @@ Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità" n
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [map](map.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)
 - [knowledge-base](knowledge-base.md)

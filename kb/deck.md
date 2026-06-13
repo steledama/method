@@ -6,7 +6,7 @@ stato: bozza
 # Deck
 
 Il componente che rende le interpretazioni navigabili: il deck-tool è una
-**cerniera** (cfr. `ciclo-azione`, sezione i2 micro/macro). In ogni dominio la
+**cerniera** (cfr. `action-cycle`, sezione i2 micro/macro). In ogni dominio la
 stessa superficie è o2 quando viene prodotta come vista di decisione e substrato
 i2 quando viene letta per attribuire significato alla sintesi; cambia il
 contenuto interpretato, non il ruolo tra repository. È distinto da `output`, che
@@ -94,9 +94,9 @@ portabile è: **file locale per default, rete solo quando serve davvero**.
 Connessioni:
 
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [action-cycle](action-cycle.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [processing-layers](processing-layers.md)
-- [pattern-karpathy](pattern-karpathy.md)
-- [struttura-progetto](struttura-progetto.md)
+- [karpathy-pattern](karpathy-pattern.md)
+- [project-structure](project-structure.md)
 - [verdict](verdict.md)

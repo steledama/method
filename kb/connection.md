@@ -3,7 +3,7 @@ data: 2026-05-09
 stato: maturo
 ---
 
-# Connessione
+# Connection
 
 La connessione è il modo in cui un nodo si apre alla rete della knowledge base. In markdown può essere espressa con due strategie: link inline nel corpo del testo o link raccolti a fondo nodo in una sezione finale dedicata. La scelta non è puramente estetica: cambia il modo in cui si scrive, si legge e si naviga la rete, sia da parte di un umano che di un LLM.
 
@@ -51,6 +51,6 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [zettelkasten](zettelkasten.md)
-- [indice](indice.md)
+- [index](index.md)
 - [map](map.md)
-- [nodo](nodo.md)
+- [node](node.md)

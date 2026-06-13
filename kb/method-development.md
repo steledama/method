@@ -3,7 +3,7 @@ data: 2026-06-06
 stato: maturo
 ---
 
-# Sviluppo del metodo
+# Method development
 
 Lo sviluppo del metodo — e di ogni knowledge base — procede per due movimenti complementari, non per uno solo. Il movimento dal basso parte da un'esigenza concreta che nasce mentre si risolve un problema in un dominio: si stabilizza localmente e, se generalizzabile, risale a principio portabile. Il movimento dall'alto parte da un inquadramento teorico importato — un gigante, un concetto, una distinzione — che offre la cornice per vedere, nominare e mettere in ordine ciò che dal basso si avverte come disagio ma non si sa inquadrare.
 
@@ -14,7 +14,7 @@ L'antidoto non è scegliere: è l'alternanza e il contraddittorio tra i due. Il 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [processing-layers](processing-layers.md)
 - [pace-layering](pace-layering.md)
 - [plan](plan.md)

@@ -3,7 +3,7 @@ data: 2026-06-05
 stato: bozza
 ---
 
-# Artefatto cognitivo
+# Cognitive artifact
 
 Concetto di Donald Norman che dà il nome a ciò che il metodo coltiva. Un artefatto cognitivo è uno strumento cognitivo — un'entità esterna progettata per amplificare le capacità della mente umana. La tesi di Norman è radicale: «The power of the unaided mind is highly overrated». Senza ausili esterni, memoria, pensiero e ragionamento sono vincolati; la potenza reale viene dal progettare ausili che migliorano le capacità cognitive. È la ragione per cui esiste una KB.
 
@@ -33,11 +33,11 @@ L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera. L'artef
 
 Connessioni:
 
-- [sistema-cognitivo](sistema-cognitivo.md)
-- [ciclo-azione](ciclo-azione.md)
+- [cognitive-system](cognitive-system.md)
+- [action-cycle](action-cycle.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
 - [processing-layers](processing-layers.md)
 - [knowledge-base](knowledge-base.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)

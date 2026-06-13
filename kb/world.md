@@ -22,7 +22,7 @@ un confronto scrupoloso è i1.
 La cerniera resta scrivi-poi-leggi attraverso un medium: l'atto modifica il
 mondo e il segnale ne rende percepibile lo stato successivo. La differenza con
 la cerniera KB non sta nella forma ma nel medium: il mondo persiste da sé, la KB
-solo se scritta (cfr. `ciclo-azione`).
+solo se scritta (cfr. `action-cycle`).
 
 ## I tre confini
 
@@ -79,13 +79,13 @@ nodi, lint e audit ne percepiscono la risposta.
 
 Connessioni:
 
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [goal](goal.md)
 - [output](output.md)
 - [input](input.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [osservatorio-metodo](osservatorio-metodo.md)
-- [sviluppo-metodo](sviluppo-metodo.md)
-- [struttura-progetto](struttura-progetto.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
+- [adopter-comparison](adopter-comparison.md)
+- [method-observatory](method-observatory.md)
+- [method-development](method-development.md)
+- [project-structure](project-structure.md)
 - [processing-layers](processing-layers.md)

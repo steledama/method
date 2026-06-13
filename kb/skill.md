@@ -93,7 +93,7 @@ Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)
 - [claude](claude.md)
 - [agents](agents.md)
-- [osservatorio-metodo](osservatorio-metodo.md)
+- [method-observatory](method-observatory.md)

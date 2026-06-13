@@ -54,4 +54,4 @@ Connessioni:
 - [plan](plan.md)
 - [readme](readme.md)
 - [verdict](verdict.md)
-- [connessione](connessione.md)
+- [connection](connection.md)

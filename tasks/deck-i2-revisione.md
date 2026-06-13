@@ -13,7 +13,7 @@ miglioramento.
 
 Il criterio già emerso da `processing-layers`: l'o2 va valutato su
 tutti e tre i registri, e quello sistematicamente mancante è il **viscerale** (la
-colonna o2 è debole in quattro artefatti su cinque, cfr. `matrice-ciclo-azione`).
+colonna o2 è debole in quattro artefatti su cinque, cfr. `matrice-action-cycle`).
 Un o2 solo riflessivo parla a chi già sa e non muove chi fa. Il deck è la
 forma-default della sintesi che si scorre: il miglioramento va orientato a far
 scendere la sintesi fino al viscerale, non solo ad arricchire il contenuto

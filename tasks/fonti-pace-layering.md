@@ -27,4 +27,4 @@ Il nodo nasce dentro una riflessione più ampia sulla collocazione dei component
 (indice, mappa, lista dei task). pace-layering fornisce il criterio trasversale a quelle decisioni:
 strato lento (mappa, struttura) vs strato veloce (task, todo, log). Quando la riorganizzazione del
 top level si concretizza, rileggere questo nodo come criterio di collocazione e aggiornare
-[[struttura-progetto]] dove oggi dice «conoscenza stabile».
+[[project-structure]] dove oggi dice «conoscenza stabile».

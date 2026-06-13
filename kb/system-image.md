@@ -25,7 +25,7 @@ Un modello concettuale è utile proprio perché semplifica, ma la semplificazion
 
 Nel metodo la KB _è_ il system image. I due agenti che la usano non possono comunicare direttamente: l'umano dimentica e cambia nel tempo, l'LLM riparte da zero a ogni sessione. Esattamente come tra progettista e utente di Norman, l'intero peso della comunicazione cade sull'artefatto — il repo. È la ragione testuale per cui la KB deve essere autosufficiente nel bootstrap, per cui `verdict.md` esiste (un'assunzione che vive solo in un messaggio di commit è fuori dal system image), e per cui una decisione non scritta è una decisione persa.
 
-Da qui un'asimmetria che il metodo deve tenere esplicita. Il binomio umano + LLM è il caso saliente di una popolazione di agenti più ampia (cfr. `agente`): l'asimmetria che segue resta vera per questo caso, non come struttura unica. Norman dice che persone diverse formano mental model diversi dallo stesso oggetto: i due agenti lo fanno in modo radicalmente diverso. Per l'umano la KB è impalcatura esterna a un modello che possiede già — un promemoria. Per l'LLM la KB _è_ il mental model, non ne ha un altro: il system image e lo user's model coincidono. Questo cambia il criterio di progetto dello strato output: L1 (macchina) e L2 (umano) sono lo stesso system image reso ai due agenti, ma il primo deve essere completo perché è l'unica mente che il suo lettore avrà, il secondo può appoggiarsi a ciò che l'umano già sa. Il system image si costruisce dai signifier, dalle affordance, dai constraint e dai mapping: lo strato output è il lavoro di rendere quel system image leggibile a entrambi.
+Da qui un'asimmetria che il metodo deve tenere esplicita. Il binomio umano + LLM è il caso saliente di una popolazione di agenti più ampia (cfr. `agent`): l'asimmetria che segue resta vera per questo caso, non come struttura unica. Norman dice che persone diverse formano mental model diversi dallo stesso oggetto: i due agenti lo fanno in modo radicalmente diverso. Per l'umano la KB è impalcatura esterna a un modello che possiede già — un promemoria. Per l'LLM la KB _è_ il mental model, non ne ha un altro: il system image e lo user's model coincidono. Questo cambia il criterio di progetto dello strato output: L1 (macchina) e L2 (umano) sono lo stesso system image reso ai due agenti, ma il primo deve essere completo perché è l'unica mente che il suo lettore avrà, il secondo può appoggiarsi a ciò che l'umano già sa. Il system image si costruisce dai signifier, dalle affordance, dai constraint e dai mapping: lo strato output è il lavoro di rendere quel system image leggibile a entrambi.
 
 ## Riferimenti
 
@@ -36,9 +36,9 @@ Da qui un'asimmetria che il metodo deve tenere esplicita. Il binomio umano + LLM
 Connessioni:
 
 - [affordance-signifier](affordance-signifier.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [processing-layers](processing-layers.md)
 - [knowledge-base](knowledge-base.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [agente](agente.md)
+- [agent](agent.md)

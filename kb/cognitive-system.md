@@ -3,7 +3,7 @@ data: 2026-06-05
 stato: bozza
 ---
 
-# Sistema cognitivo
+# Cognitive system
 
 Unità di analisi proposta da Edwin Hutchins per studiare la cognizione dove accade davvero: non dentro la testa di un singolo individuo, ma nell'accoppiamento tra persone, artefatti e ambiente. Un sistema cognitivo è «a collection of individuals and artifacts and their relations to each other in a particular work practice». La tesi di Hutchins è che la cognizione è _distribuita_ — non solo tra le persone di un gruppo, ma tra persone e strumenti, tra mente e mondo.
 
@@ -19,7 +19,7 @@ Questo lo distingue dall'artefatto cognitivo, che invece è portabile: il repo s
 
 ## L'asimmetria umano / LLM
 
-Il sistema cognitivo del metodo ha un'asimmetria strutturale tra gli agenti che leggono l'artefatto. Il caso saliente — quello su cui il metodo si è formato — è il binomio umano + LLM, che resta vero come caso di una popolazione di agenti più ampia (cfr. `agente`). Per l'umano la KB è impalcatura esterna a un modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM la KB _è_ il modello mentale: riparte da zero a ogni sessione e non ha altra fonte. Lo user's model di Norman (cfr. `system-image`) coincide, per l'LLM, con il system image — non c'è strato intermedio.
+Il sistema cognitivo del metodo ha un'asimmetria strutturale tra gli agenti che leggono l'artefatto. Il caso saliente — quello su cui il metodo si è formato — è il binomio umano + LLM, che resta vero come caso di una popolazione di agenti più ampia (cfr. `agent`). Per l'umano la KB è impalcatura esterna a un modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM la KB _è_ il modello mentale: riparte da zero a ogni sessione e non ha altra fonte. Lo user's model di Norman (cfr. `system-image`) coincide, per l'LLM, con il system image — non c'è strato intermedio.
 
 Questa asimmetria ha conseguenze di progetto: l'artefatto deve essere autosufficiente per l'agente che non porta nulla, senza per questo essere ridondante per l'agente che porta già molto. Non è un equilibrio facile — è la tensione che motiva la distinzione L1/L2 nello strato output, e che richiede che certe cose (assunzioni, contesto, ragioni di una decisione) siano esplicite nell'artefatto anche quando l'umano le ricorderebbe.
 
@@ -47,14 +47,14 @@ La distinzione è operativa: dire «il metodo è portabile» significa dire «l'
 
 - Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; volume non ancora disponibile in `sources/`.
 - Donald Norman, «Cognitive Artifacts», in J. Carroll (ed.), _Designing Interaction_ (Cambridge University Press, 1991) — definizione dell'artefatto cognitivo e della persona-più-artefatto come sistema.
-- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 — cfr. `kb/artefatto-cognitivo.md` per la distillazione.
+- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 — cfr. `kb/cognitive-artifact.md` per la distillazione.
 
 Connessioni:
 
-- [artefatto-cognitivo](artefatto-cognitivo.md)
-- [ciclo-azione](ciclo-azione.md)
+- [cognitive-artifact](cognitive-artifact.md)
+- [action-cycle](action-cycle.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [agente](agente.md)
+- [agent](agent.md)

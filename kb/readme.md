@@ -19,7 +19,7 @@ Il README **orienta e punta, non immagazzina**. È il signifier d'ingresso: dice
 
 Conseguenza: **non esiste un `map.md` separato come "modello in root"** — la bussola è il README. Il modello del dominio vive nei nodi e in `interpretations/`; dove il dominio ha un territorio da indicizzare, un register `map.md` lo mappa sui nodi (porta on-demand), ma è l'indice del territorio, non la bussola.
 
-Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo o teoria del metodo, il contenuto va spostato nei nodi (o nel register pertinente) e il README torna a essere un router. È il primo livello della tripartizione **README orienta · CLAUDE istruisce · KB approfondisce**, dettagliata in `strumenti-kb`.
+Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo o teoria del metodo, il contenuto va spostato nei nodi (o nel register pertinente) e il README torna a essere un router. È il primo livello della tripartizione **README orienta · CLAUDE istruisce · KB approfondisce**, dettagliata in `kb-tools`.
 
 ## Funzioni
 
@@ -45,10 +45,10 @@ Il confronto chiarisce che il README non deve avere una lunghezza unica. Deve pe
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [indice](indice.md)
+- [index](index.md)
 - [plan](plan.md)
 - [map](map.md)
 - [claude](claude.md)
-- [struttura-progetto](struttura-progetto.md)
-- [strumenti-kb](strumenti-kb.md)
+- [project-structure](project-structure.md)
+- [kb-tools](kb-tools.md)
 - [design-principles](design-principles.md)

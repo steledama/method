@@ -3,7 +3,7 @@ data: 2026-06-06
 stato: bozza
 ---
 
-# Agente
+# Agent
 
 L'agente è l'attore che agisce nell'artefatto cognitivo e con esso: chi legge la knowledge base, la interroga, la modifica e la usa per agire sul mondo. È distinto dal file AGENTS.md, che è solo il punto di ingresso operativo verso le istruzioni: quello indirizza gli agenti, questo nodo descrive chi sono e quanti livelli possono avere.
 
@@ -17,8 +17,8 @@ Connessioni:
 - [agents](agents.md)
 - [affordance-signifier](affordance-signifier.md)
 - [system-image](system-image.md)
-- [sistema-cognitivo](sistema-cognitivo.md)
+- [cognitive-system](cognitive-system.md)
 - [knowledge-base](knowledge-base.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
-- [consenso](consenso.md)
+- [action-cycle](action-cycle.md)
+- [consent](consent.md)

@@ -3,11 +3,11 @@ data: 2026-06-07
 stato: maturo
 ---
 
-# Struttura progetto
+# Project structure
 
 Schema che definisce l'infrastruttura operativa del progetto. La knowledge base, in senso stretto, non ha una struttura gerarchica predefinita: la sua forma emerge dalle connessioni tra i nodi. Il progetto che la ospita, invece, ha bisogno di una struttura esplicita per rendere leggibili le convenzioni, lo stato dei lavori, la memoria delle decisioni e gli strumenti di manutenzione.
 
-La root non si decide per profondità («più in alto = più stabile», criterio demolito da pace-layering). Si decide perché sia **atrio**: il _system image_ dell'artefatto. Un `ls` della root deve mostrare l'anatomia completa — quali classi di componente esistono — senza aprire nulla. È applicazione diretta di affordance-signifier e system-image: la struttura di directory porta essa stessa il peso della comunicazione, invece di delegarlo a un documento che la spiega (il cartello «tirare» su una porta mal progettata). Il principio è a sua volta applicazione di sviluppo-metodo: una cornice posata dall'alto (Norman) e verificata dal basso (le root reali dei progetti adottanti).
+La root non si decide per profondità («più in alto = più stabile», criterio demolito da pace-layering). Si decide perché sia **atrio**: il _system image_ dell'artefatto. Un `ls` della root deve mostrare l'anatomia completa — quali classi di componente esistono — senza aprire nulla. È applicazione diretta di affordance-signifier e system-image: la struttura di directory porta essa stessa il peso della comunicazione, invece di delegarlo a un documento che la spiega (il cartello «tirare» su una porta mal progettata). Il principio è a sua volta applicazione di method-development: una cornice posata dall'alto (Norman) e verificata dal basso (le root reali dei progetti adottanti).
 
 ## Le due specie di file root
 
@@ -25,7 +25,7 @@ La root contiene due tipi di file, distinti per **funzione**, non per profondit�
 - `kb.md` — il catalogo dei nodi (porta di `kb/`)
 - `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi. Register on-demand, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
 - `tools.md` — strumenti e skill (porta di `tools/`)
-- `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `ciclo-azione`, i2 micro/macro)
+- `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `action-cycle`, i2 micro/macro)
 - `sources.md` — il manifest delle fonti i1 (porta di `sources/`)
 
 ## Visibilità ≠ caricamento
@@ -42,9 +42,9 @@ Il set universale (i file-ciclo + le porte-collezione) è un _pavimento, non un 
 
 ## Il cruscotto è il ciclo di sviluppo, non simmetrico a sette caselle
 
-Il cruscotto agisce sull'artefatto (la KB), non sul mondo del dominio. Per questo `plan` è il Plan dello sviluppo, **non** o1 (il Plan del runtime in ciclo-azione): tenere distinte le due cose evita una contraddizione `plan`/o1 tra nodi. `plan` resta `plan.md` e non diventa `tasks.md`: è uno stadio del ciclo, non l'indice di `tasks/` — eccezione semantica per altezza, prova che l'atrio contiene il vecchio criterio di altezza come caso speciale.
+Il cruscotto agisce sull'artefatto (la KB), non sul mondo del dominio. Per questo `plan` è il Plan dello sviluppo, **non** o1 (il Plan del runtime in action-cycle): tenere distinte le due cose evita una contraddizione `plan`/o1 tra nodi. `plan` resta `plan.md` e non diventa `tasks.md`: è uno stadio del ciclo, non l'indice di `tasks/` — eccezione semantica per altezza, prova che l'atrio contiene il vecchio criterio di altezza come caso speciale.
 
-Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la fedelta-cognitiva — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in ciclo-azione) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in vista generata è l'**o2/i2-macro** (il deck in `interpretations/`) — vista derivata, non intenzione.
+Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la cognitive-fidelity — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in action-cycle) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in vista generata è l'**o2/i2-macro** (il deck in `interpretations/`) — vista derivata, non intenzione.
 
 ## Le regole d'azione e la memoria
 
@@ -100,12 +100,12 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - file UPPERCASE — riconosciuti e caricati per nome da tool o LLM: `README.md`, `CLAUDE.md`, `AGENTS.md` (solo `CLAUDE.md` è auto-caricato dall'harness Claude Code; gli altri seguono l'ordine di bootstrap)
 - file-ciclo lowercase in root (`plan.md`, `verdict.md`): letti seguendo l'ordine di bootstrap, tenuti concisi perché entrano in contesto presto
 - porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
-- forma inglese per gli artefatti strutturali vivi (`map`, `plan`, `verdict`, `kb`), italiano per i nodi-concetto e la prosa di dominio: l'inglese marca l'artefatto vivo, l'italiano la documentazione concettuale
-- nodi `kb/` — lowercase con trattini, singolare come forma canonica (regola dettagliata in nodo)
+- forma inglese per filename, H1 e artefatti strutturali vivi (`map`, `plan`, `verdict`, `kb`); prosa italiana per la documentazione concettuale
+- nodi `kb/` — lowercase inglese con trattini, singolare come forma canonica (regola dettagliata in node)
 
 ## Frontmatter per tipo di file
 
-- `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo nodo
+- `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo node
 - `tasks/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo tasks
 - file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): nessun frontmatter
 
@@ -143,29 +143,29 @@ Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno l
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.
 
-Gli strumenti vanno esposti su tre livelli — README orienta, CLAUDE istruisce, nodi approfondiscono — secondo la regola dettagliata in strumenti-kb.
+Gli strumenti vanno esposti su tre livelli — README orienta, CLAUDE istruisce, nodi approfondiscono — secondo la regola dettagliata in kb-tools.
 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [pattern-karpathy](pattern-karpathy.md)
-- [nodo](nodo.md)
+- [karpathy-pattern](karpathy-pattern.md)
+- [node](node.md)
 - [zettelkasten](zettelkasten.md)
 - [pace-layering](pace-layering.md)
-- [sviluppo-metodo](sviluppo-metodo.md)
+- [method-development](method-development.md)
 - [affordance-signifier](affordance-signifier.md)
 - [system-image](system-image.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)
 - [agents](agents.md)
 - [claude](claude.md)
 - [readme](readme.md)
-- [indice](indice.md)
+- [index](index.md)
 - [map](map.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
 - [skill](skill.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [adopter-comparison](adopter-comparison.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)

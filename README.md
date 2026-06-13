@@ -18,15 +18,15 @@ Mondo, fonti di verità, rappresentazioni e strumenti propri del dominio. Le
 differenze tra progetti non sono rumore: sono materiale di analisi per capire
 cosa generalizzare, cosa lasciare locale e cosa trasformare in task operativo.
 
-Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo](kb/sviluppo-metodo.md)). Dal basso, un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Dall'alto, una cornice teorica importata — un gigante, una distinzione — dà forma a ciò che dal basso si avverte come disagio ma non si sa ancora inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale e le cornici che lo reggono.
+Lo sviluppo del metodo procede per due movimenti in alternanza ([method-development](kb/method-development.md)). Dal basso, un'esigenza nasce in un repo adottante mentre si risolve un problema concreto, viene stabilizzata localmente, poi viene riportata qui solo se diventa una generalizzazione portabile. Dall'alto, una cornice teorica importata — un gigante, una distinzione — dà forma a ciò che dal basso si avverte come disagio ma non si sa ancora inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Questo repo non orchestra task sui progetti adottanti; custodisce il metodo emerso dall'uso reale e le cornici che lo reggono.
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [interpretations/metodo-in-sintesi.md](interpretations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [karpathy-pattern](kb/karpathy-pattern.md), [action-cycle](kb/action-cycle.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [interpretations/metodo-in-sintesi.md](interpretations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Orientarsi
 
-La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di file ([struttura-progetto](kb/struttura-progetto.md)).
+La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di file ([project-structure](kb/project-structure.md)).
 
 **File-ciclo** — il cruscotto del lavoro:
 

@@ -3,7 +3,7 @@
 Porta-collezione di `interpretations/` nell'atrio di root: lo stadio i2 (Interpret) del
 ciclo di sviluppo — le sintesi visive che rendono co-presenti le tensioni tra i nodi e
 aggiornano il modello mentale di chi mantiene il metodo (cfr. [output](kb/output.md),
-[ciclo-azione](kb/ciclo-azione.md), [system-image](kb/system-image.md)). Non possono
+[action-cycle](kb/action-cycle.md), [system-image](kb/system-image.md)). Non possono
 stare in `kb/` senza violare l'atomicità zettelkastiana: la sintesi vive qui, non nei
 nodi. Si vede a colpo d'occhio, si legge e si distribuisce on-demand.
 

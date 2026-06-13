@@ -47,7 +47,7 @@ porte-collezione, strati input/output e membrana `world`.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
-Lo sviluppo del metodo procede per due movimenti complementari in alternanza, descritti in `sviluppo-metodo`. Dal basso, una modifica metodologica nasce da un'esigenza concreta in un repo adottante: un problema reale di dominio obbliga a inventare o correggere una pratica locale; se la soluzione si dimostra riusabile, viene riportata nel repo `metodo` come generalizzazione portabile; gli altri repo adottanti la ricevono poi leggendo i commit del metodo e applicando solo ciò che è pertinente. Dall'alto, una cornice teorica importata — un gigante, una distinzione — offre la forma per nominare e mettere in ordine ciò che dal basso si avverte ma non si sa inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Il flusso inverso — aprire in `metodo` task che ordinano interventi nei repo adottanti — è da evitare salvo manutenzioni che riguardino davvero il metodo stesso.
+Lo sviluppo del metodo procede per due movimenti complementari in alternanza, descritti in `method-development`. Dal basso, una modifica metodologica nasce da un'esigenza concreta in un repo adottante: un problema reale di dominio obbliga a inventare o correggere una pratica locale; se la soluzione si dimostra riusabile, viene riportata nel repo `metodo` come generalizzazione portabile; gli altri repo adottanti la ricevono poi leggendo i commit del metodo e applicando solo ciò che è pertinente. Dall'alto, una cornice teorica importata — un gigante, una distinzione — offre la forma per nominare e mettere in ordine ciò che dal basso si avverte ma non si sa inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Il flusso inverso — aprire in `metodo` task che ordinano interventi nei repo adottanti — è da evitare salvo manutenzioni che riguardino davvero il metodo stesso.
 
 Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o restare lavoro locale nel progetto interessato. Osservare non significa orchestrare: il repo `metodo` custodisce le astrazioni emerse, non sostituisce le code operative dei repo adottanti.
 
@@ -78,9 +78,9 @@ Ricetta metodologica:
   per intero
 - `kb/`: strato riflessivo della conoscenza stabile. Contiene i nodi di metodo e
   di dominio. Il nucleo portabile comprende `cognitive-artifact-design`,
-  `knowledge-base`, `nodo`, `zettelkasten`, `pattern-karpathy`,
-  `struttura-progetto`, `strumenti-kb`, `connessione` e, quando il dominio
-  richiede verifica anti-drift, `fedelta-cognitiva`. Negli adottanti questi nodi
+  `knowledge-base`, `node`, `zettelkasten`, `karpathy-pattern`,
+  `project-structure`, `kb-tools`, `connection` e, quando il dominio
+  richiede verifica anti-drift, `cognitive-fidelity`. Negli adottanti questi nodi
   possono vivere in `method/` come symlink, mentre `kb/` resta dedicata al
   dominio.
 - `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `plan`, il catalogo in `kb`, il modello nei nodi e in `interpretations/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
@@ -101,7 +101,7 @@ Ricetta metodologica:
 - `world/`: membrana host-local non versionata verso il Mondo runtime. L'atto e
   il grezzo vivono qui; o3/i1 ne sono i riflessi versionati quando precisione o
   durata lo richiedono. Non ha manifest.
-- convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `nodo` e `tasks`.
+- convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `node` e `tasks`.
 
 Creazione di un nuovo progetto:
 
@@ -118,7 +118,7 @@ Creazione di un nuovo progetto:
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
 - aggiungere `tools/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
 
-Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in stato bozza. Il nodo autonomo rende esplicita la funzione cognitiva del componente, permette confronti cross-repo e segnala quali parti del metodo sono mature e quali sono ancora work in progress. Un componente può essere descritto anche in `struttura-progetto`, ma il suo nodo dedicato resta il punto in cui accumulare regole, esempi reali e criteri di revisione.
+Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in stato bozza. Il nodo autonomo rende esplicita la funzione cognitiva del componente, permette confronti cross-repo e segnala quali parti del metodo sono mature e quali sono ancora work in progress. Un componente può essere descritto anche in `project-structure`, ma il suo nodo dedicato resta il punto in cui accumulare regole, esempi reali e criteri di revisione.
 
 Evidenza dai progetti adottanti:
 
@@ -131,7 +131,7 @@ Evidenza dai progetti adottanti:
   con altri (`bi`), mentre un artefatto solo riflessivo fatica a generare azione
   coordinata
 
-La fotografia comparativa corrente vive nel nodo `confronto-progetti-adottanti`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
+La fotografia comparativa corrente vive nel nodo `adopter-comparison`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
 
 Tipi documentali:
 
@@ -196,33 +196,33 @@ Personalizzazioni locali:
 
 Connessioni:
 
-- [artefatto-cognitivo](artefatto-cognitivo.md)
-- [sistema-cognitivo](sistema-cognitivo.md)
+- [cognitive-artifact](cognitive-artifact.md)
+- [cognitive-system](cognitive-system.md)
 - [world](world.md)
 - [input](input.md)
 - [processing-layers](processing-layers.md)
-- [nodo](nodo.md)
+- [node](node.md)
 - [knowledge-base](knowledge-base.md)
-- [pattern-karpathy](pattern-karpathy.md)
-- [struttura-progetto](struttura-progetto.md)
-- [strumenti-kb](strumenti-kb.md)
+- [karpathy-pattern](karpathy-pattern.md)
+- [project-structure](project-structure.md)
+- [kb-tools](kb-tools.md)
 - [agents](agents.md)
 - [claude](claude.md)
 - [readme](readme.md)
-- [indice](indice.md)
+- [index](index.md)
 - [plan](plan.md)
 - [map](map.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
-- [fonte-di-verita](fonte-di-verita.md)
-- [osservatorio-metodo](osservatorio-metodo.md)
-- [sviluppo-metodo](sviluppo-metodo.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [source-of-truth](source-of-truth.md)
+- [method-observatory](method-observatory.md)
+- [method-development](method-development.md)
+- [adopter-comparison](adopter-comparison.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)
-- [connessione](connessione.md)
+- [connection](connection.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)

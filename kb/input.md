@@ -5,9 +5,9 @@ stato: bozza
 
 # Input
 
-Lo strato input del metodo: il livello che traduce il segnale grezzo del mondo in conoscenza stabile nella KB — l'**arco di valutazione** del ciclo d'azione, che risale dal Mondo alla KB e chiude il ciclo. È il simmetrico dello strato `output` (l'arco di esecuzione, che scende dalla KB al Mondo); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `ciclo-azione`, non qui.
+Lo strato input del metodo: il livello che traduce il segnale grezzo del mondo in conoscenza stabile nella KB — l'**arco di valutazione** del ciclo d'azione, che risale dal Mondo alla KB e chiude il ciclo. È il simmetrico dello strato `output` (l'arco di esecuzione, che scende dalla KB al Mondo); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `action-cycle`, non qui.
 
-Lo strato input esiste per una ragione di sicurezza, non di completezza teorica: è il meccanismo per cui l'artefatto può ascoltare il mondo che lo smentisce. Un ciclo con solo output agisce ma non si corregge; è l'arco di input che rende possibile delegare l'azione tenendo l'umano nel loop per ciò che conta (cfr. `goal`, `sistema-cognitivo`).
+Lo strato input esiste per una ragione di sicurezza, non di completezza teorica: è il meccanismo per cui l'artefatto può ascoltare il mondo che lo smentisce. Un ciclo con solo output agisce ma non si corregge; è l'arco di input che rende possibile delegare l'azione tenendo l'umano nel loop per ciò che conta (cfr. `goal`, `cognitive-system`).
 
 ## I tre stadi dell'input
 
@@ -45,7 +45,7 @@ serve duplicarlo nel repository.
 
 L'i2 (Interpret) non lavora sul grezzo: da centinaia di segnali (i1) non si interpreta nulla. È la **sintesi** — la torta delle spese, il trend, il termometro — il luogo dove l'interpretazione accade. Per questo i2 e o2 sono lo stesso artefatto visto dai due archi (lo specchio o2↔i2): la sintesi è o2 quando la si produce (feedforward, scende), è substrato dell'i2 quando la si legge per interpretare (feedback, risale). La forma segue il dominio: grafica dove i dati sono molti (`economia`, `bi`), testuale dove il dominio è concettuale (`salute`). Vincolo di sicurezza: la sintesi che interpreta dev'essere goal-guidata sulla rilevanza ma neutra sulla valenza, o l'i2 diventa ragionamento motivato e la stessa superficie che dovrebbe far capire finisce per persuadere (cfr. `goal`).
 
-L'i2 ha anche una scala macro: la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, ruolo di `interpretations/` in `method` (cfr. `ciclo-azione`, sezione i2 micro/macro).
+L'i2 ha anche una scala macro: la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, ruolo di `interpretations/` in `method` (cfr. `action-cycle`, sezione i2 micro/macro).
 
 ## Le due sorgenti di i1, i due modi di i3
 
@@ -59,7 +59,7 @@ Per questo i3 ha due modi: **verdetto** (Compare contro un goal esistente, loop 
 Connessioni:
 
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [goal](goal.md)
 - [world](world.md)
 - [knowledge-base](knowledge-base.md)

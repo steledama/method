@@ -26,7 +26,7 @@ Tre posizioni sulla cognizione, e come mappano sulla scelta di layout appena fat
   attraverso artefatti, che restano distinguibili ma collaborano. Più funzionale, meno
   radicale di Clark.
 
-Il metodo cita già Hutchins (_Cognition in the Wild_) in [[sistema-cognitivo]]: **Clark è il
+Il metodo cita già Hutchins (_Cognition in the Wild_) in [[cognitive-system]]: **Clark è il
 fratello mancante** della stessa famiglia (cognizione estesa/distribuita).
 
 ## La torsione che rende il filone originale (Hinton)
@@ -52,7 +52,7 @@ dell'intuizione sull'asimmetria degli agenti.
   Clark & Chalmers, _The Extended Mind_ (1998, _Analysis_ 58); Clark, _Being There_ (1997);
   Clark, _Supersizing the Mind_ (2008);
 - distillare i2 con provenienza esatta (edizione, capitolo); decidere la destinazione
-  bottom-up: estendere [[sistema-cognitivo]] / [[system-image]] / [[artefatto-cognitivo]]
+  bottom-up: estendere [[cognitive-system]] / [[system-image]] / [[cognitive-artifact]]
   oppure aprire un nodo proprio `mente-estesa`;
 - vagliare l'ipotesi forte sui giganti: Clark come quarto gigante, o ridefinizione del posto
   di Karpathy. Da decidere solo dopo aver letto le fonti, non ora;
@@ -63,6 +63,6 @@ dell'intuizione sull'asimmetria degli agenti.
 
 Il filone è nato da un **estratto di seconda mano**: un riassunto AI di una conversazione, che
 _confabula davanti agli occhi_ (attribuzioni incerte Feynman/Clark/Brooks, «probabilmente
-intendeva…»). È esattamente la citazione di seconda mano da cui [[fedelta-cognitiva]] mette in
+intendeva…»). È esattamente la citazione di seconda mano da cui [[cognitive-fidelity]] mette in
 guardia. **Non scrivere un nodo da quel materiale.** Prima i1 reale, poi i2, poi i3 — l'arco
 di input completo, come per [[affordance-signifier]] e [[system-image]].

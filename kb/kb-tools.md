@@ -3,7 +3,7 @@ data: 2026-05-24
 stato: maturo
 ---
 
-# Strumenti KB
+# KB tools
 
 Gli strumenti KB sono script versionati che rendono deterministica la manutenzione della knowledge base. Non sostituiscono il giudizio dell'LLM o dell'utente: spostano però la parte fragile e ripetitiva del lavoro — parsing dei link markdown, conteggi dei backlink, verifica del README, controllo del formato dei nodi — dentro codice stabile, testabile e riusabile.
 
@@ -40,7 +40,7 @@ Comandi principali:
 
 - `python3 tools/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) su stdout — diagnosi i1 rigenerabile, da leggere, non da archiviare
 - `python3 tools/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
-- `python3 tools/kb_tools.py backlinks nodo.md`: mostra link in uscita e backlink di un nodo
+- `python3 tools/kb_tools.py backlinks node.md`: mostra link in uscita e backlink di un nodo
 - `python3 tools/kb_tools.py orphans`: elenca i nodi senza backlink
 - `python3 tools/kb_tools.py readme`: verifica copertura e link del catalogo `kb.md`
 - `python3 tools/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
@@ -95,7 +95,7 @@ Requisiti per un nuovo progetto:
 - **`economia`** — situazione attuale: `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info. Confronto con il metodo: adattamento utile a un dominio documentale — i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze.
 - **`salute`** — situazione attuale: `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`). Confronto con il metodo: adeguato a una KB concettuale — per ora la priorità è salute strutturale e filing back, non inventario tecnico.
 
-La fotografia strutturale quantitativa per repo (nodi, link, esiti audit, file segnalati) vive nel nodo `confronto-progetti-adottanti`, fonte unica per i dati cross-repo: qui resta solo il confronto qualitativo sulla superficie degli strumenti, che cambia di rado.
+La fotografia strutturale quantitativa per repo (nodi, link, esiti audit, file segnalati) vive nel nodo `adopter-comparison`, fonte unica per i dati cross-repo: qui resta solo il confronto qualitativo sulla superficie degli strumenti, che cambia di rado.
 
 Il confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
 
@@ -103,12 +103,12 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [pattern-karpathy](pattern-karpathy.md)
-- [struttura-progetto](struttura-progetto.md)
-- [osservatorio-metodo](osservatorio-metodo.md)
-- [connessione](connessione.md)
-- [nodo](nodo.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [karpathy-pattern](karpathy-pattern.md)
+- [project-structure](project-structure.md)
+- [method-observatory](method-observatory.md)
+- [connection](connection.md)
+- [node](node.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
+- [adopter-comparison](adopter-comparison.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)

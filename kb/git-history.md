@@ -29,6 +29,6 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [verdict](verdict.md)
 - [plan](plan.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)
 - [design-principles](design-principles.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [adopter-comparison](adopter-comparison.md)

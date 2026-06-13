@@ -3,7 +3,7 @@ data: 2026-05-24
 stato: maturo
 ---
 
-# Principi Guida
+# Design principles
 
 Principi che governano l'architettura e lo sviluppo dei progetti che adottano il cognitive artifact design. I principi universali si applicano a qualsiasi progetto indipendentemente dal dominio; i principi code-based si applicano ai progetti con codebase attiva. Ogni progetto può aggiungere principi specifici nel proprio README — deviazioni dai principi universali vanno motivate in `verdict.md`.
 
@@ -55,15 +55,15 @@ Esempi di principi specifici adottati nei progetti correnti:
 
 ## Principi per lo strato output
 
-Applicabili a tutti i progetti con uno strato output esplicito. Derivano dai criteri di Norman — visibilità, feedback, mapping, constraint — definiti come checklist di revisione in `ciclo-azione` e `output`. Vanno usati come criteri di revisione, non come target estetici.
+Applicabili a tutti i progetti con uno strato output esplicito. Derivano dai criteri di Norman — visibilità, feedback, mapping, constraint — definiti come checklist di revisione in `action-cycle` e `output`. Vanno usati come criteri di revisione, non come target estetici.
 
 Il principio cardine resta: se l'utente non agisce, lo strato output è mal progettato — non l'utente è pigro. Questi principi si valutano sul comportamento reale, non sulla qualità dei nodi sottostanti.
 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [struttura-progetto](struttura-progetto.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [project-structure](project-structure.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
-- [consenso](consenso.md)
+- [action-cycle](action-cycle.md)
+- [consent](consent.md)

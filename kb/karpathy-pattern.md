@@ -3,7 +3,7 @@ data: 2026-05-24
 stato: maturo
 ---
 
-# Pattern Karpathy
+# Karpathy pattern
 
 Il pattern Karpathy per le knowledge base con LLM descrive un modo di usare l'LLM non come motore di recupero occasionale, ma come manutentore di un artefatto persistente. La differenza rispetto al RAG classico è decisiva: nel RAG la conoscenza viene recuperata e ricomposta a ogni domanda; nel pattern Karpathy viene compilata una volta in una rete di file markdown, poi mantenuta, corretta e arricchita nel tempo.
 
@@ -61,10 +61,10 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [zettelkasten](zettelkasten.md)
-- [nodo](nodo.md)
-- [struttura-progetto](struttura-progetto.md)
-- [strumenti-kb](strumenti-kb.md)
-- [connessione](connessione.md)
+- [node](node.md)
+- [project-structure](project-structure.md)
+- [kb-tools](kb-tools.md)
+- [connection](connection.md)
 - [output](output.md)
 - [deck](deck.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)

@@ -3,7 +3,7 @@ data: 2026-06-05
 stato: bozza
 ---
 
-# Affordance e signifier
+# Affordance and signifier
 
 Distinzione di Donald Norman tra ciò che un artefatto rende _possibile_ e ciò che _comunica_ su dove e come agire. È il contributo che l'edizione 2013 di _The Design of Everyday Things_ aggiunge al capitolo iniziale — Norman la dichiara «the most important addition to the chapter» — e completa il vocabolario del ciclo di azione: i sette stadi descrivono il _processo_ dell'interazione, affordance e signifier descrivono come l'artefatto la _invita_. Per il metodo è il criterio che governa lo strato output prima ancora che l'utente decida di agire: un nodo o una vista non sono corretti solo perché ben formati, lo sono se segnalano l'azione possibile a chi li legge.
 
@@ -35,9 +35,9 @@ Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione
 
 Connessioni:
 
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [system-image](system-image.md)
 - [processing-layers](processing-layers.md)
 - [output](output.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)

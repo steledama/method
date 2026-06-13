@@ -21,7 +21,7 @@ Fonti:
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [struttura-progetto](struttura-progetto.md)
+- [project-structure](project-structure.md)
 - [map](map.md)
 - [knowledge-base](knowledge-base.md)
 - [design-principles](design-principles.md)

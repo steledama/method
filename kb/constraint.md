@@ -3,7 +3,7 @@ data: 2026-06-09
 stato: bozza
 ---
 
-# Vincolo
+# Constraint
 
 Una limitazione progettata che riduce le azioni possibili a quelle valide. Norman lo elenca tra i meccanismi con cui il design risponde alle domande dell'utente — accanto a mapping, significanti, modelli concettuali, feedback e visibilità — ed è ciò che nei progetti si chiama spesso _guardrail_. La sua forza sta nel livello a cui opera: dove un check riflessivo (ricordarsi di fare X) può saltare, il vincolo rende l'azione sbagliata impossibile, oppure rumorosa. Non chiede attenzione: la rende superflua.
 
@@ -16,8 +16,8 @@ Il vincolo è il presidio strutturale che regge quando il livello riflessivo ced
 Connessioni:
 
 - [affordance-signifier](affordance-signifier.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [processing-layers](processing-layers.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [system-image](system-image.md)
 - [deck](deck.md)

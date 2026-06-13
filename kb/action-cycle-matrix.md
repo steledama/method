@@ -3,9 +3,9 @@ data: 2026-06-09
 stato: bozza
 ---
 
-# Matrice del ciclo di azione
+# Action cycle matrix
 
-Strumento di verifica sul campo della teoria del ciclo di azione: applica gli otto elementi del ciclo — sei atti più due poli, cfr. `ciclo-azione` — a ciascuno dei cinque artefatti (`nixos`, `bi`, `economia`, `salute` e `metodo` stesso) per mettere alla prova l'ipotesi della simmetria invece di darla per scontata. Non è una mappa che illustra la teoria: è un test che può falsificarla. Nasce dalla domanda aperta — la simmetria a otto elementi è una struttura reale che affina lo strumento, o una forzatura elegante che piega la realtà all'esigenza teorica?
+Strumento di verifica sul campo della teoria del ciclo di azione: applica gli otto elementi del ciclo — sei atti più due poli, cfr. `action-cycle` — a ciascuno dei cinque artefatti (`nixos`, `bi`, `economia`, `salute` e `metodo` stesso) per mettere alla prova l'ipotesi della simmetria invece di darla per scontata. Non è una mappa che illustra la teoria: è un test che può falsificarla. Nasce dalla domanda aperta — la simmetria a otto elementi è una struttura reale che affina lo strumento, o una forzatura elegante che piega la realtà all'esigenza teorica?
 
 > **IL RISCHIO È LA COMPLICITÀ CON SÉ STESSI.** Una matrice che parte cercando simmetria la trova sempre: la ragione motivata fabbrica corrispondenze su misura. Questo strumento vale solo se ogni casella riceve un verdetto onesto con una riga di giustificazione, e solo se «forzato» è un esito _gradito_, non un fallimento da smussare. Se a fine verifica le caselle forzate o vuote restano molte, l'ipotesi della simmetria è sbagliata e va abbandonata, non difesa. Lo strumento serve a uccidere la teoria se lo merita, non a incoronarla.
 
@@ -43,14 +43,14 @@ Il conteggio sembra confortante. Non lo è, e leggerlo come una vittoria sarebbe
 
 ## Protocollo di riempimento
 
-I verdetti deboli e quelli riempiti per ragionamento si verificano sul campo, non a tavolino qui. Il luogo della verifica è la prima slide di ciascun artefatto — il suo autoritratto attraverso i sei atti e i due poli, applicati al proprio dominio: dove l'accostamento è debole o forzato, tanto meglio, costringe a guardare l'artefatto in modo analitico. `metodo` non orchestra questo lavoro nei repo adottanti (cfr. `confronto-progetti-adottanti`): ogni repo riempie la propria colonna, e il verdetto risale qui come fotografia aggregata. Le righe i2/i3 sono ora riempite per ragionamento (mappano su artefatti reali); questo nodo resta `bozza` finché la verifica esterna repo-per-repo non le conferma — o le smentisce.
+I verdetti deboli e quelli riempiti per ragionamento si verificano sul campo, non a tavolino qui. Il luogo della verifica è la prima slide di ciascun artefatto — il suo autoritratto attraverso i sei atti e i due poli, applicati al proprio dominio: dove l'accostamento è debole o forzato, tanto meglio, costringe a guardare l'artefatto in modo analitico. `metodo` non orchestra questo lavoro nei repo adottanti (cfr. `adopter-comparison`): ogni repo riempie la propria colonna, e il verdetto risale qui come fotografia aggregata. Le righe i2/i3 sono ora riempite per ragionamento (mappano su artefatti reali); questo nodo resta `bozza` finché la verifica esterna repo-per-repo non le conferma — o le smentisce.
 
 Connessioni:
 
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [world](world.md)
 - [goal](goal.md)
 - [output](output.md)
 - [system-image](system-image.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [adopter-comparison](adopter-comparison.md)
+- [cognitive-fidelity](cognitive-fidelity.md)

@@ -207,9 +207,9 @@ La regola di routing che tiene puliti i confini tra i componenti.
 Dichiarazione minima, applicata a sé stessa:
 
 - **o1 macchina**: `kb/` in markdown via symlink; output di `tools/kb_tools.py`
-- **i2-macro**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`, in `interpretations/`) — rivela tensioni non-locali tra nodi. In ogni dominio la stessa superficie è o2 quando viene prodotta come vista di decisione e substrato i2 quando viene letta per attribuire significato alla sintesi — cfr. `kb/ciclo-azione.md`, sezione i2 micro/macro. La forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2/i2 è più largo (pagina, tabella, grafico, canvas)
+- **i2-macro**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`, in `interpretations/`) — rivela tensioni non-locali tra nodi. In ogni dominio la stessa superficie è o2 quando viene prodotta come vista di decisione e substrato i2 quando viene letta per attribuire significato alla sintesi — cfr. `kb/action-cycle.md`, sezione i2 micro/macro. La forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2/i2 è più largo (pagina, tabella, grafico, canvas)
 - **o3 azione**: il metodo applicato nei repo adottanti (nodi, commit, KB mantenute)
-- **i1/i3 di ritorno**: osservazioni dai repo → `confronto-progetti-adottanti`
+- **i1/i3 di ritorno**: osservazioni dai repo → `adopter-comparison`
 
 La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietro confine di rete (cfr. `deck`).
 
@@ -223,13 +223,13 @@ Comprimere il metodo in poche interpretazioni forza la co-presenza e fa affiorar
 
 I diagrammi comprimono; i nodi spiegano.
 
-- cosa è (artefatto / sistema / metodo) → `kb/artefatto-cognitivo.md`, `kb/sistema-cognitivo.md`
-- tre giganti → `kb/ciclo-azione.md`, `kb/zettelkasten.md`, `kb/pattern-karpathy.md`
-- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/world.md`, `kb/output.md`
-- i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agente.md`
+- cosa è (artefatto / sistema / metodo) → `kb/cognitive-artifact.md`, `kb/cognitive-system.md`
+- tre giganti → `kb/action-cycle.md`, `kb/zettelkasten.md`, `kb/karpathy-pattern.md`
+- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/action-cycle.md`, `kb/world.md`, `kb/output.md`
+- i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agent.md`
 - il goal · tre altitudini → `kb/goal.md`
-- la matrice di verifica → `kb/matrice-ciclo-azione.md`
+- la matrice di verifica → `kb/action-cycle-matrix.md`
 - strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/deck.md`
-- anatomia del progetto → `kb/struttura-progetto.md`
-- sviluppo del metodo e osservatorio → `kb/sviluppo-metodo.md`, `kb/osservatorio-metodo.md`, `kb/cognitive-artifact-design.md`
+- anatomia del progetto → `kb/project-structure.md`
+- sviluppo del metodo e osservatorio → `kb/method-development.md`, `kb/method-observatory.md`, `kb/cognitive-artifact-design.md`
 - dove vive cosa → `kb/cognitive-artifact-design.md`, `kb/zettelkasten.md`

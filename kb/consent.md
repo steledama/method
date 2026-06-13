@@ -3,7 +3,7 @@ data: 2026-06-10
 stato: bozza
 ---
 
-# Consenso
+# Consent
 
 Principio che governa la cadenza con cui l'agente passa dalla proposta all'azione: proporre prima di eseguire, attendere consenso esplicito, e non scambiare un assenso parziale per un assenso totale. L'agente formula ciò che intende fare e lo espone — il ragionamento prima del gesto; poi attende che l'umano dica «sì, procedi» prima di agire, soprattutto quando l'azione è difficile da annullare o esce verso il mondo. Un sì su una parte non autorizza il tutto: l'ambito del consenso è quello esplicitamente concesso, non la sua estensione plausibile.
 
@@ -26,8 +26,8 @@ Esempi:
 
 Connessioni:
 
-- [ciclo-azione](ciclo-azione.md)
-- [agente](agente.md)
+- [action-cycle](action-cycle.md)
+- [agent](agent.md)
 - [design-principles](design-principles.md)
-- [sviluppo-metodo](sviluppo-metodo.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [method-development](method-development.md)
+- [cognitive-fidelity](cognitive-fidelity.md)

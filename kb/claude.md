@@ -47,13 +47,13 @@ chiariscono il confine: il problema non è la sintassi tabellare in sé, ma usar
 per contenuti discorsivi o comparativi che un elenco rende riflowable senza
 perdita.
 
-Per gli strumenti, CLAUDE.md è il livello operativo della tripartizione README/CLAUDE/nodi descritta in `strumenti-kb`: dice quando usare uno strumento, quali comandi minimi sono sicuri e quando leggere il nodo di dettaglio; la reference estesa resta nei nodi o negli script versionati.
+Per gli strumenti, CLAUDE.md è il livello operativo della tripartizione README/CLAUDE/nodi descritta in `kb-tools`: dice quando usare uno strumento, quali comandi minimi sono sicuri e quando leggere il nodo di dettaglio; la reference estesa resta nei nodi o negli script versionati.
 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [agents](agents.md)
 - [readme](readme.md)
-- [struttura-progetto](struttura-progetto.md)
+- [project-structure](project-structure.md)
 - [skill](skill.md)
-- [strumenti-kb](strumenti-kb.md)
+- [kb-tools](kb-tools.md)

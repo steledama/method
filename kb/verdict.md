@@ -31,7 +31,7 @@ tensione aperta), il gruppo si rimuove: la storia resta in git, non qui.
 `plan.md`/`tasks/` (priorità, dipendenze, nuovi task — `/tasks-review`) o persino al
 Goal stesso, quando il filo che cambia è di formazione-goal e non di verdetto su un
 goal noto. Rendere esplicita questa domanda ad ogni commit è ciò che tiene scorrevole
-il ciclo dell'azione e riduce il drift (cfr. `ciclo-azione`).
+il ciclo dell'azione e riduce il drift (cfr. `action-cycle`).
 
 Regole:
 
@@ -65,10 +65,10 @@ Il commit `abc1234` è il puntatore alla storia verificabile, se serve.
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [goal](goal.md)
 - [affordance-signifier](affordance-signifier.md)
 - [git-history](git-history.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
-- [struttura-progetto](struttura-progetto.md)
+- [project-structure](project-structure.md)

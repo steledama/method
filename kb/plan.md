@@ -7,7 +7,7 @@ stato: bozza
 
 Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è il file root `plan.md`, sollevato dall'altezza nel ciclo fuori dalla cartella `tasks/` — è la meta-istanza dei task, letta a ogni sessione, quindi sale in root anche se cambia in fretta (l'altezza vince sulla pace).
 
-`plan` è il Plan dello _sviluppo_ (l'azione sull'artefatto), distinto da o1 (il Plan del _runtime_ in ciclo-azione, l'azione sul mondo): tenerli separati evita una contraddizione tra nodi.
+`plan` è il Plan dello _sviluppo_ (l'azione sull'artefatto), distinto da o1 (il Plan del _runtime_ in action-cycle, l'azione sul mondo): tenerli separati evita una contraddizione tra nodi.
 
 Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, `verdict.md` e nei nodi aggiornati.
 
@@ -73,7 +73,7 @@ sostanziale e deve avere il proprio file.
 
 ## Sviluppo del metodo e perimetro dei task
 
-Sul perimetro dei task lo sviluppo del metodo segue il movimento dal basso — uno dei due descritti in sviluppo-metodo, e quello che protegge dal costruire per futuri immaginati. Un task nasce dove esiste il problema concreto, con le fonti, le dipendenze e i criteri di chiusura del dominio. Se durante quel lavoro emerge una regola generale, il filing back aggiorna `metodo`; il task però resta locale finché richiede evidenza locale.
+Sul perimetro dei task lo sviluppo del metodo segue il movimento dal basso — uno dei due descritti in method-development, e quello che protegge dal costruire per futuri immaginati. Un task nasce dove esiste il problema concreto, con le fonti, le dipendenze e i criteri di chiusura del dominio. Se durante quel lavoro emerge una regola generale, il filing back aggiorna `metodo`; il task però resta locale finché richiede evidenza locale.
 
 Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve contenere task del tipo "controlla X in repo Y". Questi task hanno senso solo nel repo che deve produrre l'evidenza. `metodo` riceve il risultato quando diventa principio, nodo, skill base, strumento comune o criterio di revisione. Nel repo `metodo` i task dovrebbero essere rari.
 
@@ -104,6 +104,6 @@ Connessioni:
 - [tasks](tasks.md)
 - [verdict](verdict.md)
 - [git-history](git-history.md)
-- [ciclo-azione](ciclo-azione.md)
-- [struttura-progetto](struttura-progetto.md)
+- [action-cycle](action-cycle.md)
+- [project-structure](project-structure.md)
 - [affordance-signifier](affordance-signifier.md)

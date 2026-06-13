@@ -18,14 +18,14 @@ puntatore alla storia verificabile.
 
 Il metodo è nato descrivendo due agenti — l'umano e un singolo LLM — e su quel binomio
 aveva cablato la sua asimmetria in più nodi come se fosse _la_ struttura. Il nodo
-`agente` lo ha riconosciuto per ciò che è: il **caso saliente** di una popolazione di
+`agent` lo ha riconosciuto per ciò che è: il **caso saliente** di una popolazione di
 agenti più ampia (Norman: «person, animal, or machine»; la categoria macchina è un
 gradiente, non un punto — un LLM di frontiera che pianifica e un agente locale che
 esegue non sono lo stesso lettore sulla stessa KB). La prima metà è fatta, e
-**additiva**: ammorbiditi `system-image`, `sistema-cognitivo`, `knowledge-base`
+**additiva**: ammorbiditi `system-image`, `cognitive-system`, `knowledge-base`
 togliendo al binomio lo statuto di struttura unica, senza cancellare il caso umano/LLM
 — resta vero _come caso_, ed è l'unico in uso a valle (i nodi viaggiano per symlink).
-La seconda metà — maturazione di `agente`, biforcazione di o1 per capacità dell'agente,
+La seconda metà — maturazione di `agent`, biforcazione di o1 per capacità dell'agente,
 asse fiducia/privacy, divisione per stadio del ciclo — resta **deliberatamente non
 scritta**: attende che un secondo livello di agente entri nell'uso reale. Scriverla ora
 sarebbe inventare struttura prima dell'evidenza, l'opposto di come il metodo si
@@ -36,13 +36,13 @@ sviluppa.
 La rifondazione ontologica (artefatto/sistema/metodo) e l'arco di input (i1/i2/i3)
 hanno dato al metodo il vocabolario che gli mancava — cosa _è_ l'oggetto che coltiva,
 cosa _vuole_ chi lo usa — ma i nodi che lo reggono sono ancora `bozza`, in attesa della
-maturazione `bozza→maturo` dall'uso reale: `artefatto-cognitivo`, `sistema-cognitivo`,
-`goal`, `output`, `agente`, e i nodi i2 fondati su Norman (`affordance-signifier`,
+maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-system`,
+`goal`, `output`, `agent`, e i nodi i2 fondati su Norman (`affordance-signifier`,
 `system-image`, `processing-layers`). Due debiti di fonte li tengono zoppi
 sul lato fedeltà (i3): _Things That Make Us Smart_ (Norman 1993, fonte di «artefatto
 cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3
 (`sources/representation.pdf`), il volume completo non è reperito; Hutchins (per
-`sistema-cognitivo`) e Leontiev (per `goal`) sono citati nei Riferimenti ma non vivono
+`cognitive-system`) e Leontiev (per `goal`) sono citati nei Riferimenti ma non vivono
 in `sources/`. L'ingest delle fonti mancanti è tracciato in `plan` (mente estesa,
 pace-layering). La matrice 4D del ciclo, infine, è un falsificatore costruito sulle
 definizioni del metodo stesso: il suo esito «zero forzati» resta **provvisorio finché
@@ -73,6 +73,6 @@ interferire con opzioni applicative omonime: `--append-note` resta dominio,
 diario, scadenze, fonti e skill di ingest sono adattamenti di contenuto e
 workflow, non eccezioni alla struttura comune. Una tensione resta aperta.
 _Ri-derivazione del deck_:
-il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
+il framing i2-micro/macro è appena entrato in `action-cycle`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi
 per esprimerlo o se la cornice nel nodo basti.

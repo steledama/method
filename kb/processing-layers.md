@@ -46,11 +46,11 @@ _reflective_ «watches over, reflects upon, and tries to bias the behavioral
 level», senza accesso diretto a senso e azione: è la triade alta — Compare,
 Goal, Plan — cioè la KB. Il _behavioral_, sede dell'operazione esperta e di
 routine, è la vita del ciclo: Specify (o2) e Interpret (i2). La stratificazione
-si appoggia al «6 atti + 2 poli» di `ciclo-azione`.
+si appoggia al «6 atti + 2 poli» di `action-cycle`.
 
 Resta il monito di Norman: «it is not possible to have design without all three», i livelli si intrecciano. È una stratificazione di _enfasi_, non una partizione: nessun atto è puramente un livello.
 
-La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce: può solo _condizionare_ il behavioral, e solo attraverso l'output. Ma per muovere davvero il behavioral, l'o2 deve raggiungere anche il _visceral_ — l'apparenza, l'impatto immediato, l'affetto. Un o2 solo riflessivo (testo, schemi analitici) parla alla parte che già sa e non muove la parte che fa: è la diagnosi della stasi di `salute`, una KB riflessiva ricca la cui rappresentazione non scende al viscerale e quindi non genera azione. «Attractive things work better» non è estetica: è la condizione perché il sapere attraversi i tre livelli fino al gesto. Da qui un criterio per lo strato output: ogni o2 va valutato su tutti e tre i registri, e quello sistematicamente mancante negli artefatti è il viscerale (cfr. `matrice-ciclo-azione`, dove la colonna o2 è debole in quattro artefatti su cinque).
+La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce: può solo _condizionare_ il behavioral, e solo attraverso l'output. Ma per muovere davvero il behavioral, l'o2 deve raggiungere anche il _visceral_ — l'apparenza, l'impatto immediato, l'affetto. Un o2 solo riflessivo (testo, schemi analitici) parla alla parte che già sa e non muove la parte che fa: è la diagnosi della stasi di `salute`, una KB riflessiva ricca la cui rappresentazione non scende al viscerale e quindi non genera azione. «Attractive things work better» non è estetica: è la condizione perché il sapere attraversi i tre livelli fino al gesto. Da qui un criterio per lo strato output: ogni o2 va valutato su tutti e tre i registri, e quello sistematicamente mancante negli artefatti è il viscerale (cfr. `matrice-action-cycle`, dove la colonna o2 è debole in quattro artefatti su cinque).
 
 ## Riferimenti
 
@@ -60,7 +60,7 @@ La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce:
 
 Connessioni:
 
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)

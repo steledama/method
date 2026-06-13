@@ -19,10 +19,6 @@ WORD_RE = re.compile(r"\b[a-zàèéìòù][a-zàèéìòù-]{5,}\b", re.IGNORECA
 CATALOG_LINK_RE = re.compile(r"\[[^\]]+\]\((?P<path>[^)]+\.md)\)")
 
 DOC_DIRS = ("kb", "metodo")
-# Register/file-meta esclusi dal conteggio dei nodi: cataloghi, non unità atomiche.
-# Il catalogo è ora la porta-collezione kb.md in root (fuori da DOC_DIRS, quindi già
-# non contato come nodo); FILE_META resta per retro-compatibilità con kb/index.md.
-FILE_META = {"index.md"}
 CATALOG_NAME = "kb.md"
 OPTIONAL_DOC_DIRS = ("tech", "docs")
 CODE_EXTENSIONS = {
@@ -145,11 +141,13 @@ def existing_doc_dirs(root: Path, include_optional: bool = True) -> list[Path]:
 
 
 def doc_files(root: Path) -> list[Path]:
+    catalog = catalog_path(root)
+    catalog_resolved = catalog.resolve() if catalog else None
     return sorted(
         path
         for directory in existing_doc_dirs(root)
         for path in directory.glob("*.md")
-        if path.name not in FILE_META
+        if path.resolve() != catalog_resolved
     )
 
 

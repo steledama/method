@@ -50,11 +50,11 @@ Le tabelle markdown sono illeggibili su schermi stretti (mobile): preferire elen
 
 Un nodo entra in `kb/` solo se il concetto è metodologico e applicabile ad almeno due progetti diversi. I concetti specifici di un singolo progetto restano nella `kb/` locale del progetto.
 
-Procedura: creare il file in `kb/` seguendo la struttura in `kb/nodo.md`, aggiungere riga al catalogo in `README.md`.
+Procedura: creare il file in `kb/` seguendo la struttura in `kb/node.md`, aggiungere riga al catalogo in `README.md`.
 
 ## Quando aggiornare un nodo esistente
 
-Aggiornare quando una modifica del metodo in un progetto è generalizzabile. Verificare che la modifica non rompa il senso per gli altri progetti adottanti. Se la modifica è domain-specific, inserirla nella sezione "Adattamento al dominio" del nodo (come in fedelta-cognitiva) invece di modificare il corpo principale.
+Aggiornare quando una modifica del metodo in un progetto è generalizzabile. Verificare che la modifica non rompa il senso per gli altri progetti adottanti. Se la modifica è domain-specific, inserirla nella sezione "Adattamento al dominio" del nodo (come in cognitive-fidelity) invece di modificare il corpo principale.
 
 ## Come propagare modifiche ai progetti collegati
 

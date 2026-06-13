@@ -45,8 +45,8 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [pattern-karpathy](pattern-karpathy.md)
-- [nodo](nodo.md)
-- [connessione](connessione.md)
+- [karpathy-pattern](karpathy-pattern.md)
+- [node](node.md)
+- [connection](connection.md)
 - [output](output.md)
-- [ciclo-azione](ciclo-azione.md)
+- [action-cycle](action-cycle.md)

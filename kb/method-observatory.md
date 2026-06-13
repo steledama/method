@@ -3,13 +3,13 @@ data: 2026-05-23
 stato: maturo
 ---
 
-# Osservatorio metodo
+# Method observatory
 
 Il repo metodo non è solo una libreria di nodi portabili: è il punto di osservazione da cui il metodo viene riletto mentre viene applicato nei progetti adottanti. La sua funzione meta-cognitiva è raccogliere differenze, convergenze, attriti e drift tra le implementazioni reali, trasformandoli in conoscenza metodologica stabile quando il pattern è portabile, o lasciandoli come lavoro locale quando appartengono al dominio.
 
 Il metodo nasce e si verifica nei progetti concreti. `nixos`, `bi`, `economia` e `salute` non sono solo consumatori del metodo: sono casi sperimentali con vincoli diversi. Un progetto code-based espone problemi di fedeltà tecnica e copertura del codice; un progetto finanziario espone problemi di fonti autoritative e dati sensibili; un progetto riflessivo espone problemi di hub semantici, accessi cognitivi e filing back. L'osservatorio serve a rendere queste differenze comparabili senza appiattirle.
 
-La direzione che l'osservatorio governa è il movimento dal basso (uno dei due di `sviluppo-metodo`, e quello che protegge dal generalizzare per esigenze immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente. Il movimento dall'alto — importare una cornice teorica e verificarla contro i domini reali — non passa da questo flusso: non genera task negli adottanti, ma rilegge l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
+La direzione che l'osservatorio governa è il movimento dal basso (uno dei due di `method-development`, e quello che protegge dal generalizzare per esigenze immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente. Il movimento dall'alto — importare una cornice teorica e verificarla contro i domini reali — non passa da questo flusso: non genera task negli adottanti, ma rilegge l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
@@ -53,7 +53,7 @@ Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla cognizio
 
 ## Prima fotografia cross-repo
 
-La fotografia del 2026-05-23 è sintetizzata nel nodo `confronto-progetti-adottanti`. Il principio adottato è distribuire il confronto: la sintesi tira le somme, mentre i nodi dei singoli componenti contengono la situazione concreta dei quattro progetti e il confronto tra teoria e applicazione pratica.
+La fotografia del 2026-05-23 è sintetizzata nel nodo `adopter-comparison`. Il principio adottato è distribuire il confronto: la sintesi tira le somme, mentre i nodi dei singoli componenti contengono la situazione concreta dei quattro progetti e il confronto tra teoria e applicazione pratica.
 
 Questa forma evita due errori opposti. Il README resta leggero e non diventa report analitico; il confronto non resta però confinato in un documento isolato, perché ogni componente del metodo accumula i propri esempi reali.
 
@@ -67,10 +67,10 @@ Esito metodologico iniziale:
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [sviluppo-metodo](sviluppo-metodo.md)
-- [strumenti-kb](strumenti-kb.md)
-- [struttura-progetto](struttura-progetto.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
+- [method-development](method-development.md)
+- [kb-tools](kb-tools.md)
+- [project-structure](project-structure.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
 - [knowledge-base](knowledge-base.md)
 - [readme](readme.md)
 - [claude](claude.md)
@@ -80,5 +80,5 @@ Connessioni:
 - [verdict](verdict.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
-- [fonte-di-verita](fonte-di-verita.md)
-- [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
+- [source-of-truth](source-of-truth.md)
+- [adopter-comparison](adopter-comparison.md)

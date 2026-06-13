@@ -3,7 +3,7 @@ data: 2026-05-09
 stato: maturo
 ---
 
-# Nodo
+# Node
 
 Un nodo è l'unità atomica di una knowledge base basata su testo: un pezzo di conoscenza che si definisce in relazione con gli altri nodi, mai in isolamento. Il significato di un nodo emerge dalla rete di connessioni in cui partecipa, non dal suo contenuto intrinseco.
 
@@ -25,9 +25,9 @@ Caratteristiche:
 - prosa pura nel corpo: nessun link inline; il testo è leggibile senza interruzioni sintattiche
 - interfaccia esplicita: la sezione Connessioni è l'unico punto di uscita verso la rete
 - frontmatter minimalista obbligatorio: solo data (creazione, non ultima modifica) e stato (`bozza`, `iniziale`, `maturo`)
-- nome file tutto minuscolo con trattini, singolare come forma canonica
-- lingua italiana per i concetti del dominio
-- H1 obbligatorio: il titolo deve essere leggibile anche fuori dal filename
+- nome file inglese, tutto minuscolo con trattini, singolare come forma canonica
+- prosa italiana per i concetti del dominio
+- H1 inglese obbligatorio, coerente con il filename e leggibile anche fuori da esso
 - sezioni non gerarchiche: preferire label testuali e bullet di primo livello a heading annidati
 - stato bozza: nodo utile ma incompleto, da espandere o collegare meglio
 - stato maturo: nodo stabile, collegato e sufficientemente autonomo
@@ -76,5 +76,5 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [zettelkasten](zettelkasten.md)
 - [knowledge-base](knowledge-base.md)
-- [fedelta-cognitiva](fedelta-cognitiva.md)
-- [connessione](connessione.md)
+- [cognitive-fidelity](cognitive-fidelity.md)
+- [connection](connection.md)
