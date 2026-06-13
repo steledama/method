@@ -9,7 +9,7 @@ La mappa è il **register dell'indice-di-dominio**: il file che risponde alla do
 
 Per un LLM la mappa è un dispositivo cognitivo potente: senza, l'agente ricostruisce il territorio da nomi file e link; con una buona mappa capisce subito quali elementi sono centrali, quali fonti verificano i fatti e quali nodi aprire per un intervento.
 
-Esiste **dove il dominio ha un territorio da indicizzare** (host, conti, sistemi, entità). Dove il dominio è astratto non serve: in `metodo` non c'è `map.md`, perché il suo territorio runtime — i progetti adottanti — è indicizzato dall'osservatorio e non da una mappa, mentre il modello vive nei nodi e in `presentations/`.
+Esiste **dove il dominio ha un territorio da indicizzare** (host, conti, sistemi, entità). Dove il dominio è astratto non serve: in `metodo` non c'è `map.md`, perché il suo territorio runtime — i progetti adottanti — è indicizzato dall'osservatorio e non da una mappa, mentre il modello vive nei nodi e in `interpretations/`.
 
 Distinzione netta da `kb.md`: `kb.md` indicizza i **nodi della KB** (cosa è scritto), `map.md` indicizza il **territorio del dominio** (cos'è il mondo) e lo lega ai nodi. Sono due register diversi, entrambi porte-collezione.
 

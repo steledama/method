@@ -42,27 +42,27 @@ dominio.
 ### Presente vs storia
 
 - la KB permanente descrive ancora il presente?
-- workaround, migrazioni o casi storici appartengono ormai a Git o `why.md`?
+- workaround, migrazioni o casi storici appartengono ormai a Git o `verdict.md`?
 
 ### Decisioni e assunzioni
 
 - una decisione che preserva un comportamento storico ("manteniamo il vecchio
-  comportamento") registra in `why.md` _su quale assunzione_ poggia, non solo
+  comportamento") registra in `verdict.md` _su quale assunzione_ poggia, non solo
   _cosa_ preserva?
 - l'assunzione è ancora vera, o il significato dei dati sotto di essa è cambiato
   dall'ultima volta?
 - esistono decisioni che vivono solo nel messaggio di commit, prive di un
-  appiglio in `why.md` per essere ri-valutate quando il modello evolve?
+  appiglio in `verdict.md` per essere ri-valutate quando il modello evolve?
 
 Una decisione registrata solo nel commit è un'azione nel mondo (`L3`) senza il
 ritorno che la rende ri-valutabile: il _gulf of evaluation del ciclo di
 sviluppo_ (cfr. `ciclo-azione`) resta non attraversato. Il
-commit dice "ho preservato X"; il why deve dire "X presuppone Y; se Y cambia,
+commit dice "ho preservato X"; `verdict.md` deve dire "X presuppone Y; se Y cambia,
 riaprire" — perché è l'assunzione, non il comportamento, che va ri-controllata
 quando il modello dati evolve. Caso reale: `bi`/1018022, dove il ripristino di un
 backorder "storico" su prodotti a solo magazzino, dopo che la semantica dei dati
 era cambiata, ha prodotto un oversell mesi dopo; l'assunzione viveva nel commit,
-non nel why.
+non in `verdict.md`.
 
 ### Accessibilità cognitiva
 

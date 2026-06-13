@@ -3,7 +3,7 @@ description: Health check completo della knowledge base del metodo usando gli st
 user-invocable: true
 ---
 
-# audit-kb
+# kb-review
 
 Esegui un health check completo sulla knowledge base del metodo usando
 `tools/kb_tools.py` come backend deterministico. Lo script è la fonte di verità
@@ -28,17 +28,17 @@ python3 tools/kb_tools.py audit
   progetti diversi
 - esito sintetico della checklist di `kb/fedelta-cognitiva.md`
 
-3. Appendi il report a `why.md` solo quando l'utente chiede l'audit completo o
+3. Appendi il report a `verdict.md` solo quando l'utente chiede l'audit completo o
    quando la sessione è esplicitamente di lint:
 
 ```bash
-python3 tools/kb_tools.py audit --append-why
+python3 tools/kb_tools.py audit --append-verdict
 ```
 
 4. Dopo l'append, formatta:
 
 ```bash
-prettier --write why.md
+prettier --write verdict.md
 ```
 
 5. Se modifichi script Python durante l'audit, formatta con:

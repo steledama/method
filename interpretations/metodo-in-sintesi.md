@@ -1,13 +1,9 @@
 ---
-title: "Metodo KB"
-subtitle: "Framework metodologico e osservatorio cross-repo per KB personali e professionali con LLM"
+title: "Cognizione condivisa"
+subtitle: "Framework metodologico e osservatorio cross-repo per la progettazione di artefatti di supporto alla cognizione condivisa tra uomo e modelli di intelligenza artificiale tramite knowledge base (KB)"
 author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method"
 date: "2026.06.09"
 ---
-
-Vista d'insieme del **metodo KB**: costruire e mantenere _knowledge base_ — personali e professionali — insieme a un LLM. I diagrammi comprimono; il dettaglio vive nei nodi linkati in fondo.
-
-Questo non è un nodo della KB ma una sua **sintesi** — e per la disciplina zettelkastiana le sintesi vivono fuori dai nodi atomici, in uno strato dedicato. Perché questa pagina ne sia un esempio si chiarisce all'ultima slide.
 
 ## Cosa è: artefatto, sistema, metodo
 
@@ -155,7 +151,7 @@ La struttura replicabile non è un albero identico: è la presenza esplicita del
   <div class="branch-arrows"><i></i><i></i><i></i></div>
   <div class="diagram-row cards-3">
     <div class="track"><div class="card"><strong>map.md</strong><span>come si tiene insieme il dominio?</span></div><div class="arrow down"></div><div class="card"><strong>kb.md → kb/</strong><span>cosa significa questo concetto?</span></div><div class="arrow down"></div><div class="card"><strong>strato output</strong><span>come traduco la KB in azione?</span></div></div>
-    <div class="track"><div class="card"><strong>plan.md</strong><span>Plan · cosa devo fare adesso?</span></div><div class="arrow down"></div><div class="card"><strong>tasks/</strong><span>i dettagli operativi del task</span></div><div class="arrow down"></div><div class="card destination"><strong>why.md</strong><span>perché una decisione conta?</span></div></div>
+    <div class="track"><div class="card"><strong>plan.md</strong><span>Plan · cosa devo fare adesso?</span></div><div class="arrow down"></div><div class="card"><strong>tasks/</strong><span>i dettagli operativi del task</span></div><div class="arrow down"></div><div class="card destination"><strong>verdict.md</strong><span>perché una decisione conta?</span></div></div>
     <div class="track"><div class="card"><strong>CLAUDE.md</strong><small>via AGENTS.md</small><span>come agisco qui?</span></div><div class="arrow down"></div><div class="card"><strong>tools.md → tools/ · skill</strong><span>quali controlli e workflow?</span></div></div>
   </div>
 </div>
@@ -198,7 +194,7 @@ La regola di routing che tiene puliti i confini tra i componenti.
   <div class="routing-list">
     <div><span>concetto stabile e riusabile</span><strong>kb.md → kb/</strong></div>
     <div><span>lavoro futuro</span><strong>plan.md + tasks/</strong></div>
-    <div><span>perché una decisione conta</span><strong>why.md</strong></div>
+    <div><span>perché una decisione conta</span><strong>verdict.md</strong></div>
     <div><span>come agire · workflow</span><strong>CLAUDE.md · skill</strong></div>
     <div><span>modello del dominio</span><strong>map.md</strong></div>
     <div><span>orientamento · ingresso</span><strong>README.md</strong></div>
@@ -206,22 +202,22 @@ La regola di routing che tiene puliti i confini tra i componenti.
   </div>
 </div>
 
-## Lo strato output di questo repo
+## Le interpretazioni di questo repo
 
 Dichiarazione minima, applicata a sé stessa:
 
 - **o1 macchina**: `kb/` in markdown via symlink; output di `tools/kb_tools.py`
-- **o2 decisione**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`) — e la forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2 è più largo (pagina, tabella, grafico, canvas)
+- **i2-macro**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`, in `interpretations/`) — per `method`, il cui Mondo di sviluppo è la KB stessa, il deck legge come i2-macro: rivela tensioni non-locali tra nodi. Per i progetti adottanti lo stesso deck-pattern resta o2 (cruscotto di decisione sul Mondo runtime) — cfr. `kb/ciclo-azione.md`, sezione i2 micro/macro. La forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2/i2 è più largo (pagina, tabella, grafico, canvas)
 - **o3 azione**: il metodo applicato nei repo adottanti (nodi, commit, KB mantenute)
 - **i1/i3 di ritorno**: osservazioni dai repo → `confronto-progetti-adottanti`
 
 La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietro confine di rete (cfr. `presentazione`).
 
-## L'o2 è lo stadio Compare del metodo su sé stesso
+## Ogni sezione è un'interpretazione: l'i2-macro del metodo su sé stesso
 
-Ecco perché questa pagina è un esempio dello strato che descrive. L'o2 non è solo un prodotto: è l'**organo di valutazione**. Ma non _è_ lo stadio Compare — ne è il **substrato**: la sintesi _rivela_ (è l'i2, rende co-presenti le tensioni), e il _verdetto_ (i3) che ne segue si chiude nei nodi e in `why.md` — il termometro del ciclo di sviluppo, simmetrico a `plan.md` (lo stadio Plan), per la simmetria o1 ↔ i3.
+Ecco perché questa pagina è un esempio dello strato che descrive. Il deck non è solo un prodotto: è l'**organo di interpretazione** — ogni sezione è un'interpretazione i2-macro che rende co-presenti le tensioni tra nodi altrimenti invisibili da dentro ciascuno (Luhmann: i nodi sono atomici e _localmente_ coerenti). Il _verdetto_ (i3) che ne segue si chiude nei nodi e in `verdict.md` — il termometro del ciclo di sviluppo, simmetrico a `plan.md` (lo stadio Plan), per la simmetria o1 ↔ i3.
 
-I nodi sono atomici e _localmente_ coerenti (Luhmann): una contraddizione che vive _tra_ due nodi è invisibile da dentro ciascuno. Comprimere il metodo in pochi diagrammi forza la co-presenza e fa affiorare le tensioni _non-locali_. Disciplina: **l'o2 rivela, i nodi risolvono** — ogni tensione si chiude giù nei nodi (la fonte di verità), poi l'o2 si _ri-deriva_. Aggiornare questa pagina è far girare lo stadio Compare del metodo su sé stesso — come questa stessa revisione.
+Comprimere il metodo in poche interpretazioni forza la co-presenza e fa affiorare le tensioni _non-locali_. Disciplina: **il deck rivela, i nodi risolvono** — ogni tensione si chiude giù nei nodi (la fonte di verità), poi il deck si _ri-deriva_. Aggiornare questa pagina è far girare l'i2-macro del metodo su sé stesso — come questa stessa revisione.
 
 ## Approfondimento
 

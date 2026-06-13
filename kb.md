@@ -30,7 +30,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [mondo](kb/mondo.md) — Il fondo del ciclo d'azione opposto al Goal: cerniera o3↔i1, Mondo runtime vs di sviluppo, di cosa è fatto in ogni artefatto
 - [matrice-ciclo-azione](kb/matrice-ciclo-azione.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
 - [output](kb/output.md) — Strato output (o1/o2/o3) e input (i1/i2/i3): conflitto Zettelkasten/Karpathy, il cappio con due cerniere, criteri di Norman per o2
-- [presentazione](kb/presentazione.md) — Runbook portabile del deck: sorgente markdown unica, build Reveal da CDN, pubblicazione servita-non-copiata dietro confine di rete e versionata
+- [presentazione](kb/presentazione.md) — Runbook portabile del deck-cerniera (i2-macro per `method`, o2 per gli adottanti): sorgente markdown unica, build Reveal da CDN, pubblicazione servita-non-copiata dietro confine di rete e versionata
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione
 - [sviluppo-metodo](kb/sviluppo-metodo.md) — I due movimenti (bottom-up e top-down) in alternanza e contraddittorio
@@ -45,7 +45,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [map](kb/map.md) — Indice-di-dominio: il territorio reale (entità, sistemi, fonti) legato ai nodi; register root `map.md`, porta on-demand
 - [plan](kb/plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza root `plan.md`
 - [tasks](kb/tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `tasks/`, stadio Specify
-- [why](kb/why.md) — Memoria interpretativa: perché decisioni e sessioni contano; istanza root `why.md`, append-only
+- [verdict](kb/verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; istanza root `verdict.md`, aggiornata in place
 - [git-history](kb/git-history.md) — Storia verificabile dei cambiamenti e dei diff
 - [skill](kb/skill.md) — Workflow ricorrenti codificati per agenti
 - [fonte-di-verita](kb/fonte-di-verita.md) — Fonti contro cui verificare ciò che la KB dice

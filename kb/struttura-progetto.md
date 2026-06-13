@@ -15,17 +15,17 @@ La root contiene due tipi di file, distinti per **funzione**, non per profondit�
 
 **1. File-ciclo** — letti a _ogni_ sessione per capire e agire. Sono il cruscotto del ciclo di sviluppo (quello che agisce sull'artefatto, non sul mondo):
 
-- `README.md` — la **bussola** e il Goal: identità, principi e dominio in sintesi; orienta e _punta_ a `plan`, `kb` e al modello (nodi/`presentations`, register `map` dove esiste)
+- `README.md` — la **bussola** e il Goal: identità, principi e dominio in sintesi; orienta e _punta_ a `plan`, `kb` e al modello (nodi/`interpretations`, register `map` dove esiste)
 - `plan.md` — il Plan: i task aperti prioritizzati con dipendenze
 - `CLAUDE.md` + `AGENTS.md` — le regole d'azione (AGENTS come wrapper agent-agnostico)
-- `why.md` — la memoria del perché, append-only
+- `verdict.md` — il verdetto attuale, per filo aperto
 
 **2. Porte-collezione** — _visibili_ sempre nell'atrio, _lette_ on-demand. Una per ogni collezione, così che la root dichiari l'inventario completo dell'artefatto:
 
 - `kb.md` — il catalogo dei nodi (porta di `kb/`)
 - `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi. Register on-demand, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
 - `tools.md` — strumenti e skill (porta di `tools/`)
-- `presentations.md` — lo strato output o2/o3 (porta di `presentations/`)
+- `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `ciclo-azione`, i2 micro/macro)
 - `sources.md` — il manifest delle fonti i1 (porta di `sources/`)
 
 ## Visibilità ≠ caricamento
@@ -34,7 +34,7 @@ La root contiene due tipi di file, distinti per **funzione**, non per profondit�
 
 Questo **supera** la vecchia regola «un file-meta vive dentro la cartella se on-demand, sale in root solo se letto a ogni sessione»: un catalogo on-demand può vivere in root _come porta_, perché la root è inventario visibile, e l'ordine di bootstrap distingue cosa caricare.
 
-Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file-ciclo, distinto dal README per pace». Quella regola trattava "map" come una cosa sola — il modello che evolve. La scomposizione lo scioglie meglio: la **bussola** (orientamento d'ingresso, stabile) è il README; il **modello** (la teoria che evolve) vive nei nodi e in `presentations/`; l'**indice-di-dominio** (il territorio reale) è il register `map.md`, una porta on-demand. Così lo strato veloce resta fuori dal README — la pace è rispettata meglio del compromesso del 06-06 — e non serve più un `map.md`-bussola separato. Il README **orienta e punta, non immagazzina** (regola in readme).
+Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file-ciclo, distinto dal README per pace». Quella regola trattava "map" come una cosa sola — il modello che evolve. La scomposizione lo scioglie meglio: la **bussola** (orientamento d'ingresso, stabile) è il README; il **modello** (la teoria che evolve) vive nei nodi e in `interpretations/`; l'**indice-di-dominio** (il territorio reale) è il register `map.md`, una porta on-demand. Così lo strato veloce resta fuori dal README — la pace è rispettata meglio del compromesso del 06-06 — e non serve più un `map.md`-bussola separato. Il README **orienta e punta, non immagazzina** (regola in readme).
 
 ## Root estensibile dal basso
 
@@ -44,23 +44,23 @@ Il set universale (i file-ciclo + le porte-collezione) è un _pavimento, non un 
 
 Il cruscotto agisce sull'artefatto (la KB), non sul mondo del dominio. Per questo `plan` è il Plan dello sviluppo, **non** o1 (il Plan del runtime in ciclo-azione): tenere distinte le due cose evita una contraddizione `plan`/o1 tra nodi. `plan` resta `plan.md` e non diventa `tasks.md`: è uno stadio del ciclo, non l'indice di `tasks/` — eccezione semantica per altezza, prova che l'atrio contiene il vecchio criterio di altezza come caso speciale.
 
-Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la fedelta-cognitiva — il cui residuo rientra in `why` e nei nodi. Il Compare (i3 in ciclo-azione) non vuole un `compare.md`: quando si cristallizza è l'**o2/termometro** (la presentazione, una `stato.md`) nello strato output — vista generata, non intenzione.
+Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la fedelta-cognitiva — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in ciclo-azione) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in vista generata è l'**o2/i2-macro** (il deck in `interpretations/`) — vista derivata, non intenzione.
 
 ## Le regole d'azione e la memoria
 
 `CLAUDE.md`, con `AGENTS.md` come wrapper agent-agnostico, è la "costituzione operativa": contiene cosa è consentito eseguire, vincoli operativi, bootstrap di sessione, pointer alla KB. È distinta dal contenuto di dominio che vive nei nodi `kb/`: ogni descrizione di come funziona qualcosa appartiene a un nodo, CLAUDE.md ne è solo l'indirizzo. AGENTS.md non duplica le regole: indirizza ogni agente verso README e CLAUDE esplicitando l'ordine di lettura.
 
-`why.md` è il registro append-only delle decisioni significative. Il git log dice cosa è cambiato; `why` dice perché conta — la decisione come chiave, la data come metadato, il commit citabile inline come puntatore. È lo strato interpretativo sopra quello analitico del git log.
+`verdict.md` è il verdetto attuale, per filo/area aperta — non un log. Il git log dice cosa è cambiato; `verdict.md` dice come stanno le cose ora e perché conta, aggiornato in place; la cronologia di un filo è il git history del file stesso. È lo strato interpretativo sopra quello analitico del git log.
 
 ## La triade di skill base
 
-`audit-kb`, `tasks-review` e `commit`. `audit-kb` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il file-meta `kb.md` dal conteggio dei nodi. `tasks-review` mantiene vera la supervisione: coerenza `plan`/`tasks`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli strumenti in `tools/`, così parsing e conteggi restano deterministici.
+`kb-review`, `tasks-review` e `commit`. `kb-review` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il file-meta `kb.md` dal conteggio dei nodi. `tasks-review` mantiene vera la supervisione: coerenza `plan`/`tasks`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli strumenti in `tools/`, così parsing e conteggi restano deterministici.
 
 ## Struttura uniforme, carattere nel contenuto
 
-I nomi delle collezioni standard sono **uniformi** tra i progetti (`kb/`, `tools/`, `presentations/`, `sources/` e le rispettive porte): la familiarità della cornice rende l'artefatto leggibile e confortante a chi passa da un repo all'altro, umano o LLM. Il «colore» del dominio non vive nel nome della cartella ma nel **contenuto** dei file. Questo **supera** il vecchio principio «il nome dello strato output è una scelta di dominio»: un nome di dominio che contraddice il contenuto è un signifier che mente (es. `quadro/` in `salute`, che evoca il quadro _clinico_ in una KB che rifiuta la separazione corpo/mente). La guardia che il vecchio principio proteggeva — non forzare la struttura sul dominio — resta valida solo come divieto di nomi fuorvianti, non come licenza di nomi idiosincratici.
+I nomi delle collezioni standard sono **uniformi** tra i progetti (`kb/`, `tools/`, `interpretations/`, `sources/` e le rispettive porte): la familiarità della cornice rende l'artefatto leggibile e confortante a chi passa da un repo all'altro, umano o LLM. Il «colore» del dominio non vive nel nome della cartella ma nel **contenuto** dei file. Questo **supera** il vecchio principio «il nome dello strato output è una scelta di dominio»: un nome di dominio che contraddice il contenuto è un signifier che mente (es. `quadro/` in `salute`, che evoca il quadro _clinico_ in una KB che rifiuta la separazione corpo/mente). La guardia che il vecchio principio proteggeva — non forzare la struttura sul dominio — resta valida solo come divieto di nomi fuorvianti, non come licenza di nomi idiosincratici.
 
-Resta distinto ciò che non è una collezione di sintesi-documento ma output di altra natura ontologica: la configurazione che gira in `nixos` (`home/`, `hosts/`, `modules/`) è o1/runtime, non la porta `presentations/`. L'uniformità riguarda le collezioni standard dell'artefatto, non costringe a ribattezzare un output che _è_ un'altra cosa.
+Resta distinto ciò che non è una collezione di sintesi-documento ma output di altra natura ontologica: la configurazione che gira in `nixos` (`home/`, `hosts/`, `modules/`) è o1/runtime, non la porta `interpretations/`. L'uniformità riguarda le collezioni standard dell'artefatto, non costringe a ribattezzare un output che _è_ un'altra cosa.
 
 ## Caratteristiche
 
@@ -73,9 +73,9 @@ Resta distinto ciò che non è una collezione di sintesi-documento ma output di 
 
 ## Skeleton directory
 
-- file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `why.md`
-- porte-collezione: `kb.md` · `map.md` (dove il dominio ha un territorio) · `tools.md` · `presentations.md` · `sources.md`
-- collezioni: `kb/` · `tools/` · `presentations/` · `sources/` · `tasks/`
+- file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `verdict.md`
+- porte-collezione: `kb.md` · `map.md` (dove il dominio ha un territorio) · `tools.md` · `interpretations.md` · `sources.md`
+- collezioni: `kb/` · `tools/` · `interpretations/` · `sources/` · `tasks/`
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
   compilati e intermedi che non appartengono alla storia dell'artefatto
 - `.claude/skills/` · `.codex/skills/`
@@ -83,16 +83,16 @@ Resta distinto ciò che non è una collezione di sintesi-documento ma output di 
 ## Naming dei file
 
 - file UPPERCASE — riconosciuti e caricati per nome da tool o LLM: `README.md`, `CLAUDE.md`, `AGENTS.md` (solo `CLAUDE.md` è auto-caricato dall'harness Claude Code; gli altri seguono l'ordine di bootstrap)
-- file-ciclo lowercase in root (`plan.md`, `why.md`): letti seguendo l'ordine di bootstrap, tenuti concisi perché entrano in contesto presto
-- porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `presentations.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
-- forma inglese per gli artefatti strutturali vivi (`map`, `plan`, `why`, `kb`), italiano per i nodi-concetto e la prosa di dominio: l'inglese marca l'artefatto vivo, l'italiano la documentazione concettuale
+- file-ciclo lowercase in root (`plan.md`, `verdict.md`): letti seguendo l'ordine di bootstrap, tenuti concisi perché entrano in contesto presto
+- porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
+- forma inglese per gli artefatti strutturali vivi (`map`, `plan`, `verdict`, `kb`), italiano per i nodi-concetto e la prosa di dominio: l'inglese marca l'artefatto vivo, l'italiano la documentazione concettuale
 - nodi `kb/` — lowercase con trattini, singolare come forma canonica (regola dettagliata in nodo)
 
 ## Frontmatter per tipo di file
 
 - `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo nodo
 - `tasks/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo tasks
-- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `why.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `presentations.md`, `sources.md`): nessun frontmatter
+- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): nessun frontmatter
 
 La ragione è funzionale. I nodi e i task sono unità analizzabili dagli strumenti; i file-ciclo e le porte-collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
 
@@ -111,22 +111,22 @@ Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di cias
 - map e plan: indice-di-dominio (il territorio) in map dove esiste, supervisione del lavoro in plan
 - CLAUDE e AGENTS: regole d'azione, bootstrap esplicito, confini con il dominio in claude e agents
 - tasks/: corrispondenza uno a uno `plan` ↔ file, frontmatter e ciclo di vita del task in tasks
-- why: formato canonico e distinzione da diario/stato in why
+- verdict: formato canonico e distinzione da diario/stato in verdict
 
 ## Applicazione nei progetti adottanti
 
-Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (`kb/index.md`→`kb.md`, `scripts/`→`tools/`, output→`presentations/` dove è sintesi-documento), letto dal canone via symlink.
+Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (`kb/index.md`→`kb.md`, `scripts/`→`tools/`, output→`interpretations/` dove è sintesi-documento), letto dal canone via symlink.
 
-- **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `why`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
-- **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `why`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
+- **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
+- **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
 - **`economia`** — situazione attuale: struttura completa con file di dominio
-  in root, `data/` locale non versionato per fonti e JSON, e `presentations/`
+  in root, `data/` locale non versionato per fonti e JSON, e `interpretations/`
   versionata per le viste decisionali. Confronto con il metodo: conferma sia la
   root estensibile dal basso sia la separazione tra stato operativo e risultato
   editoriale.
 - **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
 
-La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le presentazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, why o nodi.
+La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.
 
 Gli strumenti vanno esposti su tre livelli — README orienta, CLAUDE istruisce, nodi approfondiscono — secondo la regola dettagliata in strumenti-kb.
 
@@ -149,7 +149,7 @@ Connessioni:
 - [map](map.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
-- [why](why.md)
+- [verdict](verdict.md)
 - [skill](skill.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [output](output.md)

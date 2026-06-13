@@ -59,6 +59,24 @@ I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza da
 
 L'asimmetria reale è altrove: **il mondo persiste da solo, la KB persiste solo se qualcuno la scrive.** Il mondo si ricorda della mail spedita, della transazione eseguita, del gesto compiuto, che l'artefatto faccia altro o no; la KB dimentica a meno che l'i3 non depositi l'esito. È il contenuto operativo del principio «una decisione non scritta è una decisione persa» — non un'esortazione morale, ma la conseguenza dell'unico dei due medium che non si mantiene da sé. Per questo la KB ha bisogno di un custode e il mondo no.
 
+## i2 micro e i2 macro: il deck come cerniera
+
+L'atto Interpret (i2) non ha una sola scala. Nel ciclo per-nodo, i2-**micro** è la
+singola nota bozza che distilla un i1 — un referto, un export, un segnale — l'istanza
+minima descritta sopra (Interpret → nodo bozza in `kb/`). Ma esiste anche un
+i2-**macro**: la sintesi periodica che rilegge l'intero artefatto e rivela tensioni
+non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente. È il ruolo
+di `interpretations/`: ogni sezione del deck è un'interpretazione i2-macro, non un nodo
+bozza.
+
+Per `method`, il cui Mondo di sviluppo è la KB stessa, il deck legge prevalentemente
+come i2-macro: rivela dove i nodi si contraddicono o si completano. Per i progetti
+adottanti (`bi`, `economia`, `salute`), lo stesso deck-pattern resta prevalentemente o2
+— cruscotto di decisione sul Mondo runtime. La cerniera è di **tool** (lo stesso motore
+Reveal, lo stesso pattern di sintesi visiva), non di **ruolo nel ciclo**: «nome uniforme,
+carattere nel contenuto» si applica anche qui — uniforme è il deck, variabile è se la
+sua sintesi guarda all'artefatto (i2-macro) o al mondo (o2).
+
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 
 ## I due gulf
@@ -95,7 +113,7 @@ Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è 
 - **Ciclo runtime**: il suo Mondo è la realtà. o3 agisce fuori (un'email, una transazione, un payload pubblicato, un gesto); i1 percepisce il segnale del mondo (referto, payload di ritorno, alert).
 - **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 agisce sull'artefatto (un commit, una modifica alla KB); i1 percepisce la risposta dell'artefatto (lint, audit, test, errore).
 
-Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → tasks → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `why` e `tasks` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → tasks → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `verdict` e `tasks` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
 
 È il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è l'o3 di un ciclo che lo precede.
 
@@ -110,7 +128,7 @@ Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si collo
 
 La matrice che ne risulta è la lente per confrontare i progetti adottanti: per ogni dominio si legge cosa è sviluppato, cosa manca perché non serve (es. `nixos` ha poco esogeno sul lato input runtime), e cosa manca ma servirebbe. Sostituisce sia il taglio rigido «stadi divisi per agente» sia la fotografia piatta dello stato dei progetti.
 
-**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `why.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `fedelta-cognitiva`).
+**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `verdict.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `fedelta-cognitiva`).
 
 ## Le quattro proprietà cardine come criteri di qualità per o2
 

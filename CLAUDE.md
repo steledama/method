@@ -4,15 +4,15 @@ Regole operative per agenti che lavorano su questo repository.
 
 ## Bootstrap di sessione
 
-La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-ciclo_ si leggono a ogni sessione; le _porte-collezione_ (`kb.md`, `tools.md`, `presentations.md`, `sources.md`) si vedono ma si aprono on-demand. Ordine: `README → CLAUDE → nodo`.
+La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-ciclo_ si leggono a ogni sessione; le _porte-collezione_ (`kb.md`, `tools.md`, `interpretations.md`, `sources.md`) si vedono ma si aprono on-demand. Ordine: `README → CLAUDE → nodo`.
 
-1. `README.md` — la bussola: scopo, dominio in breve, orientamento operativo; punta a `plan.md` (lavoro), `kb.md` (catalogo), `presentations/` e nodi (modello)
+1. `README.md` — la bussola: scopo, dominio in breve, orientamento operativo; punta a `plan.md` (lavoro), `kb.md` (catalogo), `interpretations/` e nodi (modello)
 2. nodo pertinente alla modifica richiesta
 
 ## Operazioni consentite senza autorizzazione
 
 - modifica ai nodi in `kb/`
-- aggiornamento di `README.md`, `plan.md` e `why.md`
+- aggiornamento di `README.md`, `plan.md` e `verdict.md`
 - commit e operazioni git locali
 
 ## Skill
@@ -21,7 +21,7 @@ La triade base del metodo vive versionata anche qui (`metodo` fa dogfooding ed �
 copia canonica di riferimento): `.claude/skills/` con wrapper Codex in
 `.codex/skills/`.
 
-- `/audit-kb` — health check della KB via `tools/kb_tools.py` (diagnosi, non corregge)
+- `/kb-review` — health check della KB via `tools/kb_tools.py` (diagnosi, non corregge)
 - `/tasks-review` — supervisione di `plan.md`/`tasks/`: drift, priorità, dipendenze, prossimo task
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
 
@@ -33,7 +33,7 @@ Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 Non usare il sistema di memoria dell'harness (`auto-memory`, store in
 `~/.claude/projects/.../memory/`): il contenuto è host-locale, opaco e non versionato
 — l'anti-pattern dell'artefatto portabile. La memoria del progetto vive versionata nel
-repo: `why.md` (perché una decisione conta), nodi `kb/` (conoscenza stabile), `tasks/`
+repo: `verdict.md` (perché una decisione conta), nodi `kb/` (conoscenza stabile), `tasks/`
 (lavoro futuro e contesto).
 
 L'enforcement (spegnere la feature) è invece versionabile: vive in `nixos` — env var

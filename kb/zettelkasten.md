@@ -28,13 +28,13 @@ Adattamento operativo:
 - i cluster dell'indice possono cambiare senza rinominare i nodi
 - i task aperti non sono nodi: vivono in `plan.md` e tasks/
 - le fonti non sono nodi: alimentano la creazione o revisione dei nodi
-- il why non è nodo: conserva il senso storico delle decisioni
+- `verdict.md` non è nodo: registra il verdetto attuale per filo aperto, non un concetto stabile
 
 Regola pratica:
 
 - se il contenuto serve a capire un concetto, va in kb/
 - se serve a fare una cosa futura, va in tasks/
-- se spiega una decisione già presa, va in why.md
+- se spiega una decisione già presa, va in verdict.md
 - se istruisce un agente, va in CLAUDE.md o in una skill
 - se orienta il lettore, va in README.md
 - se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto, non in kb/

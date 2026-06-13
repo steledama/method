@@ -448,7 +448,7 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.body_inline_links)
     )
     lines = [
-        f"## [{date.today().isoformat()}] audit-kb",
+        f"## [{date.today().isoformat()}] kb-review",
         "",
         "### OK",
         "",
@@ -509,19 +509,19 @@ def output_result(data: object, fmt: str) -> None:
         print_json(asdict(data) if hasattr(data, "__dataclass_fields__") else data)
 
 
-def append_why(root: Path, report: str) -> None:
-    why_path = root / "why.md"
-    current = why_path.read_text(encoding="utf-8") if why_path.exists() else "# why.md\n"
+def append_verdict(root: Path, report: str) -> None:
+    verdict_path = root / "verdict.md"
+    current = verdict_path.read_text(encoding="utf-8") if verdict_path.exists() else "# verdict.md\n"
     separator = "" if current.endswith("\n\n") else "\n"
-    why_path.write_text(current + separator + report, encoding="utf-8")
+    verdict_path.write_text(current + separator + report, encoding="utf-8")
 
 
 def command_audit(args: argparse.Namespace) -> None:
     result = run_audit(repo_root())
-    if args.append_why:
+    if args.append_verdict:
         if args.format != "markdown":
-            raise SystemExit("--append-why richiede --format markdown")
-        append_why(repo_root(), markdown_report(result))
+            raise SystemExit("--append-verdict richiede --format markdown")
+        append_verdict(repo_root(), markdown_report(result))
     output_result(result, args.format)
 
 
@@ -576,7 +576,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit = sub.add_parser("audit", help="audit strutturale della KB")
     audit.add_argument("--format", choices=["markdown", "json"], default="markdown")
-    audit.add_argument("--append-why", action="store_true", help="appende il report markdown a why.md")
+    audit.add_argument("--append-verdict", action="store_true", help="appende il report markdown a verdict.md")
     audit.set_defaults(func=command_audit)
 
     backlinks = sub.add_parser("backlinks", help="mostra link in/out di un nodo")

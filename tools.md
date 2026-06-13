@@ -8,7 +8,7 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
 ## tools/
 
 - `kb_tools.py` — backend deterministico portabile per l'audit della KB. Comandi:
-  - `audit` — audit strutturale (link rotti, orfani, catalogo, naming, cluster, candidati termini); `--append-why` appende il report a `why.md`
+  - `audit` — audit strutturale (link rotti, orfani, catalogo, naming, cluster, candidati termini); `--append-verdict` appende il report a `verdict.md`
   - `backlinks <nodo>` — link in/out di un nodo
   - `orphans` — nodi senza backlink
   - `readme` — copertura del catalogo `kb.md`
@@ -16,12 +16,12 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
   - `terms` — candidati a nuovi nodi da termini ricorrenti
   - `inventory` / `coverage` — inventario e copertura del codice (progetti code-based)
 - `build-presentation.sh` — genera il deck Reveal standalone
-  `presentations/index.html` dalla sorgente `presentations/metodo-in-sintesi.md`
+  `interpretations/index.html` dalla sorgente `interpretations/metodo-in-sintesi.md`
   tramite Pandoc
 
 ## skill
 
-`metodo` versiona la triade base canonica in `.claude/skills/` (`audit-kb`,
+`metodo` versiona la triade base canonica in `.claude/skills/` (`kb-review`,
 `tasks-review`, `commit`) con wrapper Codex in `.codex/skills/`. È dogfooding: il
 repo-modello applica a sé gli strumenti che teorizza, ed è la copia di riferimento
 che gli adottanti forkano e parametrizzano sui propri check, fonti e segnali

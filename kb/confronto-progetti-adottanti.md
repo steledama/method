@@ -5,7 +5,7 @@ stato: bozza
 
 # Confronto progetti adottanti
 
-Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il metodo KB: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `why`, `strumenti-kb`, `skill`, `fonte-di-verita`, `fedelta-cognitiva`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei quattro progetti che adottano il metodo KB: `nixos`, `bi`, `economia` e `salute`. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `map`, `plan`, `tasks`, `verdict`, `strumenti-kb`, `skill`, `fonte-di-verita`, `fedelta-cognitiva`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -29,7 +29,7 @@ Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo d
 
 ## Convergenze
 
-Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `why.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `audit-kb` / `tasks-review` / `commit`, script `tools/kb_tools.py`.
+Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `verdict.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `kb-review` / `tasks-review` / `commit`, script `tools/kb_tools.py`.
 
 La separazione `method/ -> ../method/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
@@ -76,7 +76,7 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 - **metodo / output** — azione: promuovere `output` e `ciclo-azione` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
 - **metodo / task** — azione: mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
 - **metodo / strumenti** — azione: un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce; tipo: bottom-up: in attesa
-- **metodo / skill** — azione: mantenere la triade `audit-kb` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
+- **metodo / skill** — azione: mantenere la triade `kb-review` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
 - **metodo / frontmatter** — azione: policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi; tipo: completato
 
 Connessioni:
@@ -93,7 +93,7 @@ Connessioni:
 - [map](map.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
-- [why](why.md)
+- [verdict](verdict.md)
 - [strumenti-kb](strumenti-kb.md)
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)

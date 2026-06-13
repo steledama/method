@@ -31,8 +31,9 @@ separazione di default è:
 
 - `data/` — workspace locale ignorato da Git: fonti grezze, dati compilati,
   cache, intermedi e report strutturati destinati alle macchine
-- `presentations/` — superfici curate per lettura e decisione: HTML, CSS, SVG,
-  markdown editoriale e altri artefatti o2 intenzionalmente versionati
+- `interpretations/` — superfici curate per lettura, decisione e interpretazione:
+  HTML, CSS, SVG, markdown editoriale e altri artefatti i2/o2 intenzionalmente
+  versionati (cfr. `ciclo-azione`, sezione i2 micro/macro)
 - `scripts/`, `config/`, schemi e fixture anonime — trasformazione
   riproducibile, versionata
 
@@ -105,7 +106,7 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 
 ## Nome uniforme, carattere nel contenuto
 
-Lo strato di sintesi-documento ha nome **uniforme** tra i progetti: `presentations/`. Il carattere del dominio vive nel contenuto, non nel nome della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel contenuto»): `salute` migra `quadro/`→`presentations/`, perché il nome clinico contraddiceva l'essenza non-dualista corpo/mente della KB. Resta distinto ciò che è output di altra natura ontologica: in `nixos` l'output _è_ la configurazione che gira (`home/`, `hosts/`, `modules/`), o1/runtime, non la porta `presentations/`. La funzione è la stessa ovunque: tradurre conoscenza in azione possibile.
+Lo strato di sintesi-documento ha nome **uniforme** tra i progetti: `interpretations/`. Il carattere del dominio vive nel contenuto, non nel nome della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel contenuto»): `salute` migra `quadro/`→`presentations/` (poi → `interpretations/`), perché il nome clinico contraddiceva l'essenza non-dualista corpo/mente della KB. L'uniformità è di **tool** (lo stesso deck Reveal), non di **ruolo nel ciclo**: in `method` il deck legge come i2-macro (sintesi della KB stessa), negli adottanti come o2 (cruscotto di decisione sul Mondo runtime) — cfr. `ciclo-azione`, sezione i2 micro/macro. Resta distinto ciò che è output di altra natura ontologica: in `nixos` l'output _è_ la configurazione che gira (`home/`, `hosts/`, `modules/`), o1/runtime, non la porta `interpretations/`. La funzione è la stessa ovunque: tradurre conoscenza in azione possibile.
 
 ## Criteri di qualità
 

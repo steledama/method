@@ -37,21 +37,21 @@ Il frontmatter dei task è obbligatorio perché permette agli strumenti cross-re
 
 `data` è la data di apertura del task, non l'ultima modifica. `stato` resta minimale: per ora il valore canonico è solo `aperto`. Priorità e dipendenze vivono in `plan.md`, non nel frontmatter, perché `plan` è il punto di supervisione corrente.
 
-Quando un task viene completato, il file viene eliminato insieme alla riga in `plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, `why.md` e nei nodi aggiornati.
+Quando un task viene completato, il file viene eliminato insieme alla riga in `plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, `verdict.md` e nei nodi aggiornati.
 
 ## Applicazione nei progetti adottanti
 
 - **`nixos`** — situazione attuale: `tasks/` piccolo, con task tecnici puntuali. Confronto con il metodo: buon uso come spazio temporaneo — il contesto stabile resta nei nodi e nel codice.
-- **`bi`** — situazione attuale: `tasks/` più ampio, con task legati a refactor, dati, fornitori e metodo. Confronto con il metodo: utile per non trasformare README e CLAUDE in backlog; richiede disciplina nel chiudere o spostare le decisioni in KB/why.
+- **`bi`** — situazione attuale: `tasks/` più ampio, con task legati a refactor, dati, fornitori e metodo. Confronto con il metodo: utile per non trasformare README e CLAUDE in backlog; richiede disciplina nel chiudere o spostare le decisioni in `kb/`/`verdict.md`.
 - **`economia`** — situazione attuale: `tasks/` molto operativo, legato a scadenze, pratiche, immobili, tasse e investimenti. Confronto con il metodo: caso che chiarisce l'adattamento — `tasks/` può contenere pratiche reali e non solo refactor, ma deve restare lavoro futuro.
 - **`salute`** — situazione attuale: `tasks/` contiene task concettuali e operativi sostanziali, mentre ingest semplici possono restare solo righe in `plan`. Confronto con il metodo: conferma la soglia — ingest semplice può stare in `plan`, ma serie di nodi, loop pratica-verifica o interventi strutturali richiedono file dedicato finché non diventano nodi stabili.
 
-La pratica conferma che `tasks/` è parte del metodo ma non della KB stabile. Quando un file contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/why. Nel repo `metodo`, la condizione di apertura di un task è ancora più stretta: deve riguardare la custodia del metodo, non l'applicazione puntuale del metodo altrove.
+La pratica conferma che `tasks/` è parte del metodo ma non della KB stabile. Quando un file contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/`verdict.md`. Nel repo `metodo`, la condizione di apertura di un task è ancora più stretta: deve riguardare la custodia del metodo, non l'applicazione puntuale del metodo altrove.
 
 Connessioni:
 
 - [metodo-kb](metodo-kb.md)
 - [plan](plan.md)
 - [readme](readme.md)
-- [why](why.md)
+- [verdict](verdict.md)
 - [connessione](connessione.md)

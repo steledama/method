@@ -21,7 +21,7 @@ Architettura:
 - nodi: unità concettuali compilate a partire dalle fonti, dalle riflessioni e dalle sessioni di lavoro
 - schema operativo: istruzioni, convenzioni e skill che insegnano all'LLM come mantenere il progetto
 - indice: catalogo statico nel README che orienta umano e LLM nella rete dei nodi
-- why: memoria cronologica e interpretativa delle sessioni significative
+- verdict: il verdetto attuale per filo/area aperta, aggiornato in place — la cronologia è il git history del file
 - strumenti: script versionati che rendono deterministici i controlli meccanici
 - task: lavoro futuro tracciato in `plan.md` e dettagliato in tasks/, separato dalla conoscenza stabile
 - wrapper agent: AGENTS.md e .codex/skills quando servono più agenti sullo stesso progetto
@@ -40,7 +40,7 @@ Ciclo di bootstrap:
 - l'agente apre solo i nodi necessari alla domanda o al task corrente
 - l'agente usa tools/kb_tools.py per controlli strutturali invece di improvvisare parser
 - l'agente propone filing back quando una conversazione produce conoscenza durevole
-- l'agente aggiorna README, why, tasks e nodi solo secondo il ruolo di ciascun file
+- l'agente aggiorna README, verdict, tasks e nodi solo secondo il ruolo di ciascun file
 
 Differenze rispetto al RAG:
 

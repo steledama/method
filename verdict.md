@@ -1,14 +1,33 @@
-# why.md
+# verdict.md
 
-Memoria interpretativa del progetto. Il git log dice _cosa_ è cambiato; questo file dice _perché conta_. La chiave è la **motivazione**: le entry sono raggruppate per la decisione o il filo concettuale che illuminano, non per data. La data è un metadato che vive _dentro_ il gruppo, dove la cronologia di una singola idea è significativa (evoluzione, ritrattazioni); l'asse del tempo nel suo insieme appartiene a git, non a questo file.
+Il verdetto attuale del progetto, per filo/area aperta — non un log. Il git log dice
+_cosa_ è cambiato; questo file dice _come stanno le cose ora_ su ciascun filo
+concettuale aperto, e _perché conta_. A ogni commit ci si chiede: ciò che è cambiato
+in questa sessione cambia il verdetto su un filo? Se sì, il filo si aggiorna **in
+place** — la cronologia delle sue revisioni è il git history di questo file stesso,
+non un accumulo di entry datate. Specchio di `plan.md` sul lato input: `plan.md`
+fotografa i task aperti (o1), `verdict.md` fotografa i verdetti aperti (i3).
+
+Un cambio di verdetto può propagarsi a `plan.md`/`tasks/` (priorità, dipendenze,
+nuovi task) o al Goal stesso: è il check i3 del gate `/commit`.
 
 Convenzioni:
 
-- ogni gruppo `##` è una motivazione; le entry `###` al suo interno sono ordinate dalla più recente.
-- un'entry superata **resta in posizione** e riceve una riga `> ↳ …` che punta a quella che la corregge — la traccia non si cancella, git e questo file la conservano.
-- un'entry che tocca più motivazioni vive nel gruppo più pertinente e rimanda agli altri.
-- non si archiviano output automatici (audit, lint): sono rigenerabili e vivono fuori di qui.
+- ogni gruppo `##` è un filo/area aperta; il corpo è lo **stato attuale**, non una
+  sequenza di entry datate.
+- quando un filo si chiude (verdetto stabile, nessuna tensione aperta), il gruppo si
+  rimuove: la storia resta in git, non qui.
 - il commit resta il puntatore citabile inline alla storia verificabile.
+
+---
+
+## Archivio storico (pre-verdict.md)
+
+Le sezioni seguenti sono il log append-only accumulato sotto la disciplina precedente
+di `why.md` (motivazione → entry datate, dalla più recente). Restano come sono:
+l'asse del tempo è di git, non si riscrivono i riferimenti storici. La migrazione dei
+fili ancora aperti alla nuova disciplina per-filo è un passo successivo, separato e
+più accurato — non in questa sessione.
 
 ---
 

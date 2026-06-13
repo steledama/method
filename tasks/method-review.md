@@ -41,7 +41,7 @@ dominio.
   regole del metodo si impongono in config fuori dai repo (es. il disable di
   `auto-memory`, versionato in `nixos`, non in ciascun adottante). La skill legge
   il `git log` dei repo e non vede questo strato: deve dichiararlo come limite, non
-  certificarlo allineato. Cfr. why.md «La memoria dell'harness: regola portabile a
+  certificarlo allineato. Cfr. verdict.md «La memoria dell'harness: regola portabile a
   L2…».
 
 ## Pilota

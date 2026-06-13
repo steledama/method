@@ -22,7 +22,7 @@ git status --short
 git log --oneline -5
 ```
 
-Leggi `plan.md`, `map.md`, `why.md` recente e i file `tasks/` necessari per capire
+Leggi `plan.md`, `map.md`, `verdict.md` recente e i file `tasks/` necessari per capire
 i task aperti. Se l'obiettivo è solo un health check, puoi limitarti ai
 titoli/frontmatter dei file `tasks/`.
 
@@ -48,7 +48,7 @@ nel `metodo` hanno natura propria:
   e `README.md` di tutti gli adottanti collegati
 - nuova fonte (`i1`) ingerita o cornice teorica importata -> può aprire nodi bozza
   o ristrutturazioni
-- drift tra `presentations/` e i nodi -> può aprire un task di riallineamento o2
+- drift tra `interpretations/` e i nodi -> può aprire un task di riallineamento o2
 - scadenza di una fotografia dell'osservatorio cross-repo
 
 **4. Proponi le modifiche e il prossimo task**
@@ -72,6 +72,6 @@ Applica modifiche a `plan.md` e `tasks/` solo dopo conferma esplicita dell'utent
 - Mantieni i titoli brevi e coerenti con la tabella esistente
 - La colonna "Dipende da" deve riflettere dipendenze reali, non preferenze d'ordine
 - I task completati si rimuovono da `plan.md` e `tasks/`; lo storico resta in git,
-  `why.md` e nodi aggiornati
+  `verdict.md` e nodi aggiornati
 - Dopo la revisione, suggerisci `/commit` per chiudere la sessione quando ci sono
   modifiche da fissare

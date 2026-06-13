@@ -9,7 +9,7 @@ Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione cor
 
 `plan` è il Plan dello _sviluppo_ (l'azione sull'artefatto), distinto da o1 (il Plan del _runtime_ in ciclo-azione, l'azione sul mondo): tenerli separati evita una contraddizione tra nodi.
 
-Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, `why.md` e nei nodi aggiornati.
+Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, `verdict.md` e nei nodi aggiornati.
 
 Regole:
 
@@ -57,7 +57,7 @@ Connessioni:
 - [metodo-kb](metodo-kb.md)
 - [readme](readme.md)
 - [tasks](tasks.md)
-- [why](why.md)
+- [verdict](verdict.md)
 - [git-history](git-history.md)
 - [ciclo-azione](ciclo-azione.md)
 - [struttura-progetto](struttura-progetto.md)

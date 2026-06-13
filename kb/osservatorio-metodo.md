@@ -15,7 +15,7 @@ L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti
 
 - README: funzione di bussola (orienta e punta, non immagazzina), qualità dei router, puntatori al cruscotto (plan, catalogo, modello, indice-di-dominio dove esiste)
 - CLAUDE.md e AGENTS.md: chiarezza operativa, separazione tra regole d'azione e contenuto di dominio, costo di caricamento
-- why.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
+- verdict.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
 - tasks/: corrispondenza con `plan.md`, qualità del contesto operativo, presenza di task morti
 - nodi KB: quantità, cluster, hub, orfani, formato, link, copertura delle aree reali, equilibrio tra mappa, concetto, reference e runbook
 - strumenti: comandi comuni, estensioni locali, dipendenze, output ricostruibili, confine tra audit strutturale e fedeltà cognitiva
@@ -33,17 +33,17 @@ La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di 
 
 Analisi periodiche:
 
-- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map, plan, why, tasks, scripts, skill, nodi metodo e nodi dominio
+- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map, plan, verdict, tasks, scripts, skill, nodi metodo e nodi dominio
 - confronto strumenti: sottocomandi comuni, comandi locali, dipendenze, output, compatibilità della superficie base
 - confronto skill: scopo, istruzioni, path, formatter, relazione con script versionati
 - confronto KB: numero nodi, link, orfani, hub, cluster, tipi documentali, nodi non indicizzati, accessi cognitivi
 - confronto fedeltà: fonti di verità disponibili, fatti verificabili, aree scoperte, segnali anti-drift
-- confronto operativo: task aperti, voci why significative, problemi ricorrenti e interventi rimandati ai repo locali
+- confronto operativo: task aperti, voci verdict significative, problemi ricorrenti e interventi rimandati ai repo locali
 
 La forma ideale è un ciclo leggero:
 
 1. partire da un problema concreto in un repo adottante
-2. risolvere il problema nel merito, con task, why e nodi locali
+2. risolvere il problema nel merito, con task, verdict e nodi locali
 3. distinguere cosa è specifico del dominio da cosa è portabile
 4. aggiornare `metodo` solo con la generalizzazione o con uno strumento comune già giustificato dall'uso
 5. propagare agli altri repo tramite lettura dei commit di `metodo`, non tramite task centrali prescrittivi
@@ -77,7 +77,7 @@ Connessioni:
 - [agents](agents.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
-- [why](why.md)
+- [verdict](verdict.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
 - [fonte-di-verita](fonte-di-verita.md)

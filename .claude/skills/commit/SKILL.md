@@ -9,7 +9,7 @@ formatter e fonti di verità.
 
 ## Pre-commit: domande da fare prima di procedere
 
-**1. Audit KB** — Valuta se le modifiche toccano un numero significativo di nodi in `kb/` (aggiunte, rinominamenti, ristrutturazioni di link). Se sì, chiedi all'utente: _"Vuoi eseguire /audit-kb prima del commit?"_. Se l'utente risponde sì, esegui la skill `audit-kb` e includi eventuali fix nel commit. Se le modifiche sono minori (un file, fix puntuale), salta la domanda.
+**1. Audit KB** — Valuta se le modifiche toccano un numero significativo di nodi in `kb/` (aggiunte, rinominamenti, ristrutturazioni di link). Se sì, chiedi all'utente: _"Vuoi eseguire /kb-review prima del commit?"_. Se l'utente risponde sì, esegui la skill `kb-review` e includi eventuali fix nel commit. Se le modifiche sono minori (un file, fix puntuale), salta la domanda.
 
 **1b. Formato nodo** — Per ogni nodo nuovo o pesantemente modificato in `kb/`: verifica che abbia (a) frontmatter con `data:` e `stato:` in cima e (b) sezione `Connessioni:` in fondo. Se mancano entrambi, segnalalo prima di committare.
 
@@ -17,12 +17,12 @@ formatter e fonti di verità.
 
 **1d. Propagazione** — Se un nodo è stato rinominato o spostato, ricorda che i link nei `CLAUDE.md` e `README.md` degli adottanti collegati vanno aggiornati a mano (i nodi arrivano via symlink, ma nome/path no).
 
-**2. Entry in why.md** — Valuta se la sessione ha prodotto qualcosa di significativo: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiungere un'entry in why.md per questa sessione?"_. Se sì, proponi un'entry nel formato canonico di `why.md` (raggruppata per motivazione, `### [YYYY-MM-DD] titolo-tesi` con 1-3 righe sul perché conta — non un elenco di file ma il significato del cambiamento). Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
+**2. Filo in verdict.md** — Valuta se la sessione ha cambiato il verdetto su un filo/area aperta: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiornare `verdict.md` per questa sessione?"_. Se sì, aggiorna **in place** il gruppo `##` del filo pertinente (o crea un nuovo gruppo se il filo è nuovo) con lo stato attuale — non un'entry datata, non un elenco di file: il git history del file è già il log. Se il filo si è chiuso (verdetto stabile, nessuna tensione aperta), rimuovi il gruppo. Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
 
 **3. I due check del ciclo di valutazione (i2/i3)** — Prompt leggeri, non burocrazia: se la risposta è no, si procede.
 
-- **i2 — è cambiato il significato?** Questo commit cambia il senso di un artefatto di sintesi (`output/`, `presentations/`) rispetto a nuovi input o a goal appena emersi? Se sì, l'artefatto va _ri-derivato_, non lasciato stale: è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
-- **i3 — va bene?** Ciò che è cambiato altera il verdetto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento dell'entry in `why.md` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit.
+- **i2 — è cambiato il significato delle interpretazioni?** Questo commit cambia il senso di un artefatto di sintesi (`output/`, `interpretations/`) rispetto a nuovi input o a goal appena emersi? Se sì, il deck va _ri-derivato_ (`tools/build-presentation.sh`), non lasciato stale: è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
+- **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare `verdict.md` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, chiedi anche: _si propaga a `plan.md`/`tasks/` (priorità, dipendenze, nuovi task — `/tasks-review`) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
 
 Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 

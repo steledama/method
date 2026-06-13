@@ -1,6 +1,6 @@
-# Progettare la cognizione condivisa tra uomo e modelli di intelligenza artificiale
+# Cognizione condivisa
 
-Framework metodologico e osservatorio cross-repo per knowledge base (KB) personali e professionali mantenute con LLM.
+Framework metodologico e osservatorio cross-repo per la progettazione di artefatti di supporto alla cognizione condivisa tra uomo e modelli di intelligenza artificiale tramite knowledge base (KB).
 
 Questo repository ha due funzioni complementari. La prima è custodire il metodo portabile: forma dei nodi, struttura di progetto, strumenti di manutenzione, principi guida e ciclo di lavoro. La seconda è osservare come il metodo viene applicato nei progetti adottanti, confrontando componenti, strumenti, skill, nodi, task e segnali di salute delle KB.
 
@@ -10,7 +10,7 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([sviluppo-metodo
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due [mondi](kb/mondo.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [presentations/metodo-in-sintesi.md](presentations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due [mondi](kb/mondo.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo poggia su tre giganti — [zettelkasten](kb/zettelkasten.md), [pattern-karpathy](kb/pattern-karpathy.md), [ciclo-azione](kb/ciclo-azione.md) — e su un'ontologia a tre piani: artefatto, sistema, metodo ([artefatto-cognitivo](kb/artefatto-cognitivo.md), [sistema-cognitivo](kb/sistema-cognitivo.md)). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [interpretations/metodo-in-sintesi.md](interpretations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Orientarsi
 
@@ -19,17 +19,17 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di
 **File-ciclo** — il cruscotto del lavoro:
 
 - **[plan.md](plan.md)** — lo stadio Plan: i task aperti, prioritizzati, con dipendenze
-- **[why.md](why.md)** — la memoria interpretativa: perché le decisioni contano
+- **[verdict.md](verdict.md)** — lo stadio Compare: il verdetto attuale e perché conta
 - **CLAUDE.md** / **AGENTS.md** — le regole operative
 
 **Porte-collezione** — viste nell'atrio, aperte on-demand:
 
 - **[kb.md](kb.md)** — il catalogo di tutti i nodi
 - **[tools.md](tools.md)** — strumenti e skill dell'artefatto
-- **[presentations.md](presentations.md)** — lo strato output o2/o3
+- **[interpretations.md](interpretations.md)** — lo stadio i2 (Interpret)
 - **[sources.md](sources.md)** — il manifest delle fonti i1
 
-Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `presentations/`.
+Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `interpretations/`.
 
 L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
@@ -37,9 +37,9 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 - **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (o1/o2/o3) e input (i1/i2/i3), strumenti, fedeltà cognitiva e principi.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
-- **Strumenti comuni**: `tools/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade base di skill — `/audit-kb`, `/tasks-review`, `/commit` — vive in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
+- **Strumenti comuni**: `tools/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade base di skill — `/kb-review`, `/tasks-review`, `/commit` — vive in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
 - **Manutenzione propria del metodo**: task in `tasks/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Strato output**: [`presentations.md`](presentations.md) è la porta verso lo strato o2/o3; [`presentations/metodo-in-sintesi.md`](presentations/metodo-in-sintesi.md) ne è la sintesi — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; `tools/build-presentation.sh` genera `presentations/index.html` come deck Reveal.js standalone, apribile direttamente dal checkout. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
+- **Interpretazioni**: [`interpretations.md`](interpretations.md) è la porta verso lo stadio i2; [`interpretations/metodo-in-sintesi.md`](interpretations/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). Ogni sezione è un'interpretazione: rivela una tensione tra nodi altrimenti invisibile da dentro ciascuno. La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; `tools/build-presentation.sh` genera `interpretations/index.html`, l'indice navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
 
 ## Progetti adottanti
 

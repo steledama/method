@@ -5,7 +5,7 @@ stato: maturo
 
 # Principi Guida
 
-Principi che governano l'architettura e lo sviluppo dei progetti che adottano il metodo KB. I principi universali si applicano a qualsiasi progetto indipendentemente dal dominio; i principi code-based si applicano ai progetti con codebase attiva. Ogni progetto può aggiungere principi specifici nel proprio README — deviazioni dai principi universali vanno motivate in `why.md`.
+Principi che governano l'architettura e lo sviluppo dei progetti che adottano il metodo KB. I principi universali si applicano a qualsiasi progetto indipendentemente dal dominio; i principi code-based si applicano ai progetti con codebase attiva. Ogni progetto può aggiungere principi specifici nel proprio README — deviazioni dai principi universali vanno motivate in `verdict.md`.
 
 ## Principi universali
 
@@ -21,7 +21,7 @@ Ogni dato, regola o configurazione vive in un posto solo. I duplicati sono fonte
 
 ### Tracciabilità
 
-Le decisioni significative si registrano in `why.md` con motivazione esplicita. Nessuna scelta architetturale importante resta implicita o distribuita nei commit. La tracciabilità riguarda il perché, non il cosa: il cosa è già nel codice, nei dati e nei nodi.
+Le decisioni significative si registrano in `verdict.md` con motivazione esplicita. Nessuna scelta architetturale importante resta implicita o distribuita nei commit. La tracciabilità riguarda il perché, non il cosa: il cosa è già nel codice, nei dati e nei nodi.
 
 ### Esplicito su implicito
 

@@ -18,23 +18,23 @@ Regole:
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
 - ogni repo del metodo — `metodo` incluso — deve esporre la triade base ufficiale:
-  `audit-kb`, `tasks-review`, `commit`. La copia in `metodo` è quella canonica di
+  `kb-review`, `tasks-review`, `commit`. La copia in `metodo` è quella canonica di
   riferimento; gli adottanti la forkano e la parametrizzano
-- deve distinguere diagnosi, supervisione e prevenzione: `audit-kb` fotografa lo
+- deve distinguere diagnosi, supervisione e prevenzione: `kb-review` fotografa lo
   stato, `tasks-review` mantiene viva la coda del lavoro futuro, `commit`
   verifica che le modifiche appena fatte siano documentate nel posto giusto
   prima di fissarle nella storia
 
 ## Triade base ufficiale
 
-Le tre skill base ufficiali del metodo sono `audit-kb`, `tasks-review` e
+Le tre skill base ufficiali del metodo sono `kb-review`, `tasks-review` e
 `commit`. Ogni repo del metodo deve averle nella propria `.claude/skills/`, con
 wrapper Codex corrispondente in `.codex/skills/`. Questo vale anche per `metodo`
 stesso: è il repo-modello e fa dogfooding degli strumenti che teorizza — la sua
 triade è la copia canonica di riferimento, parametrizzata sul dominio «manutenzione
 della KB del metodo», che gli adottanti forkano e adattano al proprio dominio.
 
-`audit-kb` è la skill diagnostica. Misura salute strutturale, link, copertura,
+`kb-review` è la skill diagnostica. Misura salute strutturale, link, copertura,
 frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
 interpretare strumenti locali come `tools/kb_tools.py`, ma non deve trasformarsi
 in procedura di correzione automatica.
@@ -49,7 +49,7 @@ nodi da propagare in `metodo`.
 
 `commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
-map, nodo KB, tasks o why siano stati aggiornati coerentemente.
+map, nodo KB, tasks o `verdict.md` siano stati aggiornati coerentemente.
 
 Questa triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
 che deve solo fotografare, lasciare che la coda dei task diventi un backlog
@@ -59,7 +59,7 @@ lavoro; il commit è il gate di documentazione.
 
 ## Applicazione nei repo del metodo
 
-- **`metodo`** — situazione attuale: triade canonica `audit-kb`, `tasks-review`, `commit` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
+- **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
 - **`nixos`** — situazione attuale: skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso base — workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.
 - **`bi`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex. Confronto con il metodo: `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.
 - **`economia`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso originario della revisione task — priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente.
@@ -71,7 +71,7 @@ pattern: lo dogfooda, possedendo la triade canonica di riferimento; ogni repo
 adottante la forka con la stessa struttura e con letture contestuali diverse. La
 vecchia regola — `metodo` esente dal versionare skill — confondeva due cose: che
 le skill siano parametrizzate per-progetto (vero) e che `metodo` ne sia esente
-(non-sequitur, dato che `metodo` è esso stesso una KB con `plan`/`tasks`/`why`).
+(non-sequitur, dato che `metodo` è esso stesso una KB con `plan`/`tasks`/`verdict.md`).
 
 Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento locale.
 

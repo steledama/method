@@ -3,7 +3,7 @@ set -euo pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-pandoc "$root/presentations/metodo-in-sintesi.md" \
+pandoc "$root/interpretations/metodo-in-sintesi.md" \
   --standalone \
   --from=markdown-native_divs \
   --to=revealjs \
@@ -16,6 +16,6 @@ pandoc "$root/presentations/metodo-in-sintesi.md" \
   -V margin=0.05 \
   -V center=false \
   -V slideNumber=true \
-  -o "$root/presentations/index.html"
+  -o "$root/interpretations/index.html"
 
-prettier --write "$root/presentations/index.html"
+prettier --write "$root/interpretations/index.html"

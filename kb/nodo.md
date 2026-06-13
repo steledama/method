@@ -32,7 +32,7 @@ Caratteristiche:
 - stato bozza: nodo utile ma incompleto, da espandere o collegare meglio
 - stato maturo: nodo stabile, collegato e sufficientemente autonomo
 - niente storico operativo: task, checklist temporanee e piani di lavoro vivono in tasks/
-- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e why.md
+- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e verdict.md
 - funzione documentale esplicita: separare quando mappa, concetto, reference e runbook iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a esempi didattici plausibili ma non canonici
 
@@ -57,7 +57,7 @@ Il frontmatter dei nodi è obbligatorio e volutamente minimale. Serve agli strum
 
 Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `tasks/`, priorità e dipendenze in `plan.md`.
 
-Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `plan.md`, `why.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
+Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `plan.md`, `verdict.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
 
 Regole di creazione:
 
