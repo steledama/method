@@ -33,6 +33,28 @@ scadenze datate dentro `plan.md`, motivazione locale: task e scadenze sono due
 facce della stessa pianificazione e si influenzano a vicenda (una scadenza
 vicina può alzare la priorità di un task collegato, e viceversa).
 
+## Larghezza tabella e riferimenti dipendenze
+
+Nella stessa sessione, la tabella `## Task` di `salute/plan.md` è stata
+accorciata con tre accorgimenti, non ancora presenti nella forma canonica del
+nodo `plan`:
+
+- vincolo di **larghezza di riga ≈ 80 caratteri** (la riga della tabella,
+  pipe e padding inclusi, non solo il titolo) — vicino alla convenzione
+  storica delle 80 colonne, portabile a prescindere da quante colonne ha la
+  tabella in un dato repo. Per `salute` (colonne `#`, Priorità, Task, Dipende)
+  questo dà un titolo massimo di 51 caratteri nella cella `Task`; i titoli più
+  lunghi sono abbreviati nella tabella ma restano per intero nel footer
+  `## Dettagli task` e nell'H1 del file `tasks/`.
+- colonna **Dipende** ridotta a `#n` per dipendenze interne (un'altra riga
+  della stessa tabella) o un marcatore `[a]`, `[b]`, … per dipendenze esterne
+  (nodi `method`/`kb`, condizioni non-task), con una "Legenda dipendenze
+  esterne" subito sotto la tabella che spiega i marcatori.
+- le righe di ingest senza file `tasks/` (titoli troppo lunghi se contengono
+  il path completo) usano un titolo breve descrittivo in tabella; i path
+  completi delle fonti da elaborare sono raccolti in un elenco separato
+  `## Fonti da elaborare`, subito dopo `## Dettagli task`.
+
 ## Domande da chiarire
 
 - La sezione `## Scadenze` di `salute/plan.md` è un adattamento locale da
@@ -45,12 +67,21 @@ vicina può alzare la priorità di un task collegato, e viceversa).
   vive in `plan.md`; quando ha solo un calendario di adempimenti non
   necessariamente legato alle priorità (`economia`), resta in un file
   separato come `scadenze.md`? O è solo preferenza locale?
+- Il vincolo di larghezza riga (~80 caratteri), la legenda dipendenze `[a]`/`[b]`
+  e la sezione `## Fonti da elaborare` sono accorgimenti generalizzabili a
+  tutti gli adottanti (tabella `## Task` più stretta e leggibile ovunque), o
+  restano specificità locali di `salute` da annotare in
+  `confronto-progetti-adottanti`?
 
 ## Esito atteso
 
 - Aggiornare il nodo `plan` (`method/kb/plan.md`) con la posizione esplicita
   per le scadenze datate nella pianificazione: variante ammessa (sezione
   `## Scadenze` opzionale) o adattamento locale da annotare altrove.
+- Decidere se il vincolo di larghezza riga ≈ 80 caratteri, la legenda
+  dipendenze esterne `[a]`/`[b]` e `## Fonti da elaborare` entrano nella forma
+  canonica del nodo `plan` (con beneficio per tutti gli adottanti) o restano
+  adattamento locale di `salute`.
 - Aggiornare `confronto-progetti-adottanti` con l'esito per `salute` (forma
   ora canonica per `## Task`, più eventuale sezione Scadenze) ed `economia`
   (`scadenze.md` separato).
