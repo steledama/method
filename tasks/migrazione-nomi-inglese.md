@@ -22,8 +22,6 @@ supporto migrazione/backlink da sfruttare.
 
 ## Già coperti in altri task
 
-- `mondo.md` → `world.md` — in `tasks/world-membrana.md`
-- `visceral-behavioral-reflective.md` → `processing-layers.md` — idem
 - `metodo-kb.md` → `cognitive-artifact-design.md` — in
   `tasks/metodo-kb-riconcezione.md`
 

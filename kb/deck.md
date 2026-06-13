@@ -56,7 +56,7 @@ Lo strumento del deck è uniforme tra i repo — è il «nome uniforme, caratter
 nel contenuto» di `output`: il dominio non cambia il tool, cambia il registro.
 Un deck riflessivo-analitico e uno viscerale-emotivo usano lo stesso motore e si
 distinguono nel contenuto, secondo i tre livelli di Norman (cfr.
-`visceral-behavioral-reflective`).
+`processing-layers`).
 
 ## Apertura locale e condivisione on-demand
 
@@ -96,7 +96,7 @@ Connessioni:
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
-- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
+- [processing-layers](processing-layers.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [struttura-progetto](struttura-progetto.md)
 - [verdict](verdict.md)

@@ -15,7 +15,7 @@ Connessioni:
 
 - [metodo-kb](metodo-kb.md)
 - [ciclo-azione](ciclo-azione.md)
-- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
+- [processing-layers](processing-layers.md)
 - [pace-layering](pace-layering.md)
 - [plan](plan.md)
 - [knowledge-base](knowledge-base.md)

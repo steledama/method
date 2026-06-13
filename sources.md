@@ -1,21 +1,29 @@
-# Fonti grezze (i1)
+# Fonti grezze
 
-Porta-collezione di `sources/` nell'atrio di root: il manifest dello **strato input**. La
-cartella `sources/` tiene i segnali grezzi (i1) che, attraverso elaborazione (i2), diventano
-conoscenza formalizzata nei nodi (i3). La rifondazione input/output è documentata in
+Porta-collezione di `sources/` nell'atrio di root: il manifest dello **strato input**.
+La cartella `sources/` tiene copie di lavoro non versionate delle fonti che
+alimentano i1 e, attraverso elaborazione (i2), diventano conoscenza formalizzata
+nei nodi (i3). La rifondazione input/output è documentata in
 [verdict.md](verdict.md).
+
+I binari sono un caso degenere di `world`: il grezzo non sta fuori dal checkout,
+ma siede in una cartella gitignorata. Non per questo diventa i1. Si versiona una
+cattura del Perceive solo quando il grezzo è effimero o quando precisione,
+revisione e durata richiedono un riflesso stabile. Le percezioni di `salute`
+possono richiederlo; i libri di `method`, già persistenti e sotto copyright, no.
 
 I file binari **non sono versionati** (vedi `.gitignore`): sono sotto copyright e il repo
 è pubblico. Versionato è solo questo manifest, che registra la _provenienza_ delle fonti —
 quale edizione esatta ha alimentato quale concetto. È la base dei `## Riferimenti` nei nodi
 (fedeltà alle fonti: quale libro per quale idea).
 
-Accanto a ogni binario può vivere una sua estrazione testuale `.txt` (resa leggibile con
-`pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest, ciò su cui si grep-pa e si
-verificano le citazioni. **Non è un i2**: nessuna interpretazione, stesso contenuto del
-binario — è i1 in forma testuale canonica, e per copyright è ignorata esattamente come il
-binario (anzi a maggior ragione, essendo testo pieno e cercabile). Le uniche porzioni
-versionate restano le citazioni brevi dentro i `## Riferimenti` dei nodi. I `.txt` si
+Accanto a ogni binario può vivere una sua estrazione testuale `.txt` (resa
+leggibile con `pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest, ciò
+su cui si grep-pa e si verificano le citazioni. Non è i2, perché non contiene
+interpretazione; nel metodo non è neppure i1, perché resta ignorata insieme al
+grezzo persistente nel `world` degenere. Sarebbe i1 se venisse selezionata e
+versionata come cattura necessaria del Perceive. Le uniche porzioni versionate
+restano le citazioni brevi dentro i `## Riferimenti` dei nodi. I `.txt` si
 rigenerano dai binari:
 
 ```

@@ -38,24 +38,30 @@ Nel metodo KB il ciclo si materializza su due archi simmetrici — output (esecu
 
 - **Plan** → o1 — piano in forma macchina, vicino alla KB
 - **Specify** → o2 — vista di decisione per l'umano
-- **Perform** → o3 — azione nel mondo
-- **Perceive** → i1 — segnale grezzo (referto, log, export)
+- **Perform** → o3 — prescrizione versionata dell'atto
+- **Perceive** → i1 — cattura versionata e valenza-neutra del segnale
 - **Interpret** → i2 — distillato (nota, sintesi) in `kb/` come nodo bozza
 - **Compare** → i3 — conoscenza formalizzata o verdetto; alimenta il prossimo Goal
 
-**Sei atti, due poli.** I sette stadi di Norman non sono dello stesso tipo. Il Goal non è un atto ma uno _stato_ — il punto verso cui si tende; gli altri sei (Plan, Specify, Perform, Perceive, Interpret, Compare) sono _operazioni_. Il metodo rende esplicito ciò che Norman teneva implicito: il secondo polo, il **Mondo**, il fondo verso cui gli atti scendono e da cui risalgono (cfr. `mondo`). La forma canonica nel metodo è dunque **6 atti + 2 poli**, non sette stadi: sei operazioni che corrono tra Goal (in alto) e Mondo (in basso). I poli non si eseguono, si _costituiscono_ ai bordi — il Goal viene dal motivo (la vita, il committente), il Mondo viene ritagliato dall'infinito per rilevanza guidata dai goal. Ne risultano due triadi speculari, ciascuna stretta attorno a un polo: alta {Compare (i3), Goal, Plan (o1)}, bassa {Perform (o3), Mondo, Perceive (i1)}; in mezzo, alla vita del ciclo, restano i due atti che non toccano nessun polo, Specify (o2) e Interpret (i2). Le due triadi e la vita corrispondono ai tre livelli di elaborazione di Norman — riflessivo in alto, behavioral in mezzo, viscerale al Mondo (cfr. `visceral-behavioral-reflective`).
+**Sei atti, due poli.** I sette stadi di Norman non sono dello stesso tipo. Il Goal non è un atto ma uno _stato_ — il punto verso cui si tende; gli altri sei (Plan, Specify, Perform, Perceive, Interpret, Compare) sono _operazioni_. Il metodo rende esplicito ciò che Norman teneva implicito: il secondo polo, il **Mondo**, il fondo verso cui gli atti scendono e da cui risalgono (cfr. `world`). La forma canonica nel metodo è dunque **6 atti + 2 poli**, non sette stadi: sei operazioni che corrono tra Goal (in alto) e Mondo (in basso). I poli non si eseguono, si _costituiscono_ ai bordi — il Goal viene dal motivo (la vita, il committente), il Mondo viene ritagliato dall'infinito per rilevanza guidata dai goal. Ne risultano due triadi speculari, ciascuna stretta attorno a un polo: alta {Compare (i3), Goal, Plan (o1)}, bassa {Perform (o3), Mondo, Perceive (i1)}; in mezzo, alla vita del ciclo, restano i due atti che non toccano nessun polo, Specify (o2) e Interpret (i2). Le due triadi e la vita corrispondono ai tre livelli di elaborazione di Norman — riflessivo in alto, behavioral in mezzo, viscerale al Mondo (cfr. `processing-layers`).
 
 **La KB non è uno stadio.** Né i poli né gli atti _sono_ la KB. La KB è il _system image_ di Norman: il medium attraverso cui gli atti leggono e scrivono, non una stazione del ciclo (cfr. `system-image`). Il ciclo corre tra due poli attraverso due medium persistenti — la KB all'interno, il Mondo all'esterno.
 
 **Lo specchio per altitudine.** I due archi sono speculari, accoppiati per altitudine e non per numero. Il Goal è l'apice; il Mondo è il fondo.
 
-- in basso, al Mondo: **o3 ↔ i1** (Perform ↔ Perceive) — agisco / percepisco, stesso luogo, due versi;
+- in basso, alla membrana `world`: **o3 ↔ i1** (Perform ↔ Perceive) —
+  prescrizione / cattura, i due riflessi versionati dei due versi;
 - in mezzo: **o2 ↔ i2** — vista di decisione / nota interpretata;
 - in alto, alla KB: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata.
 
 I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due _altitudini_ dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
 
-**Le due cerniere e la loro vera asimmetria.** A lungo questo nodo ha detto che la cerniera Mondo è simmetrica e quella KB è «l'unica vera asimmetria». Era una semplificazione, e va corretta. Le due cerniere hanno la _stessa_ forma: scrivi-poi-leggi attraverso un medium persistente. Al Mondo, o3 scrive un effetto e i1 lo rilegge più tardi come segnale — il mondo trattiene lo stato nell'intervallo, esattamente come la KB lo trattiene tra i3 e il Goal. In nessuno dei due vertici c'è riflesso immediato.
+**Le due cerniere e la loro vera asimmetria.** Le due cerniere hanno la _stessa_
+forma: scrivi-poi-leggi attraverso un medium persistente. Alla cerniera bassa,
+o3 prescrive l'atto, l'atto modifica `world` e i1 ne cattura un segnale; i due
+riflessi versionati non sostituiscono il passaggio fisico attraverso la
+membrana. Il mondo trattiene lo stato nell'intervallo, esattamente come la KB lo
+trattiene tra i3 e il Goal.
 
 L'asimmetria reale è altrove: **il mondo persiste da solo, la KB persiste solo se qualcuno la scrive.** Il mondo si ricorda della mail spedita, della transazione eseguita, del gesto compiuto, che l'artefatto faccia altro o no; la KB dimentica a meno che l'i3 non depositi l'esito. È il contenuto operativo del principio «una decisione non scritta è una decisione persa» — non un'esortazione morale, ma la conseguenza dell'unico dei due medium che non si mantiene da sé. Per questo la KB ha bisogno di un custode e il mondo no.
 
@@ -87,8 +93,10 @@ Nel metodo KB i due gulf si traducono così:
 
 - o1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
 - o2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
-- o3 è dove l'azione effettivamente accade — il "Perform" del ciclo, fuori dal repo, nel mondo
-- i1/i2/i3 riducono il gulf of evaluation: trasformano il segnale grezzo del mondo in conoscenza interpretata e formalizzata, abbassando la distanza tra "il sistema mostra X" e "capisco cosa significa per me"
+- o3 riduce il gulf of execution prescrivendo l'atto con la precisione
+  necessaria; l'azione effettiva accade in `world`
+- i1/i2/i3 riducono il gulf of evaluation: catturano il segnale, gli
+  attribuiscono significato e lo formalizzano
 
 ## Le sette domande, feedforward e feedback
 
@@ -110,12 +118,25 @@ Il design risponde a queste domande con vincoli, mapping, significanti, modelli 
 
 Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per _cosa sia il loro Mondo_ in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
 
-- **Ciclo runtime**: il suo Mondo è la realtà. o3 agisce fuori (un'email, una transazione, un payload pubblicato, un gesto); i1 percepisce il segnale del mondo (referto, payload di ritorno, alert).
-- **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 agisce sull'artefatto (un commit, una modifica alla KB); i1 percepisce la risposta dell'artefatto (lint, audit, test, errore).
+- **Ciclo runtime**: il suo Mondo è la realtà. o3 prescrive un'email, una
+  transazione, una pubblicazione o un gesto; l'atto accade in `world`; i1 ne
+  cattura il segnale quando serve.
+- **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 prescrive la
+  modifica; il commit agisce sull'artefatto; i1 cattura lint, audit, test o
+  errore.
 
-Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: c'è un o3 che agisce sul mondo e un o3 che agisce sull'artefatto, un i1 che viene dal mondo e un i1 che viene dall'artefatto. L'incastro è che **l'o3 del ciclo di sviluppo è la macchina che esegue il ciclo runtime**: il commit produce il codice che gira. Per questo risalire da un output runtime al task che l'ha generato — `output → codice → commit → tasks → goal` — non è debug ma attraversamento dell'annidamento: `git-history`, `verdict` e `tasks` sono le fonti di verità che registrano il ciclo di sviluppo di cui ogni artefatto runtime è un fossile.
+Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: ogni ciclo ha prescrizioni e
+catture attorno al proprio Mondo. L'incastro è che **l'atto del ciclo di
+sviluppo produce la macchina che esegue il ciclo runtime**: il commit produce il
+codice che gira. Per questo risalire da un output runtime al task che l'ha
+generato — `output → codice → commit → tasks → goal` — non è debug ma
+attraversamento dell'annidamento.
 
-È il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto: Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una provenienza. Il metodo apre la scatola — ogni sistema è l'o3 di un ciclo che lo precede.
+È il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto:
+Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di
+sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una
+provenienza. Il metodo apre la scatola: ogni sistema è l'esito di un atto di un
+ciclo che lo precede.
 
 ## Le quattro dimensioni di un elemento del metodo
 
@@ -160,11 +181,11 @@ Connessioni:
 - [affordance-signifier](affordance-signifier.md)
 - [vincolo](vincolo.md)
 - [system-image](system-image.md)
-- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
+- [processing-layers](processing-layers.md)
 - [output](output.md)
 - [input](input.md)
 - [goal](goal.md)
-- [mondo](mondo.md)
+- [world](world.md)
 - [matrice-ciclo-azione](matrice-ciclo-azione.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)

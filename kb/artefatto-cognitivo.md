@@ -7,7 +7,7 @@ stato: bozza
 
 Concetto di Donald Norman che dà il nome a ciò che il metodo coltiva. Un artefatto cognitivo è uno strumento cognitivo — un'entità esterna progettata per amplificare le capacità della mente umana. La tesi di Norman è radicale: «The power of the unaided mind is highly overrated». Senza ausili esterni, memoria, pensiero e ragionamento sono vincolati; la potenza reale viene dal progettare ausili che migliorano le capacità cognitive. È la ragione per cui esiste una KB.
 
-Il potere dell'artefatto cognitivo viene dalla *rappresentazione*: «The powers of cognition come from abstraction and representation: the ability to represent perceptions, experiences, and thoughts in some medium other than that in which they have occurred, abstracted away from irrelevant details». Un sistema di rappresentazione ha due componenti: il *represented world* (ciò che va rappresentato) e il *representing world* (il sistema di simboli che vi si riferisce). L'artefatto è il supporto fisico che rende possibile il representing world — matita, carta, tabella, nodo di testo.
+Il potere dell'artefatto cognitivo viene dalla _rappresentazione_: «The powers of cognition come from abstraction and representation: the ability to represent perceptions, experiences, and thoughts in some medium other than that in which they have occurred, abstracted away from irrelevant details». Un sistema di rappresentazione ha due componenti: il _represented world_ (ciò che va rappresentato) e il _representing world_ (il sistema di simboli che vi si riferisce). L'artefatto è il supporto fisico che rende possibile il representing world — matita, carta, tabella, nodo di testo.
 
 ## Cognizione esperienziale e riflessiva
 
@@ -17,18 +17,19 @@ Norman usa il gioco del 15 e il tris come caso paradigmatico: i due giochi sono 
 
 Norman chiama questo il principio di naturalezza: «Experiential cognition is aided when the properties of the representation match the properties of the thing being represented». Simon (1981) lo condensa: «Solving a problem simply means representing it so as to make the solution transparent».
 
-La scelta della rappresentazione non è neutra: può trasformare un compito riflessivo in esperienziale o viceversa. Rappresentazioni *additive* (in cui la grandezza visiva è proporzionale al valore — tally marks, grafici a barre) si leggono senza calcolo. Rappresentazioni *sostitutive* (simboli arbitrari — numeri romani per percentuali, hue cromatica per scale additive) costringono a tradurre ogni confronto in riflessione.
+La scelta della rappresentazione non è neutra: può trasformare un compito riflessivo in esperienziale o viceversa. Rappresentazioni _additive_ (in cui la grandezza visiva è proporzionale al valore — tally marks, grafici a barre) si leggono senza calcolo. Rappresentazioni _sostitutive_ (simboli arbitrari — numeri romani per percentuali, hue cromatica per scale additive) costringono a tradurre ogni confronto in riflessione.
 
 ## La KB come artefatto cognitivo
 
 Nel metodo la KB è un artefatto cognitivo in senso normano. I nodi non sono corretti solo se fattualmente accurati — sono ben progettati se la forma della rappresentazione corrisponde al compito di chi li usa. Un nodo-quadro ben costruito fa vedere a colpo d'occhio cosa è fuori soglia (cognizione esperienziale); un nodo mal strutturato costringe a calcolare confronti tra valori (cognizione riflessiva). È il criterio che governa lo strato output: aggiungere signifier e ridisegnare la rappresentazione finché la risposta giusta emerge per ispezione.
 
-L'artefatto cognitivo si distingue dal *sistema cognitivo* in cui opera. L'artefatto è la rappresentazione esterna: progettata, persistente, portabile — sopravvive al cambio di modello o harness. Il sistema cognitivo è l'accoppiamento dinamico tra artefatto, umano e LLM: emerge dall'uso, non è portabile. Il metodo coltiva l'artefatto; il sistema è ciò che ne nasce a ogni sessione.
+L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera. L'artefatto è la rappresentazione esterna: progettata, persistente, portabile — sopravvive al cambio di modello o harness. Il sistema cognitivo è l'accoppiamento dinamico tra artefatto, umano e LLM: emerge dall'uso, non è portabile. Il metodo coltiva l'artefatto; il sistema è ciò che ne nasce a ogni sessione.
 
 ## Riferimenti
 
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 «The Power of Representation».
-- Fonte grezza (i1): PDF del capitolo in `sources/representation.pdf`; estrazione GLM-OCR in `sources/representation-glm-ocr.txt` (con indicatori di pagina, qualità superiore) e `sources/representation.txt` (pdftotext). Manifest in `sources/README.md`.
+- Fonte grezza (`world` degenere): PDF del capitolo e relative estrazioni in
+  `sources/`; provenienza nel manifest root `sources.md`.
 
 Connessioni:
 
@@ -36,7 +37,7 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
-- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
+- [processing-layers](processing-layers.md)
 - [knowledge-base](knowledge-base.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [metodo-kb](metodo-kb.md)

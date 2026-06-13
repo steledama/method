@@ -68,6 +68,13 @@ I nomi delle collezioni standard sono **uniformi** tra i progetti (`kb/`, `tools
 
 Resta distinto ciò che non è una collezione di sintesi-documento ma output di altra natura ontologica: la configurazione che gira in `nixos` (`home/`, `hosts/`, `modules/`) è o1/runtime, non la porta `interpretations/`. L'uniformità riguarda le collezioni standard dell'artefatto, non costringe a ribattezzare un output che _è_ un'altra cosa.
 
+Anche `world/` ha nome uniforme, ma non è una collezione dell'artefatto. È un
+symlink host-local verso la cartella di progetto non versionata, tipicamente su
+Drive: la membrana fisica attraversata da atti e segnali grezzi. Non ha una
+porta `world.md` né un manifest, a differenza di `sources.md`; il symlink è
+sempre gitignorato. Nel repo `method`, `world/` contiene symlink ai repository
+adottanti e materializza il suo Mondo runtime senza versionarne i path.
+
 ## Caratteristiche
 
 - root come atrio: l'`ls` dichiara l'inventario completo dei componenti; i file-ciclo si leggono, le porte-collezione si aprono on-demand
@@ -82,6 +89,8 @@ Resta distinto ciò che non è una collezione di sintesi-documento ma output di 
 - file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `verdict.md`
 - porte-collezione: `kb.md` · `map.md` (dove il dominio ha un territorio) · `tools.md` · `interpretations.md` · `sources.md`
 - collezioni: `kb/` · `tools/` · `interpretations/` · `sources/` · `tasks/`
+- membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
+  versionata, senza manifest
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
   compilati e intermedi che non appartengono alla storia dell'artefatto
 - `.claude/skills/` · `.codex/skills/`

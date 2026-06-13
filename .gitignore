@@ -11,3 +11,6 @@
 # Il manifest di provenienza che alimenta i ## Riferimenti (i3) è la porta-collezione
 # sources.md in root (versionata); la cartella sources/ tiene solo i binari ignorati.
 sources/*
+
+# membrana host-local verso il Mondo runtime; nessun symlink viene versionato
+world

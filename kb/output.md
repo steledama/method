@@ -1,5 +1,5 @@
 ---
-data: 2026-06-05
+data: 2026-06-13
 stato: bozza
 ---
 
@@ -17,9 +17,19 @@ Il metodo si appoggia su due pilastri con una tensione mai nominata. Lo Zettelka
 
 - **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo se è parte dell'artefatto, in `data/` locale se è stato operativo o sensibile
 - **o2 — decisione** — audience: umano (utente, collaboratori); forma: schemi, diagrammi, slides, termometri; dove vive: nel repo
-- **o3 — azione** — audience: mondo; forma: email, parole dette, transazioni, gesti corporei; dove vive: fuori dal repo, nel mondo
+- **o3 — prescrizione** — audience: chi compie l'atto; forma: canovaccio,
+  messaggio predisposto, promemoria, runbook o payload pronto; dove vive:
+  versionato nel repo quando precisione o durata lo richiedono
 
-o3 è dove l'output produce effetti reali. Tutto il resto è strumentale. o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso è inutile per la decisione umana, un'infografica colorata è inefficiente per l'LLM.
+o3 non è l'atto: è la sua prescrizione versionata, il riflesso dell'azione
+predisposto sul lato interno della membrana `world`. L'email inviata,
+l'incontro, la transazione, il deploy e il gesto corporeo accadono nel Mondo.
+Come i1, o3 è **on-demand**: serve quando l'esecuzione richiede precisione,
+revisione o durata; non ogni gesto deve lasciare un artefatto.
+
+o1 e o2 hanno funzioni diverse e dovrebbero essere distinguibili: un JSON denso
+è inutile per la decisione umana, un'infografica colorata è inefficiente per
+l'LLM.
 
 o1 e o2 sono due _altitudini_ dell'arco di output, non lo stesso stadio: o1 il livello-macchina vicino alla KB, o2 la vista di decisione per l'umano. L'agente che li consuma (LLM/umano) è una dimensione ortogonale all'altitudine — cfr. `ciclo-azione`.
 
@@ -55,10 +65,28 @@ L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda �
 
 ## Stato dei progetti adottanti
 
-- **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/` (forte); o2: testo descrittivo in `kb/` (debole, no diagrammi); o3: sistema in esecuzione, deploy, switch (forte)
-- **`bi`** — o1: scripts notturni (forte); o2: `presentations/index.html` Reveal.js autonomo (forte); o3: decisioni business, riunioni (forte)
-- **`economia`** — o1: `data/json/` locale e non versionato (forte); o2/i2: fotografia finanziaria versionata in `interpretations/index.html`, derivata dai dati e orientata dai goal (forte); o3: email amministratori, riunioni famigliari (forte)
-- **`salute`** — o1: implicito sparso (scadenze, cronologia in `storia-clinica`); o2: deck Reveal in `presentations/index.html` con file di dettaglio per area (forte); o3: yoga, controlli, alimentazione, conversazioni mediche (medio-forte)
+- **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/`; o2: testo
+  descrittivo in `kb/` (debole); o3: configurazione e procedure pronte al
+  deploy; `world`: switch applicato e sistema in esecuzione
+- **`bi`** — o1: script notturni; o2: `interpretations/index.html`; o3:
+  payload, runbook e canovacci per decisioni business; `world`: pubblicazione e
+  riunioni realizzate
+- **`economia`** — o1: `data/json/` locale; o2/i2: fotografia finanziaria in
+  `interpretations/index.html`; o3: email predisposte e canovacci degli
+  incontri; `world`: invii, telefonate, riunioni e transazioni
+- **`salute`** — o1: scadenze e stato strutturato; o2: deck in
+  `interpretations/index.html`; o3: promemoria e canovacci; `world`: pratiche,
+  controlli, alimentazione e conversazioni mediche
+
+## L'esecuzione può far emergere Goal
+
+Predisporre un atto obbliga a specificare destinatari, vincoli, poste e criteri
+di successo. Questo lavoro può rendere visibili Goal latenti non ancora
+formalizzati nella KB: il canovaccio non si limita a eseguire un'intenzione,
+può rivelare che l'intenzione era incompleta. Il triage/formazione-goal non
+appartiene quindi solo all'input esogeno; può essere innescato anche dall'arco
+di esecuzione. Il nuovo Goal resta una decisione riflessiva, non un prodotto
+automatico di o3.
 
 Pattern emergente: dove o2 è forte, il progetto serve decisioni condivise con altri (`bi`); dove o2 è debole, la KB resta personale e fatica a generare azione coordinata.
 
@@ -99,7 +127,7 @@ Connessioni:
 - [input](input.md)
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
-- [mondo](mondo.md)
+- [world](world.md)
 - [deck](deck.md)
 - [artefatto-cognitivo](artefatto-cognitivo.md)
 - [pattern-karpathy](pattern-karpathy.md)
@@ -108,3 +136,4 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [confronto-progetti-adottanti](confronto-progetti-adottanti.md)
 - [struttura-progetto](struttura-progetto.md)
+- [processing-layers](processing-layers.md)

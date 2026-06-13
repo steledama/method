@@ -38,7 +38,7 @@ hanno dato al metodo il vocabolario che gli mancava — cosa _è_ l'oggetto che 
 cosa _vuole_ chi lo usa — ma i nodi che lo reggono sono ancora `bozza`, in attesa della
 maturazione `bozza→maturo` dall'uso reale: `artefatto-cognitivo`, `sistema-cognitivo`,
 `goal`, `output`, `agente`, e i nodi i2 fondati su Norman (`affordance-signifier`,
-`system-image`, `visceral-behavioral-reflective`). Due debiti di fonte li tengono zoppi
+`system-image`, `processing-layers`). Due debiti di fonte li tengono zoppi
 sul lato fedeltà (i3): _Things That Make Us Smart_ (Norman 1993, fonte di «artefatto
 cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3
 (`sources/representation.pdf`), il volume completo non è reperito; Hutchins (per
@@ -79,9 +79,9 @@ per esprimerlo o se la cornice nel nodo basti.
 
 ## La membrana Mondo e l'identità del metodo
 
-Sessione di questo commit (task `world-membrana`, `metodo-kb-riconcezione`): due
-verdetti direzionali, decisi qui, eseguibili nei task collegati. I nodi `kb/`
-riflettono ancora il modello precedente — qui resta scritto il _perché_ del refactor.
+Due verdetti direzionali emersi dai task `world-membrana` e
+`metodo-kb-riconcezione`. La membrana è ora incorporata nei nodi; resta aperta
+la riconcezione dell'identità del metodo.
 
 **La membrana `world`.** Il Mondo è una membrana non versionata attraversata nei due
 versi; i1 (`perceptions/`) e o3 (canovacci, promemoria) sono i suoi due riflessi
@@ -90,7 +90,7 @@ non è l'atto nel mondo (quello è `world`) ma la **prescrizione versionata** de
 simmetricamente l'i1 ha due tessiture (estrazione 1:1 / distillazione filtrata) ed
 entrambe restano i1, perché **il confine i1→i2 è la valenza, non la fedeltà**.
 Convenzione concreta: symlink `world` → cartella di progetto su Drive, nessun manifest.
-È la materializzazione fisica del nodo `mondo` (→ `world`).
+È la materializzazione fisica del nodo `world`.
 
 **L'identità del metodo.** Lavorare la membrana ha reso esplicito che la KB è solo lo
 strato riflessivo: chiamare l'hub `metodo-kb` nomina la parte per il tutto. Il metodo è

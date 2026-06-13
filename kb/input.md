@@ -13,11 +13,33 @@ Lo strato input esiste per una ragione di sicurezza, non di completezza teorica:
 
 Il segnale grezzo del mondo ritorna nel sistema e attraversa tre stadi prima di diventare conoscenza stabile:
 
-- **i1 — grezzo** — natura: percezione del segnale esterno; forma: referto, log, export, documento, messaggio; dove vive: `sources/` (o locale al progetto)
+- **i1 — cattura** — natura: riflesso versionato e valenza-neutro del Perceive;
+  forma: estrazione, referto, log, export, documento o messaggio selezionato;
+  dove vive: `perceptions/` o un'altra collezione versionata locale
 - **i2 — distillato** — natura: interpretazione e sintesi; forma: nota di lettura, analisi, estratto commentato; dove vive: `kb/` in `stato: bozza`
 - **i3 — formalizzato** — natura: conoscenza stabile o verdetto; forma: nodo KB aggiornato, fonte di verità, input al Goal; dove vive: `kb/` in `stato: maturo`, e `verdict.md` come residuo scritto del Compare
 
 Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i3 = Compare. Il passaggio i2→i3 non è automatico — è il giudizio che decide se un'interpretazione è abbastanza stabile da entrare nella KB. Per questo i2 vive in `kb/` come nodo in `stato: bozza`: la forma è quella del nodo, ma la funzione è ancora di elaborazione. La maturazione `bozza→maturo` è il passaggio i2→i3.
+
+## Le due tessiture di i1
+
+i1 non coincide con il grezzo: il grezzo resta in `world`. La cattura può avere
+due tessiture, entrambe legittime:
+
+- **estrazione 1:1** — copia lossless o trascrizione fedele, scelta quando ogni
+  dettaglio può contare;
+- **distillazione filtrata per rilevanza** — selezione lossy che conserva ciò
+  che serve al Goal senza ancora dire che cosa significhi o se sia bene o male.
+
+Il confine i1→i2 non è la fedeltà. È l'ingresso della **valenza e
+dell'interpretazione**: il "perché", il confronto, il significato attribuito.
+Una mail ripulita dalle firme e dalle ripetizioni può restare i1; un commento
+che ne valuta le implicazioni è i2.
+
+Come o3, i1 è un riflesso versionato **on-demand**. Si crea quando il segnale è
+effimero oppure quando precisione, revisione o durata giustificano una cattura.
+Se il grezzo è già persistente, accessibile e sufficientemente stabile, non
+serve duplicarlo nel repository.
 
 ## L'i2 ha bisogno di un substrato
 
@@ -32,14 +54,15 @@ L'arco di input del metodo è più ampio dell'arco di valutazione di Norman. i1 
 - **feedback** — risposta a un o3, chiude un goal esistente (Norman puro: l'esito dell'azione che si valuta contro l'intenzione);
 - **esogeno** — il mondo agisce da sé: busta paga, normativa, alert, referto non sollecitato — e apre spesso un goal _nuovo_.
 
-Per questo i3 ha due modi: **verdetto** (Compare contro un goal esistente, loop noto e delegabile) e **triage/formazione-goal** (per l'esogeno: decidere cosa conta, la cosa meno esternalizzabile — eco di Bainbridge). Il metodo apre così il confine-Mondo come apre il confine-Goal: il mondo non solo risponde, agisce (cfr. `goal`, `mondo`).
+Per questo i3 ha due modi: **verdetto** (Compare contro un goal esistente, loop noto e delegabile) e **triage/formazione-goal** (per l'esogeno: decidere cosa conta, la cosa meno esternalizzabile — eco di Bainbridge). Il metodo apre così il confine-Mondo come apre il confine-Goal: il mondo non solo risponde, agisce (cfr. `goal`, `world`).
 
 Connessioni:
 
 - [output](output.md)
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
-- [mondo](mondo.md)
+- [world](world.md)
 - [knowledge-base](knowledge-base.md)
 - [affordance-signifier](affordance-signifier.md)
 - [metodo-kb](metodo-kb.md)
+- [processing-layers](processing-layers.md)

@@ -23,14 +23,14 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [vincolo](kb/vincolo.md) — La limitazione progettata (guardrail): tipi di Norman, presidio strutturale sotto il check riflessivo, l'errore reso impossibile o rumoroso
 - [agente](kb/agente.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti; distinto da `agents`, che è il file
 - [system-image](kb/system-image.md) — Triangolo di Norman: la KB è il system image che porta il peso della comunicazione tra agenti che non si parlano
-- [visceral-behavioral-reflective](kb/visceral-behavioral-reflective.md) — I tre livelli di Norman: la KB è lo strato riflessivo, che condiziona il behavioral attraverso l'output
+- [processing-layers](kb/processing-layers.md) — I tre strati di elaborazione di Norman applicati alle altitudini del ciclo; il viscerale comprende world e i riflessi i1/o3
 - [artefatto-cognitivo](kb/artefatto-cognitivo.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [sistema-cognitivo](kb/sistema-cognitivo.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
-- [mondo](kb/mondo.md) — Il fondo del ciclo d'azione opposto al Goal: cerniera o3↔i1, Mondo runtime vs di sviluppo, di cosa è fatto in ogni artefatto
+- [world](kb/world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
 - [matrice-ciclo-azione](kb/matrice-ciclo-azione.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
 - [output](kb/output.md) — Strato output (o1/o2/o3), l'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, la forma dell'o2 segue la domanda, criteri di Norman
-- [input](kb/input.md) — Strato input (i1/i2/i3), l'arco di valutazione: i2 e il suo substrato, le due sorgenti di i1 e i due modi di i3, il meccanismo di sicurezza che ascolta il mondo
+- [input](kb/input.md) — Strato input (i1/i2/i3): due tessiture di i1, valenza come confine i1→i2 e formazione-goal
 - [deck](kb/deck.md) — Runbook portabile del deck come forma navigabile di `interpretations/`: sorgente markdown unica, build Reveal da CDN, apertura locale e condivisione on-demand
 - [connessione](kb/connessione.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione

@@ -11,7 +11,7 @@ adottanti. A quel punto tornare in `method` e rivedere il deck come superficie
 i2/o2 (`kb/deck.md`, `presentations/`), che ha ampi margini di aggiornamento e
 miglioramento.
 
-Il criterio già emerso da `visceral-behavioral-reflective`: l'o2 va valutato su
+Il criterio già emerso da `processing-layers`: l'o2 va valutato su
 tutti e tre i registri, e quello sistematicamente mancante è il **viscerale** (la
 colonna o2 è debole in quattro artefatti su cinque, cfr. `matrice-ciclo-azione`).
 Un o2 solo riflessivo parla a chi già sa e non muove chi fa. Il deck è la
@@ -25,4 +25,4 @@ Connessioni:
 
 - [deck](../kb/deck.md)
 - [output](../kb/output.md)
-- [visceral-behavioral-reflective](../kb/visceral-behavioral-reflective.md)
+- [processing-layers](../kb/processing-layers.md)

@@ -59,7 +59,7 @@ La KB non è il fine: è strumentale all'azione. Il ciclo di Norman, riletto: ai
       <div class="arrow down"></div>
       <div class="card"><strong>o2 · Specify</strong><span>decisione</span></div>
       <div class="arrow down"></div>
-      <div class="card"><strong>o3 · Perform</strong><span>azione</span></div>
+      <div class="card"><strong>o3 · Perform</strong><span>prescrizione</span></div>
     </div>
     <div class="cycle-side evaluation">
       <div class="side-title">↑ valutazione</div>
@@ -67,17 +67,17 @@ La KB non è il fine: è strumentale all'azione. Il ciclo di Norman, riletto: ai
       <div class="arrow up"></div>
       <div class="card"><strong>i2 · Interpret</strong><span>distillato</span></div>
       <div class="arrow up"></div>
-      <div class="card"><strong>i1 · Perceive</strong><span>segnale grezzo</span></div>
+      <div class="card"><strong>i1 · Perceive</strong><span>cattura</span></div>
     </div>
   </div>
-  <div class="card pole world">MONDO</div>
+  <div class="card pole world">WORLD · atto / grezzo</div>
 </div>
 
-I poli non si eseguono: si _costituiscono_ ai bordi. Il Mondo non preesiste — lo ritaglia l'artefatto, dall'infinito, per rilevanza guidata dai goal.
+I poli non si eseguono: si _costituiscono_ ai bordi. Il Mondo non preesiste — lo ritaglia l'artefatto, dall'infinito, per rilevanza guidata dai goal. `world` è la membrana non versionata; o3 e i1 sono i riflessi versionati on-demand che la toccano dai due versi.
 
 ## I tre livelli: perché un o2 solo riflessivo non muove
 
-I tre livelli di Norman stratificano il ciclo per altezza: **riflessivo** in alto (la KB — pensa, non agisce direttamente), **behavioral** in mezzo (o2/i2 — l'operare), **viscerale** al Mondo (o3/i1 — giudizio sensoriale rapido e gesto).
+I tre livelli di Norman stratificano il ciclo per altezza: **riflessivo** in alto (la KB — pensa, non agisce direttamente), **behavioral** in mezzo (o2/i2 — l'operare), **viscerale** alla membrana (atto/grezzo in `world`, prescrizione/cattura in o3/i1).
 
 Conseguenza per il design: il riflessivo può solo _condizionare_ l'azione, attraverso l'output. Per muovere davvero, l'o2 deve raggiungere il **viscerale** — apparenza, impatto immediato, affetto. Un o2 solo riflessivo (testo, schemi) sa ma non muove: è la stasi. «Attractive things work better» non è estetica, è la condizione perché il sapere arrivi al gesto.
 
@@ -225,8 +225,8 @@ I diagrammi comprimono; i nodi spiegano.
 
 - cosa è (artefatto / sistema / metodo) → `kb/artefatto-cognitivo.md`, `kb/sistema-cognitivo.md`
 - tre giganti → `kb/ciclo-azione.md`, `kb/zettelkasten.md`, `kb/pattern-karpathy.md`
-- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/mondo.md`, `kb/output.md`
-- i tre livelli · system image · agente come popolazione → `kb/visceral-behavioral-reflective.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agente.md`
+- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/ciclo-azione.md`, `kb/world.md`, `kb/output.md`
+- i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agente.md`
 - il goal · tre altitudini → `kb/goal.md`
 - la matrice di verifica → `kb/matrice-ciclo-azione.md`
 - strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/deck.md`

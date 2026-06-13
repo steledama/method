@@ -25,18 +25,26 @@ Il Goal non viene dalla KB — nasce all'incrocio tra motivo (che viene da sopra
 
 Questa distinzione ha una conseguenza di progetto: la KB e lo strato output devono essere _goal-guidati sulla rilevanza, neutri sulla valenza_. I goal determinano legittimamente cosa mostrare e a quale granularità (rilevanza); il verdetto buono/cattivo appartiene all'i3, non all'i2. Un i2 già carico di valenza riflette il bias di chi lo ha prodotto e annulla la funzione di sicurezza dell'arco di valutazione — l'artefatto non riesce più a portare cattive notizie.
 
-## I due modi di i3
+## Formazione del Goal dai due archi
 
 L'i3 — il Compare di Norman — ha due modalità che il modello originale non distingue esplicitamente:
 
 - _Verdetto_: confronta l'esito di o3 con un goal esistente; chiude un loop noto. È il Norman puro.
 - _Triage/formazione-goal_: elabora input esogeni (il mondo ha agito da solo — busta paga, normativa, alert) che aprono loop nuovi. Il goal non preesiste: si forma nell'i3.
 
-Il secondo modo è l'estensione del metodo oltre Norman. Conseguenza per il design dell'autonomia: si può delegare la chiusura di loop noti (verdetto), ma la formazione del goal — decidere cosa conta — è la cosa meno esternalizzabile nell'artefatto. È il criterio che differenzia i domini: `nixos` (motivo codificabile, autonomia alta) da `salute` (motivo non esternalizzabile, supervisione permanente).
+Il secondo modo è l'estensione del metodo oltre Norman. Ma il goal-surfacing
+può partire anche dall'arco di esecuzione: predisporre un o3, per esempio un
+canovaccio, rende espliciti vincoli e poste e può rivelare Goal latenti. In
+entrambi i casi il segnale arriva da un arco, mentre la formazione del Goal
+resta un atto riflessivo. Conseguenza per il design dell'autonomia: si può
+delegare la chiusura di loop noti (verdetto), ma decidere cosa conta è la cosa
+meno esternalizzabile nell'artefatto. È il criterio che differenzia i domini:
+`nixos` (motivo codificabile, autonomia alta) da `salute` (motivo non
+esternalizzabile, supervisione permanente).
 
 ## Esempi per artefatto
 
-Il goal è il polo opposto al Mondo: l'apice contro cui gli input percepiti dal fondo del ciclo vengono confrontati. Per ciascun artefatto adottante il goal sintetizza il motivo che lo muove (di cosa è fatto il Mondo è in `mondo`).
+Il goal è il polo opposto al Mondo: l'apice contro cui gli input percepiti dal fondo del ciclo vengono confrontati. Per ciascun artefatto adottante il goal sintetizza il motivo che lo muove (di cosa è fatto il Mondo è in `world`).
 
 - `salute`: stare bene, declinato come equilibrio corpo-mente.
 - `economia`: la graduale indipendenza dalla gestione condivisa con la sorella, l'acquisto della casa al mare, la semplificazione degli interessi e l'equilibrio tra entrate e uscite.
@@ -58,7 +66,7 @@ Qui il ciclo si chiude e si riapre. Il goal si declina in task — la coda opera
 - `bi`: lo scostamento tra il catalogo pubblicato e i dati di fornitori e Danea genera i task di riallineamento.
 - `nixos`: lo stato del sistema — lentezze, appesantimenti, deriva dal minimalismo — confrontato col goal di snellezza genera i task di pulizia.
 
-Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre un goal nuovo per triage, senza un confronto che lo precede (cfr. «I due modi di i3» e `mondo`). I due poli sono dunque le due sorgenti del lavoro: il Goal lo rigenera chiudendo loop noti, il Mondo lo apre con segnali inattesi.
+Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre un goal nuovo per triage, senza un confronto che lo precede (cfr. «Formazione del Goal dai due archi» e `world`). I due poli sono dunque le due sorgenti del lavoro: il Goal lo rigenera chiudendo loop noti, il Mondo lo apre con segnali inattesi.
 
 ## Riferimenti
 
@@ -69,7 +77,7 @@ Connessioni:
 
 - [ciclo-azione](ciclo-azione.md)
 - [input](input.md)
-- [mondo](mondo.md)
+- [world](world.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [sistema-cognitivo](sistema-cognitivo.md)

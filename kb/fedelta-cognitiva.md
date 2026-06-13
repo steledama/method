@@ -54,9 +54,9 @@ dominio.
 - esistono decisioni che vivono solo nel messaggio di commit, prive di un
   appiglio in `verdict.md` per essere ri-valutate quando il modello evolve?
 
-Una decisione registrata solo nel commit è un'azione nel mondo (`L3`) senza il
-ritorno che la rende ri-valutabile: il _gulf of evaluation del ciclo di
-sviluppo_ (cfr. `ciclo-azione`) resta non attraversato. Il
+Una decisione registrata solo nel commit è un atto nel `world` del ciclo di
+sviluppo senza il ritorno versionato che la rende ri-valutabile: il _gulf of
+evaluation_ resta non attraversato (cfr. `ciclo-azione`). Il
 commit dice "ho preservato X"; `verdict.md` deve dire "X presuppone Y; se Y cambia,
 riaprire" — perché è l'assunzione, non il comportamento, che va ri-controllata
 quando il modello dati evolve. Caso reale: `bi`/1018022, dove il ripristino di un

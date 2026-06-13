@@ -1,11 +1,15 @@
 ---
-data: 2026-06-05
+data: 2026-06-13
 stato: bozza
 ---
 
-# Visceral, behavioral, reflective
+# Processing layers
 
 Modello di Donald Norman (con Andrew Ortony e William Revelle) che distingue tre livelli di elaborazione del cervello, ciascuno con un ruolo diverso e — per il design — un proprio stile. È il contributo di _Emotional Design_, dove Norman corregge la tesi di _The Design of Everyday Things_: l'usabilità non basta, perché «the emotional side of design may be more critical to a product's success than its practical elements». Per il metodo il livello che conta è il _reflective_: la KB è un artefatto riflessivo, il luogo dove l'esperienza diventa generalizzazione, e i tre livelli danno il vocabolario per capire perché il sapere riflessivo non agisce da solo e ha bisogno dello strato output per raggiungere l'azione.
+
+Il nome del nodo usa _layers_ per restare vicino alla stratificazione di Norman
+e risuonare con gli strati input/output del metodo, evitando l'omonimia con i
+_levels of processing_ di Craik e Lockhart.
 
 I tre livelli, nelle parole di Norman: «the automatic, prewired layer, called the visceral level; the part that contains the brain processes that control everyday behavior, known as the behavioral level; and the contemplative part of the brain, or the reflective level». Si intrecciano in ogni design — «It is not possible to have design without all three» — e, cosa importante, «these three components interweave both emotions and cognition»: emozione e cognizione non sono opposte, sono inseparabili.
 
@@ -31,7 +35,18 @@ C'è infine il contributo proprio di questa fonte, che le altre due non danno: l
 
 ## I tre livelli e l'altezza del ciclo
 
-I tre livelli stratificano il ciclo di azione per altezza, e la corrispondenza non è forzata: viene dalla definizione stessa di Norman. Il _visceral_ «makes rapid judgments of what is good or bad… and sends signals to the muscles» — giudizio sensoriale rapido più output motorio: è Perceive (i1) e Perform (o3), la triade bassa stretta attorno al Mondo. Il _reflective_ «watches over, reflects upon, and tries to bias the behavioral level», senza accesso diretto a senso e azione: è la triade alta — Compare, Goal, Plan — cioè la KB. Il _behavioral_, sede dell'operazione esperta e di routine, è la vita del ciclo: Specify (o2) e Interpret (i2). La stratificazione si appoggia al «6 atti + 2 poli» di `ciclo-azione`.
+I tre livelli stratificano il ciclo di azione per altezza, e la corrispondenza
+non è forzata: viene dalla definizione stessa di Norman. Il _visceral_ «makes
+rapid judgments of what is good or bad… and sends signals to the muscles» —
+giudizio sensoriale rapido più output motorio — è la cerniera bassa nel suo
+insieme. `world` contiene il segnale grezzo e l'atto; i1 e o3 ne sono i riflessi
+versionati, rispettivamente cattura del Perceive e prescrizione del Perform. o3
+non è dunque il gesto motorio: lo prepara dal lato dell'artefatto. Il
+_reflective_ «watches over, reflects upon, and tries to bias the behavioral
+level», senza accesso diretto a senso e azione: è la triade alta — Compare,
+Goal, Plan — cioè la KB. Il _behavioral_, sede dell'operazione esperta e di
+routine, è la vita del ciclo: Specify (o2) e Interpret (i2). La stratificazione
+si appoggia al «6 atti + 2 poli» di `ciclo-azione`.
 
 Resta il monito di Norman: «it is not possible to have design without all three», i livelli si intrecciano. È una stratificazione di _enfasi_, non una partizione: nessun atto è puramente un livello.
 
@@ -40,7 +55,8 @@ La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce:
 ## Riferimenti
 
 - Donald Norman, _Emotional Design: Why We Love (or Hate) Everyday Things_ (Basic Books, 2004), Prologo "Three Teapots" e Cap. 1 "Attractive Things Work Better". Il modello dei tre livelli è di Norman con Andrew Ortony e William Revelle (cfr. Figura 1.1, "Three levels of processing").
-- Fonte grezza (i1): PDF in `sources/`, manifest in `sources/README.md`.
+- Fonte grezza (`world` degenere): PDF in `sources/`, provenienza nel manifest
+  root `sources.md`.
 
 Connessioni:
 
@@ -49,3 +65,6 @@ Connessioni:
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)
 - [metodo-kb](metodo-kb.md)
+- [world](world.md)
+- [input](input.md)
+- [output](output.md)

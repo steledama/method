@@ -17,7 +17,7 @@ Connessioni:
 
 - [affordance-signifier](affordance-signifier.md)
 - [ciclo-azione](ciclo-azione.md)
-- [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
+- [processing-layers](processing-layers.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [system-image](system-image.md)
 - [deck](deck.md)
