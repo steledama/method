@@ -64,11 +64,14 @@ ovunque, con il carattere nel contenuto. La propagazione ora ha un protocollo:
 `method-review` usa un marker SHA versionato e lascia il lavoro pertinente nel repo
 adottante. `economia` è il primo pilot committato; `nixos` è il secondo, committato
 in `5d076ae`, e conferma il carve-out per output di altra natura ontologica
-(configurazione Nix runtime, nessuna porta `interpretations/` vuota). Restano da
-riallineare `salute` (`plan` #1); `bi` è fissato nella storia dal commit
-`48f9e2cc`. Il caso BI conferma che l'uniformità del protocollo non deve
+(configurazione Nix runtime, nessuna porta `interpretations/` vuota). La
+propagazione è conclusa nei quattro adottanti: `economia` in `4c633b8`, `nixos`
+in `5d076ae`, `bi` in `48f9e2cc`, `salute` in `bc1eaef`. Il caso BI conferma che
+l'uniformità del protocollo non deve
 interferire con opzioni applicative omonime: `--append-note` resta dominio,
-`--append-why` era infrastruttura di audit. Una tensione resta aperta.
+`--append-why` era infrastruttura di audit. Il caso salute conferma che privacy,
+diario, scadenze, fonti e skill di ingest sono adattamenti di contenuto e
+workflow, non eccezioni alla struttura comune. Una tensione resta aperta.
 _Ri-derivazione del deck_:
 il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi

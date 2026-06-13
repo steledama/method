@@ -59,6 +59,13 @@ soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
 uno SHA completo di `method` come cursore e non avanza il marker finché ogni voce
 pertinente non è risolta o tracciata in un task locale.
 
+Il marker vive in `method-review.md` nella root dell'adottante, con
+`method_commit`, `reviewed_at` e `status`. `aligned` non significa che ogni
+differenza sia stata cancellata: significa che ciascun cambiamento pertinente è
+stato applicato, risultava già soddisfatto, è registrato come divergenza
+intenzionale oppure è affidato a un task locale. Lo SHA avanza solo dopo questa
+classificazione; la storia delle revisioni resta in Git, non nel marker.
+
 La triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
 che deve solo fotografare, lasciare che la coda dei task diventi un backlog
 morto, oppure committare cambiamenti operativi senza filing back nella KB.
@@ -70,8 +77,8 @@ lavoro; il commit è il gate di documentazione.
 - **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
 - **`nixos`** — situazione attuale: secondo pilot di `method-review` completato, idempotente e committato (`5d076ae`), con triade riallineata e marker a `df9e651`. Confronto con il metodo: conferma che le skill comuni possono preservare formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
 - **`bi`** — situazione attuale: terzo pilot di `method-review` completato, idempotente e committato (`48f9e2cc`), con triade riallineata, marker a `18424f8` e rename `interpretations/`. Confronto con il metodo: i guardrail BI e gli usi applicativi di `--append-note` restano locali, mentre il protocollo comune si applica senza confonderli con l'append dell'audit.
-- **`economia`** — situazione attuale: triade riallineata (`kb-review`, `tasks-review`, `commit`) e `method-review`, con wrapper Codex. Confronto con il metodo: primo pilot validato della revisione trans-repo; marker versionato, audit pulito e seconda esecuzione idempotente.
-- **`salute`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. Confronto con il metodo: `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.
+- **`economia`** — situazione attuale: primo pilot completato, idempotente e committato (`4c633b8`), con triade riallineata e `method-review`. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal.
+- **`salute`** — situazione attuale: quarto pilot completato, idempotente e committato (`bc1eaef`), con triade riallineata, marker a `7b97c0b` e rename `interpretations/`. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti, registro azioni e `elabora-trascrizione` restano adattamenti locali senza derogare all'anatomia comune.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il
