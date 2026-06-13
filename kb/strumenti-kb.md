@@ -38,9 +38,8 @@ non scoprirlo o scegliere un workflow peggiore.
 
 Comandi principali:
 
-- `python3 tools/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) in formato appendibile a verdict.md
+- `python3 tools/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) su stdout — diagnosi i1 rigenerabile, da leggere, non da archiviare
 - `python3 tools/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
-- `python3 tools/kb_tools.py audit --format markdown --append-verdict`: appende direttamente il report a verdict.md
 - `python3 tools/kb_tools.py backlinks nodo.md`: mostra link in uscita e backlink di un nodo
 - `python3 tools/kb_tools.py orphans`: elenca i nodi senza backlink
 - `python3 tools/kb_tools.py readme`: verifica copertura e link del catalogo `kb.md`

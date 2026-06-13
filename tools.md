@@ -8,7 +8,7 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
 ## tools/
 
 - `kb_tools.py` — backend deterministico portabile per l'audit della KB. Comandi:
-  - `audit` — audit strutturale (link rotti, orfani, catalogo, naming, cluster, candidati termini); `--append-verdict` appende il report a `verdict.md`
+  - `audit` — audit strutturale (link rotti, orfani, catalogo, naming, cluster, candidati termini); il report è una diagnosi i1 su stdout, non si archivia
   - `backlinks <nodo>` — link in/out di un nodo
   - `orphans` — nodi senza backlink
   - `readme` — copertura del catalogo `kb.md`

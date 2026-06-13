@@ -28,26 +28,18 @@ python3 tools/kb_tools.py audit
   progetti diversi
 - esito sintetico della checklist di `kb/fedelta-cognitiva.md`
 
-3. Appendi il report a `verdict.md` solo quando l'utente chiede l'audit completo o
-   quando la sessione è esplicitamente di lint:
+3. Il report è una diagnosi i1 rigenerabile: vive su stdout, **non** si archivia in
+   `verdict.md`. Quel file è il verdetto corrente per filo aperto (i3), non un log di
+   audit datati (cfr. `kb/verdict.md`). Se l'audit fa _cambiare un verdetto_ su un filo,
+   è il punto 2 di `/commit` ad aggiornarlo in place — non l'append di un report.
 
-```bash
-python3 tools/kb_tools.py audit --append-verdict
-```
-
-4. Dopo l'append, formatta:
-
-```bash
-prettier --write verdict.md
-```
-
-5. Se modifichi script Python durante l'audit, formatta con:
+4. Se modifichi script Python durante l'audit, formatta con:
 
 ```bash
 ruff format tools/*.py
 ```
 
-6. Non correggere automaticamente i problemi trovati dentro lo stesso audit,
+5. Non correggere automaticamente i problemi trovati dentro lo stesso audit,
    salvo richiesta esplicita dell'utente. L'audit fotografa lo stato; le
    correzioni sono un intervento separato.
 
