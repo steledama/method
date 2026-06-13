@@ -5,7 +5,7 @@ description: Project skill for creating git commits in metodo following project 
 
 # commit
 
-Use the Claude project skill as the canonical source of instructions:
+Use the project skill as the canonical source of instructions:
 
 `../../../.claude/skills/commit/SKILL.md`
 

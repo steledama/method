@@ -47,15 +47,10 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    - Una riga, sotto i 72 caratteri
    - Focalizzato sul perché operativo della modifica
 
-5. Crea il commit con HEREDOC:
+5. Crea il commit con il messaggio preparato:
 
    ```
-   git commit -m "$(cat <<'EOF'
-   descrizione del commit
-
-   Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
-   EOF
-   )"
+   git commit -m "descrizione del commit"
    ```
 
 6. Esegui `git status` per confermare che il commit sia andato a buon fine.
@@ -66,3 +61,5 @@ IMPORTANTE:
 - NON fare amend di commit esistenti salvo richiesta esplicita
 - NON fare push salvo richiesta esplicita
 - NON committare file con segreti (`.env`)
+- NON aggiungere automaticamente trailer di attribuzione o coautoria riferiti a
+  modelli, vendor o harness. Aggiungerli solo su richiesta esplicita dell'utente.
