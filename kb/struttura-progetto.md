@@ -52,9 +52,15 @@ Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal 
 
 `verdict.md` è il verdetto attuale, per filo/area aperta — non un log. Il git log dice cosa è cambiato; `verdict.md` dice come stanno le cose ora e perché conta, aggiornato in place; la cronologia di un filo è il git history del file stesso. È lo strato interpretativo sopra quello analitico del git log.
 
-## La triade di skill base
+## Skill base
 
 `kb-review`, `tasks-review` e `commit`. `kb-review` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il file-meta `kb.md` dal conteggio dei nodi. `tasks-review` mantiene vera la supervisione: coerenza `plan`/`tasks`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli strumenti in `tools/`, così parsing e conteggi restano deterministici.
+
+`method-review` completa questa base sul confine tra repository: legge i commit
+del metodo successivi al marker versionato dell'adottante, classifica ciò che è
+diretto, adattato, non pertinente o già soddisfatto e lascia l'eventuale lavoro
+futuro nel `plan.md`/`tasks/` locale. Non sostituisce la triade: controlla la
+relazione adottante-metodo, non la salute o la coda interna del progetto.
 
 ## Struttura uniforme, carattere nel contenuto
 

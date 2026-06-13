@@ -3,19 +3,24 @@ data: 2026-06-09
 stato: bozza
 ---
 
-# Presentazione
+# Deck
 
 Il componente che rende le interpretazioni navigabili: il deck-tool è una
-**cerniera** (cfr. `ciclo-azione`, sezione i2 micro/macro) — per `method`, il cui
-Mondo di sviluppo è la KB stessa, il deck legge prevalentemente come i2-macro
-(rivela tensioni tra nodi); per i progetti adottanti resta prevalentemente o2
-(cruscotto di decisione sul Mondo runtime). È distinto da `output`, che porta il
-concetto dei livelli o1/o2/o3 e i1/i2/i3: questo nodo è il runbook portabile — come
-la presentazione si costruisce, si apre e raggiunge eventualmente un altro
-dispositivo. La sua istanza per repo è la cartella `interpretations/` e il
-register `interpretations.md`.
+**cerniera** (cfr. `ciclo-azione`, sezione i2 micro/macro). In ogni dominio la
+stessa superficie è o2 quando viene prodotta come vista di decisione e substrato
+i2 quando viene letta per attribuire significato alla sintesi; cambia il
+contenuto interpretato, non il ruolo tra repository. È distinto da `output`, che
+porta il concetto dei livelli o1/o2/o3 e i1/i2/i3: questo nodo è il runbook
+portabile — come il deck si costruisce, si apre e raggiunge
+eventualmente un altro dispositivo. La sua istanza per repo è la cartella
+`interpretations/` e il register `interpretations.md`.
 
-La presentazione non è l'unica forma del deck. La forma segue la domanda (Karpathy): una pagina markdown, una tabella di confronto, un deck di slide, un grafico, un canvas sono tutte forme legittime, da scegliere secondo cosa l'output deve far decidere o interpretare. Il deck è la forma-default per la sintesi che si scorre; questo nodo ne fissa il pattern, non lo impone come unica forma.
+Il deck non è l'unica forma dell'interpretazione. La forma segue la domanda
+(Karpathy): una pagina markdown, una tabella di confronto, un deck di slide, un
+grafico, un canvas sono tutte forme legittime, da scegliere secondo cosa
+l'output deve far decidere o interpretare. Il deck è la forma-default per la
+sintesi che si scorre; questo nodo ne fissa il pattern, non lo impone come unica
+forma.
 
 ## HTML Reveal apribile direttamente
 
@@ -26,11 +31,11 @@ servizi permanenti o `fetch` di file locali, che i browser bloccano sotto
 `file://`.
 
 I file markdown possono restare sorgenti di dettaglio o materiale da cui si
-distilla il deck, ma la presentazione non deve duplicarli integralmente: comprime
+distilla il deck, ma il deck non deve duplicarli integralmente: comprime
 ciò che serve alla decisione e rimanda ai nodi per il dettaglio. Quando un deck
 è generato meccanicamente da un `.md`, il comando di generazione deve essere
 versionato; altrimenti l'HTML è esso stesso la sorgente presentativa. Il PDF
-esce dall'export del deck, non da una seconda presentazione mantenuta a mano.
+esce dall'export del deck, non da un secondo artefatto mantenuto a mano.
 
 ## Grafica nativa e build minima
 

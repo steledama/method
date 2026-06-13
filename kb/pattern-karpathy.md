@@ -13,7 +13,7 @@ In questa KB il pattern Karpathy è adattato in forma più autoriale: l'LLM non 
 
 Il pattern originale di Karpathy include summary pages e viste d'insieme dentro il wiki, mantenute dall'LLM. Nel metodo questa scelta diverge deliberatamente: le sintesi escono da `kb/` e vanno nello strato output, così i nodi restano atomici secondo la disciplina zettelkastiana. Questa tensione tra Zettelkasten (sintesi fuori dai nodi) e Karpathy (sintesi dentro il wiki), e la sua risoluzione strutturale, sono trattate in `output`. Il terzo pilastro — Norman — descrive come l'utente attraversa il ciclo di azione dalla KB al mondo e ritorno come nuova fonte.
 
-Karpathy aggiunge un secondo principio sull'output, che il metodo adotta: la forma della risposta segue la domanda. «Answers can take different forms depending on the question — a markdown page, a comparison table, a slide deck (Marp), a chart (matplotlib), a canvas». L'output non è monolitico: pagina, tabella, deck di slide, grafico, canvas sono forme alternative, scelte secondo cosa la risposta deve far capire o decidere. Nel metodo questo dà il repertorio dello strato o2 — il deck di slide ne è la forma-default per la sintesi che si scorre, non l'unica (cfr. `output`, `presentazione`).
+Karpathy aggiunge un secondo principio sull'output, che il metodo adotta: la forma della risposta segue la domanda. «Answers can take different forms depending on the question — a markdown page, a comparison table, a slide deck (Marp), a chart (matplotlib), a canvas». L'output non è monolitico: pagina, tabella, deck di slide, grafico, canvas sono forme alternative, scelte secondo cosa la risposta deve far capire o decidere. Nel metodo questo dà il repertorio dello strato o2 — il deck di slide ne è la forma-default per la sintesi che si scorre, non l'unica (cfr. `output`, `deck`).
 
 Architettura:
 
@@ -66,5 +66,5 @@ Connessioni:
 - [strumenti-kb](strumenti-kb.md)
 - [connessione](connessione.md)
 - [output](output.md)
-- [presentazione](presentazione.md)
+- [deck](deck.md)
 - [ciclo-azione](ciclo-azione.md)

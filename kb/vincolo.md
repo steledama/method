@@ -20,4 +20,4 @@ Connessioni:
 - [visceral-behavioral-reflective](visceral-behavioral-reflective.md)
 - [fedelta-cognitiva](fedelta-cognitiva.md)
 - [system-image](system-image.md)
-- [presentazione](presentazione.md)
+- [deck](deck.md)

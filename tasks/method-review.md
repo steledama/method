@@ -80,9 +80,10 @@ migrazione del file locale (sotto).
 - **Regola tabelle vs elenchi per mobile** (`1cb16ed`, `f17ee07`): converti i
   confronti tabellari in elenchi puntati (eccezione `plan.md`); aggiungi la regola
   al `CLAUDE.md` locale se manca. _Diretto._
-- **Separazione dati / presentazioni versionate** (`8eab442`): dove l'adottante ha
-  uno strato dati (`economia/output`, `salute`, `bi`), fonte-di-verità fuori da Git
-  in `data/` locale, deck/o2 curato versionato. _Adatta al dominio._
+- **Separazione dati / interpretazioni versionate** (`8eab442`): dove l'adottante
+  ha uno strato dati (`economia/output`, `salute`, `bi`), fonte-di-verità fuori da
+  Git in `data/` locale, sintesi interpretativa curata e versionata in
+  `interpretations/`. _Adatta al dominio nei contenuti, non nell'anatomia._
 - **Rename repo `metodo` → `method`** (`b593899`): verifica symlink
   (`method/ → ../method/kb`) e path `metodo/`→`method/` in `CLAUDE`/`README` locali.
   _Perlopiù già fatto col rename — verifica residui._
@@ -92,15 +93,19 @@ migrazione del file locale (sotto).
   Entrambi i nodi arrivano per symlink. Verifica nei riferimenti locali
   (`README`/`CLAUDE`/nodi) i puntatori a `method/output.md` usati per l'_arco di
   input_ e ripuntali a `method/input.md`. _Diretto, verifica._
+- **Nodo `presentazione.md` → `deck.md`** (commit di implementazione della
+  skill): `interpretations/` è la collezione canonica, l'interpretazione è la
+  funzione cognitiva, il deck una sua forma navigabile. Aggiorna i riferimenti
+  locali; alla fotografia attuale ne esistono in `bi/why.md` e
+  `salute/tasks/quadro-deck-viscerale.md`, nessuno in `economia` o `nixos`.
+  _Diretto._
 
-**Da adattare, non propagare ciecamente:**
-
-- **`presentations/` → `interpretations/`** (`dd5c2e7`): in `method` il deck è
-  **i2-macro** (rilegge l'artefatto), per questo «interpretations»; negli adottanti
-  lo stesso deck è prevalentemente **o2** (cruscotto sul mondo). Il nome uniforme
-  vale per il _tool_, non per la _porta_ quando il ruolo nel ciclo differisce: la
-  skill segnali la divergenza e lasci la scelta del nome al giudizio locale, senza
-  rinominare d'ufficio.
+- **`presentations/` → `interpretations/`** (`dd5c2e7`): nome canonico della
+  superficie di sintesi in tutti i repo. Anche negli adottanti la selezione,
+  aggregazione e rappresentazione dei dati non è neutra: interpreta il Mondo
+  secondo i goal dell'artefatto. Il dominio colora contenuti, metriche e forme,
+  non l'anatomia né il nome della porta. Rinomina directory, porta root,
+  generatori e riferimenti locali. _Diretto._
 
 ## Pilota
 
@@ -112,6 +117,71 @@ migrazione del file locale (sotto).
 4. Verificare che distingua correttamente canone comune e adattamento locale.
 5. Solo dopo il pilota, replicarla negli altri adottanti e aggiornare il nodo
    `skill`.
+
+## Decisioni di progetto
+
+- Il marker vive in `method-review.md` nella root dell'adottante: frontmatter
+  machine-readable (`method_commit`, `reviewed_at`, `status`) e corpo leggibile
+  per adattamenti intenzionali e limiti.
+- Il cursore è uno SHA completo del repo `method`, non una data o uno SHA del
+  repo adottante.
+- `status: aligned` significa che tutte le modifiche pertinenti sono applicate,
+  già soddisfatte, preservate esplicitamente oppure affidate a un task locale.
+  Un task locale può quindi sbloccare il marker senza fingere che il lavoro sia
+  concluso.
+- Se resta una modifica pertinente senza risoluzione o task,
+  `status: action-required` e lo SHA non avanza.
+- La classificazione include `gia-soddisfatto`: il pilot ha mostrato che un
+  backlog statico può diventare stale mentre i repo evolvono in parallelo.
+- La skill non fa `fetch`/`pull`: revisiona il checkout locale di `method` e
+  dichiara eventuali modifiche non committate fuori intervallo.
+- Il primo baseline non viene inventato: va ricostruito dalla storia e confermato
+  dall'utente prima di creare il marker.
+
+## Pilot su economia (2026-06-13)
+
+Baseline candidato: `b593899b6459c806f751875907cf1b9e3dae92aa`
+(`method` rinominato e riferimenti locali già aggiornati dal commit economia
+`8ca40bd`). Intervallo osservato:
+`b593899..ec99335c59d228d3df9fa25a5722ef703714b13b`.
+
+- `f17ee07` tabelle vs elenchi: **gia-soddisfatto** da `aeb2f18`; la regola è
+  presente nel `CLAUDE.md` locale.
+- `8eab442` separazione dati/interpretazioni: **gia-soddisfatto** nella sostanza
+  da `ea282bc`; `data/` resta locale e la sintesi resta versionata. Il nome della
+  porta viene corretto separatamente sotto.
+- `dd5c2e7` rename `why.md` → `verdict.md`: **diretto-editoriale**, applicato nel
+  pilot.
+- `dd5c2e7` rename `/audit-kb` → `/kb-review`: **diretto**, applicato nei wrapper
+  e nei riferimenti.
+- `dd5c2e7` check i2/i3 e cascata nella skill `/commit`: **diretto con merge
+  locale**, applicato preservando le checklist finanziarie.
+- `dd5c2e7` `presentations/` → `interpretations/`: inizialmente classificato
+  **divergenza-intenzionale**, poi corretto in **diretto**. La fotografia
+  finanziaria seleziona e rappresenta i numeri secondo i goal: è
+  un'interpretazione di dominio, non un'eccezione all'anatomia comune.
+- `8f0b74f` rimozione append audit: **diretto**, applicato alla skill, a
+  `tools/kb_tools.py` e a `tools.md`.
+- `b29a894` split input/output: **gia-soddisfatto** per i nodi condivisi; nessun
+  riferimento locale all'arco di input trovato da ripuntare.
+- forma uniforme di `plan.md`: **gia-soddisfatto** dal commit economia
+  `028329e`; la voce del backlog centrale era già stale.
+- `ec99335` aggiorna solo il task di progettazione in `method`:
+  **non-pertinente** all'implementazione locale.
+
+Il pilot applicativo su `economia` ha completato la migrazione
+`why.md`→`verdict.md`, il rename `/audit-kb`→`/kb-review`, la rimozione
+`--append-why`, l'integrazione dei check i2/i3 in `/commit`, l'installazione della
+skill locale e del marker, l'audit pulito e una seconda esecuzione idempotente
+con intervallo vuoto. La classificazione iniziale di `presentations/` come
+divergenza intenzionale è stata corretta nel repo: directory e porta root
+rinominate `interpretations/` e `interpretations.md`, riferimenti e generatore
+aggiornati, divergenza rimossa dal marker e natura interpretativa registrata nel
+verdetto locale. La generazione produce un HTML identico al precedente, l'audit
+resta pulito, non restano riferimenti a `presentations` e `/method-review` è
+idempotente con marker a
+`ec99335c59d228d3df9fa25a5722ef703714b13b`. Il pilot su `economia` è quindi
+validato; resta la replica negli altri adottanti.
 
 ## Criterio di chiusura
 

@@ -17,22 +17,25 @@ Regole:
 - deve dichiarare scope, limiti e comportamento atteso
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
-- ogni repo del metodo — `metodo` incluso — deve esporre la triade base ufficiale:
-  `kb-review`, `tasks-review`, `commit`. La copia in `metodo` è quella canonica di
-  riferimento; gli adottanti la forkano e la parametrizzano
+- ogni repo del metodo — `metodo` incluso — deve esporre la triade operativa
+  ufficiale: `kb-review`, `tasks-review`, `commit`. Gli adottanti espongono anche
+  `method-review`, che controlla il drift rispetto al metodo. La copia in
+  `metodo` è quella canonica di riferimento; gli adottanti la forkano e la
+  parametrizzano
 - deve distinguere diagnosi, supervisione e prevenzione: `kb-review` fotografa lo
   stato, `tasks-review` mantiene viva la coda del lavoro futuro, `commit`
   verifica che le modifiche appena fatte siano documentate nel posto giusto
   prima di fissarle nella storia
 
-## Triade base ufficiale
+## Base ufficiale
 
-Le tre skill base ufficiali del metodo sono `kb-review`, `tasks-review` e
-`commit`. Ogni repo del metodo deve averle nella propria `.claude/skills/`, con
-wrapper Codex corrispondente in `.codex/skills/`. Questo vale anche per `metodo`
-stesso: è il repo-modello e fa dogfooding degli strumenti che teorizza — la sua
-triade è la copia canonica di riferimento, parametrizzata sul dominio «manutenzione
-della KB del metodo», che gli adottanti forkano e adattano al proprio dominio.
+La triade operativa del metodo è `kb-review`, `tasks-review` e `commit`. Ogni repo
+deve averla nella propria `.claude/skills/`, con wrapper Codex corrispondente in
+`.codex/skills/`. Questo vale anche per `metodo` stesso: è il repo-modello e fa
+dogfooding degli strumenti che teorizza. `method-review` è la quarta skill
+condivisa, ma opera sul confine: la copia canonica vive in `metodo` e viene
+eseguita negli adottanti per revisionare i commit del metodo successivi al marker
+versionato locale.
 
 `kb-review` è la skill diagnostica. Misura salute strutturale, link, copertura,
 frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
@@ -51,7 +54,12 @@ nodi da propagare in `metodo`.
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
 map, nodo KB, tasks o `verdict.md` siano stati aggiornati coerentemente.
 
-Questa triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
+`method-review` è la skill di allineamento trans-repo. Distingue cambiamenti già
+soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
+uno SHA completo di `method` come cursore e non avanza il marker finché ogni voce
+pertinente non è risolta o tracciata in un task locale.
+
+La triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
 che deve solo fotografare, lasciare che la coda dei task diventi un backlog
 morto, oppure committare cambiamenti operativi senza filing back nella KB.
 L'audit resta diagnostico; la revisione task mantiene vera la supervisione del
@@ -59,15 +67,15 @@ lavoro; il commit è il gate di documentazione.
 
 ## Applicazione nei repo del metodo
 
-- **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
+- **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
 - **`nixos`** — situazione attuale: skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso base — workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.
 - **`bi`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex. Confronto con il metodo: `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.
-- **`economia`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso originario della revisione task — priorità, scadenze, pratiche aperte e dipendenze esterne richiedono controllo frequente.
+- **`economia`** — situazione attuale: triade riallineata (`kb-review`, `tasks-review`, `commit`) e `method-review`, con wrapper Codex. Confronto con il metodo: primo pilot validato della revisione trans-repo; marker versionato, audit pulito e seconda esecuzione idempotente.
 - **`salute`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. Confronto con il metodo: `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il
-pattern: lo dogfooda, possedendo la triade canonica di riferimento; ogni repo
+pattern: lo dogfooda, possedendo la base canonica di riferimento; ogni repo
 adottante la forka con la stessa struttura e con letture contestuali diverse. La
 vecchia regola — `metodo` esente dal versionare skill — confondeva due cose: che
 le skill siano parametrizzate per-progetto (vero) e che `metodo` ne sia esente

@@ -51,13 +51,13 @@ responsabilità distinta da Git.
 
 ## La forma dell'o2 segue la domanda
 
-L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `pattern-karpathy`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `presentazione`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
+L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `pattern-karpathy`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `deck`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
 
 ## Stato dei progetti adottanti
 
 - **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/` (forte); o2: testo descrittivo in `kb/` (debole, no diagrammi); o3: sistema in esecuzione, deploy, switch (forte)
 - **`bi`** — o1: scripts notturni (forte); o2: `presentations/index.html` Reveal.js autonomo (forte); o3: decisioni business, riunioni (forte)
-- **`economia`** — o1: `data/json/` locale e non versionato (forte); o2: fotografia finanziaria versionata in `presentations/index.html`, derivata dai dati (forte); o3: email amministratori, riunioni famigliari (forte)
+- **`economia`** — o1: `data/json/` locale e non versionato (forte); o2/i2: fotografia finanziaria versionata in `interpretations/index.html`, derivata dai dati e orientata dai goal (forte); o3: email amministratori, riunioni famigliari (forte)
 - **`salute`** — o1: implicito sparso (scadenze, cronologia in `storia-clinica`); o2: deck Reveal in `presentations/index.html` con file di dettaglio per area (forte); o3: yoga, controlli, alimentazione, conversazioni mediche (medio-forte)
 
 Pattern emergente: dove o2 è forte, il progetto serve decisioni condivise con altri (`bi`); dove o2 è debole, la KB resta personale e fatica a generare azione coordinata.
@@ -79,7 +79,16 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 
 ## Nome uniforme, carattere nel contenuto
 
-Lo strato di sintesi-documento ha nome **uniforme** tra i progetti: `interpretations/`. Il carattere del dominio vive nel contenuto, non nel nome della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel contenuto»): `salute` migra `quadro/`→`presentations/` (poi → `interpretations/`), perché il nome clinico contraddiceva l'essenza non-dualista corpo/mente della KB. L'uniformità è di **tool** (lo stesso deck Reveal), non di **ruolo nel ciclo**: in `method` il deck legge come i2-macro (sintesi della KB stessa), negli adottanti come o2 (cruscotto di decisione sul Mondo runtime) — cfr. `ciclo-azione`, sezione i2 micro/macro. Resta distinto ciò che è output di altra natura ontologica: in `nixos` l'output _è_ la configurazione che gira (`home/`, `hosts/`, `modules/`), o1/runtime, non la porta `interpretations/`. La funzione è la stessa ovunque: tradurre conoscenza in azione possibile.
+Lo strato di sintesi-documento ha nome **uniforme** tra i progetti:
+`interpretations/`. Il carattere del dominio vive nel contenuto, non nel nome
+della cartella (cfr. struttura-progetto, «struttura uniforme, carattere nel
+contenuto»): anche una fotografia finanziaria seleziona, aggrega e rappresenta i
+numeri secondo i goal, dunque interpreta. La stessa superficie è o2 quando viene
+prodotta come vista di decisione e substrato i2 quando viene letta per attribuire
+significato ai dati. Resta distinto ciò che è output di altra natura ontologica:
+in `nixos` l'output _è_ la configurazione che gira (`home/`, `hosts/`,
+`modules/`), o1/runtime, non la porta `interpretations/`. La funzione è la stessa
+ovunque: tradurre conoscenza in azione possibile.
 
 ## Criteri di qualità
 
@@ -91,7 +100,7 @@ Connessioni:
 - [ciclo-azione](ciclo-azione.md)
 - [goal](goal.md)
 - [mondo](mondo.md)
-- [presentazione](presentazione.md)
+- [deck](deck.md)
 - [artefatto-cognitivo](artefatto-cognitivo.md)
 - [pattern-karpathy](pattern-karpathy.md)
 - [zettelkasten](zettelkasten.md)

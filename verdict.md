@@ -56,11 +56,14 @@ scritto dell'i3** (Compare) — da log datato append-only a stato corrente per f
 aggiornato in place; disciplina ora canonica in `kb/verdict.md`, e questa migrazione ne
 è la prima istanza reale (ciò che ha portato il nodo a `maturo`). **`interpretations/`
 è i2-macro**: la sintesi periodica che rilegge l'intero artefatto e rivela tensioni
-non-locali tra nodi; il deck è una cerniera di _tool_ (i2-macro per `method`, o2 per
-gli adottanti), non di ruolo nel ciclo. Due tensioni restano aperte. _Propagazione_: la
-disciplina `verdict` è validata solo qui; i quattro adottanti hanno ancora `why.md` (o
-`log.md`) nella forma vecchia — il riallineamento passa da `method-review` (`plan` #1),
-un repo per volta, non da un runbook che orchestra i figli. _Ri-derivazione del deck_:
+non-locali tra nodi. Il pilot su `economia` ha corretto la distinzione troppo rigida
+tra i repo: la stessa superficie è o2 quando viene prodotta come vista di decisione e
+substrato i2 quando viene letta; selezione e rappresentazione dei dati sono già
+interpretazione orientata dai goal. La porta canonica è quindi `interpretations/`
+ovunque, con il carattere nel contenuto. La propagazione ora ha un protocollo:
+`method-review` usa un marker SHA versionato e lascia il lavoro pertinente nel repo
+adottante; `economia` è il primo pilot validato, mentre `nixos`, `bi` e `salute`
+restano da riallineare (`plan` #1). Una tensione resta aperta. _Ri-derivazione del deck_:
 il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi
 per esprimerlo o se la cornice nel nodo basti.

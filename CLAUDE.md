@@ -17,16 +17,17 @@ La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-cic
 
 ## Skill
 
-La triade base del metodo vive versionata anche qui (`metodo` fa dogfooding ed è la
-copia canonica di riferimento): `.claude/skills/` con wrapper Codex in
-`.codex/skills/`.
+La triade operativa del metodo e la skill di allineamento vivono versionate anche
+qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
+`.claude/skills/` con wrapper Codex in `.codex/skills/`.
 
 - `/kb-review` — health check della KB via `tools/kb_tools.py` (diagnosi, non corregge)
 - `/tasks-review` — supervisione di `plan.md`/`tasks/`: drift, priorità, dipendenze, prossimo task
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
+- `/method-review` — revisione del drift tra un adottante e i commit di `method`
 
 Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
-[skill](kb/skill.md). Gli adottanti forkano questa triade e la parametrizzano.
+[skill](kb/skill.md). Gli adottanti le forkano e le parametrizzano.
 
 ## Memoria
 

@@ -69,13 +69,13 @@ non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente. È i
 di `interpretations/`: ogni sezione del deck è un'interpretazione i2-macro, non un nodo
 bozza.
 
-Per `method`, il cui Mondo di sviluppo è la KB stessa, il deck legge prevalentemente
-come i2-macro: rivela dove i nodi si contraddicono o si completano. Per i progetti
-adottanti (`bi`, `economia`, `salute`), lo stesso deck-pattern resta prevalentemente o2
-— cruscotto di decisione sul Mondo runtime. La cerniera è di **tool** (lo stesso motore
-Reveal, lo stesso pattern di sintesi visiva), non di **ruolo nel ciclo**: «nome uniforme,
-carattere nel contenuto» si applica anche qui — uniforme è il deck, variabile è se la
-sua sintesi guarda all'artefatto (i2-macro) o al mondo (o2).
+Per `method`, il cui Mondo di sviluppo è la KB stessa, il deck rivela dove i nodi
+si contraddicono o si completano. Nei progetti adottanti (`bi`, `economia`,
+`salute`), la stessa superficie interpreta dati del Mondo runtime secondo i goal.
+In entrambi i casi è o2 quando viene prodotta come vista di decisione e substrato
+i2 quando viene letta per capire cosa la sintesi significa. La cerniera non è
+quindi una differenza di ruolo tra repository, ma il doppio verso dello stesso
+artefatto nel ciclo.
 
 Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
 

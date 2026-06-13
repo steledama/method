@@ -207,11 +207,11 @@ La regola di routing che tiene puliti i confini tra i componenti.
 Dichiarazione minima, applicata a sé stessa:
 
 - **o1 macchina**: `kb/` in markdown via symlink; output di `tools/kb_tools.py`
-- **i2-macro**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`, in `interpretations/`) — per `method`, il cui Mondo di sviluppo è la KB stessa, il deck legge come i2-macro: rivela tensioni non-locali tra nodi. Per i progetti adottanti lo stesso deck-pattern resta o2 (cruscotto di decisione sul Mondo runtime) — cfr. `kb/ciclo-azione.md`, sezione i2 micro/macro. La forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2/i2 è più largo (pagina, tabella, grafico, canvas)
+- **i2-macro**: _questo deck_ (Reveal sulla sorgente `metodo-in-sintesi.md`, in `interpretations/`) — rivela tensioni non-locali tra nodi. In ogni dominio la stessa superficie è o2 quando viene prodotta come vista di decisione e substrato i2 quando viene letta per attribuire significato alla sintesi — cfr. `kb/ciclo-azione.md`, sezione i2 micro/macro. La forma segue la domanda: deck per la sintesi che si scorre, ma il repertorio o2/i2 è più largo (pagina, tabella, grafico, canvas)
 - **o3 azione**: il metodo applicato nei repo adottanti (nodi, commit, KB mantenute)
 - **i1/i3 di ritorno**: osservazioni dai repo → `confronto-progetti-adottanti`
 
-La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietro confine di rete (cfr. `presentazione`).
+La pubblicazione (o3) si serve dalla sorgente, per un percorso versionato, dietro confine di rete (cfr. `deck`).
 
 ## Ogni sezione è un'interpretazione: l'i2-macro del metodo su sé stesso
 
@@ -229,7 +229,7 @@ I diagrammi comprimono; i nodi spiegano.
 - i tre livelli · system image · agente come popolazione → `kb/visceral-behavioral-reflective.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agente.md`
 - il goal · tre altitudini → `kb/goal.md`
 - la matrice di verifica → `kb/matrice-ciclo-azione.md`
-- strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/presentazione.md`
+- strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/deck.md`
 - anatomia del progetto → `kb/struttura-progetto.md`
 - sviluppo del metodo e osservatorio → `kb/sviluppo-metodo.md`, `kb/osservatorio-metodo.md`, `kb/metodo-kb.md`
 - dove vive cosa → `kb/metodo-kb.md`, `kb/zettelkasten.md`

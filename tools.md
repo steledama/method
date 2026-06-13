@@ -21,8 +21,9 @@ Approfondimento nel nodo [strumenti-kb](kb/strumenti-kb.md); esposizione operati
 
 ## skill
 
-`metodo` versiona la triade base canonica in `.claude/skills/` (`kb-review`,
-`tasks-review`, `commit`) con wrapper Codex in `.codex/skills/`. È dogfooding: il
+`metodo` versiona la triade operativa canonica in `.claude/skills/`
+(`kb-review`, `tasks-review`, `commit`) e la skill di allineamento
+`method-review`, con wrapper Codex in `.codex/skills/`. È dogfooding: il
 repo-modello applica a sé gli strumenti che teorizza, ed è la copia di riferimento
 che gli adottanti forkano e parametrizzano sui propri check, fonti e segnali
 locali. Cfr. [skill](kb/skill.md).
