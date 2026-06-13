@@ -68,7 +68,7 @@ lavoro; il commit è il gate di documentazione.
 ## Applicazione nei repo del metodo
 
 - **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
-- **`nixos`** — situazione attuale: skill `audit-kb`, `tasks-review` e `commit`, con wrapper Codex corrispondenti. Confronto con il metodo: caso base — workflow comuni parametrizzati su task tecnici, rebuild, reboot, host e moduli.
+- **`nixos`** — situazione attuale: secondo pilot di `method-review` completato, idempotente e committato (`5d076ae`), con triade riallineata e marker a `df9e651`. Confronto con il metodo: conferma che le skill comuni possono preservare formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
 - **`bi`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `graphify`, con wrapper Codex. Confronto con il metodo: `tasks-review` segue flussi BI e task strutturali; Graphify resta skill realmente locale per import/call graph.
 - **`economia`** — situazione attuale: triade riallineata (`kb-review`, `tasks-review`, `commit`) e `method-review`, con wrapper Codex. Confronto con il metodo: primo pilot validato della revisione trans-repo; marker versionato, audit pulito e seconda esecuzione idempotente.
 - **`salute`** — situazione attuale: skill `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`, con wrapper Codex. Confronto con il metodo: `tasks-review` è adattata a ingest, scadenze, diario e quadro; `elabora-trascrizione` resta locale al ciclo fonti.

@@ -183,6 +183,35 @@ idempotente con marker a
 `ec99335c59d228d3df9fa25a5722ef703714b13b`. Il pilot su `economia` è quindi
 validato; resta la replica negli altri adottanti.
 
+## Secondo pilot su nixos (2026-06-13)
+
+Intervallo revisionato:
+`b593899b6459c806f751875907cf1b9e3dae92aa..df9e65113ebb454c1111b7b673f3f895dcddcd9f`.
+Esito: 2 cambiamenti già soddisfatti, 7 diretti, 1 adattamento NixOS, 2 non
+pertinenti, 1 divergenza intenzionale e nessun task locale. Il marker è
+`aligned` a `df9e65113ebb454c1111b7b673f3f895dcddcd9f`; la seconda esecuzione ha
+intervallo vuoto.
+
+Il pilot ha migrato `why.md`→`verdict.md`, rinominato
+`/audit-kb`→`/kb-review`, rimosso `--append-why`, installato `method-review` e
+allineato `/commit` preservando formatter, `tools/check.sh`, distinzione
+Home/System e policy harness-agnostic. Ha inoltre aggiornato i riferimenti a
+`output`, `input` e `deck`, verificato l'enforcement di auto-memory su tutti i
+cinque profili Home Manager e corretto il parser locale di facts/coverage per
+gli elenchi Markdown correnti.
+
+La divergenza intenzionale è ontologica, non nominale: `nixos` non crea una
+porta `interpretations/` vuota perché il suo output principale è la
+configurazione Nix in esecuzione, o1/runtime. Questo conferma il carve-out già
+definito in `struttura-progetto`: uniformità delle collezioni standard quando la
+funzione esiste, non obbligo di materializzare collezioni senza contenuto.
+
+Verifiche riferite dal pilot: audit pulito su 40 nodi, inventory 55/55 moduli,
+facts e 9 macro-aree allineati, fidelity senza segnali, `tools/check.sh` e
+`git diff --check` superati. Nessun rebuild, flake check, staging, commit o push.
+Il secondo pilot è validato e fissato nella storia di `nixos` dal commit
+`5d076aec247fa1e776929c1035f32c0cfd12861f`.
+
 ## Criterio di chiusura
 
 La skill è presente e documentata in `metodo`, validata su un adottante e

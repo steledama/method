@@ -62,8 +62,11 @@ substrato i2 quando viene letta; selezione e rappresentazione dei dati sono già
 interpretazione orientata dai goal. La porta canonica è quindi `interpretations/`
 ovunque, con il carattere nel contenuto. La propagazione ora ha un protocollo:
 `method-review` usa un marker SHA versionato e lascia il lavoro pertinente nel repo
-adottante; `economia` è il primo pilot validato, mentre `nixos`, `bi` e `salute`
-restano da riallineare (`plan` #1). Una tensione resta aperta. _Ri-derivazione del deck_:
+adottante. `economia` è il primo pilot committato; `nixos` è il secondo, committato
+in `5d076ae`, e conferma il carve-out per output di altra natura ontologica
+(configurazione Nix runtime, nessuna porta `interpretations/` vuota). Restano da
+riallineare `bi` e `salute` (`plan` #1). Una tensione resta aperta.
+_Ri-derivazione del deck_:
 il framing i2-micro/macro è appena entrato in `ciclo-azione`; resta da decidere, sotto
 il check i2 di `/commit`, se `interpretations/metodo-in-sintesi.md` debba ri-derivarsi
 per esprimerlo o se la cornice nel nodo basti.
