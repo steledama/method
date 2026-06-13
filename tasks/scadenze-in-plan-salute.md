@@ -3,54 +3,57 @@ data: 2026-06-13
 stato: aperto
 ---
 
-# Valutare la forma di plan.md dopo l'integrazione delle scadenze in salute
+# Documentare la sezione Scadenze di plan.md in salute
 
 Il 2026-06-13, in `salute`, `scadenze.md` (tabella di appuntamenti sanitari
 datati, già convertita in elenco per la regola "tabelle vs elenchi") è stata
-assorbita in `plan.md` come nuova sezione `## Scadenze`. La motivazione locale:
-task e scadenze sono due facce della stessa pianificazione e si influenzano a
-vicenda (una scadenza vicina può alzare la priorità di un task collegato).
+assorbita in `plan.md` come sezione `## Scadenze`. Nella stessa sessione
+`salute/plan.md` è stato riportato alla forma tabellare canonica (`# · Priorità
+· Task · Dipende da` + footer "Dettagli task" per titolo), che prima non
+seguiva (usava sezioni `## Alta`/`## Media`/`## Bassa`). Restano quindi due
+sezioni in `plan.md`: `## Task` (tabella canonica) e `## Scadenze` (elenco
+cronologico di appuntamenti sanitari).
+
+## Cosa NON fare in salute
+
+`salute/plan.md` non deve contenere la descrizione di come è strutturato il
+file e perché contiene entrambe le sezioni: questa è la responsabilità del
+nodo metodo `plan`, applicata uniformemente — "cambiare la forma è un edit
+solo, ereditato da tutti gli adottanti". `salute/plan.md` ora ha solo l'intro
+minimale comune (cfr. `economia/plan.md`) più le due sezioni.
 
 ## Tensione con la forma canonica
 
-`plan.md` (nodo metodo) descrive la forma canonica come una tabella stretta
-`# · Priorità · Task · Dipende da` con footer di link per titolo — "uniforme su
-tutti i repo adottanti: la granularità del dominio vive nel contenuto ... non
-nella forma". `salute/plan.md` **non** usava già questa forma (sezioni
-`## Alta`/`## Media`/`## Bassa` con elenchi, non la tabella), uno scostamento
-preesistente non ancora discusso esplicitamente in `confronto-progetti-adottanti`.
-L'aggiunta di `## Scadenze` è un secondo scostamento, nello stesso file, motivato
-dal dominio (calendario sanitario datato, correlato ai task).
-
-Caso di confronto: `economia` ha sia `plan.md` in forma tabellare canonica sia
-un `scadenze.md` separato (componente locale, cfr.
-`confronto-progetti-adottanti` riga sui "componenti locali aggiuntivi"). Quindi
-due adottanti con domini calendariali (`economia`, `salute`) hanno preso strade
-diverse: file separato vs. sezione dentro `plan.md`.
+`plan.md` (nodo metodo) descrive oggi solo `## Task` (tabella) + `## Dettagli
+task` (footer). Non prevede una sezione "Scadenze". `salute` ha ora due adottanti
+con un componente calendariale (cfr. anche `economia`, che però tiene
+`scadenze.md` separato da `plan.md`, componente locale aggiuntivo per
+`confronto-progetti-adottanti`). `salute` ha scelto invece di integrare le
+scadenze datate dentro `plan.md`, motivazione locale: task e scadenze sono due
+facce della stessa pianificazione e si influenzano a vicenda (una scadenza
+vicina può alzare la priorità di un task collegato, e viceversa).
 
 ## Domande da chiarire
 
-- La forma a sezioni (`## Alta/Media/Bassa` + `## Scadenze`) di `salute/plan.md`
-  è un adattamento di dominio da annotare in `confronto-progetti-adottanti`
-  (insieme allo scostamento preesistente dalla tabella), o dovrebbe essere
-  riportata alla forma canonica (tabella `# · Priorità · Task · Dipende da` +
-  una colonna/sezione scadenze)?
-- Le scadenze datate meritano una posizione nella forma canonica del nodo
-  `plan` (es. una sezione opzionale "Scadenze" ammessa quando il dominio ha una
-  componente calendariale), o restano per definizione fuori dal plan
-  (`economia` le tiene in `scadenze.md` separato)?
-- Se emerge un pattern comune a `economia` e `salute` (entrambi domini con
-  scadenze datate che interagiscono con le priorità dei task), vale la pena
-  generalizzarlo nel nodo `plan`; se restano scelte locali legittime, basta
-  documentarle in `confronto-progetti-adottanti`.
+- La sezione `## Scadenze` di `salute/plan.md` è un adattamento locale da
+  annotare in `confronto-progetti-adottanti` (variante della forma canonica
+  per domini con componente calendariale), o il nodo `plan` dovrebbe ammettere
+  esplicitamente una sezione opzionale "Scadenze" dopo `## Dettagli task` per
+  i domini che la richiedono?
+- Se si generalizza, va chiarito il criterio: quando un dominio ha scadenze
+  datate che interagiscono con le priorità dei task (`salute`), la sezione
+  vive in `plan.md`; quando ha solo un calendario di adempimenti non
+  necessariamente legato alle priorità (`economia`), resta in un file
+  separato come `scadenze.md`? O è solo preferenza locale?
 
 ## Esito atteso
 
-- Decisione su come trattare lo scostamento di `salute/plan.md` dalla forma
-  canonica (annotare come adattamento vs. riportare alla forma tabellare).
-- Se emerge un pattern condiviso tra `economia` e `salute`, arricchire il nodo
-  `plan` con una posizione esplicita per le scadenze datate nella pianificazione.
-- Aggiornare `confronto-progetti-adottanti` con l'esito, qualunque sia.
+- Aggiornare il nodo `plan` (`method/kb/plan.md`) con la posizione esplicita
+  per le scadenze datate nella pianificazione: variante ammessa (sezione
+  `## Scadenze` opzionale) o adattamento locale da annotare altrove.
+- Aggiornare `confronto-progetti-adottanti` con l'esito per `salute` (forma
+  ora canonica per `## Task`, più eventuale sezione Scadenze) ed `economia`
+  (`scadenze.md` separato).
 
 Connessioni:
 
