@@ -9,25 +9,29 @@ Schema che definisce l'infrastruttura operativa del progetto. La knowledge base,
 
 La root non si decide per profondità («più in alto = più stabile», criterio demolito da pace-layering). Si decide perché sia **atrio**: il _system image_ dell'artefatto. Un `ls` della root deve mostrare l'anatomia completa — quali classi di componente esistono — senza aprire nulla. È applicazione diretta di affordance-signifier e system-image: la struttura di directory porta essa stessa il peso della comunicazione, invece di delegarlo a un documento che la spiega (il cartello «tirare» su una porta mal progettata). Il principio è a sua volta applicazione di method-development: una cornice posata dall'alto (Norman) e verificata dal basso (le root reali dei progetti adottanti).
 
-## Le due specie di file root
+## Le tre specie di file root
 
-La root contiene due tipi di file, distinti per **funzione**, non per profondità.
+La root contiene tre specie di file, distinte per **funzione**, non per profondità. Nessuna ospita artefatti del **runtime del dominio**: quelli si collocano per stadio cognitivo nelle collezioni (vedi «Collocazione per funzione», sotto).
 
 **1. File-ciclo** — letti a _ogni_ sessione per capire e agire. Sono il cruscotto del ciclo di sviluppo (quello che agisce sull'artefatto, non sul mondo):
 
 - `README.md` — la **bussola** e il Goal: identità, principi e dominio in sintesi; orienta e _punta_ a `plan`, `kb` e al modello (nodi/`interpretations`, register `map` dove esiste)
-- `plan.md` — il Plan: i task aperti prioritizzati con dipendenze
+- `plan.md` — il Plan: i task aperti prioritizzati con dipendenze, e i vincoli che ne ordinano l'esecuzione (le `scadenze` del dominio, in una sezione propria)
 - `CLAUDE.md` + `AGENTS.md` — le regole d'azione (AGENTS come wrapper agent-agnostico)
 - `verdict.md` — il verdetto attuale, per filo aperto
 
-**2. Porte-collezione** — _visibili_ sempre nell'atrio, _lette_ on-demand. Una per ogni collezione, così che la root dichiari l'inventario completo dell'artefatto:
+**2. Porte-collezione** — _visibili_ sempre nell'atrio, _lette_ on-demand. Una per ogni collezione **dell'artefatto**, così che la root dichiari l'inventario completo:
 
 - `kb.md` — il catalogo dei nodi (porta di `kb/`)
-- `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi. Register on-demand, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
 - `tools.md` — strumenti e skill (porta di `tools/`)
 - `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `action-cycle`, i2 micro/macro)
-- `perceptions.md` — la porta della collezione i1 (`perceptions/`): le catture versionate del Perceive, presente **dove il dominio versiona catture i1**; assente dove l'i1 è effimero (in `metodo` non c'è: l'unica i1 versionata sono le citazioni nei `## Riferimenti`)
-- `sources.md` — il **registro di provenienza** delle fonti-mondo autorevoli (`source-of-truth`): quale edizione regge quale nodo. **Non** è una porta-collezione né la collezione i1 — i binari non stanno nell'artefatto ma in `world` (gitignorati, su Drive); `sources.md` è il loro riflesso versionato e portabile, sibling di `map.md`, e alimenta i `## Riferimenti` (i3). Presente dove il dominio poggia su fonti esterne autorevoli
+- `perceptions.md` — la porta della collezione i1 (`perceptions/`): le catture versionate del Perceive (export, referti, log nei domini; in `metodo`, i **segnali metodologici dagli adottanti**). Presente **dove il dominio versiona catture i1**
+- `prescriptions.md` — la porta della collezione o3 (`prescriptions/`): gli atti versionati e predisposti sul Mondo runtime (canovacci, promemoria, payload nei domini; in `metodo`, i **runbook di adozione di un cambio di canone**, eseguiti dal `method-review` dell'adottante). Presente **dove il dominio versiona o3**
+
+**3. Register** — porte verso ciò che sta _fuori_ dall'artefatto (`world`/`source-of-truth`), non verso una collezione interna; anch'essi visibili nell'atrio e letti on-demand:
+
+- `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
+- `sources.md` — il **registro di provenienza** delle fonti-mondo autorevoli (`source-of-truth`): quale edizione regge quale nodo. I binari non stanno nell'artefatto ma in `world` (gitignorati, su Drive); `sources.md` è il loro riflesso versionato e portabile, e alimenta i `## Riferimenti` (i3). Presente dove il dominio poggia su fonti esterne autorevoli
 
 ## Visibilità ≠ caricamento
 
@@ -37,9 +41,25 @@ Questo **supera** la vecchia regola «un file-meta vive dentro la cartella se on
 
 Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file-ciclo, distinto dal README per pace». Quella regola trattava "map" come una cosa sola — il modello che evolve. La scomposizione lo scioglie meglio: la **bussola** (orientamento d'ingresso, stabile) è il README; il **modello** (la teoria che evolve) vive nei nodi e in `interpretations/`; l'**indice-di-dominio** (il territorio reale) è il register `map.md`, una porta on-demand. Così lo strato veloce resta fuori dal README — la pace è rispettata meglio del compromesso del 06-06 — e non serve più un `map.md`-bussola separato. Il README **orienta e punta, non immagazzina** (regola in readme).
 
-## Root estensibile dal basso
+## Collocazione per funzione, non estensione della root
 
-Il set universale (i file-ciclo + le porte-collezione) è un _pavimento, non un soffitto_: un dominio aggiunge i propri file bootstrap-essenziali — `economia` con `stato.md`/`scadenze.md`, `salute` con `scadenze.md`/`diario.md` — con lo stesso criterio di funzione.
+Il set universale (file-ciclo + porte + register) è un _pavimento, non un soffitto_, ma un dominio **non** si estende aggiungendo file in root: si estende con ciò che mette nelle collezioni. La root resta il cruscotto del **ciclo di sviluppo**; gli artefatti del **runtime del dominio** si collocano per stadio cognitivo:
+
+- cattura cronologica valenza-neutra (`diario`) → `perceptions/` (i1), tenuta neutra: l'interpretazione valenzata risale a `stato`, non scinde il file;
+- sintesi corrente (`stato`) → `interpretations/` (i2), come i2 _testuale_ accanto al deck grafico; le due forme dell'i2 convivono (cfr. input, «la forma segue il dominio»). Non si fonde nel deck — perderebbe leggibilità — ma gli sta accanto;
+- prescrizione o promemoria predisposto → `prescriptions/` (o3);
+- vincolo di pianificazione (`scadenze`: le date che ordinano i task) → una sezione di `plan.md`. È parte del **Plan**, non un artefatto i/o: determina l'ordine d'esecuzione, quindi vive col cruscotto, non in una collezione.
+
+Questo **supera** la regola «root estensibile dal basso» (2026-06-07, che nominava `stato`/`diario`/`scadenze` come file root): contraddiceva il principio «il cruscotto è il ciclo di sviluppo, non il runtime». La sua giustificazione era «letti a ogni sessione», ma **posizione ≠ bootstrap**: l'ordine di bootstrap in `CLAUDE` può puntare a `interpretations/stato.md` come prima lettura senza che il file viva in root. L'ergonomia è salva e l'atrio resta il system image del solo ciclo di sviluppo.
+
+## L'i1 e l'o3 di `method`: il canale con gli adottanti
+
+`method` è un meta-artefatto e materializza anch'esso i due riflessi che baciano la membrana `world`, dove il Mondo runtime sono gli adottanti (cfr. `world`, `input`, `output`).
+
+- **i1 → `perceptions/`** — il segnale metodologico che un adottante solleva mentre risolve un problema concreto («nel repo X la regola Z è scomoda»). Si cattura qui, **valenza-neutro**: il confine i1→i2 è l'ingresso della valenza, quindi la valutazione (generalizza? come?) è i2→i3 e avviene in `method` (verdict, nodi), non nel repo che segnala. Un adottante perciò **non pianifica** un cambio di canone nel proprio `plan.md` — non è suo lavoro, non può sequenziarlo né dargli dipendenze: emette il segnale. Pianificare il canone è di `method`.
+- **o3 → `prescriptions/`** — il runbook di adozione di un cambio di canone, preparato per repo ed eseguito dal `method-review` dell'adottante: o3 prescrive, method-review compie l'atto. È la forma concreta della propagazione.
+
+Così `method` ha l'atrio completo del ciclo (i1/i2/i3 e o2/o3) e fa da modello agli adottanti dogfoodando anche il proprio arco di input/output, non solo la KB.
 
 ## Il cruscotto è il ciclo di sviluppo, non simmetrico a sette caselle
 
@@ -88,9 +108,9 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 ## Skeleton directory
 
 - file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `verdict.md`
-- porte-collezione: `kb.md` · `tools.md` · `interpretations.md` · `perceptions.md` (dove il dominio versiona catture i1)
+- porte-collezione: `kb.md` · `tools.md` · `perceptions.md` (i1) · `interpretations.md` (i2/o2) · `prescriptions.md` (o3)
 - register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` (territorio del dominio) · `sources.md` (fonti-mondo autorevoli)
-- collezioni: `kb/` · `tools/` · `interpretations/` · `perceptions/` · `tasks/`
+- collezioni: `kb/` · `tools/` · `perceptions/` · `interpretations/` · `prescriptions/` · `tasks/`
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
   versionata, senza manifest
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
@@ -101,7 +121,8 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 
 - file UPPERCASE — riconosciuti e caricati per nome da tool o LLM: `README.md`, `CLAUDE.md`, `AGENTS.md` (solo `CLAUDE.md` è auto-caricato dall'harness Claude Code; gli altri seguono l'ordine di bootstrap)
 - file-ciclo lowercase in root (`plan.md`, `verdict.md`): letti seguendo l'ordine di bootstrap, tenuti concisi perché entrano in contesto presto
-- porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `perceptions.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
+- porte-collezione lowercase in root (`kb.md`, `tools.md`, `perceptions.md`, `interpretations.md`, `prescriptions.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
+- register lowercase in root (`map.md`, `sources.md`): stesso stile, ma puntano _fuori_ dall'artefatto (`world`/`source-of-truth`), non a una collezione interna
 - forma inglese per filename, H1 e artefatti strutturali vivi (`map`, `plan`, `verdict`, `kb`); prosa italiana per la documentazione concettuale
 - nodi `kb/` — lowercase inglese con trattini, singolare come forma canonica (regola dettagliata in node)
 
@@ -109,7 +130,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 
 - `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo node
 - `tasks/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo tasks
-- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `perceptions.md`, `sources.md`): nessun frontmatter
+- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md`), porte-collezione (`kb.md`, `tools.md`, `perceptions.md`, `interpretations.md`, `prescriptions.md`) e register (`map.md`, `sources.md`): nessun frontmatter
 
 La ragione è funzionale. I nodi e i task sono unità analizzabili dagli strumenti; i file-ciclo e le porte-collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
 
@@ -132,16 +153,18 @@ Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di cias
 
 ## Applicazione nei progetti adottanti
 
-Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (`kb/index.md`→`kb.md`, `scripts/`→`tools/`, output→`interpretations/` dove è sintesi-documento), letto dal canone via symlink.
+Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (`kb/index.md`→`kb.md`, `scripts/`→`tools/`, output→`interpretations/` dove è sintesi-documento, file-ciclo di dominio per funzione: i1→`perceptions/`, i2→`interpretations/`, `scadenze`→sezione di `plan`), letto dal canone via symlink.
 
 - **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
 - **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
 - **`economia`** — situazione attuale: struttura completa con file di dominio
-  in root, `data/` locale non versionato per fonti e JSON, e `interpretations/`
-  versionata per le viste decisionali. Confronto con il metodo: conferma sia la
-  root estensibile dal basso sia la separazione tra stato operativo e risultato
-  editoriale.
-- **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente, ma la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
+  in root (`stato`, `scadenze`), `data/` locale non versionato per fonti e JSON, e
+  `interpretations/` versionata per le viste decisionali. Confronto con il metodo:
+  i file di dominio in root sono ora **target di migrazione per funzione**
+  (`stato`→`interpretations/`, cattura cronologica→`perceptions/`,
+  `scadenze`→sezione di `plan`); conferma la separazione tra stato operativo e
+  risultato editoriale.
+- **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente; i file di dominio seguono la collocazione-per-funzione (`diario`→`perceptions/`, `scadenze`→`plan`) e la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.
 

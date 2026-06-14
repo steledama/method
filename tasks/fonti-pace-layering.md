@@ -29,7 +29,8 @@ strato lento (mappa, struttura) vs strato veloce (task, todo, log). Quando la ri
 top level si concretizza, rileggere questo nodo come criterio di collocazione e aggiornare
 [[project-structure]] dove oggi dice «conoscenza stabile».
 
-La riorganizzazione anticipata qui si concretizza in [[collocazione-file-dominio]] (task #4): lì
-si decide la collocazione **per funzione cognitiva** (asse i1/i2), qui il criterio è la **velocità
-di cambiamento** (strato lento/veloce). Sono assi complementari sullo stesso nodo
-[[project-structure]]: coordinare i due edit per non rifattorizzarlo due volte.
+La riorganizzazione anticipata qui si è già concretizzata sull'asse della **funzione cognitiva**
+(file di dominio per stadio: `diario`→`perceptions/`, `stato`→`interpretations/`, `scadenze`→`plan`;
+cfr. `verdict.md` e [[project-structure]]). Resta da posare l'asse complementare della **velocità
+di cambiamento** (strato lento/veloce): quando pace-layering matura, riconciliare la sua riga col
+criterio di funzione già scritto in [[project-structure]], senza rifattorizzare il nodo due volte.

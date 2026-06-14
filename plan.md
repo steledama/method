@@ -10,10 +10,8 @@ i task e il loro stato di pianificazione.
 | --- | -------------------------------------- | ---- |
 | 1   | Fonti pace-layering e maturazione nodo | —    |
 | 2   | Ingest fonti mente estesa (Andy Clark) | —    |
-| 3   | Collocazione per funzione file-dominio | —    |
 
 ## Dettagli task
 
 - [Fonti pace-layering e maturazione nodo](tasks/fonti-pace-layering.md)
 - [Ingest fonti mente estesa (Andy Clark)](tasks/fonti-mente-estesa.md)
-- [Collocazione per funzione dei file-ciclo di dominio](tasks/collocazione-file-dominio.md)

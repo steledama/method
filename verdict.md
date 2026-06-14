@@ -81,7 +81,7 @@ viscerale; il colpo «Attractive things work better» segue la slide della stasi
 deck _performa_ la lezione invece di solo enunciarla. La disciplina del nodo `deck`
 (HTML/CSS nativi, build unica `pandoc`+`prettier`) è rimasta intatta.
 
-## La collezione i1 è `perceptions/`; le fonti sono `world`, non una collezione
+## L'atrio rifondato: i1 è `perceptions/`, le fonti sono `world`, i file di dominio per funzione
 
 Emerso dal-basso dall'adozione in `economia` (migrazione di `data/json/` verso l'i1
 versionata) e sciolto qui. Lo strato output nomina le collezioni per stadio cognitivo
@@ -99,5 +99,28 @@ i binari escono del tutto su `world`. `.gitignore` non ha più la regola `source
 (niente cartella d'artefatto). `method` non materializza `perceptions/` (i1 effimera:
 solo le citazioni nei Riferimenti). Propagazione: gli adottanti recepiscono via
 `method-review`; `economia` adotta `perceptions/` direttamente nella migrazione imminente,
-evitando la doppia rinomina. Resta aperto il gemello `collocazione-file-dominio`: _che
-cosa_ dei file-ciclo di dominio (`diario`, `stato`) entra in `perceptions/`/`interpretations/`.
+evitando la doppia rinomina.
+
+Il gemello `collocazione-file-dominio` è sciolto: gli artefatti del **runtime del dominio**
+si collocano per stadio cognitivo, non in root — `diario` (i1)→`perceptions/` tenuto
+valenza-neutro, `stato` (i2)→`interpretations/` come i2 testuale accanto al deck. Le
+`scadenze` non sono un artefatto i/o ma un **vincolo di pianificazione** che ordina i task:
+vanno in una sezione di `plan.md`. La root resta il cruscotto del solo ciclo di sviluppo.
+Nodo della decisione: «root estensibile dal basso» contraddiceva «il cruscotto è il ciclo
+di sviluppo, non il runtime»; sciolta in favore della funzione, perché posizione≠bootstrap
+(l'ordine in `CLAUDE` può puntare a `interpretations/stato.md` senza tenerlo in root).
+Formalizzata in `project-structure` la **terza specie** di file-root — i _register_
+(`map.md`, `sources.md`) che puntano fuori dall'artefatto — accanto a file-ciclo e
+porte-collezione.
+
+La propagazione ha ora una casa concreta, e con essa `method` completa il proprio
+atrio. Il meta-artefatto materializza il suo arco i1/o3 attraverso la membrana degli
+adottanti (il suo Mondo runtime): **`perceptions/`** (i1 — il segnale metodologico che
+un adottante solleva, catturato valenza-neutro; un adottante perciò non pianifica il
+canone nel proprio `plan.md`, emette un segnale) e **`prescriptions/`** (o3 — il runbook
+di adozione, eseguito dal `method-review` dell'adottante: o3 prescrive, method-review
+compie l'atto). Toglie la forzatura — far pianificare il canone dall'esterno — e dà
+`method` l'atrio completo del ciclo (i1/i2/i3 e o2/o3), così fa da modello dogfoodando
+input e output, non solo la KB. Primo i1 reale: `perceptions/adottanti-pianificano-il-canone-in-plan.md`;
+primo o3 reale: `prescriptions/adozione-nuovo-atrio.md`, la ricetta per `economia`/`salute`
+di questo stesso cambio. La regola del canale vive in `project-structure`.
