@@ -29,8 +29,13 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
 - [world](kb/world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
 - [action-cycle-matrix](kb/action-cycle-matrix.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
-- [output](kb/output.md) — Strato output (o1/o2/o3), l'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, la forma dell'o2 segue la domanda, criteri di Norman
-- [input](kb/input.md) — Strato input (i1/i2/i3): due tessiture di i1, valenza come confine i1→i2 e formazione-goal
+- [output](kb/output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
+- [input](kb/input.md) — Nota-struttura dell'arco di valutazione: i tre atomi, le due sorgenti di i1 e i due modi di i3, lo specchio con l'output
+- [perceive](kb/perceive.md) — Stadio i1: cattura versionata e valenza-neutra; due tessiture; il confine i1→i2 è la valenza; on-demand
+- [interpret](kb/interpret.md) — Stadio i2: il distillato dove l'interpretazione accade; serve un substrato; i2 micro/macro; `interpretations/` = i2
+- [specify](kb/specify.md) — Stadio o2: la vista di decisione; la forma segue la domanda; o1/o2 due altitudini; le quattro proprietà cardine
+- [perform](kb/perform.md) — Stadio o3: la prescrizione versionata dell'atto (o3 ≠ atto); on-demand; può far emergere Goal
+- [compare](kb/compare.md) — Stadio i3: conoscenza formalizzata o verdetto; i due modi (verdetto/triage); chiude il ciclo verso il Goal
 - [deck](kb/deck.md) — Runbook portabile del deck come forma navigabile di `interpretations/`: sorgente markdown unica, build Reveal da CDN, apertura locale e condivisione on-demand
 - [connection](kb/connection.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione

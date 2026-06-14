@@ -6,8 +6,9 @@ stato: aperto
 # Atrio a tre specie + gradiente di cardinalità
 
 Aperto in sessione di design 2026-06-14 (cfr. `verdict.md`, filo «Rifondazione
-atrio↔azione»). Dipende da [[atomi-di-stadio]] (gli atomi ricevono il canone svuotato
-dalle porte). Riscrive `project-structure` attorno al **gradiente di cardinalità** (unità
+atrio↔azione»). Gli atomi di stadio (`perceive`/`interpret`/`specify`/`perform`/`compare`)
+sono fatti: questo task riceve da loro il canone migrato e svuota le porte attorno a essi.
+Riscrive `project-structure` attorno al **gradiente di cardinalità** (unità
 al polo Goal → file; molteplicità al polo Mondo → cartelle) e scioglie la categoria
 «porta-collezione», falsamente uniforme, in tre specie.
 

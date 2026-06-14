@@ -24,7 +24,7 @@ La root contiene tre specie di file, distinte per **funzione**, non per profondi
 
 - `kb.md` — il catalogo dei nodi (porta di `kb/`)
 - `tools.md` — strumenti e skill (porta di `tools/`)
-- `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `action-cycle`, i2 micro/macro)
+- `interpretations.md` — lo stadio i2 (porta di `interpretations/`); la stessa superficie si legge specularmente come o2, lettura non seconda etichetta (cfr. `interpret`, `specify`)
 - `perceptions.md` — la porta della collezione i1 (`perceptions/`): le catture versionate del Perceive (export, referti, log nei domini; in `metodo`, i **segnali metodologici dagli adottanti**). Presente **dove il dominio versiona catture i1**
 - `prescriptions.md` — la porta della collezione o3 (`prescriptions/`): gli atti versionati e predisposti sul Mondo runtime (canovacci, promemoria, payload nei domini; in `metodo`, i **runbook di adozione di un cambio di canone**, eseguiti dal `method-review` dell'adottante). Presente **dove il dominio versiona o3**
 
@@ -108,7 +108,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 ## Skeleton directory
 
 - file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `verdict.md`
-- porte-collezione: `kb.md` · `tools.md` · `perceptions.md` (i1) · `interpretations.md` (i2/o2) · `prescriptions.md` (o3)
+- porte-collezione: `kb.md` · `tools.md` · `perceptions.md` (i1) · `interpretations.md` (i2; o2 come lettura speculare) · `prescriptions.md` (o3)
 - register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` (territorio del dominio) · `sources.md` (fonti-mondo autorevoli)
 - collezioni: `kb/` · `tools/` · `perceptions/` · `interpretations/` · `prescriptions/` · `tasks/`
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non

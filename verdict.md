@@ -128,10 +128,10 @@ di questo stesso cambio. La regola del canale vive in `project-structure`.
 ## Rifondazione atrio↔azione: gradiente di cardinalità, atomi di stadio, system image visiva
 
 Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
-**disambiguazione KB riflessivo ↔ system-image** è fatta; restano atomi di stadio, atrio
-a tre specie e system image visiva. La categoria «porta-collezione» era **falsamente
-uniforme**: trattava allo stesso modo la KB (system image), gli strumenti (macchina del
-ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
+**disambiguazione KB riflessivo ↔ system-image** e gli **atomi di stadio** sono fatti;
+restano atrio a tre specie e system image visiva. La categoria «porta-collezione» era
+**falsamente uniforme**: trattava allo stesso modo la KB (system image), gli strumenti
+(macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
 
 **Il gradiente di cardinalità** è la lettura che le separa e dà il razionale della
 collocazione. Il ciclo è un funnel a due poli: il Goal è il punto di convergenza
@@ -151,10 +151,16 @@ Conseguenze decise:
   («plan non è o1») è imprecisa — la guardia giusta non è negare l'omologia ma
   qualificare il ciclo (o1/i3-sviluppo vs o1/i3-runtime), come tools (o3-sviluppo) vs
   prescriptions (o3-runtime).
-- **Atomi di stadio**: i1/i2/i3/o1/o2/o3 diventano nodi-atomo dove c'è un'idea distinta;
-  `input`/`output` si riducono a **note-struttura** (Strukturzettel) che tengono le
-  tensioni tra stadi; `action-cycle` resta il nodo-modello. Atomi **on-demand** (i3/o1
-  verificati prima di scorporarli).
+- **Atomi di stadio (fatto)**: cinque nodi-atomo nominati coi **verbi di Norman**
+  — `perceive` (i1), `interpret` (i2), `specify` (o2), `perform` (o3), `compare` (i3) —
+  coerenti con `goal`/`plan` già nominati per stadio. **o1 non è atomizzato**: sottile, e
+  i suoi esempi vivono già nel runtime-macchina e nel `plan`-sviluppo (nota in `output`).
+  `input`/`output` ridotti a **note-struttura** (Strukturzettel): tengono le tensioni tra
+  stadi (specchio, cicli annidati, due sorgenti di i1↔due modi di i3, conflitto
+  Zettelkasten/Karpathy) e linkano agli atomi; `action-cycle` resta il nodo-modello. I tre
+  specchi (o3↔i1, o2↔i2, o1↔i3) materializzati in `processing-layers` come i tre livelli,
+  con solo o2↔i2 attivo (il deck). `interpretations/` = i2 per identità corretto in
+  `project-structure` e `output`. Audit: 45 nodi, 0 link rotti.
 - **I tre specchi sono i tre livelli**: o3↔i1 (viscerale), o2↔i2 (behavioral), o1↔i3
   (riflessivo). Si sviluppano in `processing-layers` (che già accoppia gli stadi per
   livello), non negli atomi. Solo o2↔i2 ha oggi uno scopo attivo (il deck reale).
