@@ -124,3 +124,69 @@ compie l'atto). Toglie la forzatura — far pianificare il canone dall'esterno �
 input e output, non solo la KB. Primo i1 reale: `perceptions/adottanti-pianificano-il-canone-in-plan.md`;
 primo o3 reale: `prescriptions/adozione-nuovo-atrio.md`, la ricetta per `economia`/`salute`
 di questo stesso cambio. La regola del canale vive in `project-structure`.
+
+## Rifondazione atrio↔azione: gradiente di cardinalità, atomi di stadio, system image visiva
+
+Filo di design aperto in questa sessione; **deciso, non ancora eseguito** (lavoro in
+`plan.md`, task 1-4). La categoria «porta-collezione» era **falsamente uniforme**:
+trattava allo stesso modo la KB (system image), gli strumenti (macchina del ciclo di
+sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
+
+**Il gradiente di cardinalità** è la lettura che le separa e dà il razionale della
+collocazione. Il ciclo è un funnel a due poli: il Goal è il punto di convergenza
+(singolare), il Mondo la molteplicità grezza ritagliata per rilevanza. L'arco di
+valutazione distilla il molteplice verso l'uno, l'arco di esecuzione dispiega l'uno
+verso il molteplice. Quindi la **triade alta** — Goal (`README`), Plan/o1 (`plan.md`),
+Compare/i3 (`verdict.md`) — ha un'unica istanza corrente aggiornata in place: entità =
+**file**. Scendendo, ogni stadio accumula: Specify→`tasks/`, i1→`perceptions/`,
+i2→`interpretations/`, o3→`prescriptions/`: entità = **cartella**. File in cima,
+cartelle in fondo, combacia con i poli e con i tre livelli (riflessivo=unità,
+behavioral/viscerale=molteplicità).
+
+Conseguenze decise:
+
+- **`plan.md` = o1-sviluppo, `verdict.md` = i3-sviluppo**, col qualificatore di ciclo.
+  `action-cycle:46` già mappa Plan=o1 e Compare=i3; la frase di `project-structure:64-66`
+  («plan non è o1») è imprecisa — la guardia giusta non è negare l'omologia ma
+  qualificare il ciclo (o1/i3-sviluppo vs o1/i3-runtime), come tools (o3-sviluppo) vs
+  prescriptions (o3-runtime).
+- **Atomi di stadio**: i1/i2/i3/o1/o2/o3 diventano nodi-atomo dove c'è un'idea distinta;
+  `input`/`output` si riducono a **note-struttura** (Strukturzettel) che tengono le
+  tensioni tra stadi; `action-cycle` resta il nodo-modello. Atomi **on-demand** (i3/o1
+  verificati prima di scorporarli).
+- **I tre specchi sono i tre livelli**: o3↔i1 (viscerale), o2↔i2 (behavioral), o1↔i3
+  (riflessivo). Si sviluppano in `processing-layers` (che già accoppia gli stadi per
+  livello), non negli atomi. Solo o2↔i2 ha oggi uno scopo attivo (il deck reale).
+- **`interpretations/` = i2** (identità: il nome dice _interpret_); o2 è la **lettura
+  speculare** della stessa superficie, non una seconda etichetta sulla cartella.
+- **KB ≠ strato riflessivo (appiattimento da correggere)**: il canone confonde due
+  framework di Norman. «KB = riflessivo» è lecito nel frame dei tre livelli (_Emotional
+  Design_); ma la KB è anche la **system image**, _trasversale_ — non uno dei tre
+  livelli, ne è il substrato (i1 la alimenta, o2 ne attinge per scendere al viscerale).
+  Da disambiguare in `processing-layers:8,30,46-47`, `knowledge-base:14`,
+  `cognitive-artifact-design:12,79` (mantenere «riflessivo» nel suo frame, aggiungere la
+  trasversalità della system image).
+- **Porte svuotate**: il contenuto comune delle porte-stadio migra negli atomi; la porta
+  resta come **indice sottile dentro la cartella** che indicizza (tiene viva la cartella
+  vuota in git, dichiara lo stadio). `kb.md` e `tools.md` **restano in root** come
+  cataloghi _trasversali_ (la collisione `kb/index.md` e il fatto che `tools.md` copra
+  anche `.claude/skills/` sono sintomi della trasversalità, non casi sfortunati); i
+  register (`map.md`, `sources.md`) restano in root perché puntano fuori. Tre specie, tre
+  collocazioni, ognuna con un _perché_ nel modello.
+- **System image visiva** (task 4, «dà il tono al progetto»): lo strato di
+  rappresentazione grafica generato — oggi confinato come deck in `interpretations/` —
+  sale a **componente root**, controparte visiva dell'atrio testuale (`ls`). Mostrerà il
+  ciclo dell'azione di dominio «all'opera viva» (tasks da `plan`, verdetto, salute dei
+  nodi). È la cura della stasi già diagnosticata (`processing-layers:53`: un o2 solo
+  riflessivo non muove; serve scendere al viscerale) e lo specchio o2↔i2 reso letterale.
+  **Guardrail non negoziabile: vista derivata, mai seconda fonte** — si genera da
+  nodi/`plan`/`verdict`/collezioni, non ne ospita copia. `interpretations/` resta la
+  collezione delle sorgenti i2; il sito generato vive in root; `build-presentation.sh`
+  cresce di conseguenza.
+
+**Fili parcheggiati** (si scioglieranno a catena quando atomi di stadio e due-cicli
+saranno espliciti): la colonna di `plan` per classificare i task su due assi ortogonali —
+ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa lista; l'omologia
+esplicita tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni narrative;
+l'eventuale uniformità totale degli indici (tutti in-cartella) col suo costo (rinomina
+del nodo `index`, split del catalogo `tools`).
