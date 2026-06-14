@@ -28,3 +28,8 @@ Il nodo nasce dentro una riflessione più ampia sulla collocazione dei component
 strato lento (mappa, struttura) vs strato veloce (task, todo, log). Quando la riorganizzazione del
 top level si concretizza, rileggere questo nodo come criterio di collocazione e aggiornare
 [[project-structure]] dove oggi dice «conoscenza stabile».
+
+La riorganizzazione anticipata qui si concretizza in [[collocazione-file-dominio]] (task #4): lì
+si decide la collocazione **per funzione cognitiva** (asse i1/i2), qui il criterio è la **velocità
+di cambiamento** (strato lento/veloce). Sono assi complementari sullo stesso nodo
+[[project-structure]]: coordinare i due edit per non rifattorizzarlo due volte.

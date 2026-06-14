@@ -70,7 +70,7 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 
 ## Riferimenti
 
-- Alexei Leontiev, _Activity, Consciousness, and Personality_ (1978) — gerarchia attività/azione/operazione; fonte primaria non disponibile in `sources/`.
+- Alexei Leontiev, _Activity, Consciousness, and Personality_ (1978) — gerarchia attività/azione/operazione; fonte primaria non ancora reperita in `world`.
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition (2013), Cap. 2 — il Goal come apice del ciclo a sette stadi; cfr. `action-cycle`.
 
 Connessioni:

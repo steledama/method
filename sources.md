@@ -1,16 +1,22 @@
-# Fonti grezze
+# Fonti
 
-Porta-collezione di `sources/` nell'atrio di root: il manifest dello **strato input**.
-La cartella `sources/` tiene copie di lavoro non versionate delle fonti che
-alimentano i1 e, attraverso elaborazione (i2), diventano conoscenza formalizzata
-nei nodi (i3). La rifondazione input/output è documentata in
-[verdict.md](verdict.md).
+**Register** di provenienza nell'atrio di root — non una porta-collezione: il
+manifest di **provenienza delle fonti-mondo autorevoli**, quale edizione esatta
+ha alimentato quale concetto. È materiale di `world`, non dello strato input: la
+fonte di verità (`source-of-truth`) contro cui si verifica ciò che i nodi
+affermano, che vive **fuori** dall'artefatto. Sibling di `map.md`: entrambi
+indicizzano il territorio esterno, non una cartella interna. Diventa i1
+(`perceptions/`) solo se un'elaborazione ne cattura una porzione versionata;
+finché resta grezzo non elaborato, è Mondo. La rifondazione input/output è
+documentata in [verdict.md](verdict.md).
 
-I binari sono un caso degenere di `world`: il grezzo non sta fuori dal checkout,
-ma siede in una cartella gitignorata. Non per questo diventa i1. Si versiona una
-cattura del Perceive solo quando il grezzo è effimero o quando precisione,
-revisione e durata richiedono un riflesso stabile. Le percezioni di `salute`
-possono richiederlo; i libri di `method`, già persistenti e sotto copyright, no.
+I binari vivono in `world` (su Drive, via il symlink `world/`, gitignorati):
+grezzo esterno persistente, fuori dall'artefatto. Non per questo diventano i1. Si
+versiona una cattura del Perceive (in `perceptions/`) solo quando il grezzo è
+effimero o quando precisione, revisione e durata richiedono un riflesso stabile.
+Le percezioni di `salute` possono richiederlo; i libri di `method`, già
+persistenti e sotto copyright, no — di loro resta versionata solo la provenienza,
+qui sotto.
 
 I file binari **non sono versionati** (vedi `.gitignore`): sono sotto copyright e il repo
 è pubblico. Versionato è solo questo manifest, che registra la _provenienza_ delle fonti —

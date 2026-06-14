@@ -7,10 +7,7 @@
 # il PDF si rigenera con md2pdf quando serve stamparlo o distribuirlo
 *.pdf
 
-# fonti grezze (i1): binari sotto copyright, repo pubblico → non versionati.
-# Il manifest di provenienza che alimenta i ## Riferimenti (i3) è la porta-collezione
-# sources.md in root (versionata); la cartella sources/ tiene solo i binari ignorati.
-sources/*
-
-# membrana host-local verso il Mondo runtime; nessun symlink viene versionato
+# membrana host-local verso il Mondo runtime; nessun symlink viene versionato.
+# Le fonti grezze (libri, documenti) vivono qui, su Drive: world degenere, fuori
+# dall'artefatto. Versionata resta solo la loro provenienza, nel register sources.md.
 world

@@ -28,8 +28,8 @@ L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera. L'artef
 ## Riferimenti
 
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 «The Power of Representation».
-- Fonte grezza (`world` degenere): PDF del capitolo e relative estrazioni in
-  `sources/`; provenienza nel manifest root `sources.md`.
+- Fonte grezza (`world`, su Drive): PDF del capitolo e relative estrazioni;
+  provenienza nel registro `sources.md`.
 
 Connessioni:
 

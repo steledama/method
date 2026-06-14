@@ -26,7 +26,8 @@ La root contiene due tipi di file, distinti per **funzione**, non per profondit�
 - `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi. Register on-demand, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
 - `tools.md` — strumenti e skill (porta di `tools/`)
 - `interpretations.md` — lo stadio i2 (porta di `interpretations/`); per gli adottanti il deck legge anche come o2 (cfr. `action-cycle`, i2 micro/macro)
-- `sources.md` — il manifest delle fonti i1 (porta di `sources/`)
+- `perceptions.md` — la porta della collezione i1 (`perceptions/`): le catture versionate del Perceive, presente **dove il dominio versiona catture i1**; assente dove l'i1 è effimero (in `metodo` non c'è: l'unica i1 versionata sono le citazioni nei `## Riferimenti`)
+- `sources.md` — il **registro di provenienza** delle fonti-mondo autorevoli (`source-of-truth`): quale edizione regge quale nodo. **Non** è una porta-collezione né la collezione i1 — i binari non stanno nell'artefatto ma in `world` (gitignorati, su Drive); `sources.md` è il loro riflesso versionato e portabile, sibling di `map.md`, e alimenta i `## Riferimenti` (i3). Presente dove il dominio poggia su fonti esterne autorevoli
 
 ## Visibilità ≠ caricamento
 
@@ -64,7 +65,7 @@ relazione adottante-metodo, non la salute o la coda interna del progetto.
 
 ## Struttura uniforme, carattere nel contenuto
 
-I nomi delle collezioni standard sono **uniformi** tra i progetti (`kb/`, `tools/`, `interpretations/`, `sources/` e le rispettive porte): la familiarità della cornice rende l'artefatto leggibile e confortante a chi passa da un repo all'altro, umano o LLM. Il «colore» del dominio non vive nel nome della cartella ma nel **contenuto** dei file. Questo **supera** il vecchio principio «il nome dello strato output è una scelta di dominio»: un nome di dominio che contraddice il contenuto è un signifier che mente (es. `quadro/` in `salute`, che evoca il quadro _clinico_ in una KB che rifiuta la separazione corpo/mente). La guardia che il vecchio principio proteggeva — non forzare la struttura sul dominio — resta valida solo come divieto di nomi fuorvianti, non come licenza di nomi idiosincratici.
+I nomi delle collezioni standard sono **uniformi** tra i progetti (`kb/`, `tools/`, `interpretations/`, `perceptions/` e le rispettive porte): la familiarità della cornice rende l'artefatto leggibile e confortante a chi passa da un repo all'altro, umano o LLM. Il «colore» del dominio non vive nel nome della cartella ma nel **contenuto** dei file. Questo **supera** il vecchio principio «il nome dello strato output è una scelta di dominio»: un nome di dominio che contraddice il contenuto è un signifier che mente (es. `quadro/` in `salute`, che evoca il quadro _clinico_ in una KB che rifiuta la separazione corpo/mente). La guardia che il vecchio principio proteggeva — non forzare la struttura sul dominio — resta valida solo come divieto di nomi fuorvianti, non come licenza di nomi idiosincratici.
 
 Resta distinto ciò che non è una collezione di sintesi-documento ma output di altra natura ontologica: la configurazione che gira in `nixos` (`home/`, `hosts/`, `modules/`) è o1/runtime, non la porta `interpretations/`. L'uniformità riguarda le collezioni standard dell'artefatto, non costringe a ribattezzare un output che _è_ un'altra cosa.
 
@@ -87,8 +88,9 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 ## Skeleton directory
 
 - file-ciclo: `README.md` · `plan.md` · `CLAUDE.md` · `AGENTS.md` · `verdict.md`
-- porte-collezione: `kb.md` · `map.md` (dove il dominio ha un territorio) · `tools.md` · `interpretations.md` · `sources.md`
-- collezioni: `kb/` · `tools/` · `interpretations/` · `sources/` · `tasks/`
+- porte-collezione: `kb.md` · `tools.md` · `interpretations.md` · `perceptions.md` (dove il dominio versiona catture i1)
+- register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` (territorio del dominio) · `sources.md` (fonti-mondo autorevoli)
+- collezioni: `kb/` · `tools/` · `interpretations/` · `perceptions/` · `tasks/`
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
   versionata, senza manifest
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
@@ -99,7 +101,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 
 - file UPPERCASE — riconosciuti e caricati per nome da tool o LLM: `README.md`, `CLAUDE.md`, `AGENTS.md` (solo `CLAUDE.md` è auto-caricato dall'harness Claude Code; gli altri seguono l'ordine di bootstrap)
 - file-ciclo lowercase in root (`plan.md`, `verdict.md`): letti seguendo l'ordine di bootstrap, tenuti concisi perché entrano in contesto presto
-- porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
+- porte-collezione lowercase in root (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `perceptions.md`, `sources.md`): il nome della porta è il nome della collezione (`kb.md` ↔ `kb/`), così l'atrio è auto-descrittivo
 - forma inglese per filename, H1 e artefatti strutturali vivi (`map`, `plan`, `verdict`, `kb`); prosa italiana per la documentazione concettuale
 - nodi `kb/` — lowercase inglese con trattini, singolare come forma canonica (regola dettagliata in node)
 
@@ -107,7 +109,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 
 - `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo node
 - `tasks/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo tasks
-- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `sources.md`): nessun frontmatter
+- file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md` e varianti locali come `stato.md`, `scadenze.md`, `diario.md`) e porte-collezione (`kb.md`, `map.md`, `tools.md`, `interpretations.md`, `perceptions.md`, `sources.md`): nessun frontmatter
 
 La ragione è funzionale. I nodi e i task sono unità analizzabili dagli strumenti; i file-ciclo e le porte-collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
 

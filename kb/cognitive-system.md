@@ -45,7 +45,7 @@ La distinzione è operativa: dire «il metodo è portabile» significa dire «l'
 
 ## Riferimenti
 
-- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; volume non ancora disponibile in `sources/`.
+- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; volume non ancora reperito in `world`.
 - Donald Norman, «Cognitive Artifacts», in J. Carroll (ed.), _Designing Interaction_ (Cambridge University Press, 1991) — definizione dell'artefatto cognitivo e della persona-più-artefatto come sistema.
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 — cfr. `kb/cognitive-artifact.md` per la distillazione.
 

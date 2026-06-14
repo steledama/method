@@ -39,7 +39,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Due specie di
 - **[kb.md](kb.md)** — il catalogo di tutti i nodi
 - **[tools.md](tools.md)** — strumenti e skill dell'artefatto
 - **[interpretations.md](interpretations.md)** — lo stadio i2 (Interpret)
-- **[sources.md](sources.md)** — il manifest delle fonti i1
+- **[sources.md](sources.md)** — registro di provenienza delle fonti-mondo autorevoli (`source-of-truth`), base dei `## Riferimenti` (i3); register che punta a `world`, non porta di una collezione
 
 Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `interpretations/`.
 

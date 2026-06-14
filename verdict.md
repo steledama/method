@@ -40,10 +40,10 @@ maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-sy
 `goal`, `output`, `agent`, e i nodi i2 fondati su Norman (`affordance-signifier`,
 `system-image`, `processing-layers`). Due debiti di fonte li tengono zoppi
 sul lato fedeltà (i3): _Things That Make Us Smart_ (Norman 1993, fonte di «artefatto
-cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3
-(`sources/representation.pdf`), il volume completo non è reperito; Hutchins (per
-`cognitive-system`) e Leontiev (per `goal`) sono citati nei Riferimenti ma non vivono
-in `sources/`. L'ingest delle fonti mancanti è tracciato in `plan` (mente estesa,
+cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3 (in `world`), il
+volume completo non è reperito; Hutchins (per `cognitive-system`) e Leontiev (per
+`goal`) sono citati nei Riferimenti ma non vivono ancora in `world`. L'ingest delle
+fonti mancanti è tracciato in `plan` (mente estesa,
 pace-layering). La matrice 4D del ciclo, infine, è un falsificatore costruito sulle
 definizioni del metodo stesso: il suo esito «zero forzati» resta **provvisorio finché
 non lo si testa su un repo nato senza il metodo**.
@@ -80,3 +80,24 @@ l'accento caldo che lega il viscerale alla membrana `world`) portano la sintesi 
 viscerale; il colpo «Attractive things work better» segue la slide della stasi, così il
 deck _performa_ la lezione invece di solo enunciarla. La disciplina del nodo `deck`
 (HTML/CSS nativi, build unica `pandoc`+`prettier`) è rimasta intatta.
+
+## La collezione i1 è `perceptions/`; le fonti sono `world`, non una collezione
+
+Emerso dal-basso dall'adozione in `economia` (migrazione di `data/json/` verso l'i1
+versionata) e sciolto qui. Lo strato output nomina le collezioni per stadio cognitivo
+— `interpretations/` (Interpret), `prescriptions/` (Prescrivi) — mentre l'i1 portava
+`sources/`, un nome per provenienza: asimmetria e signifier che mente. La collezione i1
+si chiama **`perceptions/`** (Perceive), come già fissava `input.md`; `project-structure`,
+le porte e `README` sono allineati. Il nodo della decisione, sciolto in revisione: i
+**libri sono `world`** — grezzo esterno autorevole (`source-of-truth`) che vive su Drive,
+**fuori** dall'artefatto — e diventano i1 (`perceptions/`) solo se un'elaborazione li
+cattura; altrimenti restano Mondo. Quindi `sources/` non era la collezione i1, era
+classificato sull'asse sbagliato. `sources.md` **resta versionato** ma declassato da
+porta-collezione a **register di provenienza** (sibling di `map.md`): il riflesso
+portabile «quale edizione regge quale nodo» che alimenta i `## Riferimenti` (i3), mentre
+i binari escono del tutto su `world`. `.gitignore` non ha più la regola `sources/*`
+(niente cartella d'artefatto). `method` non materializza `perceptions/` (i1 effimera:
+solo le citazioni nei Riferimenti). Propagazione: gli adottanti recepiscono via
+`method-review`; `economia` adotta `perceptions/` direttamente nella migrazione imminente,
+evitando la doppia rinomina. Resta aperto il gemello `collocazione-file-dominio`: _che
+cosa_ dei file-ciclo di dominio (`diario`, `stato`) entra in `perceptions/`/`interpretations/`.

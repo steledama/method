@@ -55,8 +55,7 @@ La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce:
 ## Riferimenti
 
 - Donald Norman, _Emotional Design: Why We Love (or Hate) Everyday Things_ (Basic Books, 2004), Prologo "Three Teapots" e Cap. 1 "Attractive Things Work Better". Il modello dei tre livelli è di Norman con Andrew Ortony e William Revelle (cfr. Figura 1.1, "Three levels of processing").
-- Fonte grezza (`world` degenere): PDF in `sources/`, provenienza nel manifest
-  root `sources.md`.
+- Fonte grezza (`world`, su Drive): PDF, provenienza nel registro `sources.md`.
 
 Connessioni:
 

@@ -20,7 +20,7 @@ finora ([[project-structure]], «root estensibile dal basso», che nomina propri
 signifier che dice cosa leggere e quando è l'ordine di bootstrap, non la
 posizione del file». Le due affermazioni sono in tensione: se la posizione non
 determina il caricamento, l'argomento bootstrap non giustifica la root, e la
-collocazione-per-funzione (i1 → `perceptions`/`sources`, i2 → `interpretations`)
+collocazione-per-funzione (i1 → `perceptions`, i2 → `interpretations`)
 dovrebbe prevalere — come già accade per o2 (`interpretations/`) e o3
 (`prescriptions/`).
 
@@ -36,7 +36,7 @@ componenti di dominio») va quindi riconsiderata alla luce del nuovo assetto.
 ## Il lavoro
 
 - decidere la regola: i file-ciclo di dominio con uno stadio i chiaro si
-  collocano nella collezione corrispondente (i1 → `perceptions`/`sources`, i2 →
+  collocano nella collezione corrispondente (i1 → `perceptions`, i2 →
   `interpretations`), non in root; la root resta per il cruscotto del ciclo di
   sviluppo (README, plan, CLAUDE, verdict) e per le porte;
 - distinguere il caso di `stato`: è i2 **testuale**, altitudine distinta dal deck
@@ -54,10 +54,11 @@ componenti di dominio») va quindi riconsiderata alla luce del nuovo assetto.
 - propagare agli adottanti: aggiornare i `CLAUDE.md`/`README.md` di `economia` e
   `salute`, le porte e l'ordine di bootstrap.
 
-## Relazione con `nome-collezione-i1`
+## Relazione con il naming i1 (risolto)
 
-Task gemello ma distinto: `nome-collezione-i1` decide _come si chiama_ la
-collezione i1 (`sources` vs `perceptions`); questo decide _che cosa ci va dentro_
-(la membership dei file-ciclo di dominio) e tocca la dottrina dell'atrio. Vanno
-risolti coerentemente: l'esito del naming determina il path finale verso cui i
-file-ciclo migrano.
+Il gemello che decideva _come si chiama_ la collezione i1 è chiuso: il nome è
+**`perceptions/`** (cfr. `verdict.md`); le fonti-mondo sono `world`, non una
+collezione, e `sources.md` è un register di provenienza, non una porta. Questo
+task decide _che cosa ci va dentro_ — la membership dei file-ciclo di dominio — e
+tocca la dottrina dell'atrio. Il path di destinazione è quindi noto: i file-ciclo
+con stadio i1 chiaro migrano in `perceptions/`, quelli i2 in `interpretations/`.

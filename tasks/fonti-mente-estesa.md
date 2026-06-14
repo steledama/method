@@ -48,7 +48,7 @@ dell'intuizione sull'asimmetria degli agenti.
 
 ## Lavoro
 
-- procurare le fonti primarie come i1 in `sources/` (non costruire dal sentito dire):
+- procurare le fonti primarie (`world`, su Drive; provenienza nel register `sources.md`) (non costruire dal sentito dire):
   Clark & Chalmers, _The Extended Mind_ (1998, _Analysis_ 58); Clark, _Being There_ (1997);
   Clark, _Supersizing the Mind_ (2008);
 - distillare i2 con provenienza esatta (edizione, capitolo); decidere la destinazione

@@ -30,8 +30,8 @@ Da qui un'asimmetria che il metodo deve tenere esplicita. Il binomio umano + LLM
 ## Riferimenti
 
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition (Basic Books, 2013), Cap. 1 "The Psychopathology of Everyday Things", sezioni _Conceptual Models_ e _The System Image_ (Figura 1.11, il triangolo design model / system image / user's model).
-- Fonte grezza (`world` degenere): EPUB dell'edizione 2013 in `sources/`;
-  provenienza nel manifest root `sources.md`.
+- Fonte grezza (`world`, su Drive): EPUB dell'edizione 2013; provenienza nel
+  registro `sources.md`.
 
 Connessioni:
 

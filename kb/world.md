@@ -27,7 +27,13 @@ solo se scritta (cfr. `action-cycle`).
 ## I tre confini
 
 - **`world` vs i1** — il grezzo non versionato sta in `world`; la cattura
-  versionata e filtrata per rilevanza sta in i1.
+  versionata e filtrata per rilevanza sta in i1 (`perceptions/`). Le fonti
+  autorevoli (libri, documenti) vivono su Drive via `world/`, fuori
+  dall'artefatto: sono Mondo — fonte di verità, non i1; ne diventano i1 solo
+  quando un'elaborazione le cattura. Di esse l'artefatto versiona solo il
+  **registro di provenienza** (`sources.md`), che alimenta i3 ed è sibling di
+  `map.md`: un register che indicizza il Mondo è legittimo, mentre il
+  symlink-membrana `world/` non ha manifest (cfr. «Materializzazione fisica»).
 - **i1 vs i2** — il confine è l'ingresso della valenza e dell'interpretazione,
   non la fedeltà della copia. Estrazione lossless e distillazione lossy ma
   valenza-neutra possono essere entrambe i1.
