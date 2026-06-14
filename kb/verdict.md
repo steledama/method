@@ -9,8 +9,8 @@ stato: maturo
 nel cruscotto del ciclo di sviluppo, come lato valutazione: è il **residuo scritto
 dello stadio Compare (i3)** — la domanda «va bene?» rispetto agli obiettivi,
 sedimentata perché il Goal successivo la legga (la cerniera KB: i3 scrive, il Goal
-legge). Specchio di `plan`: `plan.md` fotografa i task aperti (o1, lato output),
-`verdict.md` fotografa i verdetti aperti (i3, lato input).
+legge). Specchio di `plan`: `plan.md` fotografa i task aperti (o1-sviluppo, lato output),
+`verdict.md` fotografa i verdetti aperti (i3-sviluppo, lato input).
 
 **Nome: sostantivo, non un log.** Doveva chiamarsi `compare.md`? No: i3 (Compare) è
 più largo del solo confronto puntuale — copre anche la formazione del goal quando il

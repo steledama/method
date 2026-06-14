@@ -11,7 +11,7 @@ La distinzione è essenziale. Se CLAUDE.md spiega come funziona il sistema, dive
 
 Regole:
 
-- apre con il bootstrap di sessione esplicito: ordine di lettura `README → CLAUDE → nodo` (`CLAUDE.md` è già in contesto; le porte-collezione, incluso `map` dove esiste, si aprono on-demand)
+- apre con il bootstrap di sessione esplicito: ordine di lettura `README → CLAUDE → nodo` (`CLAUDE.md` è già in contesto; i cataloghi trasversali e i register, incluso `map` dove esiste, si aprono on-demand)
 - contiene comportamenti consentiti, proibiti o da chiedere
 - include il controllo iniziale sui task aperti quando il progetto usa `plan.md` + tasks/
 - nei repo adottanti, può ricordare di controllare la storia recente di `method`

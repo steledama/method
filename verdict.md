@@ -128,10 +128,11 @@ di questo stesso cambio. La regola del canale vive in `project-structure`.
 ## Rifondazione atrio↔azione: gradiente di cardinalità, atomi di stadio, system image visiva
 
 Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
-**disambiguazione KB riflessivo ↔ system-image** e gli **atomi di stadio** sono fatti;
-restano atrio a tre specie e system image visiva. La categoria «porta-collezione» era
-**falsamente uniforme**: trattava allo stesso modo la KB (system image), gli strumenti
-(macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
+**disambiguazione KB riflessivo ↔ system-image**, gli **atomi di stadio** e l'**atrio a
+tre specie** sono fatti; resta la **system image visiva** (task). La categoria
+«porta-collezione» era **falsamente uniforme**: trattava allo stesso modo la KB (system
+image), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
+specie diverse.
 
 **Il gradiente di cardinalità** è la lettura che le separa e dà il razionale della
 collocazione. Il ciclo è un funnel a due poli: il Goal è il punto di convergenza
@@ -146,11 +147,9 @@ behavioral/viscerale=molteplicità).
 
 Conseguenze decise:
 
-- **`plan.md` = o1-sviluppo, `verdict.md` = i3-sviluppo**, col qualificatore di ciclo.
-  `action-cycle:46` già mappa Plan=o1 e Compare=i3; la frase di `project-structure:64-66`
-  («plan non è o1») è imprecisa — la guardia giusta non è negare l'omologia ma
-  qualificare il ciclo (o1/i3-sviluppo vs o1/i3-runtime), come tools (o3-sviluppo) vs
-  prescriptions (o3-runtime).
+- **`plan.md` = o1-sviluppo, `verdict.md` = i3-sviluppo (fatto)**: qualificatore di ciclo,
+  non negazione dell'omologia (`action-cycle` mappa Plan=o1, Compare=i3). Corretto in
+  `project-structure`, `plan`, `verdict`, `output`; la vecchia «plan non è o1» è superata.
 - **Atomi di stadio (fatto)**: cinque nodi-atomo nominati coi **verbi di Norman**
   — `perceive` (i1), `interpret` (i2), `specify` (o2), `perform` (o3), `compare` (i3) —
   coerenti con `goal`/`plan` già nominati per stadio. **o1 non è atomizzato**: sottile, e
@@ -173,13 +172,15 @@ Conseguenze decise:
   Disambiguato in `processing-layers` (8, 30, 46-47), `knowledge-base` e
   `cognitive-artifact-design`, con `system-image` come **ancora** esplicita del
   «trasversale» (e i backlink aggiunti dove mancavano).
-- **Porte svuotate**: il contenuto comune delle porte-stadio migra negli atomi; la porta
-  resta come **indice sottile dentro la cartella** che indicizza (tiene viva la cartella
-  vuota in git, dichiara lo stadio). `kb.md` e `tools.md` **restano in root** come
-  cataloghi _trasversali_ (la collisione `kb/index.md` e il fatto che `tools.md` copra
-  anche `.claude/skills/` sono sintomi della trasversalità, non casi sfortunati); i
-  register (`map.md`, `sources.md`) restano in root perché puntano fuori. Tre specie, tre
-  collocazioni, ognuna con un _perché_ nel modello.
+- **Porte svuotate + gradiente di cardinalità (fatto)**: le porte-stadio sono scese
+  dentro la cartella come **indice interno omonimo** (`perceptions/perceptions.md`, ecc.),
+  thin; il canone vive negli atomi. `kb.md`/`tools.md` restano in root come **cataloghi
+  trasversali** (la collisione `kb/index.md` e la copertura di `.claude/skills/` sono
+  sintomi della trasversalità), i register (`map.md`/`sources.md`) perché puntano fuori.
+  Il razionale è il **gradiente di cardinalità**: unità al polo Goal (file in root),
+  molteplicità al polo Mondo (cartelle). Tre specie di file-root + collezioni-stadio in
+  cartella, formalizzato in `project-structure`; allineati README/CLAUDE/AGENTS, il runbook
+  o3 e la sorgente del deck (ri-derivato).
 - **System image visiva** («dà il tono al progetto»): lo strato di
   rappresentazione grafica generato — oggi confinato come deck in `interpretations/` —
   sale a **componente root**, controparte visiva dell'atrio testuale (`ls`). Mostrerà il

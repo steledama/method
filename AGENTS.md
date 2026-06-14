@@ -3,8 +3,9 @@
 Wrapper agent-agnostico per questo repository.
 
 La root è l'atrio dell'artefatto: un `ls` dichiara l'inventario (file-ciclo letti a
-ogni sessione; porte-collezione `kb.md`/`tools.md`/`perceptions.md`/`interpretations.md`/`prescriptions.md`/`sources.md`
-aperte on-demand).
+ogni sessione; cataloghi trasversali `kb.md`/`tools.md` e register `sources.md` aperti
+on-demand; collezioni-stadio `perceptions/`/`interpretations/`/`prescriptions/`/`tasks/`,
+cartelle con indice interno omonimo).
 
 Ordine di lettura a inizio sessione:
 

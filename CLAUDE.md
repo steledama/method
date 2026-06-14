@@ -4,7 +4,7 @@ Regole operative per agenti che lavorano su questo repository.
 
 ## Bootstrap di sessione
 
-La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-ciclo_ si leggono a ogni sessione; le _porte-collezione_ (`kb.md`, `tools.md`, `perceptions.md`, `interpretations.md`, `prescriptions.md`, `sources.md`) si vedono ma si aprono on-demand. Ordine: `README → CLAUDE → nodo`.
+La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario. I _file-ciclo_ (triade alta) si leggono a ogni sessione; i _cataloghi trasversali_ (`kb.md`, `tools.md`) e i _register_ (`sources.md`, `map.md` dove esiste) si vedono ma si aprono on-demand; le _collezioni-stadio_ (`perceptions/`, `interpretations/`, `prescriptions/`, `tasks/`) sono cartelle con indice interno omonimo. Ordine: `README → CLAUDE → nodo`.
 
 1. `README.md` — la bussola: scopo, dominio in breve, orientamento operativo; punta a `plan.md` (lavoro), `kb.md` (catalogo), `interpretations/` e nodi (modello)
 2. nodo pertinente alla modifica richiesta

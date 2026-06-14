@@ -152,7 +152,7 @@ Il rischio è la complicità con sé stessi — [chi cerca simmetria la trova]{.
 
 ## Anatomia di un progetto
 
-La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La root è l'**atrio** — l'`ls` ne dichiara l'inventario. Due specie: _file-ciclo_ (letti ogni sessione) e _porte-collezione_ (viste, aperte on-demand). La collocazione segue funzione + pace, non profondità.
+La struttura replicabile non è un albero identico: è la presenza esplicita delle funzioni cognitive. La root è l'**atrio** — l'`ls` ne dichiara l'inventario. Tre specie di file — _file-ciclo_ della triade alta, _cataloghi trasversali_ (`kb.md`/`tools.md`), _register_ — più le _collezioni-stadio_ in cartella: la collocazione segue il **gradiente di cardinalità** (unità al polo Goal in alto, molteplicità al polo Mondo in basso), non la profondità.
 
 <div class="diagram project-anatomy">
   <div class="card accent"><strong>README.md</strong><span>Goal · dove sono, da dove parto?</span></div>

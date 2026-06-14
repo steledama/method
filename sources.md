@@ -1,7 +1,7 @@
 # Fonti
 
-**Register** di provenienza nell'atrio di root — non una porta-collezione: il
-manifest di **provenienza delle fonti-mondo autorevoli**, quale edizione esatta
+**Register** di provenienza nell'atrio di root — non un catalogo né una collezione
+interna: il manifest di **provenienza delle fonti-mondo autorevoli**, quale edizione esatta
 ha alimentato quale concetto. È materiale di `world`, non dello strato input: la
 fonte di verità (`source-of-truth`) contro cui si verifica ciò che i nodi
 affermano, che vive **fuori** dall'artefatto. Sibling di `map.md`: entrambi

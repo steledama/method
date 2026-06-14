@@ -13,7 +13,7 @@ contenuto interpretato, non il ruolo tra repository. È distinto da `output`, ch
 porta il concetto dei livelli o1/o2/o3 e i1/i2/i3: questo nodo è il runbook
 portabile — come il deck si costruisce, si apre e raggiunge
 eventualmente un altro dispositivo. La sua istanza per repo è la cartella
-`interpretations/` e il register `interpretations.md`.
+`interpretations/`, con indice interno `interpretations/interpretations.md`.
 
 Il deck non è l'unica forma dell'interpretazione. La forma segue la domanda
 (Karpathy): una pagina markdown, una tabella di confronto, un deck di slide, un

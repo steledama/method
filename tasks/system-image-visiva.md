@@ -6,8 +6,8 @@ stato: aperto
 # System image visiva: strato di rappresentazione in root
 
 Aperto in sessione di design 2026-06-14 (cfr. `verdict.md`, filo «Rifondazione
-atrio↔azione»). Dipende da [[atrio-tre-specie]] e [[atomi-di-stadio]] (gli stadi e le
-porte danno le fonti da rappresentare). Lo strato di rappresentazione grafica — oggi
+atrio↔azione»). Gli atomi di stadio e l'atrio a tre specie sono fatti: gli stadi e le
+collezioni danno ora le fonti da rappresentare. Lo strato di rappresentazione grafica — oggi
 confinato come deck in `interpretations/` — sale a **componente root**: la **system image
 visiva**, controparte grafica dell'atrio testuale (`ls`). Mostrerà il ciclo dell'azione
 di dominio «all'opera viva» e darà il tono all'intero progetto.
