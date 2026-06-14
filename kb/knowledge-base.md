@@ -11,11 +11,14 @@ Per essere davvero utile a un LLM, però, la KB non deve solo contenere conoscen
 
 Il sistema poggia su tre pilastri metodologici — Zettelkasten (forma del nodo atomico), pattern Karpathy (manutenzione dell'insieme con l'LLM), Norman (ciclo di azione tra utente e sistema). La trattazione completa dei tre giganti vive in `action-cycle`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
 
-La KB non è il fine: è lo strato riflessivo dell'artefatto. Lo strato output
-traduce la conoscenza in azione possibile (o1/o2/o3); lo strato input cattura e
-interpreta il ritorno (i1/i2/i3); l'atto e il grezzo attraversano la membrana
-`world`. Senza questi strati, la KB accumula conoscenza ma non chiude il ciclo
-tra comprensione e comportamento.
+La KB non è il fine. Come _livello di elaborazione_ è lo strato riflessivo
+dell'artefatto — concetti e generalizzazioni (cfr. `processing-layers`); come
+_system image_ è però trasversale ai tre livelli, il substrato che l'intero ciclo
+legge e scrive (cfr. `system-image`). Lo strato output traduce la conoscenza in
+azione possibile (o1/o2/o3); lo strato input cattura e interpreta il ritorno
+(i1/i2/i3); l'atto e il grezzo attraversano la membrana `world`. Senza questi
+strati, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e
+comportamento.
 
 La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema. Umano e LLM sono qui il caso saliente di una popolazione di agenti più ampia (cfr. `agent`): la stessa divisione del lavoro può ripartirsi tra livelli di agente — per capacità e per stadio del ciclo — quando l'uso multi-agente diventa reale.
 
@@ -60,4 +63,6 @@ Connessioni:
 - [connection](connection.md)
 - [output](output.md)
 - [action-cycle](action-cycle.md)
+- [processing-layers](processing-layers.md)
+- [system-image](system-image.md)
 - [agent](agent.md)

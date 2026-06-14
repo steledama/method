@@ -10,7 +10,9 @@ mantengono artefatti cognitivi per la cognizione condivisa tra umano e LLM. Non
 progetta soltanto una knowledge base: progetta l'intero ciclo che collega Goal,
 rappresentazioni persistenti, decisione, azione nel `world`, percezione del
 ritorno e revisione. La KB è lo strato riflessivo dell'artefatto, necessario ma
-non sufficiente.
+non sufficiente — riflessiva come _livello_ di elaborazione, ma _system image_
+trasversale ai tre livelli come canale tra agenti (cfr. `system-image`,
+`processing-layers`).
 
 L'oggetto progettato è l'**artefatto cognitivo**: il repository portabile con la
 sua anatomia, le rappresentazioni e i vincoli. Il risultato nell'uso è il
@@ -76,7 +78,8 @@ Ricetta metodologica:
 - artefatto completo: cruscotto, KB, rappresentazioni input/output, strumenti e
   membrana `world` formano un solo sistema progettato; nessuna parte è il metodo
   per intero
-- `kb/`: strato riflessivo della conoscenza stabile. Contiene i nodi di metodo e
+- `kb/`: la conoscenza stabile dell'artefatto — strato riflessivo come livello,
+  system image trasversale come canale tra agenti (cfr. `system-image`). Contiene i nodi di metodo e
   di dominio. Il nucleo portabile comprende `cognitive-artifact-design`,
   `knowledge-base`, `node`, `zettelkasten`, `karpathy-pattern`,
   `project-structure`, `kb-tools`, `connection` e, quando il dominio
@@ -201,6 +204,7 @@ Connessioni:
 - [world](world.md)
 - [input](input.md)
 - [processing-layers](processing-layers.md)
+- [system-image](system-image.md)
 - [node](node.md)
 - [knowledge-base](knowledge-base.md)
 - [karpathy-pattern](karpathy-pattern.md)

@@ -127,10 +127,11 @@ di questo stesso cambio. La regola del canale vive in `project-structure`.
 
 ## Rifondazione atrio↔azione: gradiente di cardinalità, atomi di stadio, system image visiva
 
-Filo di design aperto in questa sessione; **deciso, non ancora eseguito** (lavoro in
-`plan.md`, task 1-4). La categoria «porta-collezione» era **falsamente uniforme**:
-trattava allo stesso modo la KB (system image), gli strumenti (macchina del ciclo di
-sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
+Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
+**disambiguazione KB riflessivo ↔ system-image** è fatta; restano atomi di stadio, atrio
+a tre specie e system image visiva. La categoria «porta-collezione» era **falsamente
+uniforme**: trattava allo stesso modo la KB (system image), gli strumenti (macchina del
+ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre specie diverse.
 
 **Il gradiente di cardinalità** è la lettura che le separa e dà il razionale della
 collocazione. Il ciclo è un funnel a due poli: il Goal è il punto di convergenza
@@ -159,13 +160,13 @@ Conseguenze decise:
   livello), non negli atomi. Solo o2↔i2 ha oggi uno scopo attivo (il deck reale).
 - **`interpretations/` = i2** (identità: il nome dice _interpret_); o2 è la **lettura
   speculare** della stessa superficie, non una seconda etichetta sulla cartella.
-- **KB ≠ strato riflessivo (appiattimento da correggere)**: il canone confonde due
+- **KB ≠ strato riflessivo (appiattimento corretto, fatto)**: il canone confondeva due
   framework di Norman. «KB = riflessivo» è lecito nel frame dei tre livelli (_Emotional
   Design_); ma la KB è anche la **system image**, _trasversale_ — non uno dei tre
   livelli, ne è il substrato (i1 la alimenta, o2 ne attinge per scendere al viscerale).
-  Da disambiguare in `processing-layers:8,30,46-47`, `knowledge-base:14`,
-  `cognitive-artifact-design:12,79` (mantenere «riflessivo» nel suo frame, aggiungere la
-  trasversalità della system image).
+  Disambiguato in `processing-layers` (8, 30, 46-47), `knowledge-base` e
+  `cognitive-artifact-design`, con `system-image` come **ancora** esplicita del
+  «trasversale» (e i backlink aggiunti dove mancavano).
 - **Porte svuotate**: il contenuto comune delle porte-stadio migra negli atomi; la porta
   resta come **indice sottile dentro la cartella** che indicizza (tiene viva la cartella
   vuota in git, dichiara lo stadio). `kb.md` e `tools.md` **restano in root** come
@@ -173,7 +174,7 @@ Conseguenze decise:
   anche `.claude/skills/` sono sintomi della trasversalità, non casi sfortunati); i
   register (`map.md`, `sources.md`) restano in root perché puntano fuori. Tre specie, tre
   collocazioni, ognuna con un _perché_ nel modello.
-- **System image visiva** (task 4, «dà il tono al progetto»): lo strato di
+- **System image visiva** («dà il tono al progetto»): lo strato di
   rappresentazione grafica generato — oggi confinato come deck in `interpretations/` —
   sale a **componente root**, controparte visiva dell'atrio testuale (`ls`). Mostrerà il
   ciclo dell'azione di dominio «all'opera viva» (tasks da `plan`, verdetto, salute dei
