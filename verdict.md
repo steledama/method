@@ -122,8 +122,8 @@ di adozione, eseguito dal `method-review` dell'adottante: o3 prescrive, method-r
 compie l'atto). Toglie la forzatura — far pianificare il canone dall'esterno — e dà
 `method` l'atrio completo del ciclo (i1/i2/i3 e o2/o3), così fa da modello dogfoodando
 input e output, non solo la KB. Primo i1 reale: `perceptions/adottanti-pianificano-il-canone-in-plan.md`;
-primo o3 reale: `prescriptions/adozione-nuovo-atrio.md`, la ricetta per `economia`/`salute`
-di questo stesso cambio. La regola del canale vive in `project-structure`.
+il primo o3 reale fu il runbook di adozione del nuovo atrio, poi rimosso a propagazione
+conclusa. La regola del canale vive in `project-structure`.
 
 ## Rifondazione atrio↔azione: gradiente di cardinalità, atomi di stadio, system image visiva
 
@@ -180,7 +180,10 @@ Conseguenze decise:
   Il razionale è il **gradiente di cardinalità**: unità al polo Goal (file in root),
   molteplicità al polo Mondo (cartelle). Tre specie di file-root + collezioni-stadio in
   cartella, formalizzato in `project-structure`; allineati README/CLAUDE/AGENTS, il runbook
-  o3 e la sorgente del deck (ri-derivato).
+  o3 e la sorgente del deck (ri-derivato). **Propagazione conclusa**: i quattro adottanti
+  hanno revisionato l'intervallo `3b91094..9c45620` e avanzato il marker a `9c45620`;
+  commit locali comunicati: `nixos` `f252e35`, `economia` `ad94568`, `salute` `a58c4b9`.
+  Il runbook o3, esaurito, è rimosso dalla collezione attiva; la storia resta in Git.
 - **System image visiva** («dà il tono al progetto»): lo strato di
   rappresentazione grafica generato — oggi confinato come deck in `interpretations/` —
   sale a **componente root**, controparte visiva dell'atrio testuale (`ls`). Mostrerà il

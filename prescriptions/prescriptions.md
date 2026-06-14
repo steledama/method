@@ -12,4 +12,4 @@ Indice della collezione `prescriptions/`: lo **stadio o3** del ciclo, l'atto ver
 
 ## Contenuti
 
-- [adozione-nuovo-atrio.md](adozione-nuovo-atrio.md)
+Nessuna prescrizione attiva.
