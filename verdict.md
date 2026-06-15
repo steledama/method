@@ -129,7 +129,9 @@ conclusa. La regola del canale vive in `project-structure`.
 
 Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
 **disambiguazione KB riflessivo ↔ system-image**, gli **atomi di stadio** e l'**atrio a
-tre specie** sono fatti; resta la **system image visiva** (task). La categoria
+tre specie** sono fatti; resta la **system image visiva**, che in sessione di
+design 2026-06-15 si è allargata in un **cluster di tre task pianificati** (cfr.
+`plan.md`, task 1-3). La categoria
 «porta-collezione» era **falsamente uniforme**: trattava allo stesso modo la KB (system
 image), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
 specie diverse.
@@ -184,16 +186,40 @@ Conseguenze decise:
   hanno revisionato l'intervallo `3b91094..9c45620` e avanzato il marker a `9c45620`;
   commit locali comunicati: `nixos` `f252e35`, `economia` `ad94568`, `salute` `a58c4b9`.
   Il runbook o3, esaurito, è rimosso dalla collezione attiva; la storia resta in Git.
-- **System image visiva** («dà il tono al progetto»): lo strato di
-  rappresentazione grafica generato — oggi confinato come deck in `interpretations/` —
-  sale a **componente root**, controparte visiva dell'atrio testuale (`ls`). Mostrerà il
-  ciclo dell'azione di dominio «all'opera viva» (tasks da `plan`, verdetto, salute dei
-  nodi). È la cura della stasi già diagnosticata (`processing-layers:53`: un o2 solo
-  riflessivo non muove; serve scendere al viscerale) e lo specchio o2↔i2 reso letterale.
-  **Guardrail non negoziabile: vista derivata, mai seconda fonte** — si genera da
-  nodi/`plan`/`verdict`/collezioni, non ne ospita copia. `interpretations/` resta la
-  collezione delle sorgenti i2; il sito generato vive in root; `build-presentation.sh`
-  cresce di conseguenza.
+- **System image visiva → cluster di presentazione (pianificato, sessione
+  2026-06-15)**: il task singolo si è allargato in tre fili pianificati in
+  `plan.md`, in quest'ordine d'esecuzione.
+  - **Disaccoppiamento adottante↔metodo «dichiara e taci» (1°)**: il dolore
+    ricorrente — a ogni rename di nodo si toccano CLAUDE/README dei 4 adottanti —
+    è sintomo di over-coupling. Cura: interfaccia stabile, struttura volatile.
+    L'adottante dipende dal metodo _come tutto_ — una dichiarazione nel `README`
+    - il symlink `method/` + il **hub** `cognitive-artifact-design` (unico nome a
+      contratto di stabilità) — e **evita i link sparsi a path di nodi**. Va per
+      primo perché ripulisce i riferimenti prima del rename sotto, rendendone la
+      propagazione quasi nulla. Casa del principio da decidere (nodo proprio o
+      sezione in `method-development`); gli step di onboarding nel README di
+      `method`, che oggi prescrivono di hardcodare i path, vanno invertiti.
+  - **Strato di presentazione trasversale, deck→view (2°)**: il nodo `deck`
+    confonde il **motore** di presentazione e la sua **istanza**
+    (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
+    a istanze multiple (una vista per collezione), con la macchina consolidata in
+    root — `assets/` (CSS/lib condivisi) e `views/` (HTML **generati**, specie
+    nuova nell'atrio). `interpretations/` e `tasks/` tornano **sorgenti pure**
+    (twin). L'invariante `deck` è intatto: apertura `file://` dal checkout, HTML
+    generati versionati.
+  - **System image visiva, la home (3°, dip. dal 2°)**: `index.html` in root —
+    l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
+    motore. Layout sul diagramma `action-cycle`: header GOAL (`README`), due
+    colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
+    `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti derivati
+    da `README` + `git remote`). Cura della stasi `processing-layers:53` e
+    specchio o2↔i2 reso letterale.
+  - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
+    fonte** — ogni vista si genera da sorgenti, anche il polo World.
+  - **Orizzonte deliberatamente fuori**: i task come slide navigabili
+    (`views/tasks.html`); una finestra-terminale per dialogare col modello, che
+    **rompe l'invariante `file://`** (richiede backend servito) e sarà classe e
+    nodo a sé.
 
 **Fili parcheggiati** (si scioglieranno a catena quando atomi di stadio e due-cicli
 saranno espliciti): la colonna di `plan` per classificare i task su due assi ortogonali —
