@@ -6,43 +6,79 @@ stato: aperto
 # Disaccoppiamento adottante↔metodo: dichiara e taci
 
 Aperto in sessione 2026-06-15. Il dolore ricorrente — a ogni rename di nodo si
-toccano `CLAUDE.md`/`README.md` dei 4 adottanti — è il sintomo di un
-over-coupling: gli adottanti hardcodano path a nodi interni che il metodo fa
-evolvere. La cura è invertire la dipendenza: l'adottante dipende dal metodo
-**come tutto** (una dichiarazione), non dalla sua struttura interna —
-interfaccia stabile, struttura volatile.
+toccano `CLAUDE.md`, `README.md` e altri file dei quattro adottanti — segnala un
+coupling eccessivo alla struttura interna del metodo. L'obiettivo non è
+eliminare ogni collegamento, ma distinguere la dipendenza generale dal metodo
+dalle connessioni che hanno un significato locale preciso.
 
-## Principio
+## Decisione
 
-- **un solo àncora stabile**: la dichiarazione di adozione nel `README`
-  dell'adottante + il symlink `method/` + il **hub** `cognitive-artifact-design.md`
-  (l'unico nodo il cui nome è contratto di stabilità). Tutto il resto si
-  raggiunge da lì e può cambiare nome liberamente.
-- **dichiara e taci**: l'adottante cita il metodo una volta, in `README`, in
-  modo generale; **evita i link sparsi a path di nodi** nei propri file. Non
-  significa «smettere di usare la struttura» — le regole operative locali
-  restano, ma parlano in proprio o rimandano al hub, non a `method/<nodo>.md`.
-- **trade-off accettato**: l'adottante perde i puntatori precisi «dove è definito
-  X»; mitigato dalla scopribilità dei nodi via symlink a partire dal hub.
+L'adottante dichiara una volta, nel proprio `README`, di adottare il metodo come
+insieme. Il contratto stabile è composto da:
+
+- symlink `method/`;
+- dichiarazione di adozione nel `README`;
+- hub `cognitive-artifact-design.md`, unico nome di nodo assunto stabile.
+
+Da questa dichiarazione non segue un divieto assoluto di link ai nodi interni.
+I riferimenti diretti restano ammessi quando esprimono una dipendenza
+**semantica** o **operativa** reale:
+
+- un nodo locale collega esplicitamente il proprio concetto a un concetto del
+  metodo;
+- una regola o uno strumento locale rimanda alla propria specifica canonica;
+- un task usa un nodo metodologico come vincolo o contesto necessario.
+
+Sono invece coupling accidentale, da rimuovere:
+
+- inventari diffusi dei nodi del metodo;
+- elenchi orientativi che duplicano il hub;
+- richiami aggiunti solo per dire genericamente «questa regola viene dal
+  metodo»;
+- path interni copiati in più file senza una funzione locale distinta.
+
+La formula «dichiara e taci» significa quindi: **dichiara una volta l'adozione;
+altrove collega solo ciò da cui il contenuto dipende davvero**.
+
+## Casa del principio
+
+Il principio entra come sezione di `kb/method-development.md`, non come nodo
+autonomo. Descrive infatti il confine di evoluzione e propagazione tra canone e
+adottanti: interfaccia stabile, struttura interna volatile, ultimo miglio
+deciso nel repo adottante.
 
 ## Implementazione
 
-1. casa del principio — **decidere**: nuovo nodo `kb/` (es. `loose-coupling.md`)
-   oppure sezione in `method-development.md` (la dinamica di sviluppo e
-   propagazione). Propendo per la sezione in `method-development`, per evitare
-   proliferazione di nodi — da confermare.
-2. riscrivere gli **step di onboarding** nel `README` di `method`: oggi gli step
-   3-4 dicono di hardcodare i path dei nodi in `CLAUDE.md` — contraddicono il
-   principio e vanno invertiti (dichiara il hub, non i singoli nodi).
-3. passata sugli adottanti per **ridurre i riferimenti** ai nodi interni,
-   lasciando la sola dichiarazione + hub. Va **prima** del rename deck→view: una
-   volta tolti i riferimenti diffusi, quel rename non richiede più una seconda
-   passata sugli adottanti.
+1. Formalizzare in `method-development.md` la distinzione tra dipendenza
+   generale, connessione intenzionale e coupling accidentale.
+2. Riscrivere gli step di onboarding nel `README` di `method`: dichiarare il
+   metodo e il hub, senza prescrivere un inventario di path in `CLAUDE.md`.
+3. Cercare nei quattro adottanti i riferimenti a `method/*.md` e classificarli
+   secondo la decisione sopra; la metrica non è «zero link», ma «zero link senza
+   funzione locale».
+4. Preparare in `prescriptions/` un runbook unico con i criteri e i touchpoint
+   osservati. Ogni adottante lo applica tramite il proprio `method-review`,
+   verificando in loco quali link mantenere, riscrivere o rimuovere.
+5. Dopo l'adozione nei quattro repo, rimuovere la prescrizione esaurita e
+   aggiornare il verdetto corrente.
 
-## Relazione con gli altri fili
+La passata sugli adottanti precede il rename `deck`→`view`: riducendo prima i
+riferimenti accidentali, il rename successivo tocca solo le connessioni
+intenzionali rimaste.
 
-Questo filo è **primo in esecuzione** proprio per disinnescare il costo del task
-«Strato di presentazione»: oggi il rename deck→view costerebbe pieno perché gli
-adottanti hanno riferimenti diffusi; ripuliti prima, i rename — questo e i futuri
-— costano quasi zero. È l'ultima volta che si paga il prezzo pieno
-dell'over-coupling.
+## Criteri di chiusura
+
+- il principio vive in `method-development.md`;
+- l'onboarding non prescrive più link diffusi alla struttura interna;
+- ogni riferimento residuo negli adottanti è classificabile come semantico o
+  operativo;
+- la prescrizione è stata applicata dai quattro `method-review`;
+- audit e ricerca globale non trovano link rotti né inventari duplicati;
+- il rename `deck`→`view` può propagare senza una nuova bonifica generale.
+
+## Relazione con gli altri task
+
+Il task è primo in ordine per costo/opportunità, non perché il task «Strato di
+presentazione» dipenda tecnicamente da esso. È l'ultima passata generale pagata
+per l'over-coupling; i rename successivi devono avere un costo proporzionato
+alle sole dipendenze reali.

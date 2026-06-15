@@ -6,75 +6,124 @@ stato: aperto
 # System image visiva: la home dell'atrio
 
 Aperto in sessione di design 2026-06-14 (cfr. `verdict.md`, filo «Rifondazione
-atrio↔azione»), riallineato 2026-06-15. Lo strato di rappresentazione grafica
-sale a **componente root**: la **system image visiva**, controparte grafica
-dell'atrio testuale (`ls`). Con l'allargamento di scope del 2026-06-15 questo
-task **poggia su** lo strato di presentazione trasversale (cfr.
-`strato-presentazione.md`): non costruisce una propria macchina, ma è la
-**home** — una delle viste generate dal motore, l'entry navigabile che sintetizza
-e mostra il dominio dell'artefatto.
+atrio↔azione»), riallineato 2026-06-15. La home è la controparte grafica
+dell'atrio testuale dichiarato dall'`ls`: non un dashboard autonomo, ma un
+navigatore che usa il modello di Norman per rendere visibili le principali
+superfici del ciclo di sviluppo.
 
-## Dipendenza
+## Dipendenza e perimetro
 
-Dipende da **Strato di presentazione trasversale (deck→view)**
-(`strato-presentazione.md`): `assets/` (CSS condivisi), la convenzione `views/`,
-l'invariante `file://` e la disciplina «vista derivata» vengono da lì. La home è
-`index.html` in root, generata dallo stesso motore che produce
-`views/interpretations.html`.
+Il task dipende da «Strato di presentazione trasversale (deck→view)» per:
 
-## Visione
+- convenzione `assets/` e `views/`;
+- token grafici e primitivi del ciclo;
+- `views/tasks.html`, `views/verdict.html` e
+  `views/interpretations.html`;
+- disciplina «vista derivata, mai seconda fonte»;
+- invariante di apertura tramite `file://`.
 
-Una singola pagina `index.html` in root, layout verticale che ricalca il
-diagramma `action-cycle`:
+La home non usa Reveal e non è prodotta dallo stesso motore dei deck. Condivide
+con essi asset, linguaggio visivo, sorgenti e convenzioni di build.
 
-- **header — polo GOAL**: titolo e intro presi da `README.md` (H1 + primo
-  paragrafo)
-- **corpo — due colonne**:
-  - colonna esecuzione: card **o1 · Plan** (righe-task da `plan.md`, con
-    dipendenze) → card **o2 · Specify** (ogni task linka al proprio dettaglio in
-    `tasks/*.md`; in futuro alla vista `views/tasks.html`) → card **o3 ·
-    Perform** (`prescriptions/`, **muted** — non cliccabile, collezione vuota
-    oggi)
-  - colonna valutazione: card **i3 · Compare** (fili aperti da `verdict.md`,
-    titoli `##` con link `verdict.md#anchor`) → card **i2 · Interpret** (link a
-    `views/interpretations.html`) → card **i1 · Perceive** (`perceptions/`,
-    **muted**, vuota oggi)
-- **footer — polo WORLD**: elenco dei progetti adottanti derivato da `README.md`
-  (nome + descrizione), ciascuno linkato a `https://github.com/<org>/<nome>`
-  (org da `git remote get-url origin`)
+La prima versione include Goal, Plan, Specify, Compare, Interpret e World.
+Perform e Perceive restano visibili per non falsare il ciclo di Norman, ma sono
+attenuati e senza destinazione. `perceptions/` e `prescriptions/` non alimentano
+la home e non ne determinano lo stato.
 
-Le card muted (o3/i1) restano nel layout per dare a vedere il ciclo completo
-(coerenza con `action-cycle`/`processing-layers`: il terzo specchio o3↔i1 è oggi
-concettuale), senza `<a>` e a bassa opacità. Diventeranno attive quando
-`prescriptions/`/`perceptions/` avranno contenuti.
+## Modello di navigazione
 
-## Guardrail (non negoziabile)
+`index.html` riprende in forma schematica il ciclo «6 atti + 2 poli»:
 
-- **vista derivata, mai seconda fonte**: si genera da
-  `README`/`plan`/`verdict`/`tasks`/collezioni/`git remote`; non duplica
-  contenuto a mano in `index.html`. Vale anche per il polo World: derivato, non
-  un secondo elenco mantenuto a mano.
-- la home è statica e offline (nessun Reveal/JS): la dipendenza dal CDN resta
-  confinata alle viste-deck (cfr. `strato-presentazione.md`).
+- **GOAL**, in alto: identità e introduzione ricavate dal `README`;
+- arco di esecuzione:
+  - **o1 · Plan** — tabella dei task e dipendenze da `plan.md`, seguita dalle
+    eventuali scadenze;
+  - **o2 · Specify** — ingresso al deck `views/tasks.html`;
+  - **o3 · Perform** — card inattiva, senza collegamento;
+- arco di valutazione:
+  - **i3 · Compare** — ingresso al deck `views/verdict.html`;
+  - **i2 · Interpret** — ingresso al deck `views/interpretations.html`;
+  - **i1 · Perceive** — card inattiva, senza collegamento;
+- **WORLD**, in basso: progetti adottanti e descrizioni ricavati dal `README`.
+
+Le card Plan, Tasks, Verdict e Interpretations sono le quattro superfici
+navigabili. Plan è incorporato nella home: la relativa card porta alla sezione
+interna che mostra la tabella completa e gli eventuali vincoli successivi.
+Tasks, Verdict e Interpretations aprono invece le rispettive viste generate.
+
+Goal e World sono poli informativi, non viste ulteriori. Perform e Perceive
+restano nel diagramma come passaggi reali ma, in questa versione, non sono
+collegati a `prescriptions/` o `perceptions/`.
+
+## Sorgenti e trasformazioni
+
+- `README.md`:
+  - H1 e primo paragrafo sostanziale per Goal;
+  - voci della sezione «Progetti adottanti» per World;
+- `plan.md`:
+  - righe della tabella, ordine e dipendenze;
+  - sezione opzionale `Scadenze`;
+- configurazione dello strato di presentazione:
+  - path delle tre viste generate;
+- Git:
+  - organizzazione dell'URL remoto quando serve trasformare i link locali agli
+    adottanti in link GitHub.
+
+La home non legge il corpo dei task o del verdict: quelle rappresentazioni
+appartengono ai deck dedicati.
+
+## Comportamento dei link World
+
+Il generatore supporta remote SSH e HTTPS. Quando `origin` identifica GitHub,
+usa la sua organizzazione e il nome dell'adottante letto dal README per
+costruire il link remoto. Se `origin` manca, non è GitHub o il dato non è
+ricavabile con certezza, conserva il link relativo presente nel README invece
+di inventare un URL.
 
 ## Implementazione
 
-1. `assets/system-image.css` — stile della home, sopra i primitivi-diagramma
-   condivisi in `assets/` (cfr. `strato-presentazione.md`); classe `.card.muted`
-   per o3/i1. Niente duplicazione: riusa la palette/classi dello strato.
-2. `tools/build_system_image.py` (stdlib-only, stile `kb_tools.py`):
-   - `parse_readme()` → titolo H1 + primo paragrafo (GOAL) e sezione «Progetti
-     adottanti» (World: nome + descrizione)
-   - `parse_plan()` → righe della tabella `plan.md` e link a `tasks/*.md`
-   - `parse_verdict()` → titoli `##` (fili aperti) con link `verdict.md#anchor`
-   - `check_collection()` → presenza/assenza contenuti in
-     `prescriptions/`/`perceptions/` per attivare o lasciare muted o3/i1
-   - `github_org()` → org da `git remote get-url origin`
-   - `render_html()` → assembla `index.html` (template a stringa, no Jinja2)
-3. `tools/build-system-image.sh` — wrapper `python3 …` + `prettier --write
-index.html`, mirror di `build-presentation.sh`.
-4. genera e versiona `index.html` in root.
-5. aggiornamenti documentali a fine lavoro: `tools.md` (nuovo script),
-   `kb/project-structure.md` (la home tra gli artefatti di presentazione
-   generati), `README.md` (punto nell'atrio: `index.html` controparte visiva
-   dell'`ls`), `plan.md` (task completato), `verdict.md` (filo aggiornato).
+1. Creare `assets/system-image.css` sopra i token e i primitivi condivisi,
+   mantenendo separate le regole specifiche di Reveal.
+2. Creare `tools/build_system_image.py`, stdlib-only:
+   - parsing strutturale delle sezioni previste di README e plan;
+   - escaping di ogni contenuto inserito nell'HTML;
+   - rendering del ciclo e della sezione Plan;
+   - risoluzione robusta dei link World;
+   - errore esplicito quando manca una struttura obbligatoria.
+3. Creare `tools/build-system-image.sh` come entrypoint di build e formatting.
+4. Generare e versionare `index.html` in root.
+5. Aggiornare `tools.md`, README, `project-structure.md` e il verdetto corrente;
+   chiudere il task in `plan.md` solo dopo la verifica completa.
+
+## Vincoli
+
+- home statica, offline e senza JavaScript;
+- nessun `fetch`, server o build necessari per consultare l'HTML versionato;
+- contenuto sempre derivato, mai mantenuto a mano in `index.html`;
+- nessun link diretto a fragment di file Markdown;
+- layout leggibile anche su schermi stretti;
+- modello di Norman completo nella geometria, anche dove una card è inattiva;
+- nessuna dipendenza da contenuti presenti in `perceptions/` o
+  `prescriptions/`.
+
+## Verifica e criteri di chiusura
+
+- Goal e World coincidono con il README;
+- tabella, ordine, dipendenze e scadenze coincidono con `plan.md`;
+- i link a Tasks, Verdict e Interpretations aprono gli HTML corretti via
+  `file://`;
+- Plan porta alla sezione interna corretta;
+- Perform e Perceive sono visibili, attenuati e privi di link;
+- remote SSH, HTTPS e assente producono fallback corretti;
+- caratteri speciali e contenuto Markdown non possono rompere o iniettare HTML;
+- la home è utilizzabile su desktop e mobile senza perdere la leggibilità del
+  ciclo;
+- due generazioni consecutive sono identiche e la rigenerazione lascia il
+  working tree pulito.
+
+## Fuori perimetro
+
+- viste per `perceptions/` e `prescriptions/`;
+- attivazione di Perform e Perceive;
+- terminale, chat o altri componenti serviti da backend;
+- duplicazione nella home del contenuto già leggibile nei tre deck.
