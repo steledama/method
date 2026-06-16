@@ -196,9 +196,14 @@ Conseguenze decise:
     - il symlink `method/` + il **hub** `cognitive-artifact-design` (unico nome a
       contratto di stabilità) — e **evita i link sparsi a path di nodi**. Va per
       primo perché ripulisce i riferimenti prima del rename sotto, rendendone la
-      propagazione quasi nulla. Casa del principio da decidere (nodo proprio o
-      sezione in `method-development`); gli step di onboarding nel README di
-      `method`, che oggi prescrivono di hardcodare i path, vanno invertiti.
+      propagazione quasi nulla. Casa del principio **decisa**: sezione in
+      `method-development` (il principio) + struttura README canonica in `kb/readme.md`
+      (il veicolo). La sezione README canonica — comune ai 5 repo — dichiara adozione,
+      symlink `method/` e i due poli Goal/World, e diventa la sorgente da cui la home
+      legge i poli, **senza org-guessing dal remote** (`bi` su `tt-sviluppo`, gli altri
+      su `steledama`). Gli step di onboarding nel README di `method`, che oggi
+      prescrivono di hardcodare i path, vanno invertiti. Propagazione in **due round**:
+      1° disaccoppiamento + README canonico, 2° rename `deck→view`.
   - **Strato di presentazione trasversale, deck→view (2°)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
@@ -209,11 +214,11 @@ Conseguenze decise:
     generati versionati.
   - **System image visiva, la home (3°, dip. dal 2°)**: `index.html` in root —
     l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
-    motore. Layout sul diagramma `action-cycle`: header GOAL (`README`), due
-    colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
-    `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti derivati
-    da `README` + `git remote`). Cura della stasi `processing-layers:53` e
-    specchio o2↔i2 reso letterale.
+    motore. Layout sul diagramma `action-cycle`: header GOAL (polo Goal del
+    `README`), due colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
+    `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti dal polo
+    World canonico del `README`, riferimenti espliciti). Cura della stasi
+    `processing-layers:53` e specchio o2↔i2 reso letterale.
   - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
     fonte** — ogni vista si genera da sorgenti, anche il polo World.
   - **Orizzonte deliberatamente fuori**: i task come slide navigabili

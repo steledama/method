@@ -25,6 +25,10 @@ Il task dipende da «Strato di presentazione trasversale (deck→view)» per:
 La home non usa Reveal e non è prodotta dallo stesso motore dei deck. Condivide
 con essi asset, linguaggio visivo, sorgenti e convenzioni di build.
 
+Dipende inoltre dal task «Disaccoppiamento» per la **sezione README canonica**: i
+poli Goal e World che la home legge sono definiti lì, sotto heading fissi, con i
+riferimenti del polo World espliciti.
+
 La prima versione include Goal, Plan, Specify, Compare, Interpret e World.
 Perform e Perceive restano visibili per non falsare il ciclo di Norman, ma sono
 attenuati e senza destinazione. `perceptions/` e `prescriptions/` non alimentano
@@ -57,38 +61,41 @@ collegati a `prescriptions/` o `perceptions/`.
 
 ## Sorgenti e trasformazioni
 
-- `README.md`:
-  - H1 e primo paragrafo sostanziale per Goal;
-  - voci della sezione «Progetti adottanti» per World;
+- `README.md` (sezione canonica, cfr. task «Disaccoppiamento»):
+  - polo **Goal** (heading fisso) per identità e introduzione;
+  - polo **World** (heading fisso) per i progetti adottanti e i loro riferimenti
+    espliciti;
 - `plan.md`:
   - righe della tabella, ordine e dipendenze;
   - sezione opzionale `Scadenze`;
 - configurazione dello strato di presentazione:
-  - path delle tre viste generate;
-- Git:
-  - organizzazione dell'URL remoto quando serve trasformare i link locali agli
-    adottanti in link GitHub.
+  - path delle tre viste generate.
 
 La home non legge il corpo dei task o del verdict: quelle rappresentazioni
 appartengono ai deck dedicati.
 
 ## Comportamento dei link World
 
-Il generatore supporta remote SSH e HTTPS. Quando `origin` identifica GitHub,
-usa la sua organizzazione e il nome dell'adottante letto dal README per
-costruire il link remoto. Se `origin` manca, non è GitHub o il dato non è
-ricavabile con certezza, conserva il link relativo presente nel README invece
-di inventare un URL.
+I link del polo World provengono dai **riferimenti espliciti** dichiarati nella
+sezione World canonica del `README`, non da euristiche sul remote: derivare
+l'organizzazione da `origin` di `method` e appenderci il nome dell'adottante è
+errato, perché gli adottanti non condividono un'unica org (es. `bi` su
+`tt-sviluppo`, gli altri su `steledama`). Il generatore usa il riferimento
+dichiarato così com'è; se un riferimento manca, conserva il link relativo presente
+nel README invece di inventare un URL.
 
 ## Implementazione
 
 1. Creare `assets/system-image.css` sopra i token e i primitivi condivisi,
    mantenendo separate le regole specifiche di Reveal.
-2. Creare `tools/build_system_image.py`, stdlib-only:
-   - parsing strutturale delle sezioni previste di README e plan;
+2. Creare `tools/build_system_image.py`, stdlib-only, che **riusa il modulo di
+   parsing condiviso** introdotto dal task «Strato di presentazione» (tabella di
+   `plan.md`, sezioni canoniche del README), evitando una seconda copia del parser:
+   - lettura dei poli Goal e World dagli heading canonici del README;
    - escaping di ogni contenuto inserito nell'HTML;
-   - rendering del ciclo e della sezione Plan;
-   - risoluzione robusta dei link World;
+   - rendering del ciclo e della sezione Plan come **card responsive** (non tabella
+     larga: leggibilità su schermi stretti);
+   - link World dai riferimenti espliciti del polo World;
    - errore esplicito quando manca una struttura obbligatoria.
 3. Creare `tools/build-system-image.sh` come entrypoint di build e formatting.
 4. Generare e versionare `index.html` in root.

@@ -92,6 +92,10 @@ grafico. La sorgente Interpretations passa direttamente a Pandoc; Tasks richiede
 un generatore stdlib-only che combina frontmatter e `plan.md` in Markdown
 derivato; Verdict usa le sezioni Markdown già presenti.
 
+Il parsing di `plan.md` (tabella, ordine, dipendenze) e delle sezioni canoniche del
+`README` usato dal generatore Tasks va estratto in un **modulo `tools/` condiviso**,
+riusato dalla home del task «System image visiva» invece di essere duplicato.
+
 L'attuale `interpretations/reveal.css` va scomposto:
 
 - token e primitivi realmente condivisibili, senza prefisso `.reveal`;

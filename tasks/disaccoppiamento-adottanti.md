@@ -17,8 +17,16 @@ L'adottante dichiara una volta, nel proprio `README`, di adottare il metodo come
 insieme. Il contratto stabile è composto da:
 
 - symlink `method/`;
-- dichiarazione di adozione nel `README`;
+- una **sezione README canonica** che dichiara l'adozione del metodo (riferimento +
+  brevissima descrizione, il symlink `method/` in root) e i due poli del ciclo del
+  dominio — **Goal** e **World** — sotto heading fissi e machine-readable;
 - hub `cognitive-artifact-design.md`, unico nome di nodo assunto stabile.
+
+La sezione README canonica è comune ai 5 repo (i 4 adottanti e `method`) ed è anche
+la sorgente da cui la home (task «System image visiva») ricava i poli Goal e World:
+i riferimenti del polo World sono **espliciti** per repo, mai derivati per euristica
+dall'organizzazione del remote (che differisce — es. `bi` su `tt-sviluppo`, gli altri
+su `steledama`). La sua struttura è formalizzata in `kb/readme.md`.
 
 Da questa dichiarazione non segue un divieto assoluto di link ai nodi interni.
 I riferimenti diretti restano ammessi quando esprimono una dipendenza
@@ -47,19 +55,29 @@ autonomo. Descrive infatti il confine di evoluzione e propagazione tra canone e
 adottanti: interfaccia stabile, struttura interna volatile, ultimo miglio
 deciso nel repo adottante.
 
+La _struttura_ README canonica che ne è il veicolo concreto vive invece in
+`kb/readme.md`: il principio (method-development) dice _perché_ disaccoppiare, il
+nodo `readme` dice _quale forma uniforme_ prende la dichiarazione.
+
 ## Implementazione
 
 1. Formalizzare in `method-development.md` la distinzione tra dipendenza
    generale, connessione intenzionale e coupling accidentale.
-2. Riscrivere gli step di onboarding nel `README` di `method`: dichiarare il
-   metodo e il hub, senza prescrivere un inventario di path in `CLAUDE.md`.
-3. Cercare nei quattro adottanti i riferimenti a `method/*.md` e classificarli
+2. Formalizzare in `kb/readme.md` la sezione README canonica: dichiarazione di
+   adozione + symlink `method/` + i due poli Goal e World sotto heading fissi e
+   machine-readable.
+3. Restrutturare il `README` di `method` alla sezione canonica (poli Goal e World
+   espliciti) e riscriverne gli step di onboarding: dichiarare il metodo e il hub,
+   senza prescrivere un inventario di path in `CLAUDE.md`.
+4. Cercare nei quattro adottanti i riferimenti a `method/*.md` e classificarli
    secondo la decisione sopra; la metrica non è «zero link», ma «zero link senza
    funzione locale».
-4. Preparare in `prescriptions/` un runbook unico con i criteri e i touchpoint
-   osservati. Ogni adottante lo applica tramite il proprio `method-review`,
-   verificando in loco quali link mantenere, riscrivere o rimuovere.
-5. Dopo l'adozione nei quattro repo, rimuovere la prescrizione esaurita e
+5. Preparare in `prescriptions/` un runbook unico (criteri di classificazione dei
+   link + adozione della sezione README canonica) e applicarlo in ogni adottante
+   tramite il proprio `method-review`, verificando in loco quali link mantenere,
+   riscrivere o rimuovere. È il **round 1** della propagazione del cluster, distinto
+   dal round 2 (rename `deck→view`) del task successivo.
+6. Dopo il round 1 nei quattro repo, rimuovere la prescrizione esaurita e
    aggiornare il verdetto corrente.
 
 La passata sugli adottanti precede il rename `deck`→`view`: riducendo prima i
@@ -69,6 +87,8 @@ intenzionali rimaste.
 ## Criteri di chiusura
 
 - il principio vive in `method-development.md`;
+- la struttura README canonica vive in `kb/readme.md` e i 5 README espongono le
+  sezioni Goal e World sotto heading fissi;
 - l'onboarding non prescrive più link diffusi alla struttura interna;
 - ogni riferimento residuo negli adottanti è classificabile come semantico o
   operativo;
