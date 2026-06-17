@@ -107,6 +107,15 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   le proprietà del sistema socioculturale per quelle della mente individuale) — esattamente il
   punto che Clark cita (Hutchins 1995 cap. 9). Solo provenienza qui, niente cattura in
   `perceptions/`.
+- **Activity, Consciousness, and Personality** — A. N. Leont'ev, traduzione inglese **1978**
+  (orig. russo _Деятельность. Сознание. Личность_, 1975). Fonte di `goal` per la **gerarchia
+  attività / azione / operazione** (azione ↔ goal, attività ↔ motivo, operazione ↔ condizioni).
+  Procurato da **marxists.org** (libero e legale), EPUB **testo nativo pulito** (parse `pandoc`,
+  niente OCR), superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è **§3.5
+  «The General Structure of Activity»**. Citare per **sezione** (la traduzione marxists.org può
+  differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo provenienza qui, niente
+  cattura in `perceptions/`. Sourcing di §3.5 da fare per il nodo `goal` (maturazione, fuori
+  scope dalla chirurgia dei giganti).
 
 ### Scelta delle copie (2026-06-05)
 
@@ -120,10 +129,12 @@ testo (inservibile), e il PDF 2013 (ridondante con l'EPUB).
 
 ## Gap noto
 
-- _Things That Make Us Smart_ (Norman 1993) — **gap chiuso**: il volume integrale è ora
-  reperito (riedizione Diversion Books 2014, cfr. Fonti presenti). Solo il Cap. 3 è distillato
-  in `kb/cognitive-artifact.md`; resta da distillare il resto (Cap. 6 «Distributed Cognition»,
-  esperienziale vs riflessivo Cap. 2/5) — è lavoro i2 di maturazione dei nodi, non più un gap
-  di fonte.
-- **Leontiev** (per `goal`, gerarchia motivo/goal/operazione) — citato nei Riferimenti ma non
-  ancora reperito in `world`. Unico debito di fonte fondativo rimasto aperto.
+Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
+(Hutchins/Clark/Norman) e `goal` (Leontiev) sono tutti reperiti. Restano due lavori di
+**distillazione** (non di fonte), tracciati altrove:
+
+- _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 distillati
+  (i2, cfr. `tasks/fonti-norman-ttmus.md`), l'i3 nella revisione coordinata dei nodi. Cap. 3 già
+  in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
+- _Activity, Consciousness, and Personality_ (Leont'ev 1978) — reperito (marxists.org); resta il
+  **sourcing di §3.5** per il nodo `goal` (maturazione, fuori scope dalla chirurgia dei giganti).

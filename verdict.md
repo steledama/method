@@ -38,8 +38,9 @@ hanno dato al metodo il vocabolario che gli mancava — cosa _è_ l'oggetto che 
 cosa _vuole_ chi lo usa — ma i nodi che lo reggono sono ancora `bozza`, in attesa della
 maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-system`,
 `goal`, `output`, `agent`, e i nodi i2 fondati su Norman (`affordance-signifier`,
-`system-image`, `processing-layers`). Resta un solo debito di fonte fondativo aperto:
-**Leontiev** (per `goal`) è citato nei Riferimenti ma non vive ancora in `world`. Saldati
+`system-image`, `processing-layers`). **Nessun debito di fonte fondativo resta aperto**: anche
+**Leontiev** (per `goal`, _Activity, Consciousness, and Personality_) è ora reperito
+(marxists.org) — resta solo il sourcing di §3.5 per `goal`, fuori scope dalla chirurgia. Saldati
 in questa sessione: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
 (Clark) sono ora sourced — cfr. il filo «I giganti ristrutturati», dove il pavimento
 ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`. **_Things That Make
