@@ -12,13 +12,12 @@ i task e il loro stato di pianificazione.
 | 2   | Ingest fonti mente estesa (Andy Clark)              | —       |
 | 3   | Fonti Norman: Things That Make Us Smart (integrale) | —       |
 | 4   | Fonti Engelbart e chirurgia dei giganti (H-LAM/T)   | 1, 2, 3 |
-| 5   | Fonti pace-layering e maturazione nodo              | —       |
-| 6   | Disaccoppiamento adottante↔metodo: dichiara e taci  | 1, 4    |
-| 7   | Strato di presentazione trasversale (deck→view)     | 6       |
-| 8   | System image visiva: la home dell'atrio             | 1, 7    |
+| 5   | Disaccoppiamento adottante↔metodo: dichiara e taci  | 1, 4    |
+| 6   | Strato di presentazione trasversale (deck→view)     | 5       |
+| 7   | System image visiva: la home dell'atrio             | 1, 6    |
 
-L'ordine privilegia il **fronte teorico/fondativo (1-5)** prima di quello
-**implementativo (6-8)**, riordinato il 2026-06-17. Siamo in una fase di flusso
+L'ordine privilegia il **fronte teorico/fondativo (1-4)** prima di quello
+**implementativo (5-7)**, riordinato il 2026-06-17. Siamo in una fase di flusso
 fondativo: la distinzione dev/runtime e la ristrutturazione dei giganti stanno
 riscrivendo `action-cycle`, `knowledge-base` e `README`, gli stessi nodi da cui
 presentazione e home derivano. Costruire l'implementazione prima che le fondamenta
@@ -36,15 +35,14 @@ esterni, e precede la **chirurgia dei giganti (4)** perché entrambe toccano l'h
 `action-cycle` e va sfregato una volta sola. **Clark (2)** e **Norman/TTMUS (3)** sono
 ingest del pavimento ontologico già distillati (i2 fatto): il loro i3 non è una passata
 a sé ma confluisce nella **revisione coordinata dei nodi fondativi** che è la chirurgia
-(4) — per questo (4) dipende da 1, 2 e 3, e si toccano gli hub una volta sola. **pace-layering (5)**
-è teorico ma quasi indipendente.
+(4) — per questo (4) dipende da 1, 2 e 3, e si toccano gli hub una volta sola.
 
-Sul fronte implementativo: il **disaccoppiamento (6)** ha un nucleo indipendente
+Sul fronte implementativo: il **disaccoppiamento (5)** ha un nucleo indipendente
 (ripulire i link accidentali negli adottanti), ma la sua sezione README canonica —
 poli Goal/World, ora due World e cornice H-LAM/T — è informata dalla teoria, quindi
-segue 1 e 4 per non ridefinire lo schema due volte. La **presentazione (7)** viene
+segue 1 e 4 per non ridefinire lo schema due volte. La **presentazione (6)** viene
 dopo il disaccoppiamento (il rename deck→view propaga a costo quasi nullo); la
-**home (8)** dopo presentazione e gate (il toggle dev/runtime dipende dall'esito di 1).
+**home (7)** dopo presentazione e gate (il toggle dev/runtime dipende dall'esito di 1).
 
 ## Dettagli task
 
@@ -52,7 +50,6 @@ dopo il disaccoppiamento (il rename deck→view propaga a costo quasi nullo); la
 - [Ingest fonti mente estesa (Andy Clark)](tasks/fonti-mente-estesa.md)
 - [Fonti Norman: Things That Make Us Smart (integrale)](tasks/fonti-norman-ttmus.md)
 - [Fonti Engelbart e chirurgia dei giganti (H-LAM/T)](tasks/fonti-engelbart.md)
-- [Fonti pace-layering e maturazione nodo](tasks/fonti-pace-layering.md)
 - [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)

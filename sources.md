@@ -56,6 +56,24 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non
   per pagina (la paginazione della riedizione 2014 differisce dall'originale 1993). Solo
   provenienza qui, niente cattura in `perceptions/`.
+- **How Buildings Learn: What Happens After They're Built** — Stewart Brand, originale **1994**
+  (Viking Penguin), Penguin Books **1995**, EPUB con testo nativo, ISBN 978-1-101-56264-2,
+  superficie di lavoro `HowBuildingsLearn.txt` generata con `pandoc`. Fonte di
+  `pace-layering` per la traduzione operativa di Duffy: Brand riprende i quattro strati di
+  Frank Duffy e li espande nei sei "S" general-purpose (Site, Structure, Skin, Services,
+  Space plan, Stuff), poi collega la gerarchia degli strati al rapporto slow/fast: gli strati
+  lenti vincolano quelli veloci, mentre i cambiamenti veloci possono risalire e farsi assorbire
+  dagli strati lenti quando diventano ricorrenti. **Cap. 2 «Shearing Layers» distillato in
+  `kb/pace-layering.md`**; Brand basta come fonte operativa per l'uso metodologico, mentre Duffy
+  primario resta un approfondimento filologico non bloccante. Citare per **capitolo/sezione**,
+  non per pagina, perché la superficie di lavoro deriva dall'EPUB.
+- **The Clock of the Long Now: Time and Responsibility** — Stewart Brand, **1999**, Basic Books,
+  A Member of the Perseus Books Group, eISBN 978-0-786-72292-1, EPUB con testo nativo, superficie
+  di lavoro `ClockLongNow.txt` generata con `pandoc`. Fonte di `pace-layering` per la
+  generalizzazione civilizzazionale: nel capitolo **«The Order of Civilization»** Brand formula
+  la scala Fashion/art, Commerce, Infrastructure, Governance, Culture, Nature e la dinamica
+  "fast learns, slow remembers / fast proposes, slow disposes". Distillato in
+  `kb/pace-layering.md`; citare per **capitolo/sezione**, non per pagina.
 - **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19, 1998,
   DOI 10.1111/1467-8284.00096. Fonte primaria del task «mente estesa». Testo d'autore
   completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
