@@ -5,7 +5,7 @@ stato: bozza
 
 # Goal
 
-Altitudine intermedia nella gerarchia dell'azione. L'activity theory (Leontiev) articola il comportamento su tre livelli: _attività_ (orientata al motivo — il perché profondo, il bisogno che muove), _azione_ (diretta dal goal — l'obiettivo cosciente e formulato), _operazione_ (condizionata dal contesto — la tecnica adattata alle condizioni correnti). Il goal è il livello medio: più concreto del motivo, più intenzionale dell'operazione. La stessa azione può servire motivi diversi; la stessa operazione può realizzare goal diversi.
+Altitudine intermedia nella gerarchia dell'azione. L'activity theory (Leontiev) articola il comportamento su tre livelli: _attività_ (orientata al motivo — il perché profondo, il bisogno che muove), _azione_ (subordinata a un goal/scopo cosciente — l'obiettivo formulato), _operazione_ (condizionata dal contesto — la tecnica adattata alle condizioni correnti). Il goal è il livello medio: più concreto del motivo, più intenzionale dell'operazione. La stessa azione può servire motivi diversi; la stessa operazione può realizzare goal diversi.
 
 In Norman il goal è l'apice del ciclo di azione: il punto da cui parte l'esecuzione (Goal → Plan → Specify → Perform) e a cui torna la valutazione (Perceive → Interpret → Compare → _nuovo Goal_). Norman lo presuppone come dato — il ciclo descrive come raggiungere un goal, non come formarlo. È il confine aperto del modello: tutto ciò che precede l'intenzione resta fuori.
 
@@ -70,7 +70,7 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 
 ## Riferimenti
 
-- Alexei Leontiev, _Activity, Consciousness, and Personality_ (1978) — gerarchia attività/azione/operazione; fonte primaria non ancora reperita in `world`.
+- A. N. Leont'ev, _Activity, Consciousness, and Personality_ (1978), §3.5 "The General Structure of Activity" — gerarchia attività/azione/operazione: attività ↔ motivo, azione ↔ goal/scopo cosciente, operazione ↔ condizioni.
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition (2013), Cap. 2 — il Goal come apice del ciclo a sette stadi; cfr. `action-cycle`.
 
 Connessioni:

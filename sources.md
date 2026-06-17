@@ -114,8 +114,8 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   niente OCR), superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è **§3.5
   «The General Structure of Activity»**. Citare per **sezione** (la traduzione marxists.org può
   differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo provenienza qui, niente
-  cattura in `perceptions/`. Sourcing di §3.5 da fare per il nodo `goal` (maturazione, fuori
-  scope dalla chirurgia dei giganti).
+  cattura in `perceptions/`. **§3.5 sorzata in `kb/goal.md`**: confermata la distinzione
+  attività/motivo, azione/goal o scopo cosciente, operazione/condizioni.
 
 ### Scelta delle copie (2026-06-05)
 
@@ -136,5 +136,5 @@ Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
 - _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 distillati
   (i2, cfr. `tasks/fonti-norman-ttmus.md`), l'i3 nella revisione coordinata dei nodi. Cap. 3 già
   in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
-- _Activity, Consciousness, and Personality_ (Leont'ev 1978) — reperito (marxists.org); resta il
-  **sourcing di §3.5** per il nodo `goal` (maturazione, fuori scope dalla chirurgia dei giganti).
+- _Activity, Consciousness, and Personality_ (Leont'ev 1978) — §3.5 sorzata in `kb/goal.md`;
+  resta solo l'eventuale distillazione ulteriore se nascerà da uso reale del nodo.

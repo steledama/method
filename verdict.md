@@ -38,10 +38,11 @@ hanno dato al metodo il vocabolario che gli mancava — cosa _è_ l'oggetto che 
 cosa _vuole_ chi lo usa — ma i nodi che lo reggono sono ancora `bozza`, in attesa della
 maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-system`,
 `goal`, `output`, `agent`, e i nodi i2 fondati su Norman (`affordance-signifier`,
-`system-image`, `processing-layers`). **Nessun debito di fonte fondativo resta aperto**: anche
-**Leontiev** (per `goal`, _Activity, Consciousness, and Personality_) è ora reperito
-(marxists.org) — resta solo il sourcing di §3.5 per `goal`, fuori scope dalla chirurgia. Saldati
-in questa sessione: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
+`system-image`, `processing-layers`). **Nessun debito di fonte fondativo resta aperto**:
+**Leontiev** (per `goal`, _Activity, Consciousness, and Personality_) è reperito e §3.5
+«The General Structure of Activity» è sorzata nel nodo: conferma attività/motivo,
+azione/goal o scopo cosciente, operazione/condizioni. Saldati
+in precedenza: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
 (Clark) sono ora sourced — cfr. il filo «I giganti ristrutturati», dove il pavimento
 ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`. **_Things That Make
 Us Smart_** (Norman 1993) è ora integrale e **distillato (i2)** nei capitoli portanti: Cap. 2
