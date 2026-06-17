@@ -49,19 +49,24 @@ Karpathy di sessant'anni.
 
 ## Lavoro residuo: chirurgia dei nodi (i3)
 
-Da fare come passo deliberato, non a caldo (hub ad alto rischio):
+Da fare come passo deliberato, non a caldo (hub ad alto rischio). È la **revisione
+coordinata dei nodi fondativi**: incorpora gli i2 già pronti di Clark
+(`tasks/fonti-mente-estesa.md`) e Norman/TTMUS (`tasks/fonti-norman-ttmus.md`), così
+gli stessi hub si toccano una volta sola. Il **pavimento ontologico è ora interamente
+sourced** (Hutchins + Clark + la DC di Norman); nessun debito di fonte residuo salvo
+Leontiev (per `goal`, fuori scope qui).
 
 - nodo nuovo per la cornice **H-LAM/T / augmentation system**;
 - riscrittura di `action-cycle` («I tre giganti» → la cornice di sistema e ciò che
   contiene);
 - `karpathy-pattern` ricondotto a **istanza contemporanea**, non pilastro;
+- `cognitive-system` = pavimento unico (Hutchins + Clark + DC di Norman); maturazione di
+  `cognitive-artifact` e `processing-layers` dagli i2 TTMUS; visibilità in
+  `affordance-signifier`;
 - allineamento di `README` e `knowledge-base`;
 - riferimento a Engelbart (§IV-E, bootstrap) in `nested-cycles`; e valutare se il
   sistema di schede edge-notched (§III-A-3) merita un richiamo nel nodo `zettelkasten`
-  (Zettelkasten ante litteram) e nella mossa di ingest;
-- saldare o dichiarare il debito di fonte residuo del pavimento ontologico: Hutchins
-  non vive in `world` (citato-non-sourced), di Clark è procurato solo _The Extended
-  Mind_ (Sez. III di Engelbart ora letta — quel debito è chiuso).
+  (Zettelkasten ante litteram) e nella mossa di ingest.
 
 ## Relazione con gli altri fili
 
