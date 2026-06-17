@@ -38,14 +38,14 @@ hanno dato al metodo il vocabolario che gli mancava — cosa _è_ l'oggetto che 
 cosa _vuole_ chi lo usa — ma i nodi che lo reggono sono ancora `bozza`, in attesa della
 maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-system`,
 `goal`, `output`, `agent`, e i nodi i2 fondati su Norman (`affordance-signifier`,
-`system-image`, `processing-layers`). Due debiti di fonte li tengono zoppi
-sul lato fedeltà (i3): _Things That Make Us Smart_ (Norman 1993, fonte di «artefatto
-cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3 (in `world`), il
-volume completo non è reperito; **Leontiev** (per `goal`) è citato nei Riferimenti ma
-non vive ancora in `world`. Saldati invece in questa sessione: **Hutchins** (per
-`cognitive-system`) e il filone **mente estesa** (Clark) sono ora sourced — cfr. il filo
-«I giganti ristrutturati», dove il pavimento ontologico Hutchins+Clark è confermato e
-destinato a `cognitive-system`. La matrice 4D del ciclo, infine, è un falsificatore
+`system-image`, `processing-layers`). Resta un solo debito di fonte fondativo aperto:
+**Leontiev** (per `goal`) è citato nei Riferimenti ma non vive ancora in `world`. Saldati
+in questa sessione: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
+(Clark) sono ora sourced — cfr. il filo «I giganti ristrutturati», dove il pavimento
+ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`; e **_Things That
+Make Us Smart_** (Norman 1993) è ora reperito **integrale** (riedizione 2014), che sblocca
+la maturazione di `cognitive-artifact` oltre il solo Cap. 3 e una lettura del Cap. 6
+«Distributed Cognition» a fianco di Hutchins/Clark. La matrice 4D del ciclo, infine, è un falsificatore
 costruito sulle definizioni del metodo stesso: il suo esito «zero forzati» resta
 **provvisorio finché non lo si testa su un repo nato senza il metodo**.
 

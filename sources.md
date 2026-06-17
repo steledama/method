@@ -45,11 +45,16 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   i1 per la distillazione.
 - **Emotional Design — Why We Love (or Hate) Everyday Things** — 2004, PDF, ISBN
   978-0465051366. Citata in `action-cycle`; copia unica, strato testo verificato.
-- **Things That Make Us Smart** — Cap. 3 «The Power of Representation», 1993, PDF
-  (estratto), ISBN 978-0201626957. Fonte per `cognitive-artifact`. Capitolo disponibile;
-  testo estratto con pdftotext (`representation.txt`) e GLM-OCR
-  (`representation-glm-ocr.txt`, con indicatori di pagina — qualità superiore). L'intero
-  volume non è ancora reperito.
+- **Things That Make Us Smart: Defending Human Attributes in the Age of the Machine** — Don
+  Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). **Volume integrale ora
+  reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
+  EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt` —
+  supera l'estratto del solo Cap. 3 (`representation.*`). Fonte di `cognitive-artifact` (Cap. 3
+  «The Power of Representation», già distillato) e, da distillare, del pavimento ontologico:
+  **Cap. 6 «Distributed Cognition»** (la trattazione di Norman, accanto a Hutchins/Clark) e i
+  capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non
+  per pagina (la paginazione della riedizione 2014 differisce dall'originale 1993). Solo
+  provenienza qui, niente cattura in `perceptions/`.
 - **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19, 1998,
   DOI 10.1111/1467-8284.00096. Fonte primaria del task «mente estesa». Testo d'autore
   completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
@@ -114,8 +119,10 @@ testo (inservibile), e il PDF 2013 (ridondante con l'EPUB).
 
 ## Gap noto
 
-- _Things That Make Us Smart_ (1993, ISBN 978-0201626957) — il **Cap. 3 «The Power of
-  Representation»** è ora disponibile come PDF (`representation.pdf`) e distillato in
-  `kb/cognitive-artifact.md` (bozza). Il volume completo (in particolare i capitoli su
-  cognizione distribuita e sugli artefatti esperienziali vs riflessivi negli altri contesti)
-  non è ancora reperito.
+- _Things That Make Us Smart_ (Norman 1993) — **gap chiuso**: il volume integrale è ora
+  reperito (riedizione Diversion Books 2014, cfr. Fonti presenti). Solo il Cap. 3 è distillato
+  in `kb/cognitive-artifact.md`; resta da distillare il resto (Cap. 6 «Distributed Cognition»,
+  esperienziale vs riflessivo Cap. 2/5) — è lavoro i2 di maturazione dei nodi, non più un gap
+  di fonte.
+- **Leontiev** (per `goal`, gerarchia motivo/goal/operazione) — citato nei Riferimenti ma non
+  ancora reperito in `world`. Unico debito di fonte fondativo rimasto aperto.
