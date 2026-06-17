@@ -96,9 +96,13 @@ mind-as-controller). Esito scomodo e prezioso di Being There: Clark apre attacca
 «filing cabinet» della mente (CYC), e la risoluzione è un **criterio di progetto del KB** — è
 legittimo solo come _scaffold action-oriented_ (pushmi-pullyu, descrittivo e prescrittivo), non
 brain-dump passivo; coincide con la critica di Norman e va portato in `system-image`/
-`cognitive-artifact-design`. Resta un solo debito di pavimento: **Hutchins non vive in `world`**
-(citato-non-sourced), da saldare o dichiarare nella chirurgia. La scrittura dei nodi è la
-passata deliberata, non ora.
+`cognitive-artifact-design`. **Debito di pavimento chiuso**: Hutchins (_Cognition in the Wild_, 1995) è ora sourced — lettura mirata che conferma tesi (cognizione come processo culturale/
+sociale, unità di analisi oltre la pelle, il team come sistema cognitivo-computazionale),
+«cognition in the wild» (vs laboratorio «in captivity»), propagazione dello stato
+rappresentazionale tra media, e la sintesi del cap. 9 (non scambiare le proprietà del sistema
+socioculturale per quelle della mente individuale) — il punto stesso che Clark cita. Il
+pavimento Hutchins+Clark è ora **interamente sourced**: la chirurgia può promuoverlo senza
+debito. La scrittura dei nodi resta la passata deliberata, non ora.
 
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 

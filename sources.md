@@ -80,13 +80,27 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext` (sia `-layout`
   sia raw) è mangiato (spaziatura spezzata, passi mancanti); l'OCR dell'EPUB estratto dai `<p>`
   è prosa pulita ed è la **superficie di lavoro** scelta (`1962-engelbart-AHI-framework.txt`),
-  GLM-OCR non necessario. Cita per **sezione**, non per pagina, vista la qualità OCR. Solo
-  provenienza versionata qui, niente cattura in `perceptions/`. **i1 letto integralmente (Sez.
-  I-IV)**: cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap «Tools Developed vs
-  Tools Used»; la Sez. III (memex di Bush, il sistema di schede edge-notched di Engelbart, il
-  dialogo «Joe», team cooperation) conferma sul testo primario che la cornice contiene già nodi
-  atomici con link tipizzati e provenienza, la mossa di ingest/distillazione i1→i2, un loop di
-  valutazione e la cooperazione collaborativa.
+  GLM-OCR non necessario. Il **PDF è stato rimosso** perché scadente: restano EPUB + txt. Cita
+  per **sezione**, non per pagina, vista la qualità OCR. Solo provenienza versionata qui, niente
+  cattura in `perceptions/`. **i1 letto integralmente (Sez. I-IV)**: cornice H-LAM/T, synergism,
+  ipotesi Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used»; la Sez. III (memex di Bush,
+  il sistema di schede edge-notched di Engelbart, il dialogo «Joe», team cooperation) conferma
+  sul testo primario che la cornice contiene già nodi atomici con link tipizzati e provenienza,
+  la mossa di ingest/distillazione i1→i2, un loop di valutazione e la cooperazione collaborativa.
+- **Cognition in the Wild** — Edwin Hutchins, A Bradford Book / The MIT Press, **1995**. Fonte
+  del **pavimento ontologico** (cognizione distribuita) che `cognitive-system` già cita;
+  procurata per saldare il debito «citato-non-sourced» prima della chirurgia dei giganti. PDF
+  con strato OCR (scansione), superficie `Hutchins.txt`; qualità **media** (artefatti tipo
+  «suong»→strong, «Corn~ute»→compute, parole fuse) — usabile per sourcing per concetto/capitolo,
+  GLM-OCR non necessario, ma ogni citazione verbatim va verificata sulla scansione. Pagina-titolo
+  OCR-garbled: ISBN/printing non verificati dall'OCR (citare 1995, MIT Press). **i1 di sourcing
+  fatto**: la tesi (cognizione come processo culturale/sociale; unità di analisi oltre la pelle;
+  il team di navigazione come sistema cognitivo e computazionale), la definizione di «cognition
+  in the wild» (habitat naturale vs laboratorio «in captivity», un'ecologia del pensiero), la
+  propagazione dello stato rappresentazionale tra media, e la sintesi del cap. 9 (non scambiare
+  le proprietà del sistema socioculturale per quelle della mente individuale) — esattamente il
+  punto che Clark cita (Hutchins 1995 cap. 9). Solo provenienza qui, niente cattura in
+  `perceptions/`.
 
 ### Scelta delle copie (2026-06-05)
 
