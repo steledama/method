@@ -48,6 +48,33 @@ pace-layering). La matrice 4D del ciclo, infine, è un falsificatore costruito s
 definizioni del metodo stesso: il suo esito «zero forzati» resta **provvisorio finché
 non lo si testa su un repo nato senza il metodo**.
 
+## I tre giganti: ridimensionare Karpathy, alzare il pavimento con Engelbart
+
+Filo aperto 2026-06-17. Accostare Karpathy a Luhmann e Norman come terzo «gigante» è
+un'**asimmetria di pedigree**: sulla questione il suo contributo è un post — un'osservazione
+di pattern influente nel presente, non una tradizione di pensiero — mentre gli altri due
+sono tradizioni a pieno titolo. La diagnosi non è «togliere Karpathy»: il suo **slot
+funzionale** è reale e scoperto dagli altri due — il _chi mantiene_ la KB (LLM che fa
+ingest/query/lint e compone), che `action-cycle` gli attribuisce esplicitamente. Il difetto
+è aver ancorato quello slot a una fonte troppo leggera.
+
+La cura candidata: **alzare il pavimento della gamba, non amputarla**. L'idea di un sistema
+esterno coltivato in simbiosi con una mente aumentata, co-evolvente, ha un gigante vero che
+precede Karpathy di sessant'anni — **Engelbart, _Augmenting Human Intellect_ (1962)** (in
+subordine Bush, _As We May Think_, 1945, ma Bush coi suoi «associative trails» è più vicino
+a Luhmann/Zettelkasten). Struttura onesta candidata: tre giganti di statura comparabile —
+Luhmann (unità atomica), **Engelbart** (augmentation/curatela in simbiosi), Norman
+(interfaccia col mondo) — con **Karpathy ricondotto a istanza contemporanea di Engelbart**,
+il praticante che ha nominato il pattern per l'era LLM. Riflesso: il pavimento _ontologico_
+della stessa gamba — perché un artefatto esterno conti come cognizione — è di Hutchins/Clark
+(cfr. filo fonti mente estesa), non di Karpathy; Karpathy era sovraccaricato di un peso
+teorico altrui.
+
+Decisione **non presa**: Engelbart va letto e sourced prima di promuoverlo (stesso presidio
+`cognitive-fidelity` applicato a Clark), e l'ingest è tracciato in `plan.md` (task 7). Quando
+regge, ricade su `action-cycle` («I tre giganti»), `README`, `knowledge-base` e il nodo
+`karpathy-pattern` (da ricondurre a istanza, non pilastro).
+
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 
 Il fronte più fresco (commit `dd5c2e7` + questa sessione): due artefatti del ciclo di

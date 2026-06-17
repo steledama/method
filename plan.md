@@ -14,6 +14,7 @@ i task e il loro stato di pianificazione.
 | 4   | System image visiva: la home dell'atrio            | 2, 3 |
 | 5   | Fonti pace-layering e maturazione nodo             | —    |
 | 6   | Ingest fonti mente estesa (Andy Clark)             | —    |
+| 7   | Fonti Engelbart e ridimensionamento di Karpathy    | —    |
 
 I task 1-4 sono il cluster presentazione, aperto dalla sessione di design
 2026-06-15 (allargamento della system image) e ridefinito il 2026-06-17 con la
@@ -31,3 +32,4 @@ rappresentazione, e può falsificarla o riformarla (cfr. `nested-cycles`).
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)
 - [Fonti pace-layering e maturazione nodo](tasks/fonti-pace-layering.md)
 - [Ingest fonti mente estesa (Andy Clark)](tasks/fonti-mente-estesa.md)
+- [Fonti Engelbart e ridimensionamento di Karpathy fra i giganti](tasks/fonti-engelbart.md)
