@@ -41,12 +41,13 @@ maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-sy
 `system-image`, `processing-layers`). Due debiti di fonte li tengono zoppi
 sul lato fedeltà (i3): _Things That Make Us Smart_ (Norman 1993, fonte di «artefatto
 cognitivo» e cognizione distribuita) è distillato solo nel Cap. 3 (in `world`), il
-volume completo non è reperito; Hutchins (per `cognitive-system`) e Leontiev (per
-`goal`) sono citati nei Riferimenti ma non vivono ancora in `world`. L'ingest delle
-fonti mancanti è tracciato in `plan` (mente estesa,
-pace-layering). La matrice 4D del ciclo, infine, è un falsificatore costruito sulle
-definizioni del metodo stesso: il suo esito «zero forzati» resta **provvisorio finché
-non lo si testa su un repo nato senza il metodo**.
+volume completo non è reperito; **Leontiev** (per `goal`) è citato nei Riferimenti ma
+non vive ancora in `world`. Saldati invece in questa sessione: **Hutchins** (per
+`cognitive-system`) e il filone **mente estesa** (Clark) sono ora sourced — cfr. il filo
+«I giganti ristrutturati», dove il pavimento ontologico Hutchins+Clark è confermato e
+destinato a `cognitive-system`. La matrice 4D del ciclo, infine, è un falsificatore
+costruito sulle definizioni del metodo stesso: il suo esito «zero forzati» resta
+**provvisorio finché non lo si testa su un repo nato senza il metodo**.
 
 ## I giganti ristrutturati: Engelbart come cornice di sistema (H-LAM/T)
 
