@@ -59,6 +59,21 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   fare e destinazione da decidere dopo la lettura (cfr. `tasks/fonti-mente-estesa.md`); il
   nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
   paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
+- **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart, Summary
+  Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024, preparato per il
+  Director of Information Sciences, Air Force Office of Scientific Research; Stanford Research
+  Institute, Menlo Park, **ottobre 1962**. Ripubblicato in forma ridotta come «A Conceptual
+  Framework for the Augmentation of Man's Intellect» in _Vistas in Information Handling_
+  (Howerton & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria del task Engelbart e
+  della ristrutturazione dei giganti (cfr. `verdict.md`, filo «I giganti ristrutturati»).
+  Report governativo/SRI, pubblicato liberamente dal Doug Engelbart Institute; procurato da
+  Internet Archive (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
+  pagina con strato OCR) e PDF (9 MB). Superficie di lavoro estratta dall'OCR
+  (`1962-engelbart-AHI-framework.txt`); cita per **sezione**, non per pagina, vista la qualità
+  OCR. Solo provenienza versionata qui, niente cattura in `perceptions/`. i1 letto: Sez. I, II
+  e IV (cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap/«Tools Developed vs Tools
+  Used»); **Sez. III (dialogo-fiction) non ancora letta** — debito di fedeltà prima della
+  chirurgia dei nodi.
 
 ### Scelta delle copie (2026-06-05)
 
