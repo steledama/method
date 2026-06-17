@@ -48,32 +48,45 @@ pace-layering). La matrice 4D del ciclo, infine, è un falsificatore costruito s
 definizioni del metodo stesso: il suo esito «zero forzati» resta **provvisorio finché
 non lo si testa su un repo nato senza il metodo**.
 
-## I tre giganti: ridimensionare Karpathy, alzare il pavimento con Engelbart
+## I giganti ristrutturati: Engelbart come cornice di sistema (H-LAM/T)
 
-Filo aperto 2026-06-17. Accostare Karpathy a Luhmann e Norman come terzo «gigante» è
-un'**asimmetria di pedigree**: sulla questione il suo contributo è un post — un'osservazione
-di pattern influente nel presente, non una tradizione di pensiero — mentre gli altri due
-sono tradizioni a pieno titolo. La diagnosi non è «togliere Karpathy»: il suo **slot
-funzionale** è reale e scoperto dagli altri due — il _chi mantiene_ la KB (LLM che fa
-ingest/query/lint e compone), che `action-cycle` gli attribuisce esplicitamente. Il difetto
-è aver ancorato quello slot a una fonte troppo leggera.
+Filo aperto 2026-06-17. Origine: accostare Karpathy a Luhmann e Norman come terzo «gigante»
+era un'**asimmetria di pedigree** — sulla questione il suo contributo è un post, non una
+tradizione di pensiero — anche se il suo _slot funzionale_ (il _chi mantiene_ la KB) è reale.
+Il difetto era aver ancorato quello slot a una fonte troppo leggera.
 
-La cura candidata: **alzare il pavimento della gamba, non amputarla**. L'idea di un sistema
-esterno coltivato in simbiosi con una mente aumentata, co-evolvente, ha un gigante vero che
-precede Karpathy di sessant'anni — **Engelbart, _Augmenting Human Intellect_ (1962)** (in
-subordine Bush, _As We May Think_, 1945, ma Bush coi suoi «associative trails» è più vicino
-a Luhmann/Zettelkasten). Struttura onesta candidata: tre giganti di statura comparabile —
-Luhmann (unità atomica), **Engelbart** (augmentation/curatela in simbiosi), Norman
-(interfaccia col mondo) — con **Karpathy ricondotto a istanza contemporanea di Engelbart**,
-il praticante che ha nominato il pattern per l'era LLM. Riflesso: il pavimento _ontologico_
-della stessa gamba — perché un artefatto esterno conti come cognizione — è di Hutchins/Clark
-(cfr. filo fonti mente estesa), non di Karpathy; Karpathy era sovraccaricato di un peso
-teorico altrui.
+**Decisione presa (2026-06-17), dopo aver letto Engelbart 1962** (_Augmenting Human Intellect_,
+Sez. I/II/IV; provenienza in `sources.md`): non «tre giganti pari con Engelbart al posto di
+Karpathy» (opzione a), ma **Engelbart come gigante _di sistema_** (opzione b) — più onesto,
+perché Engelbart è troppo unificante per essere una gamba sola. La sua cornice **H-LAM/T**
+(Human using Language, Artifacts, Methodology, in which he is Trained) _contiene_ gli altri,
+non li affianca. Nuova architettura del pensiero:
 
-Decisione **non presa**: Engelbart va letto e sourced prima di promuoverlo (stesso presidio
-`cognitive-fidelity` applicato a Clark), e l'ingest è tracciato in `plan.md` (task 7). Quando
-regge, ricade su `action-cycle` («I tre giganti»), `README`, `knowledge-base` e il nodo
-`karpathy-pattern` (da ricondurre a istanza, non pilastro).
+- **Engelbart / H-LAM/T = la cornice di sistema**: l'umano + LLM + artefatto è _un sistema di
+  augmentation_, non tre componenti giustapposti. I quattro means mappano sull'anatomia del
+  metodo (Artifacts = repo/KB; Language = nodi e terminologia; Methodology = il metodo;
+  Training = bootstrap/`CLAUDE.md`). L'intelligenza è **synergism** distribuito nel sistema
+  accoppiato, non in un componente. E il **bootstrap** di Engelbart — «Tools Developed vs Tools
+  Used» (§IV-E), il sistema che si solleva «by its own bootstraps» — è l'antenato del 1962 di
+  due strutture del metodo: il **dogfooding** e i **cicli annidati** (`nested-cycles`: l'o3 di
+  sviluppo produce la macchina del runtime è la stessa distinzione, con lo stesso avvertimento
+  sulla confusione terminologica).
+- **Dentro la cornice**: Luhmann dà il means _Language_ / l'unità atomica (symbol-structuring);
+  Norman dà l'interfaccia col Mondo (il ciclo d'azione); la gamba di **manutenzione/
+  rigenerazione** è il _Methodology/Training_ engelbartiano, di cui **Karpathy è l'istanza
+  contemporanea per l'era LLM** (non un pilastro).
+- **Sotto la cornice**: il pavimento _ontologico_ — perché un sistema accoppiato sia
+  genuinamente cognizione — è **Hutchins/Clark** (cognizione distribuita / mente estesa),
+  non Karpathy.
+
+**Deciso vs debito.** È decisa la _cornice_ (questa è l'i3). La **chirurgia dei nodi** resta
+da fare come corpo del task 7 — è un hub ad alto rischio (`action-cycle` «I tre giganti», 33
+backlink), più `README`, `knowledge-base`, `karpathy-pattern` (→ istanza), un nodo nuovo per
+l'H-LAM/T e il riferimento a Engelbart in `nested-cycles`. Da non riscrivere a caldo: la
+fedeltà chiede un passo deliberato. Due **debiti di fonte** gating il pavimento ontologico:
+la Sez. III di Engelbart non è ancora letta; Hutchins non vive in `world` (citato-non-sourced)
+e di Clark è procurato solo _The Extended Mind_ (non _Being There_). Promuovere Hutchins/Clark
+a «pavimento» nei nodi va fatto con questo debito esplicito, non come se fosse saldato.
 
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 

@@ -25,16 +25,37 @@ Karpathy di sessant'anni.
   alternativa — ma Bush, coi suoi «associative trails», è più vicino a
   Luhmann/Zettelkasten che alla gamba della manutenzione, quindi probabilmente
   resta sullo sfondo;
-- distillare i2 con provenienza esatta (edizione, sezione); verificare che
-  Engelbart regga davvero il ruolo di gigante della gamba augmentation/curatela
-  prima di promuoverlo;
-- portare a i3 la **ristrutturazione dei giganti**, _solo se l'ingest regge_:
-  Luhmann (unità atomica), Engelbart (augmentation in simbiosi), Norman
-  (interfaccia col mondo) come tre giganti di statura comparabile, con **Karpathy
-  ricondotto a istanza contemporanea di Engelbart** — il praticante che ha
-  nominato il pattern per l'era LLM. Ricade su `action-cycle` («I tre giganti»),
-  `README`, `knowledge-base` e il nodo `karpathy-pattern` (da riscrivere come
-  istanza, non pilastro).
+- distillare i2 con provenienza esatta (sezione, non pagina, vista la qualità OCR);
+  verificare che Engelbart regga il ruolo di gigante prima di promuoverlo.
+
+## Stato (2026-06-17)
+
+- **i1 fatto**: letti Sez. I, II e IV (cornice H-LAM/T, quattro augmentation means,
+  synergism come fonte dell'intelligenza, intelligence amplification, ipotesi
+  Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used»). **Sez. III
+  (dialogo-fiction) non letta** — debito di fedeltà prima della chirurgia dei nodi.
+- **i2 fatto** (in `verdict.md`, filo «I giganti ristrutturati»): l'ingest regge, e
+  più del previsto — il bootstrap di Engelbart è l'antenato del 1962 del dogfooding
+  e dei cicli annidati.
+- **Decisione presa: opzione (b)**, non (a). Non «tre giganti pari», ma **Engelbart
+  come gigante _di sistema_** (H-LAM/T) che _contiene_ gli altri: dentro la cornice
+  Luhmann (Language/unità atomica) e Norman (interfaccia col Mondo), la gamba di
+  manutenzione come Methodology/Training engelbartiano di cui **Karpathy è l'istanza
+  LLM**; sotto la cornice il pavimento ontologico Hutchins/Clark.
+
+## Lavoro residuo: chirurgia dei nodi (i3)
+
+Da fare come passo deliberato, non a caldo (hub ad alto rischio):
+
+- nodo nuovo per la cornice **H-LAM/T / augmentation system**;
+- riscrittura di `action-cycle` («I tre giganti» → la cornice di sistema e ciò che
+  contiene);
+- `karpathy-pattern` ricondotto a **istanza contemporanea**, non pilastro;
+- allineamento di `README` e `knowledge-base`;
+- riferimento a Engelbart (§IV-E, bootstrap) in `nested-cycles`;
+- saldare o dichiarare i debiti di fonte del pavimento ontologico: leggere la Sez.
+  III; Hutchins non vive in `world` (citato-non-sourced), di Clark è procurato solo
+  _The Extended Mind_.
 
 ## Relazione con gli altri fili
 

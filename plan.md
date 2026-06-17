@@ -24,6 +24,20 @@ costo quasi nullo. Il task 2 è un gate di verifica precedente alla presentazion
 mette alla prova l'ipotesi dei due cicli annidati prima di costruirne la
 rappresentazione, e può falsificarla o riformarla (cfr. `nested-cycles`).
 
+I task 5-7 sono il fronte fonti, tutti dall'alto e senza dipendenze tecniche. Il
+task 7 (Engelbart) ha già **fonte letta e decisione presa** — la cornice di sistema
+H-LAM/T, cfr. `verdict.md` filo «I giganti ristrutturati» — ma due punti restano
+formalizzati come vincolo, non come lavoro immediato:
+
+- **Timing**: il suo residuo, la **chirurgia dei nodi fondativi** (`action-cycle` e
+  il nodo nuovo `augmentation-system`), è una **passata deliberata a sé**, non da
+  fare a caldo — è un hub ad alto rischio (33 backlink).
+- **Debiti di fonte**: la chirurgia è gated dal pavimento ontologico non saldato,
+  condiviso col task 6 — la Sez. III di Engelbart non è letta, Hutchins non vive in
+  `world` (citato-non-sourced), di Clark è procurato solo _The Extended Mind_. Può
+  procedere dichiarando il debito o dopo averne saldato almeno uno (la Sez. III è
+  immediata).
+
 ## Dettagli task
 
 - [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
