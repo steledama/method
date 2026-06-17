@@ -42,10 +42,15 @@ maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-sy
 **Leontiev** (per `goal`) è citato nei Riferimenti ma non vive ancora in `world`. Saldati
 in questa sessione: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
 (Clark) sono ora sourced — cfr. il filo «I giganti ristrutturati», dove il pavimento
-ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`; e **_Things That
-Make Us Smart_** (Norman 1993) è ora reperito **integrale** (riedizione 2014), che sblocca
-la maturazione di `cognitive-artifact` oltre il solo Cap. 3 e una lettura del Cap. 6
-«Distributed Cognition» a fianco di Hutchins/Clark. La matrice 4D del ciclo, infine, è un falsificatore
+ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`. **_Things That Make
+Us Smart_** (Norman 1993) è ora integrale e **distillato (i2)** nei capitoli portanti: Cap. 2
+(esperienziale vs riflessivo — sorza la naturalezza e il «KB come scaffold del modo
+riflessivo»; i due-modi 1993 sono l'origine dei tre-livelli di `processing-layers`) e Cap. 6
+(la cognizione distribuita di **Norman stesso**, che cita Hutchins — pavimento Hutchins+Clark+Norman,
+una famiglia UCSD; più «the world remembers by being there» ↔ membrana `world`, e gli errori
+condivisi come training rigenerativo). Destinazioni i3 — `cognitive-artifact`, `cognitive-system`,
+`processing-layers`, `affordance-signifier` — da scrivere nella passata deliberata, non ora. La
+matrice 4D del ciclo, infine, è un falsificatore
 costruito sulle definizioni del metodo stesso: il suo esito «zero forzati» resta
 **provvisorio finché non lo si testa su un repo nato senza il metodo**.
 
