@@ -59,6 +59,15 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   fare e destinazione da decidere dopo la lettura (cfr. `tasks/fonti-mente-estesa.md`); il
   nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
   paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
+- **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A Bradford
+  Book / The MIT Press, **1997** (second printing 1997), ISBN 0-262-03240-6, LCCN 96-11817.
+  Companion di _The Extended Mind_ per il task «mente estesa»: il paper copre belief/memoria
+  (Otto), questo libro copre embodiment e **scaffolding** — è la fonte del claim «artefatto
+  come corpo/ambiente ingegnerizzato» che da sola _The Extended Mind_ non regge. Procurato in
+  PDF con **strato di testo nativo** (pulito), superficie di lavoro `BeingThere.txt`; niente
+  OCR né cattura in `perceptions/`, solo provenienza qui. Nota di fedeltà: il nome del file
+  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997. i1: capitoli
+  portanti per il pavimento ontologico ancora da leggere (cap. 2-3, 9-10).
 - **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart, Summary
   Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024, preparato per il
   Director of Information Sciences, Air Force Office of Scientific Research; Stanford Research
