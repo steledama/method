@@ -50,6 +50,15 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   testo estratto con pdftotext (`representation.txt`) e GLM-OCR
   (`representation-glm-ocr.txt`, con indicatori di pagina — qualità superiore). L'intero
   volume non è ancora reperito.
+- **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19, 1998,
+  DOI 10.1111/1467-8284.00096. Fonte primaria del task «mente estesa». Testo d'autore
+  completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
+  repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.) — quest'ultimo è l'i1
+  scelto. Copia legale ma sotto copyright Oxford/Wiley e persistente: solo provenienza
+  qui, niente cattura in `perceptions/` (come i libri di Norman). Distillazione i2/i3 da
+  fare e destinazione da decidere dopo la lettura (cfr. `tasks/fonti-mente-estesa.md`); il
+  nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
+  paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
 
 ### Scelta delle copie (2026-06-05)
 
