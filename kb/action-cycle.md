@@ -116,27 +116,15 @@ Il design risponde a queste domande con vincoli, mapping, significanti, modelli 
 
 ## Cicli annidati: due specchi, due Mondi
 
-Il ciclo d'azione del metodo non è uno solo: sono due, annidati, e ciascuno è lo specchio simmetrico appena descritto. Si distinguono per _cosa sia il loro Mondo_ in fondo. Norman descrive un utente che agisce su un artefatto e ne valuta la risposta; ma quando l'artefatto è esso stesso costruito, è il prodotto di un ciclo d'azione precedente.
-
-- **Ciclo runtime**: il suo Mondo è la realtà. o3 prescrive un'email, una
-  transazione, una pubblicazione o un gesto; l'atto accade in `world`; i1 ne
-  cattura il segnale quando serve.
-- **Ciclo di sviluppo**: il suo Mondo è l'artefatto stesso. o3 prescrive la
-  modifica; il commit agisce sull'artefatto; i1 cattura lint, audit, test o
-  errore.
-
-Per questo o1/o2/o3 e i1/i2/i3 si _raddoppiano_: ogni ciclo ha prescrizioni e
-catture attorno al proprio Mondo. L'incastro è che **l'atto del ciclo di
-sviluppo produce la macchina che esegue il ciclo runtime**: il commit produce il
-codice che gira. Per questo risalire da un output runtime al task che l'ha
-generato — `output → codice → commit → tasks → goal` — non è debug ma
-attraversamento dell'annidamento.
-
-È il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto:
-Norman dà il Mondo come scatola nera che risponde all'azione; nel ciclo di
-sviluppo il Mondo-che-risponde è a sua volta un artefatto progettato, con una
-provenienza. Il metodo apre la scatola: ogni sistema è l'esito di un atto di un
-ciclo che lo precede.
+Il ciclo d'azione del metodo non è uno solo: sono due, annidati, ciascuno lo
+specchio simmetrico appena descritto, distinti per _cosa sia il loro Mondo_ in
+fondo — la realtà per il ciclo runtime, l'artefatto stesso per il ciclo di
+sviluppo. L'incastro è che l'atto del ciclo di sviluppo produce la macchina che
+esegue il ciclo runtime: il commit produce il codice che gira. È il senso in cui
+il metodo _estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo
+come scatola nera, il metodo la apre. La trattazione piena — i due Mondi e i due
+poli, la cucitura contro l'affiancamento, la ricaduta sull'atrio, l'estensione
+agli adottanti — vive nel nodo dedicato `nested-cycles`.
 
 ## Le quattro dimensioni di un elemento del metodo
 
@@ -191,6 +179,7 @@ Connessioni:
 - [compare](compare.md)
 - [goal](goal.md)
 - [world](world.md)
+- [nested-cycles](nested-cycles.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)

@@ -130,8 +130,9 @@ conclusa. La regola del canale vive in `project-structure`.
 Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
 **disambiguazione KB riflessivo ↔ system-image**, gli **atomi di stadio** e l'**atrio a
 tre specie** sono fatti; resta la **system image visiva**, che in sessione di
-design 2026-06-15 si è allargata in un **cluster di tre task pianificati** (cfr.
-`plan.md`, task 1-3). La categoria
+design 2026-06-15 si è allargata in un **cluster di task pianificati** (cfr.
+`plan.md`, task 1-4), ridefinito il 2026-06-17 con la distinzione **dev/runtime**
+resa esplicita e un gate di verifica inserito prima della costruzione. La categoria
 «porta-collezione» era **falsamente uniforme**: trattava allo stesso modo la KB (system
 image), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
 specie diverse.
@@ -187,8 +188,8 @@ Conseguenze decise:
   commit locali comunicati: `nixos` `f252e35`, `economia` `ad94568`, `salute` `a58c4b9`.
   Il runbook o3, esaurito, è rimosso dalla collezione attiva; la storia resta in Git.
 - **System image visiva → cluster di presentazione (pianificato, sessione
-  2026-06-15)**: il task singolo si è allargato in tre fili pianificati in
-  `plan.md`, in quest'ordine d'esecuzione.
+  2026-06-15; ridefinito 2026-06-17)**: il task singolo si è allargato in quattro
+  fili pianificati in `plan.md`, in quest'ordine d'esecuzione.
   - **Disaccoppiamento adottante↔metodo «dichiara e taci» (1°)**: il dolore
     ricorrente — a ogni rename di nodo si toccano CLAUDE/README dei 4 adottanti —
     è sintomo di over-coupling. Cura: interfaccia stabile, struttura volatile.
@@ -203,8 +204,26 @@ Conseguenze decise:
       legge i poli, **senza org-guessing dal remote** (`bi` su `tt-sviluppo`, gli altri
       su `steledama`). Gli step di onboarding nel README di `method`, che oggi
       prescrivono di hardcodare i path, vanno invertiti. Propagazione in **due round**:
-      1° disaccoppiamento + README canonico, 2° rename `deck→view`.
-  - **Strato di presentazione trasversale, deck→view (2°)**: il nodo `deck`
+      1° disaccoppiamento + README canonico, 2° rename `deck→view`. Nota dev/runtime:
+      per `method` i poli World sono **due** (sviluppo = `kb/`, runtime = adottanti);
+      lo schema README canonico potrà doverlo riflettere, ed è il gate sotto a deciderlo.
+  - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (2°, gate)**: la
+    distinzione dev/runtime — teorizzata in `action-cycle` (annidamento, 2ª delle
+    quattro dimensioni) e ora **promossa a nodo proprio `nested-cycles`** — non era
+    operativa nei due artefatti da cui la presentazione deriva: la matrice collassa
+    l'annidamento (8 righe, non 16) e la home pianificata si restringe al solo ciclo
+    di sviluppo, attenuando proprio o3/i1 i cui home runtime (`prescriptions/`,
+    `perceptions/`) **esistono già**. Il gate verifica l'ipotesi dei due cicli
+    annidati **prima** di costruirne la rappresentazione: estende la matrice all'asse
+    annidamento e riempie in dogfooding la sola colonna `method` (16 celle,
+    S/D/F/vuoto), lasciando gli adottanti al loro protocollo. Due output: (a) il
+    verdetto-gate; (b) — solo se l'annidamento regge — la mappa-sorgente dei 16
+    elementi, che i due task di presentazione consumano per generare il toggle senza
+    inventare la geometria. Falsificazione: se il runtime di `method` resta troppo
+    vuoto, non si aggiusta la home, si **ridiscute il toggle dev/runtime stesso**. La
+    cucitura dell'annidamento — l'o3-sviluppo produce la macchina del runtime — va
+    marcata, non i due cicli affiancati come stati alla pari.
+  - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
     a istanze multiple (una vista per collezione), con la macchina consolidata in
@@ -212,13 +231,15 @@ Conseguenze decise:
     nuova nell'atrio). `interpretations/` e `tasks/` tornano **sorgenti pure**
     (twin). L'invariante `deck` è intatto: apertura `file://` dal checkout, HTML
     generati versionati.
-  - **System image visiva, la home (3°, dip. dal 2°)**: `index.html` in root —
-    l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
+  - **System image visiva, la home (4°, dip. dal gate e dal 3°)**: `index.html` in
+    root — l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
     motore. Layout sul diagramma `action-cycle`: header GOAL (polo Goal del
     `README`), due colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
     `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti dal polo
-    World canonico del `README`, riferimenti espliciti). Cura della stasi
-    `processing-layers:53` e specchio o2↔i2 reso letterale.
+    World canonico del `README`, riferimenti espliciti). La rappresentazione dei due
+    cicli — il **toggle dev/runtime** che accenderebbe o3/i1 nel ciclo runtime —
+    dipende dall'esito del gate. Cura della stasi `processing-layers:53` e specchio
+    o2↔i2 reso letterale.
   - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
     fonte** — ogni vista si genera da sorgenti, anche il polo World.
   - **Orizzonte deliberatamente fuori**: i task come slide navigabili
@@ -226,8 +247,10 @@ Conseguenze decise:
     **rompe l'invariante `file://`** (richiede backend servito) e sarà classe e
     nodo a sé.
 
-**Fili parcheggiati** (si scioglieranno a catena quando atomi di stadio e due-cicli
-saranno espliciti): la colonna di `plan` per classificare i task su due assi ortogonali —
+**Fili parcheggiati** (gli atomi di stadio sono fatti; i **due-cicli** non sono più del
+tutto parcheggiati — il nodo `nested-cycles` e il gate di verifica li stanno
+esplicitando, e i fili sotto si scioglieranno man mano): la colonna di `plan` per
+classificare i task su due assi ortogonali —
 ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa lista; l'omologia
 esplicita tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni narrative;
 l'eventuale uniformità totale degli indici (tutti in-cartella) col suo costo (rinomina
