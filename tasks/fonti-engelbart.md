@@ -30,13 +30,17 @@ Karpathy di sessant'anni.
 
 ## Stato (2026-06-17)
 
-- **i1 fatto**: letti Sez. I, II e IV (cornice H-LAM/T, quattro augmentation means,
+- **i1 fatto, integrale (Sez. I-IV)**: cornice H-LAM/T, quattro augmentation means,
   synergism come fonte dell'intelligenza, intelligence amplification, ipotesi
-  Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used»). **Sez. III
-  (dialogo-fiction) non letta** — debito di fedeltà prima della chirurgia dei nodi.
+  Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used», e la Sez. III (memex di
+  Bush, il sistema di schede edge-notched di Engelbart, il dialogo «Joe», team
+  cooperation). Debito Sez. III **chiuso**.
 - **i2 fatto** (in `verdict.md`, filo «I giganti ristrutturati»): l'ingest regge, e
-  più del previsto — il bootstrap di Engelbart è l'antenato del 1962 del dogfooding
-  e dei cicli annidati.
+  più del previsto. Il bootstrap di Engelbart è l'antenato del 1962 del dogfooding e
+  dei cicli annidati; e la Sez. III mostra che la cornice contiene già nodi atomici
+  con link tipizzati e provenienza (Zettelkasten ante litteram), la mossa di ingest
+  i1→i2 («orange rind»), un loop di valutazione e la cooperazione collaborativa col
+  tracciamento delle contese (antenato del verdict). Conferma forte di (b).
 - **Decisione presa: opzione (b)**, non (a). Non «tre giganti pari», ma **Engelbart
   come gigante _di sistema_** (H-LAM/T) che _contiene_ gli altri: dentro la cornice
   Luhmann (Language/unità atomica) e Norman (interfaccia col Mondo), la gamba di
@@ -52,10 +56,12 @@ Da fare come passo deliberato, non a caldo (hub ad alto rischio):
   contiene);
 - `karpathy-pattern` ricondotto a **istanza contemporanea**, non pilastro;
 - allineamento di `README` e `knowledge-base`;
-- riferimento a Engelbart (§IV-E, bootstrap) in `nested-cycles`;
-- saldare o dichiarare i debiti di fonte del pavimento ontologico: leggere la Sez.
-  III; Hutchins non vive in `world` (citato-non-sourced), di Clark è procurato solo
-  _The Extended Mind_.
+- riferimento a Engelbart (§IV-E, bootstrap) in `nested-cycles`; e valutare se il
+  sistema di schede edge-notched (§III-A-3) merita un richiamo nel nodo `zettelkasten`
+  (Zettelkasten ante litteram) e nella mossa di ingest;
+- saldare o dichiarare il debito di fonte residuo del pavimento ontologico: Hutchins
+  non vive in `world` (citato-non-sourced), di Clark è procurato solo _The Extended
+  Mind_ (Sez. III di Engelbart ora letta — quel debito è chiuso).
 
 ## Relazione con gli altri fili
 

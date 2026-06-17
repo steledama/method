@@ -83,10 +83,15 @@ non li affianca. Nuova architettura del pensiero:
 da fare come corpo del task 7 — è un hub ad alto rischio (`action-cycle` «I tre giganti», 33
 backlink), più `README`, `knowledge-base`, `karpathy-pattern` (→ istanza), un nodo nuovo per
 l'H-LAM/T e il riferimento a Engelbart in `nested-cycles`. Da non riscrivere a caldo: la
-fedeltà chiede un passo deliberato. Due **debiti di fonte** gating il pavimento ontologico:
-la Sez. III di Engelbart non è ancora letta; Hutchins non vive in `world` (citato-non-sourced)
-e di Clark è procurato solo _The Extended Mind_ (non _Being There_). Promuovere Hutchins/Clark
-a «pavimento» nei nodi va fatto con questo debito esplicito, non come se fosse saldato.
+fedeltà chiede un passo deliberato. **Debito Sez. III chiuso** (letta integralmente): rafforza
+la decisione (b) sul testo primario, non per analogia — la cornice H-LAM/T contiene già, nel
+1962, nodi atomici con link tipizzati e provenienza (il sistema di schede edge-notched di
+Engelbart è un Zettelkasten ante litteram), la mossa di ingest/distillazione i1→i2 («type the
+article in, tear it apart... it sits in the archives like an orange rind»), un loop di
+valutazione (la review periodica man-computer) e la cooperazione collaborativa con tracciamento
+delle contese (l'antenato del verdict). Resta il debito sul **pavimento ontologico**: Hutchins
+non vive in `world` (citato-non-sourced) e di Clark è procurato solo _The Extended Mind_ (non
+_Being There_) — promuoverli a «pavimento» nei nodi va fatto con questo debito esplicito.
 
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 

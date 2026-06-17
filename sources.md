@@ -68,12 +68,16 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   della ristrutturazione dei giganti (cfr. `verdict.md`, filo «I giganti ristrutturati»).
   Report governativo/SRI, pubblicato liberamente dal Doug Engelbart Institute; procurato da
   Internet Archive (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
-  pagina con strato OCR) e PDF (9 MB). Superficie di lavoro estratta dall'OCR
-  (`1962-engelbart-AHI-framework.txt`); cita per **sezione**, non per pagina, vista la qualità
-  OCR. Solo provenienza versionata qui, niente cattura in `perceptions/`. i1 letto: Sez. I, II
-  e IV (cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap/«Tools Developed vs Tools
-  Used»); **Sez. III (dialogo-fiction) non ancora letta** — debito di fedeltà prima della
-  chirurgia dei nodi.
+  pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext` (sia `-layout`
+  sia raw) è mangiato (spaziatura spezzata, passi mancanti); l'OCR dell'EPUB estratto dai `<p>`
+  è prosa pulita ed è la **superficie di lavoro** scelta (`1962-engelbart-AHI-framework.txt`),
+  GLM-OCR non necessario. Cita per **sezione**, non per pagina, vista la qualità OCR. Solo
+  provenienza versionata qui, niente cattura in `perceptions/`. **i1 letto integralmente (Sez.
+  I-IV)**: cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap «Tools Developed vs
+  Tools Used»; la Sez. III (memex di Bush, il sistema di schede edge-notched di Engelbart, il
+  dialogo «Joe», team cooperation) conferma sul testo primario che la cornice contiene già nodi
+  atomici con link tipizzati e provenienza, la mossa di ingest/distillazione i1→i2, un loop di
+  valutazione e la cooperazione collaborativa.
 
 ### Scelta delle copie (2026-06-05)
 
