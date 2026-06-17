@@ -8,42 +8,47 @@ i task e il loro stato di pianificazione.
 
 | #   | Task                                               | Dip. |
 | --- | -------------------------------------------------- | ---- |
-| 1   | Disaccoppiamento adottante↔metodo: dichiara e taci | —    |
-| 2   | Verifica cicli annidati: 16 celle e mappa-sorgente | —    |
-| 3   | Strato di presentazione trasversale (deck→view)    | 2    |
-| 4   | System image visiva: la home dell'atrio            | 2, 3 |
-| 5   | Fonti pace-layering e maturazione nodo             | —    |
-| 6   | Ingest fonti mente estesa (Andy Clark)             | —    |
-| 7   | Fonti Engelbart e ridimensionamento di Karpathy    | —    |
+| 1   | Verifica cicli annidati: 16 celle e mappa-sorgente | —    |
+| 2   | Ingest fonti mente estesa (Andy Clark)             | —    |
+| 3   | Fonti Engelbart e chirurgia dei giganti (H-LAM/T)  | 1, 2 |
+| 4   | Fonti pace-layering e maturazione nodo             | —    |
+| 5   | Disaccoppiamento adottante↔metodo: dichiara e taci | 1, 3 |
+| 6   | Strato di presentazione trasversale (deck→view)    | 5    |
+| 7   | System image visiva: la home dell'atrio            | 1, 6 |
 
-I task 1-4 sono il cluster presentazione, aperto dalla sessione di design
-2026-06-15 (allargamento della system image) e ridefinito il 2026-06-17 con la
-distinzione dev/runtime. Il disaccoppiamento va per primo: riducendo i
-riferimenti diffusi negli adottanti, il rename deck→view del task 3 propaga a
-costo quasi nullo. Il task 2 è un gate di verifica precedente alla presentazione:
-mette alla prova l'ipotesi dei due cicli annidati prima di costruirne la
-rappresentazione, e può falsificarla o riformarla (cfr. `nested-cycles`).
+L'ordine privilegia il **fronte teorico/fondativo (1-4)** prima di quello
+**implementativo (5-7)**, riordinato il 2026-06-17. Siamo in una fase di flusso
+fondativo: la distinzione dev/runtime e la ristrutturazione dei giganti stanno
+riscrivendo `action-cycle`, `knowledge-base` e `README`, gli stessi nodi da cui
+presentazione e home derivano. Costruire l'implementazione prima che le fondamenta
+si posino è lavoro buttato — lo si è già visto, la home era scopata male prima che
+`nested-cycles` fosse esplicito.
 
-I task 5-7 sono il fronte fonti, tutti dall'alto e senza dipendenze tecniche. Il
-task 7 (Engelbart) ha già **fonte letta e decisione presa** — la cornice di sistema
-H-LAM/T, cfr. `verdict.md` filo «I giganti ristrutturati» — ma due punti restano
-formalizzati come vincolo, non come lavoro immediato:
+**Guardrail**, da non perdere: teoria-prima vale _in questa fase_, non come regola
+permanente. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione
+(`method-development`), e l'implementazione resta il _falsificatore_ della teoria
+(`action-cycle-matrix`); la teoria qui è già grounded in disagi reali, e appena le
+fondamenta si posano l'implementazione torna a fare da prova.
 
-- **Timing**: il suo residuo, la **chirurgia dei nodi fondativi** (`action-cycle` e
-  il nodo nuovo `augmentation-system`), è una **passata deliberata a sé**, non da
-  fare a caldo — è un hub ad alto rischio (33 backlink).
-- **Debiti di fonte**: la chirurgia è gated dal pavimento ontologico non saldato,
-  condiviso col task 6 — la Sez. III di Engelbart non è letta, Hutchins non vive in
-  `world` (citato-non-sourced), di Clark è procurato solo _The Extended Mind_. Può
-  procedere dichiarando il debito o dopo averne saldato almeno uno (la Sez. III è
-  immediata).
+Sul fronte teorico: la **verifica cicli (1)** è il gate dev/runtime, senza blocchi
+esterni, e precede la **chirurgia dei giganti (3)** perché entrambe toccano l'hub
+`action-cycle` e va sfregato una volta sola. **Clark (2)** salda il pavimento
+ontologico che la chirurgia usa (_Being There_ in procurement; la Sez. III di
+Engelbart è già letta). **pace-layering (4)** è teorico ma quasi indipendente.
+
+Sul fronte implementativo: il **disaccoppiamento (5)** ha un nucleo indipendente
+(ripulire i link accidentali negli adottanti), ma la sua sezione README canonica —
+poli Goal/World, ora due World e cornice H-LAM/T — è informata dalla teoria, quindi
+segue 1 e 3 per non ridefinire lo schema due volte. La **presentazione (6)** viene
+dopo il disaccoppiamento (il rename deck→view propaga a costo quasi nullo); la
+**home (7)** dopo presentazione e gate (il toggle dev/runtime dipende dall'esito di 1).
 
 ## Dettagli task
 
-- [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Verifica dei cicli annidati: 16 celle e mappa-sorgente](tasks/cicli-annidati-verifica.md)
+- [Ingest fonti mente estesa (Andy Clark)](tasks/fonti-mente-estesa.md)
+- [Fonti Engelbart e chirurgia dei giganti (H-LAM/T)](tasks/fonti-engelbart.md)
+- [Fonti pace-layering e maturazione nodo](tasks/fonti-pace-layering.md)
+- [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)
-- [Fonti pace-layering e maturazione nodo](tasks/fonti-pace-layering.md)
-- [Ingest fonti mente estesa (Andy Clark)](tasks/fonti-mente-estesa.md)
-- [Fonti Engelbart e ridimensionamento di Karpathy fra i giganti](tasks/fonti-engelbart.md)

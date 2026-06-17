@@ -98,7 +98,11 @@ intenzionali rimaste.
 
 ## Relazione con gli altri task
 
-Il task è primo in ordine per costo/opportunità, non perché il task «Strato di
-presentazione» dipenda tecnicamente da esso. È l'ultima passata generale pagata
-per l'over-coupling; i rename successivi devono avere un costo proporzionato
-alle sole dipendenze reali.
+Riordinato il 2026-06-17: il task **non è più primo**. Il suo nucleo — l'ultima
+passata generale di bonifica dell'over-coupling negli adottanti — resta
+indipendente, ma la **sezione README canonica** (poli Goal/World) è informata dal
+fronte teorico: la verifica cicli (i due World di `method`) e la chirurgia dei
+giganti (la cornice H-LAM/T) ne toccano lo schema. Per questo segue quei task, così
+lo schema README si definisce una volta sola. Resta vero che precede la
+presentazione: ripulendo prima l'over-coupling, il rename deck→view propaga a costo
+quasi nullo, proporzionato alle sole dipendenze reali.
