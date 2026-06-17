@@ -48,8 +48,9 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 - **Things That Make Us Smart: Defending Human Attributes in the Age of the Machine** — Don
   Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). **Volume integrale ora
   reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
-  EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt` —
-  supera l'estratto del solo Cap. 3 (`representation.*`). Fonte di `cognitive-artifact` (Cap. 3
+  EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`.
+  Il volume integrale rende obsoleto il vecchio estratto del solo Cap. 3 (`representation.*`, di
+  uno stato precedente di `world/`, non presente in questa cartella). Fonte di `cognitive-artifact` (Cap. 3
   «The Power of Representation», già distillato) e, da distillare, del pavimento ontologico:
   **Cap. 6 «Distributed Cognition»** (la trattazione di Norman, accanto a Hutchins/Clark) e i
   capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non
