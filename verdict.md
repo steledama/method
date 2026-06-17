@@ -89,9 +89,16 @@ la decisione (b) sul testo primario, non per analogia — la cornice H-LAM/T con
 Engelbart è un Zettelkasten ante litteram), la mossa di ingest/distillazione i1→i2 («type the
 article in, tear it apart... it sits in the archives like an orange rind»), un loop di
 valutazione (la review periodica man-computer) e la cooperazione collaborativa con tracciamento
-delle contese (l'antenato del verdict). Resta il debito sul **pavimento ontologico**: Hutchins
-non vive in `world` (citato-non-sourced) e di Clark è procurato solo _The Extended Mind_ (non
-_Being There_) — promuoverli a «pavimento» nei nodi va fatto con questo debito esplicito.
+delle contese (l'antenato del verdict). Sul **pavimento ontologico**: Clark è ora _sourced per
+intero_ (Extended Mind + Being There letti) e la **destinazione è decisa — pavimento unico in
+`cognitive-system`** (Hutchins+Clark insieme: active externalism, parità, scaffolding, 007,
+mind-as-controller). Esito scomodo e prezioso di Being There: Clark apre attaccando il modello
+«filing cabinet» della mente (CYC), e la risoluzione è un **criterio di progetto del KB** — è
+legittimo solo come _scaffold action-oriented_ (pushmi-pullyu, descrittivo e prescrittivo), non
+brain-dump passivo; coincide con la critica di Norman e va portato in `system-image`/
+`cognitive-artifact-design`. Resta un solo debito di pavimento: **Hutchins non vive in `world`**
+(citato-non-sourced), da saldare o dichiarare nella chirurgia. La scrittura dei nodi è la
+passata deliberata, non ora.
 
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 

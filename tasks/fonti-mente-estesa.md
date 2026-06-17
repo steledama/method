@@ -66,3 +66,44 @@ _confabula davanti agli occhi_ (attribuzioni incerte Feynman/Clark/Brooks, «pro
 intendeva…»). È esattamente la citazione di seconda mano da cui [[cognitive-fidelity]] mette in
 guardia. **Non scrivere un nodo da quel materiale.** Prima i1 reale, poi i2, poi i3 — l'arco
 di input completo, come per [[affordance-signifier]] e [[system-image]].
+
+## Stato e i2 (2026-06-17)
+
+Ingest fatto. i1: _The Extended Mind_ (Clark & Chalmers 1998, paper integrale) e _Being
+There_ (Clark 1997, capitoli portanti: Intro, 2.5-2.6, 3.1/3.3-3.5, 9.1-9.3, 10.1-10.2).
+Provenienza in `sources.md`.
+
+Le due fonti danno cose distinte e complementari: _The Extended Mind_ copre belief/memoria
+(Otto, parity principle, i quattro criteri trust-and-glue); _Being There_ copre embodiment e
+**scaffolding** (007 principle, mind-as-controller, designer environments, language-as-
+ultimate-artifact).
+
+**La tensione CYC e la sua risoluzione** (l'esito che conta). _Being There_ apre attaccando
+il modello «filing cabinet» della mente — CYC, una KB esplicita fatta a mano — come «fatally
+flawed» qua modello di mente. Risoluzione: il bersaglio è l'intelligenza-come-deposito-passivo,
+non l'avere un artefatto esterno; la tesi positiva (scaffold, designer environment,
+mind-as-controller) sostiene il KB **se e solo se** è uno scaffold action-oriented
+(rappresentazioni pushmi-pullyu, descrittive _e_ prescrittive), non un brain-dump. Coincide con
+la critica di Norman al metodo pre-strato-output: è un **criterio di progetto del KB**, non solo
+ontologia.
+
+**Convergenze**: il bootstrap di Clark (con la sua citazione di Hutchins 1995 cap. 9) = il
+bootstrap di Engelbart = dogfooding/cicli annidati — un solo pavimento continuo. Le affordance
+di Gibson / le pushmi-pullyu di Millikan = ponte a `affordance-signifier` e all'arco o/i. «The
+thinking is the writing» (Carruthers) = fondamento più profondo di verdict-come-i3 e «una
+decisione non scritta è una decisione persa».
+
+**Ipotesi giganti — risolta**: Clark/Hutchins sono il pavimento ontologico (perché un sistema
+accoppiato è cognizione), non la gamba della manutenzione. Niente gigante-Clark; coerente con la
+cornice di sistema Engelbart (cfr. `verdict.md`, «I giganti ristrutturati»).
+
+**Destinazione decisa (i3, da scrivere nella chirurgia del task Engelbart)**: **pavimento unico
+in `cognitive-system`** — Hutchins + Clark insieme. La tensione CYC→scaffold-action-oriented va
+in `system-image`/`cognitive-artifact-design` come criterio di progetto del KB; connessione +
+Riferimenti in `affordance-signifier`. La scrittura dei nodi **non** va fatta qui: è la passata
+deliberata della chirurgia.
+
+**Fedeltà**: la sezione «torsione (Hinton)» sopra resta **non sorzata** — Hinton compare in _The
+Extended Mind_ solo come coautore PDP 1986; Feynman/Brooks non visti nei capitoli letti. Va
+ri-sourced o stralciata, non scritta in un nodo (cfr. [[cognitive-fidelity]]). _Supersizing the
+Mind_ (2008) non procurato: non necessario per il pavimento.
