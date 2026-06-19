@@ -271,22 +271,34 @@ Conseguenze decise:
       1° disaccoppiamento + README canonico, 2° rename `deck→view`. Nota dev/runtime:
       per `method` i poli World sono **due** (sviluppo = `kb/`, runtime = adottanti);
       lo schema README canonico potrà doverlo riflettere, ed è il gate sotto a deciderlo.
-  - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (2°, gate)**: la
-    distinzione dev/runtime — teorizzata in `action-cycle` (annidamento, 2ª delle
-    quattro dimensioni) e ora **promossa a nodo proprio `nested-cycles`** — non era
-    operativa nei due artefatti da cui la presentazione deriva: la matrice collassa
-    l'annidamento (8 righe, non 16) e la home pianificata si restringe al solo ciclo
-    di sviluppo, attenuando proprio o3/i1 i cui home runtime (`prescriptions/`,
-    `perceptions/`) **esistono già**. Il gate verifica l'ipotesi dei due cicli
-    annidati **prima** di costruirne la rappresentazione: estende la matrice all'asse
-    annidamento e riempie in dogfooding la sola colonna `method` (16 celle,
-    S/D/F/vuoto), lasciando gli adottanti al loro protocollo. Due output: (a) il
-    verdetto-gate; (b) — solo se l'annidamento regge — la mappa-sorgente dei 16
-    elementi, che i due task di presentazione consumano per generare il toggle senza
-    inventare la geometria. Falsificazione: se il runtime di `method` resta troppo
-    vuoto, non si aggiusta la home, si **ridiscute il toggle dev/runtime stesso**. La
-    cucitura dell'annidamento — l'o3-sviluppo produce la macchina del runtime — va
-    marcata, non i due cicli affiancati come stati alla pari.
+  - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate eseguito; apre
+    chirurgia di canone)**: matrice riempita in dogfooding sulla sola colonna
+    `method` (16 celle: 10 S, 4 D, 2 vuoto, 0 F); gli adottanti restano al loro
+    protocollo. **Esito (a), ribaltato in revisione collaborativa**: l'annidamento
+    regge — e più della prima lettura — non come cucitura su mezzo ciclo ma come
+    **due cicli genuini**, entrambi sostanzialmente popolati, zero forzati. La prima
+    stesura («membrana runtime popolata, interno vuoto che collassa nel dev») era un
+    **sotto-conteggio**: nasceva dal contare il deck come dev-only e dal negare l'arco
+    top-down. Corretto su due punti, decisi con l'autore: **(A)** il deck
+    `interpretations/` è **i2/o2-runtime**, non i2-dev — è la vetrina rivolta agli
+    adottanti (oggi in deriva: interpreta i nodi del metodo, non i 4 domini → D);
+    **(B)** l'arco **top-down del runtime** (o1 = come gli artefatti adottanti devono
+    diventare) è il **vero buco**, negato dal principio README «`metodo` non orchestra
+    task sui adottanti» — che il gate trova **da rivedere**: l'esecuzione top-down ha
+    pari dignità della valutazione bottom-up, e la sua assenza è la sovra-esposizione
+    del dal-basso. Asimmetrie reali (non simmetria assunta): dev-i2 vuoto vs runtime-i2
+    in deriva; runtime-o1 il gap. **Esito (b)**: mappa-sorgente dei 16 prodotta.
+    **Ricaduta sul cluster, ribaltata**: una rappresentazione a **due cicli** è ora
+    _giustificata_ (l'errore era darla per scontata _prima_ del gate), con runtime-o1
+    **muted** (il gap dichiarato), il deck come livello behavioral (o2↔i2) del runtime
+    e la cucitura di output al polo Mondo. **Conseguenze di canone (sacrosante, da
+    passata deliberata, accodate a «chirurgia dei giganti» per toccare gli hub una
+    volta sola)**: riassegnare `interpretations/` da i2-dev a i2/o2-runtime (tocca
+    README, `interpretations.md`, `action-cycle` §«il deck come cerniera», `processing-layers`,
+    `project-structure`, `output`); rivedere «non orchestra» nel README ammettendo il
+    movimento top-down; dare a `method-development` l'arco top-down runtime. Da non
+    riscrivere a caldo (`cognitive-fidelity`). La presentazione (sotto) **non incide
+    finché non sono ratificate**.
   - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
@@ -301,9 +313,13 @@ Conseguenze decise:
     `README`), due colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
     `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti dal polo
     World canonico del `README`, riferimenti espliciti). La rappresentazione dei due
-    cicli — il **toggle dev/runtime** che accenderebbe o3/i1 nel ciclo runtime —
-    dipende dall'esito del gate. Cura della stasi `processing-layers:53` e specchio
-    o2↔i2 reso letterale.
+    cicli è **decisa dal gate** (sopra), nella lettura ribaltata: **due cicli
+    genuini**, non un ciclo solo. La home può mostrarli entrambi, con **runtime-o1
+    muted** (il gap top-down dichiarato), il deck come livello behavioral (o2↔i2) del
+    runtime e la cucitura di output al polo Mondo (footer WORLD). Subordinata però alle
+    conseguenze di canone che il gate apre (riassegnazione del deck, revisione di «non
+    orchestra»): la vista non incide finché non sono ratificate. Cura della stasi
+    `processing-layers:53` e specchio o2↔i2 reso letterale.
   - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
     fonte** — ogni vista si genera da sorgenti, anche il polo World.
   - **Orizzonte deliberatamente fuori**: i task come slide navigabili
