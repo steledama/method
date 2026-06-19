@@ -1,9 +1,21 @@
 ---
 data: 2026-06-17
 stato: aperto
+revisione: 2026-06-19
 ---
 
 # Verifica dei cicli annidati: 16 celle e mappa-sorgente
+
+> **Stato (2026-06-19): gate eseguito, esito ribaltato, NON chiuso di proposito.**
+> Matrice riempita e ribaltata in revisione collaborativa (16 celle: 10 S, 4 D, 2
+> vuoto, 0 F — **due cicli genuini**, non una cucitura su mezzo ciclo); verdetto e
+> mappa-sorgente prodotti in `kb/action-cycle-matrix.md`; esito catturato in
+> `verdict.md`; conseguenze di canone (riassegnazione del deck a i2/o2-runtime,
+> revisione di «non orchestra») accodate a `tasks/fonti-engelbart.md` per toccare gli
+> hub una volta sola. **Tenuto aperto perché è l'architrave dell'artefatto**: il
+> ribaltamento verso la simmetria è avvenuto a caldo e va riletto a mente fresca prima
+> di chiudere — proprio dove la matrice avverte che «chi cerca simmetria la trova
+> sempre». Riprendere dalle «Domande aperte» in fondo, non dalle fondamenta.
 
 Aperto in sessione 2026-06-17. La distinzione dev/runtime è teorizzata in
 `action-cycle` (annidamento, la seconda delle quattro dimensioni) e ora ha un
@@ -86,6 +98,30 @@ per gli adottanti, ma la sua verifica per dominio non è oggetto di questo task.
 - **Strato di presentazione** e **System image visiva** dipendono da questo gate:
   se l'annidamento è falsificato, il loro scope a due cicli cambia o decade; se
   regge, consumano la mappa-sorgente (b).
+
+## Domande aperte (per la sessione fresca)
+
+Il crinale da cui ripartire, in ordine di carico:
+
+1. **La complicità del ribaltamento.** Il flip da «mezzo ciclo» a «due cicli pieni»
+   è avvenuto in dialogo, in parte riclassificando il deck e ammettendo il top-down.
+   A mente fredda: il runtime è _genuinamente_ pieno, o ce lo siamo raccontato? Il
+   deck tenuto a D è la guardia che ha funzionato; ma l'intero flip va riletto contro
+   l'avvertimento della matrice.
+2. **Cosa è l'i2-dev?** Se il deck è i2-runtime, il ciclo di sviluppo resta senza
+   interpretazione viva (i2-dev vuoto). È una mancanza strutturale o un vuoto
+   legittimo? Lo sviluppo _dovrebbe_ auto-interpretarsi, e con quale superficie?
+3. **La linea di B.** Dove passa esattamente il confine tra «`metodo` pianifica il
+   proprio output di canone e le convergenze» (top-down legittimo) e «micromanagement
+   della coda interna degli adottanti» (resta fuori)? È il crinale che decide se la
+   revisione di «non orchestra» reintroduce la forzatura che il bottom-up aveva tolto.
+4. **Goal-dev / Goal-runtime provvisori.** Lo split degli obiettivi costitutivi verso
+   il runtime (e Goal-dev a D) dipende dalle «dimensioni del Goal» (task 8): finché
+   quelle non si posano, i due verdetti Goal restano provvisori.
+5. **Generalizzazione agli adottanti.** Abbiamo riempito solo `metodo`. Se il suo
+   runtime è un ciclo pieno con arco top-down, l'asse annidamento vale per tutti e
+   cinque — e la matrice a 8 righe lo collassa per tutti. È una peculiarità del
+   meta-artefatto o vale per ogni adottante?
 
 ## Fuori perimetro
 

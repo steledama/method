@@ -6,15 +6,16 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                                | Dip.    |
-| --- | --------------------------------------------------- | ------- |
-| 1   | Verifica cicli annidati: 16 celle e mappa-sorgente  | —       |
-| 2   | Ingest fonti mente estesa (Andy Clark)              | —       |
-| 3   | Fonti Norman: Things That Make Us Smart (integrale) | —       |
-| 4   | Fonti Engelbart e chirurgia dei giganti (H-LAM/T)   | 1, 2, 3 |
-| 5   | Disaccoppiamento adottante↔metodo: dichiara e taci  | 1, 4    |
-| 6   | Strato di presentazione trasversale (deck→view)     | 5       |
-| 7   | System image visiva: la home dell'atrio             | 1, 6    |
+| #   | Task                                                     | Dip.    |
+| --- | -------------------------------------------------------- | ------- |
+| 1   | Verifica cicli annidati: 16 celle e mappa-sorgente       | —       |
+| 2   | Ingest fonti mente estesa (Andy Clark)                   | —       |
+| 3   | Fonti Norman: Things That Make Us Smart (integrale)      | —       |
+| 4   | Fonti Engelbart e chirurgia dei giganti (H-LAM/T)        | 1, 2, 3 |
+| 5   | Disaccoppiamento adottante↔metodo: dichiara e taci       | 1, 4    |
+| 6   | Strato di presentazione trasversale (deck→view)          | 5       |
+| 7   | System image visiva: la home dell'atrio                  | 1, 6    |
+| 8   | Goal di sviluppo: dimensioni comuni, posizione auspicata | —       |
 
 L'ordine privilegia il **fronte teorico/fondativo (1-4)** prima di quello
 **implementativo (5-7)**, riordinato il 2026-06-17. Siamo in una fase di flusso
@@ -44,6 +45,10 @@ segue 1 e 4 per non ridefinire lo schema due volte. La **presentazione (6)** vie
 dopo il disaccoppiamento (il rename deck→view propaga a costo quasi nullo); la
 **home (7)** dopo presentazione e gate (il toggle dev/runtime dipende dall'esito di 1).
 
+Il **task 8** (Goal di sviluppo) è teorico/fondativo — emerso dal gate (1), tocca
+`goal` e `action-cycle`. La sua posizione in coda è **provvisoria**: appartiene al
+fronte fondativo e va ricollocato alla chiusura del gate, quando l'ordine si riassesta.
+
 ## Dettagli task
 
 - [Verifica dei cicli annidati: 16 celle e mappa-sorgente](tasks/cicli-annidati-verifica.md)
@@ -53,3 +58,4 @@ dopo il disaccoppiamento (il rename deck→view propaga a costo quasi nullo); la
 - [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)
+- [Il polo Goal del ciclo di sviluppo: dimensioni comuni e posizione auspicata](tasks/goal-sviluppo-dimensioni.md)

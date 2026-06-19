@@ -29,7 +29,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
 - [world](kb/world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
 - [nested-cycles](kb/nested-cycles.md) — I due cicli annidati (sviluppo e runtime) e i loro due Mondi; la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
-- [action-cycle-matrix](kb/action-cycle-matrix.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
+- [action-cycle-matrix](kb/action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse annidamento dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
 - [output](kb/output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
 - [input](kb/input.md) — Nota-struttura dell'arco di valutazione: i tre atomi, le due sorgenti di i1 e i due modi di i3, lo specchio con l'output
 - [perceive](kb/perceive.md) — Stadio i1: cattura versionata e valenza-neutra; due tessiture; il confine i1→i2 è la valenza; on-demand
