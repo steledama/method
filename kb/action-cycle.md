@@ -119,12 +119,13 @@ Il design risponde a queste domande con vincoli, mapping, significanti, modelli 
 Il ciclo d'azione del metodo non è uno solo: sono due, annidati, ciascuno lo
 specchio simmetrico appena descritto, distinti per _cosa sia il loro Mondo_ in
 fondo — la realtà per il ciclo runtime, l'artefatto stesso per il ciclo di
-sviluppo. L'incastro è che l'atto del ciclo di sviluppo produce la macchina che
-esegue il ciclo runtime: il commit produce il codice che gira. È il senso in cui
-il metodo _estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo
-come scatola nera, il metodo la apre. La trattazione piena — i due Mondi e i due
-poli, la cucitura contro l'affiancamento, la ricaduta sull'atrio, l'estensione
-agli adottanti — vive nel nodo dedicato `nested-cycles`.
+sviluppo. L'incastro è che il Mondo del ciclo di sviluppo, cioè l'artefatto
+costruito e modificato dall'o3-sviluppo, diventa la macchina che esegue il ciclo
+runtime: l'artefatto versionato è ciò che poi opera nel runtime. È il senso in cui il metodo
+_estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo come scatola
+nera, il metodo la apre. La trattazione piena — i due Mondi e i due poli, la
+cucitura contro l'affiancamento, la ricaduta sull'atrio, l'estensione agli
+adottanti — vive nel nodo dedicato `nested-cycles`.
 
 ## Le quattro dimensioni di un elemento del metodo
 

@@ -40,7 +40,7 @@ solo se scritta (cfr. `action-cycle`).
 - **o2 vs o3** — o2 è una superficie di decisione; o3 è una prescrizione
   versionata dell'atto. L'atto realizzato sta in `world`.
 
-In Norman il Mondo è la scatola nera che risponde all'azione: il ciclo descrive come l'utente agisce sull'artefatto e ne valuta la risposta, ma il Mondo resta dato, non aperto. Il metodo estende Norman proprio su questo punto. L'annidamento dei cicli sdoppia il Mondo: il _Mondo runtime_ è la realtà su cui l'artefatto agisce (un'email inviata, una transazione, un payload pubblicato, un gesto corporeo); il _Mondo di sviluppo_ è l'artefatto stesso, su cui si agisce con un commit e di cui si percepisce la risposta come lint, audit, test, errore. Ogni sistema runtime è l'o3 di un ciclo di sviluppo che lo precede: il metodo apre la scatola nera che Norman lasciava chiusa.
+In Norman il Mondo è la scatola nera che risponde all'azione: il ciclo descrive come l'utente agisce sull'artefatto e ne valuta la risposta, ma il Mondo resta dato, non aperto. Il metodo estende Norman proprio su questo punto. L'annidamento dei cicli sdoppia il Mondo: il _Mondo runtime_ è la realtà su cui l'artefatto agisce (un'email inviata, una transazione, un payload pubblicato, un gesto corporeo); il _Mondo di sviluppo_ è l'artefatto stesso, su cui si agisce con un commit e di cui si percepisce la risposta come lint, audit, test, errore. Ogni sistema runtime è il Mondo di un ciclo di sviluppo che lo precede: non l'o3, ma l'artefatto risultante dall'o3. Il metodo apre così la scatola nera che Norman lasciava chiusa.
 
 Il Mondo è l'elemento più specifico al dominio dell'intero ciclo. La meccanica
 è invariante; ciò che cambia è di che cosa è fatto `world` e quali atti e

@@ -46,9 +46,9 @@ dopo averla costruita è il fallimento che il gate previene.
 Le 16 celle non sono due blocchi da 8 indipendenti. La verifica deve marcare la
 sutura dell'annidamento (cfr. `nested-cycles`): il Mondo del ciclo di sviluppo —
 l'artefatto — è la macchina del ciclo runtime. La matrice e ogni
-rappresentazione derivata devono rendere visibile dove l'o3 di sviluppo deposita
-la macchina che il runtime muove, non affiancare i due cicli come stati alla
-pari.
+rappresentazione derivata devono rendere visibile questa identità tra Mondo-dev
+e macchina-runtime; l'o3-sviluppo modifica quel Mondo, ma non coincide con la
+macchina. I due cicli non vanno affiancati come stati alla pari.
 
 ## Scope: method qui, adottanti col loro protocollo
 
@@ -68,8 +68,9 @@ per gli adottanti, ma la sua verifica per dominio non è oggetto di questo task.
 2. Riempire le 16 celle della colonna `method` con verdetto e giustificazione,
    leggendo le sorgenti reali (`plan.md`, `tasks/`, `verdict.md`,
    `interpretations/`, `perceptions/`, `prescriptions/`, `README`).
-3. Marcare esplicitamente la cella/giunzione dell'annidamento (o3-sviluppo →
-   macchina-runtime), non lasciare i due cicli affiancati.
+3. Marcare esplicitamente la cella/giunzione dell'annidamento (Mondo-dev →
+   macchina-runtime; o3-sviluppo è l'atto che lo modifica), non lasciare i due
+   cicli affiancati.
 4. Pronunciare il verdetto-gate: se l'annidamento regge, produrre la
    mappa-sorgente (b) dei 16 elementi; altrimenti registrare la falsificazione e
    riaprire i due task di presentazione.

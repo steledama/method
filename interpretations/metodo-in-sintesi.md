@@ -115,7 +115,7 @@ Due cicli annidati, distinti da _cosa è il loro Mondo_ in fondo.
   </div>
 </div>
 
-L'o3 di sviluppo è la macchina del runtime — il commit produce il codice che gira. Per questo il metodo apre la scatola nera di Norman: ogni sistema è l'o3 di un ciclo che lo precede.
+Il Mondo di sviluppo è la macchina del runtime: il commit è l'atto o3 che modifica l'artefatto, ma la macchina è l'artefatto risultante, cioè il Mondo-dev che poi opera nel runtime. Per questo il metodo apre la scatola nera di Norman.
 
 ## Le quattro dimensioni
 

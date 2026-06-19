@@ -26,20 +26,20 @@ l'annidamento — è la seconda delle quattro dimensioni ortogonali di
 ## La cucitura, non l'affiancamento
 
 I due cicli non sono paralleli, sono annidati, e confonderli è l'errore da cui
-questo nodo guarda. La giunzione è precisa: **l'atto del ciclo di sviluppo
-produce la macchina che esegue il ciclo runtime**. Il commit produce il codice
-che gira; la modifica all'artefatto produce l'artefatto che poi agisce sul
-mondo. Il Mondo del ciclo di sviluppo — l'artefatto costruito — _è_ la macchina
-del ciclo runtime. I due cicli condividono dunque una sutura reale, non un bordo
-adiacente: il fondo dell'uno è il motore dell'altro.
+questo nodo guarda. La giunzione è precisa: **il Mondo del ciclo di sviluppo è
+la macchina che esegue il ciclo runtime**. Il commit non _è_ la macchina: è
+l'atto o3-sviluppo che modifica l'artefatto; la macchina è l'artefatto
+risultante, cioè il Mondo-dev su cui quel ciclo agisce. I due cicli condividono
+dunque una sutura reale, non un bordo adiacente: il fondo dell'uno è il motore
+dell'altro.
 
 Ne segue una conseguenza per ogni rappresentazione, testuale o visiva: mostrare
 i due cicli come due stati alla pari — due colonne, due schede commutabili —
 appiattisce l'annidamento in parallelismo e perde proprio ciò che il metodo
 aggiunge a Norman. Una rappresentazione fedele deve rendere visibile la
-cucitura: dove l'o3 di sviluppo deposita la macchina che il runtime poi muove.
-Risalire da un output runtime al task che l'ha generato — output, codice,
-commit, task, goal — non è debug ma attraversamento di questa sutura.
+cucitura: il Mondo-dev/artefatto che, una volta costruito, diventa macchina del
+runtime. Risalire da un output runtime al task che l'ha generato — output,
+codice, commit, task, goal — non è debug ma attraversamento di questa sutura.
 
 ## Due Mondi, due poli
 

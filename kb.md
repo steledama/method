@@ -28,7 +28,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [cognitive-system](kb/cognitive-system.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
 - [world](kb/world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
-- [nested-cycles](kb/nested-cycles.md) — I due cicli annidati (sviluppo e runtime) e i loro due Mondi; la cucitura per cui l'o3 di sviluppo produce la macchina del runtime, contro l'appiattimento in parallelismo
+- [nested-cycles](kb/nested-cycles.md) — I due cicli annidati (sviluppo e runtime) e i loro due Mondi; la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
 - [action-cycle-matrix](kb/action-cycle-matrix.md) — Verifica a 40 caselle: i 6 atti + 2 poli applicati ai cinque artefatti, con verdetto solido/debole/forzato contro l'auto-accondiscendenza
 - [output](kb/output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
 - [input](kb/input.md) — Nota-struttura dell'arco di valutazione: i tre atomi, le due sorgenti di i1 e i due modi di i3, lo specchio con l'output

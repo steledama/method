@@ -76,9 +76,9 @@ non li affianca. Nuova architettura del pensiero:
   Training = bootstrap/`CLAUDE.md`). L'intelligenza è **synergism** distribuito nel sistema
   accoppiato, non in un componente. E il **bootstrap** di Engelbart — «Tools Developed vs Tools
   Used» (§IV-E), il sistema che si solleva «by its own bootstraps» — è l'antenato del 1962 di
-  due strutture del metodo: il **dogfooding** e i **cicli annidati** (`nested-cycles`: l'o3 di
-  sviluppo produce la macchina del runtime è la stessa distinzione, con lo stesso avvertimento
-  sulla confusione terminologica).
+  due strutture del metodo: il **dogfooding** e i **cicli annidati** (`nested-cycles`: il Mondo
+  di sviluppo diventa la macchina del runtime, con l'o3-sviluppo come atto che lo modifica;
+  stessa distinzione e stesso avvertimento sulla confusione terminologica).
 - **Dentro la cornice**: Luhmann dà il means _Language_ / l'unità atomica (symbol-structuring);
   Norman dà l'interfaccia col Mondo (il ciclo d'azione); la gamba di **manutenzione/
   rigenerazione** è il _Methodology/Training_ engelbartiano, di cui **Karpathy è l'istanza
@@ -285,8 +285,9 @@ Conseguenze decise:
     elementi, che i due task di presentazione consumano per generare il toggle senza
     inventare la geometria. Falsificazione: se il runtime di `method` resta troppo
     vuoto, non si aggiusta la home, si **ridiscute il toggle dev/runtime stesso**. La
-    cucitura dell'annidamento — l'o3-sviluppo produce la macchina del runtime — va
-    marcata, non i due cicli affiancati come stati alla pari.
+    cucitura dell'annidamento — il Mondo-dev diventa macchina del runtime; l'o3-sviluppo
+    lo modifica ma non coincide con la macchina — va marcata, non i due cicli affiancati
+    come stati alla pari.
   - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
