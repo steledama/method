@@ -10,12 +10,15 @@ revisione: 2026-06-19
 > Matrice riempita e ribaltata in revisione collaborativa (16 celle: 10 S, 4 D, 2
 > vuoto, 0 F — **due cicli genuini**, non una cucitura su mezzo ciclo); verdetto e
 > mappa-sorgente prodotti in `kb/action-cycle-matrix.md`; esito catturato in
-> `verdict.md`; conseguenze di canone (riassegnazione del deck a i2/o2-runtime,
-> revisione di «non orchestra») accodate a `tasks/fonti-engelbart.md` per toccare gli
-> hub una volta sola. **Tenuto aperto perché è l'architrave dell'artefatto**: il
-> ribaltamento verso la simmetria è avvenuto a caldo e va riletto a mente fresca prima
-> di chiudere — proprio dove la matrice avverte che «chi cerca simmetria la trova
-> sempre». Riprendere dalle «Domande aperte» in fondo, non dalle fondamenta.
+> `verdict.md`. **Rilettura a freddo in corso**: la riassegnazione del deck a
+> i2/o2-runtime è sospetta e probabilmente sbagliata. `interpretations/metodo-in-sintesi.md`
+> è oggi interpretazione di sintesi del metodo e della KB — quindi i2-dev — non
+> osservatorio stabile degli adottanti. Il vero o2/i2-runtime va cercato in una
+> superficie fissa di monitoraggio cross-repo, alimentata da audit periodici sugli
+> adottanti. **Tenuto aperto perché è l'architrave dell'artefatto**: il ribaltamento
+> verso la simmetria è avvenuto a caldo e va riletto a mente fresca prima di chiudere
+> — proprio dove la matrice avverte che «chi cerca simmetria la trova sempre».
+> Riprendere dalla «Rilettura a freddo» sotto, non dalle fondamenta.
 
 Aperto in sessione 2026-06-17. La distinzione dev/runtime è teorizzata in
 `action-cycle` (annidamento, la seconda delle quattro dimensioni) e ora ha un
@@ -99,29 +102,49 @@ per gli adottanti, ma la sua verifica per dominio non è oggetto di questo task.
   se l'annidamento è falsificato, il loro scope a due cicli cambia o decade; se
   regge, consumano la mappa-sorgente (b).
 
-## Domande aperte (per la sessione fresca)
+## Rilettura a freddo: nuova impostazione da verificare
 
 Il crinale da cui ripartire, in ordine di carico:
 
-1. **La complicità del ribaltamento.** Il flip da «mezzo ciclo» a «due cicli pieni»
-   è avvenuto in dialogo, in parte riclassificando il deck e ammettendo il top-down.
-   A mente fredda: il runtime è _genuinamente_ pieno, o ce lo siamo raccontato? Il
-   deck tenuto a D è la guardia che ha funzionato; ma l'intero flip va riletto contro
-   l'avvertimento della matrice.
-2. **Cosa è l'i2-dev?** Se il deck è i2-runtime, il ciclo di sviluppo resta senza
-   interpretazione viva (i2-dev vuoto). È una mancanza strutturale o un vuoto
-   legittimo? Lo sviluppo _dovrebbe_ auto-interpretarsi, e con quale superficie?
-3. **La linea di B.** Dove passa esattamente il confine tra «`metodo` pianifica il
-   proprio output di canone e le convergenze» (top-down legittimo) e «micromanagement
-   della coda interna degli adottanti» (resta fuori)? È il crinale che decide se la
-   revisione di «non orchestra» reintroduce la forzatura che il bottom-up aveva tolto.
-4. **Goal-dev / Goal-runtime provvisori.** Lo split degli obiettivi costitutivi verso
+1. **Il deck non salva il runtime.** `interpretations/metodo-in-sintesi.md`, per come
+   esiste oggi, è interpretazione di sintesi del metodo: rilegge la KB, i nodi e
+   l'architettura dell'artefatto. È dunque **i2-dev** (e forse anche o2-dev quando
+   viene usato come vista di decisione sul metodo), non i2/o2-runtime degli
+   adottanti. La riassegnazione al runtime è la cella più sospetta del ribaltamento:
+   sembra aver riempito il ciclo perché serviva alla simmetria.
+2. **Il vero runtime di `method` è l'osservatorio sugli adottanti.** Il Mondo-runtime
+   sono `nixos`, `bi`, `economia`, `salute`; quindi l'o2/i2-runtime non può essere la
+   sintesi interna del metodo, ma una **analisi stabile cross-repo**: matrice per
+   ciascun adottante, confronto dei drift, lacune, convergenze, segnali di attrito e
+   di utilità reale del canone. Non un task occasionale: una superficie fissa da
+   mantenere come monitoraggio del runtime.
+3. **L'arco di esecuzione runtime va progettato come audit periodico, non come
+   micromanagement.** o1-runtime dovrebbe essere il protocollo/macchina di
+   osservazione: quali audit quantitativi e qualitativi eseguire, con quale cadenza,
+   su quali repo e con quali criteri. o2-runtime è la vista comparativa che orienta
+   decisioni sul metodo; o3-runtime resta il runbook/prescrizione di propagazione.
+   Questo non significa pianificare i task interni degli adottanti: significa
+   progettare il modo in cui `method` osserva il proprio Mondo e agisce sul canone.
+4. **L'arco di valutazione runtime va alimentato dai segnali degli adottanti.** i1-runtime
+   sono i segnali grezzi/audit/percezioni dai repo adottanti; i2-runtime è la loro
+   interpretazione comparativa stabile; i3-runtime è la valutazione rispetto ai goal
+   del metodo e dei domini — portabilità, attrito, fedeltà, autonomia, drift,
+   capacità di generare azione. Oggi questi elementi esistono solo sparsi tra
+   `perceptions/`, `verdict.md`, `method-review` e confronti ad hoc.
+5. **Conseguenza sulla matrice.** Il gate continua a reggere come annidamento e come
+   cucitura Mondo-dev→macchina-runtime, ma la pienezza del runtime è stata probabilmente
+   sovrastimata. Le celle o2/i2-runtime vanno declassate o marcate come gap finché non
+   esiste una superficie stabile di osservatorio; o1-runtime resta il gap di protocollo;
+   i3-runtime resta sparso. Il verdetto sano non è «due cicli pieni», ma «due cicli
+   genuini, con interno runtime da costruire».
+6. **Goal-dev / Goal-runtime provvisori.** Lo split degli obiettivi costitutivi verso
    il runtime (e Goal-dev a D) dipende dalle «dimensioni del Goal» (task 8): finché
    quelle non si posano, i due verdetti Goal restano provvisori.
-5. **Generalizzazione agli adottanti.** Abbiamo riempito solo `metodo`. Se il suo
-   runtime è un ciclo pieno con arco top-down, l'asse annidamento vale per tutti e
-   cinque — e la matrice a 8 righe lo collassa per tutti. È una peculiarità del
-   meta-artefatto o vale per ogni adottante?
+7. **Generalizzazione agli adottanti.** La matrice dev/runtime va probabilmente fatta
+   per ciascun repo adottante in modo fisso, non solo per `method`: è il nucleo
+   dell'osservatorio runtime. Resta da decidere se vive in `action-cycle-matrix`, in
+   una nuova interpretazione stabile (`interpretations/osservatorio-adottanti.md`) o
+   in entrambi, con ruoli distinti.
 
 ## Fuori perimetro
 
