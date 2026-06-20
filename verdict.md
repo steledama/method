@@ -385,5 +385,23 @@ vuota) e la **prima volta che l'arco top-down del runtime scocca** per davvero: 
 viva per la call B del gate (l'esecuzione top-down ha pari dignità della valutazione
 bottom-up) e corpo a ciò che il buco runtime-o1 segnalava. Conferma la divisione del
 lavoro o3 — `method` prescrive fino ai propri concetti, l'adottante personalizza
-l'ultimo miglio. La prescrizione resta attiva finché `salute` (e gli altri adottanti
-eventualmente sbilanciati) non l'hanno recepita.
+l'ultimo miglio.
+
+**Ritorno (2026-06-20).** `salute` ha recepito e applicato la prescrizione al proprio
+`method-review` (marker → `53968e8`, aligned). La diagnosi del baricentro è stata
+**confermata contro controlli falsificabili** — arco d'azione vuoto, aneurisma senza
+nodo, follow-up vascolare verificato non programmato via `gog` — non per ragionamento
+accomodante: è la forma forte della conferma (il contrario della cella che non regge,
+come il deck in deriva). Correzioni reali: promosso il nodo `aneurisma-aorta-ascendente`
+(il segnale catturato finalmente interpretato), `plan` riordinato con l'ought sospeso,
+arco d'azione costruito (prep incontri + canovaccio per l'appuntamento del 2/7, dove
+l'impegnativa cardiologica/vascolare risulta da chiedere). Con ciò il **ciclo runtime si
+chiude per intero** lungo il canale canonico — i2→i3→o3→adottante→i1 — non solo scocca:
+prima chiusura completa dell'arco top-down, evidenza forte per il gate (task 1). Il nodo
+`kb-content-typology` ha **retto contro lo stato reale**: validazione **parziale**,
+perché `salute` è plasmato dal metodo — il test esterno vero resta un repo nato senza.
+La prescrizione **resta attiva** finché `nixos`/`bi`/`economia` non si auto-valutano al
+proprio `method-review` (un «non applicabile» è anch'esso recepimento). Raffinatura
+emersa dal basso, foldata nel nodo: il polo macchina è legittimamente assente quando la
+macchina dell'artefatto è il `method` condiviso, gemella simmetrica dell'esenzione-ought
+di `nixos`.

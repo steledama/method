@@ -15,14 +15,14 @@ Le tre regioni:
 
 - **ought (Goal)** — concetti, valori, obiettivi; il riferimento valoriale. È legittimamente assente quando il motivo è codificabile e non richiede articolazione.
 - **is (Mondo runtime)** — la realtà del dominio filtrata dai goal; il modello del mondo su cui l'artefatto agisce.
-- **macchina (Mondo di sviluppo)** — com'è fatto l'artefatto; è il caso più letterale di system image alla Norman, l'artefatto che si documenta da sé per il prossimo agente.
+- **macchina (Mondo di sviluppo)** — com'è fatto l'artefatto; è il caso più letterale di system image alla Norman, l'artefatto che si documenta da sé per il prossimo agente. È legittimamente assente o sottile quando la macchina dell'artefatto è il tooling condiviso (il metodo via symlink, le regole operative) e non codice di dominio proprio: gemella simmetrica dell'esenzione-ought.
 
 Le due tensioni, dove la tripletta si tende e va tenuta esplicita invece di lisciata:
 
 - **la macchina si sdoppia** — descrivere la struttura dell'artefatto (architetture, schemi) non è la stessa cosa che prescrivere l'atto sul Mondo (procedure, pratiche, runbook). Il secondo è contenuto o3, un repertorio d'atto sceso verso la membrana, non descrizione del Mondo di sviluppo. La regione macchina va letta come «il come», con due facce: la struttura e l'atto.
 - **le sorgenti fuori posto** — maestri e fonti promossi a nodo non sono un polo del ciclo: sono fonti di verità che canonicamente vivono nel register e nel Mondo, non come nodi. La loro presenza nel corpo della KB è un'anomalia strutturale, spesso sintomo dello stesso sbilanciamento di una KB che accumula chi-l'ha-detto invece di cosa-è-vero.
 
-Il baricentro non prescrive una distribuzione corretta unica: ciò che è sano dipende dal dominio e dal grado di delegabilità del goal. Prescrive una sola cosa — che entrambi i poli siano presenti dove il ciclo deve chiudersi. Un dominio a goal codificabile può vivere senza nodi-ought; nessun dominio che debba generare azione può vivere senza il polo is contro cui l'ought si misura.
+Il baricentro non prescrive una distribuzione corretta unica: ciò che è sano dipende dal dominio e dal grado di delegabilità del goal. Prescrive una sola cosa — che entrambi i poli siano presenti dove il ciclo deve chiudersi. Un dominio a goal codificabile può vivere senza nodi-ought, e un dominio la cui macchina è il tooling condiviso senza nodi-macchina; ma nessun dominio che debba generare azione può vivere senza il polo is contro cui l'ought si misura.
 
 Esempi per artefatto, come baricentri distinti sullo stesso ciclo:
 

@@ -34,7 +34,11 @@ revisione: 2026-06-19
 > micromanagement delle code; l'azione top-down passa per l'o3-runtime (la
 > prescrizione), non per la mano del metodo nel runtime altrui. Il buco runtime-o1 e
 > la deriva di `interpretations/` (i2-runtime su Mondo-dev invece dei 4 domini)
-> restano confermati.
+> restano confermati. **Chiusura (stesso giorno)**: `salute` ha recepito e applicato
+> la prescrizione (`method-review` aligned, marker `53968e8`) e il segnale è tornato —
+> il ciclo runtime si è **chiuso per intero** (i2→i3→o3→adottante→i1), non solo acceso.
+> Prima dimostrazione che l'arco top-down è percorribile fino in fondo; rafforza il
+> verdetto «due cicli genuini» del gate.
 
 Aperto in sessione 2026-06-17. La distinzione dev/runtime è teorizzata in
 `action-cycle` (annidamento, la seconda delle quattro dimensioni) e ora ha un
