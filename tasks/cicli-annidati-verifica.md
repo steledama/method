@@ -19,6 +19,22 @@ revisione: 2026-06-19
 > verso la simmetria è avvenuto a caldo e va riletto a mente fresca prima di chiudere
 > — proprio dove la matrice avverte che «chi cerca simmetria la trova sempre».
 > Riprendere dalla «Rilettura a freddo» sotto, non dalle fondamenta.
+>
+> **Aggiornamento (2026-06-20).** Due punti della rilettura a freddo hanno ora un
+> riscontro reale (cfr. `verdict.md`, filo «Tipologia-contenuto della KB e prima
+> azione top-down»). **Punto 2 (l'osservatorio è il vero runtime)**: ha la sua
+> **prima superficie** — `interpretations/baricentro-kb-adottanti.md`, lettura
+> cross-repo del baricentro-contenuto dei quattro adottanti (i2-runtime). Conferma
+> che il vero i2-runtime non è la sintesi interna del metodo ma l'analisi stabile
+> sugli adottanti. **Call B (l'arco top-down)**: è **scoccato per la prima volta**,
+> nella forma canonica — una **prescription** (`prescriptions/riequilibrio-baricentro-kb.md`,
+> prima istanza o3-runtime attiva): `method` prescrive le linee guida, il
+> `method-review` dell'adottante compie l'atto sul proprio stato reale. Conferma la
+> distinzione della rilettura: l'o1-runtime resta osservazione periodica, non
+> micromanagement delle code; l'azione top-down passa per l'o3-runtime (la
+> prescrizione), non per la mano del metodo nel runtime altrui. Il buco runtime-o1 e
+> la deriva di `interpretations/` (i2-runtime su Mondo-dev invece dei 4 domini)
+> restano confermati.
 
 Aperto in sessione 2026-06-17. La distinzione dev/runtime è teorizzata in
 `action-cycle` (annidamento, la seconda delle quattro dimensioni) e ora ha un

@@ -4,5 +4,6 @@ Indice della collezione `interpretations/`: lo stadio **i2** (Interpret) del cic
 
 ## Contenuti
 
-- [metodo-in-sintesi.md](metodo-in-sintesi.md) — la sintesi illustrata del metodo: dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione, cicli annidati, quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). Ogni sezione rivela una tensione invisibile da dentro i singoli nodi.
+- [metodo-in-sintesi.md](metodo-in-sintesi.md) — la sintesi illustrata del metodo: dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione, cicli annidati, quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). Ogni sezione rivela una tensione invisibile da dentro i singoli nodi. (interpretazione rivolta al metodo, i2-dev.)
+- [baricentro-kb-adottanti.md](baricentro-kb-adottanti.md) — dove sta il contenuto delle KB dei quattro adottanti: la tipologia G/M/A (Goal/ought, Mondo/is, Macchina) e il baricentro di ciascun repo come diagnosi. Prima istanza dell'osservatorio cross-repo, **i2-runtime** (rilegge gli adottanti, non i nodi del metodo); precede il nodo `kb/` sulla tipologia-contenuto.
 - `index.html` — deck Reveal.js generato dalla sorgente markdown con `tools/build-presentation.sh`, apribile direttamente dal checkout; `reveal.css` è lo stile. Il PDF per stampa/distribuzione esce dall'export del deck e non è versionato (cfr. [deck](../kb/deck.md) per build e condivisione).

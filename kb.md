@@ -10,6 +10,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [cognitive-artifact-design](kb/cognitive-artifact-design.md) — Hub del metodo: design dell'artefatto cognitivo completo per la cognizione condivisa umano-LLM
 - [node](kb/node.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
 - [knowledge-base](kb/knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
+- [kb-content-typology](kb/kb-content-typology.md) — Di cosa parla la KB (≠ a cosa serve): il contenuto denota i poli del ciclo — ought/is/macchina — e il baricentro per repo è una diagnosi
 - [project-structure](kb/project-structure.md) — La root come atrio/system image: tre specie di file-root e collezioni-stadio, gradiente di cardinalità
 - [kb-tools](kb/kb-tools.md) — Strumenti versionati portabili e profili avanzati per audit, backlink, copertura e candidati terminologici
 - [method-observatory](kb/method-observatory.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali

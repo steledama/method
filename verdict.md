@@ -336,3 +336,54 @@ ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa lista; l'omolog
 esplicita tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni narrative;
 l'eventuale uniformità totale degli indici (tutti in-cartella) col suo costo (rinomina
 del nodo `index`, split del catalogo `tools`).
+
+## Tipologia-contenuto della KB e prima azione top-down su un adottante (salute)
+
+Filo aperto 2026-06-20. Origine: la domanda «la KB è la system image dell'artefatto
+_o_ una rappresentazione del mondo?», mal posta nel verbo (system image = **funzione**,
+il canale tra agenti; rappresentazione = **contenuto**, cosa denota: assi ortogonali,
+non alternativa). Guardando il secondo asse sui quattro adottanti — letti i cataloghi
+`kb/` via `world/`, con campione verificato per repo — emerge che **il contenuto della
+KB non è omogeneo: tassella i poli del ciclo**. Tre regioni: **ought** (Goal — concetti,
+valori), **is** (Mondo runtime — la realtà del dominio), **macchina** (Mondo-dev — com'è
+fatto l'artefatto). Due tensioni oneste, tenute esplicite non lisciate: la macchina si
+sdoppia in _struttura_ (Mondo-dev) vs _repertorio d'atto_ (contenuto o3); e le
+sorgenti-come-nodi sono un'anomalia (fonti che dovrebbero vivere nel register/`world`).
+Ogni repo ha un **baricentro**: `economia`=is, `nixos`=macchina/atto, `bi`=span M↔A (il
+più largo, ed è quello che esegue meglio), `salute`=ought. **Il baricentro è una
+diagnosi**: un ciclo calcola uno scarto solo con _entrambi_ i poli (un is contro cui
+misurare un ought); una KB tutta-ought non ha su cosa mordere.
+
+Materializzato in due artefatti, distinti per stadio. **Osservazione (i2-runtime)**:
+`interpretations/baricentro-kb-adottanti.md` (`bozza`) — ed è la **prima istanza
+concreta dell'osservatorio cross-repo** che la rilettura a freddo del gate cicli
+annidati segnava come mancante (cfr. il filo del gate, punto «il vero runtime è
+l'osservatorio sugli adottanti»). **Generalizzazione (nodo)**: `kb/kb-content-typology.md`
+(`bozza`) — riempie un buco reale (il canone trattava il contenuto KB come omogeneo),
+connesso a `knowledge-base`, `system-image`, `nested-cycles`, `goal`, `world`. Resta
+`bozza` per lo stesso caveat della matrice: i quattro repo li abbiamo plasmati col
+metodo, il test esterno è un repo nato senza.
+
+**Dalla diagnosi alla prescrizione, per `salute`.** Il caso peggiore è anche il più
+istruttivo. `salute` ha il baricentro tutto-ought; l'is del corpo e l'arco d'azione
+affamati; l'**aneurisma** dell'aorta ascendente è il caso più netto di segnale
+**catturato (i1) ma mai interpretato (i2)** — vive come riga nella cronologia di
+`storia-clinica`, senza un nodo, mentre la `sindrome-vasovagale` (allerta meno acuta)
+ha un nodo completo. La diagnosi non si è fermata all'osservazione: ha prodotto una
+**prescription** (o3-runtime), `prescriptions/riequilibrio-baricentro-kb.md` — la forma
+canonica con cui `method` agisce sul proprio Mondo runtime. Prescrive le linee guida nel
+proprio lessico (classifica il catalogo per polo; riordina il `plan` mettendo prima is e
+azione; parcheggia, non cancella, l'ought sovrappeso; promuovi a nodo i segnali catturati
+ma non interpretati; controlla le sorgenti-come-nodi), con touchpoint per `salute` come
+indizi da verificare in loco. L'**ultimo miglio** — quali task, quali nodi, quali
+appuntamenti — lo esegue il `method-review` di `salute` contro lo stato reale: `method`
+prescrive, l'adottante compie l'atto, senza che la mano del metodo entri nel runtime
+altrui.
+
+**Perché conta.** È la **prima istanza o3-runtime attiva** in `prescriptions/` (prima
+vuota) e la **prima volta che l'arco top-down del runtime scocca** per davvero: evidenza
+viva per la call B del gate (l'esecuzione top-down ha pari dignità della valutazione
+bottom-up) e corpo a ciò che il buco runtime-o1 segnalava. Conferma la divisione del
+lavoro o3 — `method` prescrive fino ai propri concetti, l'adottante personalizza
+l'ultimo miglio. La prescrizione resta attiva finché `salute` (e gli altri adottanti
+eventualmente sbilanciati) non l'hanno recepita.

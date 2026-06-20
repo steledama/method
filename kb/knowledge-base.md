@@ -65,4 +65,5 @@ Connessioni:
 - [action-cycle](action-cycle.md)
 - [processing-layers](processing-layers.md)
 - [system-image](system-image.md)
+- [kb-content-typology](kb-content-typology.md)
 - [agent](agent.md)

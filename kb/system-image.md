@@ -48,6 +48,7 @@ Connessioni:
 - [action-cycle](action-cycle.md)
 - [processing-layers](processing-layers.md)
 - [knowledge-base](knowledge-base.md)
+- [kb-content-typology](kb-content-typology.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [agent](agent.md)
