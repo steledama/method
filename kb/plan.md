@@ -41,10 +41,18 @@ task non bloccati; `Dip.` spiega perché un task importante non può ancora
 salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
 dipendenze codificano la priorità**.
 
-`Dip.` usa `#n` per le dipendenze interne e marcatori `[a]`, `[b]`, ... per
-condizioni esterne. I marcatori vengono spiegati subito sotto la tabella in una
-breve sezione `Legenda dipendenze esterne`; il testo libero non gonfia le celle.
-Le dipendenze devono essere reali, non preferenze d'ordine. Nei commit e nella
+`Dip.` risponde a _cosa impedisce di agire_ (l'asse del blocco), non a _quando
+agire_. Usa `#n` per le dipendenze interne e marcatori per le condizioni esterne.
+Il marcatore `world` è la specie più comune e ha nome proprio: il task è bloccato
+su un evento del mondo — una risposta, una email, un atto altrui — quindi il
+prossimo passo non è nostro. È una **pausa tattica**, da sorvegliare, non un
+abbandono: se il silenzio supera il tattico, si sollecita e il task torna `—`.
+Altre condizioni esterne usano marcatori `[a]`, `[b]`, ..., spiegati subito sotto
+la tabella in una breve `Legenda dipendenze esterne`; il testo libero non gonfia
+le celle. Il **timing** di un task azionabile — incluso un differimento tattico
+deciso da noi — non vive in `Dip.` ma in `## Scadenze`: un task la cui mossa è
+nostra resta `—` anche se per scelta tattica lo giochiamo più tardi. Le
+dipendenze devono essere reali, non preferenze d'ordine. Nei commit e nella
 documentazione i task si citano per titolo, non per numero: il `#` è un
 puntatore conversazionale, non un'identità.
 
@@ -61,9 +69,13 @@ ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
 
 `plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
 solo quando una data esterna interagisce con la priorità dei task. La scadenza è
-input esogeno: avvicinandosi può far salire il lavoro collegato. Un calendario
-di adempimenti che non modifica la coda resta invece nel file di dominio
-dedicato, per esempio `scadenze.md`.
+input esogeno: avvicinandosi può far salire il lavoro collegato. Una scadenza non
+è solo un _termine ultimo_ ("non oltre X"): può essere una **finestra tattica**
+("non prima di X — agire prima è uno svantaggio — ed entro Y"), quando il timing
+dell'azione è esso stesso una mossa; in tal caso la riga esplicita finestra e
+razionale, e un task `—` non va raccomandato finché la finestra non si apre. Un
+calendario di adempimenti che non modifica la coda resta invece nel file di
+dominio dedicato, per esempio `scadenze.md`.
 
 Le righe di ingest semplici possono non avere un file in `tasks/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
