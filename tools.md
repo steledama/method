@@ -15,9 +15,10 @@ Approfondimento nel nodo [kb-tools](kb/kb-tools.md); esposizione operativa in `C
   - `migration` — frontmatter e footer Connessioni
   - `terms` — candidati a nuovi nodi da termini ricorrenti
   - `inventory` / `coverage` — inventario e copertura del codice (progetti code-based)
-- `build-presentation.sh` — genera il deck Reveal standalone
-  `interpretations/index.html` dalla sorgente `interpretations/metodo-in-sintesi.md`
-  tramite Pandoc
+- `build-presentation.sh` — genera le viste Reveal standalone in `views/`:
+  `interpretations.html` da `interpretations/metodo-in-sintesi.md`, `tasks.html`
+  da `plan.md` + `tasks/`, `verdict.html` da `verdict.md`
+  tramite Pandoc e i generatori stdlib-only in `tools/`
 
 ## skill
 

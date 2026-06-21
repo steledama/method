@@ -1,0 +1,994 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="author" content="metodo" />
+    <title>Verdict</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+    />
+    <style>
+      .reveal .sourceCode {
+        /* see #7635 */
+        overflow: visible;
+      }
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      div.columns {
+        display: flex;
+        gap: min(4vw, 1.5em);
+      }
+      div.column {
+        flex: auto;
+        overflow-x: auto;
+      }
+      div.hanging-indent {
+        margin-left: 1.5em;
+        text-indent: -1.5em;
+      }
+      /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+      ul.task-list[class] {
+        list-style: none;
+      }
+      ul.task-list li input[type="checkbox"] {
+        font-size: inherit;
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1.6em;
+        vertical-align: middle;
+      }
+      .display.math {
+        display: block;
+        text-align: center;
+        margin: 0.5rem auto;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
+      id="theme"
+    />
+    <link rel="stylesheet" href="../assets/system-image.css" />
+    <link rel="stylesheet" href="../assets/reveal.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section id="title-slide">
+          <h1 class="title">Verdict</h1>
+          <p class="author">metodo</p>
+        </section>
+
+        <section class="slide level2">
+          <p>
+            Il verdetto attuale del progetto, per filo/area aperta — non un log.
+            Il git log dice <em>cosa</em> è cambiato; questo file dice
+            <em>come stanno le cose ora</em> su ciascun filo concettuale aperto,
+            e <em>perché conta</em>. Specchio di <code>plan.md</code> sul lato
+            valutazione: <code>plan.md</code> fotografa i task aperti (o1),
+            <code>verdict.md</code> i verdetti aperti (i3). Forma e disciplina
+            canoniche in <a href="kb/verdict.md"><code>kb/verdict.md</code></a
+            >.
+          </p>
+          <p>
+            Ogni gruppo <code>##</code> è un filo aperto; il corpo è lo
+            <strong>stato attuale</strong>, aggiornato in place, non una
+            sequenza di entry datate (la cronologia di un filo è il git history
+            di questo file stesso). Quando un filo si chiude — verdetto stabile,
+            nessuna tensione aperta — il gruppo si rimuove: la storia resta in
+            git. Il commit citato inline è il puntatore alla storia
+            verificabile.
+          </p>
+        </section>
+        <section
+          id="de-cablaggio-del-binomio-due-agenti-la-seconda-metà-resta-bottom-up"
+          class="slide level2"
+        >
+          <h2>
+            De-cablaggio del binomio «due agenti»: la seconda metà resta
+            bottom-up
+          </h2>
+          <p>
+            Il metodo è nato descrivendo due agenti — l’umano e un singolo LLM —
+            e su quel binomio aveva cablato la sua asimmetria in più nodi come
+            se fosse <em>la</em> struttura. Il nodo <code>agent</code> lo ha
+            riconosciuto per ciò che è: il <strong>caso saliente</strong> di una
+            popolazione di agenti più ampia (Norman: «person, animal, or
+            machine»; la categoria macchina è un gradiente, non un punto — un
+            LLM di frontiera che pianifica e un agente locale che esegue non
+            sono lo stesso lettore sulla stessa KB). La prima metà è fatta, e
+            <strong>additiva</strong>: ammorbiditi <code>system-image</code>,
+            <code>cognitive-system</code>, <code>knowledge-base</code> togliendo
+            al binomio lo statuto di struttura unica, senza cancellare il caso
+            umano/LLM — resta vero <em>come caso</em>, ed è l’unico in uso a
+            valle (i nodi viaggiano per symlink). La seconda metà — maturazione
+            di <code>agent</code>, biforcazione di o1 per capacità dell’agente,
+            asse fiducia/privacy, divisione per stadio del ciclo — resta
+            <strong>deliberatamente non scritta</strong>: attende che un secondo
+            livello di agente entri nell’uso reale. Scriverla ora sarebbe
+            inventare struttura prima dell’evidenza, l’opposto di come il metodo
+            si sviluppa.
+          </p>
+        </section>
+        <section
+          id="maturazione-dei-nodi-fondativi-e-debiti-di-fonte"
+          class="slide level2"
+        >
+          <h2>Maturazione dei nodi fondativi e debiti di fonte</h2>
+          <p>
+            La rifondazione ontologica (artefatto/sistema/metodo) e l’arco di
+            input (i1/i2/i3) hanno dato al metodo il vocabolario che gli mancava
+            — cosa <em>è</em> l’oggetto che coltiva, cosa <em>vuole</em> chi lo
+            usa — ma i nodi che lo reggono sono ancora <code>bozza</code>, in
+            attesa della maturazione <code>bozza→maturo</code> dall’uso reale:
+            <code>cognitive-artifact</code>, <code>cognitive-system</code>,
+            <code>goal</code>, <code>output</code>, <code>agent</code>, e i nodi
+            i2 fondati su Norman (<code>affordance-signifier</code>,
+            <code>system-image</code>, <code>processing-layers</code>).
+            <strong>Nessun debito di fonte fondativo resta aperto</strong>:
+            <strong>Leontiev</strong> (per <code>goal</code>,
+            <em>Activity, Consciousness, and Personality</em>) è reperito e §3.5
+            «The General Structure of Activity» è sorzata nel nodo: conferma
+            attività/motivo, azione/goal o scopo cosciente,
+            operazione/condizioni. Saldati in precedenza:
+            <strong>Hutchins</strong> (per <code>cognitive-system</code>) e il
+            filone <strong>mente estesa</strong> (Clark) sono ora sourced e
+            <strong>promossi nel pavimento ontologico</strong> di
+            <code>cognitive-system</code> (active externalism, parity,
+            scaffolding, 007, mente-come-controllore, più il criterio scaffold
+            action-oriented contro il modello «filing cabinet»).
+            <strong><em>Things That Make Us Smart</em></strong> (Norman 1993) è
+            ora integrale e <strong>distillato (i2)</strong> nei capitoli
+            portanti: Cap. 2 (esperienziale vs riflessivo — sorza la naturalezza
+            e il «KB come scaffold del modo riflessivo»; i due-modi 1993 sono
+            l’origine dei tre-livelli di <code>processing-layers</code>) e Cap.
+            6 (la cognizione distribuita di <strong>Norman stesso</strong>, che
+            cita Hutchins — pavimento Hutchins+Clark+Norman, una famiglia UCSD;
+            più «the world remembers by being there» ↔︎ membrana
+            <code>world</code>, e gli errori condivisi come training
+            rigenerativo). Destinazioni i3 — <code>cognitive-artifact</code>,
+            <code>cognitive-system</code>, <code>processing-layers</code>,
+            <code>affordance-signifier</code> —
+            <strong>scritte nella chirurgia del 2026-06-21</strong>, insieme al
+            nodo nuovo <code>augmentation-system</code> (la cornice H-LAM/T che
+            le contiene); resta aperta solo la maturazione
+            <code>bozza→maturo</code> di questi nodi, che attende l’uso reale.
+            La matrice 4D del ciclo, infine, è un falsificatore costruito sulle
+            definizioni del metodo stesso: il suo esito «zero forzati» resta
+            <strong
+              >provvisorio finché non lo si testa su un repo nato senza il
+              metodo</strong
+            >.
+          </p>
+        </section>
+        <section
+          id="il-lato-input-appena-rifondato-verdict-come-i3-interpretations-come-i2-macro"
+          class="slide level2"
+        >
+          <h2>
+            Il lato-input appena rifondato: verdict come i3, interpretations
+            come i2-macro
+          </h2>
+          <p>
+            Il fronte più fresco (commit <code>dd5c2e7</code> + questa
+            sessione): due artefatti del ciclo di sviluppo hanno appena preso
+            forma sul lato valutazione.
+            <strong
+              ><code>verdict.md</code> è il residuo scritto dell’i3</strong
+            >
+            (Compare) — da log datato append-only a stato corrente per filo
+            aggiornato in place; disciplina ora canonica in
+            <code>kb/verdict.md</code>, e questa migrazione ne è la prima
+            istanza reale (ciò che ha portato il nodo a <code>maturo</code>).
+            <strong><code>interpretations/</code> è i2-macro</strong>: la
+            sintesi periodica che rilegge l’intero artefatto e rivela tensioni
+            non-locali tra nodi. Il pilot su <code>economia</code> ha corretto
+            la distinzione troppo rigida tra i repo: la stessa superficie è o2
+            quando viene prodotta come vista di decisione e substrato i2 quando
+            viene letta; selezione e rappresentazione dei dati sono già
+            interpretazione orientata dai goal. La porta canonica è quindi
+            <code>interpretations/</code> ovunque, con il carattere nel
+            contenuto. La propagazione ora ha un protocollo:
+            <code>method-review</code> usa un marker SHA versionato e lascia il
+            lavoro pertinente nel repo adottante. <code>economia</code> è il
+            primo pilot committato; <code>nixos</code> è il secondo, committato
+            in <code>5d076ae</code>, e conferma il carve-out per output di altra
+            natura ontologica (configurazione Nix runtime, nessuna porta
+            <code>interpretations/</code> vuota). La propagazione è conclusa nei
+            quattro adottanti: <code>economia</code> in <code>4c633b8</code>,
+            <code>nixos</code> in <code>5d076ae</code>, <code>bi</code> in
+            <code>48f9e2cc</code>, <code>salute</code> in <code>bc1eaef</code>.
+            Il caso BI conferma che l’uniformità del protocollo non deve
+            interferire con opzioni applicative omonime:
+            <code>--append-note</code> resta dominio,
+            <code>--append-why</code> era infrastruttura di audit. Il caso
+            salute conferma che privacy, diario, scadenze, fonti e skill di
+            ingest sono adattamenti di contenuto e workflow, non eccezioni alla
+            struttura comune. <em>Ri-derivazione del deck</em>: chiusa. Il deck
+            è stato ri-derivato — esprime il framing i2-micro/macro e ha
+            ricevuto un restage viscerale che applica
+            <code>processing-layers</code> a sé stesso. La slide che diagnostica
+            «un o2 solo riflessivo non muove» era resa in registro puramente
+            riflessivo: il deck commetteva il peccato che descrive. Ora
+            contrasto, gerarchia e tre slide-eroe (con l’accento caldo che lega
+            il viscerale alla membrana <code>world</code>) portano la sintesi
+            fino al viscerale; il colpo «Attractive things work better» segue la
+            slide della stasi, così il deck <em>performa</em> la lezione invece
+            di solo enunciarla. La disciplina del nodo
+            <code>deck</code> (HTML/CSS nativi, build unica
+            <code>pandoc</code>+<code>prettier</code>) è rimasta intatta.
+          </p>
+        </section>
+        <section
+          id="latrio-rifondato-i1-è-perceptions-le-fonti-sono-world-i-file-di-dominio-per-funzione"
+          class="slide level2"
+        >
+          <h2>
+            L’atrio rifondato: i1 è <code>perceptions/</code>, le fonti sono
+            <code>world</code>, i file di dominio per funzione
+          </h2>
+          <p>
+            Emerso dal-basso dall’adozione in <code>economia</code> (migrazione
+            di <code>data/json/</code> verso l’i1 versionata) e sciolto qui. Lo
+            strato output nomina le collezioni per stadio cognitivo —
+            <code>interpretations/</code> (Interpret),
+            <code>prescriptions/</code> (Prescrivi) — mentre l’i1 portava
+            <code>sources/</code>, un nome per provenienza: asimmetria e
+            signifier che mente. La collezione i1 si chiama
+            <strong><code>perceptions/</code></strong> (Perceive), come già
+            fissava <code>input.md</code>; <code>project-structure</code>, le
+            porte e <code>README</code> sono allineati. Il nodo della decisione,
+            sciolto in revisione: i
+            <strong>libri sono <code>world</code></strong> — grezzo esterno
+            autorevole (<code>source-of-truth</code>) che vive su Drive,
+            <strong>fuori</strong> dall’artefatto — e diventano i1
+            (<code>perceptions/</code>) solo se un’elaborazione li cattura;
+            altrimenti restano Mondo. Quindi <code>sources/</code> non era la
+            collezione i1, era classificato sull’asse sbagliato.
+            <code>sources.md</code> <strong>resta versionato</strong> ma
+            declassato da porta-collezione a
+            <strong>register di provenienza</strong> (sibling di
+            <code>map.md</code>): il riflesso portabile «quale edizione regge
+            quale nodo» che alimenta i <code>## Riferimenti</code> (i3), mentre
+            i binari escono del tutto su <code>world</code>.
+            <code>.gitignore</code> non ha più la regola
+            <code>sources/*</code> (niente cartella d’artefatto).
+            <code>method</code> non materializza <code>perceptions/</code> (i1
+            effimera: solo le citazioni nei Riferimenti). Propagazione: gli
+            adottanti recepiscono via <code>method-review</code>;
+            <code>economia</code> adotta <code>perceptions/</code> direttamente
+            nella migrazione imminente, evitando la doppia rinomina.
+          </p>
+          <p>
+            Il gemello <code>collocazione-file-dominio</code> è sciolto: gli
+            artefatti del <strong>runtime del dominio</strong> si collocano per
+            stadio cognitivo, non in root — <code>diario</code> (i1)→<code
+              >perceptions/</code
+            >
+            tenuto valenza-neutro, <code>stato</code> (i2)→<code
+              >interpretations/</code
+            >
+            come i2 testuale accanto al deck. Le <code>scadenze</code> non sono
+            un artefatto i/o ma un
+            <strong>vincolo di pianificazione</strong> che ordina i task: vanno
+            in una sezione di <code>plan.md</code>. La root resta il cruscotto
+            del solo ciclo di sviluppo. Nodo della decisione: «root estensibile
+            dal basso» contraddiceva «il cruscotto è il ciclo di sviluppo, non
+            il runtime»; sciolta in favore della funzione, perché
+            posizione≠bootstrap (l’ordine in <code>CLAUDE</code> può puntare a
+            <code>interpretations/stato.md</code> senza tenerlo in root).
+            Formalizzata in <code>project-structure</code> la
+            <strong>terza specie</strong> di file-root — i
+            <em>register</em> (<code>map.md</code>, <code>sources.md</code>) che
+            puntano fuori dall’artefatto — accanto a file-ciclo e
+            porte-collezione.
+          </p>
+          <p>
+            La propagazione ha ora una casa concreta, e con essa
+            <code>method</code> completa il proprio atrio. Il meta-artefatto
+            materializza il suo arco i1/o3 attraverso la membrana degli
+            adottanti (il suo Mondo runtime):
+            <strong><code>perceptions/</code></strong> (i1 — il segnale
+            metodologico che un adottante solleva, catturato valenza-neutro; un
+            adottante perciò non pianifica il canone nel proprio
+            <code>plan.md</code>, emette un segnale) e
+            <strong><code>prescriptions/</code></strong> (o3 — il runbook di
+            adozione, eseguito dal <code>method-review</code> dell’adottante: o3
+            prescrive, method-review compie l’atto). Toglie la forzatura — far
+            pianificare il canone dall’esterno — e dà
+            <code>method</code> l’atrio completo del ciclo (i1/i2/i3 e o2/o3),
+            così fa da modello dogfoodando input e output, non solo la KB. Primo
+            i1 reale:
+            <code>perceptions/adottanti-pianificano-il-canone-in-plan.md</code>;
+            il primo o3 reale fu il runbook di adozione del nuovo atrio, poi
+            rimosso a propagazione conclusa. La regola del canale vive in
+            <code>project-structure</code>.
+          </p>
+        </section>
+        <section
+          id="rifondazione-atrioazione-gradiente-di-cardinalità-atomi-di-stadio-system-image-visiva"
+          class="slide level2"
+        >
+          <h2>
+            Rifondazione atrio↔︎azione: gradiente di cardinalità, atomi di
+            stadio, system image visiva
+          </h2>
+          <p>
+            Filo di design aperto in questa sessione;
+            <strong>in esecuzione</strong> (lavoro in <code>plan.md</code>). La
+            <strong>disambiguazione KB riflessivo ↔︎ system-image</strong>, gli
+            <strong>atomi di stadio</strong> e l’<strong
+              >atrio a tre specie</strong
+            >
+            sono fatti; resta la <strong>system image visiva</strong>, che in
+            sessione di design 2026-06-15 si è allargata in un
+            <strong>cluster di task pianificati</strong> (cfr.
+            <code>plan.md</code>, task 1-4), ridefinito il 2026-06-17 con la
+            distinzione <strong>dev/runtime</strong> resa esplicita e un gate di
+            verifica inserito prima della costruzione. La categoria
+            «porta-collezione» era <strong>falsamente uniforme</strong>:
+            trattava allo stesso modo la KB (system image), gli strumenti
+            (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
+            specie diverse.
+          </p>
+          <p>
+            <strong>Il gradiente di cardinalità</strong> è la lettura che le
+            separa e dà il razionale della collocazione. Il ciclo è un funnel a
+            due poli: il Goal è il punto di convergenza (singolare), il Mondo la
+            molteplicità grezza ritagliata per rilevanza. L’arco di valutazione
+            distilla il molteplice verso l’uno, l’arco di esecuzione dispiega
+            l’uno verso il molteplice. Quindi la <strong>triade alta</strong> —
+            Goal (<code>README</code>), Plan/o1 (<code>plan.md</code>),
+            Compare/i3 (<code>verdict.md</code>) — ha un’unica istanza corrente
+            aggiornata in place: entità = <strong>file</strong>. Scendendo, ogni
+            stadio accumula: Specify→<code>tasks/</code>,
+            i1→<code>perceptions/</code>, i2→<code>interpretations/</code>,
+            o3→<code>prescriptions/</code>: entità = <strong>cartella</strong>.
+            File in cima, cartelle in fondo, combacia con i poli e con i tre
+            livelli (riflessivo=unità, behavioral/viscerale=molteplicità).
+          </p>
+          <p>Conseguenze decise:</p>
+          <ul>
+            <li>
+              <strong
+                ><code>plan.md</code> = o1-sviluppo, <code>verdict.md</code> =
+                i3-sviluppo (fatto)</strong
+              >: qualificatore di ciclo, non negazione dell’omologia (<code
+                >action-cycle</code
+              >
+              mappa Plan=o1, Compare=i3). Corretto in
+              <code>project-structure</code>, <code>plan</code>,
+              <code>verdict</code>, <code>output</code>; la vecchia «plan non è
+              o1» è superata.
+            </li>
+            <li>
+              <strong>Atomi di stadio (fatto)</strong>: cinque nodi-atomo
+              nominati coi <strong>verbi di Norman</strong> —
+              <code>perceive</code> (i1), <code>interpret</code> (i2),
+              <code>specify</code> (o2), <code>perform</code> (o3),
+              <code>compare</code> (i3) — coerenti con <code>goal</code>/<code
+                >plan</code
+              >
+              già nominati per stadio. <strong>o1 non è atomizzato</strong>:
+              sottile, e i suoi esempi vivono già nel runtime-macchina e nel
+              <code>plan</code>-sviluppo (nota in <code>output</code>).
+              <code>input</code>/<code>output</code> ridotti a
+              <strong>note-struttura</strong> (Strukturzettel): tengono le
+              tensioni tra stadi (specchio, cicli annidati, due sorgenti di
+              i1↔︎due modi di i3, conflitto Zettelkasten/Karpathy) e linkano agli
+              atomi; <code>action-cycle</code> resta il nodo-modello. I tre
+              specchi (o3↔︎i1, o2↔︎i2, o1↔︎i3) materializzati in
+              <code>processing-layers</code> come i tre livelli, con solo o2↔︎i2
+              attivo (il deck). <code>interpretations/</code> = i2 per identità
+              corretto in <code>project-structure</code> e <code>output</code>.
+              Audit: 45 nodi, 0 link rotti.
+            </li>
+            <li>
+              <strong>I tre specchi sono i tre livelli</strong>: o3↔︎i1
+              (viscerale), o2↔︎i2 (behavioral), o1↔︎i3 (riflessivo). Si sviluppano
+              in <code>processing-layers</code> (che già accoppia gli stadi per
+              livello), non negli atomi. Solo o2↔︎i2 ha oggi uno scopo attivo (il
+              deck reale).
+            </li>
+            <li>
+              <strong><code>interpretations/</code> = i2</strong> (identità: il
+              nome dice <em>interpret</em>); o2 è la
+              <strong>lettura speculare</strong> della stessa superficie, non
+              una seconda etichetta sulla cartella.
+            </li>
+            <li>
+              <strong
+                >KB ≠ strato riflessivo (appiattimento corretto, fatto)</strong
+              >: il canone confondeva due framework di Norman. «KB = riflessivo»
+              è lecito nel frame dei tre livelli (<em>Emotional Design</em>); ma
+              la KB è anche la <strong>system image</strong>,
+              <em>trasversale</em> — non uno dei tre livelli, ne è il substrato
+              (i1 la alimenta, o2 ne attinge per scendere al viscerale).
+              Disambiguato in <code>processing-layers</code> (8, 30, 46-47),
+              <code>knowledge-base</code> e
+              <code>cognitive-artifact-design</code>, con
+              <code>system-image</code> come <strong>ancora</strong> esplicita
+              del «trasversale» (e i backlink aggiunti dove mancavano).
+            </li>
+            <li>
+              <strong>Porte svuotate + gradiente di cardinalità (fatto)</strong
+              >: le porte-stadio sono scese dentro la cartella come
+              <strong>indice interno omonimo</strong>
+              (<code>perceptions/perceptions.md</code>, ecc.), thin; il canone
+              vive negli atomi. <code>kb.md</code>/<code>tools.md</code> restano
+              in root come <strong>cataloghi trasversali</strong> (la collisione
+              <code>kb/index.md</code> e la copertura di
+              <code>.claude/skills/</code> sono sintomi della trasversalità), i
+              register (<code>map.md</code>/<code>sources.md</code>) perché
+              puntano fuori. Il razionale è il
+              <strong>gradiente di cardinalità</strong>: unità al polo Goal
+              (file in root), molteplicità al polo Mondo (cartelle). Tre specie
+              di file-root + collezioni-stadio in cartella, formalizzato in
+              <code>project-structure</code>; allineati README/CLAUDE/AGENTS, il
+              runbook o3 e la sorgente del deck (ri-derivato).
+              <strong>Propagazione conclusa</strong>: i quattro adottanti hanno
+              revisionato l’intervallo <code>3b91094..9c45620</code> e avanzato
+              il marker a <code>9c45620</code>; commit locali comunicati:
+              <code>nixos</code> <code>f252e35</code>, <code>economia</code>
+              <code>ad94568</code>, <code>salute</code> <code>a58c4b9</code>. Il
+              runbook o3, esaurito, è rimosso dalla collezione attiva; la storia
+              resta in Git.
+            </li>
+            <li>
+              <strong
+                >System image visiva → cluster di presentazione (pianificato,
+                sessione 2026-06-15; ridefinito 2026-06-17)</strong
+              >: il task singolo si è allargato in quattro fili pianificati in
+              <code>plan.md</code>, in quest’ordine d’esecuzione.
+              <ul>
+                <li>
+                  <strong
+                    >Disaccoppiamento adottante↔︎metodo «dichiara e taci» (CHIUSO
+                    2026-06-21)</strong
+                  >: il dolore ricorrente — a ogni rename di nodo si toccano
+                  CLAUDE/README dei 4 adottanti — era sintomo di over-coupling.
+                  Cura applicata: interfaccia stabile, struttura volatile.
+                  L’adottante dipende dal metodo <em>come tutto</em> — una
+                  dichiarazione nel <code>README</code> + il symlink
+                  <code>method/</code> + il <strong>hub</strong>
+                  <code>cognitive-artifact-design</code> (unico nome a contratto
+                  di stabilità) — e altrove tiene solo i link con una funzione
+                  locale (semantica/operativa). Casa del principio: sezione in
+                  <code>method-development</code> (il principio) + struttura
+                  README canonica in <code>kb/readme.md</code> (il veicolo,
+                  heading fissi <code>## Metodo</code>/<code>### Goal</code
+                  >/<code>### World</code>, World esplicito
+                  <strong>senza org-guessing dal remote</strong> —
+                  <code>bi</code> su <code>tt-sviluppo</code>, gli altri su
+                  <code>steledama</code>). <strong>Round 1 concluso</strong>: i
+                  cinque README espongono i poli sotto heading fissi;
+                  l’onboarding di <code>method</code> non prescrive più
+                  inventari di path; i quattro <code>method-review</code> hanno
+                  classificato i link residui e rimosso gli inventari
+                  accidentali — <code>nixos</code>, <code>bi</code>, poi
+                  <code>salute</code> (<code>dcb08dc</code>) ed
+                  <code>economia</code>
+                  (<code>22e22ca</code>). La prescrizione esaurita
+                  <code>disaccoppiamento-adottanti</code> è rimossa da
+                  <code>prescriptions/</code>; la storia resta in Git. Resta
+                  vero il framing a <strong>due round</strong>: ripuliti i
+                  riferimenti accidentali, il round 2 (rename
+                  <code>deck→view</code>, ora task #1) propaga sulle sole
+                  connessioni intenzionali. Nota dev/runtime confermata: per
+                  <code>method</code> i poli World sono
+                  <strong>due</strong> (sviluppo = <code>kb/</code>, runtime =
+                  adottanti), e il README canonico lo riflette.
+                </li>
+                <li>
+                  <strong
+                    >Verifica dei cicli annidati: 16 celle + mappa-sorgente
+                    (gate CHIUSO, ratificato a freddo 2026-06-21)</strong
+                  >: matrice riempita in dogfooding sulla sola colonna
+                  <code>method</code> (16 celle:
+                  <strong>11 S, 4 D, 1 vuoto, 0 F</strong> dopo che il Goal-dev
+                  è risalito da D a S, articolato nel nodo
+                  <code>development-goal</code>); gli adottanti restano al loro
+                  protocollo. <strong>Esito (a)</strong>: l’annidamento
+                  <strong>regge</strong> — due cicli genuini, zero forzati,
+                  cucitura Mondo-dev→macchina-runtime reale. Il verdetto sano,
+                  dopo la rilettura a freddo,
+                  <strong
+                    >non è «due cicli pieni» ma «due cicli genuini con l’interno
+                    runtime nascente»</strong
+                  >: la prima stesura sottostimava il runtime, il ribaltamento
+                  “a caldo” lo sovrastimava.
+                  <strong>Call A — ribaltata</strong>: il deck
+                  <code>interpretations/metodo-in-sintesi.md</code> è
+                  <strong>i2/o2-dev</strong> (sintesi del metodo), non runtime —
+                  l’indice <code>interpretations.md</code> già lo classificava
+                  così, contro lo stato reale della matrice; il vero
+                  i2/o2-runtime è l’<strong>osservatorio</strong>
+                  (<code>interpretations/baricentro-kb-adottanti.md</code>,
+                  prima istanza), genuinamente nascente (D perché una sola
+                  lettura, non in deriva).
+                  <strong>Call B — confermata e ora suffragata</strong>: l’arco
+                  top-down (o1-runtime) è il vero buco, ma è
+                  <strong>scoccato end-to-end una volta</strong> (prescrizione
+                  baricentro → <code>method-review</code>
+                  → recepimento di tutti gli adottanti); resta da costruire il
+                  <strong>protocollo</strong> d’audit periodico.
+                  <strong>Esito (b)</strong>: mappa-sorgente dei 16 prodotta e
+                  ri-sorgentata a freddo (i2-dev→deck;
+                  i2/o2-runtime→osservatorio).
+                  <strong>Ricaduta sul cluster</strong>: la rappresentazione a
+                  <strong>due cicli</strong> è giustificata, ma la home va
+                  disegnata sull’interno <strong>nascente</strong> (osservatorio
+                  come i2/o2-runtime, runtime-o1 muted, deck come i2-dev).
+                  <strong>Conseguenza di canone: chiusa.</strong> La
+                  riassegnazione del deck al runtime è
+                  <strong>annullata</strong> (era l’errore a caldo); la
+                  revisione di «non orchestra» (call B) è
+                  <strong>incisa nel README</strong> dalla chirurgia del
+                  2026-06-21, con pari dignità del top-down runtime distinta dal
+                  micromanagement della coda adottante (cfr.
+                  <code>cognitive-artifact-design</code>,
+                  <code>method-development</code>).
+                </li>
+                <li>
+                  <strong
+                    >Strato di presentazione trasversale, deck→view (chiuso
+                    2026-06-21)</strong
+                  >: il nodo <code>deck</code> è scisso in
+                  <strong><code>view</code></strong
+                  >, motore trasversale a istanze multiple; la macchina è
+                  consolidata in root con
+                  <code>assets/</code> (CSS/token/primitivi condivisi) e
+                  <code>views/</code> (HTML generati e versionati).
+                  <code>interpretations/</code>, <code>tasks/</code>,
+                  <code>plan.md</code> e <code>verdict.md</code> restano
+                  sorgenti pure. Le tre viste attive sono
+                  <code>views/interpretations.html</code>,
+                  <code>views/tasks.html</code> e
+                  <code>views/verdict.html</code>, tutte apribili via
+                  <code>file://</code> e rigenerate da
+                  <code>tools/build-presentation.sh</code>.
+                </li>
+                <li>
+                  <strong
+                    >System image visiva, la home (task rimasto, dip. dallo
+                    strato appena chiuso)</strong
+                  >: <code>index.html</code> in root — l’atrio visivo, statico e
+                  offline (nessun Reveal), generato dallo stesso motore. Layout
+                  sul diagramma <code>action-cycle</code>: header GOAL (polo
+                  Goal del <code>README</code>), due colonne (o1/o2/o3 ↔︎
+                  i3/i2/i1, con o3/i1 <strong>muted</strong> finché
+                  <code>prescriptions/</code>/<code>perceptions/</code> sono
+                  vuote), footer WORLD (adottanti dal polo World canonico del
+                  <code>README</code>, riferimenti espliciti). La
+                  rappresentazione dei due cicli è
+                  <strong>decisa dal gate</strong> (sopra), nella lettura
+                  ribaltata: <strong>due cicli genuini</strong>, non un ciclo
+                  solo. La home può mostrarli entrambi, con
+                  <strong>runtime-o1 muted</strong> (il gap top-down
+                  dichiarato), il deck come livello behavioral (o2↔︎i2) del
+                  runtime e la cucitura di output al polo Mondo (footer WORLD).
+                  Subordinata però alle conseguenze di canone che il gate apre
+                  (riassegnazione del deck, revisione di «non orchestra»): la
+                  vista non incide finché non sono ratificate. Cura della stasi
+                  <code>processing-layers:53</code> e specchio o2↔︎i2 reso
+                  letterale.
+                </li>
+                <li>
+                  <strong
+                    >Guardrail non negoziabile, su tutto il cluster: vista
+                    derivata, mai seconda fonte</strong
+                  >
+                  — ogni vista si genera da sorgenti, anche il polo World.
+                </li>
+                <li>
+                  <strong>Orizzonte deliberatamente fuori</strong>: i task come
+                  slide navigabili (<code>views/tasks.html</code>); una
+                  finestra-terminale per dialogare col modello, che
+                  <strong>rompe l’invariante <code>file://</code></strong>
+                  (richiede backend servito) e sarà classe e nodo a sé.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            <strong>Fili parcheggiati</strong> (gli atomi di stadio sono fatti;
+            i <strong>due-cicli</strong> non sono più del tutto parcheggiati —
+            il nodo <code>nested-cycles</code> e il gate di verifica li stanno
+            esplicitando, e i fili sotto si scioglieranno man mano): la colonna
+            di <code>plan</code> per classificare i task su due assi ortogonali
+            — ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa
+            lista; l’omologia esplicita tools=o3-sviluppo / scripts=o3-runtime /
+            skill=prescrizioni narrative; l’eventuale uniformità totale degli
+            indici (tutti in-cartella) col suo costo (rinomina del nodo
+            <code>index</code>, split del catalogo <code>tools</code>).
+          </p>
+        </section>
+        <section
+          id="tipologia-contenuto-della-kb-e-prima-azione-top-down-su-un-adottante-salute"
+          class="slide level2"
+        >
+          <h2>
+            Tipologia-contenuto della KB e prima azione top-down su un adottante
+            (salute)
+          </h2>
+          <p>
+            Filo aperto 2026-06-20. Origine: la domanda «la KB è la system image
+            dell’artefatto <em>o</em> una rappresentazione del mondo?», mal
+            posta nel verbo (system image = <strong>funzione</strong>, il canale
+            tra agenti; rappresentazione = <strong>contenuto</strong>, cosa
+            denota: assi ortogonali, non alternativa). Guardando il secondo asse
+            sui quattro adottanti — letti i cataloghi <code>kb/</code> via
+            <code>world/</code>, con campione verificato per repo — emerge che
+            <strong
+              >il contenuto della KB non è omogeneo: tassella i poli del
+              ciclo</strong
+            >. Tre regioni: <strong>ought</strong> (Goal — concetti, valori),
+            <strong>is</strong> (Mondo runtime — la realtà del dominio),
+            <strong>macchina</strong> (Mondo-dev — com’è fatto l’artefatto). Due
+            tensioni oneste, tenute esplicite non lisciate: la macchina si
+            sdoppia in <em>struttura</em> (Mondo-dev) vs
+            <em>repertorio d’atto</em> (contenuto o3); e le sorgenti-come-nodi
+            sono un’anomalia (fonti che dovrebbero vivere nel
+            register/<code>world</code>). Ogni repo ha un
+            <strong>baricentro</strong>: <code>economia</code>=is,
+            <code>nixos</code>=macchina/atto, <code>bi</code>=span M↔︎A (il più
+            largo, ed è quello che esegue meglio), <code>salute</code>=ought.
+            <strong>Il baricentro è una diagnosi</strong>: un ciclo calcola uno
+            scarto solo con <em>entrambi</em> i poli (un is contro cui misurare
+            un ought); una KB tutta-ought non ha su cosa mordere.
+          </p>
+          <p>
+            Materializzato in due artefatti, distinti per stadio.
+            <strong>Osservazione (i2-runtime)</strong>:
+            <code>interpretations/baricentro-kb-adottanti.md</code>
+            (<code>bozza</code>) — ed è la
+            <strong>prima istanza concreta dell’osservatorio cross-repo</strong>
+            che la rilettura a freddo del gate cicli annidati segnava come
+            mancante (cfr. il filo del gate, punto «il vero runtime è
+            l’osservatorio sugli adottanti»).
+            <strong>Generalizzazione (nodo)</strong>:
+            <code>kb/kb-content-typology.md</code> (<code>bozza</code>) —
+            riempie un buco reale (il canone trattava il contenuto KB come
+            omogeneo), connesso a <code>knowledge-base</code>,
+            <code>system-image</code>, <code>nested-cycles</code>,
+            <code>goal</code>, <code>world</code>. Resta <code>bozza</code> per
+            lo stesso caveat della matrice: i quattro repo li abbiamo plasmati
+            col metodo, il test esterno è un repo nato senza.
+          </p>
+          <p>
+            <strong
+              >Dalla diagnosi alla prescrizione, per
+              <code>salute</code>.</strong
+            >
+            Il caso peggiore è anche il più istruttivo. <code>salute</code> ha
+            il baricentro tutto-ought; l’is del corpo e l’arco d’azione
+            affamati; l’<strong>aneurisma</strong> dell’aorta ascendente è il
+            caso più netto di segnale
+            <strong>catturato (i1) ma mai interpretato (i2)</strong> — vive come
+            riga nella cronologia di <code>storia-clinica</code>, senza un nodo,
+            mentre la <code>sindrome-vasovagale</code> (allerta meno acuta) ha
+            un nodo completo. La diagnosi non si è fermata all’osservazione: ha
+            prodotto una <strong>prescription</strong> (o3-runtime),
+            <code>riequilibrio-baricentro-kb</code> (poi chiusa, vedi sotto) —
+            la forma canonica con cui <code>method</code> agisce sul proprio
+            Mondo runtime. Prescrive le linee guida nel proprio lessico
+            (classifica il catalogo per polo; riordina il
+            <code>plan</code> mettendo prima is e azione; parcheggia, non
+            cancella, l’ought sovrappeso; promuovi a nodo i segnali catturati ma
+            non interpretati; controlla le sorgenti-come-nodi), con touchpoint
+            per <code>salute</code> come indizi da verificare in loco. L’<strong
+              >ultimo miglio</strong
+            >
+            — quali task, quali nodi, quali appuntamenti — lo esegue il
+            <code>method-review</code> di <code>salute</code> contro lo stato
+            reale: <code>method</code> prescrive, l’adottante compie l’atto,
+            senza che la mano del metodo entri nel runtime altrui.
+          </p>
+          <p>
+            <strong>Perché conta.</strong> È la
+            <strong>prima istanza o3-runtime attiva</strong> in
+            <code>prescriptions/</code> (prima vuota) e la
+            <strong>prima volta che l’arco top-down del runtime scocca</strong>
+            per davvero: evidenza viva per la call B del gate (l’esecuzione
+            top-down ha pari dignità della valutazione bottom-up) e corpo a ciò
+            che il buco runtime-o1 segnalava. Conferma la divisione del lavoro
+            o3 — <code>method</code> prescrive fino ai propri concetti,
+            l’adottante personalizza l’ultimo miglio.
+          </p>
+          <p>
+            <strong>Ritorno (2026-06-20).</strong> <code>salute</code> ha
+            recepito e applicato la prescrizione al proprio
+            <code>method-review</code> (marker → <code>53968e8</code>, aligned).
+            La diagnosi del baricentro è stata
+            <strong>confermata contro controlli falsificabili</strong> — arco
+            d’azione vuoto, aneurisma senza nodo, follow-up vascolare verificato
+            non programmato via <code>gog</code> — non per ragionamento
+            accomodante: è la forma forte della conferma (il contrario della
+            cella che non regge, come il deck in deriva). Correzioni reali:
+            promosso il nodo <code>aneurisma-aorta-ascendente</code> (il segnale
+            catturato finalmente interpretato), <code>plan</code> riordinato con
+            l’ought sospeso, arco d’azione costruito (prep incontri + canovaccio
+            per l’appuntamento del 2/7, dove l’impegnativa
+            cardiologica/vascolare risulta da chiedere). Con ciò il
+            <strong>ciclo runtime si chiude per intero</strong> lungo il canale
+            canonico — i2→i3→o3→adottante→i1 — non solo scocca: prima chiusura
+            completa dell’arco top-down, evidenza forte per la call B della
+            chirurgia dei giganti (poi chiusa il 2026-06-21). Il nodo
+            <code>kb-content-typology</code> ha
+            <strong>retto contro lo stato reale</strong>: validazione
+            <strong>parziale</strong>, perché <code>salute</code> è plasmato dal
+            metodo — il test esterno vero resta un repo nato senza. La
+            prescrizione è ora <strong>recepita da tutti</strong> e
+            <strong>chiusa</strong> (2026-06-21, rimossa da
+            <code>prescriptions/</code>): <code>salute</code> l’ha eseguita,
+            <code>economia</code>/<code>nixos</code>/<code>bi</code> l’hanno
+            valutata «non applicabile» al proprio
+            <code>method-review</code> (baricentro già bilanciato —
+            <code>is</code>, <code>macchina/atto</code>, span <code>M↔︎A</code>)
+            — e un «non applicabile» è anch’esso recepimento. Il concetto resta
+            nel nodo <code>kb-content-typology</code>; la ricetta riapparirà
+            come o3 solo se un nuovo adottante mostrerà uno squilibrio.
+            Raffinatura emersa dal basso, foldata nel nodo: il polo macchina è
+            legittimamente assente quando la macchina dell’artefatto è il
+            <code>method</code> condiviso, gemella simmetrica
+            dell’esenzione-ought di <code>nixos</code>.
+          </p>
+        </section>
+        <section
+          id="i-quattro-significanti-di-dip.-la-prontezza-ha-più-di-due-stati"
+          class="slide level2"
+        >
+          <h2>
+            I quattro significanti di <code>Dip.</code>: la prontezza ha più di
+            due stati
+          </h2>
+          <p>
+            Pensare le dipendenze dei task solo come task↔︎task (<code>#n</code>)
+            è troppo povero per pianificare: appiattisce su «dipende / non
+            dipende» situazioni che chiedono risposte opposte. La
+            <code>Dip.</code> di <code>plan.md</code> risponde ora a una domanda
+            più fine — il task è pronto, e se no <em>di chi è la mossa</em> che
+            lo sblocca — con quattro significanti: <code>—</code> (pronto),
+            <code>#n</code> (mossa nostra ma sequenziata),
+            <code>world</code> (mossa altrui: si attende il mondo),
+            <code>|</code> (mossa nostra ma trattenuta deliberatamente). La
+            linea di faglia è tra <code>world</code> e <code>|</code>: con
+            <code>world</code> il muro è fuori e non tocca a noi; con
+            <code>|</code> il muro lo alziamo noi — per lasciar maturare una
+            negoziazione o per una valutazione a freddo.
+          </p>
+          <p>
+            Questo raffina e corregge il primo passo grezzo arrivato
+            dall’operatività (<code>f929f7e</code>, dove
+            <code>world</code> assorbiva anche la pausa tattica e il
+            differimento deciso da noi finiva in
+            <code>## Scadenze</code> lasciando il task <code>—</code>). Un task
+            che teniamo deliberatamente sospeso non è pronto: marcarlo
+            <code>—</code> lo farebbe raccomandare come prossima mossa, che è
+            l’errore. Ora porta <code>|</code>, resta aperto e sorvegliato, ma
+            non viene preso in carico. La data segue
+            <strong>chi possiede l’orologio</strong>: esogena (un atto altrui,
+            una scadenza naturale, un termine imposto) →
+            <code>## Scadenze</code>, che muove la priorità avvicinandosi;
+            autoimposta (la condizione di risveglio di una pausa) → la riga di
+            legenda del <code>|</code>, perché è parte della pausa, non una
+            pressione esterna. La forma sintetica regge tre livelli:
+            significante in tabella, chiosa in legenda (<code>world [a]</code>,
+            <code>| [b]</code>), dettaglio nel file <code>tasks/</code>.
+          </p>
+          <p>
+            Il caso che ha forzato la distinzione è il
+            <strong>monitoraggio</strong>: un task che non dipende da un altro
+            task ma dal tempo e da una condizione che evolve — il boot dei
+            server dopo lo switch al kernel LTS in
+            <code>nixos</code> (<code>world</code>, chiuso in
+            <code>c36c141</code>), l’autovalutazione delle sessioni di
+            meditazione in <code>salute</code> (<code>|</code> con risveglio
+            autoimposto). Segnale sorto operando su <code>economia</code> e
+            giudicato lì generalizzabile; cattura i1 in
+            <code>perceptions/dipendenze-task-oltre-il-task-task.md</code>,
+            recepimento i3 in <code>kb/plan.md</code>.
+          </p>
+          <p>
+            Coda risolta: la pausa tattica a granularità di
+            <strong>batch</strong> (segnale da <code>salute</code>,
+            <code>perceptions/pausa-tattica-a-granularita-di-batch.md</code>)
+            non richiede un significante nuovo. Un gruppo di task trattenuti per
+            la stessa ragione condivide una sola chiave di legenda (<code
+              >| [a]</code
+            >
+            su più righe); un fronte parcheggiato grande può raccogliersi in una
+            sezione di holding (come <code>## Sospesi</code> in
+            <code>salute</code>), adattamento di dominio, non variante del
+            canone. Il <code>|</code> resta per-riga.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+    <!-- reveal.js plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+
+    <script>
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: "bottom-right",
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: "faded",
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: "all",
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: "default",
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: "block",
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: "slide",
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: "default",
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: "fade",
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1180,
+
+        height: 740,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+
+        // reveal.js plugins
+        plugins: [RevealNotes, RevealSearch, RevealZoom],
+      });
+    </script>
+  </body>
+</html>

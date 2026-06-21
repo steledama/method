@@ -246,7 +246,7 @@ I diagrammi comprimono; i nodi spiegano.
 - i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agent.md`
 - il goal · tre altitudini → `kb/goal.md`
 - la matrice di verifica → `kb/action-cycle-matrix.md`
-- strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/deck.md`
+- strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/view.md`
 - anatomia del progetto → `kb/project-structure.md`
 - sviluppo del metodo e osservatorio → `kb/method-development.md`, `kb/method-observatory.md`, `kb/cognitive-artifact-design.md`
 - dove vive cosa → `kb/cognitive-artifact-design.md`, `kb/zettelkasten.md`

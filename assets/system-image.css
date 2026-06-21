@@ -1,0 +1,89 @@
+:root {
+  --r-main-font-size: 30px;
+  --diagram-ink: #1a2230;
+  --diagram-muted: #4a5a6a;
+  --diagram-line: #7c93a6;
+  --diagram-soft: #eef2f5;
+  --diagram-accent: #cfe4ec;
+  --diagram-primary: #ddd3ee;
+  --diagram-world: #f2d8bd;
+  --accent: #c2410c;
+  --accent-ink: #9a3412;
+  --hero-bg: #161d29;
+}
+
+.punch {
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.diagram {
+  box-sizing: border-box;
+  color: var(--diagram-ink);
+  line-height: 1.15;
+  margin: 0.7em auto;
+  text-align: center;
+}
+
+.diagram * {
+  box-sizing: border-box;
+}
+
+.diagram-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  align-items: center;
+  background: white;
+  border: 2px solid var(--diagram-line);
+  border-radius: 0.55em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 3.2em;
+  padding: 0.55em 0.8em;
+}
+
+.card strong,
+.card span,
+.card small {
+  display: block;
+}
+
+.card span,
+.card small {
+  color: var(--diagram-muted);
+  margin-top: 0.2em;
+}
+
+.card small {
+  font-size: 0.82em;
+}
+
+.card.accent {
+  background: var(--diagram-accent);
+  border-color: #6096a9;
+}
+
+.card.primary {
+  background: var(--diagram-primary);
+  border-color: #756394;
+}
+
+.card.pill,
+.card.pole {
+  border-radius: 2em;
+}
+
+.card.world {
+  background: var(--diagram-world);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.card.world strong {
+  color: var(--accent-ink);
+}

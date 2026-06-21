@@ -20,4 +20,4 @@ Connessioni:
 - [processing-layers](processing-layers.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [system-image](system-image.md)
-- [deck](deck.md)
+- [view](view.md)

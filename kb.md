@@ -40,7 +40,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [specify](kb/specify.md) — Stadio o2: la vista di decisione; la forma segue la domanda; o1/o2 due altitudini; le quattro proprietà cardine
 - [perform](kb/perform.md) — Stadio o3: la prescrizione versionata dell'atto (o3 ≠ atto); on-demand; può far emergere Goal
 - [compare](kb/compare.md) — Stadio i3: conoscenza formalizzata o verdetto; i due modi (verdetto/triage); chiude il ciclo verso il Goal
-- [deck](kb/deck.md) — Runbook portabile del deck come forma navigabile di `interpretations/`: sorgente markdown unica, build Reveal da CDN, apertura locale e condivisione on-demand
+- [view](kb/view.md) — Runbook portabile delle viste generate: sorgenti markdown canoniche, HTML versionati, asset condivisi, apertura locale e condivisione on-demand
 - [connection](kb/connection.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](kb/pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione
 - [method-development](kb/method-development.md) — I due movimenti (bottom-up e top-down) in alternanza e contraddittorio

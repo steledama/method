@@ -32,7 +32,7 @@ Connessioni:
 - [output](output.md)
 - [interpret](interpret.md)
 - [perform](perform.md)
-- [deck](deck.md)
+- [view](view.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [affordance-signifier](affordance-signifier.md)
 - [constraint](constraint.md)

@@ -1,6 +1,7 @@
 ---
 data: 2026-06-14
 stato: aperto
+sintesi: "Generare la home statica dell'atrio come system image navigabile derivata da README, plan e viste."
 ---
 
 # System image visiva: la home dell'atrio
@@ -13,7 +14,7 @@ superfici del ciclo di sviluppo.
 
 ## Dipendenza e perimetro
 
-Il task dipende da «Strato di presentazione trasversale (deck→view)» per:
+Il task usa lo strato di presentazione trasversale già chiuso per:
 
 - convenzione `assets/` e `views/`;
 - token grafici e primitivi del ciclo;

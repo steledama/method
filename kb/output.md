@@ -45,9 +45,9 @@ Ogni progetto adottante dovrebbe dichiarare esplicitamente il proprio strato out
 ## Stato dei progetti adottanti
 
 - **`nixos`** — o1: `.nix` in `home/`, `hosts/`, `modules/`; o2: testo descrittivo in `kb/` (debole); o3: configurazione e procedure pronte al deploy; `world`: switch applicato.
-- **`bi`** — o1: script notturni; o2: `interpretations/index.html`; o3: payload, runbook e canovacci; `world`: pubblicazione e riunioni.
-- **`economia`** — o1: `data/json/` locale; o2/i2: fotografia finanziaria in `interpretations/index.html`; o3: email predisposte e canovacci; `world`: invii, telefonate, transazioni.
-- **`salute`** — o1: scadenze e stato strutturato; o2: deck in `interpretations/index.html`; o3: promemoria e canovacci; `world`: pratiche, controlli, conversazioni mediche.
+- **`bi`** — o1: script notturni; o2: vista HTML in `views/` o equivalente locale; o3: payload, runbook e canovacci; `world`: pubblicazione e riunioni.
+- **`economia`** — o1: `data/json/` locale; o2/i2: fotografia finanziaria in vista HTML locale; o3: email predisposte e canovacci; `world`: invii, telefonate, transazioni.
+- **`salute`** — o1: scadenze e stato strutturato; o2: deck/vista HTML locale; o3: promemoria e canovacci; `world`: pratiche, controlli, conversazioni mediche.
 
 Pattern emergente: dove o2 è forte il progetto serve decisioni condivise con altri (`bi`); dove o2 è debole la KB resta personale e fatica a generare azione coordinata.
 
@@ -64,7 +64,7 @@ Connessioni:
 - [action-cycle](action-cycle.md)
 - [goal](goal.md)
 - [world](world.md)
-- [deck](deck.md)
+- [view](view.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)
 - [knowledge-base](knowledge-base.md)

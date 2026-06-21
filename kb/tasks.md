@@ -1,6 +1,6 @@
 ---
 data: 2026-06-06
-stato: bozza
+stato: maturo
 ---
 
 # Tasks
@@ -30,12 +30,13 @@ Le verifiche operative su un repo adottante vanno nel `tasks/` di quel repo, anc
 ---
 data: YYYY-MM-DD
 stato: aperto
+sintesi: "Risultato atteso del task in una frase breve."
 ---
 ```
 
 Il frontmatter dei task è obbligatorio perché permette agli strumenti cross-repo di distinguere i task operativi dai nodi stabili e di costruire report comparativi senza interpretare testo libero.
 
-`data` è la data di apertura del task, non l'ultima modifica. `stato` resta minimale: per ora il valore canonico è solo `aperto`. Priorità e dipendenze vivono in `plan.md`, non nel frontmatter, perché `plan` è il punto di supervisione corrente.
+`data` è la data di apertura del task, non l'ultima modifica. `stato` resta minimale: per ora il valore canonico è solo `aperto`. `sintesi` è una frase autoriale e autosufficiente sul risultato atteso: non replica il titolo, non registra priorità, non contiene dipendenze e non sostituisce il corpo del task. Priorità e dipendenze vivono in `plan.md`, perché `plan` è il punto di supervisione corrente.
 
 Quando un task viene completato, il file viene eliminato insieme alla riga in `plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, `verdict.md` e nei nodi aggiornati.
 

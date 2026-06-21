@@ -69,5 +69,5 @@ Connessioni:
 - [kb-tools](kb-tools.md)
 - [connection](connection.md)
 - [output](output.md)
-- [deck](deck.md)
+- [view](view.md)
 - [action-cycle](action-cycle.md)

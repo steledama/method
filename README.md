@@ -66,7 +66,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Tre specie di
 **Collezioni-stadio** — cartelle che accumulano, ciascuna con un indice interno omonimo:
 
 - **[perceptions/](perceptions/perceptions.md)** — lo stadio i1 (Perceive): i segnali metodologici che emergono dagli adottanti
-- **[interpretations/](interpretations/interpretations.md)** — lo stadio i2 (Interpret): le sintesi e il deck
+- **[interpretations/](interpretations/interpretations.md)** — lo stadio i2 (Interpret): le sintesi sorgente
 - **[prescriptions/](prescriptions/prescriptions.md)** — lo stadio o3 (Prescrivi): i runbook di adozione del canone
 - **tasks/** — lo stadio Specify: i dettagli dei task aperti, indicizzati da `plan.md`
 
@@ -80,7 +80,7 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `tools/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade operativa — `/kb-review`, `/tasks-review`, `/commit` — e la skill di allineamento `/method-review` vivono in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
 - **Manutenzione propria del metodo**: task in `tasks/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Interpretazioni**: [`interpretations/`](interpretations/interpretations.md) è la collezione dello stadio i2; [`interpretations/metodo-in-sintesi.md`](interpretations/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). Ogni sezione è un'interpretazione: rivela una tensione tra nodi altrimenti invisibile da dentro ciascuno. La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; `tools/build-presentation.sh` genera `interpretations/index.html`, l'indice navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
+- **Interpretazioni**: [`interpretations/`](interpretations/interpretations.md) è la collezione dello stadio i2; [`interpretations/metodo-in-sintesi.md`](interpretations/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero, dall'ontologia (artefatto/sistema/metodo) alla meccanica (tre giganti, ciclo dell'azione come specchio simmetrico, cicli annidati, le quattro dimensioni, goal) al processo (anatomia, sviluppo, routing). Ogni sezione è un'interpretazione: rivela una tensione tra nodi altrimenti invisibile da dentro ciascuno. La sintesi vive qui, non nei nodi. Il `.md` è la fonte unica; `tools/build-presentation.sh` genera `views/interpretations.html`, la vista navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Lo stesso script genera `views/tasks.html` e `views/verdict.html`; gli asset comuni stanno in `assets/`. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
 
 ## Come collegare un nuovo progetto
 

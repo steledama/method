@@ -41,6 +41,8 @@ Sciolta la collocazione, la root contiene tre specie di file, distinte per **fun
 
 La collezione-stadio (`perceptions/`, `interpretations/`, `prescriptions/`) **non** è una quarta specie di file-root: è una cartella, dichiarata nell'atrio dal proprio nome e indicizzata dall'indice interno omonimo (cfr. «Il gradiente di cardinalità»).
 
+**Strato di presentazione** — `assets/` e `views/` sono infrastruttura derivata, non nuove sorgenti. `assets/` contiene token grafici, primitivi e adattatori CSS condivisi; `views/` contiene HTML generati e versionati, apribili via `file://`, che leggono le sorgenti del ciclo (`interpretations/`, `tasks/`, `plan.md`, `verdict.md`) senza sostituirle. La disciplina vive nel nodo `view`: vista derivata, mai seconda fonte.
+
 ## Visibilità ≠ caricamento
 
 «In root» non significa «letto al bootstrap». I file-ciclo si leggono ogni sessione; i cataloghi trasversali e i register si _vedono_ sempre ma si _aprono_ solo quando servono. Il signifier che dice _cosa_ leggere e _quando_ è l'ordine di bootstrap dichiarato in `CLAUDE`/`AGENTS`, non la posizione del file. Questa scissione è ciò che permette all'atrio di essere completo senza gonfiare il contesto: l'esistenza di `kb.md` è informazione gratuita (un nome nell'`ls`), la sua lettura è un costo che si paga solo on-demand.
@@ -54,7 +56,7 @@ Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file
 Il set universale (file-ciclo + cataloghi trasversali + register) è un _pavimento, non un soffitto_, ma un dominio **non** si estende aggiungendo file in root: si estende con ciò che mette nelle collezioni. La root resta il cruscotto del **ciclo di sviluppo**; gli artefatti del **runtime del dominio** si collocano per stadio cognitivo:
 
 - cattura cronologica valenza-neutra (`diario`) → `perceptions/` (i1), tenuta neutra: l'interpretazione valenzata risale a `stato`, non scinde il file;
-- sintesi corrente (`stato`) → `interpretations/` (i2), come i2 _testuale_ accanto al deck grafico; le due forme dell'i2 convivono (cfr. input, «la forma segue il dominio»). Non si fonde nel deck — perderebbe leggibilità — ma gli sta accanto;
+- sintesi corrente (`stato`) → `interpretations/` (i2), come i2 _testuale_ accanto alle view generate; le due forme dell'i2 convivono (cfr. input, «la forma segue il dominio»). Non si fonde nella view — perderebbe leggibilità — ma le sta accanto;
 - prescrizione o promemoria predisposto → `prescriptions/` (o3);
 - vincolo di pianificazione (`scadenze`: le date che ordinano i task) → una sezione di `plan.md`. È parte del **Plan**, non un artefatto i/o: determina l'ordine d'esecuzione, quindi vive col cruscotto, non in una collezione.
 
@@ -73,7 +75,7 @@ Così `method` ha l'atrio completo del ciclo (i1/i2/i3 e o2/o3) e fa da modello 
 
 Il cruscotto agisce sull'artefatto (la KB), non sul mondo del dominio. Per questo `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (che agisce sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, che agisce sul mondo). Non è la negazione dell'omologia Plan=o1 — `action-cycle` mappa Plan=o1 — ma il suo **qualificatore di ciclo**: stesso stadio, due annidamenti, come `verdict.md` è i3-sviluppo. `plan` resta `plan.md` e non diventa `tasks.md` perché il suo nome è lo **stadio** (Plan, la triade alta), non la cartella che indicizza; è l'altezza nel ciclo a tenerlo file in root mentre `tasks/` è cartella (cfr. «Il gradiente di cardinalità»).
 
-Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la cognitive-fidelity — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in action-cycle) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in vista generata è l'**o2/i2-macro** (il deck in `interpretations/`) — vista derivata, non intenzione.
+Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la cognitive-fidelity — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in action-cycle) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in view generata (`views/verdict.html`) è o2/i2-macro — vista derivata, non intenzione.
 
 ## Le regole d'azione e la memoria
 
@@ -119,6 +121,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - cataloghi trasversali: `kb.md` (catalogo di `kb/`) · `tools.md` (strumenti e skill)
 - register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` (territorio del dominio) · `sources.md` (fonti-mondo autorevoli)
 - collezioni: `kb/` · `tools/` · `tasks/` · collezioni-stadio `perceptions/` (i1) · `interpretations/` (i2) · `prescriptions/` (o3)
+- presentazione derivata: `assets/` (CSS, token e primitivi condivisi) · `views/` (HTML generati versionati)
 - indici di collezione-stadio, dentro la cartella, omonimi (no frontmatter): `perceptions/perceptions.md` · `interpretations/interpretations.md` · `prescriptions/prescriptions.md`; `tasks/` è indicizzata da `plan.md`
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
   versionata, senza manifest

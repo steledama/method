@@ -245,15 +245,14 @@ Conseguenze decise:
     (call B) è **incisa nel README** dalla chirurgia del 2026-06-21, con pari dignità
     del top-down runtime distinta dal micromanagement della coda adottante (cfr.
     `cognitive-artifact-design`, `method-development`).
-  - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
-    confonde il **motore** di presentazione e la sua **istanza**
-    (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
-    a istanze multiple (una vista per collezione), con la macchina consolidata in
-    root — `assets/` (CSS/lib condivisi) e `views/` (HTML **generati**, specie
-    nuova nell'atrio). `interpretations/` e `tasks/` tornano **sorgenti pure**
-    (twin). L'invariante `deck` è intatto: apertura `file://` dal checkout, HTML
-    generati versionati.
-  - **System image visiva, la home (4°, dip. dal gate e dal 3°)**: `index.html` in
+  - **Strato di presentazione trasversale, deck→view (chiuso 2026-06-21)**: il nodo
+    `deck` è scisso in **`view`**, motore trasversale a istanze multiple; la macchina
+    è consolidata in root con `assets/` (CSS/token/primitivi condivisi) e `views/`
+    (HTML generati e versionati). `interpretations/`, `tasks/`, `plan.md` e
+    `verdict.md` restano sorgenti pure. Le tre viste attive sono
+    `views/interpretations.html`, `views/tasks.html` e `views/verdict.html`, tutte
+    apribili via `file://` e rigenerate da `tools/build-presentation.sh`.
+  - **System image visiva, la home (task rimasto, dip. dallo strato appena chiuso)**: `index.html` in
     root — l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
     motore. Layout sul diagramma `action-cycle`: header GOAL (polo Goal del
     `README`), due colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché

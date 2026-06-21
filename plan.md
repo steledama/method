@@ -6,10 +6,9 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                            | Dip. |
-| --- | ----------------------------------------------- | ---- |
-| 1   | Strato di presentazione trasversale (deck→view) | —    |
-| 2   | System image visiva: la home dell'atrio         | #1   |
+| #   | Task                                    | Dip. |
+| --- | --------------------------------------- | ---- |
+| 1   | System image visiva: la home dell'atrio | —    |
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -50,12 +49,12 @@ README canonica è formalizzata in `kb/readme.md` (heading fissi `## Metodo` ·
 cinque i README. Il round 1 della propagazione è **recepito dai quattro
 adottanti** via il loro `method-review` (`nixos`, `bi`, poi `salute` in `dcb08dc`
 e `economia` in `22e22ca`); la prescrizione esaurita è rimossa da
-`prescriptions/`, la storia resta in Git. Restano i due task implementativi: la
-**presentazione (#1)**, ora sbloccata — il rename deck→view propaga a costo quasi
-nullo perché i riferimenti accidentali sono già ripuliti — e la **home (#2)** dopo
-presentazione, che consuma la mappa-sorgente del gate.
+`prescriptions/`, la storia resta in Git. Lo **strato di presentazione (#1)** è
+chiuso: `deck` è stato scisso in `view`, `assets/` e `views/` sono materializzati,
+le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Resta il
+task implementativo della **home (#1)**, che consuma la mappa-sorgente del gate e
+lo strato di presentazione appena stabilizzato.
 
 ## Dettagli task
 
-- [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)

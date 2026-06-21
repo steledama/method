@@ -127,6 +127,13 @@ class CodeCoverage:
     code_files_total: int
 
 
+@dataclass
+class TaskFrontmatter:
+    total: int
+    complete: int
+    missing: list[str]
+
+
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
@@ -412,6 +419,28 @@ def run_code_coverage(root: Path) -> CodeCoverage:
     )
 
 
+def run_task_frontmatter(root: Path) -> TaskFrontmatter:
+    missing: list[str] = []
+    task_files = sorted((root / "tasks").glob("*.md"))
+    for path in task_files:
+        text = path.read_text(encoding="utf-8")
+        fm = (
+            text.split("---", 2)[1]
+            if text.startswith("---\n") and text.count("---") >= 2
+            else ""
+        )
+        absent = [
+            key for key in ("data", "stato", "sintesi") if f"\n{key}:" not in f"\n{fm}"
+        ]
+        if absent:
+            missing.append(f"{node_key(root, path)}: {', '.join(absent)}")
+    return TaskFrontmatter(
+        total=len(task_files),
+        complete=len(task_files) - len(missing),
+        missing=missing,
+    )
+
+
 def run_audit(root: Path) -> AuditResult:
     inventory = {node_key(root, path) for path in doc_files(root)}
     links, broken = link_map(root)
@@ -614,6 +643,10 @@ def command_coverage(args: argparse.Namespace) -> None:
     output_result(run_code_coverage(repo_root()), args.format)
 
 
+def command_tasks(args: argparse.Namespace) -> None:
+    output_result(run_task_frontmatter(repo_root()), args.format)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Utility portabili per knowledge base")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -648,6 +681,10 @@ def build_parser() -> argparse.ArgumentParser:
     coverage = sub.add_parser("coverage", help="copertura generica codice -> nodi KB")
     coverage.add_argument("--format", choices=["json"], default="json")
     coverage.set_defaults(func=command_coverage)
+
+    tasks = sub.add_parser("tasks", help="verifica frontmatter dei task aperti")
+    tasks.add_argument("--format", choices=["json"], default="json")
+    tasks.set_defaults(func=command_tasks)
     return parser
 
 
