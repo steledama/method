@@ -436,3 +436,10 @@ switch al kernel LTS in `nixos` (`world`, chiuso in `c36c141`), l'autovalutazion
 sessioni di meditazione in `salute` (`|` con risveglio autoimposto). Segnale sorto
 operando su `economia` e giudicato lì generalizzabile; cattura i1 in
 `perceptions/dipendenze-task-oltre-il-task-task.md`, recepimento i3 in `kb/plan.md`.
+
+Coda risolta: la pausa tattica a granularità di **batch** (segnale da `salute`,
+`perceptions/pausa-tattica-a-granularita-di-batch.md`) non richiede un significante
+nuovo. Un gruppo di task trattenuti per la stessa ragione condivide una sola chiave
+di legenda (`| [a]` su più righe); un fronte parcheggiato grande può raccogliersi
+in una sezione di holding (come `## Sospesi` in `salute`), adattamento di dominio,
+non variante del canone. Il `|` resta per-riga.

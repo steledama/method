@@ -29,7 +29,9 @@ lasciata come adattamento di dominio.
 
 ## Esito
 
-Aperto. Recepito per ora solo come **adattamento intenzionale** lato adottante
-(ledger `method-review.md` di `salute`): `## Sospesi` è la forma-batch di `|`.
-La valutazione se promuoverlo a variante canonica del nodo `kb/plan.md` — o
-lasciarlo adattamento — è i2→i3 ancora da svolgere in `method`.
+Valutato e formalizzato. Verdetto: **nessun significante nuovo**. Il batch è già
+coperto da una chiave di legenda condivisa su più righe (`| [a]`); un fronte
+parcheggiato grande può raccogliersi in una sezione di holding (come `## Sospesi`
+in `salute`), adattamento di dominio e non variante del canone. Recepito in
+`kb/plan.md` (paragrafo `|`) e in `verdict.md`, filo «I quattro significanti di
+`Dip.`». Il `|` resta per-riga.

@@ -68,6 +68,13 @@ risveglio). La chiave è **facoltativa**: un `world` o `|` nudo basta quando il
 titolo già dice tutto, e il testo libero non gonfia mai le celle. Tre livelli:
 significante in tabella, chiosa in legenda, dettaglio pieno nel file `tasks/`.
 
+Un **batch** di task trattenuti per la stessa ragione non chiede un significante
+nuovo: condividono una sola chiave di legenda (`| [a]` su più righe), chiosata
+una volta. E quando il fronte parcheggiato è grande abbastanza da fare rumore
+nella coda attiva, può raccogliersi in una **sezione di holding** propria (la sua
+ragione e il suo risveglio dichiarati una volta in testa) — adattamento di
+dominio legittimo, non una variante del canone.
+
 I task di **monitoraggio** sono il caso che il modello task↔task non copre: non
 dipendono da un altro task ma dal trascorrere del tempo e dall'evolversi di una
 condizione. Si collocano su `world` quando sorvegliano un evento o un
