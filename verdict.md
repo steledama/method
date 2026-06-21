@@ -201,23 +201,25 @@ Conseguenze decise:
 - **System image visiva → cluster di presentazione (pianificato, sessione
   2026-06-15; ridefinito 2026-06-17)**: il task singolo si è allargato in quattro
   fili pianificati in `plan.md`, in quest'ordine d'esecuzione.
-  - **Disaccoppiamento adottante↔metodo «dichiara e taci» (1°)**: il dolore
-    ricorrente — a ogni rename di nodo si toccano CLAUDE/README dei 4 adottanti —
-    è sintomo di over-coupling. Cura: interfaccia stabile, struttura volatile.
-    L'adottante dipende dal metodo _come tutto_ — una dichiarazione nel `README`
-    - il symlink `method/` + il **hub** `cognitive-artifact-design` (unico nome a
-      contratto di stabilità) — e **evita i link sparsi a path di nodi**. Va per
-      primo perché ripulisce i riferimenti prima del rename sotto, rendendone la
-      propagazione quasi nulla. Casa del principio **decisa**: sezione in
-      `method-development` (il principio) + struttura README canonica in `kb/readme.md`
-      (il veicolo). La sezione README canonica — comune ai 5 repo — dichiara adozione,
-      symlink `method/` e i due poli Goal/World, e diventa la sorgente da cui la home
-      legge i poli, **senza org-guessing dal remote** (`bi` su `tt-sviluppo`, gli altri
-      su `steledama`). Gli step di onboarding nel README di `method`, che oggi
-      prescrivono di hardcodare i path, vanno invertiti. Propagazione in **due round**:
-      1° disaccoppiamento + README canonico, 2° rename `deck→view`. Nota dev/runtime:
-      per `method` i poli World sono **due** (sviluppo = `kb/`, runtime = adottanti);
-      lo schema README canonico potrà doverlo riflettere, ed è il gate sotto a deciderlo.
+  - **Disaccoppiamento adottante↔metodo «dichiara e taci» (CHIUSO 2026-06-21)**: il
+    dolore ricorrente — a ogni rename di nodo si toccano CLAUDE/README dei 4 adottanti —
+    era sintomo di over-coupling. Cura applicata: interfaccia stabile, struttura
+    volatile. L'adottante dipende dal metodo _come tutto_ — una dichiarazione nel
+    `README` + il symlink `method/` + il **hub** `cognitive-artifact-design` (unico
+    nome a contratto di stabilità) — e altrove tiene solo i link con una funzione
+    locale (semantica/operativa). Casa del principio: sezione in `method-development`
+    (il principio) + struttura README canonica in `kb/readme.md` (il veicolo, heading
+    fissi `## Metodo`/`### Goal`/`### World`, World esplicito **senza org-guessing dal
+    remote** — `bi` su `tt-sviluppo`, gli altri su `steledama`). **Round 1 concluso**:
+    i cinque README espongono i poli sotto heading fissi; l'onboarding di `method` non
+    prescrive più inventari di path; i quattro `method-review` hanno classificato i
+    link residui e rimosso gli inventari accidentali — `nixos`, `bi`, poi `salute`
+    (`dcb08dc`) ed `economia` (`22e22ca`). La prescrizione esaurita
+    `disaccoppiamento-adottanti` è rimossa da `prescriptions/`; la storia resta in Git.
+    Resta vero il framing a **due round**: ripuliti i riferimenti accidentali, il
+    round 2 (rename `deck→view`, ora task #1) propaga sulle sole connessioni
+    intenzionali. Nota dev/runtime confermata: per `method` i poli World sono **due**
+    (sviluppo = `kb/`, runtime = adottanti), e il README canonico lo riflette.
   - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate CHIUSO, ratificato
     a freddo 2026-06-21)**: matrice riempita in dogfooding sulla sola colonna `method`
     (16 celle: **11 S, 4 D, 1 vuoto, 0 F** dopo che il Goal-dev è risalito da D a S,

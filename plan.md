@@ -6,11 +6,10 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                               | Dip. |
-| --- | -------------------------------------------------- | ---- |
-| 1   | Disaccoppiamento adottante↔metodo: dichiara e taci | —    |
-| 2   | Strato di presentazione trasversale (deck→view)    | #1   |
-| 3   | System image visiva: la home dell'atrio            | #2   |
+| #   | Task                                            | Dip. |
+| --- | ----------------------------------------------- | ---- |
+| 1   | Strato di presentazione trasversale (deck→view) | —    |
+| 2   | System image visiva: la home dell'atrio         | #1   |
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -43,22 +42,20 @@ permanente. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione
 (`action-cycle-matrix`); ora che le fondamenta sono posate l'implementazione torna a
 fare da prova.
 
-Sul fronte implementativo: il **disaccoppiamento (#1)** ha la sua **parte in-repo
-chiusa** (2026-06-21). Il principio «dichiara e taci» è inciso in
-`method-development` (il confine canone↔adottante: dipendenza generale /
-intenzionale / accidentale); la sezione README canonica è formalizzata in
-`kb/readme.md` (heading fissi `## Metodo` · `### Goal` · `### World`, World
-esplicito mai euristico); il README di `metodo` è ristrutturato a quella forma e
-l'onboarding non prescrive più inventari di path in `CLAUDE.md`. Il runbook di
-propagazione `prescriptions/disaccoppiamento-adottanti.md` (round 1) è pronto.
-**Resta la propagazione**: applicare il runbook nei quattro adottanti via il loro
-`method-review` (ricognizione fatta per `nixos` e `bi`; `economia` e `salute` non
-sono su questo host), poi rimuovere la prescrizione esaurita e chiudere #1. La
-**presentazione (#2)** viene dopo (il rename deck→view propaga a costo quasi
-nullo); la **home (#3)** dopo presentazione, e consuma la mappa-sorgente del gate.
+Sul fronte implementativo: il **disaccoppiamento è chiuso** (2026-06-21). Il
+principio «dichiara e taci» è inciso in `method-development` (il confine
+canone↔adottante: dipendenza generale / intenzionale / accidentale); la sezione
+README canonica è formalizzata in `kb/readme.md` (heading fissi `## Metodo` ·
+`### Goal` · `### World`, World esplicito mai euristico) ed esposta da tutti e
+cinque i README. Il round 1 della propagazione è **recepito dai quattro
+adottanti** via il loro `method-review` (`nixos`, `bi`, poi `salute` in `dcb08dc`
+e `economia` in `22e22ca`); la prescrizione esaurita è rimossa da
+`prescriptions/`, la storia resta in Git. Restano i due task implementativi: la
+**presentazione (#1)**, ora sbloccata — il rename deck→view propaga a costo quasi
+nullo perché i riferimenti accidentali sono già ripuliti — e la **home (#2)** dopo
+presentazione, che consuma la mappa-sorgente del gate.
 
 ## Dettagli task
 
-- [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)

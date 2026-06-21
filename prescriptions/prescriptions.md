@@ -12,11 +12,10 @@ Indice della collezione `prescriptions/`: lo **stadio o3** del ciclo, l'atto ver
 
 ## Contenuti
 
-- **[disaccoppiamento-adottanti](disaccoppiamento-adottanti.md)** (attiva, 2026-06-21)
-  — round 1 della propagazione del cluster: adozione della sezione README canonica
-  e classificazione dei link al metodo (generale / intenzionale / accidentale) in
-  ogni adottante. Resta attiva finché tutti e quattro non l'hanno recepita via il
-  proprio `method-review`.
+Nessuna prescrizione attiva.
 
-L'ultima chiusa è `riequilibrio-baricentro-kb` (recepita da tutti gli adottanti il
-2026-06-21; cfr. `verdict.md`).
+L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del
+cluster: adozione della sezione README canonica e classificazione dei link al
+metodo in generale / intenzionale / accidentale; recepita dai quattro adottanti via
+il proprio `method-review` il 2026-06-21, cfr. `verdict.md`). La storia resta in
+Git.
