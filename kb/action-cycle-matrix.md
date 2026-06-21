@@ -55,7 +55,7 @@ I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`ne
 - **Specify · o2 — S**: `tasks/` dà la specifica concreta dei task elencati in `plan`, pronta a essere affinata e poi eseguita — o corretta quando gli obiettivi interni e le relazioni con gli altri task vengono definiti meglio.
 - **Perform · o3 — S**: il commit / l'edit ai nodi `kb/` è l'atto versionato sull'artefatto; è l'atto più reale del ciclo e modifica il Mondo-dev da cui passa la cucitura, ma non coincide con la macchina che il runtime esegue.
 - **Perceive · i1 — S**: `tools/kb_tools.py` via `/kb-review` cattura il segnale sull'artefatto — link rotti, orfani, copertura del catalogo, audit «45 nodi, 0 link rotti» — valenza-neutro.
-- **Interpret · i2 — vuoto**: il ciclo di sviluppo non ha oggi un'interpretazione propria viva. Il deck `interpretations/`, finora letto come i2-dev-macro, è **riassegnato all'i2-runtime** (è la vetrina rivolta agli adottanti, non l'auto-interpretazione dello sviluppo); la sua ri-canonizzazione è una conseguenza del gate. Lo sviluppo si auto-interpreta semmai quando un segnale risale, ma non ha un i2-dev vivo allo stato.
+- **Interpret · i2 — D**: il deck `interpretations/metodo-in-sintesi.md` è l'auto-interpretazione dello sviluppo — la sintesi illustrata del metodo, dei nodi e dell'architettura dell'artefatto: **i2-dev** (e o2-dev quando lo si usa come vista di decisione sul metodo). La rilettura a freddo del gate ha **ribaltato la riassegnazione "a caldo" al runtime**: il deck rilegge il Mondo-dev (i nodi del metodo), non i quattro domini, quindi è dev, non runtime — e l'indice `interpretations/interpretations.md` già lo classifica così. D e non S perché la sua derivazione non è disciplinata (è `bozza`, e i deck driftano se non ri-generati: è il presidio di `cognitive-fidelity`).
 - **Compare · i3 — S**: `verdict.md`, qualificato esplicitamente i3-sviluppo; la migrazione a stato-per-filo aggiornato in place ne è la prima istanza canonica reale.
 - **Mondo (polo) — S**: l'artefatto stesso, dichiarato Mondo di sviluppo nel README. **È anche la macchina del ciclo runtime — qui passa la cucitura.**
 
@@ -63,34 +63,34 @@ I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`ne
 
 - **Goal (polo) — S**: il ciclo runtime ha obiettivi costitutivi reali, distribuiti nell'artefatto più che raccolti in un goal-artefatto unico — portabilità, indipendenza dal modello, adattabilità a domini molto diversi (e quindi flessibilità), meccanismi di autocorrezione, rigore delle fonti, il pavimento teorico su cui il metodo poggia. Il polo è ben costituito ai bordi (un polo si costituisce, non si esegue); per `method` è più ricco del Goal-dev. La ripartizione fine di questi obiettivi tra Goal-runtime e Goal-dev è materia del task dedicato sulle dimensioni del Goal.
 - **Plan · o1 — vuoto (gap)**: la pianificazione **top-down** — come gli artefatti adottanti dovrebbero diventare — non esiste. A differenza degli altri vuoti non è legittimo-per-design: è l'arco che il principio «`metodo` non orchestra task sui adottanti» ha finora negato, e che il gate trova **da costruire** (l'esecuzione top-down ha pari dignità della valutazione bottom-up; la sua assenza è sovra-esposizione del dal-basso). È il vero buco del ciclo runtime.
-- **Specify · o2 — D**: il deck `interpretations/`, letto come vista-di-decisione/vetrina, è la superficie o2 del runtime — il concentrato interpretato della KB, dove il metodo si presenta. Esiste e funziona, ma gli mancano le **slide comparative sui quattro domini** e le **specifiche** (per un dominio o per tutti) che ne farebbero la fotografia senza-drift valutabile contro gli obiettivi: D, non S.
+- **Specify · o2 — D**: la superficie o2-runtime è l'**osservatorio sugli adottanti** — la vista comparativa cross-repo che orienta le decisioni sul canone. Esiste come **prima istanza** (`interpretations/baricentro-kb-adottanti.md`, che ha già orientato una decisione reale: la prescrizione baricentro), ma non è ancora una superficie stabile e mantenuta che copra i quattro domini su tutti gli archi: nascente, quindi D. (Non il deck `metodo-in-sintesi.md`, che è i2/o2-**dev**.)
 - **Perform · o3 — S**: `prescriptions/` è il canale o3 reale e canonizzato in `project-structure`; runbook reali vi sono transitati (il runbook d'atrio). Oggi senza prescrizioni attive, ma **ha già funzionato**: S per capacità reale, non per pienezza istantanea.
 - **Perceive · i1 — S**: `perceptions/` è il canale i1 reale, con un segnale catturato (`adottanti-pianificano-il-canone-in-plan.md`), valenza-neutro. Ha già funzionato: stesso metro di o3.
-- **Interpret · i2 — D**: stessa superficie del deck, letta come interpretazione (call A: il deck è i2-runtime, non i2-dev). Vocazione runtime, ma oggi interpreta i nodi del metodo (Mondo-dev), non i quattro domini (Mondo-runtime): è la **deriva** che lo tiene a D. Segnarlo S sarebbe la simmetria-compiacente che la matrice esiste per prevenire.
+- **Interpret · i2 — D**: l'interpretazione del Mondo-runtime è l'**osservatorio** — la rilettura comparativa dei quattro adottanti. Ha la sua **prima istanza** (`interpretations/baricentro-kb-adottanti.md`, i2-runtime: legge i cataloghi `kb/` dei domini, non i nodi del metodo) più i ledger `method-review` come materiale grezzo. D perché è una sola lettura, non un osservatorio stabile e periodico. La call A "a caldo" (il deck è i2-runtime) è **ribaltata**: il deck interpreta il metodo, non i domini — la deriva non esisteva, era un'assegnazione sbagliata. Segnare S qui sarebbe la simmetria-compiacente che la matrice esiste per prevenire.
 - **Compare · i3 — D**: la valutazione-osservatorio — confrontare la fotografia dei quattro domini contro gli obiettivi-runtime — è inquadrata da `adopter-comparison` (la lente) e vive in parte nei thread adottanti di `verdict.md`, ma non è materializzata come verdetto-runtime a sé. Presente, sparsa.
 - **Mondo (polo) — S**: i progetti adottanti (`nixos`, `bi`, `economia`, `salute`), dichiarati Mondo runtime nel README; reali, distinti e raggiunti via symlink.
 
-Conteggio `metodo`, 16 celle: **10 S, 4 D, 2 vuoto, 0 F** (dev: 6 S, 1 D, 1 vuoto; runtime: 4 S, 3 D, 1 vuoto). Zero forzati anche dopo aver popolato l'interno runtime — ma il dato che parla è la _forma_: le quattro D segnano gli archi immaturi, e i due vuoti distinguono il quiescente-legittimo (dev-i2) dal vero gap (runtime-o1).
+Conteggio `metodo`, 16 celle: **10 S, 5 D, 1 vuoto, 0 F** (dev: 6 S, 2 D; runtime: 4 S, 3 D, 1 vuoto). Zero forzati, ma il dato che parla è la _forma_: le cinque D segnano gli archi immaturi — incluso l'**interno runtime**, che la rilettura a freddo ha ricondotto da pieno (il deck) a nascente (l'osservatorio, una sola istanza); l'unico vuoto è il **vero gap** runtime-o1 (il protocollo top-down). Il deck è tornato a i2-dev (D), dove la disciplina di derivazione è il limite.
 
 ### I due cicli, la cucitura e le asimmetrie reali
 
-Il riempimento rivede la prima lettura. Il ciclo runtime di `metodo` non è una membrana ricucita su un interno vuoto: è **un ciclo genuino con entrambi gli archi**, parte dei quali immaturi. Due letture corrette in corso d'opera, da ratificare (cfr. «Verdetto-gate»):
+Il riempimento, **riletto a freddo**, rivede sia la prima lettura sia il ribaltamento "a caldo". Il ciclo runtime di `metodo` è un ciclo genuino con entrambi gli archi, ma il suo **interno è nascente**, non pieno. Le due letture:
 
-- il **deck** (`interpretations/`) non è i2 del ciclo di sviluppo ma **i2/o2 del runtime** (call A): è la vetrina rivolta agli adottanti. Oggi però interpreta i nodi del metodo (Mondo-dev), non i quattro domini (Mondo-runtime): la deriva che lo tiene a D.
-- l'**arco top-down del runtime** (o1) è il vero buco — non un vuoto-per-design ma un vuoto-gap, negato finora dal principio «`metodo` non orchestra task sui adottanti», che il gate trova **da rivedere** (call B). L'esecuzione top-down ha pari dignità della valutazione bottom-up.
+- **Call A — ribaltata.** Il deck (`interpretations/metodo-in-sintesi.md`) non è i2/o2 del runtime: è **i2/o2-dev**, la sintesi che rilegge il Mondo-dev (i nodi del metodo). L'assegnazione al runtime era la cella che la simmetria aveva fabbricato; l'indice `interpretations/interpretations.md`, contro lo stato reale, già lo classifica i2-dev. Il vero i2/o2-runtime è l'**osservatorio sugli adottanti** (`interpretations/baricentro-kb-adottanti.md`, prima istanza), genuinamente nascente: D non perché in deriva, ma perché è una sola lettura, non una superficie stabile.
+- **Call B — confermata.** L'**arco top-down del runtime** (o1) è il vero buco — non un vuoto-per-design ma un vuoto-gap, negato finora dal principio «`metodo` non orchestra task sui adottanti». L'arco è ora **scoccato end-to-end una volta** (prescrizione baricentro → `method-review` degli adottanti → recepimento), prova che è percorribile; ma il **protocollo** o1-runtime — l'audit periodico, non il micromanagement delle code — resta da costruire. Quindi o1 resta vuoto-gap.
 
-Resta vera la **cucitura di output** (la canonica di `nested-cycles`): il Mondo-dev — l'artefatto — _è_ la macchina del runtime. Ciò che lo sviluppo costruisce è esattamente ciò che gli adottanti eseguono via symlink; l'o3-runtime (`prescriptions/`) propaga le modifiche a quella macchina. Ma non è più l'unico legame: i due cicli condividono il polo Goal (obiettivi in larga parte runtime) e si parlano in entrambi i versi, non solo dal-basso.
+Resta vera la **cucitura di output** (la canonica di `nested-cycles`): il Mondo-dev — l'artefatto — _è_ la macchina del runtime. Ciò che lo sviluppo costruisce è esattamente ciò che gli adottanti eseguono via symlink; l'o3-runtime (`prescriptions/`) propaga le modifiche a quella macchina. Ma non è l'unico legame: i due cicli condividono il polo Goal (obiettivi in larga parte runtime) e si parlano in entrambi i versi.
 
-Le asimmetrie sono dunque reali, non simmetria assunta: **dev-i2 vuoto** (lo sviluppo non si auto-interpreta dal vivo) contro **runtime-i2 presente ma deriva** (il deck); e soprattutto **runtime-o1 il buco** (l'arco top-down mai costruito perché negato dal canone).
+Le asimmetrie reali, a freddo: **dev-i2 è il deck** (presente ma a derivazione non disciplinata, D), mentre **l'i2/o2-runtime è l'osservatorio nascente** (una istanza, D); e soprattutto **runtime-o1 il buco** — l'arco top-down con la macchina d'osservazione ancora da costruire.
 
 ### Verdetto-gate
 
-L'annidamento a 16 celle **regge per `metodo`, e più di quanto la prima lettura dicesse**: non una cucitura su mezzo ciclo, ma **due cicli genuini**, entrambi sostanzialmente popolati (10 S, 4 D, 2 vuoto, 0 F).
+L'annidamento a 16 celle **regge per `metodo`** — questo è fermo, e ratificato a freddo: non una cucitura su mezzo ciclo, ma **due cicli genuini** (10 S, 5 D, 1 vuoto, 0 F). Ma il verdetto sano **non è «due cicli pieni»**: è **«due cicli genuini, con l'interno runtime nascente/da costruire»**. La prima stesura sottostimava il runtime (membrana su interno vuoto); il ribaltamento "a caldo" lo sovrastimava (interno pieno via deck); la rilettura a freddo lo coglie per quello che è: archi reali, interno immaturo.
 
-- **Regge la struttura**: zero celle forzate; entrambi i cicli hanno poli costituiti, membrana fisica (o3/i1 runtime) e — corretta la lettura — anche interno (il deck come o2/i2-runtime, la valutazione-osservatorio come i3-runtime).
-- **Le asimmetrie sono reali, non simmetria assunta**: dev-i2 vuoto contro runtime-i2 in deriva; e **runtime-o1 il buco** — l'arco top-down mai costruito perché negato dal canone.
+- **Regge la struttura**: zero celle forzate; entrambi i cicli hanno poli costituiti e membrana fisica (o3/i1 runtime).
+- **L'interno runtime è nascente, non pieno**: l'i2/o2-runtime è l'osservatorio a una sola istanza (`baricentro-kb-adottanti.md`), non il deck (che è i2-dev); l'i3-runtime è sparso; e **runtime-o1 è il buco** — l'arco top-down scoccato una volta ma senza protocollo d'audit.
 
-**Conseguenza per la presentazione.** Ribaltata rispetto alla prima stesura: una rappresentazione a **due cicli** è ora _giustificata_ — l'errore non era pensarli due, era darlo per scontato prima del gate. La home mostra due cicli, con **runtime-o1 muted** (il gap dichiarato), il deck come livello behavioral (o2↔i2) del runtime, la cucitura di output al polo Mondo. Ma — caveat anti-complicità — questa pienezza poggia su due mosse di canone (riassegnare il deck al runtime, rivedere «non orchestra»): il gate le **segnala come il lavoro**, non le dà per fatte. Vanno ratificate in una passata deliberata prima che la presentazione le incida.
+**Conseguenza per la presentazione.** Una rappresentazione a **due cicli** è _giustificata_ (l'errore non era pensarli due). Ma la home va disegnata sull'interno **nascente**: l'i2/o2-runtime è l'**osservatorio** (una istanza, da far crescere), il deck è **i2-dev** (non un livello del runtime), **runtime-o1 muted** come gap dichiarato, la cucitura di output al polo Mondo. La mossa di canone «rivedere "non orchestra"» (call B) è ora **suffragata da un arco scoccato per intero**, non più solo ipotizzata; resta da incidere nel `README` come lavoro a valle (task disaccoppiamento e dimensioni-Goal), non in questo nodo.
 
 ### Mappa-sorgente (b)
 
@@ -103,19 +103,19 @@ Ciclo di sviluppo:
 - o2-dev → `tasks/`
 - o3-dev → git commit / l'edit ai nodi `kb/`
 - i1-dev → `tools/kb_tools.py` (`/kb-review`: audit, backlink, copertura)
-- i2-dev → ∅ vivo (il deck è riassegnato all'i2-runtime; lo sviluppo non si auto-interpreta dal vivo)
+- i2-dev → `interpretations/metodo-in-sintesi.md` (il deck: sintesi del metodo; o2-dev quando è vista di decisione)
 - i3-dev → `verdict.md`
 - Mondo-dev → l'artefatto stesso — **= macchina del runtime (cucitura)**
 
 Ciclo runtime:
 
 - Goal-runtime → `README.md` (obiettivi distribuiti: portabilità, indipendenza dal modello, adattabilità, autocorrezione, rigore fonti, pavimento teorico)
-- o1-runtime → ∅ oggi — il **gap top-down** da costruire (cfr. revisione di «non orchestra»)
-- o2-runtime → `interpretations/` (deck come vetrina/decisione; manca la comparativa 4-domini e le specifiche)
+- o1-runtime → ∅ oggi — il **gap top-down** (protocollo d'audit periodico da costruire; l'arco è scoccato una volta via prescrizione, ma senza macchina d'osservazione)
+- o2-runtime → `interpretations/baricentro-kb-adottanti.md` (osservatorio come vista-di-decisione; prima istanza, da estendere ai 4 domini)
 - o3-runtime → `prescriptions/` (runbook di propagazione)
 - i1-runtime → `perceptions/` (segnale metodologico dell'adottante)
-- i2-runtime → `interpretations/` (deck come interpretazione; oggi in deriva su Mondo-dev)
-- i3-runtime → `adopter-comparison` (lente) + thread adottanti in `verdict.md` (non materializzato a sé)
+- i2-runtime → `interpretations/baricentro-kb-adottanti.md` (osservatorio: rilegge i cataloghi dei 4 domini; prima istanza nascente)
+- i3-runtime → `adopter-comparison` (lente) + thread adottanti in `verdict.md` + ledger `method-review` (non materializzato a sé)
 - Mondo-runtime → progetti adottanti: `../nixos`, `../bi`, `../economia`, `../salute`
 
 ## Protocollo di riempimento

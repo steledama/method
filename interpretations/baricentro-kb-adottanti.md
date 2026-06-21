@@ -18,9 +18,10 @@ ciclo, e ogni repo ha un **baricentro** diverso.
 
 Per natura è **i2-runtime**, non i2-dev: il suo Mondo sono i quattro adottanti,
 non i nodi del metodo. È la prima istanza concreta dell'osservatorio cross-repo
-che la rilettura a freddo del gate cicli annidati segna come mancante
-(cfr. `tasks/cicli-annidati-verifica.md`, «il vero runtime di `method` è
-l'osservatorio sugli adottanti»). Resta `bozza`: la classificazione è fatta dai
+che la rilettura a freddo del gate cicli annidati ha riconosciuto come il vero
+i2/o2-runtime di `method` (cfr. [action-cycle-matrix](../kb/action-cycle-matrix.md),
+celle runtime e «cucitura e asimmetrie»: «il vero runtime di `method` è
+l'osservatorio sugli adottanti», non il deck). Resta `bozza`: la classificazione è fatta dai
 cataloghi più un campione verificato per repo, non nodo per nodo. Il luogo della
 verifica piena è la prima slide di ciascun artefatto (cfr.
 [action-cycle-matrix](../kb/action-cycle-matrix.md), «Protocollo di

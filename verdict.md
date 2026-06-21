@@ -271,35 +271,29 @@ Conseguenze decise:
       1° disaccoppiamento + README canonico, 2° rename `deck→view`. Nota dev/runtime:
       per `method` i poli World sono **due** (sviluppo = `kb/`, runtime = adottanti);
       lo schema README canonico potrà doverlo riflettere, ed è il gate sotto a deciderlo.
-  - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate eseguito; apre
-    chirurgia di canone)**: matrice riempita in dogfooding sulla sola colonna
-    `method` (16 celle: 10 S, 4 D, 2 vuoto, 0 F); gli adottanti restano al loro
-    protocollo. **Esito (a), ribaltato in revisione collaborativa**: l'annidamento
-    regge — e più della prima lettura — non come cucitura su mezzo ciclo ma come
-    **due cicli genuini**, entrambi sostanzialmente popolati, zero forzati. La prima
-    stesura («membrana runtime popolata, interno vuoto che collassa nel dev») era un
-    **sotto-conteggio**: nasceva dal contare il deck come dev-only e dal negare l'arco
-    top-down. Corretto su due punti, decisi con l'autore: **(A)** il deck
-    `interpretations/` è **i2/o2-runtime**, non i2-dev — è la vetrina rivolta agli
-    adottanti (oggi in deriva: interpreta i nodi del metodo, non i 4 domini → D);
-    **(B)** l'arco **top-down del runtime** (o1 = come gli artefatti adottanti devono
-    diventare) è il **vero buco**, negato dal principio README «`metodo` non orchestra
-    task sui adottanti» — che il gate trova **da rivedere**: l'esecuzione top-down ha
-    pari dignità della valutazione bottom-up, e la sua assenza è la sovra-esposizione
-    del dal-basso. Asimmetrie reali (non simmetria assunta): dev-i2 vuoto vs runtime-i2
-    in deriva; runtime-o1 il gap. **Esito (b)**: mappa-sorgente dei 16 prodotta.
-    **Ricaduta sul cluster, ribaltata**: una rappresentazione a **due cicli** è ora
-    _giustificata_ (l'errore era darla per scontata _prima_ del gate), con runtime-o1
-    **muted** (il gap dichiarato), il deck come livello behavioral (o2↔i2) del runtime
-    e la cucitura al polo Mondo-dev: il Mondo di sviluppo diventa macchina del runtime,
-    mentre l'o3-sviluppo è l'atto che lo modifica. **Conseguenze di canone (sacrosante,
-    da passata deliberata, accodate a «chirurgia dei giganti» per toccare gli hub una
-    volta sola)**: riassegnare `interpretations/` da i2-dev a i2/o2-runtime (tocca
-    README, `interpretations.md`, `action-cycle` §«il deck come cerniera», `processing-layers`,
-    `project-structure`, `output`); rivedere «non orchestra» nel README ammettendo il
-    movimento top-down; dare a `method-development` l'arco top-down runtime. Da non
-    riscrivere a caldo (`cognitive-fidelity`). La presentazione (sotto) **non incide
-    finché non sono ratificate**.
+  - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate CHIUSO, ratificato
+    a freddo 2026-06-21)**: matrice riempita in dogfooding sulla sola colonna `method`
+    (16 celle: **10 S, 5 D, 1 vuoto, 0 F**); gli adottanti restano al loro protocollo.
+    **Esito (a)**: l'annidamento **regge** — due cicli genuini, zero forzati, cucitura
+    Mondo-dev→macchina-runtime reale. Il verdetto sano, dopo la rilettura a freddo,
+    **non è «due cicli pieni» ma «due cicli genuini con l'interno runtime nascente»**:
+    la prima stesura sottostimava il runtime, il ribaltamento "a caldo" lo
+    sovrastimava. **Call A — ribaltata**: il deck `interpretations/metodo-in-sintesi.md`
+    è **i2/o2-dev** (sintesi del metodo), non runtime — l'indice `interpretations.md`
+    già lo classificava così, contro lo stato reale della matrice; il vero i2/o2-runtime
+    è l'**osservatorio** (`interpretations/baricentro-kb-adottanti.md`, prima istanza),
+    genuinamente nascente (D perché una sola lettura, non in deriva). **Call B —
+    confermata e ora suffragata**: l'arco top-down (o1-runtime) è il vero buco, ma è
+    **scoccato end-to-end una volta** (prescrizione baricentro → `method-review` →
+    recepimento di tutti gli adottanti); resta da costruire il **protocollo** d'audit
+    periodico. **Esito (b)**: mappa-sorgente dei 16 prodotta e ri-sorgentata a freddo
+    (i2-dev→deck; i2/o2-runtime→osservatorio). **Ricaduta sul cluster**: la
+    rappresentazione a **due cicli** è giustificata, ma la home va disegnata
+    sull'interno **nascente** (osservatorio come i2/o2-runtime, runtime-o1 muted, deck
+    come i2-dev). **Conseguenza di canone residua**: la riassegnazione del deck al
+    runtime è **annullata** (era l'errore a caldo); resta solo da incidere nel README la
+    revisione di «non orchestra» (call B) — lavoro a valle nel task disaccoppiamento e
+    dimensioni-Goal, non a caldo (`cognitive-fidelity`).
   - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale

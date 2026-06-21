@@ -70,24 +70,27 @@ Leontiev (per `goal`, fuori scope qui).
   sistema di schede edge-notched (§III-A-3) merita un richiamo nel nodo `zettelkasten`
   (Zettelkasten ante litteram) e nella mossa di ingest.
 
-Accodate qui dal **gate dei cicli annidati** (`verdict.md`, filo omonimo) perché
-toccano gli stessi hub — README e `action-cycle` — e vanno sfregate una volta sola:
+Accodata qui dal **gate dei cicli annidati** (chiuso e ratificato a freddo, cfr.
+`verdict.md` e `action-cycle-matrix`) perché tocca gli stessi hub — README e
+`action-cycle` — e va sfregata una volta sola:
 
-- **riassegnazione di `interpretations/` (il deck) da i2-dev-macro a i2/o2-runtime**:
-  il deck è la vetrina rivolta agli adottanti, non l'auto-interpretazione dello
-  sviluppo. Tocca `interpretations.md`, `action-cycle` §«i2 micro/macro: il deck come
-  cerniera» e «interpretations/ = i2», `processing-layers` (specchio o2↔i2, «solo
-  o2↔i2 attivo»), `project-structure`, `output`, `README`. Da decidere cosa diventa
-  l'i2-dev (oggi vuoto: lo sviluppo non si auto-interpreta dal vivo);
 - **revisione del principio README «`metodo` non orchestra task sui progetti
   adottanti»**: ammettere il **movimento top-down** (l'arco o1-runtime — pianificare
   come gli artefatti adottanti devono diventare) con pari dignità del bottom-up,
   distinguendo «pianificare il proprio output di canone e le convergenze» dal
   «micromanagement della coda interna degli adottanti» (quest'ultimo resta fuori).
-  Tocca `README`, `method-development` (il cui «dall'alto» è oggi solo theory-import
-  _dev_, non shaping degli adottanti), i thread `verdict.md` «adottanti non pianificano
-  il canone». La **costruzione** concreta dell'arco o1-runtime è lavoro a valle, non
-  canone: eventuale task separato dopo la ratifica.
+  Suffragata: l'arco top-down è ormai **scoccato end-to-end** (prescrizione
+  baricentro → `method-review` → recepimento di tutti gli adottanti). Tocca
+  `README`, `method-development` (il cui «dall'alto» è oggi solo theory-import _dev_,
+  non shaping degli adottanti), i thread `verdict.md` «adottanti non pianificano il
+  canone». La **costruzione** concreta del protocollo o1-runtime è lavoro a valle.
+
+> **Nota a freddo (gate chiuso).** La consegna gemella «riassegnare il deck
+> `interpretations/` a i2/o2-runtime» è **annullata**: la rilettura a freddo ha
+> stabilito che il deck `metodo-in-sintesi.md` è i2/o2-**dev** (sintesi del metodo),
+> e il vero i2/o2-runtime è l'osservatorio sugli adottanti
+> (`interpretations/baricentro-kb-adottanti.md`). L'indice `interpretations.md` già
+> lo riflette; non c'è nulla da riassegnare nella chirurgia.
 
 ## Relazione con gli altri fili
 
