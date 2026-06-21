@@ -12,7 +12,11 @@ Indice della collezione `prescriptions/`: lo **stadio o3** del ciclo, l'atto ver
 
 ## Contenuti
 
-Nessuna prescrizione attiva. La collezione resta vuota finché un segnale i1 valutato
-non produce un nuovo runbook di propagazione. L'ultima chiusa è
-`riequilibrio-baricentro-kb` (recepita da tutti gli adottanti il 2026-06-21; cfr.
-`verdict.md`).
+- **[disaccoppiamento-adottanti](disaccoppiamento-adottanti.md)** (attiva, 2026-06-21)
+  — round 1 della propagazione del cluster: adozione della sezione README canonica
+  e classificazione dei link al metodo (generale / intenzionale / accidentale) in
+  ogni adottante. Resta attiva finché tutti e quattro non l'hanno recepita via il
+  proprio `method-review`.
+
+L'ultima chiusa è `riequilibrio-baricentro-kb` (recepita da tutti gli adottanti il
+2026-06-21; cfr. `verdict.md`).

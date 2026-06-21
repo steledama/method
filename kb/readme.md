@@ -33,6 +33,22 @@ Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo
 
 Nei progetti adottanti, il README deve dichiarare il metodo condiviso come dipendenza trans-repo quando i nodi metodologici arrivano via symlink (`method/ -> ../method/kb`). Non deve indicizzare quei nodi uno per uno come se fossero conoscenza locale del dominio: il lettore deve capire cosa appartiene al metodo portabile e cosa al progetto.
 
+## La sezione README canonica
+
+C'è una porzione del README **comune ai cinque repo** — i quattro adottanti e `metodo` stesso: la sezione che dichiara l'adozione del metodo e i due poli del ciclo del dominio. È il veicolo concreto del principio «dichiara e taci» (`method-development`): l'adottante dichiara qui, una volta, la dipendenza generale dal metodo, così che altrove resti libero di collegare solo ciò da cui dipende davvero. La forma è fissa; il contenuto è del dominio.
+
+La sezione ha **heading fissi e machine-readable**, perché è anche la sorgente da cui la home (task «System image visiva») ricava i poli Goal e World senza euristiche. La struttura è:
+
+- **`## Metodo`** — la dichiarazione di adozione: una o due frasi che nominano il metodo come insieme con brevissima descrizione, il symlink `method/` in root come membrana verso i nodi canonici, e l'hub `cognitive-artifact-design.md` come unico nome di nodo assunto stabile (il punto d'aggancio per chi vuole entrare nel metodo). Niente inventari di path interni.
+- **`### Goal`** — il polo superiore del ciclo del dominio: il motivo che muove l'artefatto, in sintesi (cfr. `goal`). Per `metodo`, che ha il Goal sdoppiato dev/runtime, qui sta la forma compatta che `development-goal` articola.
+- **`### World`** — il polo inferiore: i riferimenti **espliciti** al Mondo runtime del repo (le fonti di verità, dove l'artefatto agisce e da cui legge; cfr. `world` e il register `sources.md`). Espliciti per repo, **mai derivati per euristica** dall'organizzazione del remote — che differisce tra adottanti (es. `bi` su `tt-sviluppo`, gli altri su `steledama`) e non è una guida affidabile.
+
+Tre vincoli sulla sezione:
+
+- gli heading sono **letterali e stabili**: la home li parsa per nome, quindi non vanno rinominati né tradotti per repo;
+- la sezione **dichiara, non immagazzina**: resta dentro la regola «orienta e punta» — Goal e World in sintesi, col rimando ai nodi, non il modello del dominio;
+- è il **solo luogo** della dipendenza generale: gli altri link al metodo nel README sono ammessi solo se intenzionali (semantici o operativi), come ovunque.
+
 ## Applicazione nei progetti adottanti
 
 - **`nixos`** — situazione attuale: README sintetico e molto orientativo: host, principi, task, documentazione, router "capire il progetto in 5 minuti" e catalogo completo. Confronto con il metodo: è il caso più vicino alla funzione di bussola — orienta senza diventare manuale completo e rimanda al register-territorio `map.md`.
@@ -51,4 +67,7 @@ Connessioni:
 - [claude](claude.md)
 - [project-structure](project-structure.md)
 - [kb-tools](kb-tools.md)
+- [method-development](method-development.md)
+- [goal](goal.md)
+- [world](world.md)
 - [design-principles](design-principles.md)

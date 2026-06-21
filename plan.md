@@ -43,10 +43,18 @@ permanente. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione
 (`action-cycle-matrix`); ora che le fondamenta sono posate l'implementazione torna a
 fare da prova.
 
-Sul fronte implementativo: il **disaccoppiamento (#1)** ha un nucleo indipendente
-(ripulire i link accidentali negli adottanti) e la sua sezione README canonica —
-due poli World, revisione di «non orchestra» già incisa nel README dalla chirurgia.
-La **presentazione (#2)** viene dopo (il rename deck→view propaga a costo quasi
+Sul fronte implementativo: il **disaccoppiamento (#1)** ha la sua **parte in-repo
+chiusa** (2026-06-21). Il principio «dichiara e taci» è inciso in
+`method-development` (il confine canone↔adottante: dipendenza generale /
+intenzionale / accidentale); la sezione README canonica è formalizzata in
+`kb/readme.md` (heading fissi `## Metodo` · `### Goal` · `### World`, World
+esplicito mai euristico); il README di `metodo` è ristrutturato a quella forma e
+l'onboarding non prescrive più inventari di path in `CLAUDE.md`. Il runbook di
+propagazione `prescriptions/disaccoppiamento-adottanti.md` (round 1) è pronto.
+**Resta la propagazione**: applicare il runbook nei quattro adottanti via il loro
+`method-review` (ricognizione fatta per `nixos` e `bi`; `economia` e `salute` non
+sono su questo host), poi rimuovere la prescrizione esaurita e chiudere #1. La
+**presentazione (#2)** viene dopo (il rename deck→view propaga a costo quasi
 nullo); la **home (#3)** dopo presentazione, e consuma la mappa-sorgente del gate.
 
 ## Dettagli task
