@@ -12,4 +12,7 @@ Indice della collezione `prescriptions/`: lo **stadio o3** del ciclo, l'atto ver
 
 ## Contenuti
 
-- [riequilibrio-baricentro-kb.md](riequilibrio-baricentro-kb.md) — porta un adottante a riconoscere il baricentro del contenuto della propria KB (ought/is/macchina) e a riequilibrarlo dove lo squilibrio impedisce al ciclo di generare azione. Target primo: `salute`. Fonda su `kb-content-typology` e `interpretations/baricentro-kb-adottanti.md`.
+Nessuna prescrizione attiva. La collezione resta vuota finché un segnale i1 valutato
+non produce un nuovo runbook di propagazione. L'ultima chiusa è
+`riequilibrio-baricentro-kb` (recepita da tutti gli adottanti il 2026-06-21; cfr.
+`verdict.md`).

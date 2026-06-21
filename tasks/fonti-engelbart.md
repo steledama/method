@@ -50,9 +50,11 @@ Karpathy di sessant'anni.
 ## Lavoro residuo: chirurgia dei nodi (i3)
 
 Da fare come passo deliberato, non a caldo (hub ad alto rischio). È la **revisione
-coordinata dei nodi fondativi**: incorpora gli i2 già pronti di Clark
-(`tasks/fonti-mente-estesa.md`) e Norman/TTMUS (`tasks/fonti-norman-ttmus.md`), così
-gli stessi hub si toccano una volta sola. Il **pavimento ontologico è ora interamente
+coordinata dei nodi fondativi**: incorpora gli i2 già pronti di Clark e
+Norman/TTMUS (distillati in `verdict.md`, fili «I giganti ristrutturati» e
+«Maturazione dei nodi fondativi»; i task di ingest erano `fonti-mente-estesa` e
+`fonti-norman-ttmus`, chiusi una volta consolidato qui l'i3), così gli stessi hub
+si toccano una volta sola. Il **pavimento ontologico è ora interamente
 sourced** (Hutchins + Clark + la DC di Norman); nessun debito di fonte residuo salvo
 Leontiev (per `goal`, fuori scope qui).
 
@@ -90,8 +92,9 @@ toccano gli stessi hub — README e `action-cycle` — e vanno sfregate una volt
 ## Relazione con gli altri fili
 
 Il pavimento _ontologico_ della stessa gamba — perché un artefatto esterno conti
-come cognizione — è di Hutchins/Clark (cfr. `tasks/fonti-mente-estesa.md`), non di
-Karpathy: Karpathy era sovraccaricato di un peso teorico altrui. Engelbart dà il
+come cognizione — è di Hutchins/Clark (cfr. `verdict.md`, filo «I giganti
+ristrutturati»), non di Karpathy: Karpathy era sovraccaricato di un peso teorico
+altrui. Engelbart dà il
 _perché un sistema aumentato co-evolve_; Hutchins/Clark il _perché è genuinamente
 cognizione_; Karpathy il _come si tiene aggiornato_ oggi. I due task di fonte si
 illuminano a vicenda e vanno tenuti coerenti nella revisione dei nodi fondativi.

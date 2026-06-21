@@ -80,8 +80,8 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.) — quest'ultimo è l'i1
   scelto. Copia legale ma sotto copyright Oxford/Wiley e persistente: solo provenienza
   qui, niente cattura in `perceptions/` (come i libri di Norman). Distillazione i2/i3 da
-  fare e destinazione da decidere dopo la lettura (cfr. `tasks/fonti-mente-estesa.md`); il
-  nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
+  fare nella chirurgia coordinata dei nodi (`tasks/fonti-engelbart.md`; i2 in
+  `verdict.md`, filo «I giganti ristrutturati»); il nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
   paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
 - **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A Bradford
   Book / The MIT Press, **1997** (second printing 1997), ISBN 0-262-03240-6, LCCN 96-11817.
@@ -152,7 +152,7 @@ Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
 **distillazione** (non di fonte), tracciati altrove:
 
 - _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 distillati
-  (i2, cfr. `tasks/fonti-norman-ttmus.md`), l'i3 nella revisione coordinata dei nodi. Cap. 3 già
-  in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
+  (i2 in `verdict.md`, filo «Maturazione dei nodi fondativi»), l'i3 nella revisione coordinata
+  dei nodi (`tasks/fonti-engelbart.md`). Cap. 3 già in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
 - _Activity, Consciousness, and Personality_ (Leont'ev 1978) — §3.5 sorzata in `kb/goal.md`;
   resta solo l'eventuale distillazione ulteriore se nascerà da uso reale del nodo.

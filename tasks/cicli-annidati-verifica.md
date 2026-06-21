@@ -27,8 +27,8 @@ revisione: 2026-06-19
 > cross-repo del baricentro-contenuto dei quattro adottanti (i2-runtime). Conferma
 > che il vero i2-runtime non è la sintesi interna del metodo ma l'analisi stabile
 > sugli adottanti. **Call B (l'arco top-down)**: è **scoccato per la prima volta**,
-> nella forma canonica — una **prescription** (`prescriptions/riequilibrio-baricentro-kb.md`,
-> prima istanza o3-runtime attiva): `method` prescrive le linee guida, il
+> nella forma canonica — una **prescription** (`riequilibrio-baricentro-kb`,
+> prima istanza o3-runtime, poi recepita e chiusa): `method` prescrive le linee guida, il
 > `method-review` dell'adottante compie l'atto sul proprio stato reale. Conferma la
 > distinzione della rilettura: l'o1-runtime resta osservazione periodica, non
 > micromanagement delle code; l'azione top-down passa per l'o3-runtime (la

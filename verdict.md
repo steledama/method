@@ -370,7 +370,7 @@ affamati; l'**aneurisma** dell'aorta ascendente è il caso più netto di segnale
 **catturato (i1) ma mai interpretato (i2)** — vive come riga nella cronologia di
 `storia-clinica`, senza un nodo, mentre la `sindrome-vasovagale` (allerta meno acuta)
 ha un nodo completo. La diagnosi non si è fermata all'osservazione: ha prodotto una
-**prescription** (o3-runtime), `prescriptions/riequilibrio-baricentro-kb.md` — la forma
+**prescription** (o3-runtime), `riequilibrio-baricentro-kb` (poi chiusa, vedi sotto) — la forma
 canonica con cui `method` agisce sul proprio Mondo runtime. Prescrive le linee guida nel
 proprio lessico (classifica il catalogo per polo; riordina il `plan` mettendo prima is e
 azione; parcheggia, non cancella, l'ought sovrappeso; promuovi a nodo i segnali catturati
@@ -400,11 +400,14 @@ chiude per intero** lungo il canale canonico — i2→i3→o3→adottante→i1 �
 prima chiusura completa dell'arco top-down, evidenza forte per il gate (task 1). Il nodo
 `kb-content-typology` ha **retto contro lo stato reale**: validazione **parziale**,
 perché `salute` è plasmato dal metodo — il test esterno vero resta un repo nato senza.
-La prescrizione **resta attiva** finché `nixos`/`bi`/`economia` non si auto-valutano al
-proprio `method-review` (un «non applicabile» è anch'esso recepimento). Raffinatura
-emersa dal basso, foldata nel nodo: il polo macchina è legittimamente assente quando la
-macchina dell'artefatto è il `method` condiviso, gemella simmetrica dell'esenzione-ought
-di `nixos`.
+La prescrizione è ora **recepita da tutti** e **chiusa** (2026-06-21, rimossa da
+`prescriptions/`): `salute` l'ha eseguita, `economia`/`nixos`/`bi` l'hanno valutata
+«non applicabile» al proprio `method-review` (baricentro già bilanciato — `is`,
+`macchina/atto`, span `M↔A`) — e un «non applicabile» è anch'esso recepimento. Il
+concetto resta nel nodo `kb-content-typology`; la ricetta riapparirà come o3 solo se
+un nuovo adottante mostrerà uno squilibrio. Raffinatura emersa dal basso, foldata nel
+nodo: il polo macchina è legittimamente assente quando la macchina dell'artefatto è il
+`method` condiviso, gemella simmetrica dell'esenzione-ought di `nixos`.
 
 ---
 
