@@ -52,7 +52,11 @@ codice, commit, task, goal — non è debug ma attraversamento di questa sutura.
 ## Due Mondi, due poli
 
 Poiché i due cicli hanno Mondi distinti, hanno poli distinti: non un Goal e un
-Mondo soli, ma una coppia per ciclo. Per un artefatto come `method`, il cui
+Mondo soli, ma una coppia per ciclo. Il Goal del ciclo di sviluppo non è solo
+contenuto di dominio: tiene la posizione auspicata dell'artefatto lungo dimensioni
+comuni a tutti gli artefatti — attrito, autonomia, temporalità — e poiché il
+Mondo-dev è la macchina del runtime, quelle dimensioni sono desiderata sulla forma
+del runtime (cfr. `development-goal`). Per un artefatto come `method`, il cui
 dominio è il metodo stesso, i due Mondi sono leggibili a colpo d'occhio nelle
 collezioni dell'atrio. Il ciclo di sviluppo abita i file-ciclo e le collezioni
 interne — il piano, i task, il verdetto, le interpretazioni — perché il suo
@@ -81,6 +85,7 @@ Connessioni:
 - [augmentation-system](augmentation-system.md)
 - [world](world.md)
 - [goal](goal.md)
+- [development-goal](development-goal.md)
 - [perform](perform.md)
 - [perceive](perceive.md)
 - [cognitive-fidelity](cognitive-fidelity.md)

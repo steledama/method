@@ -220,7 +220,8 @@ Conseguenze decise:
       lo schema README canonico potrà doverlo riflettere, ed è il gate sotto a deciderlo.
   - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate CHIUSO, ratificato
     a freddo 2026-06-21)**: matrice riempita in dogfooding sulla sola colonna `method`
-    (16 celle: **10 S, 5 D, 1 vuoto, 0 F**); gli adottanti restano al loro protocollo.
+    (16 celle: **11 S, 4 D, 1 vuoto, 0 F** dopo che il Goal-dev è risalito da D a S,
+    articolato nel nodo `development-goal`); gli adottanti restano al loro protocollo.
     **Esito (a)**: l'annidamento **regge** — due cicli genuini, zero forzati, cucitura
     Mondo-dev→macchina-runtime reale. Il verdetto sano, dopo la rilettura a freddo,
     **non è «due cicli pieni» ma «due cicli genuini con l'interno runtime nascente»**:

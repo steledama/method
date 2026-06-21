@@ -118,7 +118,10 @@ runtime: l'artefatto versionato è ciò che poi opera nel runtime. È il senso i
 _estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo come scatola
 nera, il metodo la apre. La trattazione piena — i due Mondi e i due poli, la
 cucitura contro l'affiancamento, la ricaduta sull'atrio, l'estensione agli
-adottanti — vive nel nodo dedicato `nested-cycles`.
+adottanti — vive nel nodo dedicato `nested-cycles`. Anche il Goal si sdoppia: il
+Goal del ciclo di sviluppo ha dimensioni proprie — la posizione auspicata
+dell'artefatto lungo attrito, autonomia e temporalità — articolate in
+`development-goal`.
 
 ## Le quattro dimensioni di un elemento del metodo
 
@@ -172,6 +175,7 @@ Connessioni:
 - [perform](perform.md)
 - [compare](compare.md)
 - [goal](goal.md)
+- [development-goal](development-goal.md)
 - [world](world.md)
 - [nested-cycles](nested-cycles.md)
 - [action-cycle-matrix](action-cycle-matrix.md)

@@ -50,7 +50,7 @@ I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`ne
 
 ### Ciclo di sviluppo (Mondo = l'artefatto stesso)
 
-- **Goal (polo) — D**: il polo esiste — `README` è la bussola — ma il suo contenuto _dev-specifico_ è sotto-articolato e mescolato col goal runtime. Ciò che il README dichiara (portabilità, osservatorio) sono in parte proprietà-bersaglio del runtime; la posizione auspicata dello sviluppo lungo le sue dimensioni proprie (attrito/golfi, autonomia dell'umano, temporalità del loop) non è formulata da nessuna parte. Vedi il task dedicato sulla generalizzazione di questo polo.
+- **Goal (polo) — S**: il polo è ora articolato. Il contenuto _dev-specifico_ — la posizione auspicata dello sviluppo lungo dimensioni comuni a tutti gli artefatti (attrito/golfi, autonomia dell'umano, temporalità del loop) — è formulato in `development-goal`, che scioglie lo split provvisorio col Goal runtime (al runtime gli obiettivi costitutivi del dominio, al dev la forma auspicata del ciclo). Da D a S: il polo è ben formato e riconoscibile, non più mescolato; resta `bozza` come il resto, perché le dimensioni sono candidate finché un repo esterno non le mette alla prova.
 - **Plan · o1 — S**: `plan.md`, qualificato esplicitamente o1-sviluppo: task aperti, prioritizzati, con dipendenze, in forma-macchina vicino alla KB.
 - **Specify · o2 — S**: `tasks/` dà la specifica concreta dei task elencati in `plan`, pronta a essere affinata e poi eseguita — o corretta quando gli obiettivi interni e le relazioni con gli altri task vengono definiti meglio.
 - **Perform · o3 — S**: il commit / l'edit ai nodi `kb/` è l'atto versionato sull'artefatto; è l'atto più reale del ciclo e modifica il Mondo-dev da cui passa la cucitura, ma non coincide con la macchina che il runtime esegue.
@@ -61,7 +61,7 @@ I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`ne
 
 ### Ciclo runtime (Mondo = i progetti adottanti)
 
-- **Goal (polo) — S**: il ciclo runtime ha obiettivi costitutivi reali, distribuiti nell'artefatto più che raccolti in un goal-artefatto unico — portabilità, indipendenza dal modello, adattabilità a domini molto diversi (e quindi flessibilità), meccanismi di autocorrezione, rigore delle fonti, il pavimento teorico su cui il metodo poggia. Il polo è ben costituito ai bordi (un polo si costituisce, non si esegue); per `method` è più ricco del Goal-dev. La ripartizione fine di questi obiettivi tra Goal-runtime e Goal-dev è materia del task dedicato sulle dimensioni del Goal.
+- **Goal (polo) — S**: il ciclo runtime ha obiettivi costitutivi reali, distribuiti nell'artefatto più che raccolti in un goal-artefatto unico — portabilità, indipendenza dal modello, adattabilità a domini molto diversi (e quindi flessibilità), meccanismi di autocorrezione, rigore delle fonti, il pavimento teorico su cui il metodo poggia. Il polo è ben costituito ai bordi (un polo si costituisce, non si esegue); per `method` è più ricco del Goal-dev. La ripartizione tra Goal-runtime e Goal-dev è ora sciolta in `development-goal`: al runtime gli obiettivi costitutivi del dominio (questi), al dev la posizione auspicata lungo le dimensioni comuni.
 - **Plan · o1 — vuoto (gap)**: la pianificazione **top-down** — come gli artefatti adottanti dovrebbero diventare — non esiste. A differenza degli altri vuoti non è legittimo-per-design: è l'arco che il principio «`metodo` non orchestra task sui adottanti» ha finora negato, e che il gate trova **da costruire** (l'esecuzione top-down ha pari dignità della valutazione bottom-up; la sua assenza è sovra-esposizione del dal-basso). È il vero buco del ciclo runtime.
 - **Specify · o2 — D**: la superficie o2-runtime è l'**osservatorio sugli adottanti** — la vista comparativa cross-repo che orienta le decisioni sul canone. Esiste come **prima istanza** (`interpretations/baricentro-kb-adottanti.md`, che ha già orientato una decisione reale: la prescrizione baricentro), ma non è ancora una superficie stabile e mantenuta che copra i quattro domini su tutti gli archi: nascente, quindi D. (Non il deck `metodo-in-sintesi.md`, che è i2/o2-**dev**.)
 - **Perform · o3 — S**: `prescriptions/` è il canale o3 reale e canonizzato in `project-structure`; runbook reali vi sono transitati (il runbook d'atrio). Oggi senza prescrizioni attive, ma **ha già funzionato**: S per capacità reale, non per pienezza istantanea.
@@ -70,7 +70,7 @@ I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`ne
 - **Compare · i3 — D**: la valutazione-osservatorio — confrontare la fotografia dei quattro domini contro gli obiettivi-runtime — è inquadrata da `adopter-comparison` (la lente) e vive in parte nei thread adottanti di `verdict.md`, ma non è materializzata come verdetto-runtime a sé. Presente, sparsa.
 - **Mondo (polo) — S**: i progetti adottanti (`nixos`, `bi`, `economia`, `salute`), dichiarati Mondo runtime nel README; reali, distinti e raggiunti via symlink.
 
-Conteggio `metodo`, 16 celle: **10 S, 5 D, 1 vuoto, 0 F** (dev: 6 S, 2 D; runtime: 4 S, 3 D, 1 vuoto). Zero forzati, ma il dato che parla è la _forma_: le cinque D segnano gli archi immaturi — incluso l'**interno runtime**, che la rilettura a freddo ha ricondotto da pieno (il deck) a nascente (l'osservatorio, una sola istanza); l'unico vuoto è il **vero gap** runtime-o1 (il protocollo top-down). Il deck è tornato a i2-dev (D), dove la disciplina di derivazione è il limite.
+Conteggio `metodo`, 16 celle: **11 S, 4 D, 1 vuoto, 0 F** (dev: 7 S, 1 D; runtime: 4 S, 3 D, 1 vuoto). Zero forzati, ma il dato che parla è la _forma_: le quattro D segnano gli archi immaturi — incluso l'**interno runtime**, che la rilettura a freddo ha ricondotto da pieno (il deck) a nascente (l'osservatorio, una sola istanza); l'unico vuoto è il **vero gap** runtime-o1 (il protocollo top-down). Il Goal-dev è risalito da D a S una volta articolato in `development-goal`; resta D nel dev solo il deck (i2-dev), dove la disciplina di derivazione è il limite.
 
 ### I due cicli, la cucitura e le asimmetrie reali
 
@@ -85,12 +85,12 @@ Le asimmetrie reali, a freddo: **dev-i2 è il deck** (presente ma a derivazione 
 
 ### Verdetto-gate
 
-L'annidamento a 16 celle **regge per `metodo`** — questo è fermo, e ratificato a freddo: non una cucitura su mezzo ciclo, ma **due cicli genuini** (10 S, 5 D, 1 vuoto, 0 F). Ma il verdetto sano **non è «due cicli pieni»**: è **«due cicli genuini, con l'interno runtime nascente/da costruire»**. La prima stesura sottostimava il runtime (membrana su interno vuoto); il ribaltamento "a caldo" lo sovrastimava (interno pieno via deck); la rilettura a freddo lo coglie per quello che è: archi reali, interno immaturo.
+L'annidamento a 16 celle **regge per `metodo`** — questo è fermo, e ratificato a freddo: non una cucitura su mezzo ciclo, ma **due cicli genuini** (11 S, 4 D, 1 vuoto, 0 F). Ma il verdetto sano **non è «due cicli pieni»**: è **«due cicli genuini, con l'interno runtime nascente/da costruire»**. La prima stesura sottostimava il runtime (membrana su interno vuoto); il ribaltamento "a caldo" lo sovrastimava (interno pieno via deck); la rilettura a freddo lo coglie per quello che è: archi reali, interno immaturo.
 
 - **Regge la struttura**: zero celle forzate; entrambi i cicli hanno poli costituiti e membrana fisica (o3/i1 runtime).
 - **L'interno runtime è nascente, non pieno**: l'i2/o2-runtime è l'osservatorio a una sola istanza (`baricentro-kb-adottanti.md`), non il deck (che è i2-dev); l'i3-runtime è sparso; e **runtime-o1 è il buco** — l'arco top-down scoccato una volta ma senza protocollo d'audit.
 
-**Conseguenza per la presentazione.** Una rappresentazione a **due cicli** è _giustificata_ (l'errore non era pensarli due). Ma la home va disegnata sull'interno **nascente**: l'i2/o2-runtime è l'**osservatorio** (una istanza, da far crescere), il deck è **i2-dev** (non un livello del runtime), **runtime-o1 muted** come gap dichiarato, la cucitura di output al polo Mondo. La mossa di canone «rivedere "non orchestra"» (call B) è ora **suffragata da un arco scoccato per intero**, non più solo ipotizzata; resta da incidere nel `README` come lavoro a valle (task disaccoppiamento e dimensioni-Goal), non in questo nodo.
+**Conseguenza per la presentazione.** Una rappresentazione a **due cicli** è _giustificata_ (l'errore non era pensarli due). Ma la home va disegnata sull'interno **nascente**: l'i2/o2-runtime è l'**osservatorio** (una istanza, da far crescere), il deck è **i2-dev** (non un livello del runtime), **runtime-o1 muted** come gap dichiarato, la cucitura di output al polo Mondo. La mossa di canone «rivedere "non orchestra"» (call B), suffragata da un arco scoccato per intero, è ora **incisa nel `README`** (e in `cognitive-artifact-design`, `method-development`) dalla chirurgia dei giganti: il top-down runtime ha pari dignità del bottom-up, distinto dal micromanagement della coda adottante.
 
 ### Mappa-sorgente (b)
 
@@ -98,7 +98,7 @@ Prodotta perché (a) regge. Per ciascuno dei 16 elementi, la sua casa nell'atrio
 
 Ciclo di sviluppo:
 
-- Goal-dev → `README.md`
+- Goal-dev → `README.md` (bussola) + `development-goal` (posizione auspicata lungo le dimensioni comuni)
 - o1-dev → `plan.md`
 - o2-dev → `tasks/`
 - o3-dev → git commit / l'edit ai nodi `kb/`
@@ -127,6 +127,7 @@ Connessioni:
 - [action-cycle](action-cycle.md)
 - [world](world.md)
 - [goal](goal.md)
+- [development-goal](development-goal.md)
 - [output](output.md)
 - [system-image](system-image.md)
 - [adopter-comparison](adopter-comparison.md)

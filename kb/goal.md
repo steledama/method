@@ -19,6 +19,8 @@ In Norman il goal è l'apice del ciclo di azione: il punto da cui parte l'esecuz
 
 Rinominare `tasks/`→`goals/` sarebbe sbagliato: mescolarebbe altitudini e descriverebbe il contenuto in modo falso. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
 
+Il polo Goal si sdoppia anche coi cicli annidati (`nested-cycles`): il Goal del ciclo **runtime** tiene gli obiettivi costitutivi del dominio (lo scopo per cui l'artefatto in opera esiste), il Goal del ciclo di **sviluppo** tiene la posizione auspicata dell'artefatto lungo dimensioni comuni a tutti gli artefatti — attrito, autonomia dell'umano, temporalità del loop. Quell'articolazione, e lo scioglimento dello split dev/runtime, vivono in `development-goal`; qui il Goal è trattato nella sua forma generale, comune ai due cicli.
+
 ## La KB informa il Goal, non lo genera
 
 Il Goal non viene dalla KB — nasce all'incrocio tra motivo (che viene da sopra, dalla vita, dal committente) e KB (che informa, raffina, vincola). Quando la valutazione di un ciclo produce un esito, l'i3 lo scrive nella KB; il ciclo successivo _legge_ da quella KB e forma il goal del nuovo ciclo. La KB è la memoria persistente dove il ciclo si chiude — ma non è la sorgente del motivo.
@@ -76,6 +78,8 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 Connessioni:
 
 - [action-cycle](action-cycle.md)
+- [development-goal](development-goal.md)
+- [nested-cycles](nested-cycles.md)
 - [input](input.md)
 - [world](world.md)
 - [plan](plan.md)

@@ -6,12 +6,11 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                                     | Dip. |
-| --- | -------------------------------------------------------- | ---- |
-| 1   | Goal di sviluppo: dimensioni comuni, posizione auspicata | —    |
-| 2   | Disaccoppiamento adottante↔metodo: dichiara e taci       | —    |
-| 3   | Strato di presentazione trasversale (deck→view)          | #2   |
-| 4   | System image visiva: la home dell'atrio                  | #3   |
+| #   | Task                                               | Dip. |
+| --- | -------------------------------------------------- | ---- |
+| 1   | Disaccoppiamento adottante↔metodo: dichiara e taci | —    |
+| 2   | Strato di presentazione trasversale (deck→view)    | #1   |
+| 3   | System image visiva: la home dell'atrio            | #2   |
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -32,25 +31,26 @@ pulito (48 nodi, 0 link rotti). Resta aperta solo la maturazione `bozza→maturo
 dei nodi fondativi, che attende l'uso reale (cfr. `verdict.md`, «Maturazione dei
 nodi fondativi»).
 
-L'ordine privilegia ora il **fronte fondativo** (#1) prima dell'**implementativo**
-(#2-4). Il **Goal di sviluppo (#1)** tocca l'hub `action-cycle`/`goal` e scioglie
-lo split Goal-dev/Goal-runtime lasciato provvisorio dal gate.
+Il **fronte fondativo è chiuso**: la chirurgia dei giganti e il **Goal di sviluppo**
+(nodo `development-goal`, 2026-06-21) hanno articolato il polo Goal-dev — dimensioni
+comuni e posizione auspicata — sciogliendo lo split Goal-dev/Goal-runtime lasciato
+provvisorio dal gate; la cella Goal-dev risale da D a S in `action-cycle-matrix` (ora
+11 S, 4 D, 1 vuoto). Restano i tre task **implementativi**.
 
-**Guardrail**, da non perdere: teoria-prima vale _in questa fase_, non come regola
+**Guardrail**, da non perdere: teoria-prima valeva _in quella fase_, non come regola
 permanente. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione
 (`method-development`), e l'implementazione resta il _falsificatore_ della teoria
-(`action-cycle-matrix`); la teoria qui è già grounded in disagi reali, e appena le
-fondamenta si posano l'implementazione torna a fare da prova.
+(`action-cycle-matrix`); ora che le fondamenta sono posate l'implementazione torna a
+fare da prova.
 
-Sul fronte implementativo: il **disaccoppiamento (#2)** ha un nucleo indipendente
+Sul fronte implementativo: il **disaccoppiamento (#1)** ha un nucleo indipendente
 (ripulire i link accidentali negli adottanti) e la sua sezione README canonica —
 due poli World, revisione di «non orchestra» già incisa nel README dalla chirurgia.
-La **presentazione (#3)** viene dopo (il rename deck→view propaga a costo quasi
-nullo); la **home (#4)** dopo presentazione, e consuma la mappa-sorgente del gate.
+La **presentazione (#2)** viene dopo (il rename deck→view propaga a costo quasi
+nullo); la **home (#3)** dopo presentazione, e consuma la mappa-sorgente del gate.
 
 ## Dettagli task
 
-- [Il polo Goal del ciclo di sviluppo: dimensioni comuni e posizione auspicata](tasks/goal-sviluppo-dimensioni.md)
 - [Disaccoppiamento adottante↔metodo: dichiara e taci](tasks/disaccoppiamento-adottanti.md)
 - [Strato di presentazione trasversale (deck→view)](tasks/strato-presentazione.md)
 - [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)

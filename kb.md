@@ -29,6 +29,7 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [cognitive-artifact](kb/cognitive-artifact.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [cognitive-system](kb/cognitive-system.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
 - [goal](kb/goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
+- [development-goal](kb/development-goal.md) — Il polo Goal del ciclo di sviluppo: dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il dominio sceglie la gradualità, non le dimensioni
 - [world](kb/world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
 - [nested-cycles](kb/nested-cycles.md) — I due cicli annidati (sviluppo e runtime) e i loro due Mondi; la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
 - [action-cycle-matrix](kb/action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse annidamento dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
