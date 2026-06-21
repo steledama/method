@@ -7,3 +7,4 @@ Il Mondo runtime di `method` sono i progetti adottanti ([world](../kb/world.md))
 ## Contenuti
 
 - [adottanti-pianificano-il-canone-in-plan.md](adottanti-pianificano-il-canone-in-plan.md)
+- [dipendenze-task-oltre-il-task-task.md](dipendenze-task-oltre-il-task-task.md)

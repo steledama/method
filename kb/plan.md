@@ -41,18 +41,43 @@ task non bloccati; `Dip.` spiega perché un task importante non può ancora
 salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
 dipendenze codificano la priorità**.
 
-`Dip.` risponde a _cosa impedisce di agire_ (l'asse del blocco), non a _quando
-agire_. Usa `#n` per le dipendenze interne e marcatori per le condizioni esterne.
-Il marcatore `world` è la specie più comune e ha nome proprio: il task è bloccato
-su un evento del mondo — una risposta, una email, un atto altrui — quindi il
-prossimo passo non è nostro. È una **pausa tattica**, da sorvegliare, non un
-abbandono: se il silenzio supera il tattico, si sollecita e il task torna `—`.
-Altre condizioni esterne usano marcatori `[a]`, `[b]`, ..., spiegati subito sotto
-la tabella in una breve `Legenda dipendenze esterne`; il testo libero non gonfia
-le celle. Il **timing** di un task azionabile — incluso un differimento tattico
-deciso da noi — non vive in `Dip.` ma in `## Scadenze`: un task la cui mossa è
-nostra resta `—` anche se per scelta tattica lo giochiamo più tardi. Le
-dipendenze devono essere reali, non preferenze d'ordine. Nei commit e nella
+`Dip.` risponde a una domanda sola: il task è pronto, e se no, _di chi è la
+mossa_ che lo sblocca? Pensare le dipendenze solo come task↔task è troppo povero:
+appiattisce su «dipende / non dipende» situazioni che chiedono risposte opposte.
+La colonna ha quattro significanti, dal più libero al più trattenuto:
+
+- `—` — nessun blocco: il task è eseguibile ora.
+- `#n` — la mossa è nostra ma **sequenziata**: il task attende il completamento
+  del task n (dipendenza interna).
+- `world` — la mossa è di un **altro**: il task attende dal mondo una conferma,
+  una risposta, un'email, un preventivo, un atto altrui; il prossimo passo non è
+  nostro. È una sospensione da **sorvegliare**, non un abbandono: se il silenzio
+  supera il tattico, si sollecita e il task torna `—`.
+- `|` — la mossa è nostra, ma la **tratteniamo deliberatamente**. Il task sarebbe
+  eseguibile e nessuno fuori ci blocca; scegliamo di non agire — per attendere il
+  muoversi degli altri attori di una negoziazione, o per darci tempo
+  (approfondimento, ripensamento, valutazione a freddo o su più dati). Il blocco
+  è autoimposto: la barra è un muro che alziamo noi, mentre con `world` il muro è
+  fuori.
+
+`world` e `|` possono portare una chiave di legenda — `world [a]`, `| [b]` —
+quando una condizione specifica in una riga aggiunge qualcosa oltre al titolo del
+task: una breve `Legenda dipendenze esterne` sotto la tabella la chiosa (per
+`world`, l'evento atteso; per `|`, la ragione della pausa e la sua condizione di
+risveglio). La chiave è **facoltativa**: un `world` o `|` nudo basta quando il
+titolo già dice tutto, e il testo libero non gonfia mai le celle. Tre livelli:
+significante in tabella, chiosa in legenda, dettaglio pieno nel file `tasks/`.
+
+I task di **monitoraggio** sono il caso che il modello task↔task non copre: non
+dipendono da un altro task ma dal trascorrere del tempo e dall'evolversi di una
+condizione. Si collocano su `world` quando sorvegliano un evento o un
+comportamento esterno (un server da osservare nei reboot, un esito atteso) o su
+`|` quando aspettano la nostra esperienza accumulata per una valutazione a freddo
+(sessioni di meditazione da pesare dopo mesi, per continuità ed effetti).
+Restano aperti per **vigilanza attiva**, e il significante più la sua riga di
+legenda dicono cosa si sorveglia e fino a quando.
+
+Le dipendenze devono essere reali, non preferenze d'ordine. Nei commit e nella
 documentazione i task si citano per titolo, non per numero: il `#` è un
 puntatore conversazionale, non un'identità.
 
@@ -68,12 +93,16 @@ ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
 ## Scadenze e fonti da elaborare
 
 `plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
-solo quando una data esterna interagisce con la priorità dei task. La scadenza è
-input esogeno: avvicinandosi può far salire il lavoro collegato. Una scadenza non
-è solo un _termine ultimo_ ("non oltre X"): può essere una **finestra tattica**
-("non prima di X — agire prima è uno svantaggio — ed entro Y"), quando il timing
-dell'azione è esso stesso una mossa; in tal caso la riga esplicita finestra e
-razionale, e un task `—` non va raccomandato finché la finestra non si apre. Un
+solo quando una data **esogena** interagisce con la priorità dei task. La scadenza
+è input dal mondo: avvicinandosi può far salire il lavoro collegato. Non è solo un
+_termine ultimo_ ("non oltre X"): può essere una **finestra tattica** ("non prima
+del 30/06 — è quando l'atto altrui matura — ed entro Y") quando i suoi bordi li
+fissa il mondo; in tal caso la riga esplicita finestra e razionale, e il task non
+va raccomandato finché la finestra non si apre. Quando invece l'orologio è il
+**nostro** — una data di risveglio che ci diamo per una pausa deliberata — non è
+una scadenza ma parte della pausa stessa: il task porta `|` e la condizione di
+risveglio (una data o un trigger) vive nella riga di legenda, non qui. La regola è
+**chi possiede l'orologio**: mondo → `## Scadenze`, noi → legenda del `|`. Un
 calendario di adempimenti che non modifica la coda resta invece nel file di
 dominio dedicato, per esempio `scadenze.md`.
 

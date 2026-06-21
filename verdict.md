@@ -405,3 +405,34 @@ proprio `method-review` (un «non applicabile» è anch'esso recepimento). Raffi
 emersa dal basso, foldata nel nodo: il polo macchina è legittimamente assente quando la
 macchina dell'artefatto è il `method` condiviso, gemella simmetrica dell'esenzione-ought
 di `nixos`.
+
+---
+
+## I quattro significanti di `Dip.`: la prontezza ha più di due stati
+
+Pensare le dipendenze dei task solo come task↔task (`#n`) è troppo povero per
+pianificare: appiattisce su «dipende / non dipende» situazioni che chiedono risposte
+opposte. La `Dip.` di `plan.md` risponde ora a una domanda più fine — il task è pronto,
+e se no _di chi è la mossa_ che lo sblocca — con quattro significanti: `—` (pronto),
+`#n` (mossa nostra ma sequenziata), `world` (mossa altrui: si attende il mondo), `|`
+(mossa nostra ma trattenuta deliberatamente). La linea di faglia è tra `world` e `|`:
+con `world` il muro è fuori e non tocca a noi; con `|` il muro lo alziamo noi — per
+lasciar maturare una negoziazione o per una valutazione a freddo.
+
+Questo raffina e corregge il primo passo grezzo arrivato dall'operatività (`f929f7e`,
+dove `world` assorbiva anche la pausa tattica e il differimento deciso da noi finiva in
+`## Scadenze` lasciando il task `—`). Un task che teniamo deliberatamente sospeso non è
+pronto: marcarlo `—` lo farebbe raccomandare come prossima mossa, che è l'errore. Ora
+porta `|`, resta aperto e sorvegliato, ma non viene preso in carico. La data segue **chi
+possiede l'orologio**: esogena (un atto altrui, una scadenza naturale, un termine
+imposto) → `## Scadenze`, che muove la priorità avvicinandosi; autoimposta (la condizione
+di risveglio di una pausa) → la riga di legenda del `|`, perché è parte della pausa, non
+una pressione esterna. La forma sintetica regge tre livelli: significante in tabella,
+chiosa in legenda (`world [a]`, `| [b]`), dettaglio nel file `tasks/`.
+
+Il caso che ha forzato la distinzione è il **monitoraggio**: un task che non dipende da
+un altro task ma dal tempo e da una condizione che evolve — il boot dei server dopo lo
+switch al kernel LTS in `nixos` (`world`, chiuso in `c36c141`), l'autovalutazione delle
+sessioni di meditazione in `salute` (`|` con risveglio autoimposto). Segnale sorto
+operando su `economia` e giudicato lì generalizzabile; cattura i1 in
+`perceptions/dipendenze-task-oltre-il-task-task.md`, recepimento i3 in `kb/plan.md`.
