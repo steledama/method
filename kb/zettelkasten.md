@@ -9,6 +9,8 @@ Metodo di gestione della conoscenza basato su nodi atomici interconnessi, ideato
 
 Robert Pirsig ha descritto nei suoi libri, in particolare in "Lila", una versione personale dello stesso metodo: un sistema di schede (slip) su cui annotava e riorganizzava le proprie idee, usato per scrivere i libri stessi. La descrizione di Pirsig è tra le piu vivide dell'esperienza di lavorare con un sistema di note interconnesse.
 
+Un precursore meno noto vive nella cornice di sistema di Douglas Engelbart: il sistema di schede _edge-notched_ descritto in _Augmenting Human Intellect_ (1962, §III-A-3) è uno **Zettelkasten ante litteram** — nodi atomici con link tipizzati e provenienza, manipolabili meccanicamente con ferri da calza che selezionano le carte tagliate sul bordo. Engelbart lo accompagna alla mossa di ingest che il metodo riconosce come propria — «type the article in, tear it apart... it sits in the archives like an orange rind», l'articolo grezzo digerito in note collegate — segno che la disciplina dell'unità atomica era già parte di un sistema di augmentation co-evolvente (cfr. `augmentation-system`).
+
 Caratteristiche:
 
 - principio di atomicita: ogni nodo contiene un'unica idea, espressa in modo autonomo
@@ -46,6 +48,7 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
 - [karpathy-pattern](karpathy-pattern.md)
+- [augmentation-system](augmentation-system.md)
 - [node](node.md)
 - [connection](connection.md)
 - [output](output.md)

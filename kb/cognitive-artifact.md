@@ -19,6 +19,8 @@ Norman chiama questo il principio di naturalezza: «Experiential cognition is ai
 
 La scelta della rappresentazione non è neutra: può trasformare un compito riflessivo in esperienziale o viceversa. Rappresentazioni _additive_ (in cui la grandezza visiva è proporzionale al valore — tally marks, grafici a barre) si leggono senza calcolo. Rappresentazioni _sostitutive_ (simboli arbitrari — numeri romani per percentuali, hue cromatica per scale additive) costringono a tradurre ogni confronto in riflessione.
 
+Questi **due modi** del 1993 — esperienziale e riflessivo — sono la radice dei **tre livelli** di elaborazione che Norman formulerà in _Emotional Design_ (2004): il riflessivo resta, l'esperienziale si articola in viscerale e behavioral. È la genealogia che `processing-layers` raccoglie; qui conta che la KB è lo scaffold del modo _riflessivo_ — concetti e generalizzazioni — e che il lavoro dello strato output è far scendere quel sapere fino al modo esperienziale, dove la risposta giusta emerge per ispezione.
+
 ## La KB come artefatto cognitivo
 
 Nel metodo la KB è un artefatto cognitivo in senso normano. I nodi non sono corretti solo se fattualmente accurati — sono ben progettati se la forma della rappresentazione corrisponde al compito di chi li usa. Un nodo-quadro ben costruito fa vedere a colpo d'occhio cosa è fuori soglia (cognizione esperienziale); un nodo mal strutturato costringe a calcolare confronti tra valori (cognizione riflessiva). È il criterio che governa lo strato output: aggiungere signifier e ridisegnare la rappresentazione finché la risposta giusta emerge per ispezione.
@@ -27,9 +29,9 @@ L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera. L'artef
 
 ## Riferimenti
 
-- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 «The Power of Representation».
-- Fonte grezza (`world`, su Drive): PDF del capitolo e relative estrazioni;
-  provenienza nel registro `sources.md`.
+- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993): Cap. 2 «Experiential and Reflective Cognition» (i due modi, radice dei tre livelli di `processing-layers`) e Cap. 3 «The Power of Representation». Volume integrale ora reperito; citare per **capitolo**, non per pagina (la riedizione 2014 ripagina l'originale 1993).
+- Fonte grezza (`world`, su Drive): EPUB integrale (`TTMUS.txt` la superficie di
+  lavoro); provenienza nel registro `sources.md`.
 
 Connessioni:
 

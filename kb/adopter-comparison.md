@@ -70,7 +70,7 @@ Sessione del 2026-05-24: lo strato di output, finora trattato come "componente l
   `presentations/index.html` Reveal.js versionato (umano)
 - `salute`: ora `quadro/` con vista clinica per area di sorveglianza (pilota in bozza)
 
-La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 prescrizione versionata; + strato input i1/i2/i3), world (membrana fisica) e action-cycle (fondamento teorico via Norman). Donald Norman entra come terzo gigante del metodo accanto a Luhmann (atomicità) e Karpathy (manutenzione LLM), portando il design dell'interfaccia di azione.
+La formalizzazione vive nei nodi output (o1 macchina, o2 decisione umana, o3 prescrizione versionata; + strato input i1/i2/i3), world (membrana fisica) e action-cycle (fondamento teorico via Norman). Norman è l'interfaccia di azione dentro la cornice di augmentation che contiene i riferimenti del metodo (cfr. `augmentation-system`), accanto a Luhmann (atomicità) e alla gamba di manutenzione di cui Karpathy è l'istanza contemporanea.
 
 La promozione non rimuove la variazione locale: il nome dello strato resta scelta di dominio. Quello che si stabilizza è la funzione (tradurre conoscenza in azione possibile) e i criteri di qualità (visibilità, feedback, mapping, constraint).
 

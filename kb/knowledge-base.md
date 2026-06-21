@@ -9,7 +9,7 @@ Una knowledge base (KB) basata su LLM è un artefatto persistente e cumulativo: 
 
 Per essere davvero utile a un LLM, però, la KB non deve solo contenere conoscenza corretta: deve offrirla attraverso una buona interfaccia cognitiva. Servono punti di ingresso, mappe, router per intenzione, fonti di verità riconoscibili e nodi con funzioni distinguibili. Una rete formalmente sana ma priva di accessi leggibili costringe l'LLM a ricostruire ogni volta il modello del dominio; una KB ben progettata rende esplicito quel modello e abbassa il costo di comprensione.
 
-Il sistema poggia su tre pilastri metodologici — Zettelkasten (forma del nodo atomico), pattern Karpathy (manutenzione dell'insieme con l'LLM), Norman (ciclo di azione tra utente e sistema). La trattazione completa dei tre giganti vive in `action-cycle`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
+Il sistema si inscrive in una cornice di augmentation (Engelbart / H-LAM/T) che contiene i suoi riferimenti invece di affiancarli: lo Zettelkasten dà la forma del nodo atomico, Norman il ciclo di azione tra utente e sistema, e la gamba di manutenzione dell'insieme con l'LLM ha nel pattern Karpathy la sua istanza contemporanea, non un pilastro pari. La trattazione completa della cornice e di ciò che vi sta dentro vive in `augmentation-system`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
 
 La KB non è il fine. Come _livello di elaborazione_ è lo strato riflessivo
 dell'artefatto — concetti e generalizzazioni (cfr. `processing-layers`); come
@@ -55,6 +55,7 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [node](node.md)
+- [augmentation-system](augmentation-system.md)
 - [zettelkasten](zettelkasten.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [project-structure](project-structure.md)

@@ -17,9 +17,10 @@ segnali si rigenerano con `tools/kb_tools.py audit`.
 - [adopter-comparison](kb/adopter-comparison.md) — Sintesi della situazione attuale dei quattro progetti che adottano il metodo
 - [cognitive-fidelity](kb/cognitive-fidelity.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
 - [design-principles](kb/design-principles.md) — Principi guida: universali, code-based e specifici di progetto
-- [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente
-- [karpathy-pattern](kb/karpathy-pattern.md) — Pattern wiki personale mantenuta da LLM: ingest, query, lint e filing back
-- [action-cycle](kb/action-cycle.md) — Modello di Norman come terzo gigante del metodo: sette stadi, due gulf, quattro proprietà cardine come criteri di o2
+- [augmentation-system](kb/augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e cicli annidati
+- [zettelkasten](kb/zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente; le schede edge-notched di Engelbart come precursore
+- [karpathy-pattern](kb/karpathy-pattern.md) — Istanza contemporanea (era LLM) della gamba di manutenzione, non pilastro: ingest, query, lint e filing back
+- [action-cycle](kb/action-cycle.md) — Modello di Norman, l'interfaccia col Mondo dentro la cornice di augmentation: sei atti due poli, due gulf, quattro proprietà cardine come criteri di o2
 - [affordance-signifier](kb/affordance-signifier.md) — Distinzione di Norman tra azione possibile e segnale di dove agire; l'agente «person, animal, or machine» fonda i due strati output
 - [constraint](kb/constraint.md) — La limitazione progettata (guardrail): tipi di Norman, presidio strutturale sotto il check riflessivo, l'errore reso impossibile o rumoroso
 - [agent](kb/agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti; distinto da `agents`, che è il file

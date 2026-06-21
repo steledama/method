@@ -34,21 +34,26 @@ La KB non è il metodo: il metodo la contiene. Tre parole per tre cose, a lungo 
 
 L'artefatto resta vendor-neutro perché è la _rappresentazione_, non il sistema d'interazione (LLM e harness sono diversi e sostituibili).
 
-## I tre giganti
+## La cornice di sistema e i giganti che contiene
 
-Luhmann _è_ la KB (forma del nodo), Karpathy la _governa_ (manutenzione), Norman la _connette al mondo_ (azione).
+Non tre pilastri pari: una **cornice di augmentation** (Engelbart, H-LAM/T) che _contiene_ i riferimenti del metodo. L'intelligenza è synergism del sistema accoppiato, non di un suo componente.
 
-<div class="diagram giants">
-  <div class="diagram-row cards-3">
-    <div class="card"><strong>Luhmann · Zettelkasten</strong><span>forma del nodo</span><small>atomico · interconnesso<br>sintesi fuori dal nodo</small></div>
-    <div class="card"><strong>Karpathy · LLM KB</strong><span>manutenzione dell'insieme</span><small>ingest · query · lint<br>filing back</small></div>
-    <div class="card"><strong>Norman · ciclo di azione</strong><span>interfaccia KB ↔ mondo</span><small>visibilità · feedback<br>mapping · constraint</small></div>
+<div class="diagram ontology">
+  <div class="card accent"><strong>ENGELBART · H-LAM/T</strong><span>il sistema di augmentation: Human using Language, Artifacts, Methodology, Training</span><small>synergism del sistema accoppiato · bootstrap «by its own bootstraps»</small></div>
+  <div class="arrow down"><span>contiene</span></div>
+  <div class="frame">
+    <div class="frame-title">DENTRO LA CORNICE</div>
+    <div class="diagram-row cards-3">
+      <div class="card"><strong>Luhmann · Zettelkasten</strong><span>Language · forma del nodo</span><small>atomico · interconnesso<br>sintesi fuori dal nodo</small></div>
+      <div class="card"><strong>manutenzione · Karpathy</strong><span>Methodology / Training</span><small>istanza LLM, non pilastro<br>ingest · query · lint · filing back</small></div>
+      <div class="card"><strong>Norman · ciclo di azione</strong><span>interfaccia KB ↔ mondo</span><small>visibilità · feedback<br>mapping · constraint</small></div>
+    </div>
   </div>
-  <div class="merge-arrows"><i></i><i></i><i></i></div>
-  <div class="card pill accent">METODO KB</div>
+  <div class="arrow down"><span>poggia su</span></div>
+  <div class="card"><strong>Hutchins · Clark</strong><span>pavimento ontologico</span><small>cognizione distribuita ed estesa</small></div>
 </div>
 
-Karpathy risolve il «chi mantiene» assente in Luhmann; Norman il «come l'utente agisce» assente in entrambi.
+Luhmann dà l'unità atomica (il means _Language_); Norman l'interfaccia col Mondo; la gamba di manutenzione è il _Methodology/Training_ engelbartiano, di cui **Karpathy è l'istanza contemporanea** per l'era LLM, non un gigante a sé. Sotto, Hutchins e Clark danno il _perché_ un sistema accoppiato è genuinamente cognizione.
 
 ## Il ciclo dell'azione: 6 atti + 2 poli
 
@@ -236,7 +241,7 @@ Comprimere il metodo in poche interpretazioni fa **affiorare** le tensioni non-l
 I diagrammi comprimono; i nodi spiegano.
 
 - cosa è (artefatto / sistema / metodo) → `kb/cognitive-artifact.md`, `kb/cognitive-system.md`
-- tre giganti → `kb/action-cycle.md`, `kb/zettelkasten.md`, `kb/karpathy-pattern.md`
+- la cornice di sistema e i giganti che contiene → `kb/augmentation-system.md`, `kb/action-cycle.md`, `kb/zettelkasten.md`, `kb/karpathy-pattern.md`
 - ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/action-cycle.md`, `kb/world.md`, `kb/output.md`
 - i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agent.md`
 - il goal · tre altitudini → `kb/goal.md`

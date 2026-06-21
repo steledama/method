@@ -43,74 +43,21 @@ maturazione `bozza→maturo` dall'uso reale: `cognitive-artifact`, `cognitive-sy
 «The General Structure of Activity» è sorzata nel nodo: conferma attività/motivo,
 azione/goal o scopo cosciente, operazione/condizioni. Saldati
 in precedenza: **Hutchins** (per `cognitive-system`) e il filone **mente estesa**
-(Clark) sono ora sourced — cfr. il filo «I giganti ristrutturati», dove il pavimento
-ontologico Hutchins+Clark è confermato e destinato a `cognitive-system`. **_Things That Make
+(Clark) sono ora sourced e **promossi nel pavimento ontologico** di `cognitive-system`
+(active externalism, parity, scaffolding, 007, mente-come-controllore, più il criterio
+scaffold action-oriented contro il modello «filing cabinet»). **_Things That Make
 Us Smart_** (Norman 1993) è ora integrale e **distillato (i2)** nei capitoli portanti: Cap. 2
 (esperienziale vs riflessivo — sorza la naturalezza e il «KB come scaffold del modo
 riflessivo»; i due-modi 1993 sono l'origine dei tre-livelli di `processing-layers`) e Cap. 6
 (la cognizione distribuita di **Norman stesso**, che cita Hutchins — pavimento Hutchins+Clark+Norman,
 una famiglia UCSD; più «the world remembers by being there» ↔ membrana `world`, e gli errori
 condivisi come training rigenerativo). Destinazioni i3 — `cognitive-artifact`, `cognitive-system`,
-`processing-layers`, `affordance-signifier` — da scrivere nella passata deliberata, non ora. La
+`processing-layers`, `affordance-signifier` — **scritte nella chirurgia del 2026-06-21**, insieme
+al nodo nuovo `augmentation-system` (la cornice H-LAM/T che le contiene); resta aperta solo la
+maturazione `bozza→maturo` di questi nodi, che attende l'uso reale. La
 matrice 4D del ciclo, infine, è un falsificatore
 costruito sulle definizioni del metodo stesso: il suo esito «zero forzati» resta
 **provvisorio finché non lo si testa su un repo nato senza il metodo**.
-
-## I giganti ristrutturati: Engelbart come cornice di sistema (H-LAM/T)
-
-Filo aperto 2026-06-17. Origine: accostare Karpathy a Luhmann e Norman come terzo «gigante»
-era un'**asimmetria di pedigree** — sulla questione il suo contributo è un post, non una
-tradizione di pensiero — anche se il suo _slot funzionale_ (il _chi mantiene_ la KB) è reale.
-Il difetto era aver ancorato quello slot a una fonte troppo leggera.
-
-**Decisione presa (2026-06-17), dopo aver letto Engelbart 1962** (_Augmenting Human Intellect_,
-Sez. I/II/IV; provenienza in `sources.md`): non «tre giganti pari con Engelbart al posto di
-Karpathy» (opzione a), ma **Engelbart come gigante _di sistema_** (opzione b) — più onesto,
-perché Engelbart è troppo unificante per essere una gamba sola. La sua cornice **H-LAM/T**
-(Human using Language, Artifacts, Methodology, in which he is Trained) _contiene_ gli altri,
-non li affianca. Nuova architettura del pensiero:
-
-- **Engelbart / H-LAM/T = la cornice di sistema**: l'umano + LLM + artefatto è _un sistema di
-  augmentation_, non tre componenti giustapposti. I quattro means mappano sull'anatomia del
-  metodo (Artifacts = repo/KB; Language = nodi e terminologia; Methodology = il metodo;
-  Training = bootstrap/`CLAUDE.md`). L'intelligenza è **synergism** distribuito nel sistema
-  accoppiato, non in un componente. E il **bootstrap** di Engelbart — «Tools Developed vs Tools
-  Used» (§IV-E), il sistema che si solleva «by its own bootstraps» — è l'antenato del 1962 di
-  due strutture del metodo: il **dogfooding** e i **cicli annidati** (`nested-cycles`: il Mondo
-  di sviluppo diventa la macchina del runtime, con l'o3-sviluppo come atto che lo modifica;
-  stessa distinzione e stesso avvertimento sulla confusione terminologica).
-- **Dentro la cornice**: Luhmann dà il means _Language_ / l'unità atomica (symbol-structuring);
-  Norman dà l'interfaccia col Mondo (il ciclo d'azione); la gamba di **manutenzione/
-  rigenerazione** è il _Methodology/Training_ engelbartiano, di cui **Karpathy è l'istanza
-  contemporanea per l'era LLM** (non un pilastro).
-- **Sotto la cornice**: il pavimento _ontologico_ — perché un sistema accoppiato sia
-  genuinamente cognizione — è **Hutchins/Clark** (cognizione distribuita / mente estesa),
-  non Karpathy.
-
-**Deciso vs debito.** È decisa la _cornice_ (questa è l'i3). La **chirurgia dei nodi** resta
-da fare come corpo del task 7 — è un hub ad alto rischio (`action-cycle` «I tre giganti», 33
-backlink), più `README`, `knowledge-base`, `karpathy-pattern` (→ istanza), un nodo nuovo per
-l'H-LAM/T e il riferimento a Engelbart in `nested-cycles`. Da non riscrivere a caldo: la
-fedeltà chiede un passo deliberato. **Debito Sez. III chiuso** (letta integralmente): rafforza
-la decisione (b) sul testo primario, non per analogia — la cornice H-LAM/T contiene già, nel
-1962, nodi atomici con link tipizzati e provenienza (il sistema di schede edge-notched di
-Engelbart è un Zettelkasten ante litteram), la mossa di ingest/distillazione i1→i2 («type the
-article in, tear it apart... it sits in the archives like an orange rind»), un loop di
-valutazione (la review periodica man-computer) e la cooperazione collaborativa con tracciamento
-delle contese (l'antenato del verdict). Sul **pavimento ontologico**: Clark è ora _sourced per
-intero_ (Extended Mind + Being There letti) e la **destinazione è decisa — pavimento unico in
-`cognitive-system`** (Hutchins+Clark insieme: active externalism, parità, scaffolding, 007,
-mind-as-controller). Esito scomodo e prezioso di Being There: Clark apre attaccando il modello
-«filing cabinet» della mente (CYC), e la risoluzione è un **criterio di progetto del KB** — è
-legittimo solo come _scaffold action-oriented_ (pushmi-pullyu, descrittivo e prescrittivo), non
-brain-dump passivo; coincide con la critica di Norman e va portato in `system-image`/
-`cognitive-artifact-design`. **Debito di pavimento chiuso**: Hutchins (_Cognition in the Wild_, 1995) è ora sourced — lettura mirata che conferma tesi (cognizione come processo culturale/
-sociale, unità di analisi oltre la pelle, il team come sistema cognitivo-computazionale),
-«cognition in the wild» (vs laboratorio «in captivity»), propagazione dello stato
-rappresentazionale tra media, e la sintesi del cap. 9 (non scambiare le proprietà del sistema
-socioculturale per quelle della mente individuale) — il punto stesso che Clark cita. Il
-pavimento Hutchins+Clark è ora **interamente sourced**: la chirurgia può promuoverlo senza
-debito. La scrittura dei nodi resta la passata deliberata, non ora.
 
 ## Il lato-input appena rifondato: verdict come i3, interpretations come i2-macro
 
@@ -290,10 +237,11 @@ Conseguenze decise:
     (i2-dev→deck; i2/o2-runtime→osservatorio). **Ricaduta sul cluster**: la
     rappresentazione a **due cicli** è giustificata, ma la home va disegnata
     sull'interno **nascente** (osservatorio come i2/o2-runtime, runtime-o1 muted, deck
-    come i2-dev). **Conseguenza di canone residua**: la riassegnazione del deck al
-    runtime è **annullata** (era l'errore a caldo); resta solo da incidere nel README la
-    revisione di «non orchestra» (call B) — lavoro a valle nel task disaccoppiamento e
-    dimensioni-Goal, non a caldo (`cognitive-fidelity`).
+    come i2-dev). **Conseguenza di canone: chiusa.** La riassegnazione del deck al
+    runtime è **annullata** (era l'errore a caldo); la revisione di «non orchestra»
+    (call B) è **incisa nel README** dalla chirurgia del 2026-06-21, con pari dignità
+    del top-down runtime distinta dal micromanagement della coda adottante (cfr.
+    `cognitive-artifact-design`, `method-development`).
   - **Strato di presentazione trasversale, deck→view (3°, dip. dal gate)**: il nodo `deck`
     confonde il **motore** di presentazione e la sua **istanza**
     (`interpretations/`). Si scinde: `deck.md` → **`view.md`**, motore trasversale
@@ -391,7 +339,8 @@ come il deck in deriva). Correzioni reali: promosso il nodo `aneurisma-aorta-asc
 arco d'azione costruito (prep incontri + canovaccio per l'appuntamento del 2/7, dove
 l'impegnativa cardiologica/vascolare risulta da chiedere). Con ciò il **ciclo runtime si
 chiude per intero** lungo il canale canonico — i2→i3→o3→adottante→i1 — non solo scocca:
-prima chiusura completa dell'arco top-down, evidenza forte per il gate (task 1). Il nodo
+prima chiusura completa dell'arco top-down, evidenza forte per la call B della chirurgia
+dei giganti (poi chiusa il 2026-06-21). Il nodo
 `kb-content-typology` ha **retto contro lo stato reale**: validazione **parziale**,
 perché `salute` è plasmato dal metodo — il test esterno vero resta un repo nato senza.
 La prescrizione è ora **recepita da tutti** e **chiusa** (2026-06-21, rimossa da

@@ -9,7 +9,13 @@ Unità di analisi proposta da Edwin Hutchins per studiare la cognizione dove acc
 
 Cosa si distribuisce non è solo l'informazione ma anche i processi: rappresentazioni e trasformazioni si propagano attraverso agenti e artefatti in sequenza. Hutchins lo dimostra sulla navigazione navale — tracciare una rotta non è il lavoro di nessuna mente singola, ma del sistema composto da equipaggio, grafici, strumenti e procedure condivise. «Cognition is not locked inside individual minds, but unfolds in the interaction between people, tools, and context».
 
-Norman converge sulla stessa conclusione: quando una persona usa un artefatto cognitivo, «the person and the artifact become a system in which cognition is distributed between the person and the device, creating a system with expanded and enhanced capabilities over the individual alone». L'artefatto non è un'estensione della mente — è un componente del sistema cognitivo che trasforma ciò che il sistema è capace di fare.
+Norman converge sulla stessa conclusione, ed è una convergenza interna alla stessa famiglia UCSD: quando una persona usa un artefatto cognitivo, «the person and the artifact become a system in which cognition is distributed between the person and the device, creating a system with expanded and enhanced capabilities over the individual alone». L'artefatto non è un'estensione della mente — è un componente del sistema cognitivo che trasforma ciò che il sistema è capace di fare. In _Things That Make Us Smart_ (Cap. 6) Norman tratta la cognizione distribuita _citando Hutchins_: «the world remembers by being there», il mondo trattiene lo stato per il solo fatto di esserci — eco diretta della membrana `world` — e gli errori condivisi nel sistema diventano occasione di apprendimento rigenerativo.
+
+## Distribuita ed estesa: il pavimento completo
+
+Sotto Hutchins e Norman, la **mente estesa** di Andy Clark (con Chalmers) dà la versione forte del pavimento: l'_active externalism_ — porzioni del mondo funzionano come parti del processo cognitivo (il taccuino di Otto al pari della memoria biologica, per il _parity principle_) — e lo _scaffolding_ di _Being There_, l'artefatto come corpo o ambiente ingegnerizzato. Il «007 principle» — lascia l'informazione nel mondo e recuperala quando serve, invece di immagazzinarla tutta dentro — e la mente come _controllore_ più che contenitore sono la ragione per cui un artefatto esterno conta come cognizione, non come semplice deposito.
+
+Da qui un esito scomodo e prezioso, che è un **criterio di progetto della KB**, non solo una tesi filosofica. Clark apre _Being There_ attaccando il modello «filing cabinet» della mente (il progetto CYC): una mente non è un archivio passivo da riempire. La KB è quindi legittima solo come **scaffold orientato all'azione** — descrittivo _e_ prescrittivo insieme, nel senso del segnale «pushmi-pullyu» — non come brain-dump passivo. È lo stesso criterio che Norman porta col ciclo d'azione (se l'utente non agisce, la KB è mal progettata), letto dal lato ontologico: l'artefatto cognitivo conta come cognizione nella misura in cui orienta l'atto, e va portato in `system-image` e `cognitive-artifact-design` come vincolo di progetto.
 
 ## Il sistema cognitivo del metodo
 
@@ -45,14 +51,16 @@ La distinzione è operativa: dire «il metodo è portabile» significa dire «l'
 
 ## Riferimenti
 
-- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; volume non ancora reperito in `world`.
+- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; ora reperito e sourced (cfr. `sources.md`, qualità OCR media: verificare le citazioni verbatim sulla scansione). Citare per capitolo; cap. 9 per la sintesi (non scambiare le proprietà del sistema socioculturale per quelle della mente individuale).
+- Andy Clark & David J. Chalmers, «The Extended Mind», _Analysis_ 58(1):7-19, 1998; Andy Clark, _Being There_ (MIT Press, 1997) — pavimento ontologico della mente estesa: active externalism, parity, scaffolding, 007 principle, mente-come-controllore. Provenienza in `sources.md`.
 - Donald Norman, «Cognitive Artifacts», in J. Carroll (ed.), _Designing Interaction_ (Cambridge University Press, 1991) — definizione dell'artefatto cognitivo e della persona-più-artefatto come sistema.
-- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 — cfr. `kb/cognitive-artifact.md` per la distillazione.
+- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 (rappresentazione, cfr. `kb/cognitive-artifact.md`) e Cap. 6 «Distributed Cognition» (la cognizione distribuita di Norman stesso, che cita Hutchins).
 
 Connessioni:
 
 - [cognitive-artifact](cognitive-artifact.md)
 - [action-cycle](action-cycle.md)
+- [augmentation-system](augmentation-system.md)
 - [system-image](system-image.md)
 - [affordance-signifier](affordance-signifier.md)
 - [knowledge-base](knowledge-base.md)

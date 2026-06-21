@@ -25,6 +25,8 @@ I signifier possono essere deliberati (la scritta PUSH su una porta) o accidenta
 
 Un artefatto del metodo — un nodo `kb/`, un quadro, una vista di output — ha _affordance_ (quali azioni rende possibili a chi lo legge) e ha bisogno di _signifier_ (cosa dice al lettore dove e come agire). Gran parte del lavoro dello strato output, in particolare L2, è aggiunta di signifier: il termometro, lo schema, la raccomandazione accanto allo stato non creano nuove azioni possibili, segnalano quelle che già esistono. La provocazione registrata nel ciclo di azione — «se l'utente non agisce, la KB è mal progettata, non l'utente è pigro» — si affina qui: spesso non manca l'affordance (l'azione era possibile) ma il signifier (niente la segnalava).
 
+Che l'affordance sia una _relazione_ e non una proprietà non è un dettaglio terminologico: la colloca nell'accoppiamento agente-artefatto, esattamente dove Hutchins e Clark collocano la cognizione (cfr. `cognitive-system`). Il signifier è allora ciò che rende _percepibile_ quella relazione dentro il sistema di augmentation — il means che porta l'azione possibile alla soglia dell'atto.
+
 Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione stessa: l'agente che interagisce è «a person, animal, **or machine**». Norman nomina la macchina tra gli agenti. La KB ha quindi affordance e signifier per _due_ agenti che la leggono — l'umano e l'LLM — e i due strati output ne sono la conseguenza: L1 porta i signifier di cui ha bisogno l'agente macchina (fatti strutturati, scadenze esplicite), L2 quelli di cui ha bisogno l'agente umano (vista leggibile a colpo d'occhio). Un nodo ben _segnalato_ per l'umano può essere muto per la macchina, e viceversa. La distinzione affordance/signifier dà il criterio per progettare entrambi senza confonderli, ed è il completamento naturale delle quattro proprietà cardine già usate come criteri di qualità per L2.
 
 ## Riferimenti
@@ -38,6 +40,7 @@ Connessioni:
 - [action-cycle](action-cycle.md)
 - [system-image](system-image.md)
 - [processing-layers](processing-layers.md)
+- [cognitive-system](cognitive-system.md)
 - [output](output.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)

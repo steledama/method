@@ -35,10 +35,14 @@ decisioni ad alta posta richiedono supervisione umana. Il gradiente di autonomia
 si progetta per stadio, dominio e rischio, mantenendo espliciti feedback,
 vincoli e punti di controllo.
 
-Il metodo si appoggia su tre pilastri: lo Zettelkasten definisce la forma dei
-nodi atomici e interconnessi; il pattern Karpathy definisce il ciclo di
-manutenzione dell'insieme con l'LLM; Norman fornisce il modello che collega
-conoscenza, rappresentazione e azione attraverso il ciclo completo.
+Il metodo si inscrive nella cornice di augmentation di Engelbart (H-LAM/T), che
+contiene i suoi riferimenti: lo Zettelkasten definisce la forma dei nodi atomici
+e interconnessi (il means _Language_); Norman fornisce il modello che collega
+conoscenza, rappresentazione e azione attraverso il ciclo completo (l'interfaccia
+col Mondo); la gamba di manutenzione dell'insieme con l'LLM è il _Methodology/
+Training_ engelbartiano, di cui il pattern Karpathy è l'istanza contemporanea.
+Il pavimento ontologico — perché il sistema accoppiato sia cognizione — è
+Hutchins/Clark. La trattazione vive in `augmentation-system` e `cognitive-system`.
 
 Il principio centrale è che l'artefatto non è una cartella di appunti né un
 archivio da interrogare occasionalmente. È cumulativo: ogni ingest, query, lint
@@ -49,9 +53,9 @@ cataloghi e collezioni-stadio, strati input/output e membrana `world`.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
-Lo sviluppo del metodo procede per due movimenti complementari in alternanza, descritti in `method-development`. Dal basso, una modifica metodologica nasce da un'esigenza concreta in un repo adottante: un problema reale di dominio obbliga a inventare o correggere una pratica locale; se la soluzione si dimostra riusabile, viene riportata nel repo `metodo` come generalizzazione portabile; gli altri repo adottanti la ricevono poi leggendo i commit del metodo e applicando solo ciò che è pertinente. Dall'alto, una cornice teorica importata — un gigante, una distinzione — offre la forma per nominare e mettere in ordine ciò che dal basso si avverte ma non si sa inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Il flusso inverso — aprire in `metodo` task che ordinano interventi nei repo adottanti — è da evitare salvo manutenzioni che riguardino davvero il metodo stesso.
+Lo sviluppo del metodo procede per due movimenti complementari in alternanza, descritti in `method-development`. Dal basso, una modifica metodologica nasce da un'esigenza concreta in un repo adottante: un problema reale di dominio obbliga a inventare o correggere una pratica locale; se la soluzione si dimostra riusabile, viene riportata nel repo `metodo` come generalizzazione portabile; gli altri repo adottanti la ricevono poi leggendo i commit del metodo e applicando solo ciò che è pertinente. Dall'alto, una cornice teorica importata — un gigante, una distinzione — offre la forma per nominare e mettere in ordine ciò che dal basso si avverte ma non si sa inquadrare. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione, non l'unica regola. Esiste anche un movimento top-down sul lato runtime, con pari dignità: `metodo` pianifica il proprio **output di canone** — le prescrizioni (o3-runtime) e le convergenze che disegnano come gli artefatti adottanti dovrebbero diventare — che l'adottante poi recepisce eseguendolo nel proprio `method-review`. Ciò che resta fuori è il **micromanagement della coda interna** degli adottanti: aprire in `metodo` task che ordinano i singoli interventi nei loro repo. La linea di faglia è tra pianificare il proprio canone (legittimo) e gestire la coda altrui (no).
 
-Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o restare lavoro locale nel progetto interessato. Osservare non significa orchestrare: il repo `metodo` custodisce le astrazioni emerse, non sostituisce le code operative dei repo adottanti.
+Il repo che ospita il metodo ha anche una funzione di osservatorio. Raccoglie le differenze tra progetti adottanti, confronta componenti, strumenti, skill e salute delle KB, e decide se un segnale debba diventare generalizzazione metodologica, estensione strumentale o restare lavoro locale nel progetto interessato. La diagnosi può sfociare in prescrizione: quando l'osservatorio rileva uno squilibrio generalizzabile, `metodo` emette un o3-runtime che l'adottante recepisce. Ciò che resta escluso non è il prescrivere ma il **sostituirsi alla coda operativa**: `metodo` custodisce le astrazioni emerse e disegna il proprio canone, non micromanagia gli interventi interni dei repo adottanti.
 
 Indice cognitivo del metodo:
 
@@ -201,6 +205,7 @@ Connessioni:
 
 - [cognitive-artifact](cognitive-artifact.md)
 - [cognitive-system](cognitive-system.md)
+- [augmentation-system](augmentation-system.md)
 - [world](world.md)
 - [input](input.md)
 - [processing-layers](processing-layers.md)

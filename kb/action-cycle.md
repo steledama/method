@@ -9,18 +9,11 @@ Modello del rapporto tra utente e sistema secondo Donald Norman, distillato come
 
 Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo eredita questo modello per progettare l'artefatto così che chiuda davvero il ciclo, non solo che lo descriva.
 
-## I tre giganti del metodo
+## Norman dentro la cornice di sistema
 
-Il metodo si appoggia su tre pilastri che si dividono il lavoro in modo nitido:
+Il metodo non si appoggia a tre pilastri pari: si inscrive in una **cornice di sistema** — l'_augmentation system_ di Engelbart (H-LAM/T) — che _contiene_ i giganti invece di affiancarli. La trattazione piena della cornice e di ciò che vi sta dentro e sotto vive in `augmentation-system`; qui basta collocare Norman al suo posto. Dentro la cornice, **Luhmann / Zettelkasten** dà l'unità atomica (il means _Language_): come è fatto il singolo nodo, come si lega, perché la sintesi non sta nel nodo. La gamba di **manutenzione** — chi tiene aggiornato il sistema, ingest/query/lint, come l'LLM compone la KB — è il _Methodology/Training_ engelbartiano, di cui Karpathy è l'**istanza contemporanea**, non un pilastro a sé (cfr. `karpathy-pattern`).
 
-- **Luhmann / Zettelkasten** — la disciplina dell'unità atomica: come è fatto il singolo
-  nodo, come si lega ad altri, perché la sintesi non sta nel nodo
-- **Karpathy / LLM KB** — il pattern di manutenzione: chi tiene aggiornato il sistema,
-  come ingest/query/lint, come l'LLM compone la KB
-- **Norman / design dell'azione** — l'interfaccia tra KB e mondo: come il sistema rende
-  visibile l'azione possibile, come riceve feedback, come chiude il ciclo
-
-Karpathy ha risolto il "chi mantiene" del Zettelkasten. Norman risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano davvero. Luhmann era un produttore solitario di scrittura; Karpathy parla soprattutto di esplorazione e rendering. Nessuno dei due ha pensato esplicitamente al ciclo di azione tra utente e sistema, che è esattamente il problema dello strato L3 e del filing back. Norman entra a colmare questa lacuna.
+**Norman** è l'**interfaccia col Mondo**: come il sistema rende visibile l'azione possibile, come riceve feedback, come chiude il ciclo. Risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano — Luhmann era un produttore solitario di scrittura, Karpathy parla di esplorazione e rendering; nessuno dei due ha pensato esplicitamente al ciclo di azione tra utente e sistema, che è esattamente il problema dello strato output e del filing back. Il resto di questo nodo è il contributo di Norman: il ciclo d'azione che il metodo eredita ed estende.
 
 ## I sette stadi del ciclo di azione
 
@@ -182,6 +175,7 @@ Connessioni:
 - [world](world.md)
 - [nested-cycles](nested-cycles.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
+- [augmentation-system](augmentation-system.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)

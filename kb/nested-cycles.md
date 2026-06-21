@@ -13,6 +13,14 @@ ne valuta la risposta, ma tace su una cosa: quando l'artefatto è esso stesso
 costruito, è il prodotto di un ciclo d'azione precedente. Il metodo apre quella
 scatola nera, e l'apertura è questo nodo.
 
+L'annidamento ha un antenato preciso, del 1962: il **bootstrap** di Engelbart —
+«Tools Developed vs Tools Used» (§IV-E di _Augmenting Human Intellect_) — il
+sistema di augmentation che applica i propri means a migliorare sé stesso, e si
+solleva «by its own bootstraps» (cfr. `augmentation-system`). La distinzione
+engelbartiana tra ciò che il sistema _sviluppa_ e ciò che _usa_ è la stessa che
+qui separa il ciclo di sviluppo dal runtime, e porta con sé lo stesso
+avvertimento sulla confusione dei due termini, guardia contro l'affiancamento.
+
 Il ciclo **runtime** ha per Mondo la realtà: o3 prescrive un'email, una
 transazione, una pubblicazione o un gesto, l'atto accade nella membrana `world`,
 i1 ne cattura il segnale quando serve. Il ciclo di **sviluppo** ha per Mondo
@@ -70,6 +78,7 @@ Connessioni:
 
 - [action-cycle](action-cycle.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
+- [augmentation-system](augmentation-system.md)
 - [world](world.md)
 - [goal](goal.md)
 - [perform](perform.md)

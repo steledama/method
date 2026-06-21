@@ -79,9 +79,10 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
   repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.) — quest'ultimo è l'i1
   scelto. Copia legale ma sotto copyright Oxford/Wiley e persistente: solo provenienza
-  qui, niente cattura in `perceptions/` (come i libri di Norman). Distillazione i2/i3 da
-  fare nella chirurgia coordinata dei nodi (`tasks/fonti-engelbart.md`; i2 in
-  `verdict.md`, filo «I giganti ristrutturati»); il nodo non va scritto prima dell'i1 reale. Nota di fedeltà: la pagina d'autore riporta una
+  qui, niente cattura in `perceptions/` (come i libri di Norman). **i3 scritto** nella
+  chirurgia coordinata dei nodi (2026-06-21): pavimento ontologico in `kb/cognitive-system.md`
+  (active externalism, parity, scaffolding, 007, mente-come-controllore, criterio scaffold
+  action-oriented). Nota di fedeltà: la pagina d'autore riporta una
   paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
 - **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A Bradford
   Book / The MIT Press, **1997** (second printing 1997), ISBN 0-262-03240-6, LCCN 96-11817.
@@ -90,15 +91,16 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   come corpo/ambiente ingegnerizzato» che da sola _The Extended Mind_ non regge. Procurato in
   PDF con **strato di testo nativo** (pulito), superficie di lavoro `BeingThere.txt`; niente
   OCR né cattura in `perceptions/`, solo provenienza qui. Nota di fedeltà: il nome del file
-  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997. i1: capitoli
-  portanti per il pavimento ontologico ancora da leggere (cap. 2-3, 9-10).
+  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997. **i1 letto e
+  i3 scritto**: lo scaffolding e il «007 principle» sono distillati nel pavimento ontologico
+  di `kb/cognitive-system.md`.
 - **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart, Summary
   Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024, preparato per il
   Director of Information Sciences, Air Force Office of Scientific Research; Stanford Research
   Institute, Menlo Park, **ottobre 1962**. Ripubblicato in forma ridotta come «A Conceptual
   Framework for the Augmentation of Man's Intellect» in _Vistas in Information Handling_
   (Howerton & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria del task Engelbart e
-  della ristrutturazione dei giganti (cfr. `verdict.md`, filo «I giganti ristrutturati»).
+  della ristrutturazione dei giganti, distillata nel nodo `kb/augmentation-system.md`.
   Report governativo/SRI, pubblicato liberamente dal Doug Engelbart Institute; procurato da
   Internet Archive (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
   pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext` (sia `-layout`
@@ -151,8 +153,9 @@ Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
 (Hutchins/Clark/Norman) e `goal` (Leontiev) sono tutti reperiti. Restano due lavori di
 **distillazione** (non di fonte), tracciati altrove:
 
-- _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 distillati
-  (i2 in `verdict.md`, filo «Maturazione dei nodi fondativi»), l'i3 nella revisione coordinata
-  dei nodi (`tasks/fonti-engelbart.md`). Cap. 3 già in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
+- _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 **i3
+  scritto** (2026-06-21): Cap. 2 (esperienziale/riflessivo, radice dei tre livelli) in
+  `kb/cognitive-artifact.md` e `kb/processing-layers.md`; Cap. 6 (cognizione distribuita di
+  Norman) in `kb/cognitive-system.md`. Cap. 3 già in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
 - _Activity, Consciousness, and Personality_ (Leont'ev 1978) — §3.5 sorzata in `kb/goal.md`;
   resta solo l'eventuale distillazione ulteriore se nascerà da uso reale del nodo.

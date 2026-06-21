@@ -7,6 +7,8 @@ stato: bozza
 
 Modello di Donald Norman (con Andrew Ortony e William Revelle) che distingue tre livelli di elaborazione del cervello, ciascuno con un ruolo diverso e — per il design — un proprio stile. È il contributo di _Emotional Design_, dove Norman corregge la tesi di _The Design of Everyday Things_: l'usabilità non basta, perché «the emotional side of design may be more critical to a product's success than its practical elements». Per il metodo il livello che conta è il _reflective_: la KB è un artefatto riflessivo, il luogo dove l'esperienza diventa generalizzazione, e i tre livelli danno il vocabolario per capire perché il sapere riflessivo non agisce da solo e ha bisogno dello strato output per raggiungere l'azione. «La KB è riflessiva» vale però _in questo frame_ (i tre livelli di elaborazione); come system image la KB è trasversale ai livelli, non uno stadio — cfr. `system-image` e, sotto, «I tre livelli e l'altezza del ciclo».
 
+I tre livelli non nascono dal nulla in _Emotional Design_: **articolano i due modi** che Norman aveva tracciato in _Things That Make Us Smart_ (1993) — la cognizione esperienziale e quella riflessiva (cfr. `cognitive-artifact`). Il riflessivo resta; l'esperienziale, il modo percettivo-diretto, si sdoppia nel _visceral_ (giudizio affettivo immediato) e nel _behavioral_ (operazione esperta di routine). Riconoscere la genealogia tiene coerenti i due nodi: lo stesso Norman, undici anni dopo, raffina due modi in tre livelli.
+
 Il nome del nodo usa _layers_ per restare vicino alla stratificazione di Norman
 e risuonare con gli strati input/output del metodo, evitando l'omonimia con i
 _levels of processing_ di Craik e Lockhart.
@@ -62,6 +64,7 @@ I due archi del ciclo sono speculari e accoppiati per altitudine (cfr. `action-c
 ## Riferimenti
 
 - Donald Norman, _Emotional Design: Why We Love (or Hate) Everyday Things_ (Basic Books, 2004), Prologo "Three Teapots" e Cap. 1 "Attractive Things Work Better". Il modello dei tre livelli è di Norman con Andrew Ortony e William Revelle (cfr. Figura 1.1, "Three levels of processing").
+- Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 2 «Experiential and Reflective Cognition» — i due modi da cui i tre livelli del 2004 derivano (cfr. `cognitive-artifact`).
 - Fonte grezza (`world`, su Drive): PDF, provenienza nel registro `sources.md`.
 
 Connessioni:
