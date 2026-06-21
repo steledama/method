@@ -19,6 +19,9 @@ Approfondimento nel nodo [kb-tools](kb/kb-tools.md); esposizione operativa in `C
   `interpretations.html` da `interpretations/metodo-in-sintesi.md`, `tasks.html`
   da `plan.md` + `tasks/`, `verdict.html` da `verdict.md`
   tramite Pandoc e i generatori stdlib-only in `tools/`
+- `build-system-image.sh` — genera `index.html`, home statica dell'atrio,
+  da `README.md`, `plan.md` e dalla configurazione delle viste; non richiede
+  JavaScript o server
 
 ## skill
 

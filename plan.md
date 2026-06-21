@@ -6,9 +6,8 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                    | Dip. |
-| --- | --------------------------------------- | ---- |
-| 1   | System image visiva: la home dell'atrio | —    |
+| #   | Task | Dip. |
+| --- | ---- | ---- |
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -33,7 +32,7 @@ Il **fronte fondativo è chiuso**: la chirurgia dei giganti e il **Goal di svilu
 (nodo `development-goal`, 2026-06-21) hanno articolato il polo Goal-dev — dimensioni
 comuni e posizione auspicata — sciogliendo lo split Goal-dev/Goal-runtime lasciato
 provvisorio dal gate; la cella Goal-dev risale da D a S in `action-cycle-matrix` (ora
-11 S, 4 D, 1 vuoto). Restano i tre task **implementativi**.
+11 S, 4 D, 1 vuoto).
 
 **Guardrail**, da non perdere: teoria-prima valeva _in quella fase_, non come regola
 permanente. Il dal-basso resta la guardia contro la sovra-ingegnerizzazione
@@ -49,12 +48,13 @@ README canonica è formalizzata in `kb/readme.md` (heading fissi `## Metodo` ·
 cinque i README. Il round 1 della propagazione è **recepito dai quattro
 adottanti** via il loro `method-review` (`nixos`, `bi`, poi `salute` in `dcb08dc`
 e `economia` in `22e22ca`); la prescrizione esaurita è rimossa da
-`prescriptions/`, la storia resta in Git. Lo **strato di presentazione (#1)** è
+`prescriptions/`, la storia resta in Git. Lo **strato di presentazione** è
 chiuso: `deck` è stato scisso in `view`, `assets/` e `views/` sono materializzati,
-le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Resta il
-task implementativo della **home (#1)**, che consuma la mappa-sorgente del gate e
-lo strato di presentazione appena stabilizzato.
+le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Anche la
+**home della system image** è chiusa: `index.html` è generato, statico, offline e
+consuma README, Plan e le viste. Il cluster implementativo aperto dal gate è
+esaurito.
 
 ## Dettagli task
 
-- [System image visiva: la home dell'atrio](tasks/system-image-visiva.md)
+Nessun task aperto.

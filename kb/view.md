@@ -26,8 +26,7 @@ Nel repo `metodo` le viste generate vivono in `views/`:
 - `views/interpretations.html` deriva da `interpretations/metodo-in-sintesi.md`;
 - `views/tasks.html` deriva da `plan.md` e dai file in `tasks/`;
 - `views/verdict.html` deriva da `verdict.md`;
-- `index.html`, quando presente, deriva da `README.md`, `plan.md` e dalla
-  configurazione delle viste.
+- `index.html` deriva da `README.md`, `plan.md` e dalla configurazione delle viste.
 
 Le sorgenti rimangono pure: `interpretations/`, `tasks/`, `plan.md` e
 `verdict.md` non incorporano HTML generato.
@@ -52,9 +51,10 @@ diagrammi come Mermaid introducono parser, vincoli di layout e dipendenze runtim
 sproporzionati rispetto al vantaggio in presentazioni curate: non fanno parte del
 pattern di default.
 
-La build è versionata in `tools/build-presentation.sh`: usa Pandoc/Reveal per le
-viste a slide, `tools/build_views.py` per le sorgenti derivate e gli asset comuni in
-`assets/`. Due generazioni consecutive devono produrre lo stesso output.
+La build è versionata in due entrypoint: `tools/build-presentation.sh` usa
+Pandoc/Reveal per le viste a slide e `tools/build-system-image.sh` genera la home
+statica. Gli script Python in `tools/` restano stdlib-only; gli asset comuni vivono
+in `assets/`. Due generazioni consecutive devono produrre lo stesso output.
 
 ## Apertura locale e condivisione on-demand
 

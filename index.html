@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cognizione condivisa · system image</title>
+    <link rel="stylesheet" href="assets/system-image.css" />
+  </head>
+  <body class="home">
+    <header class="home-hero">
+      <p class="kicker">GOAL</p>
+      <h1>Cognizione condivisa</h1>
+      <div class="hero-copy">
+        <p>
+          Il Goal di <code>metodo</code> è sdoppiato (cfr.
+          <a href="kb/development-goal.md">development-goal</a>,
+          <a href="kb/goal.md">goal</a>): il Goal <strong>runtime</strong> è
+          custodire il metodo portabile e propagarne il canone agli adottanti
+          senza micromanagiarne la coda; il Goal di <strong>sviluppo</strong> è
+          la posizione auspicata dell&#x27;artefatto-metodo lungo le dimensioni
+          comuni — basso attrito di lettura, KB riflessiva coerente, loop di
+          propagazione che si chiude.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="cycle" aria-label="Ciclo di azione">
+        <div class="cycle-pole top">GOAL</div>
+        <div class="cycle-grid">
+          <div class="cycle-column execution" aria-label="Arco di esecuzione">
+            <h2>Esecuzione</h2>
+            <a class="cycle-card" href="#plan" aria-label="Plan">
+              <span class="cycle-key">o1</span>
+              <strong>Plan</strong>
+              <small>Task aperti e dipendenze</small>
+            </a>
+            <a class="cycle-card" href="views/tasks.html" aria-label="Specify">
+              <span class="cycle-key">o2</span>
+              <strong>Specify</strong>
+              <small>Vista Tasks</small>
+            </a>
+            <div class="cycle-card muted" aria-label="Perform">
+              <span class="cycle-key">o3</span>
+              <strong>Perform</strong>
+              <small>Prescrizioni on-demand</small>
+            </div>
+          </div>
+          <div class="cycle-column evaluation" aria-label="Arco di valutazione">
+            <h2>Valutazione</h2>
+            <a
+              class="cycle-card"
+              href="views/verdict.html"
+              aria-label="Compare"
+            >
+              <span class="cycle-key">i3</span>
+              <strong>Compare</strong>
+              <small>Vista Verdict</small>
+            </a>
+            <a
+              class="cycle-card"
+              href="views/interpretations.html"
+              aria-label="Interpret"
+            >
+              <span class="cycle-key">i2</span>
+              <strong>Interpret</strong>
+              <small>Vista Interpretations</small>
+            </a>
+            <div class="cycle-card muted" aria-label="Perceive">
+              <span class="cycle-key">i1</span>
+              <strong>Perceive</strong>
+              <small>Segnali on-demand</small>
+            </div>
+          </div>
+        </div>
+        <div class="cycle-pole bottom">WORLD</div>
+      </section>
+
+      <section id="plan" class="home-section">
+        <div class="section-heading">
+          <p class="kicker">PLAN</p>
+          <h2>Task aperti</h2>
+        </div>
+        <div class="plan-list">
+          <p class="empty-state">Nessun task aperto.</p>
+        </div>
+      </section>
+
+      <section class="home-section world-section">
+        <div class="section-heading">
+          <p class="kicker">WORLD</p>
+          <h2>Adottanti</h2>
+          <p>
+            <code>metodo</code> ha due Mondi (<a href="kb/world.md">world</a>).
+            Il Mondo <strong>runtime</strong> sono i quattro adottanti,
+            espliciti — da lì emerge l&#x27;esigenza dal basso e lì torna la
+            propagazione:
+          </p>
+        </div>
+        <div class="world-grid">
+          <article class="world-item">
+            <a href="../nixos/">nixos</a>
+            <p>Configurazione dichiarativa NixOS multi-host</p>
+          </article>
+          <article class="world-item">
+            <a href="../bi/">bi</a>
+            <p>Business intelligence e sincronizzazione dati</p>
+          </article>
+          <article class="world-item">
+            <a href="../economia/">economia</a>
+            <p>Gestione finanziaria, patrimoniale e legale personale</p>
+          </article>
+          <article class="world-item">
+            <a href="../salute/">salute</a>
+            <p>Benessere, pratica, filosofia e salute personale</p>
+          </article>
+        </div>
+        <div class="world-note">
+          <p>
+            Il Mondo di <strong>sviluppo</strong> sono i nodi <code>kb/</code> e
+            la loro coerenza: un commit agisce sui nodi, lint e audit ne
+            percepiscono la risposta. Le fonti autorevoli stanno fuori
+            dall&#x27;artefatto, registrate in
+            <a href="sources.md"><code>sources.md</code></a
+            >.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -23,7 +23,12 @@ def task_view(root: Path) -> str:
         "Coda operativa aperta, derivata da `plan.md` e dai file in `tasks/`.",
         "",
     ]
-    for row in parse_plan(root):
+    rows = parse_plan(root)
+    if not rows:
+        lines += ["## Nessun task aperto", "", "La coda operativa è vuota.", ""]
+        return "\n".join(lines).rstrip() + "\n"
+
+    for row in rows:
         if not row.source:
             continue
         task = parse_task(root, row.source)

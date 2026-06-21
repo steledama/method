@@ -41,7 +41,7 @@ Sciolta la collocazione, la root contiene tre specie di file, distinte per **fun
 
 La collezione-stadio (`perceptions/`, `interpretations/`, `prescriptions/`) **non** è una quarta specie di file-root: è una cartella, dichiarata nell'atrio dal proprio nome e indicizzata dall'indice interno omonimo (cfr. «Il gradiente di cardinalità»).
 
-**Strato di presentazione** — `assets/` e `views/` sono infrastruttura derivata, non nuove sorgenti. `assets/` contiene token grafici, primitivi e adattatori CSS condivisi; `views/` contiene HTML generati e versionati, apribili via `file://`, che leggono le sorgenti del ciclo (`interpretations/`, `tasks/`, `plan.md`, `verdict.md`) senza sostituirle. La disciplina vive nel nodo `view`: vista derivata, mai seconda fonte.
+**Strato di presentazione** — `index.html`, `assets/` e `views/` sono infrastruttura derivata, non nuove sorgenti. `index.html` è la home statica della system image; `assets/` contiene token grafici, primitivi e adattatori CSS condivisi; `views/` contiene HTML generati e versionati, apribili via `file://`, che leggono le sorgenti del ciclo (`README.md`, `interpretations/`, `tasks/`, `plan.md`, `verdict.md`) senza sostituirle. La disciplina vive nel nodo `view`: vista derivata, mai seconda fonte.
 
 ## Visibilità ≠ caricamento
 
@@ -121,7 +121,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - cataloghi trasversali: `kb.md` (catalogo di `kb/`) · `tools.md` (strumenti e skill)
 - register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` (territorio del dominio) · `sources.md` (fonti-mondo autorevoli)
 - collezioni: `kb/` · `tools/` · `tasks/` · collezioni-stadio `perceptions/` (i1) · `interpretations/` (i2) · `prescriptions/` (o3)
-- presentazione derivata: `assets/` (CSS, token e primitivi condivisi) · `views/` (HTML generati versionati)
+- presentazione derivata: `index.html` (home statica della system image) · `assets/` (CSS, token e primitivi condivisi) · `views/` (HTML generati versionati)
 - indici di collezione-stadio, dentro la cartella, omonimi (no frontmatter): `perceptions/perceptions.md` · `interpretations/interpretations.md` · `prescriptions/prescriptions.md`; `tasks/` è indicizzata da `plan.md`
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
   versionata, senza manifest

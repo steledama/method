@@ -252,19 +252,13 @@ Conseguenze decise:
     `verdict.md` restano sorgenti pure. Le tre viste attive sono
     `views/interpretations.html`, `views/tasks.html` e `views/verdict.html`, tutte
     apribili via `file://` e rigenerate da `tools/build-presentation.sh`.
-  - **System image visiva, la home (task rimasto, dip. dallo strato appena chiuso)**: `index.html` in
-    root — l'atrio visivo, statico e offline (nessun Reveal), generato dallo stesso
-    motore. Layout sul diagramma `action-cycle`: header GOAL (polo Goal del
-    `README`), due colonne (o1/o2/o3 ↔ i3/i2/i1, con o3/i1 **muted** finché
-    `prescriptions/`/`perceptions/` sono vuote), footer WORLD (adottanti dal polo
-    World canonico del `README`, riferimenti espliciti). La rappresentazione dei due
-    cicli è **decisa dal gate** (sopra), nella lettura ribaltata: **due cicli
-    genuini**, non un ciclo solo. La home può mostrarli entrambi, con **runtime-o1
-    muted** (il gap top-down dichiarato), il deck come livello behavioral (o2↔i2) del
-    runtime e la cucitura di output al polo Mondo (footer WORLD). Subordinata però alle
-    conseguenze di canone che il gate apre (riassegnazione del deck, revisione di «non
-    orchestra»): la vista non incide finché non sono ratificate. Cura della stasi
-    `processing-layers:53` e specchio o2↔i2 reso letterale.
+  - **System image visiva, la home (chiusa 2026-06-21)**: `index.html` è l'atrio
+    visivo, statico e offline, generato da `tools/build-system-image.sh`. Legge il
+    polo Goal e il polo World dal README canonico, Plan da `plan.md`, e apre le tre
+    view generate (`tasks`, `verdict`, `interpretations`). Il ciclo resta completo:
+    Plan/Specify/Compare/Interpret sono navigabili; Perform e Perceive sono visibili,
+    attenuati e senza destinazione. La home non è una seconda fonte: è una vista
+    derivata e rigenerabile, come il resto dello strato `view`.
   - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
     fonte** — ogni vista si genera da sorgenti, anche il polo World.
   - **Orizzonte deliberatamente fuori**: i task come slide navigabili
