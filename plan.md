@@ -6,8 +6,9 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task | Dip. |
-| --- | ---- | ---- |
+| #   | Task                                     | Dip. |
+| --- | ---------------------------------------- | ---- |
+| 1   | Unificare il system image sull'artefatto | —    |
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -55,6 +56,13 @@ le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Anch
 consuma README, Plan e le viste. Il cluster implementativo aperto dal gate è
 esaurito.
 
+È aperto un **task fondativo-terminologico (#1)**: unificare il _system image_
+sull'**artefatto** — la KB ne è il nucleo di conoscenza formalizzata, non il
+sinonimo. Emerso rivedendo `action-cycle` (la sezione «I due medium e i prodotti»
+ora usa «artefatto» per il medium interno, mentre riga 37, `system-image` e
+`cognitive-system` equiparano ancora KB e system image). Da propagare ai tre nodi
+in una passata sola.
+
 ## Dettagli task
 
-Nessun task aperto.
+- [Unificare il system image sull'artefatto](tasks/system-image-artefatto.md)

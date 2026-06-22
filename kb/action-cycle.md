@@ -5,17 +5,13 @@ stato: bozza
 
 # Action cycle
 
-Modello del rapporto tra utente e sistema secondo Donald Norman, distillato come fondamento metodologico per lo strato di output del metodo. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo collega al ciclo dell'azione che il metodo deve sostenere.
+Modello del rapporto tra utente e sistema secondo Donald Norman, **trasportato nell'agentic loop dell'LLM dentro l'harness**. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo trasferisce dal banco di Norman (un umano che agisce su un oggetto) al ciclo che un agente LLM percorre, sessione dopo sessione, dentro un harness: il sistema progettato per chiudere i gulf non è più una caffettiera, è la KB.
 
-Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo eredita questo modello per progettare l'artefatto così che chiuda davvero il ciclo, non solo che lo descriva.
+Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo eredita questo modello e lo riassegna: l'agente che percorre il ciclo è in primo luogo l'**LLM** (l'umano resta consumatore, soprattutto di o2 — vedi «I due gulf»); il sistema che deve chiudere il ciclo è l'**artefatto versionato**.
 
-## Norman dentro la cornice di sistema
+Nella cornice di sistema di Engelbart (H-LAM/T, cfr. `augmentation-system`), Norman è la gamba che dà l'**interfaccia col Mondo**: come il sistema rende visibile l'azione possibile, come riceve feedback, come chiude il ciclo. Risolve il «come l'agente agisce» che né Luhmann (produttore solitario di scrittura) né Karpathy (esplorazione e rendering) affrontano. Il resto del nodo è il suo contributo: il ciclo d'azione che il metodo eredita ed estende.
 
-Il metodo non si appoggia a tre pilastri pari: si inscrive in una **cornice di sistema** — l'_augmentation system_ di Engelbart (H-LAM/T) — che _contiene_ i giganti invece di affiancarli. La trattazione piena della cornice e di ciò che vi sta dentro e sotto vive in `augmentation-system`; qui basta collocare Norman al suo posto. Dentro la cornice, **Luhmann / Zettelkasten** dà l'unità atomica (il means _Language_): come è fatto il singolo nodo, come si lega, perché la sintesi non sta nel nodo. La gamba di **manutenzione** — chi tiene aggiornato il sistema, ingest/query/lint, come l'LLM compone la KB — è il _Methodology/Training_ engelbartiano, di cui Karpathy è l'**istanza contemporanea**, non un pilastro a sé (cfr. `karpathy-pattern`).
-
-**Norman** è l'**interfaccia col Mondo**: come il sistema rende visibile l'azione possibile, come riceve feedback, come chiude il ciclo. Risolve il "come l'utente agisce" che né Luhmann né Karpathy affrontano — Luhmann era un produttore solitario di scrittura, Karpathy parla di esplorazione e rendering; nessuno dei due ha pensato esplicitamente al ciclo di azione tra utente e sistema, che è esattamente il problema dello strato output e del filing back. Il resto di questo nodo è il contributo di Norman: il ciclo d'azione che il metodo eredita ed estende.
-
-## I sette stadi del ciclo di azione
+## I sei atti e i due poli
 
 Il modello canonico di Norman procede in sequenza:
 
@@ -47,42 +43,23 @@ Nel metodo il ciclo si materializza su due archi simmetrici — output (esecuzio
 - in mezzo: **o2 ↔ i2** — vista di decisione / nota interpretata;
 - in alto, alla KB: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata.
 
-I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale. o1 e o2 non sono lo stesso stadio rivolto a due agenti, come una formulazione precedente diceva: sono due _altitudini_ dell'arco di output. Il loro consumatore (LLM per o1, umano per o2) è una dimensione ortogonale all'altitudine — vedi «Le quattro dimensioni» più sotto.
+I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale.
 
-**Le due cerniere e la loro vera asimmetria.** Le due cerniere hanno la _stessa_
-forma: scrivi-poi-leggi attraverso un medium persistente. Alla cerniera bassa,
-o3 prescrive l'atto, l'atto modifica `world` e i1 ne cattura un segnale; i due
-riflessi versionati non sostituiscono il passaggio fisico attraverso la
-membrana. Il mondo trattiene lo stato nell'intervallo, esattamente come la KB lo
-trattiene tra i3 e il Goal.
+## I due medium e i prodotti del loop
 
-L'asimmetria reale è altrove: **il mondo persiste da solo, la KB persiste solo se qualcuno la scrive.** Il mondo si ricorda della mail spedita, della transazione eseguita, del gesto compiuto, che l'artefatto faccia altro o no; la KB dimentica a meno che l'i3 non depositi l'esito. È il contenuto operativo del principio «una decisione non scritta è una decisione persa» — non un'esortazione morale, ma la conseguenza dell'unico dei due medium che non si mantiene da sé. Per questo la KB ha bisogno di un custode e il mondo no.
+**Le due cerniere hanno la stessa forma:** scrivi-poi-leggi attraverso un medium persistente. Alla cerniera bassa, o3 prescrive l'atto, l'atto modifica `world` e i1 ne cattura un segnale; i due riflessi versionati non sostituiscono il passaggio fisico attraverso la membrana. Il mondo trattiene lo stato nell'intervallo, esattamente come l'artefatto lo trattiene tra i3 e il Goal. La differenza non è nella forma ma nella tenuta: **il mondo persiste da solo, l'artefatto persiste solo se qualcuno lo scrive.** Il mondo si ricorda della mail spedita, della transazione eseguita, del gesto compiuto, che qualcuno lo registri o no; l'artefatto dimentica a meno che l'i3 non depositi l'esito. È il contenuto operativo del principio «una decisione non scritta è una decisione persa» — non un'esortazione morale, ma la conseguenza dell'unico dei due medium che non si mantiene da sé. Per questo l'artefatto ha bisogno di un custode e il mondo no.
 
-## i2 micro e i2 macro: il deck come cerniera
+**Ciò che l'artefatto trattiene sono i prodotti degli atti.** Ogni atto del ciclo non è solo un'operazione che passa: _deposita un prodotto versionato_, in un luogo proprio dell'atrio — o1 in `plan.md`, o2 in `tasks/`, o3 nei commit e in `prescriptions/`, i1 in `perceptions/`, i2 nei nodi `kb/` e in `interpretations/`, i3 in `verdict.md` (la mappa-sorgente completa è in `action-cycle-matrix`). Anche i poli trattengono stato: il Goal è scritto (`README`, `development-goal`), e il Mondo «remembers by being there». Nessuno stadio del loop è effimero: ciascuno _è_ e _contiene_ il prodotto dell'agire.
 
-L'atto Interpret (i2) non ha una sola scala. Nel ciclo per-nodo, i2-**micro** è la
-singola nota bozza che distilla un i1 — un referto, un export, un segnale — l'istanza
-minima descritta sopra (Interpret → nodo bozza in `kb/`). Ma esiste anche un
-i2-**macro**: la sintesi periodica che rilegge l'intero artefatto e rivela tensioni
-non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente. È il ruolo
-di `interpretations/`: ogni sezione del deck è un'interpretazione i2-macro, non un nodo
-bozza.
+**Divisi, aperti, consultabili.** Tenere questi prodotti separati — non collassati in un unico blob né chiusi nella testa di chi ha agito — è il punto in cui il ciclo d'azione tocca la **cognizione condivisa**: il pavimento ontologico (Hutchins/Clark/Norman) vive in `cognitive-system`, qui se ne legge la materializzazione lungo i sei atti. È l'applicazione al loop del «007 principle» di Clark — lascia l'informazione nel mondo e recuperala quando serve, invece di immagazzinarla tutta dentro: il ragionamento del loop non sta nella mente di un agente, sta esternalizzato e separato nei prodotti dell'atrio. Per l'LLM, che riparte da zero a ogni sessione e per cui la KB _è_ il modello mentale (cfr. l'asimmetria umano/LLM in `cognitive-system`), i prodotti separati sono l'unico modo di rientrare nel ciclo senza ricostruirlo da capo; per l'agente umano sono i **punti di controllo**, i punti dove ispezionare il loop e intervenire.
 
-Per `method`, il cui Mondo di sviluppo è la KB stessa, il deck rivela dove i nodi
-si contraddicono o si completano. Nei progetti adottanti (`bi`, `economia`,
-`salute`), la stessa superficie interpreta dati del Mondo runtime secondo i goal.
-In entrambi i casi è o2 quando viene prodotta come vista di decisione e substrato
-i2 quando viene letta per capire cosa la sintesi significa. La cerniera non è
-quindi una differenza di ruolo tra repository, ma il doppio verso dello stesso
-artefatto nel ciclo.
-
-Esempio concreto, dal pilota di salute. Esecuzione: leggi il quadro corporeo, vedi che il termometro su aneurisma è giallo, decidi di rispettare le raccomandazioni, agisci (cammini, mangi meno). Valutazione: la visita di controllo a novembre 2026 produce un nuovo referto (i1), che viene distillato in una nota (i2), che aggiorna `storia-clinica` (i3), che ridipinge il termometro nel quadro (→ nuovo Goal).
+**La separazione è ciò che rende il loop auto-correggibile.** L'arco di input può rileggere i prodotti dell'arco di output e confrontarli con il Goal — Compare (i3) verifica Plan (o1), Interpret (i2) rilegge ciò che è stato prescritto e fatto — solo se quei prodotti esistono distinti e leggibili.
 
 ## I due gulf
 
 Norman chiama gulf of execution la distanza tra "so cosa voglio" e "so come farlo col sistema"; gulf of evaluation la distanza tra "il sistema mostra X" e "capisco cosa significa per me". Sono i due punti critici dove il design fallisce o riesce.
 
-Nel metodo i due gulf si traducono così:
+Nel metodo i due gulf si traducono così — e l'agente che li attraversa è in primo luogo l'LLM che riprende il lavoro a freddo, sessione dopo sessione:
 
 - o1 (output macchina) riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito le scadenze, lo stato, i fatti strutturati, senza dover ricostruire il modello da capo
 - o2 (output decisione) riduce entrambi i gulf per l'utente umano: termometro, schema, raccomandazioni leggibili in cinque secondi (execution); feedback chiaro che traduce l'esito in significato (evaluation)
@@ -91,50 +68,25 @@ Nel metodo i due gulf si traducono così:
 - i1/i2/i3 riducono il gulf of evaluation: catturano il segnale, gli
   attribuiscono significato e lo formalizzano
 
-## Le sette domande, feedforward e feedback
+**Dove il ciclo si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `verdict.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `cognitive-fidelity`).
 
-Ciascuno dei sette stadi è il punto in cui un agente si pone una domanda, e ogni domanda è un tema di design: il sistema è ben progettato se fornisce l'informazione per rispondervi.
+## Saltare uno stadio: la perdita di controllo
 
-- Goal — cosa voglio realizzare?
-- Plan — quali sono le alternative?
-- Specify — cosa posso fare ora?
-- Perform — come lo faccio?
-- Perceive — cosa è successo?
-- Interpret — cosa significa?
-- Compare — va bene?
+Il modello di Norman non è qui solo descrittivo: è lo **strumento teorico con cui si progetta il metodo** — l'_harness di secondo livello_, non l'infrastruttura tecnica (L1) ma la rappresentazione che la sovrasta (L2 in `cognitive-system`) e che dà forma all'interazione tra agente umano e agente artificiale. Da questa tesi discende un corollario operativo netto: **il loop va percorso intero; saltare uno o più stadi crea danno e fa perdere il controllo — a entrambi gli agenti.**
 
-Il Mondo, ottavo elemento del metodo, non ha domanda: è il terreno muto. Anche i due poli tacciono in modo diverso — il Goal ha la sua domanda ma a provenienza aperta (da dove venga il goal Norman non lo dice, è il confine aperto di `goal`), il Mondo tace del tutto (è la scatola nera che l'annidamento apre).
+Non è completezza estetica. Ogni stadio saltato è un prodotto non depositato, e il prodotto mancante rompe la catena della cognizione condivisa proprio dove servirebbe il controllo. L'**agente artificiale** che salta o1/o2 — pianifica e specifica nella propria testa invece che nell'artefatto — agisce su un modello mentale che evapora a fine sessione: alla ripresa non ha appiglio, ricostruisce a caso, drifta. L'**agente umano** che non trova il prodotto di uno stadio perde il suo punto di controllo: non si ispeziona né si corregge ciò che non è stato deposto. Il caso `bi`/1018022 appena visto è esattamente uno stadio saltato — i3: la decisione visse nel commit, non in `verdict.md`, e nessuno dei due agenti poté riaprirla finché l'assunzione stale non esplose nel mondo. È la forma tipica del guasto, non un'eventualità remota.
+
+## Feedforward e feedback
+
+Ciascun atto è il punto in cui un agente si pone una domanda — _quali alternative?_ (Plan), _cosa posso fare ora?_ (Specify), _come?_ (Perform), _cosa è successo?_ (Perceive), _cosa significa?_ (Interpret), _va bene?_ (Compare) — e ogni domanda è un tema di design: il sistema è ben progettato se fornisce l'informazione per rispondervi. I poli tacciono in modo diverso: il Goal ha la sua domanda (_cosa voglio realizzare?_) ma a provenienza aperta (da dove venga il goal Norman non lo dice, è il confine aperto di `goal`); il Mondo non ha domanda, è il terreno muto, la scatola nera che l'annidamento apre.
 
 Il design risponde a queste domande con vincoli, mapping, significanti, modelli concettuali, feedback e visibilità (cfr. `constraint`, `affordance-signifier`, `system-image`). Norman distingue l'informazione per direzione: il **feedforward** risponde alle domande di esecuzione (cosa posso fare, come), il **feedback** a quelle di valutazione (cosa è successo, cosa significa, va bene). Nel metodo i due archi portano esattamente queste due informazioni: l'arco output (o1/o2/o3) è il feedforward che colma il gulf of execution; l'arco input (i1/i2/i3) è il feedback che colma il gulf of evaluation. Il criterio che ne segue, valido per ogni componente del repo: questo file dà l'informazione per rispondere alla domanda del suo stadio?
 
-## Cicli annidati: due specchi, due Mondi
+## Cicli annidati e le quattro dimensioni
 
-Il ciclo d'azione del metodo non è uno solo: sono due, annidati, ciascuno lo
-specchio simmetrico appena descritto, distinti per _cosa sia il loro Mondo_ in
-fondo — la realtà per il ciclo runtime, l'artefatto stesso per il ciclo di
-sviluppo. L'incastro è che il Mondo del ciclo di sviluppo, cioè l'artefatto
-costruito e modificato dall'o3-sviluppo, diventa la macchina che esegue il ciclo
-runtime: l'artefatto versionato è ciò che poi opera nel runtime. È il senso in cui il metodo
-_estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo come scatola
-nera, il metodo la apre. La trattazione piena — i due Mondi e i due poli, la
-cucitura contro l'affiancamento, la ricaduta sull'atrio, l'estensione agli
-adottanti — vive nel nodo dedicato `nested-cycles`. Anche il Goal si sdoppia: il
-Goal del ciclo di sviluppo ha dimensioni proprie — la posizione auspicata
-dell'artefatto lungo attrito, autonomia e temporalità — articolate in
-`development-goal`.
+Il ciclo d'azione del metodo non è uno solo: sono due, annidati, ciascuno lo specchio simmetrico appena descritto, distinti per _cosa sia il loro Mondo_ in fondo — la realtà per il ciclo runtime, l'artefatto stesso per il ciclo di sviluppo. L'incastro è che il Mondo del ciclo di sviluppo, costruito e modificato dall'o3-sviluppo, _diventa_ la macchina che esegue il ciclo runtime: è il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo come scatola nera, il metodo la apre. La trattazione piena (i due Mondi, la cucitura contro l'affiancamento, l'estensione agli adottanti) vive in `nested-cycles`; il Goal che si sdoppia con esso, in `development-goal`.
 
-## Le quattro dimensioni di un elemento del metodo
-
-Una volta riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni _ortogonali_ — e l'errore di collassarne due (livello e agente) è ciò che aveva fatto «sparire» o1:
-
-1. **agente** — umano oppure LLM (il modello, non l'harness)
-2. **annidamento** — ciclo runtime (agisce sul mondo) oppure ciclo di sviluppo (agisce sull'artefatto)
-3. **livello** — 1 (macchina, vicino alla KB), 2 (decisione), 3 (al Mondo)
-4. **lato del cappio** — output (esecuzione, discesa) oppure input (valutazione, risalita)
-
-La matrice che ne risulta è la lente per confrontare i progetti adottanti: per ogni dominio si legge cosa è sviluppato, cosa manca perché non serve (es. `nixos` ha poco esogeno sul lato input runtime), e cosa manca ma servirebbe. Sostituisce sia il taglio rigido «stadi divisi per agente» sia la fotografia piatta dello stato dei progetti.
-
-**Dove si rompe.** Il guasto più insidioso non vive nel ciclo runtime ma nel gulf of evaluation del ciclo di sviluppo: una decisione viene eseguita (il commit parte, gulf of execution attraversato) ma la sua _assunzione_ non viene formalizzata e ri-valutata. Quando il significato dei dati su cui poggiava cambia, niente costringe a riaprirla, e l'assunzione stale si materializza mesi dopo come comportamento errato nel mondo. Nel caso `bi`/1018022 un commit di compatibilità ripristinò un comportamento storico ("presente nei backorders ⇒ esiste un fornitore esterno") dopo che il modello dati aveva cambiato significato — la sorgente interna magazzino era entrata nei backorders. La decisione visse nel messaggio di commit, non in `verdict.md`: il gulf of execution fu attraversato, quello di evaluation no, e l'assunzione esplose come oversell quando un cliente comprò due pezzi contro una giacenza di uno. Il presidio di questo guasto è un check di fedeltà cognitiva (cfr. `cognitive-fidelity`).
+Riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni _ortogonali_: **agente** (umano / LLM), **annidamento** (runtime / sviluppo), **livello** (1 macchina, 2 decisione, 3 Mondo), **lato del cappio** (output / input). Collassarne due — livello e agente — è l'errore che aveva fatto «sparire» o1. La matrice che ne risulta è la lente per confrontare i progetti adottanti, ed è il compito di `action-cycle-matrix`.
 
 ## Le quattro proprietà cardine come criteri di qualità per o2
 
@@ -180,6 +132,7 @@ Connessioni:
 - [nested-cycles](nested-cycles.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
 - [augmentation-system](augmentation-system.md)
+- [cognitive-system](cognitive-system.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [zettelkasten](zettelkasten.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
