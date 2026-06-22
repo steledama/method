@@ -6,7 +6,37 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-Nessun task aperto.
+| #   | Task                                                            | Dip. |
+| --- | --------------------------------------------------------------- | ---- |
+| 1   | Cicli annidati: modello dei poli (i3) + diagramma rifatto       | —    |
+| 2   | Frecce del ciclo d'azione visibili (home + deck)                | —    |
+| 3   | Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —    |
+| 4   | Coerenza slide post system-image + rimozione «Approfondimento»  | 1    |
+| 5   | Protocollo runtime-o1 (audit periodico top-down)                | —    |
+
+Apertura 2026-06-22: una **revisione i2-macro dello strato di presentazione**. Il
+deck (`interpretations/metodo-in-sintesi.md`) è l'i2-macro del metodo su sé stesso;
+riletto alla luce del task system-image (il _system image_ è l'artefatto, non la
+KB), slide e home non rappresentano più fedelmente il modello. **Disciplina**
+(cfr. il deck stesso e `cognitive-fidelity`): il deck rivela, i nodi risolvono —
+ciò che è **modello** si chiude prima nei nodi (i3), poi il deck si **ri-deriva**;
+ciò che è **resa** (CSS, layout) si corregge nello strato `view`. È il percorso
+i2 → i3 → o1 che, oltre a ripulire la presentazione, rifila come o1 il gap
+strutturale runtime-o1 (task 5).
+
+Note di rotta:
+
+- **Task 1** porta una decisione di modello aperta: `nested-cycles` oggi dice
+  **4 poli** (una coppia Goal/Mondo per ciclo, l'artefatto = fondo-dev _e_ macchina
+  del runtime), mentre il diagramma andrebbe verso **3 poli impilati** (Goal ·
+  Artefatto · World). Va sciolta nel nodo (i3) prima di ridisegnare. Il nodo già
+  **vieta** la rappresentazione a due colonne alla pari (§«La cucitura, non
+  l'affiancamento») che il deck attuale usa, e impone di mostrare la cucitura.
+- **Task 5** è il gap che il filo «cicli annidati» di `verdict.md` portava come
+  TODO appeso a un gate chiuso: l'arco top-down è scoccato una volta (prescrizione
+  baricentro → `method-review` → recepimento) ma manca il protocollo d'audit
+  periodico. Dipende dalla maturazione dell'osservatorio (i2/o2-runtime, oggi una
+  sola istanza); la lama è audit ≠ micromanagement della coda adottante.
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -66,3 +96,9 @@ dal grep (`processing-layers`, `project-structure`, `kb-content-typology`,
 `cognitive-artifact-design`, `karpathy-pattern`), più la coda `index`. Gli archi del
 ciclo tornano a correre tra Goal e Mondo (non «dalla/alla KB»). Audit pulito (49
 nodi, 0 link rotti).
+
+## Dettagli task
+
+- [Cicli annidati: modello dei poli + diagramma](tasks/cicli-annidati-modello.md) — task 1
+- [Revisione i2 della presentazione](tasks/presentazione-i2.md) — task 2, 3, 4
+- [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md) — task 5
