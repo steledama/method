@@ -6,9 +6,7 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                     | Dip. |
-| --- | ---------------------------------------- | ---- |
-| 1   | Unificare il system image sull'artefatto | —    |
+Nessun task aperto.
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
 `verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
@@ -56,13 +54,15 @@ le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Anch
 consuma README, Plan e le viste. Il cluster implementativo aperto dal gate è
 esaurito.
 
-È aperto un **task fondativo-terminologico (#1)**: unificare il _system image_
-sull'**artefatto** — la KB ne è il nucleo di conoscenza formalizzata, non il
-sinonimo. Emerso rivedendo `action-cycle` (la sezione «I due medium e i prodotti»
-ora usa «artefatto» per il medium interno, mentre riga 37, `system-image` e
-`cognitive-system` equiparano ancora KB e system image). Da propagare ai tre nodi
-in una passata sola.
-
-## Dettagli task
-
-- [Unificare il system image sull'artefatto](tasks/system-image-artefatto.md)
+Il **task fondativo-terminologico è chiuso** (2026-06-22): il _system image_ è
+unificato sull'**artefatto** — la KB ne è il nucleo di conoscenza formalizzata, non
+il sinonimo. La tesi ratificata rovescia la metà «KB-come-system-image-trasversale»
+della vecchia dottrina dei «due framework»: è l'artefatto a essere il medium interno
+trasversale ai tre livelli, la KB la sua regione alta/formalizzata (riceve solo
+i2/i3; gli altri stadi depositano fuori da `kb/`). Verifica a supporto della tesi.
+Propagato in una passata: i tre titolari (`system-image`, `cognitive-system`,
+`action-cycle`), la cautela (`knowledge-base`, `output`, `input`) e i cinque emersi
+dal grep (`processing-layers`, `project-structure`, `kb-content-typology`,
+`cognitive-artifact-design`, `karpathy-pattern`), più la coda `index`. Gli archi del
+ciclo tornano a correre tra Goal e Mondo (non «dalla/alla KB»). Audit pulito (49
+nodi, 0 link rotti).

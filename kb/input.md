@@ -5,7 +5,7 @@ stato: bozza
 
 # Input
 
-Nota-struttura dello strato input del metodo: l'**arco di valutazione** del ciclo d'azione, che risale dal Mondo alla KB e chiude il ciclo. Non descrive i singoli stadi — vivono come atomi: `perceive` (i1), `interpret` (i2), `compare` (i3) — ma indicizza l'arco e tiene le tensioni che corrono _tra_ gli stadi e che nessun atomo possiede da solo. È il simmetrico dello strato `output` (l'arco di esecuzione); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `action-cycle`.
+Nota-struttura dello strato input del metodo: l'**arco di valutazione** del ciclo d'azione, che risale dal Mondo al Goal e chiude il ciclo. Non descrive i singoli stadi — vivono come atomi: `perceive` (i1), `interpret` (i2), `compare` (i3) — ma indicizza l'arco e tiene le tensioni che corrono _tra_ gli stadi e che nessun atomo possiede da solo. È il simmetrico dello strato `output` (l'arco di esecuzione); la geometria che li accoppia — specchio per altitudine, le due cerniere, i cicli annidati — vive in `action-cycle`.
 
 Lo strato input esiste per una ragione di sicurezza, non di completezza teorica: è il meccanismo per cui l'artefatto può ascoltare il mondo che lo smentisce. Un ciclo con solo output agisce ma non si corregge; è l'arco di input che rende possibile delegare l'azione tenendo l'umano nel loop per ciò che conta (cfr. `goal`, `cognitive-system`).
 

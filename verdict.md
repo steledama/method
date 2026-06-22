@@ -217,7 +217,7 @@ Conseguenze decise:
     (`dcb08dc`) ed `economia` (`22e22ca`). La prescrizione esaurita
     `disaccoppiamento-adottanti` è rimossa da `prescriptions/`; la storia resta in Git.
     Resta vero il framing a **due round**: ripuliti i riferimenti accidentali, il
-    round 2 (rename `deck→view`, ora task #1) propaga sulle sole connessioni
+    round 2 (rename `deck→view`) propaga sulle sole connessioni
     intenzionali. Nota dev/runtime confermata: per `method` i poli World sono **due**
     (sviluppo = `kb/`, runtime = adottanti), e il README canonico lo riflette.
   - **Verifica dei cicli annidati: 16 celle + mappa-sorgente (gate CHIUSO, ratificato
@@ -385,21 +385,3 @@ nuovo. Un gruppo di task trattenuti per la stessa ragione condivide una sola chi
 di legenda (`| [a]` su più righe); un fronte parcheggiato grande può raccogliersi
 in una sezione di holding (come `## Sospesi` in `salute`), adattamento di dominio,
 non variante del canone. Il `|` resta per-riga.
-
-## Il system image è l'artefatto, non la KB
-
-Filo riaperto rivedendo `action-cycle` (riorientato sull'agentic loop). L'equazione
-«la KB è la system image» — tenuta ai fili «Rifondazione atrio↔azione» (KB
-trasversale, substrato dei tre livelli) e «Tipologia-contenuto» (system image =
-funzione, il canale tra agenti) — appiattisce il medium interno sulla sua sola
-regione alta, la KB vicina al polo Goal. Ma i prodotti degli atti sono sparsi
-nell'intero artefatto (`plan.md`, `tasks/`, `prescriptions/`, `perceptions/`…),
-non in `kb/`. Posizione raffinata: **il system image è l'intero artefatto; la KB
-ne è il nucleo di conoscenza formalizzata.** È fedele a Norman (system image =
-tutto ciò che il sistema presenta) e al fatto che l'LLM legge l'intero repo, non
-i soli nodi.
-
-In `action-cycle` la sezione «I due medium e i prodotti del loop» già adotta
-«artefatto» per il medium interno; restano disallineati riga 37 dello stesso nodo,
-`system-image` e `cognitive-system`. Leaning, non ancora ratificato: la ratifica e
-la propagazione in una passata sono il **task #1** (`tasks/system-image-artefatto.md`).

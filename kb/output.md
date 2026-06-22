@@ -5,7 +5,7 @@ stato: bozza
 
 # Output
 
-Nota-struttura dello strato output del metodo: l'**arco di esecuzione** del ciclo d'azione, che scende dalla KB al Mondo. Non descrive i singoli stadi — `specify` (o2) e `perform` (o3) vivono come atomi — ma indicizza l'arco, tiene le tensioni tra gli stadi e ospita o1, l'unica altitudine senza atomo proprio. È il simmetrico dello strato `input` (l'arco di valutazione); la geometria che li accoppia vive in `action-cycle`. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
+Nota-struttura dello strato output del metodo: l'**arco di esecuzione** del ciclo d'azione, che scende dal Goal al Mondo. Non descrive i singoli stadi — `specify` (o2) e `perform` (o3) vivono come atomi — ma indicizza l'arco, tiene le tensioni tra gli stadi e ospita o1, l'unica altitudine senza atomo proprio. È il simmetrico dello strato `input` (l'arco di valutazione); la geometria che li accoppia vive in `action-cycle`. È distinto dalla KB perché ospita sintesi, viste, dashboard — tutto ciò che il purismo zettelkastiano vieta dentro ai nodi atomici e che il pattern Karpathy chiede di produrre.
 
 ## Perché lo strato esiste: il conflitto Zettelkasten/Karpathy
 

@@ -11,10 +11,11 @@ Per essere davvero utile a un LLM, però, la KB non deve solo contenere conoscen
 
 Il sistema si inscrive in una cornice di augmentation (Engelbart / H-LAM/T) che contiene i suoi riferimenti invece di affiancarli: lo Zettelkasten dà la forma del nodo atomico, Norman il ciclo di azione tra utente e sistema, e la gamba di manutenzione dell'insieme con l'LLM ha nel pattern Karpathy la sua istanza contemporanea, non un pilastro pari. La trattazione completa della cornice e di ciò che vi sta dentro vive in `augmentation-system`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
 
-La KB non è il fine. Come _livello di elaborazione_ è lo strato riflessivo
-dell'artefatto — concetti e generalizzazioni (cfr. `processing-layers`); come
-_system image_ è però trasversale ai tre livelli, il substrato che l'intero ciclo
-legge e scrive (cfr. `system-image`). Lo strato output traduce la conoscenza in
+La KB non è il fine, né è l'intero medium interno. Come _livello di elaborazione_
+è lo strato riflessivo dell'artefatto — concetti e generalizzazioni (cfr.
+`processing-layers`) — ed è il **nucleo di conoscenza formalizzata** del _system
+image_; il system image è però l'intero artefatto, trasversale ai tre livelli, il
+substrato che l'intero ciclo legge e scrive (cfr. `system-image`). Lo strato output traduce la conoscenza in
 azione possibile (o1/o2/o3); lo strato input cattura e interpreta il ritorno
 (i1/i2/i3); l'atto e il grezzo attraversano la membrana `world`. Senza questi
 strati, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e

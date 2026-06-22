@@ -5,7 +5,7 @@ stato: bozza
 
 # Action cycle
 
-Modello del rapporto tra utente e sistema secondo Donald Norman, **trasportato nell'agentic loop dell'LLM dentro l'harness**. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo trasferisce dal banco di Norman (un umano che agisce su un oggetto) al ciclo che un agente LLM percorre, sessione dopo sessione, dentro un harness: il sistema progettato per chiudere i gulf non è più una caffettiera, è la KB.
+Modello del rapporto tra utente e sistema secondo Donald Norman, **trasportato nell'agentic loop dell'LLM dentro l'harness**. Non è la voce biografica di Norman — esiste come nodo di dominio in altri progetti adottanti — ma estrae il pattern che rende un sistema usabile e lo trasferisce dal banco di Norman (un umano che agisce su un oggetto) al ciclo che un agente LLM percorre, sessione dopo sessione, dentro un harness: il sistema progettato per chiudere i gulf non è più una caffettiera, è l'artefatto versionato.
 
 Il modello sostiene che ogni interazione produttiva con un sistema passa attraverso sette stadi, divisi in due fasi: esecuzione (formare l'intenzione, pianificarla, specificarla, eseguirla) e valutazione (percepire l'esito, interpretarlo, confrontarlo con l'obiettivo). Lungo entrambe le fasi si aprono distanze cognitive — i due gulf — che il design del sistema deve ridurre. Il metodo eredita questo modello e lo riassegna: l'agente che percorre il ciclo è in primo luogo l'**LLM** (l'umano resta consumatore, soprattutto di o2 — vedi «I due gulf»); il sistema che deve chiudere il ciclo è l'**artefatto versionato**.
 
@@ -23,7 +23,7 @@ Il modello canonico di Norman procede in sequenza:
 - Interpret — capisco cosa significa
 - Compare — confronto con il goal iniziale
 
-Nel metodo il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dalla KB al Mondo) e input (valutazione, che risale dal Mondo alla KB) — con il Goal all'apice e il Mondo in fondo:
+Nel metodo il ciclo si materializza su due archi simmetrici — output (esecuzione, che scende dal Goal al Mondo) e input (valutazione, che risale dal Mondo al Goal) — con il Goal all'apice e il Mondo in fondo:
 
 - **Plan** → o1 — piano in forma macchina, vicino alla KB
 - **Specify** → o2 — vista di decisione per l'umano
@@ -34,14 +34,14 @@ Nel metodo il ciclo si materializza su due archi simmetrici — output (esecuzio
 
 **Sei atti, due poli.** I sette stadi di Norman non sono dello stesso tipo. Il Goal non è un atto ma uno _stato_ — il punto verso cui si tende; gli altri sei (Plan, Specify, Perform, Perceive, Interpret, Compare) sono _operazioni_. Il metodo rende esplicito ciò che Norman teneva implicito: il secondo polo, il **Mondo**, il fondo verso cui gli atti scendono e da cui risalgono (cfr. `world`). La forma canonica nel metodo è dunque **6 atti + 2 poli**, non sette stadi: sei operazioni che corrono tra Goal (in alto) e Mondo (in basso). I poli non si eseguono, si _costituiscono_ ai bordi — il Goal viene dal motivo (la vita, il committente), il Mondo viene ritagliato dall'infinito per rilevanza guidata dai goal. Ne risultano due triadi speculari, ciascuna stretta attorno a un polo: alta {Compare (i3), Goal, Plan (o1)}, bassa {Perform (o3), Mondo, Perceive (i1)}; in mezzo, alla vita del ciclo, restano i due atti che non toccano nessun polo, Specify (o2) e Interpret (i2). Le due triadi e la vita corrispondono ai tre livelli di elaborazione di Norman — riflessivo in alto, behavioral in mezzo, viscerale al Mondo (cfr. `processing-layers`).
 
-**La KB non è uno stadio.** Né i poli né gli atti _sono_ la KB. La KB è il _system image_ di Norman: il medium attraverso cui gli atti leggono e scrivono, non una stazione del ciclo (cfr. `system-image`). Il ciclo corre tra due poli attraverso due medium persistenti — la KB all'interno, il Mondo all'esterno.
+**Il medium non è uno stadio.** Né i poli né gli atti _sono_ il medium interno. Il _system image_ di Norman — il medium attraverso cui gli atti leggono e scrivono — è l'**intero artefatto**, non una stazione del ciclo (cfr. `system-image`); la KB ne è il nucleo di conoscenza formalizzata, non il sinonimo. Il ciclo corre tra due poli attraverso due medium persistenti — l'artefatto all'interno, il Mondo all'esterno.
 
 **Lo specchio per altitudine.** I due archi sono speculari, accoppiati per altitudine e non per numero. Il Goal è l'apice; il Mondo è il fondo.
 
 - in basso, alla membrana `world`: **o3 ↔ i1** (Perform ↔ Perceive) —
   prescrizione / cattura, i due riflessi versionati dei due versi;
 - in mezzo: **o2 ↔ i2** — vista di decisione / nota interpretata;
-- in alto, alla KB: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata.
+- in alto, al Goal: **o1 ↔ i3** — piano strutturato / conoscenza formalizzata (i prodotti alti, che vivono nel nucleo formalizzato dell'artefatto, la KB).
 
 I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza dall'inizio dell'arco: l'output scende, l'input risale.
 
@@ -51,7 +51,7 @@ I numeri sembrano non combaciare (o1 con i3) solo perché contano la distanza da
 
 **Ciò che l'artefatto trattiene sono i prodotti degli atti.** Ogni atto del ciclo non è solo un'operazione che passa: _deposita un prodotto versionato_, in un luogo proprio dell'atrio — o1 in `plan.md`, o2 in `tasks/`, o3 nei commit e in `prescriptions/`, i1 in `perceptions/`, i2 nei nodi `kb/` e in `interpretations/`, i3 in `verdict.md` (la mappa-sorgente completa è in `action-cycle-matrix`). Anche i poli trattengono stato: il Goal è scritto (`README`, `development-goal`), e il Mondo «remembers by being there». Nessuno stadio del loop è effimero: ciascuno _è_ e _contiene_ il prodotto dell'agire.
 
-**Divisi, aperti, consultabili.** Tenere questi prodotti separati — non collassati in un unico blob né chiusi nella testa di chi ha agito — è il punto in cui il ciclo d'azione tocca la **cognizione condivisa**: il pavimento ontologico (Hutchins/Clark/Norman) vive in `cognitive-system`, qui se ne legge la materializzazione lungo i sei atti. È l'applicazione al loop del «007 principle» di Clark — lascia l'informazione nel mondo e recuperala quando serve, invece di immagazzinarla tutta dentro: il ragionamento del loop non sta nella mente di un agente, sta esternalizzato e separato nei prodotti dell'atrio. Per l'LLM, che riparte da zero a ogni sessione e per cui la KB _è_ il modello mentale (cfr. l'asimmetria umano/LLM in `cognitive-system`), i prodotti separati sono l'unico modo di rientrare nel ciclo senza ricostruirlo da capo; per l'agente umano sono i **punti di controllo**, i punti dove ispezionare il loop e intervenire.
+**Divisi, aperti, consultabili.** Tenere questi prodotti separati — non collassati in un unico blob né chiusi nella testa di chi ha agito — è il punto in cui il ciclo d'azione tocca la **cognizione condivisa**: il pavimento ontologico (Hutchins/Clark/Norman) vive in `cognitive-system`, qui se ne legge la materializzazione lungo i sei atti. È l'applicazione al loop del «007 principle» di Clark — lascia l'informazione nel mondo e recuperala quando serve, invece di immagazzinarla tutta dentro: il ragionamento del loop non sta nella mente di un agente, sta esternalizzato e separato nei prodotti dell'atrio. Per l'LLM, che riparte da zero a ogni sessione e per cui l'artefatto _è_ il modello mentale (cfr. l'asimmetria umano/LLM in `cognitive-system`), i prodotti separati sono l'unico modo di rientrare nel ciclo senza ricostruirlo da capo; per l'agente umano sono i **punti di controllo**, i punti dove ispezionare il loop e intervenire.
 
 **La separazione è ciò che rende il loop auto-correggibile.** L'arco di input può rileggere i prodotti dell'arco di output e confrontarli con il Goal — Compare (i3) verifica Plan (o1), Interpret (i2) rilegge ciò che è stato prescritto e fatto — solo se quei prodotti esistono distinti e leggibili.
 

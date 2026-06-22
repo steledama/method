@@ -20,7 +20,7 @@ File in cima, cartelle in fondo: combacia coi due poli e coi tre livelli di elab
 
 ## Le tre specie di file root
 
-Sciolta la collocazione, la root contiene tre specie di file, distinte per **funzione** non per profondità. La vecchia categoria «porta-collezione» era falsamente uniforme: metteva insieme la KB (system image trasversale), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 (collezioni di un solo stadio) — tre cose diverse. Nessuna specie ospita artefatti del **runtime del dominio**: quelli si collocano per stadio nelle collezioni (vedi «Collocazione per funzione», sotto).
+Sciolta la collocazione, la root contiene tre specie di file, distinte per **funzione** non per profondità. La vecchia categoria «porta-collezione» era falsamente uniforme: metteva insieme la KB (nucleo formalizzato del system image), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 (collezioni di un solo stadio) — tre cose diverse. Nessuna specie ospita artefatti del **runtime del dominio**: quelli si collocano per stadio nelle collezioni (vedi «Collocazione per funzione», sotto).
 
 **1. File-ciclo** — letti a _ogni_ sessione per capire e agire; il cruscotto del ciclo di sviluppo (quello che agisce sull'artefatto, non sul mondo). Sono la triade alta più le regole d'azione:
 
@@ -31,7 +31,7 @@ Sciolta la collocazione, la root contiene tre specie di file, distinte per **fun
 
 **2. Cataloghi trasversali** — _visibili_ sempre nell'atrio, _letti_ on-demand. Indicizzano una collezione che **non è di un solo stadio** ma attraversa l'intero ciclo, e per questo il catalogo sale in root invece di scendere nella cartella:
 
-- `kb.md` — il catalogo dei nodi (`kb/`). La KB è la **system image**, il substrato che ogni stadio legge e scrive: trasversale, non uno stadio (cfr. `system-image`, `knowledge-base`). La collisione col nodo-concetto `kb/index.md` è un sintomo della trasversalità, non un caso sfortunato.
+- `kb.md` — il catalogo dei nodi (`kb/`). La KB è il **nucleo di conoscenza formalizzata** del system image — che è l'intero artefatto, il substrato che ogni stadio legge e scrive (cfr. `system-image`, `knowledge-base`) — non uno stadio del ciclo ma la regione alta, vicino al Goal. La collisione col nodo-concetto `kb/index.md` è un sintomo di questo doppio ruolo — regione dell'artefatto e concetto nell'artefatto — non un caso sfortunato.
 - `tools.md` — strumenti e skill (`tools/`, e anche `.claude/skills/` che la cartella non contiene): la macchina del ciclo di sviluppo, anch'essa trasversale agli stadi.
 
 **3. Register** — porte verso ciò che sta _fuori_ dall'artefatto (`world`/`source-of-truth`), non verso una collezione interna; anch'essi visibili nell'atrio e letti on-demand:
@@ -73,7 +73,7 @@ Così `method` ha l'atrio completo del ciclo (i1/i2/i3 e o2/o3) e fa da modello 
 
 ## Il cruscotto è il ciclo di sviluppo, non simmetrico a sette caselle
 
-Il cruscotto agisce sull'artefatto (la KB), non sul mondo del dominio. Per questo `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (che agisce sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, che agisce sul mondo). Non è la negazione dell'omologia Plan=o1 — `action-cycle` mappa Plan=o1 — ma il suo **qualificatore di ciclo**: stesso stadio, due annidamenti, come `verdict.md` è i3-sviluppo. `plan` resta `plan.md` e non diventa `tasks.md` perché il suo nome è lo **stadio** (Plan, la triade alta), non la cartella che indicizza; è l'altezza nel ciclo a tenerlo file in root mentre `tasks/` è cartella (cfr. «Il gradiente di cardinalità»).
+Il cruscotto agisce sull'artefatto, non sul mondo del dominio. Per questo `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (che agisce sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, che agisce sul mondo). Non è la negazione dell'omologia Plan=o1 — `action-cycle` mappa Plan=o1 — ma il suo **qualificatore di ciclo**: stesso stadio, due annidamenti, come `verdict.md` è i3-sviluppo. `plan` resta `plan.md` e non diventa `tasks.md` perché il suo nome è lo **stadio** (Plan, la triade alta), non la cartella che indicizza; è l'altezza nel ciclo a tenerlo file in root mentre `tasks/` è cartella (cfr. «Il gradiente di cardinalità»).
 
 Il cruscotto ha due lati. Il lato esecuzione sono _intenzioni scritte_ — Goal e Plan diventano file a root (`README`, `plan`). Il lato valutazione sono _operazioni_ — l'audit, la cognitive-fidelity — il cui residuo rientra in `verdict.md` e nei nodi. Il Compare (i3 in action-cycle) deposita qui il suo esito come **sostantivo** (il verdetto, per filo aperto), non come log di atti; quando si cristallizza in view generata (`views/verdict.html`) è o2/i2-macro — vista derivata, non intenzione.
 

@@ -8,11 +8,12 @@ stato: bozza
 Interpretazione cross-repo che rilegge i cataloghi `kb/` dei quattro progetti
 adottanti — `economia`, `nixos`, `bi`, `salute` — per chiedersi una cosa che da
 dentro un singolo nodo è invisibile: **di cosa parla** il contenuto di una KB, e
-**dove si colloca** rispetto al ciclo d'azione. Nasce dalla tensione «la KB è la
-system image dell'artefatto _oppure_ una rappresentazione del mondo?», che è mal
-posta nel verbo: system image è la **funzione** (il canale tra agenti che non si
-parlano, cfr. [system-image](../kb/system-image.md)); rappresentazione-del-mondo
-è il **contenuto** (cosa denota). Non competono. Questa interpretazione guarda il
+**dove si colloca** rispetto al ciclo d'azione. Nasce dalla tensione «la KB è
+system image _oppure_ una rappresentazione del mondo?», che è mal posta nel verbo:
+il system image è la **funzione** — il canale tra agenti che non si parlano, ed è
+l'intero artefatto, di cui la KB è il nucleo formalizzato (cfr.
+[system-image](../kb/system-image.md)); rappresentazione-del-mondo è il
+**contenuto** (cosa denota). Non competono. Questa interpretazione guarda il
 secondo asse — il contenuto — e scopre che non è omogeneo: tassella i poli del
 ciclo, e ogni repo ha un **baricentro** diverso.
 

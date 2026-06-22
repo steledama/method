@@ -4,4 +4,4 @@ Indice della collezione `tasks/`: lo stadio **Specify** (o2 del ciclo di svilupp
 
 ## Contenuti
 
-- [system-image-artefatto.md](system-image-artefatto.md) — unificare il _system image_ sull'artefatto (la KB ne è il nucleo di conoscenza formalizzata, non il sinonimo), propagando a `system-image`, `cognitive-system` e `action-cycle`.
+Nessun task aperto.

@@ -10,9 +10,9 @@ mantengono artefatti cognitivi per la cognizione condivisa tra umano e LLM. Non
 progetta soltanto una knowledge base: progetta l'intero ciclo che collega Goal,
 rappresentazioni persistenti, decisione, azione nel `world`, percezione del
 ritorno e revisione. La KB è lo strato riflessivo dell'artefatto, necessario ma
-non sufficiente — riflessiva come _livello_ di elaborazione, ma _system image_
-trasversale ai tre livelli come canale tra agenti (cfr. `system-image`,
-`processing-layers`).
+non sufficiente — riflessiva come _livello_ di elaborazione, e nucleo
+formalizzato del _system image_, che è invece l'intero artefatto, trasversale ai
+tre livelli e canale tra agenti (cfr. `system-image`, `processing-layers`).
 
 L'oggetto progettato è l'**artefatto cognitivo**: il repository portabile con la
 sua anatomia, le rappresentazioni e i vincoli. Il risultato nell'uso è il
@@ -83,7 +83,7 @@ Ricetta metodologica:
   membrana `world` formano un solo sistema progettato; nessuna parte è il metodo
   per intero
 - `kb/`: la conoscenza stabile dell'artefatto — strato riflessivo come livello,
-  system image trasversale come canale tra agenti (cfr. `system-image`). Contiene i nodi di metodo e
+  nucleo formalizzato del system image (che è l'intero artefatto, il canale trasversale tra agenti — cfr. `system-image`). Contiene i nodi di metodo e
   di dominio. Il nucleo portabile comprende `cognitive-artifact-design`,
   `knowledge-base`, `node`, `zettelkasten`, `karpathy-pattern`,
   `project-structure`, `kb-tools`, `connection` e, quando il dominio
