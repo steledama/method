@@ -6,13 +6,18 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| #   | Task                                                            | Dip. |
-| --- | --------------------------------------------------------------- | ---- |
-| 1   | Cicli annidati: modello dei poli (i3) + diagramma rifatto       | —    |
-| 2   | Frecce del ciclo d'azione visibili (home + deck)                | —    |
-| 3   | Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —    |
-| 4   | Coerenza slide post system-image + rimozione «Approfondimento»  | 1    |
-| 5   | Protocollo runtime-o1 (audit periodico top-down)                | —    |
+| #   | Task                                                            | Dip.   |
+| --- | --------------------------------------------------------------- | ------ |
+| 1   | Cicli annidati: modello dei poli (i3) + diagramma rifatto       | —      |
+| 2   | Frecce del ciclo d'azione visibili (home + deck)                | —      |
+| 3   | Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —      |
+| 4   | Coerenza slide post system-image + rimozione «Approfondimento»  | 1      |
+| 5   | Protocollo runtime-o1 (audit periodico top-down)                | —      |
+| 6   | Enforcement della cucitura «agisci attraverso, ratifica»        | \| [a] |
+
+`[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
+arriva un secondo utente su un adottante): allora la disciplina manuale non scala
+più e il task si attiva. Vedi `tasks/enforcement-cucitura-canone.md`.
 
 Apertura 2026-06-22: una **revisione i2-macro dello strato di presentazione**. Il
 deck (`interpretations/metodo-in-sintesi.md`) è l'i2-macro del metodo su sé stesso;
@@ -102,3 +107,4 @@ nodi, 0 link rotti).
 - [Cicli annidati: modello dei poli + diagramma](tasks/cicli-annidati-modello.md) — task 1
 - [Revisione i2 della presentazione](tasks/presentazione-i2.md) — task 2, 3, 4
 - [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md) — task 5
+- [Enforcement della cucitura canone](tasks/enforcement-cucitura-canone.md) — task 6 (`bozza`, trattenuto)

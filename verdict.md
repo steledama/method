@@ -392,6 +392,14 @@ committabile. Il **nodo nuovo è tenuto in riserva**: un solo episodio, non si i
 struttura prima dell'evidenza — la disciplina vive in questo filo e in `world.md` finché
 un secondo write-through non chieda un atomo proprio.
 
+**Enforcement: dichiarato, non presidiato.** La cucitura conta oggi su un solo presidio —
+l'agente adottante che si accorge e si ferma (come `bi`). Il buco — un write-through che
+passa inosservato — è tracciato come `plan.md` task 6 (`bozza`, trattenuto `|`): non si
+costruisce l'enforcement prima dell'evidenza che la disciplina manuale non scali. Il
+risveglio è quel mancato accorgersi, o l'arrivo di un secondo utente su un adottante
+(repo multiutente), dove il presidio dell'attenzione cessa di bastare. Dettaglio in
+`tasks/enforcement-cucitura-canone.md`.
+
 ---
 
 ## I quattro significanti di `Dip.`: la prontezza ha più di due stati
