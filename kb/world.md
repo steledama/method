@@ -79,9 +79,14 @@ L'elenco separa ciò che accade nel Mondo dai riflessi versionati.
 progetti adottanti: da lì entrano esigenze, drift e convergenze; lì tornano il
 filing back e la propagazione. La sua materializzazione convenzionale è una
 `world/` gitignorata con symlink a `economia`, `salute`, `nixos` e `bi`, duale
-del link `method/` con cui gli adottanti leggono i nodi canonici. Il _Mondo di
-sviluppo_ sono invece i nodi `kb/` e la loro coerenza: un commit agisce sui
-nodi, lint e audit ne percepiscono la risposta.
+del link `method/` con cui gli adottanti leggono i nodi canonici. Quel link è
+_inteso_ in lettura, ma **afforda anche la scrittura** (`affordance-signifier`):
+un agente che risolve un problema in un adottante può modificare un nodo di
+canone attraverso il symlink. È legittimo come atto runtime — vale la cucitura
+**«agisci attraverso la membrana, ratifica in `method`»**: l'edit prosegue come
+_segnale_, non come canone-di-record, finché non passa per l'i2/i3 di `method`
+(cfr. `verdict.md`). Il _Mondo di sviluppo_ sono invece i nodi `kb/` e la loro
+coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la risposta.
 
 Connessioni:
 
@@ -90,6 +95,7 @@ Connessioni:
 - [output](output.md)
 - [input](input.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
+- [affordance-signifier](affordance-signifier.md)
 - [adopter-comparison](adopter-comparison.md)
 - [method-observatory](method-observatory.md)
 - [method-development](method-development.md)

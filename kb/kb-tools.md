@@ -46,7 +46,7 @@ Comandi principali:
 - `python3 tools/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
 - `python3 tools/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
 - `python3 tools/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
-- `python3 tools/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica
+- `python3 tools/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica. Con `--check` esce con codice non-zero se uno script non ha nodo `kb/<nome>.md`, così la copertura diventa un gate riusabile da `/commit` e da git pre-commit hook
 - `python3 tools/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
 - `python3 tools/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
 
@@ -91,7 +91,7 @@ Requisiti per un nuovo progetto:
 ## Applicazione nei progetti adottanti
 
 - **`nixos`** — situazione attuale: `kb_tools.py` espone comandi base più `inventory`, `facts`, `coverage`, `fidelity`; `scripts/check.sh` aggrega formatter, audit, fact check e fidelity. Confronto con il metodo: è il laboratorio più avanzato per anti-drift code-based — la fonte dichiarativa Nix rende verificabili host, profili, moduli e copertura.
-- **`bi`** — situazione attuale: `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`). Graphify è strumento locale separato. Confronto con il metodo: buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna.
+- **`bi`** — situazione attuale: `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`), con il comando `coverage --check` che la rende un gate bloccante per `/commit`. Graphify è strumento locale separato. Confronto con il metodo: buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna.
 - **`economia`** — situazione attuale: `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info. Confronto con il metodo: adattamento utile a un dominio documentale — i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze.
 - **`salute`** — situazione attuale: `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`). Confronto con il metodo: adeguato a una KB concettuale — per ora la priorità è salute strutturale e filing back, non inventario tecnico.
 

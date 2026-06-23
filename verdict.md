@@ -331,6 +331,67 @@ un nuovo adottante mostrerà uno squilibrio. Raffinatura emersa dal basso, folda
 nodo: il polo macchina è legittimamente assente quando la macchina dell'artefatto è il
 `method` condiviso, gemella simmetrica dell'esenzione-ought di `nixos`.
 
+## La membrana `method/` afforda scrittura: agisci attraverso, ratifica in `method`
+
+Filo aperto 2026-06-23, emerso dal basso da `bi`. Risolvendo un problema concreto di
+filing back — rendere `coverage` un gate bloccante per `/commit` (`coverage --check`,
+exit non-zero se uno script non ha nodo) — l'agente in `bi` ha documentato la
+generalizzazione modificando il nodo canonico `kb-tools`, che `bi` vede **via symlink**
+`method/`. Si è poi accorto che la modifica **non compariva nel diff del proprio commit**,
+ha indagato e ha chiesto: il file non è di `bi`, è il nodo in `method`, raggiunto in
+scrittura attraverso la membrana. Cattura i1 in
+`perceptions/modifica-di-canone-nata-in-un-adottante.md`.
+
+**La riformulazione (i2).** Il canone descriveva il canale col suo **uso inteso** — gli
+adottanti «leggono i nodi» — non con la sua **affordance**: il symlink è read-write, e
+afforda la scrittura. Canone che _significa_ lettura, symlink che _offre_ scrittura: il
+gap è quello che `affordance-signifier` già nomina, e la sorpresa «non compare nel mio
+diff» ne è la firma. **Non è l'agente ad aver sbagliato: è il modello ad aver descritto
+la membrana col suo uso inteso invece che con la sua affordance.** Corretto in `world.md`
+(«Il Mondo del metodo»): la membrana afforda scrittura, dichiarata la cucitura.
+
+**Dove la perdita si concentra (claim falsificabile).** Non è accaduto su un nodo di puro
+concetto, ma su `kb-tools`, che ha una sezione **«Applicazione nei progetti adottanti»**,
+per-repo: è insieme canone _e_ superficie di documentazione di uno strumento che `bi`
+stava estendendo. Quando l'oggetto da stabilizzare in locale è documentato in un nodo
+condiviso, **stabilizzazione locale e modifica del canone collassano nello stesso atto**.
+La perdita è dunque **strutturale, non accidentale**, e si addensa sui nodi-strumento con
+sezioni per-adottante. Falsificabile: se ricapita, dovrebbe ricapitare lì.
+
+**La disciplina (i3).** Non un'anomalia da vietare: il riflesso i1/o3 è _on-demand_
+(`world`), l'atto nel Mondo è primario. Quindi il write-through è la **membrana che
+funziona**, e l'agente che si ferma e chiede è il trigger «richiede revisione» che scatta.
+
+> **Agisci attraverso la membrana, ratifica in `method`.** Un agente che, risolvendo un
+> problema in un adottante, modifica un nodo di canone via symlink compie un atto runtime
+> legittimo: prosegue coi propri commit locali, ma _non committa l'edit di canone_ — lo
+> segnala. `method` lo back-filla come perception e lo fa passare per i2/i3; solo allora
+> l'edit diventa canone-di-record. **L'orfano non-committato nel working tree di `method`
+> è la cucitura che funziona, non che fallisce.**
+
+Tre precisazioni, pesate prima di incidere: (a) la disciplina **benedice** il
+write-through come percorso bottom-up di prima classe — il gate di ratifica _è_ la
+disciplina, non una toppa a una perdita; (b) la mossa dell'adottante è una sola —
+_accorgersi e non committare l'edit di canone_; l'i1 è di `method` perché entra dalla sua
+membrana runtime, e `method` ratifica; (c) il gate trattiene **solo il commit del nodo di
+canone in `method`**, non i commit locali dell'adottante (l'implementazione di
+`coverage --check` nei file di `bi` è il suo runtime, e prosegue).
+
+**Collocazione nel ciclo.** È la **gamba bottom-up** del ciclo runtime — distinta da
+`runtime-o1`, che è il buco _top-down_ (l'audit periodico verso gli adottanti). Finora il
+verdetto descriveva quella gamba debolmente («un adottante solleva un segnale»), senza
+meccanismo; l'evento le dà un **meccanismo concreto** — il write-through della membrana —
+ed è la cucitura runtime→dev che scocca _dal basso_ (un atto nel Mondo runtime scrive sul
+Mondo-dev). Arricchisce `nested-cycles`, non `runtime-o1`. È il primo arco bottom-up
+runtime→dev che attraversa il symlink, gemello del top-down già scoccato una volta (il
+_baricentro_ su `salute`).
+
+**Stato.** La riga `kb-tools` è **ratificata come generalizzata** — il `--check` portabile
+è scritto come tale ed è l'**oggetto-prova** della cucitura: ora è canone-di-record,
+committabile. Il **nodo nuovo è tenuto in riserva**: un solo episodio, non si inventa
+struttura prima dell'evidenza — la disciplina vive in questo filo e in `world.md` finché
+un secondo write-through non chieda un atomo proprio.
+
 ---
 
 ## I quattro significanti di `Dip.`: la prontezza ha più di due stati
