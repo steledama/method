@@ -145,23 +145,23 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 
 ## Applicazione nei progetti adottanti
 
-- **`nixos`** — situazione attuale: coda piccola e compatta, ancora sulla
-  tabella precedente con `Priorità` e dipendenze testuali. Confronto con il
-  metodo: contenuto aderente; la nuova forma va recepita localmente.
-- **`bi`** — situazione attuale: coda media, recepita la forma stretta e snellite
-  le istruzioni incorporate. Ha rinforzato — con `economia` — la rimozione del
-  `#` e il passaggio `|`→`pause`, ora **canone** (cfr. §«La forma e l'identità
-  unica dei task»): la sua coda va riallineata alla nuova forma.
-- **`economia`** — situazione attuale: coda ampia legata a scadenze, adempimenti
-  e situazioni aperte. È l'**origine** del passaggio a `pause` e
-  dell'identificazione per solo nome, applicati prima in locale e ora promossi a
-  canone. Mantiene `scadenze.md` separato perché il calendario è una funzione di
-  dominio più ampia della priorità dei task. Da riallineare: usava `dopo: <nome>`
-  per le dipendenze interne, il canone fissa il significante `↳ <titolo>`.
-- **`salute`** — situazione attuale: coda media; usa la forma canonica e può
-  affiancare `## Scadenze` quando le date cambiano la priorità e `## Fonti da
-elaborare` per ingest semplici senza file dedicato. I task sostanziali
-  conservano contesto in `tasks/`.
+I quattro adottanti sono allineati alla forma corrente (identità per titolo,
+`↳`/`world`/`pause`, niente colonna `#`) dopo la propagazione del 2026-06-25. Ciò
+che varia è il **carattere del dominio**, non la forma:
+
+- **`economia`** — coda ampia legata a scadenze, adempimenti e situazioni aperte.
+  È l'**origine** di `pause`, dell'identità per solo nome e del passo `3b` di
+  lettura strategica. Mantiene `scadenze.md` separato perché il calendario è una
+  funzione di dominio più ampia della priorità dei task.
+- **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`.
+  Tiene un guardrail operativo (uso di un tool su PROD) nelle Note invece che
+  come significante di dipendenza.
+- **`salute`** — coda media con una sezione di **holding** `## Sospesi` (forma a
+  batch della pausa, adattamento di dominio ammesso) e un `## Scadenze` di
+  appuntamenti medici datati, una-tantum; affianca `## Fonti da elaborare` per
+  l'ingest semplice. I task sostanziali conservano contesto in `tasks/`.
+- **`nixos`** — coda piccola e compatta, dominio di configurazione; usa
+  `world`/`pause` con legenda a chiavi per monitoraggi e pause tattiche.
 
 Il metodo deve ammettere granularità diverse. Nei domini tecnici il task tende a essere un intervento verificabile; in `economia` può essere una pratica aperta; in `salute` può essere ingest o sviluppo concettuale. La regola comune resta la stessa: ciò che è futuro e operativo non deve diventare nodo permanente.
 

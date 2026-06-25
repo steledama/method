@@ -56,7 +56,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Tre specie di
 
 **Cataloghi trasversali** — indicizzano una collezione che attraversa tutto il ciclo, perciò salgono in root:
 
-- **[kb.md](kb.md)** — il catalogo di tutti i nodi (`kb/`, la system image)
+- **[kb.md](kb.md)** — il catalogo di tutti i nodi (`kb/`, il nucleo formalizzato della system image)
 - **[tools.md](tools.md)** — strumenti e skill dell'artefatto
 
 **Register** — puntano _fuori_ dall'artefatto:
