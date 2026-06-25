@@ -130,10 +130,12 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 - **`nixos`** — situazione attuale: coda piccola e compatta, ancora sulla
   tabella precedente con `Priorità` e dipendenze testuali. Confronto con il
   metodo: contenuto aderente; la nuova forma va recepita localmente.
-- **`bi`** — situazione attuale: coda media, ancora sulla tabella precedente
-  con `Priorità` e dipendenze testuali. Confronto con il metodo: contenuto
-  adeguato alla complessità del dominio; la nuova forma e lo snellimento delle
-  istruzioni incorporate vanno recepiti localmente.
+- **`bi`** — situazione attuale: coda media, recepita la nuova forma stretta e
+  snellite le istruzioni incorporate. In più, con `economia`, segnala l'attrito
+  del puntatore numerico `#` — riposizionare un task tocca due liste (l'ordine in
+  tabella e i riferimenti `#n` in `Dip.`) — e anticipa l'identificazione dei task
+  per **solo nome**: `#` rimosso dalla tabella, le dipendenze interne citano il
+  titolo. Il canone del `#` come puntatore effimero va rivisto di conseguenza.
 - **`economia`** — situazione attuale: coda ampia legata a scadenze,
   adempimenti e situazioni aperte. Confronto con il metodo: mantiene
   `scadenze.md` separato perché il calendario è una funzione di dominio più
