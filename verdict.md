@@ -228,6 +228,17 @@ Conseguenze decise:
     (call B) è **incisa nel README** dalla chirurgia del 2026-06-21, con pari dignità
     del top-down runtime distinta dal micromanagement della coda adottante (cfr.
     `cognitive-artifact-design`, `method-development`).
+  - **Modello dei poli e diagramma rifatto (chiuso 2026-06-25)**: la domanda che
+    il gate lasciava aperta — 4 poli vs 3 impilati — è sciolta a favore dei
+    **quattro poli per contenimento** nel nodo `nested-cycles` (i3), che ora
+    dichiara i quattro vincoli: dualità del verso (provenienza ↔ operativo),
+    World-runtime che **sporge** (l'artefatto agisce su un dominio che non
+    contiene), agente come **asse ortogonale** all'annidamento (entrambi i cicli
+    umano+LLM, mix in-the-loop→on-the-loop, dimensione di `development-goal`), sei
+    stadi come punti di controllo/rientro in entrambi i cicli. La slide del deck è
+    **ri-derivata** come annidamento per contenimento — Goal-dev universale in
+    cima, artefatto contenitore, World-runtime fuori, gradiente di portabilità
+    verticale — al posto delle due colonne alla pari che il nodo vietava.
   - **Strato di presentazione trasversale, deck→view (chiuso 2026-06-21)**: il nodo
     `deck` è scisso in **`view`**, motore trasversale a istanze multiple; la macchina
     è consolidata in root con `assets/` (CSS/token/primitivi condivisi) e `views/`
@@ -249,9 +260,9 @@ Conseguenze decise:
     **rompe l'invariante `file://`** (richiede backend servito) e sarà classe e
     nodo a sé.
 
-**Fili parcheggiati** (gli atomi di stadio sono fatti; i **due-cicli** non sono più del
-tutto parcheggiati — il nodo `nested-cycles` e il gate di verifica li stanno
-esplicitando, e i fili sotto si scioglieranno man mano): la colonna di `plan` per
+**Fili parcheggiati** (gli atomi di stadio sono fatti; i **due-cicli** non sono più
+parcheggiati — il nodo `nested-cycles` ora li esplicita coi quattro vincoli e il
+diagramma per contenimento; i fili sotto si scioglieranno man mano): la colonna di `plan` per
 classificare i task su due assi ortogonali —
 ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa lista; l'omologia
 esplicita tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni narrative;

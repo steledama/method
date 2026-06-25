@@ -354,37 +354,33 @@
 
 .reveal .nested-cycles {
   display: grid;
-  font-size: 0.54em;
-  gap: 0.4em;
+  font-size: 0.46em;
+  gap: 0.3em;
   grid-template-columns: 1fr;
-  width: 68%;
+  width: 86%;
 }
 
-.reveal .vertical-cycle {
+.reveal .nested-cycles .card.pole {
   margin: auto;
-  padding: 0.75em 4em 0.45em;
-  width: 100%;
+  width: 56%;
 }
 
-.reveal .vertical-cycle .card {
-  min-height: 2.1em;
+.reveal .nested-cycles .cycle-columns {
+  gap: 3.5em;
+  margin: 0.1em 0;
 }
 
-.reveal .return-step {
+.reveal .nested-cycles .frame.artifact {
+  border-color: var(--accent);
+  margin: 0.2em 0;
+  padding-top: 1.45em;
+}
+
+.reveal .nested-cycles .axis-note {
   color: var(--diagram-muted);
-  font-size: 0.82em;
-  margin-top: 0.35em;
-}
-
-.reveal .handoff {
-  color: var(--diagram-muted);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8em;
-}
-
-.reveal .handoff b {
-  font-size: 1.5em;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+  text-align: center;
 }
 
 .reveal .altitude {

@@ -341,10 +341,10 @@
             >
             sono fatti; resta la <strong>system image visiva</strong>, che in
             sessione di design 2026-06-15 si è allargata in un
-            <strong>cluster di task pianificati</strong> (cfr.
-            <code>plan.md</code>, task 1-4), ridefinito il 2026-06-17 con la
-            distinzione <strong>dev/runtime</strong> resa esplicita e un gate di
-            verifica inserito prima della costruzione. La categoria
+            <strong>cluster di task pianificati</strong> (il cluster di
+            presentazione in <code>plan.md</code>), ridefinito il 2026-06-17 con
+            la distinzione <strong>dev/runtime</strong> resa esplicita e un gate
+            di verifica inserito prima della costruzione. La categoria
             «porta-collezione» era <strong>falsamente uniforme</strong>:
             trattava allo stesso modo la KB (system image), gli strumenti
             (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
@@ -514,6 +514,26 @@
                 </li>
                 <li>
                   <strong
+                    >Modello dei poli e diagramma rifatto (chiuso
+                    2026-06-25)</strong
+                  >: la domanda che il gate lasciava aperta — 4 poli vs 3
+                  impilati — è sciolta a favore dei
+                  <strong>quattro poli per contenimento</strong> nel nodo
+                  <code>nested-cycles</code> (i3), che ora dichiara i quattro
+                  vincoli: dualità del verso (provenienza ↔︎ operativo),
+                  World-runtime che <strong>sporge</strong> (l’artefatto agisce
+                  su un dominio che non contiene), agente come
+                  <strong>asse ortogonale</strong> all’annidamento (entrambi i
+                  cicli umano+LLM, mix in-the-loop→on-the-loop, dimensione di
+                  <code>development-goal</code>), sei stadi come punti di
+                  controllo/rientro in entrambi i cicli. La slide del deck è
+                  <strong>ri-derivata</strong> come annidamento per contenimento
+                  — Goal-dev universale in cima, artefatto contenitore,
+                  World-runtime fuori, gradiente di portabilità verticale — al
+                  posto delle due colonne alla pari che il nodo vietava.
+                </li>
+                <li>
+                  <strong
                     >Strato di presentazione trasversale, deck→view (chiuso
                     2026-06-21)</strong
                   >: il nodo <code>deck</code> è scisso in
@@ -564,15 +584,16 @@
           </ul>
           <p>
             <strong>Fili parcheggiati</strong> (gli atomi di stadio sono fatti;
-            i <strong>due-cicli</strong> non sono più del tutto parcheggiati —
-            il nodo <code>nested-cycles</code> e il gate di verifica li stanno
-            esplicitando, e i fili sotto si scioglieranno man mano): la colonna
-            di <code>plan</code> per classificare i task su due assi ortogonali
-            — ciclo (sviluppo/runtime) × natura (metodologico/merito), stessa
-            lista; l’omologia esplicita tools=o3-sviluppo / scripts=o3-runtime /
-            skill=prescrizioni narrative; l’eventuale uniformità totale degli
-            indici (tutti in-cartella) col suo costo (rinomina del nodo
-            <code>index</code>, split del catalogo <code>tools</code>).
+            i <strong>due-cicli</strong> non sono più parcheggiati — il nodo
+            <code>nested-cycles</code> ora li esplicita coi quattro vincoli e il
+            diagramma per contenimento; i fili sotto si scioglieranno man mano):
+            la colonna di <code>plan</code> per classificare i task su due assi
+            ortogonali — ciclo (sviluppo/runtime) × natura
+            (metodologico/merito), stessa lista; l’omologia esplicita
+            tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni
+            narrative; l’eventuale uniformità totale degli indici (tutti
+            in-cartella) col suo costo (rinomina del nodo <code>index</code>,
+            split del catalogo <code>tools</code>).
           </p>
         </section>
         <section
@@ -832,13 +853,22 @@
             <strong>Enforcement: dichiarato, non presidiato.</strong> La
             cucitura conta oggi su un solo presidio — l’agente adottante che si
             accorge e si ferma (come <code>bi</code>). Il buco — un
-            write-through che passa inosservato — è tracciato come
-            <code>plan.md</code> task 6 (<code>bozza</code>, trattenuto
-            <code>|</code>): non si costruisce l’enforcement prima dell’evidenza
-            che la disciplina manuale non scali. Il risveglio è quel mancato
-            accorgersi, o l’arrivo di un secondo utente su un adottante (repo
-            multiutente), dove il presidio dell’attenzione cessa di bastare.
-            Dettaglio in <code>tasks/enforcement-cucitura-canone.md</code>.
+            write-through che passa inosservato — è tracciato dal task
+            <code>enforcement-cucitura-canone</code> (<code>bozza</code>,
+            trattenuto <code>pause</code>): non si costruisce l’enforcement
+            prima dell’evidenza che la disciplina manuale non scali. Un
+            <strong>secondo arco</strong>
+            bottom-up è nel frattempo arrivato — la riforma della forma di
+            <code>plan.md</code> da <code>economia</code>+<code>bi</code> (cfr.
+            «I quattro significanti di <code>Dip.</code>») — ma per il
+            <strong>canale-perception</strong> (i1→i2/i3), non come
+            write-through orfano: conferma che la gamba bottom-up runtime→dev
+            funziona, senza mettere alla prova lo specifico presidio del
+            write-through. Il presidio ha retto, quindi il task resta
+            trattenuto. Il risveglio è quel mancato accorgersi, o l’arrivo di un
+            secondo utente su un adottante (repo multiutente), dove il presidio
+            dell’attenzione cessa di bastare. Dettaglio in
+            <code>tasks/enforcement-cucitura-canone.md</code>.
           </p>
         </section>
         <section
@@ -850,18 +880,18 @@
             due stati
           </h2>
           <p>
-            Pensare le dipendenze dei task solo come task↔︎task (<code>#n</code>)
-            è troppo povero per pianificare: appiattisce su «dipende / non
-            dipende» situazioni che chiedono risposte opposte. La
-            <code>Dip.</code> di <code>plan.md</code> risponde ora a una domanda
-            più fine — il task è pronto, e se no <em>di chi è la mossa</em> che
-            lo sblocca — con quattro significanti: <code>—</code> (pronto),
-            <code>#n</code> (mossa nostra ma sequenziata),
-            <code>world</code> (mossa altrui: si attende il mondo),
-            <code>|</code> (mossa nostra ma trattenuta deliberatamente). La
-            linea di faglia è tra <code>world</code> e <code>|</code>: con
+            Pensare le dipendenze dei task solo come task↔︎task è troppo povero
+            per pianificare: appiattisce su «dipende / non dipende» situazioni
+            che chiedono risposte opposte. La <code>Dip.</code> di
+            <code>plan.md</code> risponde ora a una domanda più fine — il task è
+            pronto, e se no <em>di chi è la mossa</em> che lo sblocca — con
+            quattro significanti: <code>—</code> (pronto),
+            <code>↳ &lt;titolo&gt;</code> (mossa nostra ma sequenziata dietro un
+            altro task), <code>world</code> (mossa altrui: si attende il mondo),
+            <code>pause</code> (mossa nostra ma trattenuta deliberatamente). La
+            linea di faglia è tra <code>world</code> e <code>pause</code>: con
             <code>world</code> il muro è fuori e non tocca a noi; con
-            <code>|</code> il muro lo alziamo noi — per lasciar maturare una
+            <code>pause</code> il muro lo alziamo noi — per lasciar maturare una
             negoziazione o per una valutazione a freddo.
           </p>
           <p>
@@ -881,7 +911,7 @@
             legenda del <code>|</code>, perché è parte della pausa, non una
             pressione esterna. La forma sintetica regge tre livelli:
             significante in tabella, chiosa in legenda (<code>world [a]</code>,
-            <code>| [b]</code>), dettaglio nel file <code>tasks/</code>.
+            <code>pause [b]</code>), dettaglio nel file <code>tasks/</code>.
           </p>
           <p>
             Il caso che ha forzato la distinzione è il
@@ -902,12 +932,58 @@
             <code>perceptions/pausa-tattica-a-granularita-di-batch.md</code>)
             non richiede un significante nuovo. Un gruppo di task trattenuti per
             la stessa ragione condivide una sola chiave di legenda (<code
-              >| [a]</code
+              >pause [a]</code
             >
             su più righe); un fronte parcheggiato grande può raccogliersi in una
             sezione di holding (come <code>## Sospesi</code> in
             <code>salute</code>), adattamento di dominio, non variante del
-            canone. Il <code>|</code> resta per-riga.
+            canone. Il <code>pause</code> resta per-riga.
+          </p>
+          <p>
+            <strong>Evoluzione 2026-06-25 (notazione e identità).</strong> Due
+            significanti hanno cambiato forma e la colonna <code>#</code> è
+            sparita. Il <code>|</code> diventa <code>pause</code>: come
+            delimitatore di colonna markdown andava escapato (<code>\|</code>)
+            ed era visivamente ambiguo — difetto di portabilità che toccava ogni
+            adottante con tabelle. Il <code>#n</code> diventa
+            <code>↳ &lt;titolo&gt;</code>: il numero d’ordine era un secondo
+            identificatore effimero, letto come ID stabile e da tenere in
+            sincronia col riordino, mentre il canone già chiedeva di citare i
+            task per titolo. Ora un task ha
+            <strong>un’identità sola — il titolo</strong> — in tabella, in
+            <code>Dip.</code>, in conversazione e nei commit; l’ordine è la
+            sequenza delle righe, non un numero. Segnale sorto in
+            <code>economia</code> (che ha applicato <code>pause</code> e
+            l’identità-per-nome in locale) e rinforzato da <code>bi</code>;
+            recepito nel canone <code>kb/plan.md</code>, nell’istanza
+            <code>plan.md</code> e nei generatori
+            (<code>tools/presentation.py</code>, <code>build_views.py</code>,
+            <code>build_system_image.py</code>, che parsavano la colonna
+            <code>#</code>). Cattura i1 in
+            <code
+              >perceptions/convenzioni-plan-tasks-review-nate-in-economia.md</code
+            >. È il <strong>secondo arco bottom-up runtime→dev</strong> verso il
+            canone (dopo <code>kb-tools</code> da <code>bi</code>), questo per
+            il canale-perception; cfr. «La membrana <code>method/</code> afforda
+            scrittura».
+          </p>
+          <p>
+            La stessa perception portava altri due segnali, ora
+            <strong>anch’essi recepiti</strong> (2026-06-25): (a) le scadenze
+            <strong>ricorrenti</strong> non hanno sezione propria — vivono in
+            <code>## Scadenze</code> con la cadenza tra parentesi e la prossima
+            occorrenza come data — e ogni voce è sottile (<code
+              >data → riga → rimando</code
+            >, dettaglio nel task/nodo): aggiunto a §Scadenze di
+            <code>kb/plan.md</code>; (b) un passo
+            <strong><code>3b</code> di lettura strategica</strong> in
+            <code>tasks-review</code> interroga ogni mossa nostra oltre l’igiene
+            — mandato/canale, sequenza/informazione, effetti di secondo ordine —
+            e può far <strong>nascere una <code>pause</code></strong
+            >. È la versione <em>plan-time</em> del check i3 che
+            <code>/commit</code> fa a <em>commit-time</em>; l’invariante sta
+            nella skill base, la ricchezza multi-attore nei fork. La perception
+            di <code>economia</code> è così esaurita.
           </p>
         </section>
       </div>

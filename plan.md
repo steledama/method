@@ -6,14 +6,13 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| Task                                                            | Dip.             |
-| --------------------------------------------------------------- | ---------------- |
-| Cicli annidati: modello dei poli (i3) + diagramma rifatto       | —                |
-| Frecce del ciclo d'azione visibili (home + deck)                | —                |
-| Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —                |
-| Coerenza slide post system-image + rimozione «Approfondimento»  | ↳ Cicli annidati |
-| Protocollo runtime-o1 (audit periodico top-down)                | —                |
-| Enforcement della cucitura «agisci attraverso, ratifica»        | pause [a]        |
+| Task                                                            | Dip.      |
+| --------------------------------------------------------------- | --------- |
+| Frecce del ciclo d'azione visibili (home + deck)                | —         |
+| Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —         |
+| Coerenza slide post system-image + rimozione «Approfondimento»  | —         |
+| Protocollo runtime-o1 (audit periodico top-down)                | —         |
+| Enforcement della cucitura «agisci attraverso, ratifica»        | pause [a] |
 
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
@@ -31,12 +30,6 @@ strutturale del task runtime-o1.
 
 Note di rotta:
 
-- Il task **Cicli annidati** porta una decisione di modello aperta: `nested-cycles` oggi dice
-  **4 poli** (una coppia Goal/Mondo per ciclo, l'artefatto = fondo-dev _e_ macchina
-  del runtime), mentre il diagramma andrebbe verso **3 poli impilati** (Goal ·
-  Artefatto · World). Va sciolta nel nodo (i3) prima di ridisegnare. Il nodo già
-  **vieta** la rappresentazione a due colonne alla pari (§«La cucitura, non
-  l'affiancamento») che il deck attuale usa, e impone di mostrare la cucitura.
 - Il task **runtime-o1** è il gap che il filo «cicli annidati» di `verdict.md` portava come
   TODO appeso a un gate chiuso: l'arco top-down è scoccato una volta (prescrizione
   baricentro → `method-review` → recepimento) ma manca il protocollo d'audit
@@ -104,7 +97,6 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Cicli annidati: modello dei poli + diagramma](tasks/cicli-annidati-modello.md)
 - [Revisione i2 della presentazione](tasks/presentazione-i2.md)
 - [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md)
 - [Enforcement della cucitura canone](tasks/enforcement-cucitura-canone.md) — `bozza`, trattenuto

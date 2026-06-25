@@ -94,33 +94,58 @@ Conseguenza per il design: il riflessivo può solo _condizionare_ l'azione, attr
 
 Non è estetica. È la condizione perché il sapere attraversi i tre livelli — riflessivo, behavioral, viscerale — **fino al gesto**.
 
-## Cicli annidati: due Mondi
+## Cicli annidati: il dev costruisce, l'artefatto contiene il runtime
 
-Due cicli annidati, distinti da _cosa è il loro Mondo_ in fondo.
+Non due colonne alla pari: **annidamento per contenimento**. Il ciclo di sviluppo costruisce l'artefatto; l'artefatto _in opera_ contiene il runtime e agisce su un dominio che gli sta **fuori**.
 
 <div class="diagram nested-cycles">
-  <div class="frame vertical-cycle">
-    <div class="frame-title">CICLO DI SVILUPPO</div>
-    <div class="card pill">Goal di sviluppo</div>
-    <div class="arrow down"></div>
-    <div class="card">o3 · commit</div>
-    <div class="arrow down"></div>
-    <div class="card pole world"><strong>Mondo di sviluppo</strong><span>ARTEFATTO</span></div>
-    <div class="return-step">↻ i1 · lint · audit · test · errore</div>
+  <div class="card pole"><strong>GOAL-DEV</strong><span>universale · attrito · autonomia · temporalità</span></div>
+  <div class="cycle-columns">
+    <div class="cycle-side execution">
+      <div class="side-title">esecuzione ↓</div>
+      <div class="card">o1 · Plan</div>
+      <div class="arrow down"></div>
+      <div class="card">o2 · Specify</div>
+      <div class="arrow down"></div>
+      <div class="card">o3 · commit</div>
+    </div>
+    <div class="cycle-side evaluation">
+      <div class="side-title">↑ valutazione</div>
+      <div class="card">i3 · Compare</div>
+      <div class="arrow up"></div>
+      <div class="card">i2 · Interpret</div>
+      <div class="arrow up"></div>
+      <div class="card">i1 · lint · audit · test</div>
+    </div>
   </div>
-  <div class="handoff"><span>l'artefatto è la macchina del runtime</span><b>↓</b></div>
-  <div class="frame vertical-cycle">
-    <div class="frame-title">CICLO RUNTIME</div>
-    <div class="card pill">Goal runtime</div>
-    <div class="arrow down"></div>
-    <div class="card">o3 · email · transazione · gesto</div>
-    <div class="arrow down"></div>
-    <div class="card pole world"><strong>Mondo runtime</strong><span>realtà del dominio</span></div>
-    <div class="return-step">↻ i1 · referto · payload · alert</div>
+  <div class="frame artifact">
+    <div class="frame-title">ARTEFATTO = Mondo-dev · macchina del runtime</div>
+    <div class="card pole"><strong>GOAL-RUNTIME</strong><span>scopo di dominio</span></div>
+    <div class="cycle-columns">
+      <div class="cycle-side execution">
+        <div class="side-title">esecuzione ↓</div>
+        <div class="card">o1 · Plan</div>
+        <div class="arrow down"></div>
+        <div class="card">o2 · Specify</div>
+        <div class="arrow down"></div>
+        <div class="card">o3 · email · gesto</div>
+      </div>
+      <div class="cycle-side evaluation">
+        <div class="side-title">↑ valutazione</div>
+        <div class="card">i3 · Compare</div>
+        <div class="arrow up"></div>
+        <div class="card">i2 · Interpret</div>
+        <div class="arrow up"></div>
+        <div class="card">i1 · referto · alert</div>
+      </div>
+    </div>
   </div>
+  <div class="arrow down"></div>
+  <div class="card pole world"><strong>WORLD-RUNTIME</strong><span>realtà del dominio — fuori: l'artefatto ci agisce sopra</span></div>
+  <div class="axis-note">↕ portabilità: comune a tutti i domini in cima → domain-specific in fondo · agente ⊥: entrambi i cicli umano+LLM, il mix scivola da in-the-loop (dev) a on-the-loop (runtime)</div>
 </div>
 
-Il Mondo di sviluppo è la macchina del runtime: il commit è l'atto o3 che modifica l'artefatto, ma la macchina è l'artefatto risultante, cioè il Mondo-dev che poi opera nel runtime. Per questo il metodo apre la scatola nera di Norman.
+Stessa cucitura, due versi: di **provenienza** (dal runtime in opera si apre la scatola e si trova il dev che l'ha prodotto) e **operativo** (il dev costruisce l'artefatto che contiene il runtime — il verso del disegno). I sei stadi sono visibili in entrambi i cicli: ogni stadio è dove l'umano ispeziona e l'LLM rientra senza ricostruire.
 
 ## Le quattro dimensioni
 
