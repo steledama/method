@@ -51,13 +51,34 @@ nel `metodo` hanno natura propria:
 - drift tra `interpretations/` e i nodi -> può aprire un task di riallineamento o2
 - scadenza di una fotografia dell'osservatorio cross-repo
 
+**3b. Lettura strategica delle mosse**
+
+L'igiene (passi 2-3) dice se la coda è coerente; non se una mossa **vada fatta**.
+Per ogni mossa nostra che la review raccomanderebbe, interroga tre lenti — e se una
+si accende, la mossa può **nascere come `pause`** invece che come prossimo task:
+
+- **mandato/canale** — la mossa scavalca un agente o un canale con mandato? Nel
+  `metodo`: scrivere diretto nei file di un adottante invece di lasciare che il suo
+  `method-review` tiri il canone scavalca la membrana («agisci attraverso,
+  ratifica»).
+- **sequenza/informazione** — un uso o una conversazione imminente darebbe un
+  _read_ prima di muoverci? Nel `metodo`: l'uso reale di un adottante darebbe
+  l'evidenza prima di incidere il canone («evidenza prima della struttura»).
+- **effetti di secondo ordine** — la mossa rompe un consumatore a valle o cambia
+  gli incentivi di una controparte? Nel `metodo`: un rename o un refactor di un
+  nodo che rompe un generatore o un link negli adottanti.
+
+È la versione **plan-time** del check i3 che `/commit` fa a commit-time: stesso
+invariante, momento diverso. La ricchezza multi-attore (incentivi, canali neutrali,
+tempismo di una negoziazione) vive nei fork degli adottanti come adattamento di
+dominio; qui resta l'invariante.
+
 **4. Proponi le modifiche e il prossimo task**
 
-Presenta all'utente una tabella:
+Presenta all'utente, come elenco, le modifiche proposte — una voce per task, con
+azione (aggiungi/modifica/rimuovi), priorità e motivo:
 
-| Task | Azione proposta           | Priorità | Motivo |
-| ---- | ------------------------- | -------- | ------ |
-| ...  | aggiungi/modifica/rimuovi | ...      | ...    |
+- **<task>** — <azione>; priorità <…>; <motivo>
 
 Se non ci sono modifiche da proporre, dillo esplicitamente. Chiudi indicando il
 task consigliato per la sessione corrente, motivandolo con urgenza, dipendenze e

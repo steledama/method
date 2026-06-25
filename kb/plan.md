@@ -123,6 +123,14 @@ risveglio (una data o un trigger) vive nella riga di legenda, non qui. La regola
 calendario di adempimenti che non modifica la coda resta invece nel file di
 dominio dedicato, per esempio `scadenze.md`.
 
+Dentro `## Scadenze` ogni voce è sottile — `data → una riga → un rimando` al task
+o al nodo — e la disciplina dei tre livelli vale anche qui: protocolli, importi e
+cronache stanno nel task/nodo, non nella sezione. Una scadenza **ricorrente** che
+muove la coda non chiede una sezione propria: vive in `## Scadenze` con la cadenza
+tra parentesi — `(mensile)`, `(annuale)`, `(biennale)` — e la **prossima
+occorrenza** come data. Una ricorrente che non muove la coda resta nel file di
+dominio, come sopra.
+
 Le righe di ingest semplici possono non avere un file in `tasks/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
 tabella e i path completi vivono in `## Fonti da elaborare`, dopo `## Dettagli

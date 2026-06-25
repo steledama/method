@@ -455,7 +455,16 @@ l'ordine è la sequenza delle righe, non un numero. Segnale sorto in `economia` 
 applicato `pause` e l'identità-per-nome in locale) e rinforzato da `bi`; recepito nel
 canone `kb/plan.md`, nell'istanza `plan.md` e nei generatori (`tools/presentation.py`,
 `build_views.py`, `build_system_image.py`, che parsavano la colonna `#`). Cattura i1 in
-`perceptions/convenzioni-plan-tasks-review-nate-in-economia.md`, che porta altri due
-segnali ancora aperti (passo `3b` di `tasks-review`, ricorrenti in `## Scadenze`). È il
+`perceptions/convenzioni-plan-tasks-review-nate-in-economia.md`. È il
 **secondo arco bottom-up runtime→dev** verso il canone (dopo `kb-tools` da `bi`), questo
 per il canale-perception; cfr. «La membrana `method/` afforda scrittura».
+
+La stessa perception portava altri due segnali, ora **anch'essi recepiti** (2026-06-25):
+(a) le scadenze **ricorrenti** non hanno sezione propria — vivono in `## Scadenze` con
+la cadenza tra parentesi e la prossima occorrenza come data — e ogni voce è sottile
+(`data → riga → rimando`, dettaglio nel task/nodo): aggiunto a §Scadenze di `kb/plan.md`;
+(b) un passo **`3b` di lettura strategica** in `tasks-review` interroga ogni mossa nostra
+oltre l'igiene — mandato/canale, sequenza/informazione, effetti di secondo ordine — e può
+far **nascere una `pause`**. È la versione _plan-time_ del check i3 che `/commit` fa a
+_commit-time_; l'invariante sta nella skill base, la ricchezza multi-attore nei fork. La
+perception di `economia` è così esaurita.
