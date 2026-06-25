@@ -707,6 +707,141 @@
           </p>
         </section>
         <section
+          id="la-membrana-method-afforda-scrittura-agisci-attraverso-ratifica-in-method"
+          class="slide level2"
+        >
+          <h2>
+            La membrana <code>method/</code> afforda scrittura: agisci
+            attraverso, ratifica in <code>method</code>
+          </h2>
+          <p>
+            Filo aperto 2026-06-23, emerso dal basso da <code>bi</code>.
+            Risolvendo un problema concreto di filing back — rendere
+            <code>coverage</code> un gate bloccante per
+            <code>/commit</code> (<code>coverage --check</code>, exit non-zero
+            se uno script non ha nodo) — l’agente in <code>bi</code> ha
+            documentato la generalizzazione modificando il nodo canonico
+            <code>kb-tools</code>, che <code>bi</code> vede
+            <strong>via symlink</strong> <code>method/</code>. Si è poi accorto
+            che la modifica
+            <strong>non compariva nel diff del proprio commit</strong>, ha
+            indagato e ha chiesto: il file non è di <code>bi</code>, è il nodo
+            in <code>method</code>, raggiunto in scrittura attraverso la
+            membrana. Cattura i1 in
+            <code>perceptions/modifica-di-canone-nata-in-un-adottante.md</code>.
+          </p>
+          <p>
+            <strong>La riformulazione (i2).</strong> Il canone descriveva il
+            canale col suo <strong>uso inteso</strong> — gli adottanti «leggono
+            i nodi» — non con la sua <strong>affordance</strong>: il symlink è
+            read-write, e afforda la scrittura. Canone che
+            <em>significa</em> lettura, symlink che <em>offre</em> scrittura: il
+            gap è quello che <code>affordance-signifier</code> già nomina, e la
+            sorpresa «non compare nel mio diff» ne è la firma.
+            <strong
+              >Non è l’agente ad aver sbagliato: è il modello ad aver descritto
+              la membrana col suo uso inteso invece che con la sua
+              affordance.</strong
+            >
+            Corretto in <code>world.md</code> («Il Mondo del metodo»): la
+            membrana afforda scrittura, dichiarata la cucitura.
+          </p>
+          <p>
+            <strong>Dove la perdita si concentra (claim falsificabile).</strong>
+            Non è accaduto su un nodo di puro concetto, ma su
+            <code>kb-tools</code>, che ha una sezione
+            <strong>«Applicazione nei progetti adottanti»</strong>, per-repo: è
+            insieme canone <em>e</em> superficie di documentazione di uno
+            strumento che <code>bi</code> stava estendendo. Quando l’oggetto da
+            stabilizzare in locale è documentato in un nodo condiviso,
+            <strong
+              >stabilizzazione locale e modifica del canone collassano nello
+              stesso atto</strong
+            >. La perdita è dunque
+            <strong>strutturale, non accidentale</strong>, e si addensa sui
+            nodi-strumento con sezioni per-adottante. Falsificabile: se
+            ricapita, dovrebbe ricapitare lì.
+          </p>
+          <p>
+            <strong>La disciplina (i3).</strong> Non un’anomalia da vietare: il
+            riflesso i1/o3 è <em>on-demand</em> (<code>world</code>), l’atto nel
+            Mondo è primario. Quindi il write-through è la
+            <strong>membrana che funziona</strong>, e l’agente che si ferma e
+            chiede è il trigger «richiede revisione» che scatta.
+          </p>
+          <blockquote>
+            <p>
+              <strong
+                >Agisci attraverso la membrana, ratifica in
+                <code>method</code>.</strong
+              >
+              Un agente che, risolvendo un problema in un adottante, modifica un
+              nodo di canone via symlink compie un atto runtime legittimo:
+              prosegue coi propri commit locali, ma
+              <em>non committa l’edit di canone</em> — lo segnala.
+              <code>method</code> lo back-filla come perception e lo fa passare
+              per i2/i3; solo allora l’edit diventa canone-di-record.
+              <strong
+                >L’orfano non-committato nel working tree di
+                <code>method</code> è la cucitura che funziona, non che
+                fallisce.</strong
+              >
+            </p>
+          </blockquote>
+          <p>
+            Tre precisazioni, pesate prima di incidere: (a) la disciplina
+            <strong>benedice</strong> il write-through come percorso bottom-up
+            di prima classe — il gate di ratifica <em>è</em> la disciplina, non
+            una toppa a una perdita; (b) la mossa dell’adottante è una sola —
+            <em>accorgersi e non committare l’edit di canone</em>; l’i1 è di
+            <code>method</code> perché entra dalla sua membrana runtime, e
+            <code>method</code> ratifica; (c) il gate trattiene
+            <strong
+              >solo il commit del nodo di canone in <code>method</code></strong
+            >, non i commit locali dell’adottante (l’implementazione di
+            <code>coverage --check</code> nei file di <code>bi</code> è il suo
+            runtime, e prosegue).
+          </p>
+          <p>
+            <strong>Collocazione nel ciclo.</strong> È la
+            <strong>gamba bottom-up</strong> del ciclo runtime — distinta da
+            <code>runtime-o1</code>, che è il buco <em>top-down</em> (l’audit
+            periodico verso gli adottanti). Finora il verdetto descriveva quella
+            gamba debolmente («un adottante solleva un segnale»), senza
+            meccanismo; l’evento le dà un <strong>meccanismo concreto</strong> —
+            il write-through della membrana — ed è la cucitura runtime→dev che
+            scocca <em>dal basso</em> (un atto nel Mondo runtime scrive sul
+            Mondo-dev). Arricchisce <code>nested-cycles</code>, non
+            <code>runtime-o1</code>. È il primo arco bottom-up runtime→dev che
+            attraversa il symlink, gemello del top-down già scoccato una volta
+            (il <em>baricentro</em> su <code>salute</code>).
+          </p>
+          <p>
+            <strong>Stato.</strong> La riga <code>kb-tools</code> è
+            <strong>ratificata come generalizzata</strong> — il
+            <code>--check</code> portabile è scritto come tale ed è l’<strong
+              >oggetto-prova</strong
+            >
+            della cucitura: ora è canone-di-record, committabile. Il
+            <strong>nodo nuovo è tenuto in riserva</strong>: un solo episodio,
+            non si inventa struttura prima dell’evidenza — la disciplina vive in
+            questo filo e in <code>world.md</code> finché un secondo
+            write-through non chieda un atomo proprio.
+          </p>
+          <p>
+            <strong>Enforcement: dichiarato, non presidiato.</strong> La
+            cucitura conta oggi su un solo presidio — l’agente adottante che si
+            accorge e si ferma (come <code>bi</code>). Il buco — un
+            write-through che passa inosservato — è tracciato come
+            <code>plan.md</code> task 6 (<code>bozza</code>, trattenuto
+            <code>|</code>): non si costruisce l’enforcement prima dell’evidenza
+            che la disciplina manuale non scali. Il risveglio è quel mancato
+            accorgersi, o l’arrivo di un secondo utente su un adottante (repo
+            multiutente), dove il presidio dell’attenzione cessa di bastare.
+            Dettaglio in <code>tasks/enforcement-cucitura-canone.md</code>.
+          </p>
+        </section>
+        <section
           id="i-quattro-significanti-di-dip.-la-prontezza-ha-più-di-due-stati"
           class="slide level2"
         >

@@ -141,8 +141,8 @@ conclusa. La regola del canale vive in `project-structure`.
 Filo di design aperto in questa sessione; **in esecuzione** (lavoro in `plan.md`). La
 **disambiguazione KB riflessivo ↔ system-image**, gli **atomi di stadio** e l'**atrio a
 tre specie** sono fatti; resta la **system image visiva**, che in sessione di
-design 2026-06-15 si è allargata in un **cluster di task pianificati** (cfr.
-`plan.md`, task 1-4), ridefinito il 2026-06-17 con la distinzione **dev/runtime**
+design 2026-06-15 si è allargata in un **cluster di task pianificati** (il cluster
+di presentazione in `plan.md`), ridefinito il 2026-06-17 con la distinzione **dev/runtime**
 resa esplicita e un gate di verifica inserito prima della costruzione. La categoria
 «porta-collezione» era **falsamente uniforme**: trattava allo stesso modo la KB (system
 image), gli strumenti (macchina del ciclo di sviluppo) e gli stadi i1/i2/o3 — cose di tre
@@ -394,24 +394,30 @@ un secondo write-through non chieda un atomo proprio.
 
 **Enforcement: dichiarato, non presidiato.** La cucitura conta oggi su un solo presidio —
 l'agente adottante che si accorge e si ferma (come `bi`). Il buco — un write-through che
-passa inosservato — è tracciato come `plan.md` task 6 (`bozza`, trattenuto `|`): non si
-costruisce l'enforcement prima dell'evidenza che la disciplina manuale non scali. Il
-risveglio è quel mancato accorgersi, o l'arrivo di un secondo utente su un adottante
-(repo multiutente), dove il presidio dell'attenzione cessa di bastare. Dettaglio in
+passa inosservato — è tracciato dal task `enforcement-cucitura-canone` (`bozza`,
+trattenuto `pause`): non si costruisce l'enforcement prima dell'evidenza che la disciplina
+manuale non scali. Un **secondo arco** bottom-up è nel frattempo arrivato — la riforma
+della forma di `plan.md` da `economia`+`bi` (cfr. «I quattro significanti di `Dip.`») —
+ma per il **canale-perception** (i1→i2/i3), non come write-through orfano: conferma che la
+gamba bottom-up runtime→dev funziona, senza mettere alla prova lo specifico presidio del
+write-through. Il presidio ha retto, quindi il task resta trattenuto. Il risveglio è quel
+mancato accorgersi, o l'arrivo di un secondo utente su un adottante (repo multiutente),
+dove il presidio dell'attenzione cessa di bastare. Dettaglio in
 `tasks/enforcement-cucitura-canone.md`.
 
 ---
 
 ## I quattro significanti di `Dip.`: la prontezza ha più di due stati
 
-Pensare le dipendenze dei task solo come task↔task (`#n`) è troppo povero per
+Pensare le dipendenze dei task solo come task↔task è troppo povero per
 pianificare: appiattisce su «dipende / non dipende» situazioni che chiedono risposte
 opposte. La `Dip.` di `plan.md` risponde ora a una domanda più fine — il task è pronto,
 e se no _di chi è la mossa_ che lo sblocca — con quattro significanti: `—` (pronto),
-`#n` (mossa nostra ma sequenziata), `world` (mossa altrui: si attende il mondo), `|`
-(mossa nostra ma trattenuta deliberatamente). La linea di faglia è tra `world` e `|`:
-con `world` il muro è fuori e non tocca a noi; con `|` il muro lo alziamo noi — per
-lasciar maturare una negoziazione o per una valutazione a freddo.
+`↳ <titolo>` (mossa nostra ma sequenziata dietro un altro task), `world` (mossa altrui:
+si attende il mondo), `pause` (mossa nostra ma trattenuta deliberatamente). La linea di
+faglia è tra `world` e `pause`: con `world` il muro è fuori e non tocca a noi; con
+`pause` il muro lo alziamo noi — per lasciar maturare una negoziazione o per una
+valutazione a freddo.
 
 Questo raffina e corregge il primo passo grezzo arrivato dall'operatività (`f929f7e`,
 dove `world` assorbiva anche la pausa tattica e il differimento deciso da noi finiva in
@@ -422,7 +428,7 @@ possiede l'orologio**: esogena (un atto altrui, una scadenza naturale, un termin
 imposto) → `## Scadenze`, che muove la priorità avvicinandosi; autoimposta (la condizione
 di risveglio di una pausa) → la riga di legenda del `|`, perché è parte della pausa, non
 una pressione esterna. La forma sintetica regge tre livelli: significante in tabella,
-chiosa in legenda (`world [a]`, `| [b]`), dettaglio nel file `tasks/`.
+chiosa in legenda (`world [a]`, `pause [b]`), dettaglio nel file `tasks/`.
 
 Il caso che ha forzato la distinzione è il **monitoraggio**: un task che non dipende da
 un altro task ma dal tempo e da una condizione che evolve — il boot dei server dopo lo
@@ -434,6 +440,22 @@ operando su `economia` e giudicato lì generalizzabile; cattura i1 in
 Coda risolta: la pausa tattica a granularità di **batch** (segnale da `salute`,
 `perceptions/pausa-tattica-a-granularita-di-batch.md`) non richiede un significante
 nuovo. Un gruppo di task trattenuti per la stessa ragione condivide una sola chiave
-di legenda (`| [a]` su più righe); un fronte parcheggiato grande può raccogliersi
+di legenda (`pause [a]` su più righe); un fronte parcheggiato grande può raccogliersi
 in una sezione di holding (come `## Sospesi` in `salute`), adattamento di dominio,
-non variante del canone. Il `|` resta per-riga.
+non variante del canone. Il `pause` resta per-riga.
+
+**Evoluzione 2026-06-25 (notazione e identità).** Due significanti hanno cambiato
+forma e la colonna `#` è sparita. Il `|` diventa `pause`: come delimitatore di colonna
+markdown andava escapato (`\|`) ed era visivamente ambiguo — difetto di portabilità che
+toccava ogni adottante con tabelle. Il `#n` diventa `↳ <titolo>`: il numero d'ordine era
+un secondo identificatore effimero, letto come ID stabile e da tenere in sincronia col
+riordino, mentre il canone già chiedeva di citare i task per titolo. Ora un task ha
+**un'identità sola — il titolo** — in tabella, in `Dip.`, in conversazione e nei commit;
+l'ordine è la sequenza delle righe, non un numero. Segnale sorto in `economia` (che ha
+applicato `pause` e l'identità-per-nome in locale) e rinforzato da `bi`; recepito nel
+canone `kb/plan.md`, nell'istanza `plan.md` e nei generatori (`tools/presentation.py`,
+`build_views.py`, `build_system_image.py`, che parsavano la colonna `#`). Cattura i1 in
+`perceptions/convenzioni-plan-tasks-review-nate-in-economia.md`, che porta altri due
+segnali ancora aperti (passo `3b` di `tasks-review`, ricorrenti in `## Scadenze`). È il
+**secondo arco bottom-up runtime→dev** verso il canone (dopo `kb-tools` da `bi`), questo
+per il canale-perception; cfr. «La membrana `method/` afforda scrittura».

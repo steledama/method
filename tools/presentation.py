@@ -10,7 +10,6 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class PlanRow:
-    position: str
     task: str
     dependency: str
     source: str | None
@@ -59,15 +58,14 @@ def parse_plan(root: Path) -> list[PlanRow]:
         if not line.startswith("|"):
             continue
         cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) != 3 or cells[0] in {"#", "---"} or set(cells[0]) == {"-"}:
+        if len(cells) != 2 or cells[0] == "Task" or set(cells[0]) <= {"-"}:
             continue
-        link = re.search(r"\[([^\]]+)\]\((tasks/[^)]+\.md)\)", cells[1])
-        task = link.group(1) if link else cells[1]
+        link = re.search(r"\[([^\]]+)\]\((tasks/[^)]+\.md)\)", cells[0])
+        task = link.group(1) if link else cells[0]
         rows.append(
             PlanRow(
-                position=cells[0],
                 task=task,
-                dependency=cells[2],
+                dependency=cells[1],
                 source=link.group(2) if link else detail_links.get(task),
             )
         )

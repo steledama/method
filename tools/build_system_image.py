@@ -83,7 +83,6 @@ def plan_cards(root: Path) -> str:
             "\n".join(
                 [
                     '<article class="plan-item">',
-                    f'<div class="plan-index">#{html.escape(row.position)}</div>',
                     f"<h3>{title}</h3>",
                     f"<p>{summary}</p>",
                     '<div class="plan-meta">',
