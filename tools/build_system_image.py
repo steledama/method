@@ -161,13 +161,13 @@ def render(root: Path) -> str:
         <div class="cycle-pole top">GOAL</div>
         <div class="cycle-grid">
           <div class="cycle-column execution" aria-label="Arco di esecuzione">
-            <h2>Esecuzione</h2>
+            <h2>Esecuzione <span class="dir">↓</span></h2>
             {cycle_card("o1", "Plan", "Plan", "Task aperti e dipendenze", "#plan")}
             {cycle_card("o2", "Specify", "Specify", "Vista Tasks", VIEW_PATHS["tasks"])}
             {cycle_card("o3", "Perform", "Perform", "Prescrizioni on-demand", None, True)}
           </div>
           <div class="cycle-column evaluation" aria-label="Arco di valutazione">
-            <h2>Valutazione</h2>
+            <h2><span class="dir">↑</span> Valutazione</h2>
             {cycle_card("i3", "Compare", "Compare", "Vista Verdict", VIEW_PATHS["verdict"])}
             {cycle_card("i2", "Interpret", "Interpret", "Vista Interpretations", VIEW_PATHS["interpretations"])}
             {cycle_card("i1", "Perceive", "Perceive", "Segnali on-demand", None, True)}

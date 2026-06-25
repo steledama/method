@@ -3,6 +3,8 @@
   --diagram-ink: #1a2230;
   --diagram-muted: #4a5a6a;
   --diagram-line: #7c93a6;
+  /* Le frecce del ciclo sono il cuore del modello: colore dedicato, marcato. */
+  --diagram-arrow: #34465a;
   --diagram-soft: #eef2f5;
   --diagram-accent: #cfe4ec;
   --diagram-primary: #ddd3ee;
@@ -184,11 +186,21 @@ body.home {
 }
 
 .cycle-column h2 {
+  align-items: baseline;
   color: var(--diagram-muted);
+  display: flex;
   font-size: 0.8rem;
+  gap: 0.4rem;
   letter-spacing: 0;
   margin-bottom: 0;
   text-transform: uppercase;
+}
+
+.cycle-column h2 .dir {
+  color: var(--diagram-arrow);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .cycle-card {

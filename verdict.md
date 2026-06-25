@@ -239,6 +239,16 @@ Conseguenze decise:
     **ri-derivata** come annidamento per contenimento — Goal-dev universale in
     cima, artefatto contenitore, World-runtime fuori, gradiente di portabilità
     verticale — al posto delle due colonne alla pari che il nodo vietava.
+  - **Revisione i2-macro della presentazione, resa (chiusa 2026-06-25)**: la
+    passata sullo strato `view` distinta dal modello — frecce del ciclo rese
+    **visibili** (var `--diagram-arrow`, steli e teste marcati nel deck;
+    indicatori direzionali ↓/↑ nelle colonne della home, prima assenti), slide
+    «Sviluppo del metodo» ridisegnata a **Λ** (risalita bottom-up → apice di
+    generalizzazione → ridiscesa top-down, coerente con `method-development`),
+    slide «Approfondimento» rimossa (ridondante coi pointer distribuiti e
+    `kb.md`). Nessun residuo di KB-come-system-image nelle slide: il deck era già
+    allineato dalla passata del 2026-06-22. Modello nei nodi, resa nel `view`
+    (`cognitive-fidelity`).
   - **Strato di presentazione trasversale, deck→view (chiuso 2026-06-21)**: il nodo
     `deck` è scisso in **`view`**, motore trasversale a istanze multiple; la macchina
     è consolidata in root con `assets/` (CSS/token/primitivi condivisi) e `views/`

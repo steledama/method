@@ -6,27 +6,21 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| Task                                                            | Dip.      |
-| --------------------------------------------------------------- | --------- |
-| Frecce del ciclo d'azione visibili (home + deck)                | —         |
-| Slide «Sviluppo del metodo»: bottom-up → generalizza → top-down | —         |
-| Coerenza slide post system-image + rimozione «Approfondimento»  | —         |
-| Protocollo runtime-o1 (audit periodico top-down)                | —         |
-| Enforcement della cucitura «agisci attraverso, ratifica»        | pause [a] |
+| Task                                                     | Dip.      |
+| -------------------------------------------------------- | --------- |
+| Protocollo runtime-o1 (audit periodico top-down)         | —         |
+| Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `tasks/enforcement-cucitura-canone.md`.
 
-Apertura 2026-06-22: una **revisione i2-macro dello strato di presentazione**. Il
-deck (`interpretations/metodo-in-sintesi.md`) è l'i2-macro del metodo su sé stesso;
-riletto alla luce del task system-image (il _system image_ è l'artefatto, non la
-KB), slide e home non rappresentano più fedelmente il modello. **Disciplina**
-(cfr. il deck stesso e `cognitive-fidelity`): il deck rivela, i nodi risolvono —
-ciò che è **modello** si chiude prima nei nodi (i3), poi il deck si **ri-deriva**;
-ciò che è **resa** (CSS, layout) si corregge nello strato `view`. È il percorso
-i2 → i3 → o1 che, oltre a ripulire la presentazione, rifila come o1 il gap
-strutturale del task runtime-o1.
+La **revisione i2-macro della presentazione** (deck + home) è **chiusa**
+(2026-06-25): cicli annidati ridisegnati per contenimento, frecce del ciclo rese
+visibili (deck e home), slide «Sviluppo del metodo» a forma di Λ (risalita →
+apice → ridiscesa), «Approfondimento» rimossa; nessun residuo di
+KB-come-system-image. Resta il gap o1 che quel percorso i2 → i3 → o1 rifilava: il
+task **runtime-o1**.
 
 Note di rotta:
 
@@ -97,6 +91,5 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Revisione i2 della presentazione](tasks/presentazione-i2.md)
 - [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md)
 - [Enforcement della cucitura canone](tasks/enforcement-cucitura-canone.md) — `bozza`, trattenuto

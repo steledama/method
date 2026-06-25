@@ -196,24 +196,21 @@ La struttura replicabile non è un albero identico: è la presenza esplicita del
 
 ## Sviluppo del metodo: dal basso e dall'alto
 
-<div class="diagram method-development">
-  <div class="frame adopters">
-    <div class="frame-title">PROGETTI ADOTTANTI</div>
-    <div class="diagram-row">
-      <div class="card">esigenza concreta</div><div class="arrow right"></div><div class="card">soluzione locale</div>
-    </div>
-  </div>
-  <div class="movement bottom-up"><b>↓</b><span>bottom-up · filing back</span></div>
-  <div class="diagram-row decision-row">
-    <div class="card theory">cornice teorica<br><small>gigante · distinzione</small></div>
-    <div class="arrow right"><span>inquadramento</span></div>
+<div class="diagram lambda-development">
+  <div class="apex">
+    <div class="card theory">cornice teorica<br /><small>gigante · distinzione</small></div>
     <div class="card diamond">generalizzabile?</div>
-    <div class="split"><span>no → resta locale</span><b>↓ sì</b></div>
+    <div class="card primary">METODO<br /><small>nodo · regola · strumento</small></div>
   </div>
-  <div class="card primary">METODO · nodo · regola · strumento</div>
-  <div class="movement top-down"><b>↓</b><span>top-down · propagazione</span></div>
-  <div class="card accent">adozione e verifica nei domini</div>
-  <div class="feedback">↻ feedback · nuove esigenze</div>
+  <div class="legs">
+    <div class="leg"><b>↗</b><span>bottom-up · filing back<br /><small>l'esigenza risale solo se generalizzabile</small></span></div>
+    <div class="leg"><b>↘</b><span>top-down · propagazione<br /><small>la generalizzazione torna, adattata e verificata</small></span></div>
+  </div>
+  <div class="bases">
+    <div class="card">esigenza concreta<br /><small>progetti adottanti</small></div>
+    <div class="card accent">adozione e verifica<br /><small>nei domini</small></div>
+  </div>
+  <div class="feedback">↻ feedback · le nuove esigenze risalgono</div>
 </div>
 
 Due movimenti in alternanza. Dal basso, un'esigenza concreta risale a `metodo`
@@ -260,18 +257,3 @@ Comprimere il metodo in poche interpretazioni forza la co-presenza e fa affiorar
 ## Il deck rivela, i nodi risolvono {.hero data-background-color="#161d29"}
 
 Comprimere il metodo in poche interpretazioni fa **affiorare** le tensioni non-locali. Ma ogni tensione si chiude giù nei nodi — la fonte di verità — e poi il deck si _ri-deriva_.
-
-## Approfondimento
-
-I diagrammi comprimono; i nodi spiegano.
-
-- cosa è (artefatto / sistema / metodo) → `kb/cognitive-artifact.md`, `kb/cognitive-system.md`
-- la cornice di sistema e i giganti che contiene → `kb/augmentation-system.md`, `kb/action-cycle.md`, `kb/zettelkasten.md`, `kb/karpathy-pattern.md`
-- ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni → `kb/action-cycle.md`, `kb/world.md`, `kb/output.md`
-- i tre livelli · system image · agente come popolazione → `kb/processing-layers.md`, `kb/system-image.md`, `kb/affordance-signifier.md`, `kb/agent.md`
-- il goal · tre altitudini → `kb/goal.md`
-- la matrice di verifica → `kb/action-cycle-matrix.md`
-- strato output · repertorio o2 · pubblicazione → `kb/output.md`, `kb/view.md`
-- anatomia del progetto → `kb/project-structure.md`
-- sviluppo del metodo e osservatorio → `kb/method-development.md`, `kb/method-observatory.md`, `kb/cognitive-artifact-design.md`
-- dove vive cosa → `kb/cognitive-artifact-design.md`, `kb/zettelkasten.md`

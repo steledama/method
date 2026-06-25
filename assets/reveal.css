@@ -3,6 +3,8 @@
   --diagram-ink: #1a2230;
   --diagram-muted: #4a5a6a;
   --diagram-line: #7c93a6;
+  /* Le frecce sono il cuore del modello di Norman: colore dedicato, più marcato della linea. */
+  --diagram-arrow: #34465a;
   --diagram-soft: #eef2f5;
   --diagram-accent: #cfe4ec;
   --diagram-primary: #ddd3ee;
@@ -215,35 +217,35 @@
 
 .reveal .arrow.down,
 .reveal .arrow.up {
-  height: 1.35em;
+  height: 1.5em;
   margin: 0 auto;
-  width: 2px;
+  width: 3px;
 }
 
 .reveal .arrow.down {
-  border-left: 2px solid var(--diagram-line);
+  border-left: 3px solid var(--diagram-arrow);
 }
 
 .reveal .arrow.down::after {
-  border-left: 0.32em solid transparent;
-  border-right: 0.32em solid transparent;
-  border-top: 0.42em solid var(--diagram-line);
+  border-left: 0.38em solid transparent;
+  border-right: 0.38em solid transparent;
+  border-top: 0.52em solid var(--diagram-arrow);
   bottom: -0.05em;
   content: "";
-  left: -0.36em;
+  left: -0.4em;
   position: absolute;
 }
 
 .reveal .arrow.up {
-  border-left: 2px solid var(--diagram-line);
+  border-left: 3px solid var(--diagram-arrow);
 }
 
 .reveal .arrow.up::after {
-  border-bottom: 0.42em solid var(--diagram-line);
-  border-left: 0.32em solid transparent;
-  border-right: 0.32em solid transparent;
+  border-bottom: 0.52em solid var(--diagram-arrow);
+  border-left: 0.38em solid transparent;
+  border-right: 0.38em solid transparent;
   content: "";
-  left: -0.36em;
+  left: -0.4em;
   position: absolute;
   top: -0.05em;
 }
@@ -256,20 +258,20 @@
 }
 
 .reveal .arrow.right {
-  border-top: 2px solid var(--diagram-line);
-  height: 2px;
+  border-top: 3px solid var(--diagram-arrow);
+  height: 3px;
   margin: 0 0.4em;
   width: 2em;
 }
 
 .reveal .arrow.right::after {
-  border-bottom: 0.32em solid transparent;
-  border-left: 0.42em solid var(--diagram-line);
-  border-top: 0.32em solid transparent;
+  border-bottom: 0.38em solid transparent;
+  border-left: 0.52em solid var(--diagram-arrow);
+  border-top: 0.38em solid transparent;
   content: "";
   position: absolute;
   right: -0.05em;
-  top: -0.35em;
+  top: -0.4em;
 }
 
 .reveal .arrow.right span {
@@ -320,7 +322,7 @@
 
 .reveal .merge-arrows i,
 .reveal .branch-arrows i {
-  border-left: 2px solid var(--diagram-line);
+  border-left: 3px solid var(--diagram-arrow);
   display: block;
 }
 
@@ -408,39 +410,58 @@
   background: var(--diagram-soft);
 }
 
-.reveal .method-development {
-  width: 84%;
+.reveal .lambda-development {
+  width: 90%;
 }
 
-.reveal .adopters {
-  padding: 1.15em 2em 0.7em;
+.reveal .lambda-development .apex {
+  align-items: center;
+  display: flex;
+  gap: 1.2em;
+  justify-content: center;
+  margin-bottom: 0.2em;
 }
 
-.reveal .adopters .card {
-  flex: 1;
+.reveal .lambda-development .apex .theory {
+  font-size: 0.82em;
+  width: 22%;
 }
 
-.reveal .movement {
+.reveal .lambda-development .apex .primary {
+  width: 24%;
+}
+
+.reveal .lambda-development .apex .diamond {
+  margin: 0;
+  width: 9em;
+}
+
+.reveal .lambda-development .legs {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7%;
+}
+
+.reveal .lambda-development .leg {
   align-items: center;
   color: var(--diagram-muted);
   display: flex;
   flex-direction: column;
-  font-size: 0.8em;
-  margin: 0.15em 0;
+  font-size: 0.82em;
+  text-align: center;
+  width: 34%;
 }
 
-.reveal .movement b {
-  font-size: 1.55em;
-  line-height: 0.8;
+.reveal .lambda-development .leg b {
+  color: var(--diagram-arrow);
+  font-size: 2.1em;
+  line-height: 0.7;
 }
 
-.reveal .decision-row {
-  margin: 0 auto 0.25em;
-  width: 88%;
-}
-
-.reveal .decision-row .theory {
-  width: 30%;
+.reveal .lambda-development .bases {
+  display: grid;
+  gap: 16%;
+  grid-template-columns: 1fr 1fr;
 }
 
 .reveal .card.diamond {
@@ -458,23 +479,11 @@
   width: 10em;
 }
 
-.reveal .split {
-  color: var(--diagram-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em;
-}
-
-.reveal .method-development > .primary,
-.reveal .method-development > .accent {
-  margin: auto;
-  width: 52%;
-}
-
 .reveal .feedback {
   color: var(--diagram-muted);
   font-size: 0.8em;
-  margin-top: 0.25em;
+  margin-top: 0.4em;
+  text-align: center;
 }
 
 .reveal .routing {

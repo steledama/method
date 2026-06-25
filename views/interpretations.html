@@ -565,34 +565,43 @@
           class="slide level2"
         >
           <h2>Sviluppo del metodo: dal basso e dall’alto</h2>
-          <div class="diagram method-development">
-            <div class="frame adopters">
-              <div class="frame-title">PROGETTI ADOTTANTI</div>
-              <div class="diagram-row">
-                <div class="card">esigenza concreta</div>
-                <div class="arrow right"></div>
-                <div class="card">soluzione locale</div>
-              </div>
-            </div>
-            <div class="movement bottom-up">
-              <b>↓</b><span>bottom-up · filing back</span>
-            </div>
-            <div class="diagram-row decision-row">
+          <div class="diagram lambda-development">
+            <div class="apex">
               <div class="card theory">
                 cornice teorica<br /><small>gigante · distinzione</small>
               </div>
-              <div class="arrow right">
-                <span>inquadramento</span>
-              </div>
               <div class="card diamond">generalizzabile?</div>
-              <div class="split"><span>no → resta locale</span><b>↓ sì</b></div>
+              <div class="card primary">
+                METODO<br /><small>nodo · regola · strumento</small>
+              </div>
             </div>
-            <div class="card primary">METODO · nodo · regola · strumento</div>
-            <div class="movement top-down">
-              <b>↓</b><span>top-down · propagazione</span>
+            <div class="legs">
+              <div class="leg">
+                <b>↗</b
+                ><span
+                  >bottom-up · filing back<br /><small
+                    >l’esigenza risale solo se generalizzabile</small
+                  ></span
+                >
+              </div>
+              <div class="leg">
+                <b>↘</b
+                ><span
+                  >top-down · propagazione<br /><small
+                    >la generalizzazione torna, adattata e verificata</small
+                  ></span
+                >
+              </div>
             </div>
-            <div class="card accent">adozione e verifica nei domini</div>
-            <div class="feedback">↻ feedback · nuove esigenze</div>
+            <div class="bases">
+              <div class="card">
+                esigenza concreta<br /><small>progetti adottanti</small>
+              </div>
+              <div class="card accent">
+                adozione e verifica<br /><small>nei domini</small>
+              </div>
+            </div>
+            <div class="feedback">↻ feedback · le nuove esigenze risalgono</div>
           </div>
           <p>
             Due movimenti in alternanza. Dal basso, un’esigenza concreta risale
@@ -715,55 +724,6 @@
             si chiude giù nei nodi — la fonte di verità — e poi il deck si
             <em>ri-deriva</em>.
           </p>
-        </section>
-        <section id="approfondimento" class="slide level2">
-          <h2>Approfondimento</h2>
-          <p>I diagrammi comprimono; i nodi spiegano.</p>
-          <ul>
-            <li>
-              cosa è (artefatto / sistema / metodo) →
-              <code>kb/cognitive-artifact.md</code>,
-              <code>kb/cognitive-system.md</code>
-            </li>
-            <li>
-              la cornice di sistema e i giganti che contiene →
-              <code>kb/augmentation-system.md</code>,
-              <code>kb/action-cycle.md</code>, <code>kb/zettelkasten.md</code>,
-              <code>kb/karpathy-pattern.md</code>
-            </li>
-            <li>
-              ciclo (6 atti + 2 poli) · cicli annidati · quattro dimensioni →
-              <code>kb/action-cycle.md</code>, <code>kb/world.md</code>,
-              <code>kb/output.md</code>
-            </li>
-            <li>
-              i tre livelli · system image · agente come popolazione →
-              <code>kb/processing-layers.md</code>,
-              <code>kb/system-image.md</code>,
-              <code>kb/affordance-signifier.md</code>, <code>kb/agent.md</code>
-            </li>
-            <li>il goal · tre altitudini → <code>kb/goal.md</code></li>
-            <li>
-              la matrice di verifica → <code>kb/action-cycle-matrix.md</code>
-            </li>
-            <li>
-              strato output · repertorio o2 · pubblicazione →
-              <code>kb/output.md</code>, <code>kb/view.md</code>
-            </li>
-            <li>
-              anatomia del progetto → <code>kb/project-structure.md</code>
-            </li>
-            <li>
-              sviluppo del metodo e osservatorio →
-              <code>kb/method-development.md</code>,
-              <code>kb/method-observatory.md</code>,
-              <code>kb/cognitive-artifact-design.md</code>
-            </li>
-            <li>
-              dove vive cosa → <code>kb/cognitive-artifact-design.md</code>,
-              <code>kb/zettelkasten.md</code>
-            </li>
-          </ul>
         </section>
       </div>
     </div>
