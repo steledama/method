@@ -1,5 +1,4 @@
 ---
-data: 2026-06-13
 stato: bozza
 ---
 

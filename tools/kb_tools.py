@@ -271,7 +271,7 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
             if text.startswith("---\n") and text.count("---") >= 2
             else ""
         )
-        if text.startswith("---\n") and "\ndata:" in fm and "\nstato:" in fm:
+        if text.startswith("---\n") and "\nstato:" in fm:
             frontmatter += 1
         if "\nConnessioni:\n" in text:
             connessioni += 1
@@ -421,7 +421,10 @@ def run_code_coverage(root: Path) -> CodeCoverage:
 
 def run_task_frontmatter(root: Path) -> TaskFrontmatter:
     missing: list[str] = []
-    task_files = sorted((root / "tasks").glob("*.md"))
+    # esclude l'indice di collezione omonimo (tasks/tasks.md): è una porta, non un task
+    task_files = [
+        p for p in sorted((root / "tasks").glob("*.md")) if p.name != "tasks.md"
+    ]
     for path in task_files:
         text = path.read_text(encoding="utf-8")
         fm = (
@@ -429,9 +432,7 @@ def run_task_frontmatter(root: Path) -> TaskFrontmatter:
             if text.startswith("---\n") and text.count("---") >= 2
             else ""
         )
-        absent = [
-            key for key in ("data", "stato", "sintesi") if f"\n{key}:" not in f"\n{fm}"
-        ]
+        absent = [key for key in ("stato", "sintesi") if f"\n{key}:" not in f"\n{fm}"]
         if absent:
             missing.append(f"{node_key(root, path)}: {', '.join(absent)}")
     return TaskFrontmatter(
@@ -511,7 +512,7 @@ def markdown_report(result: AuditResult) -> str:
         f"- {result.total_links} link interni tra nodi, {len(result.broken_links)} link rotti",
         f"- {result.catalog_links} link kb.md ({result.catalog_unique_links} unici)",
         f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in kb.md",
-        f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `data` + `stato`",
+        f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `stato`",
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
         f"- {len(result.isolated)} nodi isolati",

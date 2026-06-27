@@ -1,5 +1,4 @@
 ---
-data: 2026-05-09
 stato: maturo
 ---
 
@@ -9,11 +8,11 @@ Un nodo è l'unità atomica di una knowledge base basata su testo: un pezzo di c
 
 Il termine "nodo" è preferito a "nota" per tre ragioni. Prima: relazionalità — un nodo senza connessioni è incompleto, perché la sua funzione nasce dal posto che occupa nella rete. Seconda: generalizzabilità — "nodo" è un termine neutro applicabile a qualsiasi dominio (salute, finanza, configurazione sistemi, business intelligence) senza implicare un contesto specifico; lo stesso schema concettuale si trasferisce tra progetti con minima personalizzazione. Terza: interfaccia cognitiva condivisa — un LLM naviga una knowledge base di nodi esattamente come la mente umana, seguendo connessioni in una rete semantica; il termine rende esplicito questo protocollo condiviso e massimizza l'osmosi tra cognizione autonoma e cognizione aumentata dagli LLM.
 
-Ogni nodo ha una struttura minimalista: frontmatter con data di creazione e stato di maturità, corpo in prosa pura senza link inline, sezioni opzionali (Caratteristiche, Esempi, altri label custom), sezione finale Connessioni con tutti i link deduplicate e ordinati per rilevanza. Il corpo è pensato per essere letto — la sezione Connessioni è pensata per essere navigata. L'atomicità non riguarda solo l'argomento, ma anche la funzione documentale: un nodo dovrebbe sapere se sta facendo da mappa, concetto, reference o runbook.
+Ogni nodo ha una struttura minimalista: frontmatter con lo stato di maturità, corpo in prosa pura senza link inline, sezioni opzionali (Caratteristiche, Esempi, altri label custom), sezione finale Connessioni con tutti i link deduplicate e ordinati per rilevanza. Il corpo è pensato per essere letto — la sezione Connessioni è pensata per essere navigata. L'atomicità non riguarda solo l'argomento, ma anche la funzione documentale: un nodo dovrebbe sapere se sta facendo da mappa, concetto, reference o runbook.
 
 Template:
 
-- frontmatter iniziale con solo data e stato
+- frontmatter iniziale con solo lo stato
 - H1 con titolo del nodo
 - definizione in uno o tre paragrafi di prosa pura
 - sezioni opzionali con label testuale e bullet piatti
@@ -24,7 +23,7 @@ Caratteristiche:
 - atomicità: contiene una sola idea; troppi livelli annidati segnalano che va diviso in più nodi
 - prosa pura nel corpo: nessun link inline; il testo è leggibile senza interruzioni sintattiche
 - interfaccia esplicita: la sezione Connessioni è l'unico punto di uscita verso la rete
-- frontmatter minimalista obbligatorio: solo data (creazione, non ultima modifica) e stato (`bozza`, `iniziale`, `maturo`)
+- frontmatter minimalista obbligatorio: solo stato (`bozza`, `iniziale`, `maturo`); le date — creazione e modifica — vivono in git, non nel frontmatter
 - nome file inglese, tutto minuscolo con trattini, singolare come forma canonica
 - prosa italiana per i concetti del dominio
 - H1 inglese obbligatorio, coerente con il filename e leggibile anche fuori da esso
@@ -40,14 +39,13 @@ Caratteristiche:
 
 ```yaml
 ---
-data: YYYY-MM-DD
 stato: bozza | iniziale | maturo
 ---
 ```
 
-Il frontmatter dei nodi è obbligatorio e volutamente minimale. Serve agli strumenti per distinguere presenza, maturità e stato editoriale del nodo senza trasformare la KB in un database manuale.
+Il frontmatter dei nodi è obbligatorio e volutamente minimale: un solo campo, `stato`. Serve agli strumenti per distinguere presenza e maturità del nodo senza trasformare la KB in un database manuale.
 
-`data` è la data di creazione del nodo. Non è la data di ultima modifica: quella appartiene a git. Aggiornare manualmente una data di modifica nel frontmatter creerebbe una seconda storia fragile e incompleta.
+`stato` è l'unico campo che guadagna l'obbligo perché è un **giudizio non ricostruibile** da nessun'altra fonte. Le **date** — creazione e modifica — appartengono a git e non stanno nel frontmatter: una data registrata a mano sarebbe una seconda storia fragile e non verificabile (lo strumento ne controllerebbe la presenza, mai il valore), e derivabile dalla storia è comunque ridondante.
 
 `stato` indica la maturità del nodo:
 
@@ -56,6 +54,10 @@ Il frontmatter dei nodi è obbligatorio e volutamente minimale. Serve agli strum
 - `maturo`: nodo stabile, autonomo e sufficientemente collegato.
 
 Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `tasks/`, priorità e dipendenze in `plan.md`.
+
+Il divieto colpisce ciò che è relazione, storia, lavoro o priorità travestito da metadato — non un **attributo intrinseco del nodo**. Per quest'ultimo il metodo sanziona un meccanismo di estensione: un adottante può dichiarare una proprietà di dominio oltre `{data, stato}` solo se soddisfa **tutti e quattro** i requisiti di demarcazione. È **intrinseca**: descrive il nodo in sé, non una relazione verso altri nodi (quella è un link), non storia (git), non lavoro (`tasks/`), non priorità (`plan.md`). È a **valori chiusi e singola**: classificazione faceted, un insieme finito e dichiarato di valori con uno solo per nodo — un attributo aperto o multi-valore è una relazione e va espresso come link, non come campo. È **non derivabile**: non ricostruibile da una fonte di verità esistente, per non aprire una seconda storia fragile. È **dichiarata e verificabile**: l'insieme dei valori ammessi è dichiarato e `kb_tools` ne verifica presenza e dominio, come già fa per `stato`.
+
+La proprietà estesa è **locale all'adottante** — vive nella sua `kb/` e non nel canone, salvo che emerga come generalizzazione portabile: ciò che il metodo sanziona è il meccanismo, non la singola proprietà. Esempio: `nixos` marca ogni nodo con `mondo: lavoro | casa | trasversale`, attributo intrinseco a valori chiusi che rende meccanico un futuro split dei repository.
 
 Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `plan.md`, `verdict.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
 

@@ -14,6 +14,39 @@ puntatore alla storia verificabile.
 
 ---
 
+## Attributo intrinseco di dominio: il frontmatter ammette un'estensione governata
+
+Il divieto storico di campi nel frontmatter (`tags`, `owner`, `priority`, `updated`)
+era corretto ma **sovra-esteso**: colpiva relazioni, storia, lavoro e priorità
+travestiti da metadato, ma in assenza di un criterio di demarcazione bloccava anche
+l'**attributo intrinseco del nodo** — proprietà del nodo in sé, la cui sede naturale
+è proprio il frontmatter. Il segnale è emerso da `nixos` (Fase 4: marcare ogni nodo
+con `mondo: lavoro | casa | trasversale` per rendere meccanico un futuro split repo);
+le sedi alternative tentate — il catalogo `kb.md` (solo indice), il register `map.md`
+(stato corrente) — non sono la casa di un attributo classificatorio. Verdetto: il
+metodo **sanziona un meccanismo di estensione** col **criterio dei quattro requisiti**
+(intrinseco · valori chiusi e singolo · non derivabile · dichiarato e verificabile da
+`kb_tools`), inciso in `kb/node.md` (2026-06-27). La proprietà è locale all'adottante;
+ciò che il canone sanziona è il meccanismo, non la singola proprietà — così la diga
+contro il metadato-che-vive-altrove regge, ma l'attributo legittimo ha finalmente sede.
+
+Corollario chiuso nello stesso esame: il campo **`data` è rimosso del tutto** dal
+frontmatter di nodi e task. Applicato a `data` il criterio appena coniato lo falsifica
+due volte — **non derivabile** (la data di creazione è una fetta della storia git) e
+**verificabile** (gli strumenti ne controllavano solo la presenza, mai il valore; e
+verificarlo significherebbe ri-derivarlo da git, rendendolo ridondante). La difesa
+«àncora di provenienza robusta alle riscritture di history», reale ma eccezionale,
+àncora un valore che nessuno strumento consuma: chi ha quel bisogno (`nixos` pre-split
+pubblico) lo risolve fuori dal canone. `stato` resta l'unico campo obbligatorio —
+giudizio non ricostruibile. È un bel falsificatore dogfooding: il criterio appena
+inciso ha falsificato un campo di canone preesistente.
+
+Restano aperti, nel task `attributo-dominio-frontmatter`: il **supporto di verifica in
+`kb_tools`** (il quarto requisito non è ancora eseguibile) e la **generalizzabilità**
+agli altri tre adottanti (il meccanismo è universale, la proprietà no — esito per
+`bi`/`economia`/`salute` da registrare). Finché il primo non si chiude, la Fase 4 di
+`nixos` resta sospesa in attesa dello sblocco.
+
 ## De-cablaggio del binomio «due agenti»: la seconda metà resta bottom-up
 
 Il metodo è nato descrivendo due agenti — l'umano e un singolo LLM — e su quel binomio

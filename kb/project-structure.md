@@ -1,5 +1,4 @@
 ---
-data: 2026-06-07
 stato: maturo
 ---
 
@@ -141,8 +140,8 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 
 ## Frontmatter per tipo di file
 
-- `kb/*.md`: frontmatter obbligatorio `data` + `stato`, secondo il nodo node
-- `tasks/*.md`: frontmatter obbligatorio `data` + `stato: aperto`, secondo il nodo tasks
+- `kb/*.md`: frontmatter obbligatorio `stato`, secondo il nodo node
+- `tasks/*.md`: frontmatter obbligatorio `stato: aperto` + `sintesi`, secondo il nodo tasks
 - file-ciclo (`README.md`, `CLAUDE.md`, `AGENTS.md`, `plan.md`, `verdict.md`), cataloghi trasversali (`kb.md`, `tools.md`), register (`map.md`, `sources.md`) e indici di collezione-stadio (`perceptions/perceptions.md`, …): nessun frontmatter
 
 La ragione è funzionale. I nodi e i task sono unità analizzabili dagli strumenti; i file-ciclo, i cataloghi trasversali e gli indici di collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.

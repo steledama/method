@@ -66,4 +66,12 @@ sospesa in attesa di questo verdetto.
 
 ## Esito
 
-Aperto.
+Promosso (2026-06-27). La domanda di merito (punto 1) è sciolta: il meccanismo di
+estensione del frontmatter è **sanzionato** col criterio dei quattro requisiti, ora
+inciso in [`kb/node.md`](../kb/node.md). Il punto 3 (campo `data`) è **chiuso**: lo
+stesso criterio lo falsifica (non derivabile, non verificabile), quindi `data` è
+rimosso del tutto dal frontmatter di nodi e task; `stato` resta l'unico campo
+obbligatorio. Restano aperti il punto 2 (generalizzabilità agli altri adottanti) e il
+supporto di verifica in `kb_tools`, nel task
+[attributo-dominio-frontmatter](../tasks/attributo-dominio-frontmatter.md) e nel filo
+omonimo di `verdict.md`.

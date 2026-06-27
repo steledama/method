@@ -1,5 +1,4 @@
 ---
-data: 2026-05-09
 stato: maturo
 ---
 
