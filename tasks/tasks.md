@@ -4,6 +4,5 @@ Indice della collezione `tasks/`: lo stadio **Specify** (o2 del ciclo di svilupp
 
 ## Contenuti
 
-- [attributo-dominio-frontmatter.md](attributo-dominio-frontmatter.md) — meccanismo di estensione del frontmatter per un attributo intrinseco di dominio: sanzionato in `kb/node.md`, resta verifica in `kb_tools` e generalizzabilità agli adottanti (campo `data` già rimosso); sblocca la Fase 4 di `nixos`.
 - [protocollo-runtime-o1.md](protocollo-runtime-o1.md) — costruire il protocollo d'audit periodico top-down (runtime-o1), distinto dal micromanagement; dipende dalla maturazione dell'osservatorio.
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.

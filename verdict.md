@@ -41,11 +41,20 @@ pubblico) lo risolve fuori dal canone. `stato` resta l'unico campo obbligatorio 
 giudizio non ricostruibile. È un bel falsificatore dogfooding: il criterio appena
 inciso ha falsificato un campo di canone preesistente.
 
-Restano aperti, nel task `attributo-dominio-frontmatter`: il **supporto di verifica in
-`kb_tools`** (il quarto requisito non è ancora eseguibile) e la **generalizzabilità**
-agli altri tre adottanti (il meccanismo è universale, la proprietà no — esito per
-`bi`/`economia`/`salute` da registrare). Finché il primo non si chiude, la Fase 4 di
-`nixos` resta sospesa in attesa dello sblocco.
+Entrambi gli aperti sono chiusi sul lato `method`. Il **supporto di verifica** è in
+`kb_tools`: la costante `EXTENDED_FACETS` (mappa `nome → Facet(values, required)`) e il
+check che l'audit integra come problemi `[FACET]` — backend vuoto in `method`,
+parametrizzabile nel fork dell'adottante come già `DOC_DIRS`. Il quarto requisito è ora
+eseguibile (provato sui dati reali di `economia`). La **generalizzabilità** è risolta da
+un riscontro bottom-up forte: due adottanti hanno fatto crescere lo stesso pattern in
+modo indipendente — `economia` ha già `tipo: persona|immobile|successione` su 19
+nodi-entità (facet opzionale), `nixos` attende `mondo: lavoro|casa|trasversale` su ogni
+nodo (facet `required`); `bi` e `salute` non applicabili oggi. Il meccanismo non è stato
+inventato a tavolino: era già emerso nell'uso. Il task method-side è quindi chiuso;
+l'applicazione (dichiarare `EXTENDED_FACETS` nel fork e marcare i nodi) è coda
+dell'adottante, non di `method` (`kb/tasks`: «non l'applicazione puntuale del metodo
+altrove»). `nixos` è sbloccato per la Fase 4. Resta, come falsificatore-da-
+implementazione, il primo giro reale di un adottante sul check.
 
 ## De-cablaggio del binomio «due agenti»: la seconda metà resta bottom-up
 

@@ -66,12 +66,18 @@ sospesa in attesa di questo verdetto.
 
 ## Esito
 
-Promosso (2026-06-27). La domanda di merito (punto 1) è sciolta: il meccanismo di
-estensione del frontmatter è **sanzionato** col criterio dei quattro requisiti, ora
-inciso in [`kb/node.md`](../kb/node.md). Il punto 3 (campo `data`) è **chiuso**: lo
-stesso criterio lo falsifica (non derivabile, non verificabile), quindi `data` è
-rimosso del tutto dal frontmatter di nodi e task; `stato` resta l'unico campo
-obbligatorio. Restano aperti il punto 2 (generalizzabilità agli altri adottanti) e il
-supporto di verifica in `kb_tools`, nel task
-[attributo-dominio-frontmatter](../tasks/attributo-dominio-frontmatter.md) e nel filo
-omonimo di `verdict.md`.
+Chiuso (2026-06-27). Tutti e tre i punti sono sciolti (dettaglio nel filo omonimo di
+`verdict.md`):
+
+- **punto 1** — il meccanismo di estensione del frontmatter è **sanzionato** col
+  criterio dei quattro requisiti, inciso in [`kb/node.md`](../kb/node.md);
+- **punto 3** (campo `data`) — lo stesso criterio lo falsifica (non derivabile, non
+  verificabile): `data` è rimosso del tutto da nodi e task, `stato` resta l'unico campo
+  obbligatorio;
+- **punto 2** (generalizzabilità) — confermata da un riscontro bottom-up: `economia` ha
+  già `tipo` su 19 nodi-entità e `nixos` attende `mondo` su ogni nodo (`bi`/`salute` non
+  applicabili). Il supporto di verifica è in `kb_tools` (`EXTENDED_FACETS` + check
+  `[FACET]` nell'audit), provato sui dati di `economia`.
+
+Il task method-side è chiuso; l'applicazione nei fork (dichiarare `EXTENDED_FACETS`,
+marcare i nodi) è coda dell'adottante. `nixos` è sbloccato per la Fase 4.

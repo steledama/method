@@ -11,7 +11,6 @@ from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
-from typing import Iterable
 
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -87,6 +86,28 @@ STOPWORDS = {
 }
 
 
+@dataclass(frozen=True)
+class Facet:
+    """Attributo intrinseco di dominio di un nodo (faceted classification).
+
+    `values` è l'insieme chiuso dei valori ammessi; `required=True` esige la facet
+    su ogni nodo (es. `mondo` in nixos, che partiziona l'intera KB), `False` ne
+    verifica solo il dominio quando presente (es. `tipo` in economia, sui soli
+    nodi-entità). Cfr. il criterio dei quattro requisiti in `kb/node.md`.
+    """
+
+    values: frozenset[str]
+    required: bool = False
+
+
+# Attributi di dominio dichiarati dall'adottante. Vuoto in `method` (il suo
+# dominio è astratto, nessuna facet); l'adottante parametrizza questa costante nel
+# proprio fork, come fa già per DOC_DIRS o CATALOG_NAME. Esempi reali:
+#   economia: {"tipo": Facet(frozenset({"persona", "immobile", "successione"}))}
+#   nixos:    {"mondo": Facet(frozenset({"lavoro", "casa", "trasversale"}), required=True)}
+EXTENDED_FACETS: dict[str, Facet] = {}
+
+
 @dataclass
 class AuditResult:
     total_nodes: int
@@ -109,6 +130,7 @@ class AuditResult:
     term_candidates: list[dict[str, int | str]]
     hubs: list[dict[str, int | str]]
     recent_commits: list[str]
+    facet_violations: list[str]
 
 
 @dataclass
@@ -279,6 +301,38 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
         if re.search(r"\[[^\]]+\]\([^)]+\.md\)", body):
             body_inline.append(node_key(root, path))
     return frontmatter, connessioni, body_inline
+
+
+def facet_violations(root: Path) -> list[str]:
+    """Verifica gli attributi di dominio dichiarati in EXTENDED_FACETS.
+
+    Per ogni facet controlla che il valore nel frontmatter sia dentro il dominio
+    chiuso; se la facet è `required`, ne esige anche la presenza su ogni nodo. In
+    `method` la costante è vuota e la funzione non rileva nulla.
+    """
+    if not EXTENDED_FACETS:
+        return []
+    violations: list[str] = []
+    for path in doc_files(root):
+        text = path.read_text(encoding="utf-8")
+        fm = (
+            text.split("---", 2)[1]
+            if text.startswith("---\n") and text.count("---") >= 2
+            else ""
+        )
+        key = node_key(root, path)
+        for name, facet in EXTENDED_FACETS.items():
+            match = re.search(rf"(?m)^{re.escape(name)}:[ \t]*(.+?)[ \t]*$", fm)
+            if match is None:
+                if facet.required:
+                    violations.append(f"{key}: manca `{name}`")
+                continue
+            value = match.group(1).strip()
+            if value not in facet.values:
+                violations.append(
+                    f"{key}: `{name}: {value}` fuori dominio {sorted(facet.values)}"
+                )
+    return violations
 
 
 def cluster_state(
@@ -490,6 +544,7 @@ def run_audit(root: Path) -> AuditResult:
         term_candidates=term_candidates(root),
         hubs=hubs,
         recent_commits=recent_commits(root),
+        facet_violations=facet_violations(root),
     )
 
 
@@ -502,6 +557,7 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.invalid_names)
         + len(result.cluster_isolated)
         + len(result.body_inline_links)
+        + len(result.facet_violations)
     )
     lines = [
         f"## [{date.today().isoformat()}] kb-review",
@@ -516,6 +572,14 @@ def markdown_report(result: AuditResult) -> str:
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
         f"- {len(result.isolated)} nodi isolati",
+        *(
+            [
+                f"- attributi di dominio: {', '.join(EXTENDED_FACETS)} "
+                f"({len(result.facet_violations)} violazioni)"
+            ]
+            if EXTENDED_FACETS
+            else []
+        ),
         f"- {problem_count} problemi strutturali",
         "",
         "### Problemi",
@@ -534,6 +598,7 @@ def markdown_report(result: AuditResult) -> str:
     problems += [f"- [NOME-INVALIDO] {item}" for item in result.invalid_names]
     problems += [f"- [CLUSTER-ISOLATO] {item}" for item in result.cluster_isolated]
     problems += [f"- [LINK-INLINE-CORPO] {item}" for item in result.body_inline_links]
+    problems += [f"- [FACET] {item}" for item in result.facet_violations]
     lines += problems[:30] if problems else ["- Nessun problema strutturale rilevato"]
     if len(problems) > 30:
         lines.append(f"- ... altri {len(problems) - 30} problemi non mostrati")
@@ -648,6 +713,18 @@ def command_tasks(args: argparse.Namespace) -> None:
     output_result(run_task_frontmatter(repo_root()), args.format)
 
 
+def command_facets(args: argparse.Namespace) -> None:
+    print_json(
+        {
+            "declared": {
+                name: {"values": sorted(facet.values), "required": facet.required}
+                for name, facet in EXTENDED_FACETS.items()
+            },
+            "violations": facet_violations(repo_root()),
+        }
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Utility portabili per knowledge base")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -686,6 +763,11 @@ def build_parser() -> argparse.ArgumentParser:
     tasks = sub.add_parser("tasks", help="verifica frontmatter dei task aperti")
     tasks.add_argument("--format", choices=["json"], default="json")
     tasks.set_defaults(func=command_tasks)
+
+    facets = sub.add_parser(
+        "facets", help="verifica gli attributi di dominio dichiarati (EXTENDED_FACETS)"
+    )
+    facets.set_defaults(func=command_facets)
     return parser
 
 

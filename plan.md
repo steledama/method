@@ -8,7 +8,6 @@ i task e il loro stato di pianificazione.
 
 | Task                                                     | Dip.      |
 | -------------------------------------------------------- | --------- |
-| Attributo intrinseco di dominio nel frontmatter          | —         |
 | Protocollo runtime-o1 (audit periodico top-down)         | —         |
 | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
@@ -92,6 +91,5 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Attributo intrinseco di dominio nel frontmatter](tasks/attributo-dominio-frontmatter.md) — meccanismo sanzionato in `kb/node.md`; resta verifica `kb_tools`, generalizzabilità e riesame `data`; sblocca la Fase 4 di `nixos`
 - [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md)
 - [Enforcement della cucitura canone](tasks/enforcement-cucitura-canone.md) — `bozza`, trattenuto

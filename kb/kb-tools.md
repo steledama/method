@@ -43,11 +43,14 @@ Comandi principali:
 - `python3 tools/kb_tools.py orphans`: elenca i nodi senza backlink
 - `python3 tools/kb_tools.py readme`: verifica copertura e link del catalogo `kb.md`
 - `python3 tools/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
+- `python3 tools/kb_tools.py facets`: verifica gli attributi intrinseci di dominio dichiarati (vedi sotto); l'audit integra le violazioni come problemi `[FACET]`
 - `python3 tools/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
 - `python3 tools/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
 - `python3 tools/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica. Con `--check` esce con codice non-zero se uno script non ha nodo `kb/<nome>.md`, così la copertura diventa un gate riusabile da `/commit` e da git pre-commit hook
 - `python3 tools/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
 - `python3 tools/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
+
+Attributi di dominio (faceted): il backend espone un meccanismo per verificare le proprietà intrinseche di dominio che un adottante dichiara nel frontmatter dei nodi oltre `stato` (il criterio dei quattro requisiti vive in `node`). La dichiarazione è la costante `EXTENDED_FACETS` in cima allo script: una mappa `nome → Facet(values, required)`, dove `values` è il dominio chiuso ammesso e `required` decide se la facet è obbligatoria su ogni nodo (es. `mondo` in `nixos`, che partiziona l'intera KB) o solo verificata nel dominio quando presente (es. `tipo` in `economia`, sui soli nodi-entità). In `metodo` la costante è vuota — dominio astratto, nessuna facet — e l'adottante la parametrizza nel proprio fork, esattamente come fa con `DOC_DIRS` o `CATALOG_NAME`. Così il quarto requisito («dichiarata e verificabile») diventa eseguibile senza cablare nomi di campo nel backend portabile.
 
 Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e `tasks/`. Non copre lo strato output, che vive fuori da `kb/` e ha nomi locali per ogni progetto. La valutazione dello strato output è qualitativa: si usa la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione, non uno script automatico. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
 
