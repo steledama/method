@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
-    <meta name="author" content="metodo" />
-    <title>Verdict</title>
+    <title>verdict</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -67,18 +66,13 @@
       href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
       id="theme"
     />
-    <link rel="stylesheet" href="../assets/system-image.css" />
     <link rel="stylesheet" href="../assets/reveal.css" />
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section id="title-slide">
-          <h1 class="title">Verdict</h1>
-          <p class="author">metodo</p>
-        </section>
-
-        <section class="slide level2">
+        <section id="verdict" class="slide level2">
+          <h2>Verdict</h2>
           <p>
             Il verdetto attuale del progetto, per filo/area aperta — non un log.
             Il git log dice <em>cosa</em> è cambiato; questo file dice
@@ -97,6 +91,82 @@
             nessuna tensione aperta — il gruppo si rimuove: la storia resta in
             git. Il commit citato inline è il puntatore alla storia
             verificabile.
+          </p>
+        </section>
+        <section
+          id="attributo-intrinseco-di-dominio-il-frontmatter-ammette-unestensione-governata"
+          class="slide level2"
+        >
+          <h2>
+            Attributo intrinseco di dominio: il frontmatter ammette
+            un’estensione governata
+          </h2>
+          <p>
+            Il divieto storico di campi nel frontmatter (<code>tags</code>,
+            <code>owner</code>, <code>priority</code>, <code>updated</code>) era
+            corretto ma <strong>sovra-esteso</strong>: colpiva relazioni,
+            storia, lavoro e priorità travestiti da metadato, ma in assenza di
+            un criterio di demarcazione bloccava anche l’<strong
+              >attributo intrinseco del nodo</strong
+            >
+            — proprietà del nodo in sé, la cui sede naturale è proprio il
+            frontmatter. Il segnale è emerso da <code>nixos</code> (Fase 4:
+            marcare ogni nodo con
+            <code>mondo: lavoro | casa | trasversale</code> per rendere
+            meccanico un futuro split repo); le sedi alternative tentate — il
+            catalogo <code>kb.md</code> (solo indice), il register
+            <code>map.md</code> (stato corrente) — non sono la casa di un
+            attributo classificatorio. Verdetto: il metodo
+            <strong>sanziona un meccanismo di estensione</strong> col
+            <strong>criterio dei quattro requisiti</strong> (intrinseco · valori
+            chiusi e singolo · non derivabile · dichiarato e verificabile da
+            <code>kb_tools</code>), inciso in
+            <code>kb/node.md</code> (2026-06-27). La proprietà è locale
+            all’adottante; ciò che il canone sanziona è il meccanismo, non la
+            singola proprietà — così la diga contro il metadato-che-vive-altrove
+            regge, ma l’attributo legittimo ha finalmente sede.
+          </p>
+          <p>
+            Corollario chiuso nello stesso esame: il campo
+            <strong><code>data</code> è rimosso del tutto</strong> dal
+            frontmatter di nodi e task. Applicato a <code>data</code> il
+            criterio appena coniato lo falsifica due volte —
+            <strong>non derivabile</strong> (la data di creazione è una fetta
+            della storia git) e <strong>verificabile</strong> (gli strumenti ne
+            controllavano solo la presenza, mai il valore; e verificarlo
+            significherebbe ri-derivarlo da git, rendendolo ridondante). La
+            difesa «àncora di provenienza robusta alle riscritture di history»,
+            reale ma eccezionale, àncora un valore che nessuno strumento
+            consuma: chi ha quel bisogno (<code>nixos</code> pre-split pubblico)
+            lo risolve fuori dal canone. <code>stato</code> resta l’unico campo
+            obbligatorio — giudizio non ricostruibile. È un bel falsificatore
+            dogfooding: il criterio appena inciso ha falsificato un campo di
+            canone preesistente.
+          </p>
+          <p>
+            Entrambi gli aperti sono chiusi sul lato <code>method</code>. Il
+            <strong>supporto di verifica</strong> è in <code>kb_tools</code>: la
+            costante <code>EXTENDED_FACETS</code> (mappa
+            <code>nome → Facet(values, required)</code>) e il check che l’audit
+            integra come problemi <code>[FACET]</code> — backend vuoto in
+            <code>method</code>, parametrizzabile nel fork dell’adottante come
+            già <code>DOC_DIRS</code>. Il quarto requisito è ora eseguibile
+            (provato sui dati reali di <code>economia</code>). La
+            <strong>generalizzabilità</strong> è risolta da un riscontro
+            bottom-up forte: due adottanti hanno fatto crescere lo stesso
+            pattern in modo indipendente — <code>economia</code> ha già
+            <code>tipo: persona|immobile|successione</code> su 19 nodi-entità
+            (facet opzionale), <code>nixos</code> attende
+            <code>mondo: lavoro|casa|trasversale</code> su ogni nodo (facet
+            <code>required</code>); <code>bi</code> e <code>salute</code> non
+            applicabili oggi. Il meccanismo non è stato inventato a tavolino:
+            era già emerso nell’uso. Il task method-side è quindi chiuso;
+            l’applicazione (dichiarare <code>EXTENDED_FACETS</code> nel fork e
+            marcare i nodi) è coda dell’adottante, non di
+            <code>method</code> (<code>kb/tasks</code>: «non l’applicazione
+            puntuale del metodo altrove»). <code>nixos</code> è sbloccato per la
+            Fase 4. Resta, come falsificatore-da- implementazione, il primo giro
+            reale di un adottante sul check.
           </p>
         </section>
         <section

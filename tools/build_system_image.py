@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Genera la home statica della system image."""
+"""Genera la home statica della system image (layout condiviso, look lean).
+
+Solo il blocco CONFIG è specifico del repo: deck-band e card del ciclo puntano
+agli artefatti reali di questo repo. La logica di rendering, `presentation.py` e
+`assets/system-image.css` sono condivisi e identici tra i repo adottanti.
+"""
 
 from __future__ import annotations
 
@@ -10,11 +15,51 @@ from pathlib import Path
 from presentation import canonical_readme_section, parse_plan, parse_task
 
 
-VIEW_PATHS = {
-    "tasks": "views/tasks.html",
-    "verdict": "views/verdict.html",
-    "interpretations": "views/interpretations.html",
+# --- CONFIG specifico del repo ------------------------------------------------
+
+DECK_BAND = {
+    "kicker": "View principale",
+    "title": "Interpretazioni",
+    "description": (
+        "Deck Reveal delle sintesi interpretative i2/o2 del metodo, "
+        "generato dal sorgente corposo in <code>interpretations/</code>."
+    ),
+    "href": "views/interpretations.html",
+    "cta": "Apri deck",
 }
+
+CYCLE = {
+    "Esecuzione": [
+        ("o1", "Plan", "Task aperti, dipendenze e ordine di esecuzione.", "#plan"),
+        (
+            "o2",
+            "Specify",
+            "Vista Tasks: la coda operativa derivata.",
+            "views/tasks.html",
+        ),
+    ],
+    "Valutazione": [
+        (
+            "i2",
+            "Interpret",
+            "Vista Interpretations: le sintesi i2/o2.",
+            "views/interpretations.html",
+        ),
+        (
+            "i3",
+            "Compare",
+            "Vista Verdict: i verdetti correnti per filo aperto.",
+            "views/verdict.html",
+        ),
+    ],
+}
+
+# World statico (card descrittive, non soggette a drift). Se None, la sezione
+# World viene derivata dalla sezione `### World` del README.
+WORLD = None
+
+
+# --- Helpers ------------------------------------------------------------------
 
 
 def repo_root() -> Path:
@@ -63,82 +108,144 @@ def world_items(world: str) -> tuple[str, list[tuple[str, str, str]], str]:
         else:
             intro.append(line)
     if not items:
-        raise SystemExit("README.md World: nessun adottante esplicito trovato")
+        return world.strip(), [], ""
     return "\n".join(intro).strip(), items, "\n".join(outro).strip()
 
 
-def plan_cards(root: Path) -> str:
-    cards: list[str] = []
-    for row in parse_plan(root):
-        detail = parse_task(root, row.source) if row.source else None
-        href = html.escape(row.source, quote=True) if row.source else None
-        title = html.escape(row.task)
-        summary = inline_markdown(detail.sintesi) if detail else ""
-        source = (
-            f'<a class="source-link" href="{href}">sorgente</a>'
-            if href is not None
-            else ""
-        )
-        cards.append(
-            "\n".join(
-                [
-                    '<article class="plan-item">',
-                    f"<h3>{title}</h3>",
-                    f"<p>{summary}</p>",
-                    '<div class="plan-meta">',
-                    f"<span>Dip. {html.escape(row.dependency)}</span>",
-                    source,
-                    "</div>",
-                    "</article>",
-                ]
-            )
-        )
-    if not cards:
-        return '<p class="empty-state">Nessun task aperto.</p>'
-    return "\n".join(cards)
+# --- Sezioni ------------------------------------------------------------------
 
 
-def cycle_card(
-    key: str,
-    label: str,
-    title: str,
-    description: str,
-    href: str | None = None,
-    muted: bool = False,
-) -> str:
-    classes = "cycle-card"
-    if muted:
-        classes += " muted"
+def deck_band_html() -> str:
+    if not DECK_BAND:
+        return ""
+    return f"""      <section class="deck-band">
+        <div class="section">
+          <article class="deck-card">
+            <div>
+              <p class="kicker">{html.escape(DECK_BAND["kicker"])}</p>
+              <h2>{html.escape(DECK_BAND["title"])}</h2>
+              <p>{DECK_BAND["description"]}</p>
+            </div>
+            <a class="deck-link" href="{html.escape(DECK_BAND["href"], quote=True)}">{html.escape(DECK_BAND["cta"])}</a>
+          </article>
+        </div>
+      </section>
+"""
+
+
+def cycle_card(key: str, title: str, description: str, href: str | None) -> str:
     content = "\n".join(
         [
-            f'<span class="cycle-key">{html.escape(key)}</span>',
-            f"<strong>{html.escape(title)}</strong>",
-            f"<small>{html.escape(description)}</small>",
+            f'            <span class="cycle-key">{html.escape(key)}</span>',
+            f"            <strong>{html.escape(title)}</strong>",
+            f"            <small>{html.escape(description)}</small>",
         ]
     )
     if href:
-        return f'<a class="{classes}" href="{html.escape(href, quote=True)}" aria-label="{html.escape(label, quote=True)}">\n{content}\n</a>'
-    return f'<div class="{classes}" aria-label="{html.escape(label, quote=True)}">\n{content}\n</div>'
+        return (
+            f'          <a class="cycle-card" href="{html.escape(href, quote=True)}">\n'
+            f"{content}\n          </a>"
+        )
+    return f'          <div class="cycle-card muted">\n{content}\n          </div>'
+
+
+def cycle_html() -> str:
+    columns = []
+    for name, cards in CYCLE.items():
+        rendered = "\n".join(cycle_card(*card) for card in cards)
+        columns.append(
+            f'          <div class="cycle-column">\n'
+            f"            <h2>{html.escape(name)}</h2>\n"
+            f"{rendered}\n          </div>"
+        )
+    grid = "\n".join(columns)
+    return f"""      <section class="cycle" aria-label="Ciclo dell'artefatto">
+        <div class="cycle-grid">
+{grid}
+        </div>
+      </section>
+"""
+
+
+def task_items(root: Path) -> str:
+    cards: list[str] = []
+    for row in parse_plan(root):
+        detail = parse_task(root, row.source) if row.source else None
+        title = html.escape(row.task)
+        summary = (
+            f"\n            <p>{inline_markdown(detail.sintesi)}</p>"
+            if detail and detail.sintesi
+            else ""
+        )
+        meta_bits = [f"Dip. {html.escape(row.dependency)}"]
+        if row.source:
+            href = html.escape(row.source, quote=True)
+            meta_bits.append(f'<a class="source-link" href="{href}">sorgente</a>')
+        meta = " · ".join(meta_bits)
+        cards.append(
+            f"""          <article class="task-item">
+            <h3>{title}</h3>
+            <p class="task-meta">{meta}</p>{summary}
+          </article>"""
+        )
+    if not cards:
+        return '          <p class="empty-state">Nessun task aperto.</p>'
+    return "\n".join(cards)
+
+
+def world_html(root: Path) -> str:
+    if WORLD:
+        cards = "\n".join(
+            f"""          <article class="world-item">
+            <h3>{html.escape(title)}</h3>
+            <p>{desc}</p>
+          </article>"""
+            for title, desc in WORLD["items"]
+        )
+        return f"""      <section class="section">
+        <p class="kicker">World</p>
+        <h2>{html.escape(WORLD["heading"])}</h2>
+        <div class="world-grid">
+{cards}
+        </div>
+      </section>
+"""
+    world = canonical_readme_section(root, "World")
+    intro, items, outro = world_items(world)
+    title = "Adottanti" if items else "Mondo"
+    if items:
+        cards = "\n".join(
+            f"""          <article class="world-item">
+            <a href="{html.escape(href, quote=True)}">{html.escape(name)}</a>
+            <p>{inline_markdown(description)}</p>
+          </article>"""
+            for name, href, description in items
+        )
+        body = f'        <div class="world-grid">\n{cards}\n        </div>'
+    else:
+        body = "\n".join(f"        {line}" for line in paragraphs(intro).splitlines())
+    note = (
+        f'\n        <div class="world-note">\n{paragraphs(outro)}\n        </div>'
+        if outro
+        else ""
+    )
+    intro_html = (
+        "\n".join(f"          {p}" for p in paragraphs(intro).splitlines())
+        if items and intro
+        else ""
+    )
+    return f"""      <section class="section">
+        <p class="kicker">World</p>
+        <h2>{title}</h2>
+{intro_html}
+{body}{note}
+      </section>
+"""
 
 
 def render(root: Path) -> str:
     title = readme_title(root)
     goal = canonical_readme_section(root, "Goal")
-    world = canonical_readme_section(root, "World")
-    world_intro, adopters, world_outro = world_items(world)
-
-    adopter_html = "\n".join(
-        "\n".join(
-            [
-                '<article class="world-item">',
-                f'<a href="{html.escape(href, quote=True)}">{html.escape(name)}</a>',
-                f"<p>{inline_markdown(description)}</p>",
-                "</article>",
-            ]
-        )
-        for name, href, description in adopters
-    )
-
     return f"""<!doctype html>
 <html lang="it">
   <head>
@@ -147,9 +254,9 @@ def render(root: Path) -> str:
     <title>{html.escape(title)} · system image</title>
     <link rel="stylesheet" href="assets/system-image.css" />
   </head>
-  <body class="home">
-    <header class="home-hero">
-      <p class="kicker">GOAL</p>
+  <body>
+    <header class="hero">
+      <p class="kicker">Goal</p>
       <h1>{html.escape(title)}</h1>
       <div class="hero-copy">
         {paragraphs(goal)}
@@ -157,49 +264,17 @@ def render(root: Path) -> str:
     </header>
 
     <main>
-      <section class="cycle" aria-label="Ciclo di azione">
-        <div class="cycle-pole top">GOAL</div>
-        <div class="cycle-grid">
-          <div class="cycle-column execution" aria-label="Arco di esecuzione">
-            <h2>Esecuzione <span class="dir">↓</span></h2>
-            {cycle_card("o1", "Plan", "Plan", "Task aperti e dipendenze", "#plan")}
-            {cycle_card("o2", "Specify", "Specify", "Vista Tasks", VIEW_PATHS["tasks"])}
-            {cycle_card("o3", "Perform", "Perform", "Prescrizioni on-demand", None, True)}
-          </div>
-          <div class="cycle-column evaluation" aria-label="Arco di valutazione">
-            <h2><span class="dir">↑</span> Valutazione</h2>
-            {cycle_card("i3", "Compare", "Compare", "Vista Verdict", VIEW_PATHS["verdict"])}
-            {cycle_card("i2", "Interpret", "Interpret", "Vista Interpretations", VIEW_PATHS["interpretations"])}
-            {cycle_card("i1", "Perceive", "Perceive", "Segnali on-demand", None, True)}
-          </div>
-        </div>
-        <div class="cycle-pole bottom">WORLD</div>
-      </section>
-
-      <section id="plan" class="home-section">
-        <div class="section-heading">
-          <p class="kicker">PLAN</p>
-          <h2>Task aperti</h2>
-        </div>
-        <div class="plan-list">
-          {plan_cards(root)}
+{deck_band_html()}
+{cycle_html()}
+      <section id="plan" class="section">
+        <p class="kicker">Plan</p>
+        <h2>Task aperti</h2>
+        <div class="task-list">
+{task_items(root)}
         </div>
       </section>
 
-      <section class="home-section world-section">
-        <div class="section-heading">
-          <p class="kicker">WORLD</p>
-          <h2>Adottanti</h2>
-          {paragraphs(world_intro)}
-        </div>
-        <div class="world-grid">
-          {adopter_html}
-        </div>
-        <div class="world-note">
-          {paragraphs(world_outro)}
-        </div>
-      </section>
-    </main>
+{world_html(root)}    </main>
   </body>
 </html>
 """

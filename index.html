@@ -6,9 +6,9 @@
     <title>Cognizione condivisa · system image</title>
     <link rel="stylesheet" href="assets/system-image.css" />
   </head>
-  <body class="home">
-    <header class="home-hero">
-      <p class="kicker">GOAL</p>
+  <body>
+    <header class="hero">
+      <p class="kicker">Goal</p>
       <h1>Cognizione condivisa</h1>
       <div class="hero-copy">
         <p>
@@ -25,91 +25,89 @@
     </header>
 
     <main>
-      <section class="cycle" aria-label="Ciclo di azione">
-        <div class="cycle-pole top">GOAL</div>
+      <section class="deck-band">
+        <div class="section">
+          <article class="deck-card">
+            <div>
+              <p class="kicker">View principale</p>
+              <h2>Interpretazioni</h2>
+              <p>
+                Deck Reveal delle sintesi interpretative i2/o2 del metodo,
+                generato dal sorgente corposo in <code>interpretations/</code>.
+              </p>
+            </div>
+            <a class="deck-link" href="views/interpretations.html">Apri deck</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="cycle" aria-label="Ciclo dell'artefatto">
         <div class="cycle-grid">
-          <div class="cycle-column execution" aria-label="Arco di esecuzione">
-            <h2>Esecuzione <span class="dir">↓</span></h2>
-            <a class="cycle-card" href="#plan" aria-label="Plan">
+          <div class="cycle-column">
+            <h2>Esecuzione</h2>
+            <a class="cycle-card" href="#plan">
               <span class="cycle-key">o1</span>
               <strong>Plan</strong>
-              <small>Task aperti e dipendenze</small>
+              <small>Task aperti, dipendenze e ordine di esecuzione.</small>
             </a>
-            <a class="cycle-card" href="views/tasks.html" aria-label="Specify">
+            <a class="cycle-card" href="views/tasks.html">
               <span class="cycle-key">o2</span>
               <strong>Specify</strong>
-              <small>Vista Tasks</small>
+              <small>Vista Tasks: la coda operativa derivata.</small>
             </a>
-            <div class="cycle-card muted" aria-label="Perform">
-              <span class="cycle-key">o3</span>
-              <strong>Perform</strong>
-              <small>Prescrizioni on-demand</small>
-            </div>
           </div>
-          <div class="cycle-column evaluation" aria-label="Arco di valutazione">
-            <h2><span class="dir">↑</span> Valutazione</h2>
-            <a
-              class="cycle-card"
-              href="views/verdict.html"
-              aria-label="Compare"
-            >
-              <span class="cycle-key">i3</span>
-              <strong>Compare</strong>
-              <small>Vista Verdict</small>
-            </a>
-            <a
-              class="cycle-card"
-              href="views/interpretations.html"
-              aria-label="Interpret"
-            >
+          <div class="cycle-column">
+            <h2>Valutazione</h2>
+            <a class="cycle-card" href="views/interpretations.html">
               <span class="cycle-key">i2</span>
               <strong>Interpret</strong>
-              <small>Vista Interpretations</small>
+              <small>Vista Interpretations: le sintesi i2/o2.</small>
             </a>
-            <div class="cycle-card muted" aria-label="Perceive">
-              <span class="cycle-key">i1</span>
-              <strong>Perceive</strong>
-              <small>Segnali on-demand</small>
-            </div>
+            <a class="cycle-card" href="views/verdict.html">
+              <span class="cycle-key">i3</span>
+              <strong>Compare</strong>
+              <small>Vista Verdict: i verdetti correnti per filo aperto.</small>
+            </a>
           </div>
         </div>
-        <div class="cycle-pole bottom">WORLD</div>
       </section>
 
-      <section id="plan" class="home-section">
-        <div class="section-heading">
-          <p class="kicker">PLAN</p>
-          <h2>Task aperti</h2>
-        </div>
-        <div class="plan-list">
-          <article class="plan-item">
+      <section id="plan" class="section">
+        <p class="kicker">Plan</p>
+        <h2>Task aperti</h2>
+        <div class="task-list">
+          <article class="task-item">
             <h3>Protocollo runtime-o1 (audit periodico top-down)</h3>
-            <p></p>
-            <div class="plan-meta">
-              <span>Dip. —</span>
-            </div>
+            <p class="task-meta">
+              Dip. — ·
+              <a class="source-link" href="tasks/protocollo-runtime-o1.md"
+                >sorgente</a
+              >
+            </p>
+            <p>
+              runtime-o1 è l&#x27;unico vuoto-gap della matrice: la
+              pianificazione top-down «come gli adottanti dovrebbero diventare».
+              L&#x27;arco è scoccato una volta (prescrizione baricentro →
+              method-review → recepimento) ma manca il protocollo d&#x27;audit
+              periodico — audit ≠ micromanagement. Dipende dalla maturazione
+              dell&#x27;osservatorio.
+            </p>
           </article>
-          <article class="plan-item">
+          <article class="task-item">
             <h3>Enforcement della cucitura «agisci attraverso, ratifica»</h3>
-            <p></p>
-            <div class="plan-meta">
-              <span>Dip. pause [a]</span>
-            </div>
+            <p class="task-meta">Dip. pause [a]</p>
           </article>
         </div>
       </section>
 
-      <section class="home-section world-section">
-        <div class="section-heading">
-          <p class="kicker">WORLD</p>
-          <h2>Adottanti</h2>
-          <p>
-            <code>metodo</code> ha due Mondi (<a href="kb/world.md">world</a>).
-            Il Mondo <strong>runtime</strong> sono i quattro adottanti,
-            espliciti — da lì emerge l&#x27;esigenza dal basso e lì torna la
-            propagazione:
-          </p>
-        </div>
+      <section class="section">
+        <p class="kicker">World</p>
+        <h2>Adottanti</h2>
+        <p>
+          <code>metodo</code> ha due Mondi (<a href="kb/world.md">world</a>). Il
+          Mondo <strong>runtime</strong> sono i quattro adottanti, espliciti —
+          da lì emerge l&#x27;esigenza dal basso e lì torna la propagazione:
+        </p>
         <div class="world-grid">
           <article class="world-item">
             <a href="../nixos/">nixos</a>

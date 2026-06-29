@@ -46,8 +46,13 @@ def task_view(root: Path) -> str:
 
 
 def verdict_view(root: Path) -> str:
+    # Prima slide di livello 2 (non blocco-titolo pandoc `%`, non H1): titolo e
+    # paragrafi introduttivi restano su un'unica slide, mentre i fili `##` restano
+    # slide orizzontali piatte. Con `%` pandoc generava una title-slide separata
+    # seguita dall'intro come slide a sé; con un H1 avrebbe annidato i fili come
+    # slide verticali.
     text = (root / "verdict.md").read_text(encoding="utf-8")
-    text = text.replace("# verdict.md", "% Verdict\n% metodo", 1)
+    text = text.replace("# verdict.md", "## Verdict", 1)
     return text
 
 

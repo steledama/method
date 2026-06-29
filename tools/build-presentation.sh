@@ -10,7 +10,6 @@ pandoc "$root/interpretations/metodo-in-sintesi.md" \
   --from=markdown-native_divs \
   --to=revealjs \
   --slide-level=2 \
-  --css=../assets/system-image.css \
   --css=../assets/reveal.css \
   -V revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@5.1.0 \
   -V theme=white \
@@ -30,7 +29,6 @@ for name in tasks verdict; do
     --from=markdown-native_divs \
     --to=revealjs \
     --slide-level=2 \
-    --css=../assets/system-image.css \
     --css=../assets/reveal.css \
     -V revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@5.1.0 \
     -V theme=white \

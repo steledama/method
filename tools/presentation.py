@@ -10,6 +10,7 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class PlanRow:
+    position: str
     task: str
     dependency: str
     source: str | None
@@ -46,6 +47,38 @@ def first_h1(markdown: str, fallback: str) -> str:
     return fallback
 
 
+def first_paragraph(markdown: str, limit: int = 220) -> str:
+    block: list[str] = []
+    for line in markdown.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("#") or stripped.startswith("---"):
+            continue
+        if not stripped:
+            if block:
+                break
+            continue
+        block.append(stripped)
+    text = " ".join(block)
+    if len(text) > limit:
+        text = text[: limit - 1].rstrip() + "…"
+    return text
+
+
+def _norm(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
+
+
+def _detail_source(detail_links: dict[str, str], task: str) -> str | None:
+    task_norm = _norm(task)
+    if task in detail_links:
+        return detail_links[task]
+    for title, source in detail_links.items():
+        title_norm = _norm(title)
+        if title_norm.startswith(task_norm) or task_norm.startswith(title_norm):
+            return source
+    return None
+
+
 def parse_plan(root: Path) -> list[PlanRow]:
     plan = root / "plan.md"
     text = plan.read_text(encoding="utf-8")
@@ -54,19 +87,31 @@ def parse_plan(root: Path) -> list[PlanRow]:
         for match in re.finditer(r"- \[([^\]]+)\]\((tasks/[^)]+\.md)\)", text)
     }
     rows: list[PlanRow] = []
+    position = 0
     for line in text.splitlines():
         if not line.startswith("|"):
             continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-        if len(cells) != 2 or cells[0] == "Task" or set(cells[0]) <= {"-"}:
+        cells = [
+            cell.strip().replace("<<PIPE>>", "|")
+            for cell in line.replace(r"\|", "<<PIPE>>").strip().strip("|").split("|")
+        ]
+        if len(cells) not in {2, 3}:
             continue
-        link = re.search(r"\[([^\]]+)\]\((tasks/[^)]+\.md)\)", cells[0])
-        task = link.group(1) if link else cells[0]
+        if cells[0] in {"#", "Task"} or set(cells[0]) == {"-"}:
+            continue
+        if len(cells) == 3:
+            position_value, task_cell, dependency = cells
+        else:
+            position += 1
+            position_value, task_cell, dependency = str(position), cells[0], cells[1]
+        link = re.search(r"\[([^\]]+)\]\((tasks/[^)]+\.md)\)", task_cell)
+        task = link.group(1) if link else task_cell
         rows.append(
             PlanRow(
+                position=position_value,
                 task=task,
-                dependency=cells[1],
-                source=link.group(2) if link else detail_links.get(task),
+                dependency=dependency,
+                source=link.group(2) if link else _detail_source(detail_links, task),
             )
         )
     return rows
@@ -75,15 +120,14 @@ def parse_plan(root: Path) -> list[PlanRow]:
 def parse_task(root: Path, relative: str) -> TaskDetail:
     path = root / relative
     meta, body = split_frontmatter(path.read_text(encoding="utf-8"))
-    missing = [key for key in ("data", "stato", "sintesi") if not meta.get(key)]
-    if missing:
-        raise SystemExit(f"{relative}: frontmatter incompleto ({', '.join(missing)})")
+    if not meta.get("stato"):
+        raise SystemExit(f"{relative}: frontmatter incompleto (stato)")
     return TaskDetail(
         path=path,
         title=first_h1(body, path.stem),
-        data=meta["data"],
+        data=meta.get("data", "—"),
         stato=meta["stato"],
-        sintesi=meta["sintesi"],
+        sintesi=meta.get("sintesi") or first_paragraph(body),
     )
 
 
