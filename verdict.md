@@ -298,13 +298,30 @@ Conseguenze decise:
     `verdict.md` restano sorgenti pure. Le tre viste attive sono
     `views/interpretations.html`, `views/tasks.html` e `views/verdict.html`, tutte
     apribili via `file://` e rigenerate da `tools/build-presentation.sh`.
-  - **System image visiva, la home (chiusa 2026-06-21)**: `index.html` è l'atrio
-    visivo, statico e offline, generato da `tools/build-system-image.sh`. Legge il
-    polo Goal e il polo World dal README canonico, Plan da `plan.md`, e apre le tre
-    view generate (`tasks`, `verdict`, `interpretations`). Il ciclo resta completo:
-    Plan/Specify/Compare/Interpret sono navigabili; Perform e Perceive sono visibili,
-    attenuati e senza destinazione. La home non è una seconda fonte: è una vista
-    derivata e rigenerabile, come il resto dello strato `view`.
+  - **La home come matrice del ciclo d'azione, a 16 slot (rifatta 2026-06-30)**: la
+    home non è più il cruscotto narrato (deck-card, task inlineati, ciclo singolo a
+    quattro card) ma la **matrice annidata**: uno switch dev/runtime in testa che
+    cambia Goal, poli e i sei atti, resa fedele a Norman — esecuzione che scende
+    (o1→o2→o3), valutazione che risale (i3→i2→i1). Tutti gli otto slot per ciclo (16
+    in totale) **appaiono sempre**: cliccabili dove c'è una destinazione, dimessi dove
+    non c'è ancora — niente slot «volutamente assente», l'assenza si mostra. Perform
+    (o3) e Perceive (i1) hanno ora destinazione in entrambi i cicli; il deck è lo slot
+    i2-dev (call A della matrice), l'osservatorio è i2/o2-runtime, e runtime-o1 resta
+    l'unico dimesso (il gap top-down). **Decisione: il motore è condiviso e la matrice
+    a 16 slot vale per tutti gli adottanti** — forkano la sola CONFIG che punta ai loro
+    artefatti (`None`→dimesso); il redesign sta in `tools/build_system_image.py` e
+    `assets/system-image.css`, non nell'output. La home resta vista derivata e
+    rigenerabile (`build-system-image.sh`): la griglia adottanti del polo World-runtime
+    è ancora derivata dal README, i sommari dei poli vivono in CONFIG come pointer (non
+    seconda fonte).
+  - **Tensione aperta con `action-cycle-matrix` (follow-up, non risolto qui)**: il nodo
+    tiene il frame a 16 celle come dogfooding di solo `metodo` (adottanti al ciclo
+    singolo) e una scala a cinque valori col «vuoto legittimamente assente». La home
+    adotta invece il frame a 16 per tutti e una regola **binaria** acceso/dimesso che
+    non rende la scala analitica. Da riconciliare: o la home è solo affordance di
+    navigazione (la scala resta lo strumento del nodo, distinto), oppure la scelta «16
+    per tutti» risale nel nodo. Aperta anche la **propagazione agli adottanti** (forkare
+    motore + CONFIG): canale o3-runtime, non ancora pianificato.
   - **Guardrail non negoziabile, su tutto il cluster: vista derivata, mai seconda
     fonte** — ogni vista si genera da sorgenti, anche il polo World.
   - **Orizzonte deliberatamente fuori**: i task come slide navigabili
