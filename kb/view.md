@@ -20,26 +20,25 @@ Una view versionata deve poter essere aperta direttamente dal checkout, ma il su
 contenuto non si mantiene a mano se esiste una sorgente canonica. La sorgente resta
 nel file-ciclo o nella collezione-stadio; la view cambia la forma di lettura.
 
-Nel repo `metodo` le viste generate vivono in `views/`:
+Nel repo `metodo` le viste generate vivono in `presentation/`:
 
-- `views/interpretations.html` deriva da `interpretations/metodo-in-sintesi.md`;
-- `views/tasks.html` deriva da `plan.md` e dai file in `tasks/`;
-- `views/verdict.html` deriva da `verdict.md`;
-- `index.html` deriva da `README.md`, `plan.md` e dalla configurazione delle viste.
+- `presentation/interpretations.html` deriva da `i2/metodo-in-sintesi.md`;
+- `presentation/tasks.html` deriva da `o1/plan.md` e dai file in `o2/`;
+- `presentation/verdict.html` deriva dai fili in `i3/`;
+- `presentation/index.html` deriva da `README.md`, `o1/plan.md` e dalla configurazione delle viste.
 
-Le sorgenti rimangono pure: `interpretations/`, `tasks/`, `plan.md` e
-`verdict.md` non incorporano HTML generato.
+Le sorgenti rimangono pure: `i2/`, `o2/`, `o1/plan.md` e `i3/` non incorporano HTML generato.
 
 ## HTML apribile direttamente
 
 Il formato operativo minimo è un HTML versionato con path relativi, apribile con
-doppio click o `xdg-open views/interpretations.html`. Non deve richiedere build,
+doppio click o `xdg-open presentation/interpretations.html`. Non deve richiedere build,
 deploy, servizi permanenti o `fetch` di file locali, che i browser bloccano sotto
 `file://`.
 
 Reveal può essere caricato da CDN senza introdurre dipendenze installate. L'HTML si
 apre via `file://`; la connessione Internet serve solo a caricare il framework, non
-a servire i file locali. Se serve uso offline, Reveal va vendorizzato in `assets/`.
+a servire i file locali. Se serve uso offline, Reveal va vendorizzato in `presentation/assets/`.
 La home statica non usa Reveal, ma condivide token, palette e primitivi grafici.
 
 ## Grafica nativa e build minima
@@ -50,23 +49,23 @@ diagrammi come Mermaid introducono parser, vincoli di layout e dipendenze runtim
 sproporzionati rispetto al vantaggio in presentazioni curate: non fanno parte del
 pattern di default.
 
-La build è versionata in due entrypoint: `tools/build-presentation.sh` usa
-Pandoc/Reveal per le viste a slide e `tools/build-system-image.sh` genera la home
-statica. Gli script Python in `tools/` restano stdlib-only; gli asset comuni vivono
-in `assets/`. Due generazioni consecutive devono produrre lo stesso output.
+La build è versionata in due entrypoint: `o3/build-presentation.sh` usa
+Pandoc/Reveal per le viste a slide e `o3/build-system-image.sh` genera la home
+statica. Gli script Python in `o3/` restano stdlib-only; gli asset comuni vivono
+in `presentation/assets/`. Due generazioni consecutive devono produrre lo stesso output.
 
 ## Apertura locale e condivisione on-demand
 
 Il default è aprire il file localmente:
 
 ```bash
-xdg-open views/interpretations.html
+xdg-open presentation/interpretations.html
 ```
 
 Solo per condividerlo temporaneamente con un altro dispositivo sulla stessa LAN/VPN:
 
 ```bash
-python3 -m http.server 8000 --bind 0.0.0.0 --directory views
+python3 -m http.server 8000 --bind 0.0.0.0 --directory presentation
 ```
 
 `http.server` non modifica il firewall. Sullo stesso host `localhost:8000`

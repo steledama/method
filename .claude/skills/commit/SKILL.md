@@ -17,12 +17,12 @@ formatter e fonti di verità.
 
 **1d. Propagazione** — Se un nodo è stato rinominato o spostato, ricorda che i link nei `CLAUDE.md` e `README.md` degli adottanti collegati vanno aggiornati a mano (i nodi arrivano via symlink, ma nome/path no).
 
-**2. Filo in verdict.md** — Valuta se la sessione ha cambiato il verdetto su un filo/area aperta: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiornare `verdict.md` per questa sessione?"_. Se sì, aggiorna **in place** il gruppo `##` del filo pertinente (o crea un nuovo gruppo se il filo è nuovo) con lo stato attuale — non un'entry datata, non un elenco di file: il git history del file è già il log. Se il filo si è chiuso (verdetto stabile, nessuna tensione aperta), rimuovi il gruppo. Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
+**2. Filo in i3/** — Valuta se la sessione ha cambiato il verdetto su un filo/area aperta: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiornare il filo pertinente in `i3/` per questa sessione?"_. Se sì, aggiorna **in place** il file del filo pertinente (o crea un nuovo file se il filo è nuovo) con lo stato attuale — non un'entry datata, non un elenco di file: il git history del file è già il log. Se il filo si è chiuso (verdetto stabile, nessuna tensione aperta), rimuovi il file e l'indice in `i3/verdicts.md`. Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
 
 **3. I due check del ciclo di valutazione (i2/i3)** — Prompt leggeri, non burocrazia: se la risposta è no, si procede.
 
-- **i2 — è cambiato il significato delle interpretazioni?** Questo commit cambia il senso di un artefatto di sintesi (`output/`, `interpretations/`) rispetto a nuovi input o a goal appena emersi? Se sì, il deck va _ri-derivato_ (`tools/build-presentation.sh`), non lasciato stale: è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
-- **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare `verdict.md` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, chiedi anche: _si propaga a `plan.md`/`tasks/` (priorità, dipendenze, nuovi task — `/tasks-review`) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
+- **i2 — è cambiato il significato delle interpretazioni?** Questo commit cambia il senso di un artefatto di sintesi (`i2/`, `presentation/`) rispetto a nuovi input o a goal appena emersi? Se sì, il deck va _ri-derivato_ (`o3/build-presentation.sh`), non lasciato stale: è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
+- **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare il file-filo in `i3/` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, chiedi anche: _si propaga a `o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/tasks-review`) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
 
 Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
@@ -34,7 +34,7 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
 2. Formatta i file modificati con gli strumenti disponibili:
    - Markdown: `prettier --write "**/*.md"`
-   - Python: `ruff format tools/*.py` se ci sono script Python modificati
+   - Python: `ruff format o3/*.py` se ci sono script Python modificati
 
    Se un formatter non è disponibile, segnalalo e continua senza inventare alternative.
 

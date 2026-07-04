@@ -12,7 +12,6 @@ i task e il loro stato di pianificazione.
 
 | Task                                                     | Ciclo | Dip.      |
 | -------------------------------------------------------- | ----- | --------- |
-| Estensione del check facet alle cartelle-stadio          | dev   | —         |
 | Protocollo runtime-o1 (audit periodico top-down)         | dev   | —         |
 | Enforcement della cucitura «agisci attraverso, ratifica» | dev   | pause [a] |
 
@@ -96,6 +95,5 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Estensione del check facet alle cartelle-stadio](../o2/estensione-check-facet-cartelle-stadio.md)
 - [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
 - [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto

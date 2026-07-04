@@ -46,29 +46,33 @@ TITLES = {
 # mostra comunque, così lo slot vuoto resta leggibile.
 SLOTS = {
     "dev": {
-        "o1": ("plan.md", "plan.md", "Task aperti, prioritizzati, con dipendenze."),
+        "o1": (
+            "../o1/plan.md",
+            "plan.md",
+            "Task aperti, prioritizzati, con dipendenze.",
+        ),
         "o2": (
-            "views/tasks.html",
+            "tasks.html",
             "vista Tasks",
             "La specifica concreta dei task del piano.",
         ),
         "o3": (
-            "kb.md",
-            "nodi kb",
-            "L'edit versionato ai nodi <code>kb/</code>: l'atto sull'artefatto.",
+            "../o3/prescriptions.md",
+            "prescriptions",
+            "Prescrizioni ed esecutori deterministici del ciclo di sviluppo.",
         ),
         "i3": (
-            "views/verdict.html",
+            "verdict.html",
             "vista Verdict",
             "I verdetti correnti per filo aperto.",
         ),
         "i2": (
-            "views/interpretations.html",
+            "interpretations.html",
             "deck",
             "La sintesi illustrata del metodo e dei nodi.",
         ),
         "i1": (
-            "tools.md",
+            "../o3/kb_tools.py",
             "kb-review",
             "Audit, backlink e copertura del catalogo via <code>kb_tools.py</code>.",
         ),
@@ -80,28 +84,28 @@ SLOTS = {
             "Protocollo d'audit periodico top-down degli adottanti: da costruire.",
         ),
         "o2": (
-            "interpretations/baricentro-kb-adottanti.md",
+            "../i2/baricentro-kb-adottanti.md",
             "osservatorio",
             "Vista di decisione cross-repo: prima istanza, da estendere ai 4 domini.",
         ),
         "o3": (
-            "prescriptions/prescriptions.md",
-            "prescriptions/",
+            "../o3/prescriptions.md",
+            "prescriptions",
             "Runbook di propagazione del canone agli adottanti.",
         ),
         "i3": (
-            "kb/adopter-comparison.md",
+            "../kb/adopter-comparison.md",
             "adopter-comparison",
             "Confronto cross-repo contro gli obiettivi; oggi sparso nei thread di verdict.",
         ),
         "i2": (
-            "interpretations/baricentro-kb-adottanti.md",
+            "../i2/baricentro-kb-adottanti.md",
             "osservatorio",
             "Rilettura comparativa dei cataloghi <code>kb/</code> dei 4 domini.",
         ),
         "i1": (
-            "perceptions/perceptions.md",
-            "perceptions/",
+            "../i1/perceptions.md",
+            "perceptions",
             "Segnali metodologici che emergono dagli adottanti.",
         ),
     },
@@ -113,21 +117,21 @@ SLOTS = {
 POLES = {
     "dev": {
         "goal": (
-            'Il Goal di <strong>sviluppo</strong> (<a href="kb/development-goal.md">'
+            'Il Goal di <strong>sviluppo</strong> (<a href="../kb/development-goal.md">'
             "development-goal</a>): la posizione auspicata dell'artefatto-metodo "
             "lungo le dimensioni comuni — basso attrito di lettura, KB riflessiva "
             "coerente, loop di propagazione che si chiude."
         ),
         "world": (
-            'Il Mondo di <strong>sviluppo</strong> (<a href="kb/world.md">world</a>): '
-            'l\'artefatto stesso — i nodi <a href="kb.md"><code>kb/</code></a> e la '
+            'Il Mondo di <strong>sviluppo</strong> (<a href="../kb/world.md">world</a>): '
+            'l\'artefatto stesso — i nodi <a href="../kb/kb.md"><code>kb/</code></a> e la '
             "loro coerenza. È anche la macchina del ciclo runtime: qui passa la "
             "cucitura tra i due cicli."
         ),
     },
     "runtime": {
         "goal": (
-            'Il Goal <strong>runtime</strong> (<a href="kb/goal.md">goal</a>): '
+            'Il Goal <strong>runtime</strong> (<a href="../kb/goal.md">goal</a>): '
             "custodire il metodo portabile e propagarne il canone agli adottanti "
             "senza micromanagiarne la coda — portabilità, indipendenza dal modello, "
             "adattabilità, autocorrezione, rigore delle fonti."
@@ -138,11 +142,11 @@ POLES = {
 
 INTRO = (
     "I sei atti più i due poli del ciclo (cfr. "
-    '<a href="kb/action-cycle.md">action-cycle</a>), resi sui due cicli annidati '
-    'di <code>metodo</code> (<a href="kb/nested-cycles.md">nested-cycles</a>). Lo '
+    '<a href="../kb/action-cycle.md">action-cycle</a>), resi sui due cicli annidati '
+    'di <code>metodo</code> (<a href="../kb/nested-cycles.md">nested-cycles</a>). Lo '
     "switch cambia <em>cosa è il Mondo</em> in fondo — e con esso Goal, poli e i "
     "sei atti. La geometria delle celle è la mappa-sorgente di <a "
-    'href="kb/action-cycle-matrix.md">action-cycle-matrix</a>; ogni slot è '
+    'href="../kb/action-cycle-matrix.md">action-cycle-matrix</a>; ogni slot è '
     "cliccabile dove c'è una destinazione, dimesso dove non c'è ancora."
 )
 
@@ -316,7 +320,7 @@ def render(root: Path) -> str:
 
 def main() -> None:
     root = repo_root()
-    (root / "index.html").write_text(render(root), encoding="utf-8")
+    (root / "presentation" / "index.html").write_text(render(root), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -6,8 +6,8 @@ user-invocable: true
 # kb-review
 
 Esegui un health check completo sulla knowledge base del metodo usando
-`tools/kb_tools.py` come backend deterministico. Lo script è la fonte di verità
-per parsing markdown, link, catalogo `kb.md`, frontmatter, footer `Connessioni:` e
+`o3/kb_tools.py` come backend deterministico. Lo script è la fonte di verità
+per parsing markdown, link, catalogo `kb/kb.md`, frontmatter, footer `Connessioni:` e
 statistiche strutturali. Questa è la copia canonica della skill: gli adottanti la
 forkano e la parametrizzano sul proprio dominio.
 
@@ -16,7 +16,7 @@ forkano e la parametrizzano sul proprio dominio.
 1. Dalla root del repository esegui:
 
 ```bash
-python3 tools/kb_tools.py audit
+python3 o3/kb_tools.py audit
 ```
 
 2. Leggi il report e fai una breve valutazione qualitativa:
@@ -28,15 +28,15 @@ python3 tools/kb_tools.py audit
   progetti diversi
 - esito sintetico della checklist di `kb/fedelta-cognitiva.md`
 
-3. Il report è una diagnosi i1 rigenerabile: vive su stdout, **non** si archivia in
-   `verdict.md`. Quel file è il verdetto corrente per filo aperto (i3), non un log di
+3. Il report è una diagnosi i1 rigenerabile: vive su stdout, **non** si archivia
+   nei fili in `i3/`. Sono il verdetto corrente per filo aperto, non un log di
    audit datati (cfr. `kb/verdict.md`). Se l'audit fa _cambiare un verdetto_ su un filo,
    è il punto 2 di `/commit` ad aggiornarlo in place — non l'append di un report.
 
 4. Se modifichi script Python durante l'audit, formatta con:
 
 ```bash
-ruff format tools/*.py
+ruff format o3/*.py
 ```
 
 5. Non correggere automaticamente i problemi trovati dentro lo stesso audit,
@@ -46,12 +46,12 @@ ruff format tools/*.py
 ## Comandi utili
 
 ```bash
-python3 tools/kb_tools.py backlinks nodo.md
-python3 tools/kb_tools.py orphans
-python3 tools/kb_tools.py readme
-python3 tools/kb_tools.py migration
-python3 tools/kb_tools.py terms --limit 20
-python3 tools/kb_tools.py audit --format json
+python3 o3/kb_tools.py backlinks nodo.md
+python3 o3/kb_tools.py orphans
+python3 o3/kb_tools.py readme
+python3 o3/kb_tools.py migration
+python3 o3/kb_tools.py terms --limit 20
+python3 o3/kb_tools.py audit --format json
 ```
 
 ## Formatter
@@ -64,7 +64,7 @@ python3 tools/kb_tools.py audit --format json
 - link rotti tra nodi
 - nodi orfani per backlink
 - nodi isolati
-- copertura e link validi nel catalogo `kb.md` (escluso dal conteggio dei nodi)
+- copertura e link validi nel catalogo `kb/kb.md` (escluso dal conteggio dei nodi)
 - convenzioni sui nomi file
 - stato della migrazione frontmatter + footer `Connessioni:`
 - link markdown rimasti nel corpo dei nodi
@@ -74,7 +74,7 @@ python3 tools/kb_tools.py audit --format json
 
 ## Checklist semantica
 
-Usa `kb/fedelta-cognitiva.md` per valutare ciò che gli script non possono
+Usa `kb/cognitive-fidelity.md` per valutare ciò che gli script non possono
 decidere: funzione documentale dei nodi, presente vs storia, accessibilità
 cognitiva, aderenza degli esempi e confini futuri emergenti. Specifico del
 `metodo`: verifica che ogni nodo resti metodologico e portabile (applicabile ad

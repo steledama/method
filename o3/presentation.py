@@ -80,11 +80,11 @@ def _detail_source(detail_links: dict[str, str], task: str) -> str | None:
 
 
 def parse_plan(root: Path) -> list[PlanRow]:
-    plan = root / "plan.md"
+    plan = root / "o1" / "plan.md"
     text = plan.read_text(encoding="utf-8")
     detail_links = {
-        match.group(1).strip(): match.group(2)
-        for match in re.finditer(r"- \[([^\]]+)\]\((tasks/[^)]+\.md)\)", text)
+        match.group(1).strip(): match.group(2).removeprefix("../")
+        for match in re.finditer(r"- \[([^\]]+)\]\(((?:\.\./)?o2/[^)]+\.md)\)", text)
     }
     rows: list[PlanRow] = []
     position = 0
@@ -99,19 +99,27 @@ def parse_plan(root: Path) -> list[PlanRow]:
             continue
         if cells[0] in {"#", "Task"} or set(cells[0]) == {"-"}:
             continue
-        if len(cells) == 3:
+        if len(cells) == 3 and cells[1] in {"dev", "runtime"}:
+            position += 1
+            position_value, task_cell, dependency = str(position), cells[0], cells[2]
+        elif len(cells) == 3:
             position_value, task_cell, dependency = cells
         else:
             position += 1
             position_value, task_cell, dependency = str(position), cells[0], cells[1]
-        link = re.search(r"\[([^\]]+)\]\((tasks/[^)]+\.md)\)", task_cell)
+        link = re.search(r"\[([^\]]+)\]\(((?:\.\./)?o2/[^)]+\.md)\)", task_cell)
         task = link.group(1) if link else task_cell
+        source = (
+            link.group(2).removeprefix("../")
+            if link
+            else _detail_source(detail_links, task)
+        )
         rows.append(
             PlanRow(
                 position=position_value,
                 task=task,
                 dependency=dependency,
-                source=link.group(2) if link else _detail_source(detail_links, task),
+                source=source,
             )
         )
     return rows

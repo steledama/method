@@ -18,8 +18,16 @@ WORD_RE = re.compile(r"\b[a-zàèéìòù][a-zàèéìòù-]{5,}\b", re.IGNORECA
 CATALOG_LINK_RE = re.compile(r"\[[^\]]+\]\((?P<path>[^)]+\.md)\)")
 
 DOC_DIRS = ("kb", "metodo")
-CATALOG_NAME = "kb.md"
+CATALOG_NAME = "kb/kb.md"
 OPTIONAL_DOC_DIRS = ("tech", "docs")
+STAGE_INDEXES = {
+    "i1": "perceptions.md",
+    "i2": "interpretations.md",
+    "i3": "verdicts.md",
+    "o1": None,  # o1/plan.md è anche l'istanza corrente del Plan.
+    "o2": "tasks.md",
+    "o3": "prescriptions.md",
+}
 CODE_EXTENSIONS = {
     ".js",
     ".jsx",
@@ -106,6 +114,7 @@ class Facet:
 #   economia: {"tipo": Facet(frozenset({"persona", "immobile", "successione"}))}
 #   nixos:    {"mondo": Facet(frozenset({"lavoro", "casa", "trasversale"}), required=True)}
 EXTENDED_FACETS: dict[str, Facet] = {}
+CYCLE_FACET = Facet(frozenset({"dev", "runtime"}), required=True)
 
 
 @dataclass
@@ -131,6 +140,7 @@ class AuditResult:
     hubs: list[dict[str, int | str]]
     recent_commits: list[str]
     facet_violations: list[str]
+    stage_cycle_count: int
 
 
 @dataclass
@@ -181,10 +191,12 @@ def doc_files(root: Path) -> list[Path]:
 
 
 def catalog_path(root: Path) -> Path | None:
-    # Il catalogo è la porta-collezione in root; fallback storico dentro le doc dir.
     candidate = root / CATALOG_NAME
     if candidate.exists():
         return candidate
+    legacy_root = root / "kb.md"
+    if legacy_root.exists():
+        return legacy_root
     for directory in existing_doc_dirs(root):
         legacy = directory / "index.md"
         if legacy.exists():
@@ -303,6 +315,34 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
     return frontmatter, connessioni, body_inline
 
 
+def frontmatter_block(path: Path) -> str:
+    text = path.read_text(encoding="utf-8")
+    return (
+        text.split("---", 2)[1]
+        if text.startswith("---\n") and text.count("---") >= 2
+        else ""
+    )
+
+
+def facet_value(fm: str, name: str) -> str | None:
+    match = re.search(rf"(?m)^{re.escape(name)}:[ \t]*(.+?)[ \t]*$", fm)
+    return match.group(1).strip() if match else None
+
+
+def validate_facet(
+    key: str, fm: str, name: str, facet: Facet, violations: list[str]
+) -> None:
+    value = facet_value(fm, name)
+    if value is None:
+        if facet.required:
+            violations.append(f"{key}: manca `{name}`")
+        return
+    if value not in facet.values:
+        violations.append(
+            f"{key}: `{name}: {value}` fuori dominio {sorted(facet.values)}"
+        )
+
+
 def facet_violations(root: Path) -> list[str]:
     """Verifica gli attributi di dominio dichiarati in EXTENDED_FACETS.
 
@@ -314,25 +354,32 @@ def facet_violations(root: Path) -> list[str]:
         return []
     violations: list[str] = []
     for path in doc_files(root):
-        text = path.read_text(encoding="utf-8")
-        fm = (
-            text.split("---", 2)[1]
-            if text.startswith("---\n") and text.count("---") >= 2
-            else ""
-        )
+        fm = frontmatter_block(path)
         key = node_key(root, path)
         for name, facet in EXTENDED_FACETS.items():
-            match = re.search(rf"(?m)^{re.escape(name)}:[ \t]*(.+?)[ \t]*$", fm)
-            if match is None:
-                if facet.required:
-                    violations.append(f"{key}: manca `{name}`")
-                continue
-            value = match.group(1).strip()
-            if value not in facet.values:
-                violations.append(
-                    f"{key}: `{name}: {value}` fuori dominio {sorted(facet.values)}"
-                )
+            validate_facet(key, fm, name, facet, violations)
     return violations
+
+
+def stage_cycle_state(root: Path) -> tuple[int, list[str]]:
+    checked = 0
+    violations: list[str] = []
+    for dirname, index_name in STAGE_INDEXES.items():
+        directory = root / dirname
+        if not directory.is_dir():
+            continue
+        for path in sorted(directory.glob("*.md")):
+            if index_name and path.name == index_name:
+                continue
+            checked += 1
+            validate_facet(
+                node_key(root, path),
+                frontmatter_block(path),
+                "ciclo",
+                CYCLE_FACET,
+                violations,
+            )
+    return checked, violations
 
 
 def cluster_state(
@@ -475,10 +522,8 @@ def run_code_coverage(root: Path) -> CodeCoverage:
 
 def run_task_frontmatter(root: Path) -> TaskFrontmatter:
     missing: list[str] = []
-    # esclude l'indice di collezione omonimo (tasks/tasks.md): è una porta, non un task
-    task_files = [
-        p for p in sorted((root / "tasks").glob("*.md")) if p.name != "tasks.md"
-    ]
+    # Esclude l'indice di collezione omonimo (o2/tasks.md): è una porta, non un task.
+    task_files = [p for p in sorted((root / "o2").glob("*.md")) if p.name != "tasks.md"]
     for path in task_files:
         text = path.read_text(encoding="utf-8")
         fm = (
@@ -504,6 +549,8 @@ def run_audit(root: Path) -> AuditResult:
     accented, invalid = filename_findings(root)
     frontmatter, connessioni, body_inline = migration_state(root)
     clusters, cluster_out = cluster_state(root, links)
+    stage_cycle_count, stage_cycle_issues = stage_cycle_state(root)
+    facet_issues = [*facet_violations(root), *stage_cycle_issues]
 
     orphans = sorted(node for node in inventory if not backlinks[node])
     isolated = sorted(
@@ -544,7 +591,8 @@ def run_audit(root: Path) -> AuditResult:
         term_candidates=term_candidates(root),
         hubs=hubs,
         recent_commits=recent_commits(root),
-        facet_violations=facet_violations(root),
+        facet_violations=facet_issues,
+        stage_cycle_count=stage_cycle_count,
     )
 
 
@@ -566,10 +614,11 @@ def markdown_report(result: AuditResult) -> str:
         "",
         f"- {result.total_nodes} nodi verificati",
         f"- {result.total_links} link interni tra nodi, {len(result.broken_links)} link rotti",
-        f"- {result.catalog_links} link kb.md ({result.catalog_unique_links} unici)",
-        f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in kb.md",
+        f"- {result.catalog_links} link {CATALOG_NAME} ({result.catalog_unique_links} unici)",
+        f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in {CATALOG_NAME}",
         f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `stato`",
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
+        f"- {result.stage_cycle_count} item di collezione con facet `ciclo` valida",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
         f"- {len(result.isolated)} nodi isolati",
         *(
@@ -590,7 +639,8 @@ def markdown_report(result: AuditResult) -> str:
     problems += [f"- [ORFANO] {node} — nessun backlink" for node in result.orphans]
     problems += [f"- [LINK-ROTTO] {item}" for item in result.broken_links]
     problems += [
-        f"- [CATALOGO-LINK-ROTTO] kb.md -> {item}" for item in result.catalog_broken
+        f"- [CATALOGO-LINK-ROTTO] {CATALOG_NAME} -> {item}"
+        for item in result.catalog_broken
     ]
     problems += [
         f"- [CATALOGO-MISSING] {item}" for item in result.catalog_missing_nodes
@@ -718,9 +768,12 @@ def command_facets(args: argparse.Namespace) -> None:
         {
             "declared": {
                 name: {"values": sorted(facet.values), "required": facet.required}
-                for name, facet in EXTENDED_FACETS.items()
+                for name, facet in {"ciclo": CYCLE_FACET, **EXTENDED_FACETS}.items()
             },
-            "violations": facet_violations(repo_root()),
+            "violations": [
+                *facet_violations(repo_root()),
+                *stage_cycle_state(repo_root())[1],
+            ],
         }
     )
 
@@ -740,7 +793,9 @@ def build_parser() -> argparse.ArgumentParser:
     orphans = sub.add_parser("orphans", help="lista nodi senza backlink")
     orphans.set_defaults(func=command_orphans)
 
-    readme = sub.add_parser("readme", help="verifica copertura del catalogo kb.md")
+    readme = sub.add_parser(
+        "readme", help=f"verifica copertura del catalogo {CATALOG_NAME}"
+    )
     readme.set_defaults(func=command_readme)
 
     migration = sub.add_parser(

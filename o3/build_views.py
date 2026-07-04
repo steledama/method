@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 from presentation import parse_plan, parse_task
@@ -20,7 +21,7 @@ def task_view(root: Path) -> str:
         "",
         "# Tasks",
         "",
-        "Coda operativa aperta, derivata da `plan.md` e dai file in `tasks/`.",
+        "Coda operativa aperta, derivata da `o1/plan.md` e dai file in `o2/`.",
         "",
     ]
     rows = parse_plan(root)
@@ -51,9 +52,24 @@ def verdict_view(root: Path) -> str:
     # slide orizzontali piatte. Con `%` pandoc generava una title-slide separata
     # seguita dall'intro come slide a sé; con un H1 avrebbe annidato i fili come
     # slide verticali.
-    text = (root / "verdict.md").read_text(encoding="utf-8")
-    text = text.replace("# verdict.md", "## Verdict", 1)
-    return text
+    parts = [
+        "% Verdict",
+        "% metodo",
+        "",
+        "# Verdict",
+        "",
+        "Verdetti correnti per filo aperto, derivati dai file in `i3/`.",
+        "",
+    ]
+    for path in sorted((root / "i3").glob("*.md")):
+        if path.name == "verdicts.md":
+            continue
+        text = path.read_text(encoding="utf-8")
+        if text.startswith("---\n"):
+            text = text.split("---\n", 2)[2].lstrip()
+        text = re.sub(r"^# ", "## ", text, count=1, flags=re.M)
+        parts += [text.rstrip(), ""]
+    return "\n".join(parts).rstrip() + "\n"
 
 
 def main() -> None:

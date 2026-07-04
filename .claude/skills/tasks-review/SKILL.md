@@ -22,19 +22,19 @@ git status --short
 git log --oneline -5
 ```
 
-Leggi `plan.md`, `map.md`, `verdict.md` recente e i file `tasks/` necessari per capire
+Leggi `o1/plan.md`, `map.md` se esiste, i fili recenti in `i3/` e i file `o2/` necessari per capire
 i task aperti. Se l'obiettivo è solo un health check, puoi limitarti ai
-titoli/frontmatter dei file `tasks/`.
+titoli/frontmatter dei file `o2/`.
 
-**2. Verifica consistenza plan.md/tasks**
+**2. Verifica consistenza o1/plan.md/o2**
 
 Controlla:
 
-- ogni file `tasks/*.md` con `stato: aperto` ha una riga corrispondente in `plan.md`
-- ogni link `tasks/` in `plan.md` esiste
+- ogni file `o2/*.md` con `stato: aperto` ha una riga corrispondente in `o1/plan.md`
+- ogni link `o2/` in `o1/plan.md` esiste
 - task chiusi da un commit, una propagazione completata o un nodo creato non
   restano aperti
-- `plan.md` resta povero: il `metodo` non è una backlog board per gli adottanti
+- `o1/plan.md` resta povero: il `metodo` non è una backlog board per gli adottanti
   (cfr. `kb/plan.md`), i suoi task sono rari e riguardano solo questo repo
 
 **3. Rivaluta stato, dipendenze e priorità**
@@ -48,7 +48,7 @@ nel `metodo` hanno natura propria:
   e `README.md` di tutti gli adottanti collegati
 - nuova fonte (`i1`) ingerita o cornice teorica importata -> può aprire nodi bozza
   o ristrutturazioni
-- drift tra `interpretations/` e i nodi -> può aprire un task di riallineamento o2
+- drift tra `i2/` e i nodi -> può aprire un task di riallineamento o2
 - scadenza di una fotografia dell'osservatorio cross-repo
 
 **3b. Lettura strategica delle mosse**
@@ -86,13 +86,13 @@ costo/opportunità.
 
 **5. Applica solo dopo conferma**
 
-Applica modifiche a `plan.md` e `tasks/` solo dopo conferma esplicita dell'utente.
+Applica modifiche a `o1/plan.md` e `o2/` solo dopo conferma esplicita dell'utente.
 
 ## Note operative
 
 - Mantieni i titoli brevi e coerenti con la tabella esistente
 - La colonna `Dip.` deve riflettere dipendenze reali, non preferenze d'ordine
-- I task completati si rimuovono da `plan.md` e `tasks/`; lo storico resta in git,
-  `verdict.md` e nodi aggiornati
+- I task completati si rimuovono da `o1/plan.md` e `o2/`; lo storico resta in git,
+  nei fili `i3/` e nei nodi aggiornati
 - Dopo la revisione, suggerisci `/commit` per chiudere la sessione quando ci sono
   modifiche da fissare

@@ -5,12 +5,12 @@ root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
-pandoc "$root/interpretations/metodo-in-sintesi.md" \
+pandoc "$root/i2/metodo-in-sintesi.md" \
   --standalone \
   --from=markdown-native_divs \
   --to=revealjs \
   --slide-level=2 \
-  --css=../assets/deck.css \
+  --css=assets/deck.css \
   -V revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@5.1.0 \
   -V theme=white \
   -V width=1180 \
@@ -18,10 +18,10 @@ pandoc "$root/interpretations/metodo-in-sintesi.md" \
   -V margin=0.05 \
   -V center=false \
   -V slideNumber=true \
-  -o "$root/views/interpretations.html"
+  -o "$root/presentation/interpretations.html"
 
-python3 -B "$root/tools/build_views.py" tasks "$tmp/tasks.md"
-python3 -B "$root/tools/build_views.py" verdict "$tmp/verdict.md"
+python3 -B "$root/o3/build_views.py" tasks "$tmp/tasks.md"
+python3 -B "$root/o3/build_views.py" verdict "$tmp/verdict.md"
 
 for name in tasks verdict; do
   pandoc "$tmp/$name.md" \
@@ -29,7 +29,7 @@ for name in tasks verdict; do
     --from=markdown-native_divs \
     --to=revealjs \
     --slide-level=2 \
-    --css=../assets/reveal.css \
+    --css=assets/reveal.css \
     -V revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@5.1.0 \
     -V theme=white \
     -V width=1180 \
@@ -37,7 +37,7 @@ for name in tasks verdict; do
     -V margin=0.05 \
     -V center=false \
     -V slideNumber=true \
-    -o "$root/views/$name.html"
+    -o "$root/presentation/$name.html"
 done
 
-prettier --write "$root/views/interpretations.html" "$root/views/tasks.html" "$root/views/verdict.html"
+prettier --write "$root/presentation/interpretations.html" "$root/presentation/tasks.html" "$root/presentation/verdict.html"

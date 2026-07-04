@@ -38,5 +38,6 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `build_system_image.py` — genera la home statica della matrice a 16 slot.
 - `build-system-image.sh` — wrapper: genera e formatta la home.
 
-I path interni di questi strumenti puntano ancora alla struttura precedente
-(`tools/`, `views/`, `plan.md` in root): da riparare prima del prossimo build.
+I path interni sono riallineati alla struttura `o3/` + `presentation/` +
+`o1/plan.md`; `build-presentation.sh`, `build-system-image.sh` e
+`kb_tools.py audit` sono il controllo minimo dopo modifiche strutturali.

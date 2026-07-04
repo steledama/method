@@ -1,6 +1,6 @@
 ---
 name: tasks-review
-description: Project skill for reviewing open tasks in metodo. Use when the user asks for /tasks-review, task review, plan/tasks consistency, priority/dependency review, or suggested next task selection.
+description: Project skill for reviewing open tasks in metodo. Use when the user asks for /tasks-review, task review, o1/plan.md and o2 consistency, priority/dependency review, or suggested next task selection.
 ---
 
 # tasks-review

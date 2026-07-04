@@ -4,19 +4,19 @@ stato: bozza
 
 # Plan
 
-Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è il file root `plan.md`, sollevato dall'altezza nel ciclo fuori dalla cartella `tasks/` — è la meta-istanza dei task, letta a ogni sessione, quindi sale in root anche se cambia in fretta (l'altezza vince sulla pace).
+Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`, il file unico che regna nella stanza `o1/` e indicizza i dettagli in `o2/`.
 
 `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (l'azione sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, l'azione sul mondo). Non nega l'omologia Plan=o1 — `action-cycle` la mappa — la **qualifica per ciclo**: stesso stadio, due annidamenti.
 
-Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, `verdict.md` e nei nodi aggiornati.
+Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, nei fili di `i3/` e nei nodi aggiornati.
 
 Regole:
 
-- vive in root come `plan.md`, vista sintetica e supervisionabile
-- ogni task sostanziale può avere un file in `tasks/`
-- ogni file in `tasks/` deve avere una riga corrispondente in `plan.md`
+- vive in `o1/plan.md`, vista sintetica e supervisionabile
+- ogni task sostanziale può avere un file in `o2/`
+- ogni file in `o2/` deve avere una riga corrispondente in `o1/plan.md`
 - ordine e dipendenze devono rendere esplicita la priorità
-- i task completati vanno rimossi, non archiviati in `tasks/`
+- i task completati vanno rimossi, non archiviati in `o2/`
 - i task locali restano nel repo locale, non nel repo metodo
 - i task del repo `metodo` riguardano solo il metodo stesso: ristrutturazione,
   semplificazione, coerenza dei nodi, strumenti portabili già giustificati o
@@ -30,11 +30,11 @@ La revisione del plan va fatta come controllo leggero a inizio sessione e come c
 
 ## La forma e l'identità unica dei task
 
-La forma del `plan.md` istanza si descrive **una volta sola, qui nel nodo**: il file non ripete le istruzioni. Letto, si auto-spiega — una tabella ordinata per esecuzione e un footer di link sono leggibili a colpo d'occhio — e le convenzioni che la forma non rende evidenti da sé vivono in questo nodo, a cui `CLAUDE.md`/`AGENTS.md` rimandano invece di duplicarle. È la fonte-unica-di-verità applicata al plan, e il vantaggio dei symlink preservato: cambiare la forma è un edit solo, ereditato da tutti gli adottanti — incorporare le istruzioni in ogni `plan.md` lo annullerebbe.
+La forma dell'istanza `o1/plan.md` si descrive **una volta sola, qui nel nodo**: il file non ripete le istruzioni. Letto, si auto-spiega — una tabella ordinata per esecuzione e un footer di link sono leggibili a colpo d'occhio — e le convenzioni che la forma non rende evidenti da sé vivono in questo nodo, a cui `CLAUDE.md`/`AGENTS.md` rimandano invece di duplicarle. È la fonte-unica-di-verità applicata al plan, e il vantaggio dei symlink preservato: cambiare la forma è un edit solo, ereditato da tutti gli adottanti — incorporare le istruzioni in ogni `plan.md` lo annullerebbe.
 
 Un task ha **un solo identificatore: il suo titolo**. È lo stesso ovunque — nella
 tabella, in `Dip.` (`↳ <titolo>`), in conversazione e nei commit — e ancora al
-file `tasks/` tramite un footer ordinato per titolo, disaccoppiato dall'ordine di
+file `o2/` tramite un footer ordinato per titolo, disaccoppiato dall'ordine di
 esecuzione. L'ordine non è un identificatore: è la **sequenza delle righe**, che
 esprime la priorità (l'imminenza della prossima mossa) e si riordina spostando
 righe, senza rinumerare nulla. Un numero `#` di riga sarebbe un **secondo**
@@ -43,8 +43,9 @@ ogni riferimento `#n` in `Dip.` — e veniva letto come ID stabile pur essendo
 effimero: per questo non c'è. (La doppia vita del `#` è l'attrito che gli
 adottanti `economia` e `bi` hanno sciolto dal basso togliendolo.)
 
-La tabella resta **stretta e portabile** — `Task · Dip.` — con i
-collegamenti fuori dalle celle. L'ordine di esecuzione esprime la priorità tra i
+La tabella resta **stretta e portabile** — `Task · Ciclo · Dip.` — con i
+collegamenti fuori dalle celle. `Ciclo` distingue `dev` e `runtime`, letti dal
+Mondo su cui il task insiste; l'ordine di esecuzione esprime la priorità tra i
 task non bloccati; `Dip.` spiega perché un task importante non può ancora
 salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
 dipendenze codificano la priorità**.
@@ -108,7 +109,7 @@ ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
 
 ## Scadenze e fonti da elaborare
 
-`plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
+`o1/plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
 solo quando una data **esogena** interagisce con la priorità dei task. La scadenza
 è input dal mondo: avvicinandosi può far salire il lavoro collegato. Non è solo un
 _termine ultimo_ ("non oltre X"): può essere una **finestra tattica** ("non prima
@@ -134,7 +135,7 @@ Le righe di ingest semplici possono non avere un file in `tasks/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
 tabella e i path completi vivono in `## Fonti da elaborare`, dopo `## Dettagli
 task`. Se l'ingest richiede contesto, decisioni o più passaggi, resta un task
-sostanziale e deve avere il proprio file.
+sostanziale e deve avere il proprio file in `o2/`.
 
 ## Sviluppo del metodo e perimetro dei task
 

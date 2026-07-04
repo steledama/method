@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
-    <title>verdict</title>
+    <meta name="author" content="metodo" />
+    <title>Verdict</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -66,225 +67,326 @@
       href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
       id="theme"
     />
-    <link rel="stylesheet" href="../assets/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal.css" />
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section id="verdict" class="slide level2">
-          <h2>Verdict</h2>
-          <p>
-            Il verdetto attuale del progetto, per filo/area aperta — non un log.
-            Il git log dice <em>cosa</em> è cambiato; questo file dice
-            <em>come stanno le cose ora</em> su ciascun filo concettuale aperto,
-            e <em>perché conta</em>. Specchio di <code>plan.md</code> sul lato
-            valutazione: <code>plan.md</code> fotografa i task aperti (o1),
-            <code>verdict.md</code> i verdetti aperti (i3). Forma e disciplina
-            canoniche in <a href="kb/verdict.md"><code>kb/verdict.md</code></a
-            >.
-          </p>
-          <p>
-            Ogni gruppo <code>##</code> è un filo aperto; il corpo è lo
-            <strong>stato attuale</strong>, aggiornato in place, non una
-            sequenza di entry datate (la cronologia di un filo è il git history
-            di questo file stesso). Quando un filo si chiude — verdetto stabile,
-            nessuna tensione aperta — il gruppo si rimuove: la storia resta in
-            git. Il commit citato inline è il puntatore alla storia
-            verificabile.
-          </p>
+        <section id="title-slide">
+          <h1 class="title">Verdict</h1>
+          <p class="author">metodo</p>
         </section>
-        <section
-          id="de-cablaggio-del-binomio-due-agenti-la-seconda-metà-resta-bottom-up"
-          class="slide level2"
-        >
-          <h2>
-            De-cablaggio del binomio «due agenti»: la seconda metà resta
-            bottom-up
-          </h2>
-          <p>
-            Il metodo era nato descrivendo due agenti — l’umano e un singolo LLM
-            — e su quel binomio aveva cablato la sua asimmetria come se fosse
-            <em>la</em> struttura. La prima metà della correzione è fatta, e
-            <strong>additiva</strong>: il nodo <code>agent</code> riconosce il
-            binomio come <strong>caso saliente</strong> di una popolazione più
-            ampia (Norman: «person, animal, or machine»; la categoria macchina è
-            un gradiente, non un punto), e <code>system-image</code>,
-            <code>cognitive-system</code>, <code>knowledge-base</code> sono
-            ammorbiditi senza cancellare il caso umano/LLM — resta vero
-            <em>come caso</em>, ed è l’unico in uso a valle. La seconda metà —
-            maturazione di <code>agent</code>, biforcazione di o1 per capacità
-            dell’agente, asse fiducia/privacy, divisione per stadio del ciclo —
-            resta <strong>deliberatamente non scritta</strong>: attende che un
-            secondo livello di agente entri nell’uso reale. Scriverla ora
-            sarebbe inventare struttura prima dell’evidenza, l’opposto di come
-            il metodo si sviluppa.
-          </p>
-        </section>
-        <section
-          id="maturazione-dei-nodi-fondativi-e-falsificatori-in-attesa-di-uso-reale"
-          class="slide level2"
-        >
-          <h2>
-            Maturazione dei nodi fondativi e falsificatori in attesa di uso
-            reale
-          </h2>
-          <p>
-            La rifondazione ontologica (artefatto/sistema/metodo) e l’arco di
-            input hanno dato al metodo il vocabolario che gli mancava e
-            <strong>nessun debito di fonte resta aperto</strong>: Leontiev (per
-            <code>goal</code>), Hutchins e il filone mente-estesa (Clark) per
-            <code>cognitive-system</code>, e <em>Things That Make Us Smart</em>
-            (Norman 1993) sono reperiti, sorzati e distillati nelle destinazioni
-            i3 — chirurgia del 2026-06-21, incluso il nodo nuovo
-            <code>augmentation-system</code> (la cornice H-LAM/T che li
-            contiene). Restano aperti solo i verdetti che
-            <strong>attendono l’uso reale</strong>:
-          </p>
-          <ul>
-            <li>
-              la maturazione <code>bozza→maturo</code> dei nodi fondativi:
-              <code>cognitive-artifact</code>, <code>cognitive-system</code>,
-              <code>goal</code>, <code>output</code>, <code>agent</code>,
-              <code>affordance-signifier</code>, <code>system-image</code>,
-              <code>processing-layers</code>;
-            </li>
-            <li>
-              <code>kb-content-typology</code> (<code>bozza</code>): ha retto
-              contro lo stato reale di <code>salute</code> (validazione parziale
-              — i quattro adottanti sono plasmati dal metodo); il test esterno
-              vero resta un repo nato senza;
-            </li>
-            <li>
-              l’esito «zero forzati» della matrice del ciclo
-              (<code>action-cycle-matrix</code>), provvisorio finché non testato
-              su un repo nato senza il metodo;
-            </li>
-            <li>
-              il check <code>[FACET]</code>/<code>EXTENDED_FACETS</code> in
-              <code>kb_tools</code> (meccanismo di estensione del frontmatter
-              col criterio dei quattro requisiti, inciso in
-              <code>kb/node.md</code>): chiuso sul lato <code>method</code>,
-              attende come falsificatore-da-implementazione il primo giro reale
-              di un adottante (<code>nixos</code> Fase 4 con
-              <code>mondo:</code> required, <code>economia</code> con
-              <code>tipo:</code> opzionale).
-            </li>
-          </ul>
-        </section>
-        <section
-          id="la-home-a-16-slot-tensione-con-action-cycle-matrix-e-propagazione-aperta"
-          class="slide level2"
-        >
-          <h2>
-            La home a 16 slot: tensione con <code>action-cycle-matrix</code> e
-            propagazione aperta
-          </h2>
-          <p>
-            Il cluster di presentazione è esaurito (deck→<code>view</code>,
-            <code>assets/</code>+<code>views/</code> materializzati, home
-            rifatta 2026-06-30 come matrice annidata a 16 slot con switch
-            dev/runtime; motore condiviso in
-            <code>tools/build_system_image.py</code>, gli adottanti forkano la
-            sola CONFIG). Due code aperte:
-          </p>
-          <ul>
-            <li>
-              <strong>Tensione col nodo <code>action-cycle-matrix</code></strong
-              >: il nodo tiene il frame a 16 celle come dogfooding di solo
-              <code>metodo</code> (adottanti al ciclo singolo) e una scala a
-              cinque valori col «vuoto legittimamente assente»; la home adotta
-              invece il frame a 16 per tutti e una regola
-              <strong>binaria</strong> acceso/dimesso che non rende la scala
-              analitica. Da riconciliare: o la home è solo affordance di
-              navigazione (la scala resta lo strumento del nodo, distinto),
-              oppure la scelta «16 per tutti» risale nel nodo.
-            </li>
-            <li>
-              <strong>Propagazione agli adottanti</strong> (forkare motore +
-              CONFIG): canale o3-runtime, non ancora pianificato.
-            </li>
-          </ul>
-          <p>
-            Fili parcheggiati dello stesso fronte: la colonna di
-            <code>plan</code> per classificare i task su due assi ortogonali —
-            ciclo (sviluppo/runtime) × natura (metodologico/merito); l’omologia
-            esplicita tools=o3-sviluppo / scripts=o3-runtime /
-            skill=prescrizioni narrative; l’eventuale uniformità totale degli
-            indici col suo costo (rinomina del nodo <code>index</code>, split
-            del catalogo <code>tools</code>). Fuori orizzonte, deliberatamente:
-            i task come slide navigabili e la finestra-terminale per dialogare
-            col modello (rompe l’invariante <code>file://</code>, sarà classe e
-            nodo a sé). Il gap <strong>runtime-o1</strong> — il protocollo
-            d’audit periodico top-down — è un task in <code>plan.md</code>, non
-            più un TODO di questo filo.
-          </p>
-        </section>
-        <section
-          id="la-membrana-method-afforda-scrittura-agisci-attraverso-ratifica-in-method"
-          class="slide level2"
-        >
-          <h2>
-            La membrana <code>method/</code> afforda scrittura: agisci
-            attraverso, ratifica in <code>method</code>
-          </h2>
-          <p>
-            Emerso dal basso da <code>bi</code> (2026-06-23): stabilizzando
-            <code>coverage --check</code> l’agente ha modificato il nodo
-            canonico <code>kb-tools</code> <strong>via symlink</strong>
-            <code>method/</code>, accorgendosi poi che l’edit non compariva nel
-            diff del proprio commit (cattura i1 in
-            <code>perceptions/modifica-di-canone-nata-in-un-adottante.md</code
-            >). Il canone descriveva il canale col suo
-            <strong>uso inteso</strong> — gli adottanti «leggono i nodi» — non
-            con la sua <strong>affordance</strong>: il symlink è read-write, e
-            afforda la scrittura (corretto in <code>world.md</code>). Non è
-            l’agente ad aver sbagliato: è il modello ad aver descritto la
-            membrana col suo uso inteso invece che con la sua affordance. La
-            disciplina vive in questo filo e in <code>world.md</code> finché un
-            secondo write-through non chieda un atomo proprio:
-          </p>
-          <blockquote>
+
+        <section>
+          <section id="verdict" class="title-slide slide level1">
+            <h1>Verdict</h1>
             <p>
-              <strong
-                >Agisci attraverso la membrana, ratifica in
-                <code>method</code>.</strong
-              >
-              Un agente che, risolvendo un problema in un adottante, modifica un
-              nodo di canone via symlink compie un atto runtime legittimo:
-              prosegue coi propri commit locali, ma
-              <em>non committa l’edit di canone</em> — lo segnala.
-              <code>method</code> lo back-filla come perception e lo fa passare
-              per i2/i3; solo allora l’edit diventa canone-di-record.
-              <strong
-                >L’orfano non-committato nel working tree di
-                <code>method</code> è la cucitura che funziona, non che
-                fallisce.</strong
-              >
+              Verdetti correnti per filo aperto, derivati dai file in
+              <code>i3/</code>.
             </p>
-          </blockquote>
-          <p>
-            Claim falsificabile: la perdita è
-            <strong>strutturale, non accidentale</strong> — si addensa sui
-            nodi-strumento con sezioni per-adottante, dove stabilizzazione
-            locale e modifica del canone collassano nello stesso atto; se
-            ricapita, dovrebbe ricapitare lì. Stato: la riga
-            <code>kb-tools</code> è ratificata come generalizzata (l’<strong
-              >oggetto-prova</strong
-            >
-            della cucitura); il nodo dedicato resta
-            <strong>in riserva</strong> — un solo episodio non fa struttura.
-            L’enforcement è <strong>dichiarato, non presidiato</strong>: l’unico
-            presidio è l’agente adottante che si accorge e si ferma (come
-            <code>bi</code>); il buco — un write-through che passa inosservato —
-            è tracciato dal task
-            <code>enforcement-cucitura-canone</code> (<code>bozza</code>,
-            trattenuto <code>pause</code>). Un secondo arco bottom-up — la
-            riforma della forma di <code>plan.md</code> da
-            <code>economia</code>+<code>bi</code> — è nel frattempo passato per
-            il <strong>canale-perception</strong> (i1→i2/i3), confermando che la
-            gamba runtime→dev funziona senza mettere alla prova il presidio
-            specifico del write-through.
-          </p>
+          </section>
+          <section
+            id="de-cablaggio-del-binomio-due-agenti-la-seconda-metà-resta-bottom-up"
+            class="slide level2"
+          >
+            <h2>
+              De-cablaggio del binomio «due agenti»: la seconda metà resta
+              bottom-up
+            </h2>
+            <p>
+              Il metodo era nato descrivendo due agenti — l’umano e un singolo
+              LLM — e su quel binomio aveva cablato la sua asimmetria come se
+              fosse <em>la</em> struttura. La prima metà della correzione è
+              fatta, e <strong>additiva</strong>: il nodo
+              <code>agent</code> riconosce il binomio come
+              <strong>caso saliente</strong> di una popolazione più ampia
+              (Norman: «person, animal, or machine»; la categoria macchina è un
+              gradiente, non un punto), e <code>system-image</code>,
+              <code>cognitive-system</code>, <code>knowledge-base</code> sono
+              ammorbiditi senza cancellare il caso umano/LLM — resta vero
+              <em>come caso</em>, ed è l’unico in uso a valle. La seconda metà —
+              maturazione di <code>agent</code>, biforcazione di o1 per capacità
+              dell’agente, asse fiducia/privacy, divisione per stadio del ciclo
+              — resta <strong>deliberatamente non scritta</strong>: attende che
+              un secondo livello di agente entri nell’uso reale. Scriverla ora
+              sarebbe inventare struttura prima dell’evidenza, l’opposto di come
+              il metodo si sviluppa.
+            </p>
+          </section>
+          <section
+            id="la-home-a-16-slot-tensione-con-action-cycle-matrix-e-propagazione-aperta"
+            class="slide level2"
+          >
+            <h2>
+              La home a 16 slot: tensione con <code>action-cycle-matrix</code> e
+              propagazione aperta
+            </h2>
+            <p>
+              Il cluster di presentazione è esaurito (deck→<code>view</code>,
+              <code>assets/</code>+<code>views/</code> materializzati, home
+              rifatta 2026-06-30 come matrice annidata a 16 slot con switch
+              dev/runtime; motore condiviso in
+              <code>tools/build_system_image.py</code>, gli adottanti forkano la
+              sola CONFIG). Il deck è stato ri-fondato (2026-07-04) su cinque
+              tavole sketchnote più poche slide d’appoggio a elenchi: la sintesi
+              ricca è uscita dalla sorgente (vive nei nodi), l’o2 raggiunge
+              finalmente il viscerale — ma le tavole sono
+              <strong>asset raster statici</strong>, non più diagrammi derivati
+              dalla sorgente: se un nodo cambia il senso di una tavola, la
+              rigenerazione è un atto manuale/creativo, non di build. Nuovo
+              punto di possibile stale, presidiato solo dal check i2 di
+              <code>/commit</code>. Due code aperte:
+            </p>
+            <ul>
+              <li>
+                <strong
+                  >Tensione col nodo <code>action-cycle-matrix</code></strong
+                >: il nodo tiene il frame a 16 celle come dogfooding di solo
+                <code>metodo</code> (adottanti al ciclo singolo) e una scala a
+                cinque valori col «vuoto legittimamente assente»; la home adotta
+                invece il frame a 16 per tutti e una regola
+                <strong>binaria</strong> acceso/dimesso che non rende la scala
+                analitica. Da riconciliare: o la home è solo affordance di
+                navigazione (la scala resta lo strumento del nodo, distinto),
+                oppure la scelta «16 per tutti» risale nel nodo.
+              </li>
+              <li>
+                <strong>Propagazione agli adottanti</strong> (forkare motore +
+                CONFIG): canale o3-runtime, non ancora pianificato.
+              </li>
+            </ul>
+            <p>
+              Fili parcheggiati dello stesso fronte: dei due assi ortogonali di
+              <code>plan</code> — ciclo (sviluppo/runtime) × natura
+              (metodologico/merito) — la colonna <code>Ciclo</code> è incisa
+              (2026-07-04, con la facet <code>ciclo:</code> sugli item di
+              collezione); resta parcheggiata <code>natura</code>. L’omologia
+              tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni
+              narrative è promulgata in
+              <code>o3/prescriptions.md</code> («Strumenti»); l’eventuale
+              uniformità totale degli indici col suo costo (rinomina del nodo
+              <code>index</code>, split del catalogo <code>tools</code>). Fuori
+              orizzonte, deliberatamente: i task come slide navigabili, la
+              finestra-terminale per dialogare col modello e il mini-server che
+              serva <code>presentation/index.html</code> (entrambi rompono
+              l’invariante <code>file://</code>, saranno classe e nodo a sé). Il
+              gap <strong>runtime-o1</strong> — il protocollo d’audit periodico
+              top-down — è un task in <code>plan.md</code>, non più un TODO di
+              questo filo.
+            </p>
+          </section>
+          <section
+            id="maturazione-dei-nodi-fondativi-e-falsificatori-in-attesa-di-uso-reale"
+            class="slide level2"
+          >
+            <h2>
+              Maturazione dei nodi fondativi e falsificatori in attesa di uso
+              reale
+            </h2>
+            <p>
+              La rifondazione ontologica (artefatto/sistema/metodo) e l’arco di
+              input hanno dato al metodo il vocabolario che gli mancava e
+              <strong>nessun debito di fonte resta aperto</strong>: Leontiev
+              (per <code>goal</code>), Hutchins e il filone mente-estesa (Clark)
+              per <code>cognitive-system</code>, e
+              <em>Things That Make Us Smart</em>
+              (Norman 1993) sono reperiti, sorzati e distillati nelle
+              destinazioni i3 — chirurgia del 2026-06-21, incluso il nodo nuovo
+              <code>augmentation-system</code> (la cornice H-LAM/T che li
+              contiene). Restano aperti solo i verdetti che
+              <strong>attendono l’uso reale</strong>:
+            </p>
+            <ul>
+              <li>
+                la maturazione <code>bozza→maturo</code> dei nodi fondativi:
+                <code>cognitive-artifact</code>, <code>cognitive-system</code>,
+                <code>goal</code>, <code>output</code>, <code>agent</code>,
+                <code>affordance-signifier</code>, <code>system-image</code>,
+                <code>processing-layers</code>;
+              </li>
+              <li>
+                <code>kb-content-typology</code> (<code>bozza</code>): ha retto
+                contro lo stato reale di <code>salute</code> (validazione
+                parziale — i quattro adottanti sono plasmati dal metodo); il
+                test esterno vero resta un repo nato senza;
+              </li>
+              <li>
+                l’esito «zero forzati» della matrice del ciclo
+                (<code>action-cycle-matrix</code>), provvisorio finché non
+                testato su un repo nato senza il metodo;
+              </li>
+              <li>
+                il check <code>[FACET]</code>/<code>EXTENDED_FACETS</code> in
+                <code>kb_tools</code> (meccanismo di estensione del frontmatter
+                col criterio dei quattro requisiti, inciso in
+                <code>kb/node.md</code>): chiuso sul lato <code>method</code>,
+                attende come falsificatore-da-implementazione il primo giro
+                reale di un adottante (<code>nixos</code> Fase 4 con
+                <code>mondo:</code> required, <code>economia</code> con
+                <code>tipo:</code> opzionale).
+              </li>
+            </ul>
+          </section>
+          <section
+            id="la-membrana-method-afforda-scrittura-agisci-attraverso-ratifica-in-method"
+            class="slide level2"
+          >
+            <h2>
+              La membrana <code>method/</code> afforda scrittura: agisci
+              attraverso, ratifica in <code>method</code>
+            </h2>
+            <p>
+              Emerso dal basso da <code>bi</code> (2026-06-23): stabilizzando
+              <code>coverage --check</code> l’agente ha modificato il nodo
+              canonico <code>kb-tools</code> <strong>via symlink</strong>
+              <code>method/</code>, accorgendosi poi che l’edit non compariva
+              nel diff del proprio commit (cattura i1 in
+              <code>i1/modifica-di-canone-nata-in-un-adottante.md</code>). Il
+              canone descriveva il canale col suo <strong>uso inteso</strong> —
+              gli adottanti «leggono i nodi» — non con la sua
+              <strong>affordance</strong>: il symlink è read-write, e afforda la
+              scrittura (corretto in <code>world.md</code>). Non è l’agente ad
+              aver sbagliato: è il modello ad aver descritto la membrana col suo
+              uso inteso invece che con la sua affordance. La disciplina vive in
+              questo filo e in <code>world.md</code> finché un secondo
+              write-through non chieda un atomo proprio:
+            </p>
+            <blockquote>
+              <p>
+                <strong
+                  >Agisci attraverso la membrana, ratifica in
+                  <code>method</code>.</strong
+                >
+                Un agente che, risolvendo un problema in un adottante, modifica
+                un nodo di canone via symlink compie un atto runtime legittimo:
+                prosegue coi propri commit locali, ma
+                <em>non committa l’edit di canone</em> — lo segnala.
+                <code>method</code> lo back-filla come perception e lo fa
+                passare per i2/i3; solo allora l’edit diventa canone-di-record.
+                <strong
+                  >L’orfano non-committato nel working tree di
+                  <code>method</code> è la cucitura che funziona, non che
+                  fallisce.</strong
+                >
+              </p>
+            </blockquote>
+            <p>
+              Claim falsificabile: la perdita è
+              <strong>strutturale, non accidentale</strong> — si addensa sui
+              nodi-strumento con sezioni per-adottante, dove stabilizzazione
+              locale e modifica del canone collassano nello stesso atto; se
+              ricapita, dovrebbe ricapitare lì. Stato: la riga
+              <code>kb-tools</code> è ratificata come generalizzata (l’<strong
+                >oggetto-prova</strong
+              >
+              della cucitura); il nodo dedicato resta
+              <strong>in riserva</strong> — un solo episodio non fa struttura.
+              L’enforcement è <strong>dichiarato, non presidiato</strong>:
+              l’unico presidio è l’agente adottante che si accorge e si ferma
+              (come <code>bi</code>); il buco — un write-through che passa
+              inosservato — è tracciato dal task
+              <code>enforcement-cucitura-canone</code> (<code>bozza</code>,
+              trattenuto <code>pause</code>). Un secondo arco bottom-up — la
+              riforma della forma di <code>plan.md</code> da
+              <code>economia</code>+<code>bi</code> — è nel frattempo passato
+              per il <strong>canale-perception</strong> (i1→i2/i3), confermando
+              che la gamba runtime→dev funziona senza mettere alla prova il
+              presidio specifico del write-through.
+            </p>
+          </section>
+          <section
+            id="ristrutturazione-dellatrio-la-root-diventa-il-ciclo"
+            class="slide level2"
+          >
+            <h2>Ristrutturazione dell’atrio: la root diventa il ciclo</h2>
+            <p>
+              L’atrio è stato ristrutturato (2026-07-04): le collezioni-stadio
+              portano il codice del loro stadio — <code>i1/</code> Perceive,
+              <code>i2/</code> Interpret, <code>i3/</code> Compare,
+              <code>o1/</code> Plan, <code>o2/</code> Specify,
+              <code>o3/</code> Perform — e la root smette di
+              <em>raccontare</em> il ciclo per <em>esserlo</em>. Le decisioni
+              ratificate:
+            </p>
+            <ul>
+              <li>
+                <strong>facet <code>ciclo: dev|runtime</code></strong> sul
+                frontmatter di ogni item di collezione; il criterio è il Mondo
+                su cui l’item insiste (artefatto → <code>dev</code>, adottanti →
+                <code>runtime</code>). L’enforcement deterministico è il task
+                <code>estensione-check-facet-cartelle-stadio</code>;
+              </li>
+              <li>
+                <strong>verdetto a fili-file</strong>: <code>verdict.md</code> è
+                scisso in un file per filo in <code>i3/</code>, indice
+                <code>verdicts.md</code>; la disciplina (in place, filo chiuso =
+                file rimosso) invariata;
+              </li>
+              <li>
+                <strong><code>o1/</code> regna <code>plan.md</code></strong
+                >, con la colonna <code>Ciclo</code> (l’asse
+                <code>natura</code> resta parcheggiato, cfr.
+                <code>home-16-slot.md</code>);
+              </li>
+              <li>
+                <strong>strumenti in <code>o3/</code></strong> come esecutori
+                deterministici del ciclo di sviluppo, registrati in
+                <code>prescriptions.md</code> («Strumenti»);
+                <code>tools.md</code> soppresso;
+              </li>
+              <li>
+                <strong><code>presentation/</code></strong> (ex
+                <code>views/</code>) raccoglie l’intera superficie presentativa:
+                home <code>index.html</code>, deck, viste, <code>assets/</code>;
+              </li>
+              <li>
+                <strong>catalogo <code>kb/kb.md</code></strong
+                >, indice interno omonimo della collezione: la collisione temuta
+                con un nodo non c’era (<code>index</code> documenta la funzione,
+                <code>knowledge-base</code> il concetto).
+              </li>
+            </ul>
+            <p>
+              Stato: il canone locale è tornato eseguibile. I tre file
+              d’ingresso (<code>README</code>, <code>CLAUDE</code>,
+              <code>AGENTS</code>), gli indici di collezione,
+              <code>index</code>, i nodi strutturali più vicini alla rottura
+              (<code>project-structure</code>, <code>plan</code>,
+              <code>tasks</code>, <code>verdict</code>, <code>view</code>,
+              <code>kb-tools</code>), gli script in <code>o3/</code> e le skill
+              operative sono riallineati ai nuovi path.
+              <code>kb_tools.py</code> riconosce <code>kb/kb.md</code>, verifica
+              i task in <code>o2/</code> e presidia la facet
+              <code>ciclo: dev|runtime</code> sugli item delle
+              collezioni-stadio; l’audit è tornato pulito (49 nodi, 0 link
+              rotti, 16 item <code>ciclo</code> validi) e le build di home/vista
+              passano su <code>presentation/</code>.
+            </p>
+            <p>
+              <strong>Cocci ancora a terra</strong>: i nodi meno centrali e il
+              deck <code>i2/metodo-in-sintesi.md</code> contengono ancora
+              riferimenti storici o concettuali alla forma precedente
+              (<code>plan.md</code>, <code>verdict.md</code>,
+              <code>tasks/</code>, <code>interpretations/</code>,
+              <code>tools/</code>). Non bloccano gli strumenti, ma vanno riletti
+              con calma per distinguere riferimenti storici sani da canone
+              stantio. La <strong>propagazione agli adottanti</strong> resta il
+              punto più delicato: questa è la prima divergenza strutturale del
+              canone dalla forma che i quattro adottanti conoscono — path delle
+              collezioni, nome del catalogo, casa degli strumenti — e va
+              progettata come prescrizione, non lasciata al drift.
+            </p>
+            <p>
+              Decisioni rinviate, deliberatamente: la sorte delle viste
+              <code>tasks.html</code> / <code>verdict.html</code> (candidate al
+              taglio dopo lo split del verdetto); il mini-server per
+              <code>presentation/index.html</code> (rompe l’invariante
+              <code>file://</code>, parcheggiato in
+              <code>home-16-slot.md</code>). Il filo si chiude quando il debito
+              testuale residuo è ripulito o esplicitamente classificato come
+              storico e la propagazione agli adottanti è almeno pianificata.
+            </p>
+          </section>
         </section>
       </div>
     </div>

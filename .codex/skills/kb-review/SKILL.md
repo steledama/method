@@ -1,6 +1,6 @@
 ---
 name: kb-review
-description: Project skill for the metodo repository knowledge-base audit. Use when the user asks for /kb-review, a KB audit, health checks, catalog (kb.md) coverage, or link/frontmatter validation.
+description: Project skill for the metodo repository knowledge-base audit. Use when the user asks for /kb-review, a KB audit, health checks, catalog (kb/kb.md) coverage, or link/frontmatter validation.
 ---
 
 # kb-review
