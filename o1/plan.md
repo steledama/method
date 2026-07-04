@@ -10,10 +10,11 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| Task                                                     | Ciclo | Dip.      |
-| -------------------------------------------------------- | ----- | --------- |
-| Protocollo runtime-o1 (audit periodico top-down)         | dev   | —         |
-| Enforcement della cucitura «agisci attraverso, ratifica» | dev   | pause [a] |
+| Ciclo   | Task                                                     | Dip.      |
+| ------- | -------------------------------------------------------- | --------- |
+| runtime | Prescrizione di propagazione dell'atrio agli adottanti   | —         |
+| dev     | Protocollo runtime-o1 (audit periodico top-down)         | —         |
+| dev     | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
@@ -95,5 +96,6 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
 - [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto
+- [Prescrizione di propagazione dell'atrio](../o2/propagazione-atrio-adottanti.md)
+- [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)

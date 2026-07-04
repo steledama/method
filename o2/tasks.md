@@ -4,6 +4,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 ## Contenuti
 
-- [estensione-check-facet-cartelle-stadio.md](estensione-check-facet-cartelle-stadio.md) — estendere il check `[FACET]` di `kb_tools` alle sei collezioni-stadio, perché la facet `ciclo: dev|runtime` sia presidiata e non solo dichiarata.
+- [propagazione-atrio-adottanti.md](propagazione-atrio-adottanti.md) — progettare la prescrizione o3 che porta i quattro adottanti alla forma dell'atrio (collezioni `i1/`–`o3/`, catalogo `kb/kb.md`, strumenti in `o3/`, `presentation/`, facet `ciclo:`), recepita via `method-review`.
 - [protocollo-runtime-o1.md](protocollo-runtime-o1.md) — costruire il protocollo d'audit periodico top-down (runtime-o1), distinto dal micromanagement; dipende dalla maturazione dell'osservatorio.
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.

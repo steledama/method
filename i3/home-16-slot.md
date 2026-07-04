@@ -20,8 +20,14 @@ possibile stale, presidiato solo dal check i2 di `/commit`. Due code aperte:
   una regola **binaria** acceso/dimesso che non rende la scala analitica. Da
   riconciliare: o la home è solo affordance di navigazione (la scala resta lo
   strumento del nodo, distinto), oppure la scelta «16 per tutti» risale nel nodo.
-- **Propagazione agli adottanti** (forkare motore + CONFIG): canale o3-runtime, non
-  ancora pianificato.
+- **Propagazione agli adottanti** (forkare motore + CONFIG): canale o3-runtime;
+  può accodarsi alla prescrizione dell'atrio o seguirla — decisione dentro il
+  task «Prescrizione di propagazione dell'atrio agli adottanti»
+  (`o2/propagazione-atrio-adottanti.md`).
+- **Sorte delle viste `tasks.html`/`verdict.html`** (ereditata dal filo
+  ristrutturazione-atrio, chiuso): candidate al taglio dopo lo split del
+  verdetto in fili; decidere se le tiene in vita la home o se la vista a slide
+  resta l'unica generata oltre a essa.
 
 Fili parcheggiati dello stesso fronte: dei due assi ortogonali di `plan` — ciclo
 (sviluppo/runtime) × natura (metodologico/merito) — la colonna `Ciclo` è incisa

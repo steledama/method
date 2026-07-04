@@ -152,7 +152,21 @@
               </li>
               <li>
                 <strong>Propagazione agli adottanti</strong> (forkare motore +
-                CONFIG): canale o3-runtime, non ancora pianificato.
+                CONFIG): canale o3-runtime; può accodarsi alla prescrizione
+                dell’atrio o seguirla — decisione dentro il task «Prescrizione
+                di propagazione dell’atrio agli adottanti»
+                (<code>o2/propagazione-atrio-adottanti.md</code>).
+              </li>
+              <li>
+                <strong
+                  >Sorte delle viste <code>tasks.html</code>/<code
+                    >verdict.html</code
+                  ></strong
+                >
+                (ereditata dal filo ristrutturazione-atrio, chiuso): candidate
+                al taglio dopo lo split del verdetto in fili; decidere se le
+                tiene in vita la home o se la vista a slide resta l’unica
+                generata oltre a essa.
               </li>
             </ul>
             <p>
@@ -292,107 +306,6 @@
               per il <strong>canale-perception</strong> (i1→i2/i3), confermando
               che la gamba runtime→dev funziona senza mettere alla prova il
               presidio specifico del write-through.
-            </p>
-          </section>
-          <section
-            id="ristrutturazione-dellatrio-la-root-diventa-il-ciclo"
-            class="slide level2"
-          >
-            <h2>Ristrutturazione dell’atrio: la root diventa il ciclo</h2>
-            <p>
-              L’atrio è stato ristrutturato (2026-07-04): le collezioni-stadio
-              portano il codice del loro stadio — <code>i1/</code> Perceive,
-              <code>i2/</code> Interpret, <code>i3/</code> Compare,
-              <code>o1/</code> Plan, <code>o2/</code> Specify,
-              <code>o3/</code> Perform — e la root smette di
-              <em>raccontare</em> il ciclo per <em>esserlo</em>. Le decisioni
-              ratificate:
-            </p>
-            <ul>
-              <li>
-                <strong>facet <code>ciclo: dev|runtime</code></strong> sul
-                frontmatter di ogni item di collezione; il criterio è il Mondo
-                su cui l’item insiste (artefatto → <code>dev</code>, adottanti →
-                <code>runtime</code>). L’enforcement deterministico è il task
-                <code>estensione-check-facet-cartelle-stadio</code>;
-              </li>
-              <li>
-                <strong>verdetto a fili-file</strong>: <code>verdict.md</code> è
-                scisso in un file per filo in <code>i3/</code>, indice
-                <code>verdicts.md</code>; la disciplina (in place, filo chiuso =
-                file rimosso) invariata;
-              </li>
-              <li>
-                <strong><code>o1/</code> regna <code>plan.md</code></strong
-                >, con la colonna <code>Ciclo</code> (l’asse
-                <code>natura</code> resta parcheggiato, cfr.
-                <code>home-16-slot.md</code>);
-              </li>
-              <li>
-                <strong>strumenti in <code>o3/</code></strong> come esecutori
-                deterministici del ciclo di sviluppo, registrati in
-                <code>prescriptions.md</code> («Strumenti»);
-                <code>tools.md</code> soppresso;
-              </li>
-              <li>
-                <strong><code>presentation/</code></strong> (ex
-                <code>views/</code>) raccoglie l’intera superficie presentativa:
-                home <code>index.html</code>, viste generate,
-                <code>assets/</code>;
-              </li>
-              <li>
-                <strong>catalogo <code>kb/kb.md</code></strong
-                >, indice interno omonimo della collezione: la collisione temuta
-                con un nodo non c’era (<code>index</code> documenta la funzione,
-                <code>knowledge-base</code> il concetto).
-              </li>
-            </ul>
-            <p>
-              Stato: il canone locale è tornato eseguibile. I tre file
-              d’ingresso (<code>README</code>, <code>CLAUDE</code>,
-              <code>AGENTS</code>), gli indici di collezione,
-              <code>index</code>, i nodi strutturali più vicini alla rottura
-              (<code>project-structure</code>, <code>plan</code>,
-              <code>tasks</code>, <code>verdict</code>, <code>view</code>,
-              <code>kb-tools</code>), gli script in <code>o3/</code> e le skill
-              operative sono riallineati ai nuovi path.
-              <code>kb_tools.py</code> riconosce <code>kb/kb.md</code>, verifica
-              i task in <code>o2/</code> e presidia la facet
-              <code>ciclo: dev|runtime</code> sugli item delle
-              collezioni-stadio; l’audit è tornato pulito (49 nodi, 0 link
-              rotti, 16 item <code>ciclo</code> validi) e le build di home/vista
-              passano su <code>presentation/</code>.
-            </p>
-            <p>
-              <strong>Cocci raccolti</strong> (2026-07-04, seconda passata): il
-              residuo <code>verdict.md</code> di root (duplicava i fili già
-              scissi qui) e la cartella morta <code>tools/</code> sono rimossi;
-              il canone stantio nei nodi è corretto — <code>goal</code> e
-              <code>plan</code> non parlano più di <code>tasks/</code>, la
-              ricetta di migrazione in
-              <code>project-structure</code> («Applicazione nei progetti
-              adottanti») usa i target dell’atrio — e il link rotto nella
-              cattura i1 di <code>economia</code> è riparato. I riferimenti alla
-              forma precedente che restano (<code>kb/skill.md</code>,
-              <code>kb/view.md</code>, i bullet di stato per-adottante, le
-              catture i1) descrivono lo stato reale degli adottanti
-              pre-migrazione o storia: sono classificati
-              <strong>storici sani</strong>. La
-              <strong>propagazione agli adottanti</strong> resta il punto più
-              delicato: questa è la prima divergenza strutturale del canone
-              dalla forma che i quattro adottanti conoscono — path delle
-              collezioni, nome del catalogo, casa degli strumenti — e va
-              progettata come prescrizione, non lasciata al drift.
-            </p>
-            <p>
-              Decisioni rinviate, deliberatamente: la sorte delle viste
-              <code>tasks.html</code> / <code>verdict.html</code> (candidate al
-              taglio dopo lo split del verdetto); il mini-server per
-              <code>presentation/index.html</code> (rompe l’invariante
-              <code>file://</code>, parcheggiato in
-              <code>home-16-slot.md</code>). Il filo si chiude quando il debito
-              testuale residuo è ripulito o esplicitamente classificato come
-              storico e la propagazione agli adottanti è almeno pianificata.
             </p>
           </section>
         </section>
