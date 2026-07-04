@@ -10,7 +10,7 @@ pandoc "$root/interpretations/metodo-in-sintesi.md" \
   --from=markdown-native_divs \
   --to=revealjs \
   --slide-level=2 \
-  --css=../assets/reveal.css \
+  --css=../assets/deck.css \
   -V revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@5.1.0 \
   -V theme=white \
   -V width=1180 \

@@ -1,0 +1,144 @@
+/* Stile del deck delle interpretazioni: coerente con le tavole sketchnote
+   in interpretations/ — fondo crema, tratto a matita, hand lettering. */
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap");
+
+:root {
+  --r-main-font-size: 34px;
+  --paper: #fdf8e7;
+  --ink: #2b2722;
+  --muted: #6b665c;
+  --orange: #d97a1c;
+  --blue: #33638f;
+}
+
+.reveal-viewport {
+  background: var(--paper);
+}
+
+.reveal {
+  color: var(--ink);
+  font-family: "Patrick Hand", cursive;
+}
+
+/* Cromo di Reveal sul tono della carta. */
+.reveal .controls {
+  color: var(--orange);
+}
+
+.reveal .progress {
+  background: rgba(43, 39, 34, 0.08);
+  color: var(--orange);
+}
+
+.reveal .slide-number {
+  background: transparent;
+  color: var(--muted);
+  font-family: "Patrick Hand", cursive;
+}
+
+.reveal h1,
+.reveal h2 {
+  color: var(--ink);
+  font-family: "Patrick Hand SC", "Patrick Hand", cursive;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Le tavole hanno già il loro titolo dentro: la slide-immagine tiene
+   l'intestazione nel sorgente ma non la mostra. */
+.reveal section.img h2 {
+  display: none;
+}
+
+/* Slide d'appoggio: pochi punti, molto respiro. */
+.reveal h2 {
+  border-bottom: 3px solid var(--orange);
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 0.9em;
+  padding-bottom: 0.08em;
+}
+
+.reveal ul {
+  display: block;
+  line-height: 1.45;
+}
+
+.reveal li {
+  margin-bottom: 0.55em;
+}
+
+.reveal li::marker {
+  color: var(--orange);
+}
+
+.reveal strong {
+  color: var(--blue);
+  font-weight: 400;
+}
+
+.reveal em {
+  color: var(--muted);
+}
+
+.reveal p {
+  line-height: 1.4;
+}
+
+/* Cover */
+.reveal #title-slide {
+  text-align: center;
+}
+
+.reveal #title-slide h1 {
+  font-size: 2.6em;
+  line-height: 1.05;
+  margin-top: 1.4em;
+}
+
+.reveal #title-slide .subtitle {
+  color: var(--muted);
+  font-size: 0.85em;
+  line-height: 1.35;
+  margin: 1em auto 0;
+  max-width: 26em;
+}
+
+.reveal #title-slide .author,
+.reveal #title-slide .date {
+  color: var(--orange);
+  font-size: 0.7em;
+  margin-top: 1.2em;
+}
+
+.reveal #title-slide .date {
+  margin-top: 0.2em;
+}
+
+/* Slide-eroe: una sola idea, grande, sullo stesso foglio di carta. */
+.reveal section.hero {
+  text-align: center;
+}
+
+.reveal section.hero h2 {
+  border-bottom: 0;
+  display: block;
+  font-size: 2.3em;
+  line-height: 1.1;
+  margin: 1.6em auto 0.4em;
+  max-width: 18em;
+  text-wrap: balance;
+}
+
+.reveal section.hero h2 strong {
+  color: var(--orange);
+}
+
+.reveal section.hero p {
+  color: var(--muted);
+  font-size: 1em;
+  margin: 0 auto;
+  max-width: 24em;
+  text-align: center;
+}

@@ -58,7 +58,12 @@ verdetti che **attendono l'uso reale**:
 Il cluster di presentazione è esaurito (deck→`view`, `assets/`+`views/`
 materializzati, home rifatta 2026-06-30 come matrice annidata a 16 slot con switch
 dev/runtime; motore condiviso in `tools/build_system_image.py`, gli adottanti forkano
-la sola CONFIG). Due code aperte:
+la sola CONFIG). Il deck è stato ri-fondato (2026-07-04) su cinque tavole sketchnote
+più poche slide d'appoggio a elenchi: la sintesi ricca è uscita dalla sorgente (vive
+nei nodi), l'o2 raggiunge finalmente il viscerale — ma le tavole sono **asset raster
+statici**, non più diagrammi derivati dalla sorgente: se un nodo cambia il senso di
+una tavola, la rigenerazione è un atto manuale/creativo, non di build. Nuovo punto di
+possibile stale, presidiato solo dal check i2 di `/commit`. Due code aperte:
 
 - **Tensione col nodo `action-cycle-matrix`**: il nodo tiene il frame a 16 celle come
   dogfooding di solo `metodo` (adottanti al ciclo singolo) e una scala a cinque valori
