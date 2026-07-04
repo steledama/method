@@ -1,5 +1,4 @@
 ---
-stato: bozza
 sintesi: "La cucitura «agisci attraverso la membrana, ratifica in method» è dichiarata (verdict + world.md) ma non enforced: conta sull'agente adottante che si accorge e si ferma, come ha fatto bi. Task trattenuto (|): si costruisce l'enforcement solo quando un write-through passa inosservato — quel mancato accorgersi è il segnale. Critico in ottica repo adottanti multiutente."
 ciclo: dev
 ---

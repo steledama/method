@@ -20,8 +20,7 @@ class PlanRow:
 class TaskDetail:
     path: Path
     title: str
-    data: str
-    stato: str
+    ciclo: str
     sintesi: str
 
 
@@ -97,9 +96,14 @@ def parse_plan(root: Path) -> list[PlanRow]:
         ]
         if len(cells) not in {2, 3}:
             continue
-        if cells[0] in {"#", "Task"} or set(cells[0]) == {"-"}:
+        if cells[0] in {"#", "Task", "Ciclo"} or set(cells[0]) == {"-"}:
             continue
-        if len(cells) == 3 and cells[1] in {"dev", "runtime"}:
+        if len(cells) == 3 and cells[0] in {"dev", "runtime"}:
+            # Forma canonica: Ciclo · Task · Dip.
+            position += 1
+            position_value, task_cell, dependency = str(position), cells[1], cells[2]
+        elif len(cells) == 3 and cells[1] in {"dev", "runtime"}:
+            # Forma precedente (Task · Ciclo · Dip.), ancora in uso negli adottanti.
             position += 1
             position_value, task_cell, dependency = str(position), cells[0], cells[2]
         elif len(cells) == 3:
@@ -128,14 +132,13 @@ def parse_plan(root: Path) -> list[PlanRow]:
 def parse_task(root: Path, relative: str) -> TaskDetail:
     path = root / relative
     meta, body = split_frontmatter(path.read_text(encoding="utf-8"))
-    if not meta.get("stato"):
-        raise SystemExit(f"{relative}: frontmatter incompleto (stato)")
+    if not meta.get("sintesi"):
+        raise SystemExit(f"{relative}: frontmatter incompleto (sintesi)")
     return TaskDetail(
         path=path,
         title=first_h1(body, path.stem),
-        data=meta.get("data", "—"),
-        stato=meta["stato"],
-        sintesi=meta.get("sintesi") or first_paragraph(body),
+        ciclo=meta.get("ciclo", "—"),
+        sintesi=meta["sintesi"],
     )
 
 

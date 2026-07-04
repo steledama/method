@@ -1,5 +1,4 @@
 ---
-stato: aperto
 sintesi: "runtime-o1 è l'unico vuoto-gap della matrice: la pianificazione top-down «come gli adottanti dovrebbero diventare». L'arco è scoccato una volta (prescrizione baricentro → method-review → recepimento) ma manca il protocollo d'audit periodico — audit ≠ micromanagement. Dipende dalla maturazione dell'osservatorio."
 ciclo: dev
 ---

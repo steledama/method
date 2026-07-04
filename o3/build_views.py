@@ -36,7 +36,7 @@ def task_view(root: Path) -> str:
         lines += [
             f"## {task.title}",
             "",
-            f"dipendenza: `{row.dependency}` · stato: `{task.stato}` · aperto: `{task.data}`",
+            f"ciclo: `{task.ciclo}` · dipendenza: `{row.dependency}`",
             "",
             task.sintesi,
             "",

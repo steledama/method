@@ -531,7 +531,11 @@ def run_task_frontmatter(root: Path) -> TaskFrontmatter:
             if text.startswith("---\n") and text.count("---") >= 2
             else ""
         )
-        absent = [key for key in ("stato", "sintesi") if f"\n{key}:" not in f"\n{fm}"]
+        absent = [key for key in ("sintesi",) if f"\n{key}:" not in f"\n{fm}"]
+        if "\nstato:" in f"\n{fm}":
+            absent.append(
+                "stato presente (soppresso: un task in o2/ è aperto per esistenza)"
+            )
         if absent:
             missing.append(f"{node_key(root, path)}: {', '.join(absent)}")
     return TaskFrontmatter(

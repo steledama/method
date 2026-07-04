@@ -43,11 +43,13 @@ ogni riferimento `#n` in `Dip.` — e veniva letto come ID stabile pur essendo
 effimero: per questo non c'è. (La doppia vita del `#` è l'attrito che gli
 adottanti `economia` e `bi` hanno sciolto dal basso togliendolo.)
 
-La tabella resta **stretta e portabile** — `Task · Ciclo · Dip.` — con i
-collegamenti fuori dalle celle. `Ciclo` distingue `dev` e `runtime`, letti dal
-Mondo su cui il task insiste; l'ordine di esecuzione esprime la priorità tra i
-task non bloccati; `Dip.` spiega perché un task importante non può ancora
-salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
+La tabella resta **stretta e portabile** — `Ciclo · Task · Dip.` — con i
+collegamenti fuori dalle celle. `Ciclo` apre la riga: è la colonna a valori
+brevi e ricorrenti, e in testa raggruppa a colpo d'occhio i due annidamenti
+prima ancora di leggere i titoli; distingue `dev` e `runtime`, letti dal
+Mondo su cui il task insiste. Il titolo-identità segue; l'ordine di esecuzione
+esprime la priorità tra i task non bloccati; `Dip.` chiude spiegando perché un
+task importante non può ancora salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
 dipendenze codificano la priorità**.
 
 `Dip.` risponde a una domanda sola: il task è pronto, e se no, _di chi è la
