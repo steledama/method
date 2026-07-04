@@ -21,7 +21,7 @@ _esserlo_. Le decisioni ratificate:
 - **strumenti in `o3/`** come esecutori deterministici del ciclo di sviluppo,
   registrati in `prescriptions.md` («Strumenti»); `tools.md` soppresso;
 - **`presentation/`** (ex `views/`) raccoglie l'intera superficie presentativa:
-  home `index.html`, deck, viste, `assets/`;
+  home `index.html`, viste generate, `assets/`;
 - **catalogo `kb/kb.md`**, indice interno omonimo della collezione: la
   collisione temuta con un nodo non c'era (`index` documenta la funzione,
   `knowledge-base` il concetto).
@@ -35,11 +35,15 @@ facet `ciclo: dev|runtime` sugli item delle collezioni-stadio; l'audit è tornat
 pulito (49 nodi, 0 link rotti, 16 item `ciclo` validi) e le build di home/vista
 passano su `presentation/`.
 
-**Cocci ancora a terra**: i nodi meno centrali e il deck `i2/metodo-in-sintesi.md`
-contengono ancora riferimenti storici o concettuali alla forma precedente
-(`plan.md`, `verdict.md`, `tasks/`, `interpretations/`, `tools/`). Non bloccano gli
-strumenti, ma vanno riletti con calma per distinguere riferimenti storici sani da
-canone stantio. La **propagazione agli adottanti** resta il punto più delicato:
+**Cocci raccolti** (2026-07-04, seconda passata): il residuo `verdict.md` di root
+(duplicava i fili già scissi qui) e la cartella morta `tools/` sono rimossi; il
+canone stantio nei nodi è corretto — `goal` e `plan` non parlano più di `tasks/`,
+la ricetta di migrazione in `project-structure` («Applicazione nei progetti
+adottanti») usa i target dell'atrio — e il link rotto nella cattura i1 di
+`economia` è riparato. I riferimenti alla forma precedente che restano
+(`kb/skill.md`, `kb/view.md`, i bullet di stato per-adottante, le catture i1)
+descrivono lo stato reale degli adottanti pre-migrazione o storia: sono
+classificati **storici sani**. La **propagazione agli adottanti** resta il punto più delicato:
 questa è la prima divergenza strutturale del canone dalla forma che i quattro
 adottanti conoscono — path delle collezioni, nome del catalogo, casa degli
 strumenti — e va progettata come prescrizione, non lasciata al drift.

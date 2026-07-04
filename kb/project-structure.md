@@ -161,7 +161,7 @@ Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di cias
 
 ## Applicazione nei progetti adottanti
 
-Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (`kb/index.md`→`kb.md`, `scripts/`→`tools/`, output→`interpretations/` dove è sintesi-documento, file-ciclo di dominio per funzione: i1→`perceptions/`, i2→`interpretations/`, `scadenze`→sezione di `plan`), letto dal canone via symlink.
+Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (catalogo→`kb/kb.md`; collezioni-stadio `i1/`–`o3/` coi loro indici: cattura cronologica→`i1/`, sintesi-documento→`i2/`, verdetto a fili→`i3/`, `plan`→`o1/plan.md`, dettagli task→`o2/`, strumenti di sviluppo→`o3/`, viste→`presentation/`; `scadenze`→sezione di `o1/plan.md`; gli `scripts/` di dominio restano o3-runtime), letto dal canone via symlink. La prescrizione di propagazione non è ancora scritta (cfr. il filo `i3/ristrutturazione-atrio.md`).
 
 - **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
 - **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
@@ -169,10 +169,10 @@ Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno l
   in root (`stato`, `scadenze`), `data/` locale non versionato per fonti e JSON, e
   `interpretations/` versionata per le viste decisionali. Confronto con il metodo:
   i file di dominio in root sono ora **target di migrazione per funzione**
-  (`stato`→`interpretations/`, cattura cronologica→`perceptions/`,
-  `scadenze`→sezione di `plan`); conferma la separazione tra stato operativo e
+  (`stato`→`i2/`, cattura cronologica→`i1/`, `scadenze`→sezione di
+  `o1/plan.md`); conferma la separazione tra stato operativo e
   risultato editoriale.
-- **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente; i file di dominio seguono la collocazione-per-funzione (`diario`→`perceptions/`, `scadenze`→`plan`) e la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
+- **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente; i file di dominio seguono la collocazione-per-funzione (`diario`→`i1/`, `scadenze`→sezione di `o1/plan.md`) e la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.
 

@@ -76,7 +76,7 @@ task: una breve `Legenda dipendenze esterne` sotto la tabella la chiosa (per
 `world`, l'evento atteso; per `pause`, la ragione della pausa e la sua condizione di
 risveglio). La chiave è **facoltativa**: un `world` o `pause` nudo basta quando il
 titolo già dice tutto, e il testo libero non gonfia mai le celle. Tre livelli:
-significante in tabella, chiosa in legenda, dettaglio pieno nel file `tasks/`.
+significante in tabella, chiosa in legenda, dettaglio pieno nel file in `o2/`.
 
 Un **batch** di task trattenuti per la stessa ragione non chiede un significante
 nuovo: condividono una sola chiave di legenda (`pause [a]` su più righe), chiosata
@@ -131,7 +131,7 @@ tra parentesi — `(mensile)`, `(annuale)`, `(biennale)` — e la **prossima
 occorrenza** come data. Una ricorrente che non muove la coda resta nel file di
 dominio, come sopra.
 
-Le righe di ingest semplici possono non avere un file in `tasks/`. Quando i path
+Le righe di ingest semplici possono non avere un file in `o2/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
 tabella e i path completi vivono in `## Fonti da elaborare`, dopo `## Dettagli
 task`. Se l'ingest richiede contesto, decisioni o più passaggi, resta un task

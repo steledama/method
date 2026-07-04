@@ -10,13 +10,13 @@ In Norman il goal è l'apice del ciclo di azione: il punto da cui parte l'esecuz
 
 ## Il goal nel metodo
 
-`goal`, `task` e `tasks/` sono tre altitudini, non sinonimi. Nel metodo:
+`goal`, `task` e la coda `o2/` sono tre altitudini, non sinonimi. Nel metodo:
 
 - _goal_ = l'obiettivo che orienta un arco di lavoro (livello azione, Leontiev)
 - _task_ = il compito operativo che lo realizza (livello operazione)
-- `tasks/` = la coda di operazioni concrete, eseguibili
+- `o2/` = la coda di operazioni concrete, eseguibili (indice `tasks.md`)
 
-Rinominare `tasks/`→`goals/` sarebbe sbagliato: mescolarebbe altitudini e descriverebbe il contenuto in modo falso. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
+Battezzare la coda o il suo indice col nome `goals` sarebbe sbagliato: mescolerebbe altitudini e descriverebbe il contenuto in modo falso — per questo l'indice di `o2/` si chiama `tasks.md`. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
 
 Il polo Goal si sdoppia anche coi cicli annidati (`nested-cycles`): il Goal del ciclo **runtime** tiene gli obiettivi costitutivi del dominio (lo scopo per cui l'artefatto in opera esiste), il Goal del ciclo di **sviluppo** tiene la posizione auspicata dell'artefatto lungo dimensioni comuni a tutti gli artefatti — attrito, autonomia dell'umano, temporalità del loop. Quell'articolazione, e lo scioglimento dello split dev/runtime, vivono in `development-goal`; qui il Goal è trattato nella sua forma generale, comune ai due cicli.
 

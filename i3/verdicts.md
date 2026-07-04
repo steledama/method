@@ -14,7 +14,7 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 
 ## Contenuti
 
-- [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — la root diventa il ciclo: collezioni `i1/`–`o3/`, facet `ciclo:`, strumenti in `o3/`, `presentation/`; aperto finché nodi, strumenti e skill non sono riallineati
+- [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — la root diventa il ciclo: collezioni `i1/`–`o3/`, facet `ciclo:`, strumenti in `o3/`, `presentation/`; residui ripuliti, aperto finché la propagazione agli adottanti non è almeno pianificata
 - [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale
 - [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; restano i verdetti che attendono l'uso reale (bozza→maturo, tipologia, matrice, facet)
 - [home-16-slot.md](home-16-slot.md) — tensione tra la home a 16 slot e `action-cycle-matrix`; propagazione agli adottanti non pianificata

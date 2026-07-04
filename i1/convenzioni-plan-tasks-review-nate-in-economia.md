@@ -74,4 +74,4 @@ Aperto, da sciogliere in `method`:
    non solo la tabella.
 4. È un secondo arco runtime→dev **bottom-up** attraverso la membrana (dopo
    `kb-tools` da `bi`): evidenza per la cucitura «agisci attraverso, ratifica» e
-   per il task [`enforcement-cucitura-canone`](../tasks/enforcement-cucitura-canone.md).
+   per il task [`enforcement-cucitura-canone`](../o2/enforcement-cucitura-canone.md).
