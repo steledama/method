@@ -4,10 +4,10 @@ ciclo: dev
 
 # La home a 16 slot: tensione con `action-cycle-matrix` e propagazione aperta
 
-Il cluster di presentazione è esaurito (deck→`view`, `presentation/assets/`+viste in `presentation/`
+Il cluster di presentazione è esaurito (vista a slide→`view`, `presentation/assets/`+viste in `presentation/`
 materializzati, home rifatta 2026-06-30 come matrice annidata a 16 slot con switch
 dev/runtime; motore condiviso in `o3/build_system_image.py`, gli adottanti forkano
-la sola CONFIG). Il deck è stato ri-fondato (2026-07-04) su cinque tavole sketchnote
+la sola CONFIG). La vista Interpretazioni è stata ri-fondata (2026-07-04) su cinque tavole sketchnote
 più poche slide d'appoggio a elenchi: la sintesi ricca è uscita dalla sorgente (vive
 nei nodi), l'o2 raggiunge finalmente il viscerale — ma le tavole sono **asset raster
 statici**, non più diagrammi derivati dalla sorgente: se un nodo cambia il senso di

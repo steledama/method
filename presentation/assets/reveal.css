@@ -1,5 +1,5 @@
 /* Stile base per le viste generate da build_views.py (tasks, verdict).
-   Il deck delle interpretazioni usa deck.css, coerente con le tavole sketchnote. */
+   La vista Interpretazioni usa interpretations.css, coerente con le tavole sketchnote. */
 :root {
   --r-main-font-size: 30px;
   --ink: #1a2230;

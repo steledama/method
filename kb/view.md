@@ -9,9 +9,9 @@ del progetto senza diventare una seconda fonte di verità. È la cerniera o2/i2 
 metodo (cfr. `action-cycle`, sezione i2 micro/macro): o2 quando orienta una
 decisione, i2 quando viene letta per attribuire significato a ciò che sintetizza.
 
-Il deck Reveal è una forma concreta di view, adatta a una sintesi che si scorre.
+La vista Reveal a slide è una forma concreta di view, adatta a una sintesi che si scorre.
 Non è l'unica forma possibile. La forma segue la domanda (Karpathy): pagina
-markdown, tabella di confronto, deck di slide, grafico, canvas e home statica sono
+markdown, tabella di confronto, presentazione a slide, grafico, canvas e home statica sono
 forme alternative, scelte secondo cosa devono far capire o decidere.
 
 ## Vista derivata, mai seconda fonte
@@ -75,7 +75,7 @@ la condivisione, si chiude il processo e si rimuove l'eventuale regola temporane
 
 ## Provenienza bottom-up
 
-Il pattern è emerso in `bi`. Una prima soluzione serviva il deck permanentemente da
+Il pattern è emerso in `bi`. Una prima soluzione serviva la vista a slide permanentemente da
 due server e lo copiava con hook Git locali non versionati. Il rename
 `presentazione/` → `presentations/` (poi → `interpretations/`) ha rotto gli hook in
 silenzio. La soluzione finale non è stata rendere più complesso il deploy, ma

@@ -19,9 +19,9 @@ i task e il loro stato di pianificazione.
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
-La **revisione i2-macro della presentazione** (deck + home) è **chiusa**
+La **revisione i2-macro della presentazione** (vista Interpretazioni + home) è **chiusa**
 (2026-06-25): cicli annidati ridisegnati per contenimento, frecce del ciclo rese
-visibili (deck e home), slide «Sviluppo del metodo» a forma di Λ (risalita →
+visibili (vista Interpretazioni e home), slide «Sviluppo del metodo» a forma di Λ (risalita →
 apice → ridiscesa), «Approfondimento» rimossa; nessun residuo di
 KB-come-system-image. Resta il gap o1 che quel percorso i2 → i3 → o1 rifilava: il
 task **runtime-o1**.
@@ -74,7 +74,7 @@ cinque i README. Il round 1 della propagazione è **recepito dai quattro
 adottanti** via il loro `method-review` (`nixos`, `bi`, poi `salute` in `dcb08dc`
 e `economia` in `22e22ca`); la prescrizione esaurita è rimossa da
 `o3/`, la storia resta in Git. Lo **strato di presentazione** è
-chiuso: `deck` è stato scisso in `view`, `presentation/assets/` e `presentation/` sono materializzati,
+chiuso: la vista a slide è stata ricondotta a `view`, `presentation/assets/` e `presentation/` sono materializzati,
 le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Anche la
 **home della system image** è chiusa: `presentation/index.html` è generato, statico, offline e
 consuma README, Plan e le viste. Il cluster implementativo aperto dal gate è

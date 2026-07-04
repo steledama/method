@@ -12,7 +12,7 @@ L'i2 non lavora sul grezzo: da centinaia di segnali (i1) non si interpreta nulla
 
 ## i2 micro e i2 macro
 
-L'atto Interpret ha due scale. L'i2-**micro** è la singola nota bozza che distilla un i1 — un referto, un export, un segnale. L'i2-**macro** è la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente: è il ruolo di `i2/` come collezione, dove ogni sezione del deck è un'interpretazione, non un nodo bozza.
+L'atto Interpret ha due scale. L'i2-**micro** è la singola nota bozza che distilla un i1 — un referto, un export, un segnale. L'i2-**macro** è la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente: è il ruolo di `i2/` come collezione, dove ogni sezione della vista Interpretazioni è un'interpretazione, non un nodo bozza.
 
 ## La maturazione e il vincolo di valenza
 

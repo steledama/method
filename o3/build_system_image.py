@@ -68,7 +68,7 @@ SLOTS = {
         ),
         "i2": (
             "interpretations.html",
-            "deck",
+            "vista Interpretazioni",
             "La sintesi illustrata del metodo e dei nodi.",
         ),
         "i1": (

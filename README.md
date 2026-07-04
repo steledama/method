@@ -59,7 +59,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia 
 **Le due ali fuori dal ciclo** — trasversali agli stadi:
 
 - **[kb/](kb/kb.md)** — il nucleo di conoscenza formalizzata della system image; il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
-- **[presentation/](presentation/)** — la superficie presentativa: `index.html` (la home della system image), il deck e le viste generate, gli asset condivisi
+- **[presentation/](presentation/)** — la superficie presentativa: `index.html` (la home della system image), le viste generate e gli asset condivisi
 
 **Register** — puntano _fuori_ dall'artefatto:
 
@@ -75,7 +75,7 @@ Il cruscotto di lavoro è la coppia [`o1/plan.md`](o1/plan.md) (lato esecuzione:
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
 - **Strumenti comuni**: `o3/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade operativa — `/kb-review`, `/tasks-review`, `/commit` — e la skill di allineamento `/method-review` vivono in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
 - **Manutenzione propria del metodo**: task in `o2/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Presentazione**: [`presentation/`](presentation/) raccoglie l'intera superficie presentativa. [`presentation/index.html`](presentation/index.html) è la home statica della system image, generata da `README.md` e `o1/plan.md` con `o3/build-system-image.sh`; apre il ciclo Goal/Plan/Specify/Compare/Interpret/World e punta alle viste. [`i2/`](i2/interpretations.md) è la collezione sorgente dello stadio i2; [`i2/metodo-in-sintesi.md`](i2/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero. Il `.md` è la fonte unica; `o3/build-presentation.sh` genera `presentation/interpretations.html`, la vista navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Lo stesso script genera `presentation/tasks.html` e `presentation/verdict.html`; gli asset comuni stanno in `presentation/assets/`. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
+- **Presentazione**: [`presentation/`](presentation/) raccoglie l'intera superficie presentativa. [`presentation/index.html`](presentation/index.html) è la home statica della system image, generata da `README.md` e `o1/plan.md` con `o3/build-system-image.sh`; apre il ciclo Goal/Plan/Specify/Compare/Interpret/World e punta alle viste. [`i2/`](i2/interpretations.md) è la collezione sorgente dello stadio i2; [`i2/metodo-in-sintesi.md`](i2/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero. Il `.md` è la fonte unica; `o3/build-presentation.sh` genera `presentation/interpretations.html`, la vista navigabile a slide della collezione, apribile direttamente dal checkout. Lo stesso script genera `presentation/tasks.html` e `presentation/verdict.html`; gli asset comuni stanno in `presentation/assets/`. Il PDF per stampa/distribuzione (o3) esce dall'export della vista a slide e non viene versionato.
 
 ## Come collegare un nuovo progetto
 

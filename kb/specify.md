@@ -8,7 +8,7 @@ Lo stadio o2 del ciclo d'azione: la vista di decisione per l'umano, lo stadio Sp
 
 ## La forma dell'o2 segue la domanda
 
-L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, deck di slide, grafico, canvas (cfr. `karpathy-pattern`). Il deck è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento del deck resta uniforme tra i repo (cfr. `deck`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
+L'o2 non è una sola forma. Karpathy: la forma della risposta segue la domanda — pagina markdown, tabella di confronto, presentazione a slide, grafico, canvas (cfr. `karpathy-pattern`). La vista a slide è la forma-default per la sintesi che si scorre, ma per un'altra domanda l'o2 giusto può essere una tabella o un grafico. Lo strumento resta uniforme tra i repo (cfr. `view`); il repertorio delle forme no: si sceglie per funzione, non per uniformità.
 
 ## o2 e o1 sono due altitudini
 

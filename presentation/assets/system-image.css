@@ -200,7 +200,7 @@ h2 {
 }
 
 .cycle-card,
-.deck-card,
+.view-card,
 .task-item,
 .world-item {
   background: var(--panel);
@@ -226,7 +226,7 @@ h2 {
 .cycle-card small,
 .task-meta,
 .world-note,
-.deck-card p,
+.view-card p,
 .task-item p {
   color: var(--muted);
 }
@@ -240,22 +240,22 @@ h2 {
   text-transform: uppercase;
 }
 
-.deck-band {
+.view-band {
   background: var(--soft);
   border-block: 1px solid var(--line);
 }
 
-.deck-card {
+.view-card {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
-.deck-card h2 {
+.view-card h2 {
   margin-bottom: 0.2rem;
 }
 
-.deck-link {
+.view-link {
   align-self: center;
   background: var(--accent);
   border-radius: 999px;
@@ -317,11 +317,11 @@ h2 {
   }
 
   .cycle-grid,
-  .deck-card {
+  .view-card {
     grid-template-columns: 1fr;
   }
 
-  .deck-link {
+  .view-link {
     justify-self: start;
   }
 }
