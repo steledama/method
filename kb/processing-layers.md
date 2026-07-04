@@ -40,7 +40,7 @@ I tre livelli stratificano il ciclo di azione per altezza, e la corrispondenza
 non è forzata: viene dalla definizione stessa di Norman. Il _visceral_ «makes
 rapid judgments of what is good or bad… and sends signals to the muscles» —
 giudizio sensoriale rapido più output motorio — è la cerniera bassa nel suo
-insieme. `world` contiene il segnale grezzo e l'atto; i1 e o3 ne sono i riflessi
+insieme. `world` contiene il segnale grezzo e l'atto; `i1/` e `o3/` ne sono i riflessi
 versionati, rispettivamente cattura del Perceive e prescrizione del Perform. o3
 non è dunque il gesto motorio: lo prepara dal lato dell'artefatto. Il
 _reflective_ «watches over, reflects upon, and tries to bias the behavioral
@@ -59,7 +59,7 @@ La conseguenza di progetto è netta e spiega le stasi. Il riflessivo non agisce:
 
 ## I tre specchi sono i tre livelli
 
-I due archi del ciclo sono speculari e accoppiati per altitudine (cfr. `action-cycle`, `input`, `output`): ogni coppia output↔input cade su uno dei tre livelli. **o3↔i1** (`perform`↔`perceive`) è la coppia _viscerale_, alla membrana `world`: prescrizione dell'atto e cattura del segnale, i due riflessi versionati del gesto e della percezione. **o2↔i2** (`specify`↔`interpret`) è la coppia _behavioral_, la vita del ciclo: la stessa superficie (`interpretations/`) prodotta come vista di decisione (o2) e letta come substrato d'interpretazione (i2). **o1↔i3** (`plan`↔`compare`) è la coppia _riflessiva_, alla KB: piano strutturato e conoscenza formalizzata. Dei tre specchi solo **o2↔i2** ha oggi una materializzazione attiva — il deck, l'unica superficie che il metodo produce e rilegge nello stesso artefatto (cfr. `deck`); gli altri due restano specchi concettuali finché un artefatto non li rende letterali.
+I due archi del ciclo sono speculari e accoppiati per altitudine (cfr. `action-cycle`, `input`, `output`): ogni coppia output↔input cade su uno dei tre livelli. **o3↔i1** (`perform`↔`perceive`) è la coppia _viscerale_, alla membrana `world`: prescrizione dell'atto e cattura del segnale, i due riflessi versionati del gesto e della percezione. **o2↔i2** (`specify`↔`interpret`) è la coppia _behavioral_, la vita del ciclo: una superficie di decisione prodotta come o2 e riletta come substrato d'interpretazione in `i2/`. **o1↔i3** (`plan`↔`compare`) è la coppia _riflessiva_, alla KB: piano strutturato e conoscenza formalizzata. Dei tre specchi solo **o2↔i2** ha oggi una materializzazione attiva — il deck, l'unica superficie che il metodo produce e rilegge nello stesso artefatto (cfr. `deck`); gli altri due restano specchi concettuali finché un artefatto non li rende letterali.
 
 ## Riferimenti
 

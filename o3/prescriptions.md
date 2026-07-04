@@ -17,7 +17,7 @@ Nessuna prescrizione attiva.
 L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del
 cluster: adozione della sezione README canonica e classificazione dei link al
 metodo in generale / intenzionale / accidentale; recepita dai quattro adottanti via
-il proprio `method-review` il 2026-06-21, cfr. `verdict.md`). La storia resta in
+il proprio `method-review` il 2026-06-21, cfr. fili `i3/`). La storia resta in
 Git.
 
 ## Strumenti

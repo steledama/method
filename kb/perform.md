@@ -6,7 +6,7 @@ stato: bozza
 
 Lo stadio o3 del ciclo d'azione: la prescrizione versionata dell'atto, il riflesso del Perform predisposto sul lato interno della membrana `world`. o3 **non è l'atto**: l'email inviata, l'incontro, la transazione, il deploy e il gesto corporeo accadono nel Mondo. o3 è la loro prescrizione versionata — un canovaccio, un messaggio predisposto, un promemoria, un runbook, un payload pronto. È l'ultimo gradino dell'arco di esecuzione (cfr. `output`), quello che bacia la membrana `world`.
 
-Come i1 (`perceive`), o3 è **on-demand**: serve quando l'esecuzione richiede precisione, revisione o durata; non ogni gesto deve lasciare un artefatto. Dove vive: la collezione `prescriptions/`, versionata quando precisione o durata lo richiedono.
+Come i1 (`perceive`), o3 è **on-demand**: serve quando l'esecuzione richiede precisione, revisione o durata; non ogni gesto deve lasciare un artefatto. Dove vive: la collezione `o3/`, indicizzata da `o3/prescriptions.md`, versionata quando precisione o durata lo richiedono.
 
 ## L'esecuzione può far emergere Goal
 

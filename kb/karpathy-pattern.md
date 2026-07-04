@@ -21,10 +21,10 @@ Architettura:
 - fonti: materiali grezzi o elaborati che alimentano la KB, conservati separatamente dai nodi atomici
 - nodi: unità concettuali compilate a partire dalle fonti, dalle riflessioni e dalle sessioni di lavoro
 - schema operativo: istruzioni, convenzioni e skill che insegnano all'LLM come mantenere il progetto
-- indice: catalogo statico nel README che orienta umano e LLM nella rete dei nodi
-- verdict: il verdetto attuale per filo/area aperta, aggiornato in place — la cronologia è il git history del file
+- indice: catalogo statico in `kb/kb.md` che orienta umano e LLM nella rete dei nodi
+- verdict: il verdetto attuale per filo/area aperta, aggiornato in place nei file `i3/` — la cronologia è il git history del file
 - strumenti: script versionati che rendono deterministici i controlli meccanici
-- task: lavoro futuro tracciato in `plan.md` e dettagliato in tasks/, separato dalla conoscenza stabile
+- task: lavoro futuro tracciato in `o1/plan.md` e dettagliato in `o2/`, separato dalla conoscenza stabile
 - wrapper agent: AGENTS.md e .codex/skills quando servono più agenti sullo stesso progetto
 
 Operazioni:
@@ -36,12 +36,12 @@ Operazioni:
 
 Ciclo di bootstrap:
 
-- l'agente legge README.md per orientamento; il catalogo in `kb.md`, i task in `plan.md`
+- l'agente legge README.md per orientamento; il catalogo in `kb/kb.md`, i task in `o1/plan.md`
 - l'agente legge CLAUDE.md per regole operative e comandi sicuri
 - l'agente apre solo i nodi necessari alla domanda o al task corrente
-- l'agente usa tools/kb_tools.py per controlli strutturali invece di improvvisare parser
+- l'agente usa `o3/kb_tools.py` per controlli strutturali invece di improvvisare parser
 - l'agente propone filing back quando una conversazione produce conoscenza durevole
-- l'agente aggiorna README, verdict, tasks e nodi solo secondo il ruolo di ciascun file
+- l'agente aggiorna README, fili `i3/`, `o1/plan.md`/`o2/` e nodi solo secondo il ruolo di ciascun file
 
 Differenze rispetto al RAG:
 

@@ -47,8 +47,9 @@ Il principio centrale è che l'artefatto non è una cartella di appunti né un
 archivio da interrogare occasionalmente. È cumulativo: ogni ingest, query, lint
 o filing back deve lasciarlo più chiaro, più collegato o più verificabile
 di prima. La struttura della KB emerge dalle connessioni tra i nodi; la
-struttura esplicita appartiene al progetto intero: cruscotto in root,
-cataloghi e collezioni-stadio, strati input/output e membrana `world`.
+struttura esplicita appartiene al progetto intero: atrio, cruscotto nelle stanze
+`o1/` e `i3/`, cataloghi interni, collezioni-stadio, strati input/output e
+membrana `world`.
 
 Il metodo è portabile tra progetti diversi. La sua parte stabile riguarda forma dei nodi, strumenti di manutenzione, memoria interpretativa, indice, task aperti e collaborazione con LLM; la parte locale riguarda dominio, cluster, lessico, fonti, vincoli tecnici e priorità. Il principio generale è neutro: relazionalità, significato emergente dalle connessioni, conoscenza come rete invece che come archivio di elementi isolati.
 
@@ -61,15 +62,15 @@ Indice cognitivo del metodo:
 - `AGENTS.md`: dove trovo le istruzioni operative condivise tra agenti?
 - `CLAUDE.md`: come devo agire in questo repo?
 - `README.md`: dove sono e da dove parto?
-- `kb.md`: quali nodi esistono e come li trovo?
-- `plan.md`: cosa dobbiamo fare adesso?
+- `kb/kb.md`: quali nodi esistono e come li trovo?
+- `o1/plan.md`: cosa dobbiamo fare adesso?
 - `map.md`: com'è fatto il territorio reale del dominio, e come si lega ai nodi? (dove esiste)
 - nodo: che cosa significa questo concetto specifico?
 - connessioni: a quali altri concetti è legato?
-- `tasks/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
-- `verdict.md`: perché una decisione o una sessione conta?
+- `o2/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
+- `i3/`: perché una decisione o una sessione conta?
 - git history: che cosa è cambiato davvero?
-- `tools/`: quali controlli sono deterministici?
+- `o3/`: quali controlli e prescrizioni sono deterministici?
 - skill: quali workflow ricorrenti sono codificati?
 - fonti di verità: contro che cosa verifico ciò che la KB dice?
 - fedeltà cognitiva: la KB aderisce ancora al sistema reale?
@@ -89,18 +90,18 @@ Ricetta metodologica:
   richiede verifica anti-drift, `cognitive-fidelity`. Negli adottanti questi nodi
   possono vivere in `method/` come symlink, mentre `kb/` resta dedicata al
   dominio.
-- `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `plan`, il catalogo in `kb`, il modello nei nodi e in `interpretations/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
+- `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `o1/plan.md`, il catalogo in `kb/kb.md`, il modello nei nodi e in `i2/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
 - `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
 - `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
-- `map.md`: l'**indice-di-dominio** in root, una porta aperta on-demand (come `kb.md`). Collega il territorio reale — entità, fonti di verità, flussi — ai nodi che lo spiegano. Presente dove il dominio ha un territorio da indicizzare; assente dove è astratto (in `metodo` non c'è). Non è la bussola (quella è il README) né il modello (che vive nei nodi e in `interpretations/`). Dettaglio nel nodo `map`.
-- `verdict.md`: il verdetto attuale, per filo/area aperta. Il git log conserva cosa è cambiato; `verdict.md` conserva come stanno le cose ora su ciascun filo e perché conta, aggiornato in place — la cronologia di un filo è il git history del file stesso. Non è un archivio di output automatici.
-- `plan.md` + `tasks/`: il Plan in root supervisiona il lavoro futuro; `tasks/` ne tiene i dettagli operativi. `plan.md` è l'indice di `tasks/`: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, verdict e nodi aggiornati.
-- `tools/`: strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di _sviluppo_, distinta dagli `scripts/` di output del _runtime_ nei repo code-based). `tools/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
+- `map.md`: l'**indice-di-dominio** in root, una porta aperta on-demand. Collega il territorio reale — entità, fonti di verità, flussi — ai nodi che lo spiegano. Presente dove il dominio ha un territorio da indicizzare; assente dove è astratto (in `metodo` non c'è). Non è la bussola (quella è il README) né il modello (che vive nei nodi e in `i2/`). Dettaglio nel nodo `map`.
+- `i3/`: i verdetti attuali, un file per filo/area aperta. Il git log conserva cosa è cambiato; il filo conserva come stanno le cose ora e perché conta, aggiornato in place — la cronologia di un filo è il git history del file stesso. Non è un archivio di output automatici.
+- `o1/plan.md` + `o2/`: il Plan supervisiona il lavoro futuro; `o2/` ne tiene i dettagli operativi. `o1/plan.md` è l'indice di `o2/`: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, nei fili `i3/` e nei nodi aggiornati.
+- `o3/`: prescrizioni e strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di _sviluppo_, distinta dagli `scripts/` di output del _runtime_ nei repo code-based). `o3/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
 - `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade operativa ufficiale è `kb-review` (diagnosi), `tasks-review` (supervisione del lavoro futuro) e `commit` (gate di filing back); `method-review` verifica l'allineamento dell'adottante ai commit del metodo. Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
 - strato output: traduce la KB in azione possibile (o1 macchina / o2 decisione
   / o3 prescrizione versionata). Lo strato di sintesi-documento ha nome
-  uniforme, `interpretations/`; la stessa superficie è o2 quando viene prodotta
+  uniforme, `i2/`; la stessa superficie è o2 quando viene prodotta
   e substrato i2 quando viene letta.
 - strato input: cattura il ritorno (i1 valenza-neutro → i2 interpretazione → i3
   formalizzazione) e permette all'artefatto di ascoltare ciò che lo smentisce.
@@ -113,16 +114,16 @@ Creazione di un nuovo progetto:
 
 - partire dalla ricetta metodologica come checklist, non come gerarchia concettuale
 - personalizzare nome, dominio, scopo, cluster iniziali, fonti di verità e task aperti
-- generare `README.md` come bussola concisa che orienta e punta a `plan.md`, `kb.md` e al modello (nodi/`interpretations`, e `map.md` dove esiste)
+- generare `README.md` come bussola concisa che orienta e punta a `o1/plan.md`, `kb/kb.md` e al modello (nodi/`i2/`, e `map.md` dove esiste)
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
-- creare `kb.md` come catalogo dei nodi e, dove il dominio ha un territorio da indicizzare, `map.md` come indice-di-dominio
+- creare `kb/kb.md` come catalogo dei nodi e, dove il dominio ha un territorio da indicizzare, `map.md` come indice-di-dominio
 - dichiarare la membrana `world/` e gli strati input/output del dominio, senza
   creare riflessi versionati che l'uso non richiede ancora
-- creare `verdict.md` vuoto o con un primo filo di fondazione
-- creare `plan.md` come Plan e `tasks/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico
+- creare `i3/verdicts.md` e, se serve, un primo file-filo di fondazione
+- creare `o1/plan.md` come Plan e `o2/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico
 - creare almeno i nodi dominio iniziali se il progetto ha già concetti stabili
-- aggiungere `tools/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
+- aggiungere strumenti in `o3/`, skill e wrapper solo quando esistono workflow reali da rendere ripetibili
 
 Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in stato bozza. Il nodo autonomo rende esplicita la funzione cognitiva del componente, permette confronti cross-repo e segnala quali parti del metodo sono mature e quali sono ancora work in progress. Un componente può essere descritto anche in `project-structure`, ma il suo nodo dedicato resta il punto in cui accumulare regole, esempi reali e criteri di revisione.
 
@@ -145,8 +146,8 @@ Tipi documentali:
 - nodo concettuale: spiega un'idea stabile e riusabile
 - reference: rende accessibili dati o convenzioni da consultare rapidamente
 - runbook: guida un'azione operativa con sequenza e verifiche
-- tasks/: conserva lavoro futuro e contesto transitorio
-- verdict.md: il verdetto attuale per filo/area aperta
+- o2/: conserva lavoro futuro e contesto transitorio
+- i3/: il verdetto attuale per filo/area aperta
 
 Le categorie non sono gabbie formali, ma aiutano a preservare funzione e
 aspettative di lettura. Quando più tipi iniziano a convivere nello stesso file,
@@ -167,12 +168,12 @@ Operazioni ricorrenti:
 Regole sullo stato:
 
 - ciò che è stabile e riusabile diventa nodo in kb/
-- ciò che è da fare resta in `plan.md` o, con contesto, in tasks/
-- ciò che è stato fatto sparisce da tasks/ e viene conservato da git, verdict.md e dai nodi aggiornati
-- ciò che spiega perché una decisione conta va in verdict.md
+- ciò che è da fare resta in `o1/plan.md` o, con contesto, in `o2/`
+- ciò che è stato fatto sparisce da `o2/` e viene conservato da git, fili `i3/` e nodi aggiornati
+- ciò che spiega perché una decisione conta va nei fili `i3/`
 - ciò che spiega come lavorare va in CLAUDE.md, skill o strumenti versionati
 - ciò che serve solo come appunto temporaneo non entra nel metodo finché non diventa task, nodo o verdict
-- la KB permanente descrive il presente; la storia resta in git e verdict.md salvo che diventi concetto riusabile
+- la KB permanente descrive il presente; la storia resta in git e nei fili `i3/` salvo che diventi concetto riusabile
 - una generalizzazione metodologica entra in `metodo` solo dopo evidenza locale sufficiente in almeno un repo adottante, e idealmente con verifica di portabilità su almeno un secondo contesto
 
 Regole di revisione:
@@ -194,7 +195,7 @@ Regole di revisione:
 Personalizzazioni locali:
 
 - nome, dominio e scopo del progetto
-- cluster del catalogo `kb.md`
+- cluster del catalogo `kb/kb.md`
 - fonti e directory specialistiche
 - task aperti e priorità
 - lessico specifico del dominio

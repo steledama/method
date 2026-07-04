@@ -25,17 +25,17 @@ Caratteristiche:
 Adattamento operativo:
 
 - i nodi non sono categorie, ma unità interrogabili
-- il catalogo `kb.md` è una mappa di accesso, non una gerarchia rigida
+- il catalogo `kb/kb.md` è una mappa di accesso, non una gerarchia rigida
 - i cluster dell'indice possono cambiare senza rinominare i nodi
-- i task aperti non sono nodi: vivono in `plan.md` e tasks/
+- i task aperti non sono nodi: vivono in `o1/plan.md` e `o2/`
 - le fonti non sono nodi: alimentano la creazione o revisione dei nodi
-- `verdict.md` non è nodo: registra il verdetto attuale per filo aperto, non un concetto stabile
+- i fili `i3/` non sono nodi: registrano il verdetto attuale per filo aperto, non un concetto stabile
 
 Regola pratica:
 
 - se il contenuto serve a capire un concetto, va in kb/
-- se serve a fare una cosa futura, va in tasks/
-- se spiega una decisione già presa, va in verdict.md
+- se serve a fare una cosa futura, va in `o1/plan.md` o in `o2/`
+- se spiega una decisione già presa, va in un filo `i3/`
 - se istruisce un agente, va in CLAUDE.md o in una skill
 - se orienta il lettore, va in README.md
 - se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto, non in kb/

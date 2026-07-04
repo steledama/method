@@ -14,8 +14,8 @@ L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti
 
 - README: funzione di bussola (orienta e punta, non immagazzina), qualità dei router, puntatori al cruscotto (plan, catalogo, modello, indice-di-dominio dove esiste)
 - CLAUDE.md e AGENTS.md: chiarezza operativa, separazione tra regole d'azione e contenuto di dominio, costo di caricamento
-- verdict.md: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
-- tasks/: corrispondenza con `plan.md`, qualità del contesto operativo, presenza di task morti
+- fili `i3/`: qualità della memoria interpretativa, granularità delle decisioni, rapporto con git
+- `o1/plan.md` + `o2/`: corrispondenza tra supervisione e dettagli, qualità del contesto operativo, presenza di task morti
 - nodi KB: quantità, cluster, hub, orfani, formato, link, copertura delle aree reali, equilibrio tra mappa, concetto, reference e runbook
 - strumenti: comandi comuni, estensioni locali, dipendenze, output ricostruibili, confine tra audit strutturale e fedeltà cognitiva
 - skill: workflow ricorrenti, differenze locali, duplicazioni, possibilità di template o wrapper comuni
@@ -25,14 +25,14 @@ Il confronto deve produrre tre tipi di esito:
 
 - generalizzazione metodologica: una differenza locale rivela una regola portabile e viene integrata nei nodi di metodo
 - estensione strumentale: una duplicazione stabile diventa script, comando, skill base o template riusabile
-- task locale: un problema resta lavoro autonomo di dominio e va tracciato nel `tasks/` del repo interessato
+- task locale: un problema resta lavoro autonomo di dominio e va tracciato in `o1/plan.md`/`o2/` del repo interessato
 - manutenzione propria del metodo: una generalizzazione già emersa richiede ristrutturazione, semplificazione, rinomina, documentazione o strumenti portabili nel repo `metodo`
 
 La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di problemi altrui né un orchestratore centralizzato che toglie autonomia ai progetti. Deve invece funzionare come osservatorio: raccoglie segnali, interpreta pattern e custodisce generalizzazioni. Le verifiche operative restano nei repo dove nascono, perché lì vivono fonti, priorità, dipendenze e criteri di chiusura.
 
 Analisi periodiche:
 
-- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map, plan, verdict, tasks, scripts, skill, nodi metodo e nodi dominio
+- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map, `o1/plan.md`, fili `i3/`, `o2/`, strumenti, skill, nodi metodo e nodi dominio
 - confronto strumenti: sottocomandi comuni, comandi locali, dipendenze, output, compatibilità della superficie base
 - confronto skill: scopo, istruzioni, path, formatter, relazione con script versionati
 - confronto KB: numero nodi, link, orfani, hub, cluster, tipi documentali, nodi non indicizzati, accessi cognitivi

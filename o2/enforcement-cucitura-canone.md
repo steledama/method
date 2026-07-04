@@ -8,7 +8,7 @@ ciclo: dev
 
 ## Problema
 
-La disciplina è **dichiarata, non enforced** (cfr. `verdict.md`, filo «La membrana
+La disciplina è **dichiarata, non enforced** (cfr. `i3/membrana-afforda-scrittura.md`, filo «La membrana
 `method/` afforda scrittura»; recepita in `kb/world.md`). Oggi regge su un solo
 presidio: l'agente adottante che, scrivendo un nodo di canone via symlink, **si
 accorge** che l'edit non è suo e **si ferma** — come ha fatto `bi`. È un controllo

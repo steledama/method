@@ -36,7 +36,7 @@ Regole del progetto:
 - le connessioni puntano a filename relativi nello stesso folder quando sono nodi della stessa KB
 - i link cross-folder tra kb/ e altre directory sono evitati nei nodi
 - README può linkare liberamente ai nodi perché è un indice, non un nodo
-- tasks/ può linkare a kb/ con percorso esplicito quando serve contesto operativo
+- `o2/` può linkare a `kb/` con percorso esplicito quando serve contesto operativo
 - le rinominazioni richiedono aggiornamento dei link e audit
 
 Ordinamento:

@@ -85,7 +85,7 @@ I fili di `i3/` sono il verdetto attuale, per filo/area aperta — non un log. I
 `method-review` completa questa base sul confine tra repository: legge i commit
 del metodo successivi al marker versionato dell'adottante, classifica ciò che è
 diretto, adattato, non pertinente o già soddisfatto e lascia l'eventuale lavoro
-futuro nel `plan.md`/`tasks/` locale. Non sostituisce la triade: controlla la
+futuro in `o1/plan.md`/`o2/` locale. Non sostituisce la triade: controlla la
 relazione adottante-metodo, non la salute o la coda interna del progetto.
 
 ## Struttura uniforme, carattere nel contenuto
@@ -137,7 +137,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - `kb/*.md`: frontmatter obbligatorio `stato`, secondo il nodo node
 - item di collezione-stadio: frontmatter obbligatorio `ciclo: dev|runtime`
 - task in `o2/`: frontmatter obbligatorio `stato: aperto` + `sintesi`, secondo il nodo tasks, oltre a `ciclo: dev|runtime`
-- bussola/regole (`README.md`, `CLAUDE.md`, `AGENTS.md`), register (`map.md`, `sources.md`) e indici di collezione (`i1/perceptions.md`, `kb/kb.md`, …): nessun frontmatter
+- bussola/regole (`README.md`, `CLAUDE.md`, `AGENTS.md`), register (`map.md`, `sources.md`) e indici ordinari di collezione (`i1/perceptions.md`, `kb/kb.md`, …): nessun frontmatter; `o1/plan.md` fa eccezione perché è anche l'istanza corrente del Plan
 
 La ragione è funzionale. I nodi, i task e gli item di collezione sono unità analizzabili dagli strumenti; bussola, regole, register e indici di collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter lì crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
 

@@ -38,11 +38,11 @@ versionato locale.
 
 `kb-review` è la skill diagnostica. Misura salute strutturale, link, copertura,
 frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
-interpretare strumenti locali come `tools/kb_tools.py`, ma non deve trasformarsi
+interpretare strumenti locali come `o3/kb_tools.py`, ma non deve trasformarsi
 in procedura di correzione automatica.
 
 `tasks-review` è la skill di supervisione del lavoro futuro. Controlla
-coerenza tra `plan.md` e `tasks/`, rivaluta priorità e dipendenze, individua task
+coerenza tra `o1/plan.md` e `o2/`, rivaluta priorità e dipendenze, individua task
 superati o nuovi task emersi dai fatti e propone il prossimo lavoro. Resta
 parametrizzata per-progetto perché i segnali che cambiano i task dipendono dal
 dominio: scadenze e pratiche in `economia`, rebuild e host in `nixos`, flussi dati
@@ -51,7 +51,7 @@ nodi da propagare in `metodo`.
 
 `commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
-map, nodo KB, tasks o `verdict.md` siano stati aggiornati coerentemente.
+map, nodo KB, task in `o2/` o fili `i3/` siano stati aggiornati coerentemente.
 
 `method-review` è la skill di allineamento trans-repo. Distingue cambiamenti già
 soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
@@ -85,7 +85,7 @@ pattern: lo dogfooda, possedendo la base canonica di riferimento; ogni repo
 adottante la forka con la stessa struttura e con letture contestuali diverse. La
 vecchia regola — `metodo` esente dal versionare skill — confondeva due cose: che
 le skill siano parametrizzate per-progetto (vero) e che `metodo` ne sia esente
-(non-sequitur, dato che `metodo` è esso stesso una KB con `plan`/`tasks`/`verdict.md`).
+(non-sequitur, dato che `metodo` è esso stesso una KB con `o1/plan.md`, `o2/` e fili `i3/`).
 
 Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento locale.
 

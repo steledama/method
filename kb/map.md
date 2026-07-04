@@ -4,19 +4,19 @@ stato: bozza
 
 # Map
 
-La mappa è il **register dell'indice-di-dominio**: il file che risponde alla domanda _com'è fatto il territorio reale di questo progetto?_ Collega entità, fonti di verità, flussi, responsabilità, aree e nodi di approfondimento. Non elenca tutto: rende visibile il modello del sistema reale e lo lega ai nodi che lo spiegano. La sua istanza è il register root `map.md`, una **porta aperta on-demand** (come `kb.md`) — _non_ la bussola d'ingresso, che è il README, e _non_ un file-ciclo del bootstrap.
+La mappa è il **register dell'indice-di-dominio**: il file che risponde alla domanda _com'è fatto il territorio reale di questo progetto?_ Collega entità, fonti di verità, flussi, responsabilità, aree e nodi di approfondimento. Non elenca tutto: rende visibile il modello del sistema reale e lo lega ai nodi che lo spiegano. La sua istanza è il register root `map.md`, una **porta aperta on-demand** — _non_ la bussola d'ingresso, che è il README, e _non_ un file-ciclo del bootstrap.
 
 Per un LLM la mappa è un dispositivo cognitivo potente: senza, l'agente ricostruisce il territorio da nomi file e link; con una buona mappa capisce subito quali elementi sono centrali, quali fonti verificano i fatti e quali nodi aprire per un intervento.
 
-Esiste **dove il dominio ha un territorio da indicizzare** (host, conti, sistemi, entità). Dove il dominio è astratto non serve: in `metodo` non c'è `map.md`, perché il suo territorio runtime — i progetti adottanti — è indicizzato dall'osservatorio e non da una mappa, mentre il modello vive nei nodi e in `interpretations/`.
+Esiste **dove il dominio ha un territorio da indicizzare** (host, conti, sistemi, entità). Dove il dominio è astratto non serve: in `metodo` non c'è `map.md`, perché il suo territorio runtime — i progetti adottanti — è indicizzato dall'osservatorio e non da una mappa, mentre il modello vive nei nodi e in `i2/`.
 
-Distinzione netta da `kb.md`: `kb.md` indicizza i **nodi della KB** (cosa è scritto), `map.md` indicizza il **territorio del dominio** (cos'è il mondo) e lo lega ai nodi. Sono due porte diverse dell'atrio: `kb.md` è il catalogo trasversale dei nodi, `map.md` un register che punta al territorio fuori dall'artefatto.
+Distinzione netta dal catalogo `kb/kb.md`: `kb/kb.md` indicizza i **nodi della KB** (cosa è scritto), `map.md` indicizza il **territorio del dominio** (cos'è il mondo) e lo lega ai nodi. Sono due porte diverse dell'atrio: `kb/` è la porta della collezione dei nodi, `map.md` un register che punta al territorio fuori dall'artefatto.
 
 Regole:
 
 - è un register root `map.md`, porta aperta on-demand; coppia register/concetto con questo nodo `kb/map.md`
 - **nome uniforme `map.md`** in tutti i repo che ne hanno bisogno (supera il drift `project-map.md` / `mappa-progetto.md`)
-- collega sistema reale, fonti di verità e nodi; non sostituisce il catalogo dei nodi (`kb.md`)
+- collega sistema reale, fonti di verità e nodi; non sostituisce il catalogo dei nodi (`kb/kb.md`)
 - non diventa storico né lista di task
 - può essere diversa per domini tecnici, finanziari o riflessivi
 - include lo strato output come dimensione esplicita: dove vivono o1, o2, o3 nel progetto e come il ciclo di azione ritorna alla KB come nuova fonte; senza questa dimensione la mappa descrive solo l'accumulo di conoscenza, non il ciclo completo

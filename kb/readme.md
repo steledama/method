@@ -13,10 +13,10 @@ README.md ha una doppia audience. Per l'umano è la porta d'ingresso leggibile; 
 Il README **orienta e punta, non immagazzina**. È il signifier d'ingresso: dice cosa c'è e dove sta, non lo contiene.
 
 - **contiene**: sintesi del dominio e dello scopo, obiettivi, principi guida in sintesi, e l'orientamento operativo — _dove_ vivono modello, lavoro, catalogo, strumenti, output, fonti, ragioni — così che umano e LLM abbiano la visione d'insieme e sappiano dove trovare viste di portata minore o info puntuali
-- **non contiene**: il modello del dominio, il catalogo dei nodi, i principi _estesi_, procedure/flag/troubleshooting, la teoria del metodo. Tutto questo vive nei nodi `kb/` (es. `design-principles`), nei register (`kb.md`, `map.md`) e in `interpretations/`: il README ci _punta_
+- **non contiene**: il modello del dominio, il catalogo dei nodi, i principi _estesi_, procedure/flag/troubleshooting, la teoria del metodo. Tutto questo vive nei nodi `kb/` (es. `design-principles`), nei register (`kb/kb.md`, `map.md`) e in `i2/`: il README ci _punta_
 - principi guida ed obiettivi, quando diventano estesi, sono un **nodo** `kb/`: il README li sintetizza e rimanda
 
-Conseguenza: **non esiste un `map.md` separato come "modello in root"** — la bussola è il README. Il modello del dominio vive nei nodi e in `interpretations/`; dove il dominio ha un territorio da indicizzare, un register `map.md` lo mappa sui nodi (porta on-demand), ma è l'indice del territorio, non la bussola.
+Conseguenza: **non esiste un `map.md` separato come "modello in root"** — la bussola è il README. Il modello del dominio vive nei nodi e in `i2/`; dove il dominio ha un territorio da indicizzare, un register `map.md` lo mappa sui nodi (porta on-demand), ma è l'indice del territorio, non la bussola.
 
 Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo o teoria del metodo, il contenuto va spostato nei nodi (o nel register pertinente) e il README torna a essere un router. È il primo livello della tripartizione **README orienta · CLAUDE istruisce · KB approfondisce**, dettagliata in `kb-tools`.
 
@@ -24,9 +24,9 @@ Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo
 
 - descrivere nome, dominio e scopo del progetto
 - dichiarare in sintesi obiettivi e principi, puntando ai nodi quando sono estesi (es. `design-principles`)
-- puntare a `plan.md` per i task aperti e le priorità correnti
-- puntare al modello del dominio dove vive: nodi `kb/` e `interpretations/` (e al register `map.md` dove esiste)
-- puntare al catalogo dei nodi `kb.md`, senza incorporarlo
+- puntare a `o1/plan.md` per i task aperti e le priorità correnti
+- puntare al modello del dominio dove vive: nodi `kb/` e `i2/` (e al register `map.md` dove esiste)
+- puntare al catalogo dei nodi `kb/kb.md`, senza incorporarlo
 - elencare molto brevemente gli strumenti disponibili, rimandando a CLAUDE per l'uso operativo e ai nodi per il dettaglio
 - distinguere metodo portabile e specificità locali
 

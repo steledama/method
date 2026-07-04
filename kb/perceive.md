@@ -6,7 +6,7 @@ stato: bozza
 
 Lo stadio i1 del ciclo d'azione: la cattura versionata e valenza-neutra del segnale del mondo, il riflesso del Perceive sul lato interno della membrana `world`. Non coincide con il grezzo — il grezzo resta in `world` — ma ne è l'estratto che l'artefatto trattiene quando serve. È l'apertura dell'arco di valutazione (cfr. `input`), il primo gradino della risalita dal Mondo alla KB.
 
-Come o3 (`perform`), i1 è un riflesso **on-demand**. Si crea quando il segnale è effimero, oppure quando precisione, revisione o durata giustificano una cattura; se il grezzo è già persistente, accessibile e stabile, duplicarlo nel repository è spreco. Dove vive: la collezione `perceptions/`.
+Come o3 (`perform`), i1 è un riflesso **on-demand**. Si crea quando il segnale è effimero, oppure quando precisione, revisione o durata giustificano una cattura; se il grezzo è già persistente, accessibile e stabile, duplicarlo nel repository è spreco. Dove vive: la collezione `i1/`, indicizzata da `i1/perceptions.md`.
 
 ## Le due tessiture
 

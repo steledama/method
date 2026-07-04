@@ -30,8 +30,8 @@ Caratteristiche:
 - sezioni non gerarchiche: preferire label testuali e bullet di primo livello a heading annidati
 - stato bozza: nodo utile ma incompleto, da espandere o collegare meglio
 - stato maturo: nodo stabile, collegato e sufficientemente autonomo
-- niente storico operativo: task, checklist temporanee e piani di lavoro vivono in tasks/
-- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e verdict.md
+- niente storico operativo: task, checklist temporanee e piani di lavoro vivono in `o2/`
+- presente permanente: la KB stabile descrive lo stato corrente; la storia resta in git e nei fili `i3/`
 - funzione documentale esplicita: separare quando mappa, concetto, reference e runbook iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a esempi didattici plausibili ma non canonici
 
@@ -53,13 +53,13 @@ Il frontmatter dei nodi è obbligatorio e volutamente minimale: un solo campo, `
 - `iniziale`: nodo appena impostato o ancora poco stabilizzato;
 - `maturo`: nodo stabile, autonomo e sufficientemente collegato.
 
-Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `tasks/`, priorità e dipendenze in `plan.md`.
+Non aggiungere campi come `updated`, `tags`, `owner`, `priority` o `depends_on` salvo decisione metodologica esplicita. Le relazioni vivono nei link, la storia in git, i task in `o2/`, priorità e dipendenze in `o1/plan.md`.
 
-Il divieto colpisce ciò che è relazione, storia, lavoro o priorità travestito da metadato — non un **attributo intrinseco del nodo**. Per quest'ultimo il metodo sanziona un meccanismo di estensione: un adottante può dichiarare una proprietà di dominio oltre `{data, stato}` solo se soddisfa **tutti e quattro** i requisiti di demarcazione. È **intrinseca**: descrive il nodo in sé, non una relazione verso altri nodi (quella è un link), non storia (git), non lavoro (`tasks/`), non priorità (`plan.md`). È a **valori chiusi e singola**: classificazione faceted, un insieme finito e dichiarato di valori con uno solo per nodo — un attributo aperto o multi-valore è una relazione e va espresso come link, non come campo. È **non derivabile**: non ricostruibile da una fonte di verità esistente, per non aprire una seconda storia fragile. È **dichiarata e verificabile**: l'insieme dei valori ammessi è dichiarato e `kb_tools` ne verifica presenza e dominio, come già fa per `stato`.
+Il divieto colpisce ciò che è relazione, storia, lavoro o priorità travestito da metadato — non un **attributo intrinseco del nodo**. Per quest'ultimo il metodo sanziona un meccanismo di estensione: un adottante può dichiarare una proprietà di dominio oltre `{data, stato}` solo se soddisfa **tutti e quattro** i requisiti di demarcazione. È **intrinseca**: descrive il nodo in sé, non una relazione verso altri nodi (quella è un link), non storia (git), non lavoro (`o2/`), non priorità (`o1/plan.md`). È a **valori chiusi e singola**: classificazione faceted, un insieme finito e dichiarato di valori con uno solo per nodo — un attributo aperto o multi-valore è una relazione e va espresso come link, non come campo. È **non derivabile**: non ricostruibile da una fonte di verità esistente, per non aprire una seconda storia fragile. È **dichiarata e verificabile**: l'insieme dei valori ammessi è dichiarato e `kb_tools` ne verifica presenza e dominio, come già fa per `stato`.
 
 La proprietà estesa è **locale all'adottante** — vive nella sua `kb/` e non nel canone, salvo che emerga come generalizzazione portabile: ciò che il metodo sanziona è il meccanismo, non la singola proprietà. Esempio: `nixos` marca ogni nodo con `mondo: lavoro | casa | trasversale`, attributo intrinseco a valori chiusi che rende meccanico un futuro split dei repository.
 
-Il frontmatter appartiene ai nodi e ai task operativi, non ai file root. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `plan.md`, `verdict.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter.
+Il frontmatter appartiene ai nodi, ai task operativi e agli item delle collezioni-stadio, non a bussola, regole, register o indici ordinari. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `sources.md`, `kb/kb.md`, `i3/verdicts.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter. `o1/plan.md` è l'eccezione: è insieme indice dello stadio o1 e istanza corrente del Plan, quindi dichiara `ciclo:`.
 
 Regole di creazione:
 

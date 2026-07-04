@@ -4,7 +4,7 @@ stato: bozza
 
 # Interpret (i2)
 
-Lo stadio i2 del ciclo d'azione: il distillato, il luogo dove l'interpretazione accade. È l'atto che attribuisce significato al segnale catturato (`perceive`) e lo trasforma in nota — un nodo `kb/` in `stato: bozza`. La porta canonica della collezione è `interpretations/`: il nome dice _interpret_, e l'identità dello stadio è questa. La stessa superficie si legge specularmente come o2 quando viene prodotta come vista di decisione (cfr. `specify`): non è una seconda etichetta sulla cartella, è il doppio verso del medesimo artefatto nel ciclo.
+Lo stadio i2 del ciclo d'azione: il distillato, il luogo dove l'interpretazione accade. È l'atto che attribuisce significato al segnale catturato (`perceive`) e lo trasforma in nota — un nodo `kb/` in `stato: bozza` o un item nella collezione `i2/`. La cartella porta il codice dello stadio, mentre l'indice `i2/interpretations.md` ne porta il nome leggibile. La stessa superficie si legge specularmente come o2 quando viene prodotta come vista di decisione (cfr. `specify`): non è una seconda etichetta sulla cartella, è il doppio verso del medesimo artefatto nel ciclo.
 
 ## L'i2 ha bisogno di un substrato
 
@@ -12,7 +12,7 @@ L'i2 non lavora sul grezzo: da centinaia di segnali (i1) non si interpreta nulla
 
 ## i2 micro e i2 macro
 
-L'atto Interpret ha due scale. L'i2-**micro** è la singola nota bozza che distilla un i1 — un referto, un export, un segnale. L'i2-**macro** è la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente: è il ruolo di `interpretations/` come collezione, dove ogni sezione del deck è un'interpretazione, non un nodo bozza.
+L'atto Interpret ha due scale. L'i2-**micro** è la singola nota bozza che distilla un i1 — un referto, un export, un segnale. L'i2-**macro** è la sintesi periodica che rilegge l'intero artefatto e rivela tensioni non-locali tra nodi, invisibili da dentro ciascun nodo preso singolarmente: è il ruolo di `i2/` come collezione, dove ogni sezione del deck è un'interpretazione, non un nodo bozza.
 
 ## La maturazione e il vincolo di valenza
 

@@ -26,7 +26,7 @@ solo se scritta (cfr. `action-cycle`).
 ## I tre confini
 
 - **`world` vs i1** — il grezzo non versionato sta in `world`; la cattura
-  versionata e filtrata per rilevanza sta in i1 (`perceptions/`). Le fonti
+  versionata e filtrata per rilevanza sta in `i1/`. Le fonti
   autorevoli (libri, documenti) vivono su Drive via `world/`, fuori
   dall'artefatto: sono Mondo — fonte di verità, non i1; ne diventano i1 solo
   quando un'elaborazione le cattura. Di esse l'artefatto versiona solo il
@@ -84,7 +84,7 @@ un agente che risolve un problema in un adottante può modificare un nodo di
 canone attraverso il symlink. È legittimo come atto runtime — vale la cucitura
 **«agisci attraverso la membrana, ratifica in `method`»**: l'edit prosegue come
 _segnale_, non come canone-di-record, finché non passa per l'i2/i3 di `method`
-(cfr. `verdict.md`). Il _Mondo di sviluppo_ sono invece i nodi `kb/` e la loro
+(cfr. i fili `i3/`). Il _Mondo di sviluppo_ sono invece i nodi `kb/` e la loro
 coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la risposta.
 
 Connessioni:

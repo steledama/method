@@ -32,7 +32,7 @@ ancora il momento di costruirlo a pieno.
 ## Posizione nel ciclo
 
 - la skill `method-review` è l'**o3-runtime** (l'atto prescritto, per-adottante);
-- l'**osservatorio** (`interpretations/baricentro-kb-adottanti.md`) è l'i2/o2-runtime;
+- l'**osservatorio** (`i2/baricentro-kb-adottanti.md`) è l'i2/o2-runtime;
 - manca l'**o1-runtime**: il piano/la cadenza/il luogo dove gli esiti dell'audit
   aggregano e diventano azione top-down ripetibile.
 

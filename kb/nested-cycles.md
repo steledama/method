@@ -129,7 +129,7 @@ auspicata dell'artefatto (`development-goal`). Agente e annidamento stanno dunqu
 su **assi ortogonali**: il diagramma può suggerire il mix — una velatura,
 un'etichetta — ma non deve collassarlo nell'annidamento. Collassarli è lo stesso
 errore che aveva fatto «sparire» o1, proiettare due dimensioni indipendenti su una
-sola (cfr. `action-cycle`, le quattro dimensioni ortogonali; e in `verdict.md` il
+sola (cfr. `action-cycle`, le quattro dimensioni ortogonali; e nei fili `i3/` il
 filo di de-cablaggio del binomio «due agenti»).
 
 ## I sei stadi sono punti di controllo e di rientro

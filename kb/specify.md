@@ -4,7 +4,7 @@ stato: bozza
 
 # Specify (o2)
 
-Lo stadio o2 del ciclo d'azione: la vista di decisione per l'umano, lo stadio Specify di Norman sul lato esecuzione. Traduce la conoscenza in una superficie che permette di scegliere cosa fare ora. È la lettura speculare della superficie i2 (`interpret`): la stessa `interpretations/` è o2 quando la si produce come vista di decisione (feedforward, scende) e substrato i2 quando la si legge per attribuire significato (feedback, risale).
+Lo stadio o2 del ciclo d'azione: la vista di decisione per l'umano, lo stadio Specify di Norman sul lato esecuzione. Traduce la conoscenza in una superficie che permette di scegliere cosa fare ora. È la lettura speculare della superficie i2 (`interpret`): la stessa collezione `i2/` è o2 quando la si produce come vista di decisione (feedforward, scende) e substrato i2 quando la si legge per attribuire significato (feedback, risale).
 
 ## La forma dell'o2 segue la domanda
 

@@ -4,9 +4,9 @@ ciclo: dev
 
 # La home a 16 slot: tensione con `action-cycle-matrix` e propagazione aperta
 
-Il cluster di presentazione è esaurito (deck→`view`, `assets/`+`views/`
+Il cluster di presentazione è esaurito (deck→`view`, `presentation/assets/`+viste in `presentation/`
 materializzati, home rifatta 2026-06-30 come matrice annidata a 16 slot con switch
-dev/runtime; motore condiviso in `tools/build_system_image.py`, gli adottanti forkano
+dev/runtime; motore condiviso in `o3/build_system_image.py`, gli adottanti forkano
 la sola CONFIG). Il deck è stato ri-fondato (2026-07-04) su cinque tavole sketchnote
 più poche slide d'appoggio a elenchi: la sintesi ricca è uscita dalla sorgente (vive
 nei nodi), l'o2 raggiunge finalmente il viscerale — ma le tavole sono **asset raster
@@ -33,4 +33,4 @@ split del catalogo `tools`). Fuori orizzonte, deliberatamente: i task come slide
 navigabili, la finestra-terminale per dialogare col modello e il mini-server che
 serva `presentation/index.html` (entrambi rompono l'invariante `file://`, saranno
 classe e nodo a sé). Il gap **runtime-o1** — il protocollo d'audit
-periodico top-down — è un task in `plan.md`, non più un TODO di questo filo.
+periodico top-down — è un task in `o1/plan.md`, non più un TODO di questo filo.

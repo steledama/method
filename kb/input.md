@@ -12,9 +12,9 @@ Lo strato input esiste per una ragione di sicurezza, non di completezza teorica:
 
 Il segnale grezzo del mondo ritorna nel sistema e attraversa tre stadi prima di diventare conoscenza stabile, ciascuno un atomo:
 
-- **`perceive` (i1)** — cattura versionata e valenza-neutra del Perceive; vive in `perceptions/`;
-- **`interpret` (i2)** — distillato e sintesi, dove l'interpretazione accade; nodo `kb/` in `stato: bozza`, collezione `interpretations/`;
-- **`compare` (i3)** — conoscenza formalizzata o verdetto; nodo `kb/` `maturo` e `verdict.md`.
+- **`perceive` (i1)** — cattura versionata e valenza-neutra del Perceive; vive in `i1/`;
+- **`interpret` (i2)** — distillato e sintesi, dove l'interpretazione accade; nodo `kb/` in `stato: bozza`, collezione `i2/`;
+- **`compare` (i3)** — conoscenza formalizzata o verdetto; nodo `kb/` `maturo` e fili in `i3/`.
 
 Ogni stadio corrisponde a uno stadio di Norman: i1 = Perceive, i2 = Interpret, i3 = Compare.
 

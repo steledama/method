@@ -28,14 +28,14 @@ task **runtime-o1**.
 
 Note di rotta:
 
-- Il task **runtime-o1** è il gap che il filo «cicli annidati» di `verdict.md` portava come
+- Il task **runtime-o1** è il gap che il filo «cicli annidati» in `i3/` portava come
   TODO appeso a un gate chiuso: l'arco top-down è scoccato una volta (prescrizione
   baricentro → `method-review` → recepimento) ma manca il protocollo d'audit
   periodico. Dipende dalla maturazione dell'osservatorio (i2/o2-runtime, oggi una
   sola istanza); la lama è audit ≠ micromanagement della coda adottante.
 
 Il **gate dei cicli annidati è chiuso** (ratificato a freddo, 2026-06-21, cfr.
-`verdict.md` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
+`i3/` e `kb/action-cycle-matrix.md`): l'annidamento regge — due cicli
 genuini, con l'interno runtime **nascente** (l'osservatorio sugli adottanti è
 i2/o2-runtime, una sola istanza; runtime-o1 il gap top-down, scoccato una volta
 ma senza protocollo d'audit). La mappa-sorgente dei 16 elementi è prodotta e
@@ -50,7 +50,7 @@ e il `README` sono allineati in una passata sola — Engelbart come cornice di
 sistema che contiene i giganti, Karpathy ricondotto a istanza, il pavimento
 Hutchins/Clark/Norman promosso, la revisione di «non orchestra» incisa. Audit
 pulito (48 nodi, 0 link rotti). Resta aperta solo la maturazione `bozza→maturo`
-dei nodi fondativi, che attende l'uso reale (cfr. `verdict.md`, «Maturazione dei
+dei nodi fondativi, che attende l'uso reale (cfr. `i3/`, «Maturazione dei
 nodi fondativi»).
 
 Il **fronte fondativo è chiuso**: la chirurgia dei giganti e il **Goal di sviluppo**
@@ -73,10 +73,10 @@ README canonica è formalizzata in `kb/readme.md` (heading fissi `## Metodo` ·
 cinque i README. Il round 1 della propagazione è **recepito dai quattro
 adottanti** via il loro `method-review` (`nixos`, `bi`, poi `salute` in `dcb08dc`
 e `economia` in `22e22ca`); la prescrizione esaurita è rimossa da
-`prescriptions/`, la storia resta in Git. Lo **strato di presentazione** è
-chiuso: `deck` è stato scisso in `view`, `assets/` e `views/` sono materializzati,
+`o3/`, la storia resta in Git. Lo **strato di presentazione** è
+chiuso: `deck` è stato scisso in `view`, `presentation/assets/` e `presentation/` sono materializzati,
 le viste `interpretations`, `tasks` e `verdict` sono generate e versionate. Anche la
-**home della system image** è chiusa: `index.html` è generato, statico, offline e
+**home della system image** è chiusa: `presentation/index.html` è generato, statico, offline e
 consuma README, Plan e le viste. Il cluster implementativo aperto dal gate è
 esaurito.
 

@@ -37,9 +37,9 @@ Caratteristiche:
 Confini:
 
 - kb/ contiene conoscenza stabile, non task aperti
-- tasks/ contiene lavoro futuro e contesto operativo temporaneo
-- verdict.md contiene il perché delle sessioni significative, non una lista di commit
-- README.md contiene l'orientamento e punta al catalogo `kb.md`, non tutta la conoscenza
+- `o2/` contiene lavoro futuro e contesto operativo temporaneo
+- i fili `i3/` contengono il perché delle sessioni significative, non una lista di commit
+- README.md contiene l'orientamento e punta al catalogo `kb/kb.md`, non tutta la conoscenza
 - CLAUDE.md contiene regole operative per agenti, non contenuto di dominio
 - fonti o data contengono materiali grezzi o elaborati, non nodi atomici
 

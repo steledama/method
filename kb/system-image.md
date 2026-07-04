@@ -22,14 +22,14 @@ Un modello concettuale è utile proprio perché semplifica, ma la semplificazion
 
 ## Perché conta per il metodo
 
-Nel metodo il system image è l'**intero artefatto** — README, `plan.md`, `tasks/`, `kb/`, le collezioni-stadio: tutto ciò che il repo presenta e che l'agente legge per costruirsi il modello. La KB ne è il nucleo di conoscenza formalizzata, non il sinonimo — appiattirlo sulla sola `kb/` spinge il system image verso il polo Goal (dove la KB sta) e perde il resto del medium. I due agenti che lo usano non possono comunicare direttamente: l'umano dimentica e cambia nel tempo, l'LLM riparte da zero a ogni sessione. Esattamente come tra progettista e utente di Norman, l'intero peso della comunicazione cade sull'artefatto — il repo. È la ragione testuale per cui l'artefatto deve essere autosufficiente nel bootstrap, per cui `verdict.md` esiste (un'assunzione che vive solo in un messaggio di commit è fuori dal system image), e per cui una decisione non scritta è una decisione persa.
+Nel metodo il system image è l'**intero artefatto** — README, `o1/plan.md`, `o2/`, `kb/`, le collezioni-stadio: tutto ciò che il repo presenta e che l'agente legge per costruirsi il modello. La KB ne è il nucleo di conoscenza formalizzata, non il sinonimo — appiattirlo sulla sola `kb/` spinge il system image verso il polo Goal (dove la KB sta) e perde il resto del medium. I due agenti che lo usano non possono comunicare direttamente: l'umano dimentica e cambia nel tempo, l'LLM riparte da zero a ogni sessione. Esattamente come tra progettista e utente di Norman, l'intero peso della comunicazione cade sull'artefatto — il repo. È la ragione testuale per cui l'artefatto deve essere autosufficiente nel bootstrap, per cui i fili `i3/` esistono (un'assunzione che vive solo in un messaggio di commit è fuori dal system image), e per cui una decisione non scritta è una decisione persa.
 
 Da non confondere i due referenti. La **KB** è un _livello di elaborazione_ (cfr.
 `processing-layers`): materializza il riflessivo — concetti e generalizzazioni —
 e vive vicino al polo Goal, dove i2/i3 depositano. Il **system image** è invece
 l'**intero artefatto**, **trasversale** ai tre livelli: non uno stadio del ciclo
 ma il substrato che l'intero ciclo legge e scrive — i1 lo alimenta dal basso (in
-`perceptions/`), o2 vi attinge per scendere fino al viscerale (in `tasks/`), ogni
+`i1/`), o2 vi attinge per scendere fino al viscerale (in `o2/`), ogni
 atto vi deposita o vi attinge un prodotto, sparso per l'atrio e non nella sola
 `kb/`. La KB ne è il nucleo formalizzato, non il medium intero: chi le due cose le
 collassa perde il canale che porta il peso della comunicazione a ogni altezza.

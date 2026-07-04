@@ -28,7 +28,7 @@ Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo d
 
 ## Convergenze
 
-Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, `verdict.md` come memoria interpretativa, `tasks/` come spazio temporaneo, nodi atomici con footer `Connessioni:`, triade di skill `kb-review` / `tasks-review` / `commit`, script `tools/kb_tools.py`.
+Tutti i progetti adottano il nucleo della ricetta: README come bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, fili `i3/` come memoria interpretativa, `o2/` come spazio temporaneo dei dettagli operativi, nodi atomici con footer `Connessioni:`, triade di skill `kb-review` / `tasks-review` / `commit`, script `o3/kb_tools.py`.
 
 La separazione `method/ -> ../method/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
@@ -82,10 +82,10 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 - **`salute`** — azione: mappa autonoma, principi specifici e loop teoria-pratica-verifica creati nel repo locale; tipo: completato
 - **`economia`** — azione: audit ora pulito (55 nodi, 198 link, 0 problemi): i segnali strutturali sono risolti; tipo: completato
 - **metodo / output** — azione: promuovere `output` e `action-cycle` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
-- **metodo / task** — azione: mantenere `metodo/tasks/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
+- **metodo / task** — azione: mantenere `metodo/o2/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
 - **metodo / strumenti** — azione: un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce; tipo: bottom-up: in attesa
 - **metodo / skill** — azione: mantenere la triade `kb-review` / `tasks-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
-- **metodo / frontmatter** — azione: policy chiarita: `kb/` e `tasks/` hanno frontmatter minimale; i file root ne restano privi; tipo: completato
+- **metodo / frontmatter** — azione: policy chiarita: `kb/` e gli item di collezione hanno frontmatter minimale; bussola, regole, register e indici ordinari ne restano privi; tipo: completato
 
 Connessioni:
 
