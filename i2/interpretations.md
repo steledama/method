@@ -1,0 +1,10 @@
+# Interpretazioni
+
+Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sintesi sorgente che rendono co-presenti le tensioni tra i nodi e aggiornano il modello mentale di chi mantiene il metodo. Il significato dello stadio vive nell'atomo [interpret](../kb/interpret.md); la stessa superficie si legge specularmente come o2 ([specify](../kb/specify.md)). La disciplina delle viste navigabili è in [view](../kb/view.md). Qui restano l'elenco dei contenuti e la nota di build.
+
+## Contenuti
+
+- le cinque tavole sketchnote — le slide grafiche del deck, una tensione per tavola: [artifact-system-method.png](artifact-system-method.png) (ontologia artefatto/sistema/metodo), [action-cycle-norman.png](action-cycle-norman.png) (il ciclo dell'azione di Norman), [action-cycle-method.png](action-cycle-method.png) (la rilettura del metodo: sei stadi versionati), [nested-cycles.png](nested-cycles.png) (annidamento dev/runtime), [method-development-loop.png](method-development-loop.png) (sviluppo bottom-up/top-down)
+- [metodo-in-sintesi.md](metodo-in-sintesi.md) — la sorgente del deck: sequenzia le cinque tavole con poche slide d'appoggio a elenchi, minimaliste e coerenti con lo stile delle tavole (interpretazione rivolta al metodo, i2-dev).
+- [baricentro-kb-adottanti.md](baricentro-kb-adottanti.md) — dove sta il contenuto delle KB dei quattro adottanti: la tipologia G/M/A (Goal/ought, Mondo/is, Macchina) e il baricentro di ciascun repo come diagnosi. Prima istanza dell'osservatorio cross-repo, **i2-runtime** (rilegge gli adottanti, non i nodi del metodo); precede il nodo `kb/` sulla tipologia-contenuto.
+- `../presentation/interpretations.html` — deck Reveal.js generato dalla sorgente markdown con `../o3/build-presentation.sh`, apribile direttamente dal checkout; gli asset stanno in `../presentation/assets/`. Il PDF per stampa/distribuzione esce dall'export del deck e non è versionato (cfr. [view](../kb/view.md) per build e condivisione).

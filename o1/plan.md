@@ -1,3 +1,7 @@
+---
+ciclo: dev
+---
+
 # Plan
 
 Lo stadio Plan del ciclo di sviluppo: i task aperti, in **ordine di esecuzione**,
@@ -6,14 +10,15 @@ i task e il loro stato di pianificazione.
 
 ## Task
 
-| Task                                                     | Dip.      |
-| -------------------------------------------------------- | --------- |
-| Protocollo runtime-o1 (audit periodico top-down)         | —         |
-| Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
+| Task                                                     | Ciclo | Dip.      |
+| -------------------------------------------------------- | ----- | --------- |
+| Estensione del check facet alle cartelle-stadio          | dev   | —         |
+| Protocollo runtime-o1 (audit periodico top-down)         | dev   | —         |
+| Enforcement della cucitura «agisci attraverso, ratifica» | dev   | pause [a] |
 
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
-più e il task si attiva. Vedi `tasks/enforcement-cucitura-canone.md`.
+più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
 La **revisione i2-macro della presentazione** (deck + home) è **chiusa**
 (2026-06-25): cicli annidati ridisegnati per contenimento, frecce del ciclo rese
@@ -91,5 +96,6 @@ nodi, 0 link rotti).
 
 ## Dettagli task
 
-- [Protocollo runtime-o1](tasks/protocollo-runtime-o1.md)
-- [Enforcement della cucitura canone](tasks/enforcement-cucitura-canone.md) — `bozza`, trattenuto
+- [Estensione del check facet alle cartelle-stadio](../o2/estensione-check-facet-cartelle-stadio.md)
+- [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
+- [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto

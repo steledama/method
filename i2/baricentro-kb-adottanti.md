@@ -1,5 +1,6 @@
 ---
 stato: bozza
+ciclo: runtime
 ---
 
 # Baricentro KB: dove sta il contenuto dei quattro adottanti

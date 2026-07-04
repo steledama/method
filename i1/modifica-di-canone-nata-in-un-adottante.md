@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: una modifica di canone nata in un adottante, scritta via symlink
 
 Data: 2026-06-23 · Fonte: `bi` (origine del segnale), risolvendo un problema

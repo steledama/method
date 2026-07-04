@@ -3,13 +3,14 @@ title: "Cognizione condivisa"
 subtitle: "Framework metodologico e osservatorio cross-repo per la progettazione di artefatti di supporto alla cognizione condivisa tra uomo e modelli di intelligenza artificiale tramite knowledge base (KB)"
 author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method"
 date: "2026.07.04"
+ciclo: dev
 ---
 
-## Artefatto, sistema, metodo {.img data-background-image="../interpretations/artifact-system-method.png" data-background-size="contain" data-background-color="#fef9e6"}
+## Artefatto, sistema, metodo {.img data-background-image="../i2/artifact-system-method.png" data-background-size="contain" data-background-color="#fef9e6"}
 
-## Il ciclo dell'azione (Norman) {.img data-background-image="../interpretations/action-cycle-norman.png" data-background-size="contain" data-background-color="#fefaea"}
+## Il ciclo dell'azione (Norman) {.img data-background-image="../i2/action-cycle-norman.png" data-background-size="contain" data-background-color="#fefaea"}
 
-## La rilettura del metodo {.img data-background-image="../interpretations/action-cycle-method.png" data-background-size="contain" data-background-color="#fefbea"}
+## La rilettura del metodo {.img data-background-image="../i2/action-cycle-method.png" data-background-size="contain" data-background-color="#fefbea"}
 
 ## Dal ciclo di Norman al metodo
 
@@ -18,7 +19,7 @@ date: "2026.07.04"
 - a ogni stadio l'umano ispeziona e l'LLM rientra senza ricostruire
 - il riflessivo da solo non muove: l'output deve arrivare al viscerale — _attractive things work better_
 
-## Cicli annidati {.img data-background-image="../interpretations/nested-cycles.png" data-background-size="contain" data-background-color="#fcf6e3"}
+## Cicli annidati {.img data-background-image="../i2/nested-cycles.png" data-background-size="contain" data-background-color="#fcf6e3"}
 
 ## Le quattro dimensioni
 
@@ -29,7 +30,7 @@ date: "2026.07.04"
 
 La matrice è la lente per confrontare i domini: cosa c'è, cosa manca perché non serve, cosa manca ma servirebbe.
 
-## Sviluppo del metodo {.img data-background-image="../interpretations/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
+## Sviluppo del metodo {.img data-background-image="../i2/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
 
 ## Il deck **rivela**, i nodi **risolvono** {.hero}
 

@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: le dipendenze dei task non sono solo task↔task
 
 Data: 2026-06-21 · Fonte: `economia` (origine del segnale), con riscontri in

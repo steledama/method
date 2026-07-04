@@ -4,7 +4,7 @@ stato: bozza
 
 # Index
 
-L'indice risponde alla domanda: quali nodi esistono e come li trovo? È un catalogo statico della KB, organizzato in modo da rendere i nodi scansionabili per cluster, area o intenzione. La sua istanza è `kb.md`, il **catalogo trasversale** di `kb/` nell'atrio di root: si vede a colpo d'occhio ma si consulta on-demand, non a ogni sessione. Sale in root, invece di scendere nella cartella come gli indici di collezione-stadio, perché è un **catalogo trasversale**: la KB è consultata lungo tutto il ciclo, non legata a un solo stadio come le collezioni (cfr. project-structure, «Il gradiente di cardinalità»). Vale la scissione visibilità ≠ caricamento: sta in root come catalogo, non perché letto al bootstrap — a differenza di `plan`, che è un file-ciclo letto sempre. Il README non lo incorpora: lo punta.
+L'indice risponde alla domanda: quali nodi esistono e come li trovo? È un catalogo statico della KB, organizzato in modo da rendere i nodi scansionabili per cluster, area o intenzione. La sua istanza è `kb/kb.md`, l'indice interno della collezione, omonimo alla cartella come gli indici di collezione-stadio (`i1/perceptions.md`, `o2/tasks.md`, …); si consulta on-demand, non a ogni sessione. La KB resta **trasversale** — consultata lungo tutto il ciclo, non legata a un solo stadio (cfr. project-structure) — ma il suo catalogo vive dentro la collezione che indicizza: l'atrio mostra la porta `kb/`, non il catalogo. Vale la scissione visibilità ≠ caricamento: si apre come catalogo on-demand, a differenza di `plan`, che è letto sempre. Il README non lo incorpora: lo punta.
 
 La policy linguistica separa identità e contenuto: register, filename e H1 sono
 inglesi; la prosa concettuale resta italiana. `kb.md` è l'artefatto vivo che
@@ -14,7 +14,7 @@ L'indice non è una mappa. L'indice elenca e orienta; la mappa spiega come il do
 
 Regole:
 
-- vive come `kb.md`, catalogo trasversale in root, aperto on-demand
+- vive come `kb/kb.md`, indice omonimo della collezione, aperto on-demand
 - il README lo punta, non lo duplica
 - deve contenere tutti i nodi stabili indicizzati
 - può essere organizzato per cluster o intenzione

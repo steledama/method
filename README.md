@@ -22,7 +22,7 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([method-developm
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [interpretations/metodo-in-sintesi.md](interpretations/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Metodo
 
@@ -45,42 +45,37 @@ Il Mondo di **sviluppo** sono i nodi `kb/` e la loro coerenza: un commit agisce 
 
 ## Orientarsi
 
-La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia. Tre specie di file più le collezioni, collocate per **gradiente di cardinalità** — unità al polo Goal (file in root), molteplicità al polo Mondo (cartelle) ([project-structure](kb/project-structure.md)).
+La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia **è il ciclo stesso**. Le sei collezioni-stadio portano il codice del loro stadio ([project-structure](kb/project-structure.md)); ogni item dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui l'item insiste — artefatto → `dev`, adottanti → `runtime` ([nested-cycles](kb/nested-cycles.md)).
 
-**File-ciclo** — la triade alta del cruscotto, un'unica istanza aggiornata in place:
+**Collezioni-stadio** — le sei stanze del ciclo, ciascuna col proprio indice interno:
 
-- **[README.md](README.md)** — il Goal: la bussola
-- **[plan.md](plan.md)** — lo stadio Plan (o1-sviluppo): i task aperti, prioritizzati, con dipendenze
-- **[verdict.md](verdict.md)** — lo stadio Compare (i3-sviluppo): il verdetto attuale e perché conta
-- **CLAUDE.md** / **AGENTS.md** — le regole operative
+- **[i1/](i1/perceptions.md)** — Perceive: i segnali catturati valenza-neutri (indice `perceptions.md`)
+- **[i2/](i2/interpretations.md)** — Interpret: le sintesi sorgente (indice `interpretations.md`)
+- **[i3/](i3/verdicts.md)** — Compare: un file per filo aperto, aggiornato in place (indice `verdicts.md`)
+- **[o1/](o1/plan.md)** — Plan: i task aperti, prioritizzati, con dipendenze e ciclo (`plan.md`)
+- **[o2/](o2/tasks.md)** — Specify: i dettagli e il contesto dei task aperti (indice `tasks.md`)
+- **[o3/](o3/prescriptions.md)** — Perform: i runbook di propagazione e gli **esecutori deterministici**, gli strumenti registrati nell'indice (`prescriptions.md`)
 
-**Cataloghi trasversali** — indicizzano una collezione che attraversa tutto il ciclo, perciò salgono in root:
+**Le due ali fuori dal ciclo** — trasversali agli stadi:
 
-- **[kb.md](kb.md)** — il catalogo di tutti i nodi (`kb/`, il nucleo formalizzato della system image)
-- **[tools.md](tools.md)** — strumenti e skill dell'artefatto
+- **[kb/](kb/kb.md)** — il nucleo di conoscenza formalizzata della system image; il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
+- **[presentation/](presentation/)** — la superficie presentativa: `index.html` (la home della system image), il deck e le viste generate, gli asset condivisi
 
 **Register** — puntano _fuori_ dall'artefatto:
 
 - **[sources.md](sources.md)** — registro di provenienza delle fonti-mondo autorevoli (`source-of-truth`), base dei `## Riferimenti` (i3); punta a `world`, non a una collezione interna
 
-**Collezioni-stadio** — cartelle che accumulano, ciascuna con un indice interno omonimo:
+Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `i2/`.
 
-- **[perceptions/](perceptions/perceptions.md)** — lo stadio i1 (Perceive): i segnali metodologici che emergono dagli adottanti
-- **[interpretations/](interpretations/interpretations.md)** — lo stadio i2 (Interpret): le sintesi sorgente
-- **[prescriptions/](prescriptions/prescriptions.md)** — lo stadio o3 (Prescrivi): i runbook di adozione del canone
-- **tasks/** — lo stadio Specify: i dettagli dei task aperti, indicizzati da `plan.md`
-
-Dove un dominio ha un territorio da indicizzare (host, entità, sistemi), una porta `map.md` lo mappa sui nodi; in `metodo` il dominio è astratto e non la richiede — il suo modello vive nei nodi e in `interpretations/`.
-
-L'ordine di bootstrap è `README → CLAUDE → nodo`.
+Il cruscotto di lavoro è la coppia [`o1/plan.md`](o1/plan.md) (lato esecuzione: i task aperti) e [`i3/`](i3/verdicts.md) (lato valutazione: i verdetti aperti). L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
 ## Funzioni del repo
 
 - **Metodo portabile**: nodi in `kb/` che descrivono ricetta metodologica, i tre giganti del metodo (Zettelkasten, pattern Karpathy, ciclo di azione di Norman), struttura di progetto, strato output (o1/o2/o3) e input (i1/i2/i3), strumenti, fedeltà cognitiva e principi.
 - **Osservatorio cross-repo**: confronto periodico tra i progetti adottanti per leggere convergenze, drift, duplicazioni, lacune e specificità locali senza sostituirsi alla loro coda di lavoro.
-- **Strumenti comuni**: `tools/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade operativa — `/kb-review`, `/tasks-review`, `/commit` — e la skill di allineamento `/method-review` vivono in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
-- **Manutenzione propria del metodo**: task in `tasks/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
-- **Presentazione**: [`index.html`](index.html) è la home statica della system image, generata da `README.md` e `plan.md` con `tools/build-system-image.sh`; apre il ciclo Goal/Plan/Specify/Compare/Interpret/World e punta alle viste in `views/`. [`interpretations/`](interpretations/interpretations.md) è la collezione sorgente dello stadio i2; [`interpretations/metodo-in-sintesi.md`](interpretations/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero. Il `.md` è la fonte unica; `tools/build-presentation.sh` genera `views/interpretations.html`, la vista navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Lo stesso script genera `views/tasks.html` e `views/verdict.html`; gli asset comuni stanno in `assets/`. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
+- **Strumenti comuni**: `o3/kb_tools.py` come backend portabile per audit strutturale, backlink, copertura del catalogo, migrazione, candidati terminologici e segnali generici sui progetti code-based. La triade operativa — `/kb-review`, `/tasks-review`, `/commit` — e la skill di allineamento `/method-review` vivono in `.claude/skills/` (con wrapper Codex in `.codex/skills/`): `metodo` fa dogfooding ed è la copia canonica che gli adottanti forkano.
+- **Manutenzione propria del metodo**: task in `o2/` solo quando riguardano questo repo, la sua presentazione, la coerenza dei nodi o una generalizzazione già emersa dai repo adottanti.
+- **Presentazione**: [`presentation/`](presentation/) raccoglie l'intera superficie presentativa. [`presentation/index.html`](presentation/index.html) è la home statica della system image, generata da `README.md` e `o1/plan.md` con `o3/build-system-image.sh`; apre il ciclo Goal/Plan/Specify/Compare/Interpret/World e punta alle viste. [`i2/`](i2/interpretations.md) è la collezione sorgente dello stadio i2; [`i2/metodo-in-sintesi.md`](i2/metodo-in-sintesi.md) ne è la sintesi principale — i diagrammi che reggono il metodo intero. Il `.md` è la fonte unica; `o3/build-presentation.sh` genera `presentation/interpretations.html`, la vista navigabile della collezione, come deck Reveal.js standalone apribile direttamente dal checkout. Lo stesso script genera `presentation/tasks.html` e `presentation/verdict.html`; gli asset comuni stanno in `presentation/assets/`. Il PDF per stampa/distribuzione (o3) esce dall'export del deck e non viene versionato.
 
 ## Come collegare un nuovo progetto
 

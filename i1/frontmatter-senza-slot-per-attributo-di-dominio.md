@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: il frontmatter del nodo non ha slot per un attributo intrinseco di dominio
 
 Data: 2026-06-27 · Fonte: `nixos` (Fase 4 della predisposizione separazione

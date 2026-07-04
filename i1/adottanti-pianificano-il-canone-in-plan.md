@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: gli adottanti aprono questioni di canone nel proprio `plan.md`
 
 Data: 2026-06-14 · Fonte: osservazione dei repo adottanti (`economia` e pattern generale)

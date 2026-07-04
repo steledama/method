@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: convenzioni di `plan.md` e `tasks-review` affinate in un adottante
 
 Data: 2026-06-23 · Fonte: `economia` (origine del segnale), durante una sessione

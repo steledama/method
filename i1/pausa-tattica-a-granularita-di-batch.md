@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: la pausa tattica esiste anche a granularità di batch
 
 Data: 2026-06-21 · Fonte: `salute` (sezione `## Sospesi` di `plan.md`), emerso
