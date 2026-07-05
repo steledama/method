@@ -20,6 +20,17 @@ azione possibile (o1/o2/o3); lo strato input cattura e interpreta il ritorno
 strati, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e
 comportamento.
 
+Vista dal ciclo, la KB è il **campo** in cui la macchina degli stadi è immersa:
+il modello del mondo e dell'artefatto, guidato dai goal (le tre regioni di
+contenuto — ought, is, macchina — vivono in `kb-content-typology`), e in questo
+senso il **requisito dell'azione** — gli agenti agiscono da dentro il proprio
+modello. Il campo però non tocca il Mondo: il contatto resta alla coppia
+viscerale o3↔i1 alla membrana `world`, e la KB orienta l'azione senza eseguirla
+(cfr. `processing-layers`). Ciò che distingue la KB dalle superfici di stadio è
+la tenuta: **trattiene ciò che deve sopravvivere al singolo giro del ciclo** —
+l'interpretazione maturata sedimenta nei nodi e non va ri-derivata al giro
+successivo.
+
 La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema. Umano e LLM sono qui il caso saliente di una popolazione di agenti più ampia (cfr. `agent`): la stessa divisione del lavoro può ripartirsi tra livelli di agente — per capacità e per stadio del ciclo — quando l'uso multi-agente diventa reale.
 
 Caratteristiche:

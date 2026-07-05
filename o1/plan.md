@@ -14,6 +14,7 @@ pianificazione.
 | Ciclo   | Task                                                     | Dip.      |
 | ------- | -------------------------------------------------------- | --------- |
 | runtime | Prescrizione di propagazione dell'atrio agli adottanti   | —         |
+| dev     | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev     | Protocollo runtime-o1 (audit periodico top-down)         | —         |
 | dev     | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
@@ -28,3 +29,4 @@ più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 - [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto
 - [Prescrizione di propagazione dell'atrio](../o2/propagazione-atrio-adottanti.md)
 - [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
+- [Redraw tavole vista Interpretazioni](../o2/redraw-tavole-interpretazioni.md)
