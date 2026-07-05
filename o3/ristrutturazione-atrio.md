@@ -57,9 +57,11 @@ facet `ciclo`.
    cattura cronologica (diario) → `i1/`; sintesi-documento (`interpretations/`,
    `stato`) → `i2/`; `plan.md` → `o1/plan.md`; `tasks/` → `o2/`; strumenti di
    **sviluppo** (`tools/` + indice `tools.md`) → `o3/` con indice
-   `prescriptions.md`, che **assorbe** `tools.md`: una collezione ha un solo
-   indice, un secondo sopravvive solo come item indicizzato (coccio
-   `economia`); dichiarazioni, script, moduli, client o altri sorgenti
+   `prescriptions.md`, che **assorbe** `tools.md` in una sezione «Strumenti»
+   — la forma di `method` e `nixos`: una collezione ha un solo indice.
+   Declassare il vecchio catalogo a item indicizzato (la via di `economia`) è
+   tollerato, non preferito (coccio `economia`); dichiarazioni, script,
+   moduli, client o altri sorgenti
    che compiono/preparano l'atto sul Mondo → `o3/` come o3-runtime, con
    sottocartelle di dominio quando serve. `scadenze` diventa una sezione di
    `o1/plan.md`. Una collezione senza item nasce col solo indice: l'assenza si
