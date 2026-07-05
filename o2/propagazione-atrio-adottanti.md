@@ -31,7 +31,10 @@ runbook copre, per repo:
 - catalogo `kb/index.md`→`kb/kb.md`; verdetto scisso in fili `i3/`;
 - strumenti di **sviluppo** in `o3/` (gli `scripts/` di dominio restano
   o3-runtime, cfr. `project-structure`);
-- superficie presentativa in `presentation/` dove esiste;
+- superficie presentativa in `presentation/` dove esiste, incluso il fork del
+  motore della home (`build_system_image.py` + CONFIG: banale dopo la
+  semplificazione a ciclo singolo del 2026-07-05, cfr. filo
+  `i3/home-minimalista.md`);
 - facet `ciclo: dev|runtime` nel frontmatter degli item di collezione;
 - forma `plan.md`: colonne `Ciclo · Task · Dip.` (canone 2026-07-04);
 - frontmatter dei task senza `stato:` (soppresso 2026-07-04, cfr. `tasks`):
@@ -43,10 +46,7 @@ runbook copre, per repo:
 
 - prescrizione unica parametrizzata o un runbook per repo (il round baricentro
   usò runbook per repo); ordine suggerito: partire dal repo a coda piccola
-  (`nixos`) come pilot;
-- se il fork del motore della home (`build_system_image.py` + CONFIG, cfr.
-  filo `i3/home-16-slot.md`) viaggia nella stessa prescrizione o in una
-  successiva.
+  (`nixos`) come pilot.
 
 ## Riferimenti
 

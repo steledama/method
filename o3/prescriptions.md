@@ -35,7 +35,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.
 - `build-presentation.sh` — orchestra Pandoc + `build_views.py`: produce le
   viste in `../presentation/`.
-- `build_system_image.py` — genera la home statica della matrice a 16 slot.
+- `build_system_image.py` — genera la home statica minimalista: ciclo singolo,
+  un collegamento primario per slot.
 - `build-system-image.sh` — wrapper: genera e formatta la home.
 
 I path interni sono riallineati alla struttura `o3/` + `presentation/` +

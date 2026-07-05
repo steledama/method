@@ -16,5 +16,5 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 
 - [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale
 - [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; restano i verdetti che attendono l'uso reale (bozza→maturo, tipologia, matrice, facet)
-- [home-16-slot.md](home-16-slot.md) — tensione tra la home a 16 slot e `action-cycle-matrix`; propagazione agli adottanti non pianificata
+- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime rimandata a filtri nelle viste; restano watchpoint tavole raster e fili parcheggiati
 - [membrana-afforda-scrittura.md](membrana-afforda-scrittura.md) — la cucitura «agisci attraverso, ratifica in `method`»: dichiarata, non presidiata

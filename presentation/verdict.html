@@ -99,47 +99,31 @@
           </p>
         </section>
         <section
-          id="la-home-a-16-slot-tensione-con-action-cycle-matrix-e-propagazione-aperta"
+          id="home-minimalista-la-lente-devruntime-rimandata-a-filtri-nelle-viste"
           class="slide level2"
         >
           <h2>
-            La home a 16 slot: tensione con <code>action-cycle-matrix</code> e
-            propagazione aperta
+            Home minimalista: la lente dev/runtime rimandata a filtri nelle
+            viste
           </h2>
           <p>
-            Il cluster di presentazione è esaurito (vista a
-            slide→<code>view</code>, <code>presentation/assets/</code>+viste in
-            <code>presentation/</code> materializzati, home rifatta 2026-06-30
-            come matrice annidata a 16 slot con switch dev/runtime; motore
-            condiviso in <code>o3/build_system_image.py</code>, gli adottanti
-            forkano la sola CONFIG). La vista Interpretazioni è stata ri-fondata
-            (2026-07-04) su cinque tavole sketchnote più poche slide d’appoggio
-            a elenchi: la sintesi ricca è uscita dalla sorgente (vive nei nodi),
-            l’o2 raggiunge finalmente il viscerale — ma le tavole sono
-            <strong>asset raster statici</strong>, non più diagrammi derivati
-            dalla sorgente: se un nodo cambia il senso di una tavola, la
-            rigenerazione è un atto manuale/creativo, non di build. Nuovo punto
-            di possibile stale, presidiato solo dal check i2 di
-            <code>/commit</code>. Due code aperte:
+            La home è stata semplificata (74df440, 2026-07-05): ciclo singolo,
+            un solo collegamento primario per slot, niente switch dev/runtime.
+            Decisione ratificata: in questa fase la home resta
+            <strong>minimalista</strong>, pura affordance di navigazione; la
+            lente dev/runtime, quando servirà, entrerà
+            <strong>a valle come filtro nelle singole viste</strong> (es. tasks
+            o plan: mostra solo il ciclo filtrato oppure tutti) — non
+            pianificata, deliberatamente rimandata all’uso reale.
           </p>
+          <p>Code chiuse dal giro di semplificazione:</p>
           <ul>
             <li>
-              <strong>Tensione col nodo <code>action-cycle-matrix</code></strong
-              >: il nodo tiene il frame a 16 celle come dogfooding di solo
-              <code>metodo</code> (adottanti al ciclo singolo) e una scala a
-              cinque valori col «vuoto legittimamente assente»; la home adotta
-              invece il frame a 16 per tutti e una regola
-              <strong>binaria</strong> acceso/dimesso che non rende la scala
-              analitica. Da riconciliare: o la home è solo affordance di
-              navigazione (la scala resta lo strumento del nodo, distinto),
-              oppure la scelta «16 per tutti» risale nel nodo.
-            </li>
-            <li>
-              <strong>Propagazione agli adottanti</strong> (forkare motore +
-              CONFIG): canale o3-runtime; può accodarsi alla prescrizione
-              dell’atrio o seguirla — decisione dentro il task «Prescrizione di
-              propagazione dell’atrio agli adottanti»
-              (<code>o2/propagazione-atrio-adottanti.md</code>).
+              <strong>Tensione con <code>action-cycle-matrix</code></strong
+              >: risolta nella prima delle due vie che questo filo poneva — la
+              home è solo affordance di navigazione; la matrice a 16 celle e la
+              scala a cinque valori restano lo strumento analitico del nodo (il
+              suo paragrafo presentativo è aggiornato di conseguenza).
             </li>
             <li>
               <strong
@@ -147,12 +131,25 @@
                   >verdict.html</code
                 ></strong
               >
-              (ereditata dal filo ristrutturazione-atrio, chiuso): candidate al
-              taglio dopo lo split del verdetto in fili; decidere se le tiene in
-              vita la home o se la vista a slide resta l’unica generata oltre a
-              essa.
+              (ereditata dal filo ristrutturazione-atrio): tenute, uniformate a
+              deck (74df440); saranno la sede naturale del futuro filtro
+              dev/runtime.
+            </li>
+            <li>
+              <strong>Propagazione del motore della home</strong>: col motore
+              ridotto a ciclo singolo e CONFIG minimale il fork è banale;
+              viaggia nella prescrizione dell’atrio
+              (<code>o2/propagazione-atrio-adottanti.md</code>).
             </li>
           </ul>
+          <p>
+            Watchpoint: le tavole della vista Interpretazioni sono
+            <strong>asset raster statici</strong>, non diagrammi derivati dalla
+            sorgente — se un nodo cambia il senso di una tavola, la
+            rigenerazione è un atto manuale/creativo, non di build; presidiato
+            solo dal check i2 di <code>/commit</code> (i residui cosmetici
+            stanno in <code>o2/redraw-tavole-interpretazioni.md</code>).
+          </p>
           <p>
             Fili parcheggiati dello stesso fronte: dei due assi ortogonali di
             <code>plan</code> — ciclo (sviluppo/runtime) × natura
@@ -167,10 +164,7 @@
             orizzonte, deliberatamente: i task come slide navigabili, la
             finestra-terminale per dialogare col modello e il mini-server che
             serva <code>presentation/index.html</code> (entrambi rompono
-            l’invariante <code>file://</code>, saranno classe e nodo a sé). Il
-            gap <strong>runtime-o1</strong> — il protocollo d’audit periodico
-            top-down — è un task in <code>o1/plan.md</code>, non più un TODO di
-            questo filo.
+            l’invariante <code>file://</code>, saranno classe e nodo a sé).
           </p>
         </section>
         <section
