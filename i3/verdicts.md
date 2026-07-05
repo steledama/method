@@ -18,3 +18,4 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 - [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; restano i verdetti che attendono l'uso reale (bozza→maturo, tipologia, matrice, facet)
 - [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime rimandata a filtri nelle viste; restano watchpoint tavole raster e fili parcheggiati
 - [membrana-afforda-scrittura.md](membrana-afforda-scrittura.md) — la cucitura «agisci attraverso, ratifica in `method`»: dichiarata, non presidiata
+- [collocazione-corpo-di-dominio.md](collocazione-corpo-di-dominio.md) — il corpo di dominio va in `o3/` come o3-runtime, la classe-dispensa è abolita; collaudato da `nixos` (rebuild reale), stress-test atteso su `bi`
