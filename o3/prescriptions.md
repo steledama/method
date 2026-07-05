@@ -15,10 +15,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 - [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — porta gli adottanti
   alle collezioni-stadio `i1/`–`o3/`, al catalogo `kb/kb.md`, al verdetto a fili,
   a `presentation/` e alla facet `ciclo`, col passo-cuore dell'**inventario
-  dell'atrio** (corpo di dominio ed eccezioni dichiarate, verdetto di fit);
-  migrazione strutturale collaudata dal pilot `nixos` (2026-07-05),
-  inventario da eseguire su tutti e quattro — recepimento tracciato in
-  `o2/propagazione-atrio-adottanti.md`.
+  dell'atrio** (contenuti versionati ricollocati per funzione, eccezioni
+  dichiarate, verdetto di fit); migrazione strutturale collaudata e corretta dal
+  pilot `nixos` (2026-07-05), da eseguire sugli altri tre adottanti —
+  recepimento tracciato in `o2/propagazione-atrio-adottanti.md`.
 
 L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del
 cluster: adozione della sezione README canonica e classificazione dei link al

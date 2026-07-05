@@ -20,7 +20,13 @@ Questo **supera** la regola della «triade alta in root» (README, `plan.md`, `v
 
 ## Le specie di file root
 
-Sciolta la collocazione, la root contiene due specie di file, distinte per **funzione** non per profondità. Nessuna ospita artefatti del **runtime del dominio**: quelli si collocano per stadio nelle collezioni (vedi «Collocazione per funzione», sotto). Nei repo di dominio a queste due specie si aggiungono le classi dell'inventario — corpo di dominio, eccezioni di toolchain, traffico runtime (vedi «L'inventario dell'atrio», sotto).
+Sciolta la collocazione, la root contiene due specie di file, distinte per
+**funzione** non per profondità. Nessuna ospita artefatti del **runtime del
+dominio**: quelli si collocano per stadio nelle collezioni (vedi «Collocazione
+per funzione», sotto). Nei repo di dominio a queste due specie si aggiunge la
+disciplina dell'inventario: contenuti versionati ricollocati nello stadio
+funzionale previsto, eccezioni di toolchain e traffico runtime dichiarati (vedi
+«L'inventario dell'atrio», sotto).
 
 **1. Bussola e regole** — letti a _ogni_ sessione per capire e agire:
 
@@ -57,20 +63,35 @@ Il set universale (bussola e regole + register + le sei stanze) è un _pavimento
 
 Questo **supera** la regola «root estensibile dal basso» (2026-06-07, che nominava `stato`/`diario`/`scadenze` come file root): contraddiceva il principio «il cruscotto è il ciclo di sviluppo, non il runtime». La sua giustificazione era «letti a ogni sessione», ma **posizione ≠ bootstrap**: l'ordine di bootstrap in `CLAUDE` può puntare a `i2/stato.md` come prima lettura senza che il file viva in root. L'ergonomia è salva; con la facet `ciclo:` i due annidamenti convivono nelle stesse stanze senza mescolarsi.
 
-## L'inventario dell'atrio: corpo di dominio, eccezioni, verdetto di fit
+## L'inventario dell'atrio: collocazione, eccezioni, verdetto di fit
 
-Nei repo code-based l'atrio non ospita solo il ciclo: ospita anche il **corpo di dominio** — la superficie del Mondo di sviluppo che vive dentro il repo, i sorgenti su cui il commit agisce e da cui build e deploy percepiscono la risposta (cfr. `world`: per `metodo` quel Mondo coincide con l'ala `kb/`; per un adottante code-based sono i suoi sorgenti — moduli, host, client). Il corpo di dominio non è un'eccezione al metodo: è il polo-Mondo reso visibile nell'atrio, ed è ciò che **colora** la struttura — senza di esso le sei stanze sarebbero una sovrastruttura vuota posata accanto al dominio invece che intorno.
+Nei repo code-based il corpo di dominio è la superficie del Mondo di sviluppo
+che vive dentro il repo: i sorgenti su cui il commit agisce e da cui build e
+deploy percepiscono la risposta (cfr. `world`: per `metodo` quel Mondo coincide
+con l'ala `kb/`; per un adottante code-based sono moduli, host, client, script,
+dichiarazioni). Il corpo di dominio non è un'eccezione al metodo e non ottiene
+una dispensa dalla struttura: aderire al metodo significa collocarlo negli
+spazi versionati previsti secondo la funzione che svolge. Se prepara o compie
+l'atto sul Mondo, vive in `o3/` come o3-runtime; se cattura segnali vive in
+`i1/`; se sintetizza vive in `i2/`; se specifica lavoro futuro vive in `o2/`.
+La root mostra le porte dell'atrio, non conserva il dominio per inerzia.
 
 La disciplina è l'**inventario**: ogni voce dell'`ls` della root appartiene a una classe dichiarata —
 
 - bussola e regole (README, CLAUDE, AGENTS);
 - collezioni-stadio (`i1/`–`o3/`) e ali (`kb/`, `presentation/`);
 - register (`map.md`, `sources.md`);
-- **corpo di dominio** — il Mondo di sviluppo in-repo, dichiarato nella legenda del README;
+- contenuto versionato ricollocato nello stadio funzionale previsto;
 - **eccezioni di toolchain** — file che lo strumento inchioda alla root (`flake.nix`/`flake.lock`, `package.json`, dotfile): vincoli, non scelte; dichiarate una volta;
 - **traffico runtime** — cache, log, output intermedi: membrana `world/` o gitignore, mai voci versionate senza classe.
 
-Ciò che non si lascia classificare si conta, e il conteggio è il **verdetto di fit** del metodo sul dominio: poche eccezioni motivate = il metodo si applica e il dominio caratterizza la struttura; molte voci inclassificabili = il metodo lì non si applica adeguatamente, e prenderne atto è un esito legittimo — la negazione onesta della tesi è un verdetto, il non-averci-provato no. Il verdetto risale all'osservatorio con l'esito del `method-review`.
+Ciò che non si lascia collocare si conta come eccezione, e il conteggio è il
+**verdetto di fit** del metodo sul dominio: poche eccezioni motivate = il
+metodo si applica e il dominio caratterizza la struttura; molte eccezioni o
+voci inclassificabili = il metodo lì non si applica adeguatamente. Prenderne
+atto è un esito legittimo: la negazione onesta della tesi è un verdetto, il
+non-averci-provato no. Il verdetto risale all'osservatorio con l'esito del
+`method-review`.
 
 ## L'i1 e l'o3 di `method`: il canale con gli adottanti
 
@@ -107,7 +128,12 @@ relazione adottante-metodo, non la salute o la coda interna del progetto.
 
 I nomi delle collezioni standard sono **uniformi** tra i progetti (le sei stanze `i1/`–`o3/` coi loro indici, `kb/`, `presentation/`): la familiarità della cornice rende l'artefatto leggibile e confortante a chi passa da un repo all'altro, umano o LLM. Il «colore» del dominio non vive nel nome della cartella ma nel **contenuto** dei file. Questo **supera** il vecchio principio «il nome dello strato output è una scelta di dominio»: un nome di dominio che contraddice il contenuto è un signifier che mente (es. `quadro/` in `salute`, che evoca il quadro _clinico_ in una KB che rifiuta la separazione corpo/mente). La guardia che il vecchio principio proteggeva — non forzare la struttura sul dominio — resta valida solo come divieto di nomi fuorvianti, non come licenza di nomi idiosincratici.
 
-Resta distinto ciò che non è una collezione di sintesi-documento ma output di altra natura ontologica: la configurazione che gira in `nixos` (`home/`, `hosts/`, `modules/`) è o1/runtime, non la porta `interpretations/`. L'uniformità riguarda le collezioni standard dell'artefatto, non costringe a ribattezzare un output che _è_ un'altra cosa.
+Resta distinto ciò che non è una collezione di sintesi-documento ma output di
+altra natura ontologica: la configurazione che gira in `nixos` è o3-runtime,
+non la porta `interpretations/`. L'uniformità riguarda le collezioni standard
+dell'artefatto e vincola la collocazione funzionale; non costringe a
+ribattezzare il contenuto di dominio oltre le sottocartelle necessarie dentro
+lo stadio corretto.
 
 Anche `world/` ha nome uniforme, ma non è una collezione dell'artefatto. È un
 symlink host-local verso la cartella di progetto non versionata, tipicamente su
@@ -176,9 +202,24 @@ Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di cias
 
 ## Applicazione nei progetti adottanti
 
-Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno la recepisce con un task locale (catalogo→`kb/kb.md`; collezioni-stadio `i1/`–`o3/` coi loro indici: cattura cronologica→`i1/`, sintesi-documento→`i2/`, verdetto a fili→`i3/`, `plan`→`o1/plan.md`, dettagli task→`o2/`, strumenti di sviluppo→`o3/`, viste→`presentation/`; `scadenze`→sezione di `o1/plan.md`; gli `scripts/` di dominio restano o3-runtime), letto dal canone via symlink. Il cuore della migrazione è l'**inventario dell'atrio** (sezione sopra): decidere voce per voce dove vive il contenuto di dominio e dichiarare le eccezioni. La prescrizione di propagazione è attiva (`o3/ristrutturazione-atrio.md`, pilot `nixos`); il recepimento è tracciato in `o2/propagazione-atrio-adottanti.md`.
+Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno
+la recepisce con un task locale (catalogo→`kb/kb.md`; collezioni-stadio
+`i1/`–`o3/` coi loro indici: cattura cronologica→`i1/`, sintesi-documento→`i2/`,
+verdetto a fili→`i3/`, `plan`→`o1/plan.md`, dettagli task→`o2/`, strumenti di
+sviluppo e corpo performativo→`o3/`, viste→`presentation/`; `scadenze`→sezione
+di `o1/plan.md`), letto dal canone via symlink. Il cuore della migrazione è
+l'**inventario dell'atrio** (sezione sopra): decidere voce per voce dove vive il
+contenuto di dominio, spostarlo nello spazio funzionale previsto e dichiarare
+le eccezioni residue. La prescrizione di propagazione è attiva
+(`o3/ristrutturazione-atrio.md`, pilot `nixos`); il recepimento è tracciato in
+`o2/propagazione-atrio-adottanti.md`.
 
-- **`nixos`** — situazione attuale: ricetta molto coerente: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill e mappa canonica sono presenti e distinti. Confronto con il metodo: è il riferimento operativo per un progetto code-based — pochi componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
+- **`nixos`** — situazione attuale: pilot recepito fino in fondo: il corpo
+  dichiarativo versionato (`home/`, `hosts/`, `modules/`, `identity/`,
+  `patches/`, `scripts/`) è stato spostato in `o3/` come o3-runtime; in root
+  restano solo atrio, register ed eccezioni di toolchain. Confronto con il
+  metodo: è il riferimento operativo per un progetto code-based — pochi
+  componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
 - **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
 - **`economia`** — situazione attuale: struttura completa con file di dominio
   in root (`stato`, `scadenze`), `data/` locale non versionato per fonti e JSON, e

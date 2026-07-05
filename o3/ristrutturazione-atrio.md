@@ -22,10 +22,12 @@ dichiara l'anatomia, che **è il ciclo stesso**. Le sei collezioni-stadio portan
 il codice del loro stadio (`i1/` Perceive, `i2/` Interpret, `i3/` Compare, `o1/`
 Plan, `o2/` Specify, `o3/` Perform), ognuna col proprio indice interno; le due
 ali trasversali sono `kb/` e `presentation/`; i register puntano fuori. Nei
-repo di dominio l'atrio ospita anche il **corpo di dominio** e le eccezioni
-dichiarate: il cuore della migrazione non è il rename delle stanze, è decidere
-voce per voce dove vive il contenuto di dominio dentro la struttura — è il
-dominio che colora la struttura, non la struttura che si posa accanto al
+repo di dominio l'atrio non è un contenitore di comodo per il corpo di dominio:
+è il punto in cui si vede se il dominio accetta la grammatica del metodo. Il
+cuore della migrazione non è il rename delle stanze, è decidere voce per voce
+**in quale spazio versionato previsto** vive ogni contenuto. Ciò che non entra
+resta fuori solo come eccezione dichiarata; se le eccezioni diventano troppe, il
+verdetto non è un adattamento locale ma un limite di fit del metodo su quel
 dominio. Cfr. `project-structure` («La root come atrio», «L'inventario
 dell'atrio», «Applicazione nei progetti adottanti») e `nested-cycles` per la
 facet `ciclo`.
@@ -35,16 +37,18 @@ facet `ciclo`.
 1. **L'inventario dell'atrio — il cuore della migrazione.** Elenca ogni voce
    dell'`ls` della root e assegnale una classe (cfr. `project-structure`,
    «L'inventario dell'atrio»): bussola/regole, collezione-stadio, ala,
-   register, **corpo di dominio** (la superficie del Mondo di sviluppo che
-   vive nel repo — i sorgenti su cui il commit agisce: resta in root,
-   dichiarato nella legenda del README), **eccezione di toolchain** (file che
-   lo strumento inchioda alla root: `flake.nix`, `package.json` — dichiarata
-   una volta), **traffico runtime** (cache, log, output intermedi → membrana
-   `world/` o gitignore). Nessuna voce resta senza classe: ciò che non si
-   lascia classificare si conta, e il conteggio è il **verdetto di fit** del
-   metodo sul dominio, da riportare nell'esito del `method-review` — la
-   negazione onesta è un verdetto, il non-averci-provato no. Il resto della
-   ricetta esegue questo inventario; senza di esso le sei stanze sono una
+   register, contenuto versionato collocato per funzione negli stadi,
+   **eccezione di toolchain** (file che lo strumento inchioda alla root:
+   `flake.nix`, `package.json` — dichiarata una volta), **traffico runtime**
+   (cache, log, output intermedi → membrana `world/` o gitignore). Il corpo di
+   dominio non è una classe che autorizza la permanenza in root: è materiale da
+   portare nello spazio funzionale previsto (`i1` cattura, `i2` sintesi, `o1`
+   piano, `o2` specifica, `o3` atto/prescrizione/esecutore), salvo eccezione
+   motivata. Nessuna voce resta senza classe: ciò che non si lascia
+   classificare si conta, e il conteggio è il **verdetto di fit** del metodo
+   sul dominio, da riportare nell'esito del `method-review` — la negazione
+   onesta è un verdetto, il non-averci-provato no. Il resto della ricetta
+   esegue questo inventario; senza di esso le sei stanze sono una
    sovrastruttura vuota posata accanto al dominio.
 2. **Collezioni-stadio.** Crea/rinomina le sei collezioni nella forma
    `i1/`–`o3/` con gli indici interni: `i1/perceptions.md`,
@@ -53,8 +57,9 @@ facet `ciclo`.
    cattura cronologica (diario) → `i1/`; sintesi-documento (`interpretations/`,
    `stato`) → `i2/`; `plan.md` → `o1/plan.md`; `tasks/` → `o2/`; strumenti di
    **sviluppo** (`tools/` + indice `tools.md`) → `o3/` con indice
-   `prescriptions.md`. Gli `scripts/` di dominio restano o3-runtime al loro
-   posto (cfr. `project-structure`); `scadenze` diventa una sezione di
+   `prescriptions.md`; dichiarazioni, script, moduli, client o altri sorgenti
+   che compiono/preparano l'atto sul Mondo → `o3/` come o3-runtime, con
+   sottocartelle di dominio quando serve. `scadenze` diventa una sezione di
    `o1/plan.md`. Una collezione senza item nasce col solo indice: l'assenza si
    mostra, non si nasconde. Nel trasloco, **risincronizza `kb_tools.py`**
    dall'`o3/` del metodo: il fork pre-atrio non conosce i path nuovi e conta il
@@ -90,8 +95,9 @@ facet `ciclo`.
    `tasks/`, `tools/`, `views/`), più gli eventuali path verso collezioni
    interne del metodo, che ha già migrato (i nodi via symlink non cambiano). Il
    README acquisisce la **legenda dell'atrio**: ogni voce di root con la sua
-   classe, corpo di dominio ed eccezioni comprese. La sezione README canonica
-   non cambia.
+   classe, eccezioni comprese; il contenuto versionato non resta in root per
+   inerzia, ma viene ricollocato nello stadio funzionale previsto. La sezione
+   README canonica non cambia.
 9. **Verifica.** `kb_tools.py audit` pulito, viste rigenerate dai build script,
    e il controllo finale dell'atrio: un `ls` della root in cui ogni voce o
    dichiara il ciclo o è classificata dall'inventario del passo 1 — nessuna
@@ -103,20 +109,22 @@ Il modello che `method` ha di ciascun repo è una fotografia dell'osservatorio e
 può derivare (`cognitive-fidelity`): l'ultimo miglio lo fa il `method-review`
 dell'adottante contro lo stato reale del proprio repo.
 
-- **`nixos`** — il pilot: la migrazione strutturale (passi 2–9) è **recepita**
-  (2026-07-05); resta il passo 1, introdotto dopo. Indizi per l'inventario:
-  `modules/`, `hosts/`, `home/`, `patches/`, `identity/` sono corpo di dominio
-  da dichiarare nella legenda del README; `flake.nix`/`flake.lock` eccezione di
-  toolchain; `secrets/` e `result` da classificare in loco (membrana/gitignore).
+- **`nixos`** — il pilot: la migrazione strutturale è **recepita** (2026-07-05)
+  e il passo 1 ha forzato la correzione del canone: il corpo dichiarativo
+  versionato non resta in root ma va in `o3/` come o3-runtime (`home/`,
+  `hosts/`, `modules/`, `identity/`, `patches/`, `scripts/`). `flake.nix` e
+  `flake.lock` restano eccezioni di toolchain inchiodate alla root; `secrets/`
+  è eccezione non versionata/materia del Mondo; `result*`, `world` e cache sono
+  traffico runtime gitignored.
 - **`bi`** — come `nixos` più la superficie ricca, ed è il caso più costoso
-  dell'**inventario**: la root mescola corpo di dominio (`client/`, `scripts/`),
-  traffico runtime da portare in membrana o gitignore (`cache/`, `logs/`,
-  `temp/`, `processed/`, `pending/`, `output/`, `foto/`) e vincoli di toolchain
-  (`package.json`, `node_modules/`) — qui il passo 1 è il grosso del lavoro, e
-  il suo verdetto di fit è il più informativo per l'osservatorio. In `o3/`
-  vanno solo gli strumenti di **sviluppo** (`tools/`); `interpretations/`
-  contiene anche asset (css, html) da smistare tra `i2/` (sorgenti) e
-  `presentation/` (viste).
+  dell'**inventario**: la root mescola sorgenti da ricollocare per funzione
+  (`client/`, `scripts/` e strumenti), traffico runtime da portare in membrana o
+  gitignore (`cache/`, `logs/`, `temp/`, `processed/`, `pending/`, `output/`,
+  `foto/`) e vincoli di toolchain (`package.json`, `node_modules/`) — qui il
+  passo 1 è il grosso del lavoro, e il suo verdetto di fit è il più informativo
+  per l'osservatorio. `interpretations/` contiene anche asset (css, html) da
+  smistare tra `i2/` (sorgenti) e `presentation/` (viste); gli esecutori e il
+  corpo performativo vanno in `o3/` salvo eccezione dichiarata.
 - **`economia`** — file di dominio in root da collocare per funzione:
   `stato` → `i2/`, `scadenze` → sezione di `o1/plan.md`, la cattura cronologica
   se esiste → `i1/`. `data/` resta membrana non versionata, `interpretations/`
@@ -127,9 +135,10 @@ dell'adottante contro lo stato reale del proprio repo.
 
 ## Ordine e chiusura
 
-Pilot su `nixos`: i cocci del pilot raffinano questa prescrizione prima che gli
-altri tre la eseguano. La prescrizione resta attiva finché i quattro adottanti
-non l'hanno recepita via il proprio `method-review`; recepita da tutti, si
-rimuove dalla collezione e si aggiorna il task di tracciamento
+Pilot su `nixos`: i cocci del pilot hanno raffinato questa prescrizione e reso
+vincolante la collocazione completa del contenuto versionato negli spazi
+funzionali. La prescrizione resta attiva finché i quattro adottanti non l'hanno
+recepita via il proprio `method-review`; recepita da tutti, si rimuove dalla
+collezione e si aggiorna il task di tracciamento
 (`o2/propagazione-atrio-adottanti.md`, che chiude con lei). La storia resta in
 git.
