@@ -229,7 +229,15 @@ le eccezioni residue. La prescrizione di propagazione è attiva
   (file-per-filo, indice unico, dotfile in legenda, chiusura col commit) sono
   incisi nel runbook; conferma la separazione tra stato operativo e risultato
   editoriale.
-- **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente; i file di dominio seguono la collocazione-per-funzione (`diario`→`i1/`, `scadenze`→sezione di `o1/plan.md`) e la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
+- **`salute`** — situazione attuale: atrio recepito per intero (`9f997c8`,
+  2026-07-06): collezioni-stadio coi loro indici, `diario`→`i1/`, verdetto
+  scisso a file-per-filo, catalogo `kb/kb.md` con 197 nodi tutti indicizzati,
+  `tools.md` soppresso in `prescriptions.md`, legenda dell'atrio su `ls -A`,
+  verdetto di fit 0 eccezioni; sette divergenze intenzionali registrate (KB
+  runtime-heavy, diario valenzato, assenza di `sources.md`). Confronto con il
+  metodo: è il caso doc-based/riflessivo, e il suo coccio — il link checker
+  che contava rotti i cross-link validi al canone via symlink — ha corretto
+  `kb_tools.py` per tutti.
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.
 

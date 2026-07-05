@@ -144,9 +144,14 @@ dell'adottante contro lo stato reale del proprio repo.
   file-per-filo, `tools.md` indicizzato da `prescriptions.md`, legenda estesa
   all'`ls -A`, symlink `memory` (anti-pattern del canone) rimosso. I suoi
   quattro cocci sono incisi nei passi 2, 4, 8 e 9 di questo runbook.
-- **`salute`** — `diario` → `i1/`, `scadenze` → sezione di `o1/plan.md`. KB
-  ampia: la migrazione tocca solo il catalogo (→ `kb/kb.md`), nessun rename di
-  nodi. Verificare se il cluster presentazione è stato forkato o va impiantato.
+- **`salute`** — **recepita** (2026-07-06, commit `9f997c8`, marker a
+  `1a79a65`, audit 0 rotti su 197 nodi, verdetto di fit 0 eccezioni, working
+  tree pulito): collezioni-stadio, `diario`→`i1/`, verdetto scisso reale,
+  `tools.md` soppresso, legenda su `ls -A`, sette divergenze intenzionali
+  registrate. Il cluster presentazione era forkato (non da impiantare):
+  risincronizzato il parsing, conservata la forma locale. Il suo coccio — i
+  cross-link validi al canone contati rotti — è corretto nel canonico
+  (`1a79a65`) e inciso al passo 2.
 
 ## Ordine e chiusura
 

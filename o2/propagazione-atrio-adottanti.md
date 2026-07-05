@@ -1,5 +1,5 @@
 ---
-sintesi: "La prescrizione della ristrutturazione dell'atrio è attiva (o3/ristrutturazione-atrio.md). Nixos recepito (rebuild reale su deck incluso); economia recepita (a0538f5, cocci del secondo giro incisi nel runbook e chiusi in loco). Restano bi e salute. Il task chiude quando tutti gli adottanti l'hanno recepita per intero."
+sintesi: "La prescrizione della ristrutturazione dell'atrio è attiva (o3/ristrutturazione-atrio.md). Recepita da nixos (rebuild reale), economia (a0538f5) e salute (9f997c8, il suo coccio ha corretto il link checker del canone). Resta solo bi, lo stress-test del fit: il task chiude quando anche bi l'ha recepita per intero."
 ciclo: runtime
 ---
 
@@ -45,7 +45,16 @@ taci»).
   anche il symlink `memory` (anti-pattern del canone, store vuoto). Il marker
   è un commit indietro rispetto a `97c4571`, che incide i suoi stessi cocci:
   il prossimo `/method-review` lo avanza come `gia-soddisfatto`.
-- `salute` — da eseguire
+- `salute` — **recepito** (2026-07-06, commit `9f997c8`, marker a `1a79a65`,
+  `status: aligned`): migrazione chiusa in sessione con commit unico e working
+  tree pulito — collezioni-stadio, verdetto scisso reale a file-per-filo,
+  `tools.md` soppresso in `prescriptions.md` (forma preferita), legenda su
+  `ls -A`, facet su 31 item, 197 nodi tutti indicizzati, sette divergenze
+  intenzionali registrate. Il suo coccio ha corretto il canone per tutti: il
+  link checker contava rotti i cross-link validi al canone via symlink
+  (`fix` in `1a79a65`, inciso al passo 2 del runbook). Unico residuo
+  informativo il `[CLUSTER-ISOLATO]` sulle fonti i1, isolato per natura
+  (le catture sono foglie), non per drift.
 
 ## Chiusura
 

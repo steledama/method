@@ -29,7 +29,10 @@ aggiornato ai path nuovi) con verdetto di fit pieno, e il rebuild reale su
 non solo il grep. `economia` (`a0538f5`, 2026-07-05) è il secondo dato: un
 toolchain Python con `pyproject.toml` in root ha accettato libreria, config e
 test sotto `o3/` (`py_compile` pulito; `pytest` non disponibile nell'ambiente,
-verifica parziale).
+verifica parziale). `salute` (`9f997c8`, 2026-07-06) è il terzo: repo
+doc-based con toolchain leggera (script e esecutori → `o3/`), fit pieno senza
+attrito — il dato conferma ma non stressa il claim, che resta in attesa di
+`bi`.
 
 Claim falsificabile: la regola della collocazione piena regge finché il
 toolchain non inchioda il _layout_ oltre ai singoli file. `bi` è lo
