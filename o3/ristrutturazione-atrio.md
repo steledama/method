@@ -68,7 +68,10 @@ facet `ciclo`.
    mostra, non si nasconde. Nel trasloco, **risincronizza `kb_tools.py`**
    dall'`o3/` del metodo: il fork pre-atrio non conosce i path nuovi e conta il
    catalogo `kb/kb.md` come nodo (il canonico lo esclude per nome, con fallback
-   legacy per `kb.md` in root) — coccio del pilot `nixos`.
+   legacy per `kb.md` in root) — coccio del pilot `nixos`; le copie fino a
+   `f89076c` contano rotti anche i cross-link validi al canone via symlink
+   `method/` (l'inventario copre solo la `kb/` locale: il canonico ora valida
+   con `resolved.exists()`, come il catalogo) — coccio `salute`.
 3. **Catalogo.** Il catalogo dei nodi diventa l'indice interno omonimo
    `kb/kb.md` (da `kb.md` in root o `kb/index.md`, dove sta oggi). Nessun rename
    di nodi.

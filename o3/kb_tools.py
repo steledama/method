@@ -231,7 +231,11 @@ def link_map(root: Path) -> tuple[dict[str, list[str]], list[str]]:
             if resolved is None:
                 continue
             if resolved not in inventory:
-                broken.append(f"{source} -> {target}")
+                # Fuori inventario ma esistente su disco: link esterno valido
+                # (cross-repo via symlink `method/`, altre collezioni) — la
+                # stessa semantica di catalog_index. Rotto solo se non esiste.
+                if not resolved.exists():
+                    broken.append(f"{source} -> {target}")
                 continue
             targets.append(inventory[resolved])
         links[source] = targets
