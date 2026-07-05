@@ -14,7 +14,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 - [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — porta gli adottanti
   alle collezioni-stadio `i1/`–`o3/`, al catalogo `kb/kb.md`, al verdetto a fili,
-  a `presentation/` e alla facet `ciclo`; pilot `nixos`, recepimento tracciato in
+  a `presentation/` e alla facet `ciclo`; recepita dal pilot `nixos`
+  (2026-07-05), restano `bi`, `economia`, `salute` — recepimento tracciato in
   `o2/propagazione-atrio-adottanti.md`.
 
 L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del

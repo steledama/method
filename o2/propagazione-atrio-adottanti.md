@@ -1,5 +1,5 @@
 ---
-sintesi: "La prescrizione della ristrutturazione dell'atrio è scritta e attiva (o3/ristrutturazione-atrio.md): runbook unico con touchpoint per-repo, pilot nixos. Questo task traccia il recepimento — ogni adottante la esegue col proprio method-review come task locale; chiude quando tutti e quattro l'hanno recepita."
+sintesi: "La prescrizione della ristrutturazione dell'atrio è attiva (o3/ristrutturazione-atrio.md) e il pilot nixos l'ha recepita (2026-07-05, marker a 0f74186, idempotenza provata): il runbook è collaudato, i cocci del pilot sono incisi. Restano bi, economia e salute; il task chiude quando tutti e quattro l'hanno recepita."
 ciclo: runtime
 ---
 
@@ -21,12 +21,14 @@ taci»).
 
 ## Recepimento
 
-Pilot `nixos`: i suoi cocci raffinano la prescrizione prima degli altri tre.
-
-- `nixos` — da eseguire (pilot)
-- `bi` — in attesa del pilot
-- `economia` — in attesa del pilot
-- `salute` — in attesa del pilot
+- `nixos` — **recepito** (pilot, 2026-07-05): migrazione completa via
+  `/method-review`, marker avanzato a `0f74186`, `status: aligned`,
+  ri-esecuzione idempotente. I due cocci del pilot (risync `kb_tools.py` con
+  esclusione del catalogo omonimo; facet su item, non su indici) sono incisi
+  nel runbook (`9033223`); oltre quelli, la ricetta è passata senza attriti.
+- `bi` — pronto a eseguire (runbook collaudato)
+- `economia` — pronto a eseguire
+- `salute` — pronto a eseguire
 
 ## Chiusura
 

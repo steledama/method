@@ -13,7 +13,7 @@ pianificazione.
 
 | Ciclo   | Task                                                     | Dip.      |
 | ------- | -------------------------------------------------------- | --------- |
-| runtime | Recepimento della prescrizione dell'atrio (pilot nixos)  | —         |
+| runtime | Recepimento prescrizione atrio (restano bi/econ./salute) | —         |
 | dev     | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev     | Protocollo runtime-o1 (audit periodico top-down)         | —         |
 | dev     | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
