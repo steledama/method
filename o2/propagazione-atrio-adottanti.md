@@ -1,56 +1,34 @@
 ---
-sintesi: "La ristrutturazione dell'atrio (2026-07-04) è la prima divergenza strutturale del canone dalla forma che i quattro adottanti conoscono. Il risultato atteso è la prescrizione o3 — il runbook che ogni adottante esegue col proprio method-review — che li porta alle collezioni i1/–o3/, al catalogo kb/kb.md, agli strumenti di sviluppo in o3/ e a presentation/: propagazione progettata, non lasciata al drift."
+sintesi: "La prescrizione della ristrutturazione dell'atrio è scritta e attiva (o3/ristrutturazione-atrio.md): runbook unico con touchpoint per-repo, pilot nixos. Questo task traccia il recepimento — ogni adottante la esegue col proprio method-review come task locale; chiude quando tutti e quattro l'hanno recepita."
 ciclo: runtime
 ---
 
-# Prescrizione di propagazione dell'atrio agli adottanti
+# Recepimento della prescrizione dell'atrio
 
-## Problema
+## Stato
 
-Con la ristrutturazione dell'atrio il canone descrive una struttura che nessun
-adottante ha ancora: collezioni-stadio `i1/`–`o3/` coi loro indici, catalogo
-`kb/kb.md`, verdetto a fili in `i3/`, strumenti di sviluppo in `o3/`,
-`presentation/`, facet `ciclo: dev|runtime` sugli item di collezione. Gli
-adottanti leggono i nodi via symlink: ogni loro sessione legge
-`project-structure` e gli altri nodi strutturali che contraddicono l'albero
-locale. È la prima divergenza **strutturale** (non additiva) del canone; senza
-una prescrizione, si chiude per drift — ogni repo migrerebbe a modo suo, o non
-migrerebbe affatto.
+La ristrutturazione dell'atrio (2026-07-04) è la prima divergenza strutturale
+del canone dalla forma che i quattro adottanti conoscono. La prescrizione che la
+propaga è scritta e attiva: [`o3/ristrutturazione-atrio.md`](../o3/ristrutturazione-atrio.md)
+— runbook unico nel lessico del metodo con touchpoint per-repo (la ricetta è
+identica in forma per tutti; divergono solo _quali_ file esistono, cfr.
+`o3/prescriptions.md`, «Divisione del lavoro»). Include il risync del fork del
+cluster presentazione alla home semplificata (cfr. filo `i3/home-minimalista.md`).
 
-## Risultato atteso
+Ogni adottante la recepisce col proprio `/method-review` come task locale: il
+canone dichiara, la coda resta dell'adottante (`method-development`, «dichiara e
+taci»).
 
-Una prescrizione in `o3/`, registrata in `prescriptions.md`, che ogni adottante
-recepisce col proprio `/method-review` come task locale (il canone dichiara, la
-coda resta dell'adottante — cfr. `method-development`, «dichiara e taci»). Il
-runbook copre, per repo:
+## Recepimento
 
-- rinomina delle collezioni nella forma `i1/`–`o3/` con gli indici interni
-  (`perceptions.md`, `interpretations.md`, `verdicts.md`, `plan.md`,
-  `tasks.md`, `prescriptions.md`) e collocazione-per-funzione dei file di
-  dominio (`diario`→`i1/`, `stato`→`i2/`, `scadenze`→sezione di `o1/plan.md`);
-- catalogo `kb/index.md`→`kb/kb.md`; verdetto scisso in fili `i3/`;
-- strumenti di **sviluppo** in `o3/` (gli `scripts/` di dominio restano
-  o3-runtime, cfr. `project-structure`);
-- superficie presentativa in `presentation/` dove esiste, incluso il fork del
-  motore della home (`build_system_image.py` + CONFIG: banale dopo la
-  semplificazione a ciclo singolo del 2026-07-05, cfr. filo
-  `i3/home-minimalista.md`);
-- facet `ciclo: dev|runtime` nel frontmatter degli item di collezione;
-- forma `plan.md`: colonne `Ciclo · Task · Dip.` (canone 2026-07-04);
-- frontmatter dei task senza `stato:` (soppresso 2026-07-04, cfr. `tasks`):
-  restano `sintesi` e `ciclo`;
-- aggiornamento dei path nei `CLAUDE.md`/`README.md` locali che puntano a
-  collezioni interne del metodo.
+Pilot `nixos`: i suoi cocci raffinano la prescrizione prima degli altri tre.
 
-## Decisioni aperte
+- `nixos` — da eseguire (pilot)
+- `bi` — in attesa del pilot
+- `economia` — in attesa del pilot
+- `salute` — in attesa del pilot
 
-- prescrizione unica parametrizzata o un runbook per repo (il round baricentro
-  usò runbook per repo); ordine suggerito: partire dal repo a coda piccola
-  (`nixos`) come pilot.
+## Chiusura
 
-## Riferimenti
-
-- filo `i3/ristrutturazione-atrio.md` (chiuso con questa pianificazione; storia
-  in git) — le decisioni ratificate e i cocci raccolti
-- `kb/project-structure.md`, «Applicazione nei progetti adottanti» — i target
-  di migrazione per funzione
+Recepita da tutti e quattro, la prescrizione si rimuove da `o3/` e questo task
+chiude con lei; la storia resta in git.

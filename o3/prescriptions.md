@@ -12,7 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-Nessuna prescrizione attiva.
+- [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — porta gli adottanti
+  alle collezioni-stadio `i1/`–`o3/`, al catalogo `kb/kb.md`, al verdetto a fili,
+  a `presentation/` e alla facet `ciclo`; pilot `nixos`, recepimento tracciato in
+  `o2/propagazione-atrio-adottanti.md`.
 
 L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del
 cluster: adozione della sezione README canonica e classificazione dei link al
