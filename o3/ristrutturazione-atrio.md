@@ -57,7 +57,9 @@ facet `ciclo`.
    cattura cronologica (diario) → `i1/`; sintesi-documento (`interpretations/`,
    `stato`) → `i2/`; `plan.md` → `o1/plan.md`; `tasks/` → `o2/`; strumenti di
    **sviluppo** (`tools/` + indice `tools.md`) → `o3/` con indice
-   `prescriptions.md`; dichiarazioni, script, moduli, client o altri sorgenti
+   `prescriptions.md`, che **assorbe** `tools.md`: una collezione ha un solo
+   indice, un secondo sopravvive solo come item indicizzato (coccio
+   `economia`); dichiarazioni, script, moduli, client o altri sorgenti
    che compiono/preparano l'atto sul Mondo → `o3/` come o3-runtime, con
    sottocartelle di dominio quando serve. `scadenze` diventa una sezione di
    `o1/plan.md`. Una collezione senza item nasce col solo indice: l'assenza si
@@ -70,8 +72,11 @@ facet `ciclo`.
    di nodi.
 4. **Verdetto a fili.** `verdict.md` si scinde in `i3/`: un file per filo/area
    aperta, aggiornato in place, con indice `i3/verdicts.md`; i verdetti chiusi
-   non migrano — si rimuovono, la storia resta in git. Forma e disciplina in
-   `verdict`.
+   non migrano — si rimuovono, la storia resta in git. La scissione è reale:
+   il monolite dei verdetti non si incarta dietro un indice-wrapper (coccio
+   `economia`). Forma e disciplina in `verdict`, citato come nodo via symlink
+   (`method/verdict.md`): il symlink espone solo `kb/`, un path come
+   `method/i3/…` è rotto per costruzione.
 5. **Superficie presentativa.** `views/`, `index.html` e gli asset condivisi
    confluiscono in `presentation/` (home `index.html`, viste generate,
    `assets/`). Nei repo che hanno già forkato il cluster, **risincronizza il
@@ -95,13 +100,16 @@ facet `ciclo`.
    `tasks/`, `tools/`, `views/`), più gli eventuali path verso collezioni
    interne del metodo, che ha già migrato (i nodi via symlink non cambiano). Il
    README acquisisce la **legenda dell'atrio**: ogni voce di root con la sua
-   classe, eccezioni comprese; il contenuto versionato non resta in root per
-   inerzia, ma viene ricollocato nello stadio funzionale previsto. La sezione
-   README canonica non cambia.
+   classe, eccezioni comprese — l'inventario copre l'`ls -A`, dotfile inclusi
+   (`.gitignore`, `.env.example`, `.claude/`; coccio `economia`); il contenuto
+   versionato non resta in root per inerzia, ma viene ricollocato nello stadio
+   funzionale previsto. La sezione README canonica non cambia.
 9. **Verifica.** `kb_tools.py audit` pulito, viste rigenerate dai build script,
    e il controllo finale dell'atrio: un `ls` della root in cui ogni voce o
    dichiara il ciclo o è classificata dall'inventario del passo 1 — nessuna
-   voce senza classe.
+   voce senza classe. La migrazione chiude solo col **commit locale** (gate
+   `/commit`): avanzare il marker `method-review.md` su un working tree non
+   committato è uno stato incoerente — coccio `economia`.
 
 ## Touchpoint per-repo (indizi da verificare in loco, non ordini)
 
@@ -125,10 +133,16 @@ dell'adottante contro lo stato reale del proprio repo.
   per l'osservatorio. `interpretations/` contiene anche asset (css, html) da
   smistare tra `i2/` (sorgenti) e `presentation/` (viste); gli esecutori e il
   corpo performativo vanno in `o3/` salvo eccezione dichiarata.
-- **`economia`** — file di dominio in root da collocare per funzione:
-  `stato` → `i2/`, `scadenze` → sezione di `o1/plan.md`, la cattura cronologica
-  se esiste → `i1/`. `data/` resta membrana non versionata, `interpretations/`
-  versionata → `i2/`.
+- **`economia`** — migrazione eseguita e verificata nel working tree
+  (2026-07-05, marker a `77d8225`, audit e facet puliti, verdetto di fit 0
+  eccezioni) ma **non ancora committata**; quattro cocci da chiudere in loco:
+  i3 incartato (indice-wrapper su `verdetti-correnti.md` monolitico, con
+  riferimento rotto `method/i3/…`) da scindere in file-per-filo; `o3/tools.md`
+  secondo indice orfano accanto a `prescriptions.md`; dotfile fuori legenda
+  (`.env.example`, `.gitignore`, `.claude/`); il symlink `memory` → store
+  harness **vuoto**, legittimato in legenda come «membrana host-local», è
+  l'anti-pattern del canone (memoria host-locale, opaca, non versionata) e va
+  rimosso, non classificato.
 - **`salute`** — `diario` → `i1/`, `scadenze` → sezione di `o1/plan.md`. KB
   ampia: la migrazione tocca solo il catalogo (→ `kb/kb.md`), nessun rename di
   nodi. Verificare se il cluster presentazione è stato forkato o va impiantato.
