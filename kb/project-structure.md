@@ -221,13 +221,14 @@ le eccezioni residue. La prescrizione di propagazione è attiva
   metodo: è il riferimento operativo per un progetto code-based — pochi
   componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
 - **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
-- **`economia`** — situazione attuale: struttura completa con file di dominio
-  in root (`stato`, `scadenze`), `data/` locale non versionato per fonti e JSON, e
-  `interpretations/` versionata per le viste decisionali. Confronto con il metodo:
-  i file di dominio in root sono ora **target di migrazione per funzione**
-  (`stato`→`i2/`, cattura cronologica→`i1/`, `scadenze`→sezione di
-  `o1/plan.md`); conferma la separazione tra stato operativo e
-  risultato editoriale.
+- **`economia`** — situazione attuale: atrio recepito per intero (`a0538f5`,
+  2026-07-05): strumenti, script, libreria, config e test in `o3/`, viste in
+  `presentation/`, i3 a file-per-filo, legenda dell'atrio estesa all'`ls -A`,
+  verdetto di fit 0 eccezioni; membrana `world` verso i dati non versionati.
+  Confronto con il metodo: secondo giro del pilot — i suoi quattro cocci
+  (file-per-filo, indice unico, dotfile in legenda, chiusura col commit) sono
+  incisi nel runbook; conferma la separazione tra stato operativo e risultato
+  editoriale.
 - **`salute`** — situazione attuale: struttura completa con KB molto ampia, fonti, diario, scadenze e skill ingest; README e CLAUDE restano narrativi. Confronto con il metodo: è il caso storico/riflessivo — il metodo è presente; i file di dominio seguono la collocazione-per-funzione (`diario`→`i1/`, `scadenze`→sezione di `o1/plan.md`) e la separazione tra bootstrap, mappa, filosofia e istruzioni può migliorare.
 
 La struttura replicabile non coincide con un albero identico. Coincide con la presenza esplicita delle funzioni dell'atrio: ingresso/bussola (README), piano, regole operative, memoria, più le porte verso la collezione dei nodi, l'indice-di-dominio (dove esiste), gli strumenti, le interpretazioni e le fonti. I file locali sono sani quando dichiarano una funzione distinta; diventano drift quando duplicano README, CLAUDE, verdict o nodi.

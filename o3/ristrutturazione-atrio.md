@@ -133,16 +133,12 @@ dell'adottante contro lo stato reale del proprio repo.
   per l'osservatorio. `interpretations/` contiene anche asset (css, html) da
   smistare tra `i2/` (sorgenti) e `presentation/` (viste); gli esecutori e il
   corpo performativo vanno in `o3/` salvo eccezione dichiarata.
-- **`economia`** — migrazione eseguita e verificata nel working tree
-  (2026-07-05, marker a `77d8225`, audit e facet puliti, verdetto di fit 0
-  eccezioni) ma **non ancora committata**; quattro cocci da chiudere in loco:
-  i3 incartato (indice-wrapper su `verdetti-correnti.md` monolitico, con
-  riferimento rotto `method/i3/…`) da scindere in file-per-filo; `o3/tools.md`
-  secondo indice orfano accanto a `prescriptions.md`; dotfile fuori legenda
-  (`.env.example`, `.gitignore`, `.claude/`); il symlink `memory` → store
-  harness **vuoto**, legittimato in legenda come «membrana host-local», è
-  l'anti-pattern del canone (memoria host-locale, opaca, non versionata) e va
-  rimosso, non classificato.
+- **`economia`** — **recepita** (2026-07-05, commit `a0538f5`, marker a
+  `77d8225`, audit e facet puliti, verdetto di fit 0 eccezioni, working tree
+  pulito): ricollocazione completa in `o3/` e `presentation/`, i3 scisso a
+  file-per-filo, `tools.md` indicizzato da `prescriptions.md`, legenda estesa
+  all'`ls -A`, symlink `memory` (anti-pattern del canone) rimosso. I suoi
+  quattro cocci sono incisi nei passi 2, 4, 8 e 9 di questo runbook.
 - **`salute`** — `diario` → `i1/`, `scadenze` → sezione di `o1/plan.md`. KB
   ampia: la migrazione tocca solo il catalogo (→ `kb/kb.md`), nessun rename di
   nodi. Verificare se il cluster presentazione è stato forkato o va impiantato.

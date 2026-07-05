@@ -26,7 +26,10 @@ essere un verdetto onesto.
 `hosts/`, `modules/`, `identity/`, `patches/`, `scripts/` → `o3/`, flake
 aggiornato ai path nuovi) con verdetto di fit pieno, e il rebuild reale su
 `deck` (2026-07-05) ha confermato che la struttura nuova regge il runtime —
-non solo il grep.
+non solo il grep. `economia` (`a0538f5`, 2026-07-05) è il secondo dato: un
+toolchain Python con `pyproject.toml` in root ha accettato libreria, config e
+test sotto `o3/` (`py_compile` pulito; `pytest` non disponibile nell'ambiente,
+verifica parziale).
 
 Claim falsificabile: la regola della collocazione piena regge finché il
 toolchain non inchioda il _layout_ oltre ai singoli file. `bi` è lo

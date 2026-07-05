@@ -1,5 +1,5 @@
 ---
-sintesi: "La prescrizione della ristrutturazione dell'atrio è attiva (o3/ristrutturazione-atrio.md). Nixos recepito (rebuild reale su deck incluso); economia eseguita nel working tree con quattro cocci incisi nel runbook — manca il commit locale che la fissa. Restano bi e salute. Il task chiude quando tutti gli adottanti l'hanno recepita per intero."
+sintesi: "La prescrizione della ristrutturazione dell'atrio è attiva (o3/ristrutturazione-atrio.md). Nixos recepito (rebuild reale su deck incluso); economia recepita (a0538f5, cocci del secondo giro incisi nel runbook e chiusi in loco). Restano bi e salute. Il task chiude quando tutti gli adottanti l'hanno recepita per intero."
 ciclo: runtime
 ---
 
@@ -34,18 +34,17 @@ taci»).
 - `bi` — da eseguire; è il caso più costoso dell'inventario e il suo verdetto
   di fit il più informativo per l'osservatorio: i contenuti versionati vanno
   ricollocati, non solo classificati
-- `economia` — **eseguita nel working tree, commit mancante** (2026-07-05,
-  marker a `77d8225`, `status: aligned`): ricollocazione completa (strumenti,
-  script, libreria, config e test → `o3/`; viste → `presentation/`; legenda
-  dell'atrio voce-per-voce; verdetto di fit 0 eccezioni), audit/facet/tasks
-  puliti e viste rigenerate. Quattro cocci del secondo giro, incisi nel runbook:
-  i3 a file-per-filo (non indice-wrapper sul monolite, riferimento
-  `method/i3/…` rotto per costruzione); un solo indice per collezione
-  (`o3/tools.md` orfano accanto a `prescriptions.md`); la legenda copre
-  l'`ls -A`, dotfile inclusi; la migrazione chiude solo col commit via gate
-  `/commit` — marker avanzato su working tree sporco è stato incoerente. In
-  loco resta anche il symlink `memory` (store harness vuoto): anti-pattern da
-  rimuovere, non da classificare come membrana.
+- `economia` — **recepito** (2026-07-05, commit `a0538f5`, marker a `77d8225`,
+  `status: aligned`): ricollocazione completa (strumenti, script, libreria,
+  config e test → `o3/`; viste → `presentation/`; legenda dell'atrio estesa
+  all'`ls -A`; verdetto di fit 0 eccezioni), audit/facet/tasks puliti, viste
+  rigenerate, working tree pulito. I quattro cocci del secondo giro — i3 a
+  file-per-filo (non indice-wrapper sul monolite), un solo indice per
+  collezione, dotfile in legenda, chiusura solo col commit via gate — sono
+  incisi nel runbook (`97c4571`) e chiusi in loco prima del commit; rimosso
+  anche il symlink `memory` (anti-pattern del canone, store vuoto). Il marker
+  è un commit indietro rispetto a `97c4571`, che incide i suoi stessi cocci:
+  il prossimo `/method-review` lo avanza come `gia-soddisfatto`.
 - `salute` — da eseguire
 
 ## Chiusura
