@@ -14,36 +14,6 @@
   box-sizing: border-box;
 }
 
-/* --- Switch dev / runtime --- */
-.mode-dev .runtime-only,
-.mode-runtime .dev-only {
-  display: none;
-}
-
-.mode-toggle {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  overflow: hidden;
-  background: var(--panel);
-}
-
-.mode-toggle button {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  color: var(--muted);
-  cursor: pointer;
-  font: inherit;
-  font-weight: 700;
-  padding: 0.55rem 1.1rem;
-}
-
-.mode-toggle button.is-active {
-  background: var(--accent);
-  color: white;
-}
-
 /* --- Poli --- */
 .pole {
   margin: 0 auto;
@@ -71,41 +41,6 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.slot-body {
-  margin-top: 0.35rem;
-}
-
-.slot-body small {
-  display: block;
-  margin-top: 0.3rem;
-}
-
-.slot-link {
-  font-size: 0.95rem;
-}
-
-.slot-note {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 0.95rem;
-}
-
-.slot-gap {
-  color: var(--warm);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* slot dimesso: nessuna destinazione ancora, nel modo attivo */
-.mode-dev .cycle-card[data-dev-empty],
-.mode-runtime .cycle-card[data-runtime-empty] {
-  background: var(--soft);
-  border-style: dashed;
-  opacity: 0.75;
 }
 
 body {
@@ -238,6 +173,16 @@ h2 {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.cycle-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin-bottom: 0.45rem;
+}
+
+.card-title {
+  font-size: inherit;
 }
 
 .view-band {

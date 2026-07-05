@@ -1,18 +1,9 @@
 #!/usr/bin/env python3
-"""Genera la home statica della system image: la matrice del ciclo d'azione.
+"""Genera la home statica della system image: la mappa del ciclo d'azione.
 
-La home rende i **due cicli annidati** (sviluppo / runtime, cfr. `nested-cycles`)
-come matrice a 8 slot ciascuno — sei atti più i due poli — con uno switch in
-testa che cambia *cosa è il Mondo* in fondo, e con esso Goal, poli e i sei atti.
-
-Principio di copertura: **tutti gli slot appaiono sempre**. Uno slot è
-*cliccabile* quando esiste una destinazione, *dimesso* quando non c'è ancora.
-Nessuno slot è mai omesso: l'assenza si mostra, non si nasconde.
-
-Solo il blocco CONFIG è specifico del repo: i poli e i sei atti puntano agli
-artefatti reali di questo repo (o a `None` quando lo slot è ancora vuoto). La
-logica di rendering, `presentation.py` e `assets/system-image.css` sono condivisi
-e identici tra i repo adottanti — gli adottanti forkano la sola CONFIG.
+La home orienta sul Goal runtime, sui sei atti del ciclo e sul Mondo runtime.
+I due cicli annidati restano nel modello (cfr. `nested-cycles`), ma la home non
+li espone come modalità: ogni slot ha un solo collegamento primario.
 """
 
 from __future__ import annotations
@@ -25,8 +16,8 @@ from presentation import canonical_readme_section
 # --- CONFIG specifico del repo ------------------------------------------------
 
 # Le due colonne del ciclo e le posizioni di slot, nell'ordine fedele a Norman:
-# l'esecuzione scende dal Goal al Mondo (o1→o2→o3), la valutazione risale dal
-# Mondo al Goal (i3→i2→i1). Questa geometria è condivisa tra tutti i repo.
+# l'esecuzione scende dal Goal al Mondo (o1->o2->o3), la valutazione risale dal
+# Mondo al Goal (i3->i2->i1).
 COLUMNS = {
     "Esecuzione": ("scende ↓", ["o1", "o2", "o3"]),
     "Valutazione": ("↑ risale", ["i3", "i2", "i1"]),
@@ -41,116 +32,32 @@ TITLES = {
     "i3": "Confronti",
 }
 
-# Per ciascun ciclo e slot: (href | None, etichetta-link, descrizione).
-# href None ⇒ slot dimesso (nessuna destinazione ancora). La descrizione si
-# mostra comunque, così lo slot vuoto resta leggibile.
+# Per ciascuno slot: (href, descrizione).
 SLOTS = {
-    "dev": {
-        "o1": (
-            "../o1/plan.md",
-            "plan.md",
-            "Task aperti, prioritizzati, con dipendenze.",
-        ),
-        "o2": (
-            "tasks.html",
-            "vista Tasks",
-            "La specifica concreta dei task del piano.",
-        ),
-        "o3": (
-            "../o3/prescriptions.md",
-            "prescriptions",
-            "Prescrizioni ed esecutori deterministici del ciclo di sviluppo.",
-        ),
-        "i3": (
-            "verdict.html",
-            "vista Verdict",
-            "I verdetti correnti per filo aperto.",
-        ),
-        "i2": (
-            "interpretations.html",
-            "vista Interpretazioni",
-            "La sintesi illustrata del metodo e dei nodi.",
-        ),
-        "i1": (
-            "../o3/kb_tools.py",
-            "kb-review",
-            "Audit, backlink e copertura del catalogo via <code>kb_tools.py</code>.",
-        ),
-    },
-    "runtime": {
-        "o1": (
-            None,
-            None,
-            "Protocollo d'audit periodico top-down degli adottanti: da costruire.",
-        ),
-        "o2": (
-            "../i2/baricentro-kb-adottanti.md",
-            "osservatorio",
-            "Vista di decisione cross-repo: prima istanza, da estendere ai 4 domini.",
-        ),
-        "o3": (
-            "../o3/prescriptions.md",
-            "prescriptions",
-            "Runbook di propagazione del canone agli adottanti.",
-        ),
-        "i3": (
-            "../kb/adopter-comparison.md",
-            "adopter-comparison",
-            "Confronto cross-repo contro gli obiettivi; oggi sparso nei thread di verdict.",
-        ),
-        "i2": (
-            "../i2/baricentro-kb-adottanti.md",
-            "osservatorio",
-            "Rilettura comparativa dei cataloghi <code>kb/</code> dei 4 domini.",
-        ),
-        "i1": (
-            "../i1/perceptions.md",
-            "perceptions",
-            "Segnali metodologici che emergono dagli adottanti.",
-        ),
-    },
+    "o1": ("../o1/plan.md", "Task aperti, prioritizzati, con dipendenze."),
+    "o2": ("tasks.html", "La specifica concreta dei task del piano."),
+    "o3": (
+        "../o3/prescriptions.md",
+        "Prescrizioni ed esecutori deterministici del metodo.",
+    ),
+    "i3": ("verdict.html", "I verdetti correnti per filo aperto."),
+    "i2": ("interpretations.html", "La sintesi illustrata del metodo e dei nodi."),
+    "i1": (
+        "../i1/perceptions.md",
+        "I segnali catturati dallo stadio Perceive.",
+    ),
 }
 
-# Poli per ciclo. `goal` è prosa HTML breve (sommario navigazionale che punta al
-# README/nodi, non una seconda fonte). `world` è prosa HTML; se None, il polo
-# Mondo è derivato dalla sezione `### World` del README (la griglia adottanti).
-POLES = {
-    "dev": {
-        "goal": (
-            'Il Goal di <strong>sviluppo</strong> (<a href="../kb/development-goal.md">'
-            "development-goal</a>): la posizione auspicata dell'artefatto-metodo "
-            "lungo le dimensioni comuni — basso attrito di lettura, KB riflessiva "
-            "coerente, loop di propagazione che si chiude."
-        ),
-        "world": (
-            'Il Mondo di <strong>sviluppo</strong> (<a href="../kb/world.md">world</a>): '
-            'l\'artefatto stesso — i nodi <a href="../kb/kb.md"><code>kb/</code></a> e la '
-            "loro coerenza. È anche la macchina del ciclo runtime: qui passa la "
-            "cucitura tra i due cicli."
-        ),
-    },
-    "runtime": {
-        "goal": (
-            'Il Goal <strong>runtime</strong> (<a href="../kb/goal.md">goal</a>): '
-            "custodire il metodo portabile e propagarne il canone agli adottanti "
-            "senza micromanagiarne la coda — portabilità, indipendenza dal modello, "
-            "adattabilità, autocorrezione, rigore delle fonti."
-        ),
-        "world": None,  # derivato dal README: la griglia dei quattro adottanti
-    },
-}
-
-INTRO = (
-    "I sei atti più i due poli del ciclo (cfr. "
-    '<a href="../kb/action-cycle.md">action-cycle</a>), resi sui due cicli annidati '
-    'di <code>metodo</code> (<a href="../kb/nested-cycles.md">nested-cycles</a>). Lo '
-    "switch cambia <em>cosa è il Mondo</em> in fondo — e con esso Goal, poli e i "
-    "sei atti. La geometria delle celle è la mappa-sorgente di <a "
-    'href="../kb/action-cycle-matrix.md">action-cycle-matrix</a>; ogni slot è '
-    "cliccabile dove c'è una destinazione, dimesso dove non c'è ancora."
+RUNTIME_GOAL = (
+    "Coltivare il metodo e propagarne il canone agli adottanti custodendo la "
+    "portabilità, indipendenza dal modello, adattabilità, autocorrezione e "
+    "rigore delle fonti."
 )
 
-MODES = (("dev", "Ciclo di sviluppo"), ("runtime", "Ciclo runtime"))
+GITHUB_OWNER = "steledama"
+GITHUB_REPOS = {
+    "bi": "https://github.com/tt-sviluppo/bi",
+}
 
 
 # --- Helpers ------------------------------------------------------------------
@@ -176,7 +83,8 @@ def adopter_grid(root: Path) -> str:
     for line in world.splitlines():
         match = re.match(r"- \*\*\[([^\]]+)\]\(([^)]+)\)\*\* — (.+)", line)
         if match:
-            name, href, desc = match.groups()
+            name, _href, desc = match.groups()
+            href = GITHUB_REPOS.get(name, f"https://github.com/{GITHUB_OWNER}/{name}")
             cards.append(
                 f"""          <article class="world-item">
             <a href="{html.escape(href, quote=True)}">{html.escape(name)}</a>
@@ -192,66 +100,28 @@ def adopter_grid(root: Path) -> str:
 # --- Sezioni ------------------------------------------------------------------
 
 
-def toggle_html() -> str:
-    rows = []
-    for mode, label in MODES:
-        active = ' class="is-active"' if mode == MODES[0][0] else ""
-        rows.append(
-            f'        <button type="button" data-mode="{mode}"{active}>'
-            f"{html.escape(label)}</button>"
-        )
-    buttons = "\n".join(rows)
-    return f"""      <div class="mode-toggle" role="tablist" aria-label="Ciclo annidato">
-{buttons}
-      </div>"""
-
-
 def goal_pole_html() -> str:
-    bodies = "\n".join(
-        f'        <div class="{mode}-only"><p>{POLES[mode]["goal"]}</p></div>'
-        for mode, _ in MODES
-    )
     return f"""      <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
-{bodies}
+        <p>{RUNTIME_GOAL}</p>
       </section>"""
 
 
 def world_pole_html(root: Path) -> str:
-    bodies = []
-    for mode, _ in MODES:
-        world = POLES[mode]["world"]
-        inner = f"<p>{world}</p>" if world else adopter_grid(root)
-        bodies.append(f'        <div class="{mode}-only">{inner}</div>')
-    joined = "\n".join(bodies)
     return f"""      <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
-{joined}
+{adopter_grid(root)}
       </section>"""
 
 
-def slot_body(mode: str, key: str) -> str:
-    href, label, desc = SLOTS[mode][key]
-    if href:
-        head = (
-            f'<a class="slot-link" href="{html.escape(href, quote=True)}">'
-            f"{html.escape(label)}</a>"
-        )
-    else:
-        head = '<span class="slot-gap">vuoto</span>'
-    return f'<div class="{mode}-only slot-body">{head}<small>{desc}</small></div>'
-
-
 def card_html(key: str) -> str:
-    empties = " ".join(
-        f"data-{mode}-empty" for mode, _ in MODES if SLOTS[mode][key][0] is None
-    )
-    attr = f" {empties}" if empties else ""
-    bodies = "\n".join(f"            {slot_body(mode, key)}" for mode, _ in MODES)
-    return f"""          <div class="cycle-card" data-slot="{key}"{attr}>
+    href, desc = SLOTS[key]
+    return f"""          <div class="cycle-card" data-slot="{key}">
             <span class="cycle-key">{html.escape(key)}</span>
-            <strong>{html.escape(TITLES[key])}</strong>
-{bodies}
+            <h3>
+              <a class="card-title" href="{html.escape(href, quote=True)}">{html.escape(TITLES[key])}</a>
+            </h3>
+            <small>{desc}</small>
           </div>"""
 
 
@@ -283,12 +153,10 @@ def render(root: Path) -> str:
     <title>{html.escape(title)} · system image</title>
     <link rel="stylesheet" href="assets/system-image.css" />
   </head>
-  <body class="mode-dev">
+  <body>
     <header class="hero">
-      <p class="kicker">Matrice del ciclo d'azione</p>
+      <p class="kicker">Artefatto · Artifact</p>
       <h1>{html.escape(title)}</h1>
-      <p class="hero-copy">{INTRO}</p>
-{toggle_html()}
     </header>
 
     <main>
@@ -296,23 +164,6 @@ def render(root: Path) -> str:
 {cycle_html()}
 {world_pole_html(root)}
     </main>
-
-    <script>
-      (function () {{
-        const body = document.body;
-        const buttons = document.querySelectorAll(".mode-toggle button");
-        function setMode(mode) {{
-          body.classList.toggle("mode-dev", mode === "dev");
-          body.classList.toggle("mode-runtime", mode === "runtime");
-          buttons.forEach((b) =>
-            b.classList.toggle("is-active", b.dataset.mode === mode),
-          );
-        }}
-        buttons.forEach((b) =>
-          b.addEventListener("click", () => setMode(b.dataset.mode)),
-        );
-      }})();
-    </script>
   </body>
 </html>
 """

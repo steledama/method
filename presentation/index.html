@@ -6,211 +6,100 @@
     <title>Cognizione condivisa · system image</title>
     <link rel="stylesheet" href="assets/system-image.css" />
   </head>
-  <body class="mode-dev">
+  <body>
     <header class="hero">
-      <p class="kicker">Matrice del ciclo d'azione</p>
+      <p class="kicker">Artefatto · Artifact</p>
       <h1>Cognizione condivisa</h1>
-      <p class="hero-copy">
-        I sei atti più i due poli del ciclo (cfr.
-        <a href="../kb/action-cycle.md">action-cycle</a>), resi sui due cicli
-        annidati di <code>metodo</code> (<a href="../kb/nested-cycles.md"
-          >nested-cycles</a
-        >). Lo switch cambia <em>cosa è il Mondo</em> in fondo — e con esso
-        Goal, poli e i sei atti. La geometria delle celle è la mappa-sorgente di
-        <a href="../kb/action-cycle-matrix.md">action-cycle-matrix</a>; ogni
-        slot è cliccabile dove c'è una destinazione, dimesso dove non c'è
-        ancora.
-      </p>
-      <div class="mode-toggle" role="tablist" aria-label="Ciclo annidato">
-        <button type="button" data-mode="dev" class="is-active">
-          Ciclo di sviluppo
-        </button>
-        <button type="button" data-mode="runtime">Ciclo runtime</button>
-      </div>
     </header>
 
     <main>
       <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
-        <div class="dev-only">
-          <p>
-            Il Goal di <strong>sviluppo</strong> (<a
-              href="../kb/development-goal.md"
-              >development-goal</a
-            >): la posizione auspicata dell'artefatto-metodo lungo le dimensioni
-            comuni — basso attrito di lettura, KB riflessiva coerente, loop di
-            propagazione che si chiude.
-          </p>
-        </div>
-        <div class="runtime-only">
-          <p>
-            Il Goal <strong>runtime</strong> (<a href="../kb/goal.md">goal</a>):
-            custodire il metodo portabile e propagarne il canone agli adottanti
-            senza micromanagiarne la coda — portabilità, indipendenza dal
-            modello, adattabilità, autocorrezione, rigore delle fonti.
-          </p>
-        </div>
+        <p>
+          Coltivare il metodo e propagarne il canone agli adottanti custodendo
+          la portabilità, indipendenza dal modello, adattabilità, autocorrezione
+          e rigore delle fonti.
+        </p>
       </section>
       <section class="cycle" aria-label="I sei atti del ciclo">
         <div class="cycle-grid">
           <div class="cycle-column">
             <h2>Esecuzione <span class="arc-dir">scende ↓</span></h2>
-            <div class="cycle-card" data-slot="o1" data-runtime-empty>
+            <div class="cycle-card" data-slot="o1">
               <span class="cycle-key">o1</span>
-              <strong>Piano</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="../o1/plan.md">plan.md</a
-                ><small>Task aperti, prioritizzati, con dipendenze.</small>
-              </div>
-              <div class="runtime-only slot-body">
-                <span class="slot-gap">vuoto</span
-                ><small
-                  >Protocollo d'audit periodico top-down degli adottanti: da
-                  costruire.</small
-                >
-              </div>
+              <h3>
+                <a class="card-title" href="../o1/plan.md">Piano</a>
+              </h3>
+              <small>Task aperti, prioritizzati, con dipendenze.</small>
             </div>
             <div class="cycle-card" data-slot="o2">
               <span class="cycle-key">o2</span>
-              <strong>Compiti</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="tasks.html">vista Tasks</a
-                ><small>La specifica concreta dei task del piano.</small>
-              </div>
-              <div class="runtime-only slot-body">
-                <a class="slot-link" href="../i2/baricentro-kb-adottanti.md"
-                  >osservatorio</a
-                ><small
-                  >Vista di decisione cross-repo: prima istanza, da estendere ai
-                  4 domini.</small
-                >
-              </div>
+              <h3>
+                <a class="card-title" href="tasks.html">Compiti</a>
+              </h3>
+              <small>La specifica concreta dei task del piano.</small>
             </div>
             <div class="cycle-card" data-slot="o3">
               <span class="cycle-key">o3</span>
-              <strong>Prescrizioni</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="../o3/prescriptions.md"
-                  >prescriptions</a
-                ><small
-                  >Prescrizioni ed esecutori deterministici del ciclo di
-                  sviluppo.</small
+              <h3>
+                <a class="card-title" href="../o3/prescriptions.md"
+                  >Prescrizioni</a
                 >
-              </div>
-              <div class="runtime-only slot-body">
-                <a class="slot-link" href="../o3/prescriptions.md"
-                  >prescriptions</a
-                ><small
-                  >Runbook di propagazione del canone agli adottanti.</small
-                >
-              </div>
+              </h3>
+              <small
+                >Prescrizioni ed esecutori deterministici del metodo.</small
+              >
             </div>
           </div>
           <div class="cycle-column">
             <h2>Valutazione <span class="arc-dir">↑ risale</span></h2>
             <div class="cycle-card" data-slot="i3">
               <span class="cycle-key">i3</span>
-              <strong>Confronti</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="verdict.html">vista Verdict</a
-                ><small>I verdetti correnti per filo aperto.</small>
-              </div>
-              <div class="runtime-only slot-body">
-                <a class="slot-link" href="../kb/adopter-comparison.md"
-                  >adopter-comparison</a
-                ><small
-                  >Confronto cross-repo contro gli obiettivi; oggi sparso nei
-                  thread di verdict.</small
-                >
-              </div>
+              <h3>
+                <a class="card-title" href="verdict.html">Confronti</a>
+              </h3>
+              <small>I verdetti correnti per filo aperto.</small>
             </div>
             <div class="cycle-card" data-slot="i2">
               <span class="cycle-key">i2</span>
-              <strong>Interpretazioni</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="interpretations.html"
-                  >vista Interpretazioni</a
-                ><small>La sintesi illustrata del metodo e dei nodi.</small>
-              </div>
-              <div class="runtime-only slot-body">
-                <a class="slot-link" href="../i2/baricentro-kb-adottanti.md"
-                  >osservatorio</a
-                ><small
-                  >Rilettura comparativa dei cataloghi <code>kb/</code> dei 4
-                  domini.</small
+              <h3>
+                <a class="card-title" href="interpretations.html"
+                  >Interpretazioni</a
                 >
-              </div>
+              </h3>
+              <small>La sintesi illustrata del metodo e dei nodi.</small>
             </div>
             <div class="cycle-card" data-slot="i1">
               <span class="cycle-key">i1</span>
-              <strong>Percezioni</strong>
-              <div class="dev-only slot-body">
-                <a class="slot-link" href="../o3/kb_tools.py">kb-review</a
-                ><small
-                  >Audit, backlink e copertura del catalogo via
-                  <code>kb_tools.py</code>.</small
-                >
-              </div>
-              <div class="runtime-only slot-body">
-                <a class="slot-link" href="../i1/perceptions.md">perceptions</a
-                ><small
-                  >Segnali metodologici che emergono dagli adottanti.</small
-                >
-              </div>
+              <h3>
+                <a class="card-title" href="../i1/perceptions.md">Percezioni</a>
+              </h3>
+              <small>I segnali catturati dallo stadio Perceive.</small>
             </div>
           </div>
         </div>
       </section>
       <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
-        <div class="dev-only">
-          <p>
-            Il Mondo di <strong>sviluppo</strong> (<a href="../kb/world.md"
-              >world</a
-            >): l'artefatto stesso — i nodi
-            <a href="../kb/kb.md"><code>kb/</code></a> e la loro coerenza. È
-            anche la macchina del ciclo runtime: qui passa la cucitura tra i due
-            cicli.
-          </p>
-        </div>
-        <div class="runtime-only">
-          <div class="world-grid">
-            <article class="world-item">
-              <a href="../nixos/">nixos</a>
-              <p>Configurazione dichiarativa NixOS multi-host</p>
-            </article>
-            <article class="world-item">
-              <a href="../bi/">bi</a>
-              <p>Business intelligence e sincronizzazione dati</p>
-            </article>
-            <article class="world-item">
-              <a href="../economia/">economia</a>
-              <p>Gestione finanziaria, patrimoniale e legale personale</p>
-            </article>
-            <article class="world-item">
-              <a href="../salute/">salute</a>
-              <p>Benessere, pratica, filosofia e salute personale</p>
-            </article>
-          </div>
+        <div class="world-grid">
+          <article class="world-item">
+            <a href="https://github.com/steledama/nixos">nixos</a>
+            <p>Configurazione dichiarativa NixOS multi-host</p>
+          </article>
+          <article class="world-item">
+            <a href="https://github.com/tt-sviluppo/bi">bi</a>
+            <p>Business intelligence e sincronizzazione dati</p>
+          </article>
+          <article class="world-item">
+            <a href="https://github.com/steledama/economia">economia</a>
+            <p>Gestione finanziaria, patrimoniale e legale personale</p>
+          </article>
+          <article class="world-item">
+            <a href="https://github.com/steledama/salute">salute</a>
+            <p>Benessere, pratica, filosofia e salute personale</p>
+          </article>
         </div>
       </section>
     </main>
-
-    <script>
-      (function () {
-        const body = document.body;
-        const buttons = document.querySelectorAll(".mode-toggle button");
-        function setMode(mode) {
-          body.classList.toggle("mode-dev", mode === "dev");
-          body.classList.toggle("mode-runtime", mode === "runtime");
-          buttons.forEach((b) =>
-            b.classList.toggle("is-active", b.dataset.mode === mode),
-          );
-        }
-        buttons.forEach((b) =>
-          b.addEventListener("click", () => setMode(b.dataset.mode)),
-        );
-      })();
-    </script>
   </body>
 </html>
