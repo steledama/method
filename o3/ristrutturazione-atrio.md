@@ -37,7 +37,10 @@ adottanti») e `nested-cycles` per la facet `ciclo`.
    `prescriptions.md`. Gli `scripts/` di dominio restano o3-runtime al loro
    posto (cfr. `project-structure`); `scadenze` diventa una sezione di
    `o1/plan.md`. Una collezione senza item nasce col solo indice: l'assenza si
-   mostra, non si nasconde.
+   mostra, non si nasconde. Nel trasloco, **risincronizza `kb_tools.py`**
+   dall'`o3/` del metodo: il fork pre-atrio non conosce i path nuovi e conta il
+   catalogo `kb/kb.md` come nodo (il canonico lo esclude per nome, con fallback
+   legacy per `kb.md` in root) — coccio del pilot `nixos`.
 2. **Catalogo.** Il catalogo dei nodi diventa l'indice interno omonimo
    `kb/kb.md` (da `kb.md` in root o `kb/index.md`, dove sta oggi). Nessun rename
    di nodi.
@@ -53,11 +56,13 @@ adottanti») e `nested-cycles` per la facet `ciclo`.
    rimandata a filtri nelle viste, cfr. filo `i3/home-minimalista.md` del
    metodo), `presentation.py`, `build_views.py`, `build-*.sh` con i path
    `o3/` + `presentation/`. Poi rigenera.
-5. **Facet `ciclo`.** Ogni item di collezione dichiara `ciclo: dev|runtime` nel
-   frontmatter, letta dal Mondo su cui l'item insiste: artefatto → `dev`,
-   dominio/Mondo esterno → `runtime` (`nested-cycles`). Dal frontmatter dei task
-   il campo `stato:` è soppresso (canone 2026-07-04, cfr. `tasks`): restano
-   `sintesi` e `ciclo`.
+5. **Facet `ciclo`.** Ogni **item** di collezione dichiara `ciclo: dev|runtime`
+   nel frontmatter, letta dal Mondo su cui l'item insiste: artefatto → `dev`,
+   dominio/Mondo esterno → `runtime` (`nested-cycles`). Gli **indici** di
+   collezione restano senza frontmatter; l'eccezione è `o1/plan.md`, insieme
+   indice e unico item del suo stadio, che la dichiara (cfr. il canonico —
+   coccio del pilot `nixos`). Dal frontmatter dei task il campo `stato:` è
+   soppresso (canone 2026-07-04, cfr. `tasks`): restano `sintesi` e `ciclo`.
 6. **Forma del plan.** `o1/plan.md` in forma tabellare canonica con colonne
    `Ciclo · Task · Dip.` (cfr. `plan`); i task identificati per nome, la storia
    in git.
