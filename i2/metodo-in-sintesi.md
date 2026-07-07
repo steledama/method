@@ -28,7 +28,7 @@ ciclo: dev
 - dev is not a second loop beside runtime: it is the reflective loop above it
 - portability is a quality of the runtime machine, not a replacement for the domain
 
-## Runtime cycle / development meta-cycle {.img data-background-image="../i2/nested-cycles.png" data-background-size="contain" data-background-color="#fcf6e3"}
+## Runtime cycle / development meta-cycle {.img data-background-image="../i2/development-meta-cycle.png" data-background-size="contain" data-background-color="#fcf6e3"}
 
 ## Sviluppo del metodo {.img data-background-image="../i2/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
 

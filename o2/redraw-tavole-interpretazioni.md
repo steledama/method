@@ -13,11 +13,9 @@ centrale il runtime e tradurre le etichette in inglese.
 
 - `i2/artifact-system-method.png` — la tavola è interamente in inglese in un
   deck italiano: uniformare (METHOD→METODO, HUMAN→UMANO, didascalie).
-- `i2/nested-cycles.png` — ridisegnare in inglese come **Runtime cycle /
-  development meta-cycle**: il runtime deve avere maggiore rilievo visivo e
-  occupare il centro; il meta-ciclo dev deve stare sopra/attorno come corna,
-  corona o arco riflessivo, non come grande contenitore dominante. Correggere
-  anche il glitch del tab PRESCRIZIONI esterno («o3» duplicato/sovrapposto).
+- `i2/development-meta-cycle.png` — ridisegnata in inglese come **Runtime
+  cycle / development meta-cycle**: runtime centrale e dominante, meta-ciclo
+  dev sopra come corna/arco riflessivo, `ARTIFACT = WORLD-DEV` esplicito.
 - `i2/llm-harness-method.png` — nella lista harness il generatore ha scritto
   «P1» (con l'uno) invece di «Pi».
 - `i2/artifact-kb-world.png` — didascalia della KB da estendere in «modello del
