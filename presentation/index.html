@@ -15,65 +15,103 @@
     <main>
       <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
-        <p>Coltivare il metodo e propagarne il canone agli adottanti custodendo la portabilità, indipendenza dal modello, adattabilità, autocorrezione e rigore delle fonti.</p>
+        <p>
+          Coltivare il metodo e propagarne il canone agli adottanti custodendo
+          la portabilità, indipendenza dal modello, adattabilità, autocorrezione
+          e rigore delle fonti.
+        </p>
       </section>
       <section class="cycle" aria-label="I sei atti del ciclo">
         <div class="cycle-grid">
           <div class="cycle-column">
             <h2>Esecuzione <span class="arc-dir">scende ↓</span></h2>
-          <div class="cycle-card" data-slot="o1">
-            <span class="cycle-key">o1</span>
-            <h3>
-              <a class="card-title" href="../o1/plan.md">Piano</a>
-            </h3>
-            <small>Task aperti, prioritizzati, con dipendenze.</small>
-          </div>
-          <div class="cycle-card" data-slot="o2">
-            <span class="cycle-key">o2</span>
-            <h3>
-              <a class="card-title" href="tasks.html">Compiti</a>
-            </h3>
-            <small>La specifica concreta dei task del piano.</small>
-          </div>
-          <div class="cycle-card" data-slot="o3">
-            <span class="cycle-key">o3</span>
-            <h3>
-              <a class="card-title" href="../o3/prescriptions.md">Prescrizioni</a>
-            </h3>
-            <small>Prescrizioni ed esecutori deterministici del metodo.</small>
-          </div>
+            <div class="cycle-card" data-slot="o1">
+              <span class="cycle-key">o1</span>
+              <h3>
+                <a class="card-title" href="../o1/plan.md">Piano</a>
+              </h3>
+              <small>Task aperti, prioritizzati, con dipendenze.</small>
+            </div>
+            <div class="cycle-card" data-slot="o2">
+              <span class="cycle-key">o2</span>
+              <h3>
+                <a class="card-title" href="tasks.html">Compiti</a>
+              </h3>
+              <small>La specifica concreta dei task del piano.</small>
+            </div>
+            <div class="cycle-card" data-slot="o3">
+              <span class="cycle-key">o3</span>
+              <h3>
+                <a class="card-title" href="../o3/prescriptions.md"
+                  >Prescrizioni</a
+                >
+              </h3>
+              <small
+                >Prescrizioni ed esecutori deterministici del metodo.</small
+              >
+            </div>
           </div>
           <div class="cycle-column">
             <h2>Valutazione <span class="arc-dir">↑ risale</span></h2>
-          <div class="cycle-card" data-slot="i3">
-            <span class="cycle-key">i3</span>
-            <h3>
-              <a class="card-title" href="verdict.html">Confronti</a>
-            </h3>
-            <small>I verdetti correnti per filo aperto.</small>
-          </div>
-          <div class="cycle-card" data-slot="i2">
-            <span class="cycle-key">i2</span>
-            <h3>
-              <a class="card-title" href="interpretations.html">Interpretazioni</a>
-            </h3>
-            <small>La sintesi illustrata del metodo e dei nodi.</small>
-          </div>
-          <div class="cycle-card" data-slot="i1">
-            <span class="cycle-key">i1</span>
-            <h3>
-              <a class="card-title" href="../i1/perceptions.md">Percezioni</a>
-            </h3>
-            <small>I segnali catturati dallo stadio Perceive.</small>
-          </div>
+            <div class="cycle-card" data-slot="i3">
+              <span class="cycle-key">i3</span>
+              <h3>
+                <a class="card-title" href="verdict.html">Confronti</a>
+              </h3>
+              <small>I verdetti correnti per filo aperto.</small>
+            </div>
+            <div class="cycle-card" data-slot="i2">
+              <span class="cycle-key">i2</span>
+              <h3>
+                <a class="card-title" href="interpretations.html"
+                  >Interpretazioni</a
+                >
+              </h3>
+              <small>La sintesi illustrata del metodo e dei nodi.</small>
+            </div>
+            <div class="cycle-card" data-slot="i1">
+              <span class="cycle-key">i1</span>
+              <h3>
+                <a class="card-title" href="../i1/perceptions.md">Percezioni</a>
+              </h3>
+              <small>I segnali catturati dallo stadio Perceive.</small>
+            </div>
           </div>
         </div>
       </section>
       <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
-<p><code>metodo</code> ha due Mondi (<a href="../kb/world.md">world</a>). Il Mondo <strong>runtime</strong> sono i quattro adottanti, espliciti — da lì emerge l&#x27;esigenza dal basso e lì torna la propagazione:</p>
-<ul><li><strong><a href="../../nixos/">nixos</a></strong> — Configurazione dichiarativa NixOS multi-host</li><li><strong><a href="../../bi/">bi</a></strong> — Business intelligence e sincronizzazione dati</li><li><strong><a href="../../economia/">economia</a></strong> — Gestione finanziaria, patrimoniale e legale personale</li><li><strong><a href="../../salute/">salute</a></strong> — Benessere, pratica, filosofia e salute personale</li></ul>
-<p>Il Mondo di <strong>sviluppo</strong> sono i nodi <code>kb/</code> e la loro coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la risposta. Le fonti autorevoli stanno fuori dall&#x27;artefatto, registrate in <a href="../sources.md"><code>sources.md</code></a>.</p>
+        <p>
+          Il Mondo di <code>metodo</code> nella home sono i quattro adottanti,
+          espliciti — da lì emerge l&#x27;esigenza dal basso e lì torna la
+          propagazione:
+        </p>
+        <ul>
+          <li>
+            <strong
+              ><a href="https://github.com/steledama/nixos">nixos</a></strong
+            >
+            — Configurazione dichiarativa NixOS multi-host
+          </li>
+          <li>
+            <strong><a href="https://github.com/tt-sviluppo/bi">bi</a></strong>
+            — Business intelligence e sincronizzazione dati
+          </li>
+          <li>
+            <strong
+              ><a href="https://github.com/steledama/economia"
+                >economia</a
+              ></strong
+            >
+            — Gestione finanziaria, patrimoniale e legale personale
+          </li>
+          <li>
+            <strong
+              ><a href="https://github.com/steledama/salute">salute</a></strong
+            >
+            — Benessere, pratica, filosofia e salute personale
+          </li>
+        </ul>
       </section>
     </main>
   </body>

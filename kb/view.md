@@ -39,7 +39,9 @@ deploy, servizi permanenti o `fetch` di file locali, che i browser bloccano sott
 Reveal può essere caricato da CDN senza introdurre dipendenze installate. L'HTML si
 apre via `file://`; la connessione Internet serve solo a caricare il framework, non
 a servire i file locali. Se serve uso offline, Reveal va vendorizzato in `presentation/assets/`.
-La home statica non usa Reveal, ma condivide token, palette e primitivi grafici.
+La home statica non usa Reveal. Ha un CSS proprio (`system-image.css`) condiviso
+tra i fork adottanti, ma il contratto è minimale: token, base e sole classi
+emesse dal builder della home. Le classi delle viste Reveal restano nel loro CSS.
 
 ## Grafica nativa e build minima
 

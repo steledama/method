@@ -21,7 +21,7 @@ Questo scioglie il criterio «forma del World → resa» che la percezione lasci
 aperto (card se lista di entità, testo se prosa): non c'è più niente da decidere
 lato builder. Di conseguenza **`method` e `nixos` perdono le card** nel polo
 World — adottanti e host diventano bullet list markdown. Non erano casi speciali:
-una lista markdown resa fedelmente *è già* la loro rappresentazione.
+una lista markdown resa fedelmente _è già_ la loro rappresentazione.
 
 Il canone è inciso in `kb/readme.md`: `### World` è la **visione del Mondo che
 l'artefatto tiene** (non l'inventario delle fonti), può crescere in prosa anche
@@ -45,6 +45,8 @@ per correggere i link relativi dalla home) è identico nelle cinque fork di
 - `method` — adottanti come bullet list con link (non più card né URL GitHub
   ricostruiti); `link_prefix` risolve `../nixos/` → `../../nixos/` dalla home.
 
-Watchpoint residui (cosmetici): in `economia` restano inutilizzate le classi CSS
-`world-grid`/`world-item`; la duplicazione nome+ruolo host tra `### World` e
-`## Host` di `nixos` è voluta (sintesi vs dettaglio).
+Watchpoint residui (cosmetici): la duplicazione nome+ruolo host tra `### World`
+e `## Host` di `nixos` è voluta (sintesi vs dettaglio). Il residuo CSS nato in
+`economia` non resta come eccezione locale: il canone ora pota
+`system-image.css` al set vivo della home minimalista, quindi `world-grid` e
+`world-item` non appartengono più al contratto condiviso.
