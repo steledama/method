@@ -19,3 +19,4 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 - [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime rimandata a filtri nelle viste; restano watchpoint tavole raster e fili parcheggiati
 - [membrana-afforda-scrittura.md](membrana-afforda-scrittura.md) — la cucitura «agisci attraverso, ratifica in `method`»: dichiarata, non presidiata
 - [collocazione-corpo-di-dominio.md](collocazione-corpo-di-dominio.md) — il corpo di dominio va in `o3/` come o3-runtime, la classe-dispensa è abolita; collaudato da `nixos` (rebuild reale), stress-test atteso su `bi`
+- [polo-world-reso-fedele.md](polo-world-reso-fedele.md) — il builder rende `### World` come markdown fedele (niente card); propagazione chiusa su tutti e cinque i repo, restano solo watchpoint cosmetici

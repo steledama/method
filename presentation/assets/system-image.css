@@ -26,6 +26,17 @@
   max-width: 760px;
 }
 
+.pole ul {
+  color: var(--muted);
+  margin: 0.4rem 0;
+  max-width: 760px;
+  padding-left: 1.2rem;
+}
+
+.pole li {
+  margin: 0.2rem 0;
+}
+
 .pole-goal {
   padding-bottom: 0.5rem;
 }
