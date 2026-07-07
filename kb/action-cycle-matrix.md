@@ -4,7 +4,7 @@ stato: bozza
 
 # Action cycle matrix
 
-Strumento di verifica sul campo della teoria del ciclo di azione: applica gli otto elementi del ciclo — sei atti più due poli, cfr. `action-cycle` — a ciascuno dei cinque artefatti (`nixos`, `bi`, `economia`, `salute` e `metodo` stesso) per mettere alla prova l'ipotesi della simmetria invece di darla per scontata. Una seconda passata apre l'**asse annidamento** (dev/runtime, `nested-cycles`) — le otto righe diventano sedici — per la sola colonna `metodo` in dogfooding, mettendo alla prova l'ipotesi dei due cicli prima di costruirne la rappresentazione. Non è una mappa che illustra la teoria: è un test che può falsificarla. Nasce dalla domanda aperta — la simmetria a otto elementi è una struttura reale che affina lo strumento, o una forzatura elegante che piega la realtà all'esigenza teorica?
+Strumento di verifica sul campo della teoria del ciclo di azione: applica gli otto elementi del ciclo — sei atti più due poli, cfr. `action-cycle` — a ciascuno dei cinque artefatti (`nixos`, `bi`, `economia`, `salute` e `metodo` stesso) per mettere alla prova l'ipotesi della simmetria invece di darla per scontata. Una seconda passata apre l'**asse ciclo** (dev/runtime, `development-meta-cycle`) — le otto righe diventano sedici — per la sola colonna `metodo` in dogfooding, mettendo alla prova la relazione tra runtime cycle e development meta-cycle prima di costruirne la rappresentazione. Non è una mappa che illustra la teoria: è un test che può falsificarla. Nasce dalla domanda aperta — la simmetria a otto elementi è una struttura reale che affina lo strumento, o una forzatura elegante che piega la realtà all'esigenza teorica?
 
 > **IL RISCHIO È LA COMPLICITÀ CON SÉ STESSI.** Una matrice che parte cercando simmetria la trova sempre: la ragione motivata fabbrica corrispondenze su misura. Questo strumento vale solo se ogni casella riceve un verdetto onesto con una riga di giustificazione, e solo se «forzato» è un esito _gradito_, non un fallimento da smussare. Se a fine verifica le caselle forzate o vuote restano molte, l'ipotesi della simmetria è sbagliata e va abbandonata, non difesa. Lo strumento serve a uccidere la teoria se lo merita, non a incoronarla.
 
@@ -14,7 +14,7 @@ Strumento di verifica sul campo della teoria del ciclo di azione: applica gli ot
 - **D — debole**: esiste ma è sotto-sviluppato, implicito o sparso.
 - **F — forzato**: l'accostamento regge solo piegando la realtà alla teoria; è il verdetto che falsifica.
 - **? — da verificare**: non ancora ispezionato sul campo nel repo. Non un giudizio, un debito.
-- **vuoto — legittimamente assente**: l'elemento _non esiste_ per quell'artefatto e la sua assenza è un verdetto onesto — per design o per cucitura dell'annidamento — non un debito da colmare come il `?`.
+- **vuoto — legittimamente assente**: l'elemento _non esiste_ per quell'artefatto e la sua assenza è un verdetto onesto — per design o per cucitura tra runtime e dev — non un debito da colmare come il `?`.
 
 ## La matrice — primo passaggio
 
@@ -41,11 +41,11 @@ Il conteggio sembra confortante. Non lo è, e leggerlo come una vittoria sarebbe
 - **`o2` è la colonna-spia.** Debole in quattro artefatti su cinque (solo `bi` con Reveal.js la salva). È lo strato di rappresentazione/decisione: la conferma che il collo di bottiglia di tutti gli artefatti è la vista che dovrebbe generare azione. È la stessa diagnosi della stasi di `salute`, l'unico artefatto debole su _entrambi_ o1 e o2 — quasi tutto l'arco di output assente, eppure o3 «medio»: agisce per intuizione senza che l'artefatto lo sostenga, che è il profilo del loop a vuoto.
 - **`metodo` non è stato segnato tutto-S di proposito.** Un artefatto che dà il massimo a sé stesso si sta adulando. Anche così sta in alto, e proprio per questo merita la revisione esterna più dura, non la più indulgente.
 
-**La matrice sopra collassa l'annidamento.** Le otto righe trattano ogni artefatto come se avesse un solo ciclo d'azione, ma sono due, annidati (`nested-cycles`): è la seconda delle quattro dimensioni ortogonali di `action-cycle`, quella la cui omissione fa «sparire» un cappio intero. La sezione che segue apre quell'asse per la **sola colonna `metodo`** (dogfooding): le otto righe diventano sedici, otto per ciclo. Gli adottanti restano al protocollo della prima slide (cfr. «Protocollo di riempimento»): la loro verifica dell'annidamento per dominio non è oggetto di questa passata.
+**La matrice sopra collassa l'asse ciclo.** Le otto righe trattano ogni artefatto come se avesse un solo ciclo d'azione, ma runtime e dev hanno Mondi diversi (`development-meta-cycle`): è la seconda delle quattro dimensioni ortogonali di `action-cycle`, quella la cui omissione fa «sparire» un cappio intero. La sezione che segue apre quell'asse per la **sola colonna `metodo`** (dogfooding): le otto righe diventano sedici, otto per ciclo. Gli adottanti restano al protocollo della prima slide (cfr. «Protocollo di riempimento»): la loro verifica per dominio non è oggetto di questa passata.
 
-## L'asse annidamento (dev/runtime): le 16 celle di `metodo`
+## L'asse ciclo (dev/runtime): le 16 celle di `metodo`
 
-I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`nested-cycles`): il ciclo di **sviluppo** ha per Mondo l'artefatto stesso; il ciclo **runtime** ha per Mondo i progetti adottanti. La verifica non affianca due blocchi da otto: marca la **cucitura** dove il Mondo-dev — l'artefatto risultante — diventa la macchina che il runtime muove.
+I due cicli si distinguono unicamente per _cosa sia il loro Mondo_ in fondo (`development-meta-cycle`): il ciclo di **sviluppo** ha per Mondo l'artefatto stesso; il ciclo **runtime** ha per Mondo i progetti adottanti. La verifica non affianca due blocchi da otto: marca la **cucitura** dove il Mondo-dev — l'artefatto risultante — diventa la macchina che il runtime muove.
 
 ### Ciclo di sviluppo (Mondo = l'artefatto stesso)
 
@@ -78,13 +78,13 @@ Il riempimento, **riletto a freddo**, rivede sia la prima lettura sia il ribalta
 - **Call A — ribaltata.** `i2/metodo-in-sintesi.md` non è i2/o2 del runtime: è **i2/o2-dev**, la sintesi che rilegge il Mondo-dev (i nodi del metodo). L'assegnazione al runtime era la cella che la simmetria aveva fabbricato; l'indice `i2/interpretations.md`, contro lo stato reale, già lo classifica i2-dev. Il vero i2/o2-runtime è l'**osservatorio sugli adottanti** (`i2/baricentro-kb-adottanti.md`, prima istanza), genuinamente nascente: D non perché in deriva, ma perché è una sola lettura, non una superficie stabile.
 - **Call B — confermata.** L'**arco top-down del runtime** (o1) è il vero buco — non un vuoto-per-design ma un vuoto-gap, negato finora dal principio «`metodo` non orchestra task sui adottanti». L'arco è ora **scoccato end-to-end una volta** (prescrizione baricentro → `method-review` degli adottanti → recepimento), prova che è percorribile; ma il **protocollo** o1-runtime — l'audit periodico, non il micromanagement delle code — resta da costruire. Quindi o1 resta vuoto-gap.
 
-Resta vera la **cucitura di output** (la canonica di `nested-cycles`): il Mondo-dev — l'artefatto — _è_ la macchina del runtime. Ciò che lo sviluppo costruisce è esattamente ciò che gli adottanti eseguono via symlink; l'o3-runtime (`o3/`) propaga le modifiche a quella macchina. Ma non è l'unico legame: i due cicli condividono il polo Goal (obiettivi in larga parte runtime) e si parlano in entrambi i versi.
+Resta vera la **cucitura di output** (la canonica di `development-meta-cycle`): il Mondo-dev — l'artefatto — _è_ la macchina del runtime. Ciò che lo sviluppo costruisce è esattamente ciò che gli adottanti eseguono via symlink; l'o3-runtime (`o3/`) propaga le modifiche a quella macchina. Ma non è l'unico legame: i due cicli condividono il polo Goal (obiettivi in larga parte runtime) e si parlano in entrambi i versi.
 
 Le asimmetrie reali, a freddo: **dev-i2 è la sintesi illustrata del metodo** (presente ma a derivazione non disciplinata, D), mentre **l'i2/o2-runtime è l'osservatorio nascente** (una istanza, D); e soprattutto **runtime-o1 il buco** — l'arco top-down con la macchina d'osservazione ancora da costruire.
 
 ### Verdetto-gate
 
-L'annidamento a 16 celle **regge per `metodo`** — questo è fermo, e ratificato a freddo: non una cucitura su mezzo ciclo, ma **due cicli genuini** (11 S, 4 D, 1 vuoto, 0 F). Ma il verdetto sano **non è «due cicli pieni»**: è **«due cicli genuini, con l'interno runtime nascente/da costruire»**. La prima stesura sottostimava il runtime (membrana su interno vuoto); il ribaltamento "a caldo" lo sovrastimava (interno pieno via sintesi i2 del metodo); la rilettura a freddo lo coglie per quello che è: archi reali, interno immaturo.
+La verifica a 16 celle **regge per `metodo`** — questo è fermo, e ratificato a freddo: non una cucitura su mezzo ciclo, ma **runtime e dev genuini** (11 S, 4 D, 1 vuoto, 0 F). Ma il verdetto sano **non è «due cicli pieni»**: è **«runtime genuino ma nascente, con meta-ciclo di sviluppo già più maturo»**. La prima stesura sottostimava il runtime (membrana su interno vuoto); il ribaltamento "a caldo" lo sovrastimava (interno pieno via sintesi i2 del metodo); la rilettura a freddo lo coglie per quello che è: archi reali, interno immaturo.
 
 - **Regge la struttura**: zero celle forzate; entrambi i cicli hanno poli costituiti e membrana fisica (o3/i1 runtime).
 - **L'interno runtime è nascente, non pieno**: l'i2/o2-runtime è l'osservatorio a una sola istanza (`baricentro-kb-adottanti.md`), non `metodo-in-sintesi.md` (che è i2-dev); l'i3-runtime è sparso; e **runtime-o1 è il buco** — l'arco top-down scoccato una volta ma senza protocollo d'audit.

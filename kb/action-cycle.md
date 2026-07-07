@@ -81,11 +81,24 @@ Ciascun atto è il punto in cui un agente si pone una domanda — _quali alterna
 
 Il design risponde a queste domande con vincoli, mapping, significanti, modelli concettuali, feedback e visibilità (cfr. `constraint`, `affordance-signifier`, `system-image`). Norman distingue l'informazione per direzione: il **feedforward** risponde alle domande di esecuzione (cosa posso fare, come), il **feedback** a quelle di valutazione (cosa è successo, cosa significa, va bene). Nel metodo i due archi portano esattamente queste due informazioni: l'arco output (o1/o2/o3) è il feedforward che colma il gulf of execution; l'arco input (i1/i2/i3) è il feedback che colma il gulf of evaluation. Il criterio che ne segue, valido per ogni componente del repo: questo file dà l'informazione per rispondere alla domanda del suo stadio?
 
-## Cicli annidati e le quattro dimensioni
+## Runtime, meta-ciclo e le quattro dimensioni
 
-Il ciclo d'azione del metodo non è uno solo: sono due, annidati, ciascuno lo specchio simmetrico appena descritto, distinti per _cosa sia il loro Mondo_ in fondo — la realtà per il ciclo runtime, l'artefatto stesso per il ciclo di sviluppo. L'incastro è che il Mondo del ciclo di sviluppo, costruito e modificato dall'o3-sviluppo, _diventa_ la macchina che esegue il ciclo runtime: è il senso in cui il metodo _estende_ Norman invece di applicarlo soltanto — Norman dà il Mondo come scatola nera, il metodo la apre. La trattazione piena (i due Mondi, la cucitura contro l'affiancamento, l'estensione agli adottanti) vive in `nested-cycles`; il Goal che si sdoppia con esso, in `development-goal`.
+Il ciclo d'azione del metodo ha una messa a fuoco primaria: il **runtime cycle**,
+in cui l'artefatto agisce sul dominio reale. Sopra e attorno a questo ciclo sta
+il **development meta-cycle**, con la stessa geometria a sei atti ma un Mondo
+diverso: l'artefatto stesso. L'incastro è che il Mondo del meta-ciclo, costruito
+e modificato dall'o3-sviluppo, _diventa_ la macchina che esegue il runtime: è il
+senso in cui il metodo _estende_ Norman invece di applicarlo soltanto — Norman
+dà il Mondo come scatola nera, il metodo la apre. La trattazione piena (runtime,
+meta-ciclo, cucitura contro l'affiancamento, estensione agli adottanti) vive in
+`development-meta-cycle`; il Goal che si sdoppia con esso, in `development-goal`.
 
-Riconosciuti specchio e annidamento, ogni elemento del metodo si colloca su quattro dimensioni _ortogonali_: **agente** (umano / LLM), **annidamento** (runtime / sviluppo), **livello** (1 macchina, 2 decisione, 3 Mondo), **lato del cappio** (output / input). Collassarne due — livello e agente — è l'errore che aveva fatto «sparire» o1. La matrice che ne risulta è la lente per confrontare i progetti adottanti, ed è il compito di `action-cycle-matrix`.
+Riconosciuti specchio e relazione runtime/meta-ciclo, ogni elemento del metodo si
+colloca su quattro dimensioni _ortogonali_: **agente** (umano / LLM),
+**ciclo** (runtime / sviluppo), **livello** (1 macchina, 2 decisione, 3 Mondo),
+**lato del cappio** (output / input). Collassarne due — livello e agente — è
+l'errore che aveva fatto «sparire» o1. La matrice che ne risulta è la lente per
+confrontare i progetti adottanti, ed è il compito di `action-cycle-matrix`.
 
 ## Le quattro proprietà cardine come criteri di qualità per o2
 
@@ -128,7 +141,7 @@ Connessioni:
 - [goal](goal.md)
 - [development-goal](development-goal.md)
 - [world](world.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
 - [augmentation-system](augmentation-system.md)
 - [cognitive-system](cognitive-system.md)

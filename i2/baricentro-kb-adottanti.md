@@ -19,7 +19,7 @@ ciclo, e ogni repo ha un **baricentro** diverso.
 
 Per natura è **i2-runtime**, non i2-dev: il suo Mondo sono i quattro adottanti,
 non i nodi del metodo. È la prima istanza concreta dell'osservatorio cross-repo
-che la rilettura a freddo del gate cicli annidati ha riconosciuto come il vero
+che la rilettura a freddo dell'asse dev/runtime ha riconosciuto come il vero
 i2/o2-runtime di `method` (cfr. [action-cycle-matrix](../kb/action-cycle-matrix.md),
 celle runtime e «cucitura e asimmetrie»: «il vero runtime di `method` è
 l'osservatorio sugli adottanti», non la sintesi i2 del metodo). Resta `bozza`: la classificazione è fatta dai
@@ -44,7 +44,7 @@ Ogni nodo è classificato per **dove sta il suo contenuto sul ciclo**, non per c
 - **M — Mondo runtime / is** (polo basso): la realtà del dominio su cui l'artefatto
   agisce. Cfr. [world](../kb/world.md).
 - **A — Macchina / Mondo-dev** (la cucitura, in mezzo): com'è fatto l'artefatto
-  stesso. È il Mondo del ciclo di sviluppo (cfr. [nested-cycles](../kb/nested-cycles.md)).
+  stesso. È il Mondo del ciclo di sviluppo (cfr. [development-meta-cycle](../kb/development-meta-cycle.md)).
 - **O — Atto / repertorio** (contenuto o3, sceso verso la membrana): _come si
   agisce_ — procedure, pratiche. Prescrive l'atto sul Mondo-runtime.
 - **S — Sorgente / autorità**: maestri e fonti promossi a nodo. Non è un polo del
@@ -174,7 +174,7 @@ Questa interpretazione è l'osservazione (i2-runtime). La **generalizzazione** �
 un nodo `kb/` sulla tipologia-contenuto della KB (la tripletta G/M/A, le due
 tensioni, il baricentro come diagnosi) — è il passo separato che ne discende, da
 connettere a [knowledge-base](../kb/knowledge-base.md),
-[nested-cycles](../kb/nested-cycles.md), [goal](../kb/goal.md) e
+[development-meta-cycle](../kb/development-meta-cycle.md), [goal](../kb/goal.md) e
 [world](../kb/world.md). Tenere distinti osservazione e nodo evita di canonizzare
 quattro casi prima che il test esterno li metta alla prova.
 
@@ -184,5 +184,5 @@ quattro casi prima che il test esterno li metta alla prova.
   letti via `world/` il 2026-06-20; campione verificato per repo.
 - [system-image](../kb/system-image.md), [knowledge-base](../kb/knowledge-base.md),
   [action-cycle-matrix](../kb/action-cycle-matrix.md),
-  [nested-cycles](../kb/nested-cycles.md), [goal](../kb/goal.md),
+  [development-meta-cycle](../kb/development-meta-cycle.md), [goal](../kb/goal.md),
   [world](../kb/world.md).

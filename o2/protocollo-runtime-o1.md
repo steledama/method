@@ -11,7 +11,7 @@ Nella `action-cycle-matrix`, colonna `metodo`, runtime-o1 è l'**unico vuoto-gap
 (le altre celle immature sono D, nascenti; questa è vuota). È la pianificazione
 **top-down** del ciclo runtime — come gli artefatti adottanti dovrebbero diventare
 — che il principio «`metodo` non orchestra task sui adottanti» aveva finora negato,
-e che il gate dei cicli annidati ha riqualificato come gap reale (sovra-esposizione
+e che il gate sull'asse dev/runtime ha riqualificato come gap reale (sovra-esposizione
 del dal-basso: l'arco di valutazione è ricco, l'esecuzione top-down quasi assente).
 
 L'arco è **scoccato end-to-end una volta** — prescrizione baricentro →

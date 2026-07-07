@@ -4,11 +4,11 @@ stato: bozza
 
 # Development goal
 
-Il polo Goal del **ciclo di sviluppo** (Goal-dev, cfr. `nested-cycles`) non è solo contenuto di dominio: condivide **dimensioni comuni a tutti gli artefatti**, e ogni progetto _fotografa_ — più che «definisce» — la propria **posizione auspicata** lungo quelle dimensioni. Il dominio non determina le dimensioni: determina la **gradualità** scelta su ciascuna. È la generalizzazione che mancava al polo, e la cui assenza lo teneva sotto-articolato — la cella Goal-dev declassata a D in `action-cycle-matrix`, mescolata col Goal runtime perché il contenuto dev-specifico non era formulato da nessuna parte.
+Il polo Goal del **ciclo di sviluppo** (Goal-dev, cfr. `development-meta-cycle`) non è solo contenuto di dominio: condivide **dimensioni comuni a tutti gli artefatti**, e ogni progetto _fotografa_ — più che «definisce» — la propria **posizione auspicata** lungo quelle dimensioni. Il dominio non determina le dimensioni: determina la **gradualità** scelta su ciascuna. È la generalizzazione che mancava al polo, e la cui assenza lo teneva sotto-articolato — la cella Goal-dev declassata a D in `action-cycle-matrix`, mescolata col Goal runtime perché il contenuto dev-specifico non era formulato da nessuna parte.
 
 ## Perché le dimensioni guardano il runtime
 
-La cucitura dei cicli annidati spiega la natura di questo polo: poiché il **Mondo-dev è la macchina del runtime** (`nested-cycles`), gli obiettivi del ciclo di sviluppo sono in larga parte **desiderata sulla forma del ciclo runtime**. Il Goal-dev è dunque il luogo dove vivono le richieste su come il runtime debba comportarsi — il che spiega perché «portabilità» suoni di runtime pur essendo _voluta dallo_ sviluppo.
+La cucitura tra runtime cycle e development meta-cycle spiega la natura di questo polo: poiché il **Mondo-dev è la macchina del runtime** (`development-meta-cycle`), gli obiettivi del ciclo di sviluppo sono in larga parte **desiderata sulla forma del ciclo runtime**. Il Goal-dev è dunque il luogo dove vivono le richieste su come il runtime debba comportarsi — il che spiega perché «portabilità» suoni di runtime pur essendo _voluta dallo_ sviluppo.
 
 Da qui si scioglie lo split lasciato provvisorio dal gate. Il **Goal-runtime** raccoglie gli obiettivi _costitutivi_ del runtime — ciò per cui l'artefatto in opera esiste (per `salute`, stare bene; per `metodo`, portabilità, indipendenza dal modello, adattabilità, autocorrezione, rigore delle fonti, pavimento teorico). Il **Goal-dev** raccoglie la _posizione auspicata_ lungo le dimensioni comuni: non _cosa_ il runtime persegue, ma _con quale forma_ lo persegue. I due poli sono entrambi rivolti al runtime — è la cucitura a renderli tali — ma uno tiene lo scopo, l'altro la forma; ed è la forma il contenuto dev-specifico che il polo Goal-dev articola.
 
@@ -42,7 +42,7 @@ Connessioni:
 
 - [goal](goal.md)
 - [action-cycle](action-cycle.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
 - [method-development](method-development.md)
 - [world](world.md)

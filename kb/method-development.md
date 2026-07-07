@@ -10,7 +10,7 @@ Ciascun movimento ha un fallimento proprio, ed è il fallimento dell'altro a far
 
 L'antidoto non è scegliere: è l'alternanza e il contraddittorio tra i due. Il corpo avverte il disordine — lo strato viscerale — la teoria lo nomina — lo strato riflessivo; si scende a verificare la cornice contro i domini reali, si risale a correggerla quando non regge. È il ciclo dell'azione di Norman applicato al metodo stesso, una struttura ad anello e non un cricchetto a senso unico: il gulf of evaluation è il movimento dal basso che legge il mondo, il gulf of execution è il movimento dall'alto che vi imprime un'intenzione. Per questo l'enfasi esclusiva sul dal-basso, pur giusta come guardia contro la sovra-ingegnerizzazione, contraddice il gigante che il metodo ha adottato: va tenuta come uno dei due poli, non come la regola.
 
-Una precisazione contro un equivoco: il «dall'alto» di questo nodo è il top-down del **ciclo di sviluppo** del metodo — la cornice teorica importata che dà forma alla pratica. È distinto dal top-down del **ciclo runtime**, in cui `metodo` disegna il proprio output di canone (prescrizioni o3-runtime, convergenze) e gli adottanti lo recepiscono: quel secondo movimento dall'alto, con pari dignità del bottom-up che emerge dagli adottanti, vive in `cognitive-artifact-design` e `nested-cycles`. I due top-down non vanno confusi: uno plasma il metodo, l'altro plasma come gli artefatti adottanti dovrebbero diventare.
+Una precisazione contro un equivoco: il «dall'alto» di questo nodo è il top-down del **ciclo di sviluppo** del metodo — la cornice teorica importata che dà forma alla pratica. È distinto dal top-down del **ciclo runtime**, in cui `metodo` disegna il proprio output di canone (prescrizioni o3-runtime, convergenze) e gli adottanti lo recepiscono: quel secondo movimento dall'alto, con pari dignità del bottom-up che emerge dagli adottanti, vive in `cognitive-artifact-design` e `development-meta-cycle`. I due top-down non vanno confusi: uno plasma il metodo, l'altro plasma come gli artefatti adottanti dovrebbero diventare.
 
 ## Il confine canone↔adottante: dichiara e taci
 
@@ -29,7 +29,7 @@ Connessioni:
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [action-cycle](action-cycle.md)
 - [augmentation-system](augmentation-system.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [processing-layers](processing-layers.md)
 - [pace-layering](pace-layering.md)
 - [plan](plan.md)

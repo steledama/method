@@ -29,7 +29,7 @@ cuore della migrazione non è il rename delle stanze, è decidere voce per voce
 resta fuori solo come eccezione dichiarata; se le eccezioni diventano troppe, il
 verdetto non è un adattamento locale ma un limite di fit del metodo su quel
 dominio. Cfr. `project-structure` («La root come atrio», «L'inventario
-dell'atrio», «Applicazione nei progetti adottanti») e `nested-cycles` per la
+dell'atrio», «Applicazione nei progetti adottanti») e `development-meta-cycle` per la
 facet `ciclo`.
 
 ## La ricetta (nel lessico del metodo)
@@ -92,7 +92,7 @@ facet `ciclo`.
    `o3/` + `presentation/`. Poi rigenera.
 6. **Facet `ciclo`.** Ogni **item** di collezione dichiara `ciclo: dev|runtime`
    nel frontmatter, letta dal Mondo su cui l'item insiste: artefatto → `dev`,
-   dominio/Mondo esterno → `runtime` (`nested-cycles`). Gli **indici** di
+   dominio/Mondo esterno → `runtime` (`development-meta-cycle`). Gli **indici** di
    collezione restano senza frontmatter; l'eccezione è `o1/plan.md`, insieme
    indice e unico item del suo stadio, che la dichiara (cfr. il canonico —
    coccio del pilot `nixos`). Dal frontmatter dei task il campo `stato:` è

@@ -45,7 +45,7 @@ Il Mondo di **sviluppo** sono i nodi `kb/` e la loro coerenza: un commit agisce 
 
 ## Orientarsi
 
-La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia **è il ciclo stesso**. Le sei collezioni-stadio portano il codice del loro stadio ([project-structure](kb/project-structure.md)); ogni item dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui l'item insiste — artefatto → `dev`, adottanti → `runtime` ([nested-cycles](kb/nested-cycles.md)).
+La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia **è il ciclo stesso**. Le sei collezioni-stadio portano il codice del loro stadio ([project-structure](kb/project-structure.md)); ogni item dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui l'item insiste — artefatto → `dev`, adottanti → `runtime` — dentro la relazione tra runtime cycle e development meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
 
 **Collezioni-stadio** — le sei stanze del ciclo, ciascuna col proprio indice interno:
 

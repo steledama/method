@@ -61,7 +61,7 @@ Aperto, da sciogliere in `method`:
    ha eseguito a mano.
 3. è il primo arco runtime→dev **bottom-up** che attraversa il symlink (finora
    l'unico scoccato era top-down: il _baricentro_ su `salute`): evidenza nuova per
-   il filo `nested-cycles`/`runtime-o1` e per l'osservatorio nascente.
+   il filo `development-meta-cycle`/`runtime-o1` e per l'osservatorio nascente.
 
 ## Esito
 

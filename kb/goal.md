@@ -18,7 +18,7 @@ In Norman il goal è l'apice del ciclo di azione: il punto da cui parte l'esecuz
 
 Battezzare la coda o il suo indice col nome `goals` sarebbe sbagliato: mescolerebbe altitudini e descriverebbe il contenuto in modo falso — per questo l'indice di `o2/` si chiama `tasks.md`. Il nodo sul Goal esiste per tenere distinte le quote, non per cambiare la nomenclatura dei file.
 
-Il polo Goal si sdoppia anche coi cicli annidati (`nested-cycles`): il Goal del ciclo **runtime** tiene gli obiettivi costitutivi del dominio (lo scopo per cui l'artefatto in opera esiste), il Goal del ciclo di **sviluppo** tiene la posizione auspicata dell'artefatto lungo dimensioni comuni a tutti gli artefatti — attrito, autonomia dell'umano, temporalità del loop. Quell'articolazione, e lo scioglimento dello split dev/runtime, vivono in `development-goal`; qui il Goal è trattato nella sua forma generale, comune ai due cicli.
+Il polo Goal si sdoppia anche nella relazione runtime/meta-ciclo (`development-meta-cycle`): il Goal del ciclo **runtime** tiene gli obiettivi costitutivi del dominio (lo scopo per cui l'artefatto in opera esiste), il Goal del ciclo di **sviluppo** tiene la posizione auspicata dell'artefatto lungo dimensioni comuni a tutti gli artefatti — attrito, autonomia dell'umano, temporalità del loop. Quell'articolazione, e lo scioglimento dello split dev/runtime, vivono in `development-goal`; qui il Goal è trattato nella sua forma generale, comune ai due cicli.
 
 ## La KB informa il Goal, non lo genera
 
@@ -78,7 +78,7 @@ Connessioni:
 
 - [action-cycle](action-cycle.md)
 - [development-goal](development-goal.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [input](input.md)
 - [world](world.md)
 - [plan](plan.md)

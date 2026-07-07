@@ -17,7 +17,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [adopter-comparison](adopter-comparison.md) — Sintesi della situazione attuale dei quattro progetti che adottano il metodo
 - [cognitive-fidelity](cognitive-fidelity.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
 - [design-principles](design-principles.md) — Principi guida: universali, code-based e specifici di progetto
-- [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e cicli annidati
+- [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e meta-ciclo di sviluppo
 - [zettelkasten](zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente; le schede edge-notched di Engelbart come precursore
 - [karpathy-pattern](karpathy-pattern.md) — Istanza contemporanea (era LLM) della gamba di manutenzione, non pilastro: ingest, query, lint e filing back
 - [action-cycle](action-cycle.md) — Modello di Norman, l'interfaccia col Mondo dentro la cornice di augmentation: sei atti due poli, due gulf, quattro proprietà cardine come criteri di o2
@@ -31,8 +31,8 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo: dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il dominio sceglie la gradualità, non le dimensioni
 - [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
-- [nested-cycles](nested-cycles.md) — I due cicli annidati (sviluppo e runtime) e i loro due Mondi; la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
-- [action-cycle-matrix](action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse annidamento dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
+- [development-meta-cycle](development-meta-cycle.md) — Il runtime cycle e il development meta-cycle: la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
+- [action-cycle-matrix](action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse ciclo dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
 - [output](output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
 - [input](input.md) — Nota-struttura dell'arco di valutazione: i tre atomi, le due sorgenti di i1 e i due modi di i3, lo specchio con l'output
 - [perceive](perceive.md) — Stadio i1: cattura versionata e valenza-neutra; due tessiture; il confine i1→i2 è la valenza; on-demand

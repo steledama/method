@@ -21,14 +21,14 @@ ciclo: dev
 
 ## La rilettura del metodo {.img data-background-image="../i2/action-cycle-method.png" data-background-size="contain" data-background-color="#fefbea"}
 
-## L'annidamento dei due cicli
+## Runtime cycle and development meta-cycle
 
-- l'esecuzione è l'output dell'artefatto
-- la valutazione è l'input dell'artefatto
-- il ciclo di sviluppo costruisce l'artefatto
-- il ciclo runtime agisce invece sul dominio
+- the runtime cycle is the main loop: the artifact acts on the domain and reads back its response
+- the development meta-cycle shapes the machine that makes runtime possible
+- dev is not a second loop beside runtime: it is the reflective loop above it
+- portability is a quality of the runtime machine, not a replacement for the domain
 
-## Cicli annidati {.img data-background-image="../i2/nested-cycles.png" data-background-size="contain" data-background-color="#fcf6e3"}
+## Runtime cycle / development meta-cycle {.img data-background-image="../i2/nested-cycles.png" data-background-size="contain" data-background-color="#fcf6e3"}
 
 ## Sviluppo del metodo {.img data-background-image="../i2/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
 

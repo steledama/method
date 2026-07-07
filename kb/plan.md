@@ -6,7 +6,7 @@ stato: bozza
 
 Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`, il file unico che regna nella stanza `o1/` e indicizza i dettagli in `o2/`.
 
-`plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (l'azione sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, l'azione sul mondo). Non nega l'omologia Plan=o1 — `action-cycle` la mappa — la **qualifica per ciclo**: stesso stadio, due annidamenti.
+`plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (l'azione sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, l'azione sul mondo). Non nega l'omologia Plan=o1 — `action-cycle` la mappa — la **qualifica per ciclo**: stesso stadio, due movimenti della relazione runtime/meta-ciclo.
 
 Il plan non è storico e non è backlog infinito. Deve rappresentare il lavoro ancora vivo. Quando un task viene completato, la riga sparisce; la storia resta in git, nei fili di `i3/` e nei nodi aggiornati.
 
@@ -45,7 +45,7 @@ adottanti `economia` e `bi` hanno sciolto dal basso togliendolo.)
 
 La tabella resta **stretta e portabile** — `Ciclo · Task · Dip.` — con i
 collegamenti fuori dalle celle. `Ciclo` apre la riga: è la colonna a valori
-brevi e ricorrenti, e in testa raggruppa a colpo d'occhio i due annidamenti
+brevi e ricorrenti, e in testa raggruppa a colpo d'occhio runtime e dev
 prima ancora di leggere i titoli; distingue `dev` e `runtime`, letti dal
 Mondo su cui il task insiste. Il titolo-identità segue; l'ordine di esecuzione
 esprime la priorità tra i task non bloccati; `Dip.` chiude spiegando perché un

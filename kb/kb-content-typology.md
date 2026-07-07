@@ -6,7 +6,7 @@ stato: bozza
 
 Il contenuto di una knowledge base non è omogeneo. Ogni nodo denota qualcosa, e ciò che denota lo colloca su un polo del ciclo d'azione: il Goal in alto, il Mondo in basso, la macchina in mezzo. Distinguere _a cosa serve_ la KB — il canale tra agenti che non si parlano, il suo ruolo nel system image — da _di cosa parla_ — il suo contenuto — scioglie una confusione ricorrente: i due assi sono ortogonali, e la KB è il nucleo formalizzato del system image (funzione) il cui contenuto è un modello dei poli del ciclo (denotazione). Questa tipologia guarda il secondo asse.
 
-Le tre regioni del contenuto rispondono a tre domande diverse sul mondo. Il contenuto di tipo **ought** (Goal) dice dove l'artefatto vorrebbe andare: concetti, valori, obiettivi. Il contenuto di tipo **is** (Mondo runtime) dice com'è la realtà del dominio su cui l'artefatto agisce: persone, conti, host, fornitori, il corpo. Il contenuto di tipo **macchina** (Mondo di sviluppo) dice com'è fatto l'artefatto stesso: architetture, script, schemi. La macchina è la cucitura tra i due cicli annidati — è il Mondo del ciclo di sviluppo e insieme la macchina che esegue il runtime — perciò descriverla è ancora rappresentare un mondo, solo l'altro.
+Le tre regioni del contenuto rispondono a tre domande diverse sul mondo. Il contenuto di tipo **ought** (Goal) dice dove l'artefatto vorrebbe andare: concetti, valori, obiettivi. Il contenuto di tipo **is** (Mondo runtime) dice com'è la realtà del dominio su cui l'artefatto agisce: persone, conti, host, fornitori, il corpo. Il contenuto di tipo **macchina** (Mondo di sviluppo) dice com'è fatto l'artefatto stesso: architetture, script, schemi. La macchina è la cucitura tra runtime cycle e development meta-cycle — è il Mondo del ciclo di sviluppo e insieme la macchina che esegue il runtime — perciò descriverla è ancora rappresentare un mondo, solo l'altro.
 
 La distribuzione del contenuto di una KB tra queste regioni è il suo **baricentro**, e il baricentro è una diagnosi. Un ciclo d'azione calcola uno scarto solo se possiede entrambi i poli: un is contro cui misurare un ought. Una KB tutta-ought ha il polo alto gonfio e il polo basso vuoto, quindi non ha su cosa mordere e non genera azione; una KB tutta-is descrive la realtà ma non sa verso cosa orientarla. Leggere il baricentro mostra quale arco del ciclo l'artefatto affama, prima e meglio di qualunque lint formale.
 
@@ -36,7 +36,7 @@ Connessioni:
 
 - [knowledge-base](knowledge-base.md)
 - [system-image](system-image.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [goal](goal.md)
 - [world](world.md)
 - [processing-layers](processing-layers.md)

@@ -2,7 +2,7 @@
 """Genera la home statica della system image: la mappa del ciclo d'azione.
 
 La home orienta sul Goal runtime, sui sei atti del ciclo e sul Mondo runtime.
-I due cicli annidati restano nel modello (cfr. `nested-cycles`), ma la home non
+Runtime cycle e development meta-cycle restano nel modello (cfr. `development-meta-cycle`), ma la home non
 li espone come modalità: ogni slot ha un solo collegamento primario.
 """
 

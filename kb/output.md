@@ -12,7 +12,7 @@ Il metodo si appoggia su due pilastri con una tensione mai nominata. Lo Zettelka
 
 ## Le tre altitudini
 
-- **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo se è parte dell'artefatto, in `data/` locale se è stato operativo o sensibile. Riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito scadenze, stato e fatti strutturati senza ricostruire il modello. o1 non ha atomo proprio: è l'altitudine più sottile, e si sdoppia per annidamento — gli output-macchina del runtime (JSON, `.nix`) sono **o1-runtime**, mentre nel ciclo di sviluppo il Plan operativo (`plan`) è **o1-sviluppo** (cfr. `action-cycle`, `project-structure`).
+- **o1 — macchina** — audience: LLM, sistema, automazione; forma: JSON, dati strutturati, `.nix` compilato; dove vive: nel repo se è parte dell'artefatto, in `data/` locale se è stato operativo o sensibile. Riduce il gulf of execution per l'LLM che continua il lavoro tra sessioni: trova subito scadenze, stato e fatti strutturati senza ricostruire il modello. o1 non ha atomo proprio: è l'altitudine più sottile, e si sdoppia per ciclo — gli output-macchina del runtime (JSON, `.nix`) sono **o1-runtime**, mentre nel ciclo di sviluppo il Plan operativo (`plan`) è **o1-sviluppo** (cfr. `action-cycle`, `project-structure`).
 - **o2 — decisione** (atomo `specify`) — vista per l'umano: schemi, diagrammi, slides, termometri; la forma segue la domanda.
 - **o3 — prescrizione** (atomo `perform`) — l'atto predisposto e versionato sul lato interno della membrana `world`.
 

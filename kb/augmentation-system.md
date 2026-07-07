@@ -14,7 +14,7 @@ Engelbart è troppo unificante per essere una gamba accanto alle altre: è la _c
 
 ## Il bootstrap: l'antenato del 1962
 
-La mossa più profonda di Engelbart è il **bootstrap** — «Tools Developed vs Tools Used» (§IV-E): il sistema di augmentation applica i propri means a migliorare sé stesso, sollevandosi «by its own bootstraps». È l'antenato del 1962 di due strutture del metodo: il **dogfooding** (il metodo si sviluppa con il metodo) e i **cicli annidati** (`nested-cycles`: il Mondo di sviluppo, una volta costruito, diventa la macchina che esegue il runtime). La stessa distinzione e lo stesso avvertimento sulla confusione terminologica «Developed vs Used» riecheggiano nell'avvertimento di `nested-cycles` contro l'affiancamento dei due cicli.
+La mossa più profonda di Engelbart è il **bootstrap** — «Tools Developed vs Tools Used» (§IV-E): il sistema di augmentation applica i propri means a migliorare sé stesso, sollevandosi «by its own bootstraps». È l'antenato del 1962 di due strutture del metodo: il **dogfooding** (il metodo si sviluppa con il metodo) e il **development meta-cycle** (`development-meta-cycle`: il Mondo di sviluppo, una volta costruito, diventa la macchina che esegue il runtime). La stessa distinzione e lo stesso avvertimento sulla confusione terminologica «Developed vs Used» riecheggiano nell'avvertimento di `development-meta-cycle` contro l'affiancamento tra runtime e dev.
 
 ## La cornice conteneva già il metodo, nel 1962
 
@@ -30,7 +30,7 @@ Connessioni:
 - [zettelkasten](zettelkasten.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [cognitive-system](cognitive-system.md)
-- [nested-cycles](nested-cycles.md)
+- [development-meta-cycle](development-meta-cycle.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [method-development](method-development.md)
 - [knowledge-base](knowledge-base.md)
