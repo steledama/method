@@ -4,11 +4,14 @@
 La home orienta sul Goal runtime, sui sei atti del ciclo e sul Mondo runtime.
 Runtime cycle e development meta-cycle restano nel modello (cfr. `development-meta-cycle`), ma la home non
 li espone come modalità: ogni slot ha un solo collegamento primario.
+Il CSS condiviso tra fork resta il contratto minimale delle classi emesse qui,
+non un archivio di componenti previsionali.
 """
 
 from __future__ import annotations
 
 import html
+import re
 from pathlib import Path
 
 from presentation import canonical_readme_section
@@ -54,11 +57,6 @@ RUNTIME_GOAL = (
     "rigore delle fonti."
 )
 
-GITHUB_OWNER = "steledama"
-GITHUB_REPOS = {
-    "bi": "https://github.com/tt-sviluppo/bi",
-}
-
 
 # --- Helpers ------------------------------------------------------------------
 
@@ -74,27 +72,58 @@ def readme_title(root: Path) -> str:
     raise SystemExit("README.md: H1 mancante")
 
 
-def adopter_grid(root: Path) -> str:
-    """Griglia degli adottanti derivata dalla sezione `### World` del README."""
-    import re
+def inline_markdown(text: str, link_prefix: str = "") -> str:
+    escaped = html.escape(text)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
 
-    world = canonical_readme_section(root, "World")
-    cards: list[str] = []
-    for line in world.splitlines():
-        match = re.match(r"- \*\*\[([^\]]+)\]\(([^)]+)\)\*\* — (.+)", line)
-        if match:
-            name, _href, desc = match.groups()
-            href = GITHUB_REPOS.get(name, f"https://github.com/{GITHUB_OWNER}/{name}")
-            cards.append(
-                f"""          <article class="world-item">
-            <a href="{html.escape(href, quote=True)}">{html.escape(name)}</a>
-            <p>{html.escape(desc)}</p>
-          </article>"""
+    def link(match: re.Match[str]) -> str:
+        label = match.group(1)
+        href = match.group(2)
+        if not re.match(r"[a-z]+:|[#/]", href):
+            href = link_prefix + href
+        return f'<a href="{html.escape(href, quote=True)}">{label}</a>'
+
+    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, escaped)
+
+
+def render_block(block: str, link_prefix: str = "") -> str:
+    """Rende un blocco markdown fedele: prosa in <p>, liste puntate in <ul>,
+    e il misto lead-in + lista dentro lo stesso blocco."""
+    parts: list[str] = []
+    para: list[str] = []
+    items: list[str] = []
+
+    def flush_para() -> None:
+        if para:
+            parts.append(f"<p>{inline_markdown(' '.join(para), link_prefix)}</p>")
+            para.clear()
+
+    def flush_list() -> None:
+        if items:
+            lis = "".join(
+                f"<li>{inline_markdown(item, link_prefix)}</li>" for item in items
             )
-    if not cards:
-        return ""
-    grid = "\n".join(cards)
-    return f'        <div class="world-grid">\n{grid}\n        </div>'
+            parts.append(f"<ul>{lis}</ul>")
+            items.clear()
+
+    for raw in block.splitlines():
+        line = raw.strip()
+        match = re.match(r"^[-*]\s+(.*)$", line)
+        if match:
+            flush_para()
+            items.append(match.group(1))
+        elif line:
+            flush_list()
+            para.append(line)
+    flush_para()
+    flush_list()
+    return "\n".join(parts)
+
+
+def render_markdown(markdown: str, link_prefix: str = "") -> str:
+    blocks = (block.strip() for block in markdown.split("\n\n"))
+    return "\n".join(render_block(block, link_prefix) for block in blocks if block)
 
 
 # --- Sezioni ------------------------------------------------------------------
@@ -108,9 +137,10 @@ def goal_pole_html() -> str:
 
 
 def world_pole_html(root: Path) -> str:
+    world = canonical_readme_section(root, "World")
     return f"""      <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
-{adopter_grid(root)}
+{render_markdown(world, "../")}
       </section>"""
 
 

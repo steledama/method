@@ -40,13 +40,14 @@ La sezione ha **heading fissi e machine-readable**, perché è anche la sorgente
 
 - **`## Metodo`** — la dichiarazione di adozione: una o due frasi che nominano il metodo come insieme con brevissima descrizione, il symlink `method/` in root come membrana verso i nodi canonici, e l'hub `cognitive-artifact-design.md` come unico nome di nodo assunto stabile (il punto d'aggancio per chi vuole entrare nel metodo). Niente inventari di path interni.
 - **`### Goal`** — il polo superiore del ciclo del dominio: il motivo che muove l'artefatto, in sintesi (cfr. `goal`). Per `metodo`, che ha il Goal sdoppiato dev/runtime, qui sta la forma compatta che `development-goal` articola.
-- **`### World`** — il polo inferiore: i riferimenti **espliciti** al Mondo runtime del repo (le fonti di verità, dove l'artefatto agisce e da cui legge; cfr. `world` e il register `sources.md`). Espliciti per repo, **mai derivati per euristica** dall'organizzazione del remote — che differisce tra adottanti (es. `bi` su `tt-sviluppo`, gli altri su `steledama`) e non è una guida affidabile.
+- **`### World`** — il polo inferiore: la **visione del Mondo che l'artefatto tiene** — di che cosa è fatto il Mondo runtime su cui agisce e da cui legge (cfr. `world` e il register `sources.md`). È testo del dominio nella forma che il dominio richiede: prosa, elenco puntato o misto, senza forma imposta. Anche quando il Mondo sembra una lista purissima, una **puntualizzazione sulla visione** — emersa sviluppando l'artefatto — sta qui. Ciò che **non** sta qui è la membrana e la pipeline (`world/`, gli strati `i1/i2/o*`, i register): sono orientamento operativo e vivono nelle sezioni pertinenti del README o nei nodi, non nel polo World — se ci finiscono, la home li amplifica. Espliciti per repo, **mai derivati per euristica** dall'organizzazione del remote — che differisce tra adottanti (es. `bi` su `tt-sviluppo`, gli altri su `steledama`) e non è una guida affidabile.
 
 Tre vincoli sulla sezione:
 
 - gli heading sono **letterali e stabili**: la home li parsa per nome, quindi non vanno rinominati né tradotti per repo;
 - la sezione **dichiara, non immagazzina**: resta dentro la regola «orienta e punta» — Goal e World in sintesi, col rimando ai nodi, non il modello del dominio;
-- è il **solo luogo** della dipendenza generale: gli altri link al metodo nel README sono ammessi solo se intenzionali (semantici o operativi), come ovunque.
+- è il **solo luogo** della dipendenza generale: gli altri link al metodo nel README sono ammessi solo se intenzionali (semantici o operativi), come ovunque;
+- il **corpo** di `### World` — e di `### Goal` quando la home lo deriva dal README — è reso come **markdown fedele → HTML**: una bullet list resta bullet list, la prosa resta prosa. Niente card, niente resa strutturata, nessuna euristica per repo — la libertà di forma è dell'adottante, il builder resta stupido e fedele.
 
 ## Applicazione nei progetti adottanti
 

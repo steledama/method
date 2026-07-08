@@ -34,14 +34,12 @@ Il Goal di `metodo` è sdoppiato (cfr. [development-goal](kb/development-goal.md
 
 ### World
 
-`metodo` ha due Mondi ([world](kb/world.md)). Il Mondo **runtime** sono i quattro adottanti, espliciti — da lì emerge l'esigenza dal basso e lì torna la propagazione:
+Il Mondo di `metodo` nella home sono i quattro adottanti, espliciti — da lì emerge l'esigenza dal basso e lì torna la propagazione:
 
-- **[nixos](../nixos/)** — Configurazione dichiarativa NixOS multi-host
-- **[bi](../bi/)** — Business intelligence e sincronizzazione dati
-- **[economia](../economia/)** — Gestione finanziaria, patrimoniale e legale personale
-- **[salute](../salute/)** — Benessere, pratica, filosofia e salute personale
-
-Il Mondo di **sviluppo** sono i nodi `kb/` e la loro coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la risposta. Le fonti autorevoli stanno fuori dall'artefatto, registrate in [`sources.md`](sources.md).
+- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host
+- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati
+- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale
+- **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale
 
 ## Orientarsi
 

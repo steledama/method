@@ -14,6 +14,9 @@ propaga è scritta e attiva: [`o3/ristrutturazione-atrio.md`](../o3/ristrutturaz
 identica in forma per tutti; divergono solo _quali_ file esistono, cfr.
 `o3/prescriptions.md`, «Divisione del lavoro»). Include il risync del fork del
 cluster presentazione alla home semplificata (cfr. filo `i3/home-minimalista.md`).
+Dopo la potatura del 2026-07-07 include anche `system-image.css` nel set vivo
+minimale della home: niente classi legacy per task list, view card o world card
+se nessun HTML della home le emette.
 
 Ogni adottante la recepisce col proprio `/method-review` come task locale: il
 canone dichiara, la coda resta dell'adottante (`method-development`, «dichiara e

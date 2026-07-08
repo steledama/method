@@ -88,8 +88,9 @@ facet `ciclo`.
    fork** dall'`o3/` del metodo: motore della home semplificato (ciclo singolo,
    un collegamento primario per slot, CONFIG minimale — la lente dev/runtime è
    rimandata a filtri nelle viste, cfr. filo `i3/home-minimalista.md` del
-   metodo), `presentation.py`, `build_views.py`, `build-*.sh` con i path
-   `o3/` + `presentation/`. Poi rigenera.
+   metodo), `system-image.css` potato alle sole classi vive della home,
+   `presentation.py`, `build_views.py`, `build-*.sh` con i path `o3/` +
+   `presentation/`. Poi rigenera.
 6. **Facet `ciclo`.** Ogni **item** di collezione dichiara `ciclo: dev|runtime`
    nel frontmatter, letta dal Mondo su cui l'item insiste: artefatto → `dev`,
    dominio/Mondo esterno → `runtime` (`development-meta-cycle`). Gli **indici** di

@@ -23,6 +23,10 @@ Code chiuse dal giro di semplificazione:
 - **Propagazione del motore della home**: col motore ridotto a ciclo singolo e
   CONFIG minimale il fork è banale; viaggia nella prescrizione dell'atrio
   (`o2/propagazione-atrio-adottanti.md`).
+- **CSS della home**: `presentation/assets/system-image.css` è parte dello stesso
+  contratto minimale. Tiene solo token, base e classi emesse dalla home
+  (`hero`, `kicker`, `pole*`, `arc-dir`, `cycle*`, `card-title`); non conserva
+  componenti previsionali per task list, card di viste o card del World.
 
 Watchpoint: le tavole della vista Interpretazioni sono **asset raster statici**,
 non diagrammi derivati dalla sorgente — se un nodo cambia il senso di una tavola,

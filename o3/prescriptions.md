@@ -42,7 +42,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `build-presentation.sh` — orchestra Pandoc + `build_views.py`: produce le
   viste in `../presentation/`.
 - `build_system_image.py` — genera la home statica minimalista: ciclo singolo,
-  un collegamento primario per slot.
+  un collegamento primario per slot; il CSS condiviso della home resta potato
+  alle classi che il builder emette.
 - `build-system-image.sh` — wrapper: genera e formatta la home.
 
 I path interni sono riallineati alla struttura `o3/` + `presentation/` +
