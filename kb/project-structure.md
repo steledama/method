@@ -181,7 +181,7 @@ path.
 
 - `kb/*.md`: frontmatter obbligatorio `stato`, secondo il nodo node
 - item di collezione-stadio: frontmatter obbligatorio `ciclo: dev|runtime`
-- task in `o2/`: frontmatter obbligatorio `stato: aperto` + `sintesi`, secondo il nodo tasks, oltre a `ciclo: dev|runtime`
+- task in `o2/`: frontmatter obbligatorio `sintesi` + `ciclo: dev|runtime`, secondo il nodo tasks (il campo `stato:` è soppresso dal canone 2026-07-04)
 - bussola/regole (`README.md`, `CLAUDE.md`, `AGENTS.md`), register (`goal.md`, `world.md`) e indici ordinari di collezione (`i1/perceptions.md`, `kb/kb.md`, …): nessun frontmatter; `o1/plan.md` fa eccezione perché è anche l'istanza corrente del Plan
 
 La ragione è funzionale. I nodi, i task e gli item di collezione sono unità analizzabili dagli strumenti; bussola, regole, register e indici di collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter lì crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
