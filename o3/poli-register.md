@@ -49,8 +49,9 @@ register), `verdict` (i due presìdi, annotazione `misura:`).
    la sezione **territorio** del nuovo register `world.md`; `sources.md`, dove
    esiste, ne diventa la sezione **fonti** (provenienza: quale edizione regge
    quale nodo); le **superfici della membrana** si dichiarano una volta
-   (symlink `world/` più le eventuali superfici aggiuntive — mount, sync,
-   sistemi esterni). L'**intro** è la visione del Mondo che l'artefatto tiene
+   (symlink o mount descrittivi — `gdrive/`, `client/`, sync, sistemi esterni —
+   non un nome obbligato `world/`). L'**intro** è la visione del Mondo che
+   l'artefatto tiene
    (tipicamente l'ex `### World` del README). La dimensione interna dell'ex
    mappa («dove vivono o1, o2, o3») non migra: è superata dall'atrio, che si
    auto-dichiara. Il criterio per i casi dubbi (membrana o substrato?) è il
@@ -89,17 +90,14 @@ register), `verdict` (i due presìdi, annotazione `misura:`).
 
 ## Touchpoint per-repo (indizi da verificare in loco, non ordini)
 
-- **`economia` — il pilota, scelto perché è il banco più severo**: register
-  assente e sintomo avanzato — il plan porta ~46 righe di «Cause delle attese e
-  delle pause» (debrief telefonici, posizioni negoziali, letture convergenti):
-  **mini-fili i3 mai nati**, parcheggiati lì perché `Dip.` (`world`, `pause`)
-  esigeva una giustificazione di stato senza un posto supervisionato. Il primo
-  giro di `verdicts-review` (passo 7) è il collaudo vero: quelle righe migrano
-  nei fili, il plan torna coda pura. Il polo Goal esiste sparso (README, stato,
-  obiettivi noti: indipendenza dalla gestione condivisa, casa al mare,
-  semplificazione, equilibrio entrate/uscite) — il custode lo consolida nel
-  register. `scadenze.md` resta calendario di dominio: non è materia di questa
-  prescrizione.
+- **`economia` — pilota recepito** (`74c56c6`, 2026-07-09; marker
+  `method-review.md` a `3609404`): banco più severo superato. Il recepimento ha
+  creato `goal.md`, fuso `map.md` in `world.md`, asciugato README/home,
+  installato `plan-review`/`verdicts-review` anche nei wrapper Codex e rimosso
+  `tasks-review`. Il primo giro della coppia ha inciso `misura:` in
+  `i3/verdicts.md`: il plan resta coda e motivazione operativa delle attese,
+  mentre la valutazione stabile passa ai fili. `scadenze.md` resta calendario
+  di dominio: non è materia di questa prescrizione.
 - **`bi`** — a metà strada, è l'**origine**: `goal.md`, `plan-review` e
   `verdicts-review` nati lì (`52b2b600`). Restano i passi 2-4 e 6: fondere
   `map.md` in `world.md` dichiarando le **due superfici** (client Syncthing +
@@ -121,10 +119,10 @@ register), `verdict` (i due presìdi, annotazione `misura:`).
 
 ## Ordine e chiusura
 
-Pilot su `economia`: i suoi cocci si incidono in questo runbook prima degli
-altri recepimenti (come i cocci di `nixos` ed `economia` nella prescrizione
-dell'atrio). Poi `bi` (completamento), `salute` e `nixos`. La prescrizione
-resta attiva finché i quattro non l'hanno recepita via il proprio
-`method-review`; recepita da tutti, si rimuove dalla collezione e chiude con
-lei il task di tracciamento (`o2/propagazione-poli-register.md`). La storia
-resta in git.
+Pilot su `economia` completato: i suoi cocci sono incisi in questo runbook
+prima degli altri recepimenti (come i cocci di `nixos` ed `economia` nella
+prescrizione dell'atrio). Proseguire con `bi` (completamento), `salute` e
+`nixos`. La prescrizione resta attiva finché i quattro non l'hanno recepita via
+il proprio `method-review`; recepita da tutti, si rimuove dalla collezione e
+chiude con lei il task di tracciamento (`o2/propagazione-poli-register.md`). La
+storia resta in git.

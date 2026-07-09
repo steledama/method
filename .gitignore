@@ -8,7 +8,8 @@ __pycache__/
 # il PDF si rigenera con md2pdf quando serve stamparlo o distribuirlo
 *.pdf
 
-# membrana host-local verso il Mondo runtime; nessun symlink viene versionato.
-# Le fonti grezze (libri, documenti) vivono qui, su Drive: world degenere, fuori
-# dall'artefatto. Versionata resta solo la loro provenienza, nel register sources.md.
+# superfici host-local verso il Mondo runtime; nessun symlink viene versionato.
+# Le fonti grezze (libri, documenti) vivono su Drive: fuori dall'artefatto.
+# Versionata resta solo la loro provenienza, nel register world.md.
 world
+gdrive

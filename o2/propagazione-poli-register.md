@@ -1,5 +1,5 @@
 ---
-sintesi: Seguire il recepimento della prescrizione poli-register (o3/poli-register.md) nei quattro adottanti, pilota economia. Il collaudo del pilota è la bonifica del plan col primo giro di verdicts-review.
+sintesi: Seguire il recepimento della prescrizione poli-register (o3/poli-register.md) nei quattro adottanti. Pilota economia recepito (74c56c6, marker a 3609404): register, quartetto e primo giro di verdicts-review hanno bonificato il plan. Restano bi, salute, nixos.
 ciclo: runtime
 ---
 
@@ -14,10 +14,13 @@ traccia il recepimento, che ogni adottante compie col proprio `method-review`.
 
 ## Recepimento
 
-- **`economia`** — pilota, da eseguire. Il collaudo vero è il passo 7: il primo
-  giro di `verdicts-review` migra le ~46 righe di narrativa di stato dal plan
-  ai fili. I cocci del pilota si incidono nel runbook prima degli altri
-  recepimenti.
+- **`economia`** — **recepito** (2026-07-09, commit `74c56c6`, marker
+  `method-review.md` a `3609404`). Pilota completato: `goal.md` e `world.md`
+  sono register di root, `tasks-review` è diventata `plan-review`,
+  `verdicts-review` è installata, README/CLAUDE/AGENTS/home sono riallineati e
+  il primo giro ha spostato il peso valutativo su fili i3 con `misura:` verso
+  `goal.md`. Il plan resta coda pura: le cause delle attese sono ancora
+  motivate, ma non più l'unico luogo della narrativa di stato.
 - **`bi`** — dopo il pilota; a metà strada (origine di register e coppia,
   `52b2b600`): restano fusione `map.md`→`world.md` con le due superfici
   dichiarate, README, builder, puntatore gemello nel suo `goal.md`.

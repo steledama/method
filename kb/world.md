@@ -25,14 +25,14 @@ solo se scritta (cfr. `action-cycle`).
 
 ## I tre confini
 
-- **`world` vs i1** — il grezzo non versionato sta in `world`; la cattura
+- **`world` vs i1** — il grezzo non versionato sta nel Mondo; la cattura
   versionata e filtrata per rilevanza sta in `i1/`. Le fonti
-  autorevoli (libri, documenti) vivono su Drive via `world/`, fuori
-  dall'artefatto: sono Mondo — fonte di verità, non i1; ne diventano i1 solo
-  quando un'elaborazione le cattura. Di esse l'artefatto versiona solo la
-  **provenienza**, nella sezione fonti del register `world.md`: un register che
-  indicizza il Mondo è legittimo, mentre il symlink-membrana `world/` non ha
-  manifest (cfr. «Il register `world.md`»).
+  autorevoli (libri, documenti) vivono su una superficie non versionata, spesso
+  Drive, fuori dall'artefatto: sono Mondo — fonte di verità, non i1; ne
+  diventano i1 solo quando un'elaborazione le cattura. Di esse l'artefatto
+  versiona solo la **provenienza**, nella sezione fonti del register
+  `world.md`: un register che indicizza il Mondo è legittimo, mentre la
+  superficie fisica non ha manifest (cfr. «Il register `world.md`»).
 - **i1 vs i2** — il confine è l'ingresso della valenza e dell'interpretazione,
   non la fedeltà della copia. Estrazione lossless e distillazione lossy ma
   valenza-neutra possono essere entrambe i1.
@@ -79,11 +79,13 @@ diventare disciplina (cfr. `method-development`, la guardia dal basso).
 
 ## Materializzazione fisica
 
-La convenzione uniforme è un symlink `world` nella root del repository verso
-la cartella di progetto non versionata, tipicamente su Drive. Il nome non varia
-per dominio: il carattere vive nel contenuto. `world/` non ha un manifest e non
-è una collezione dell'artefatto; è solo la membrana. Il symlink è host-local e
-gitignorato.
+La membrana fisica non ha più un nome di path canonico. Il nome canonico resta
+il **polo** (`world.md`); le superfici concrete si chiamano per ciò che sono
+(`gdrive/`, `client/`, mount, sync, sistema esterno) e sono dichiarate nel
+register. Questo evita la collisione tra il register `world.md` e un symlink
+root `world/`, che in sessione sembra un pezzo del canone invece di una
+superficie host-local. La superficie resta gitignorata e senza manifest: il
+contenuto è Mondo, non collezione dell'artefatto.
 
 La membrana può avere **più superfici fisiche** per lo stesso adottante — la
 cartella sincronizzata, un mount Drive per gli asset, un sistema esterno in
@@ -117,8 +119,8 @@ Mondo di questo artefatto — ed è ciò che la home rende come polo World,
 markdown fedele senza euristiche (cfr. `readme`); le sezioni successive sono la
 profondità on-demand, tipicamente:
 
-- **superfici della membrana** — dove `world/` punta e quali altre superfici
-  fisiche esistono, dichiarate una volta;
+- **superfici della membrana** — quali superfici fisiche esistono e dove
+  puntano (`gdrive/`, mount, sync, sistemi esterni), dichiarate una volta;
 - **territorio** — entità, sistemi, fonti di verità e attori, legati ai nodi
   che li spiegano (l'eredità di `map.md`: nei repo tecnici host e flussi, in
   `economia` conti ed entità, in `salute` assi e pratica);
@@ -151,12 +153,14 @@ L'elenco separa ciò che accade nel Mondo dai riflessi versionati.
 
 ## Il Mondo del metodo
 
-`metodo` è un meta-artefatto e ha due Mondi distinti. Il _Mondo runtime_ sono i
-progetti adottanti: da lì entrano esigenze, drift e convergenze; lì tornano il
-filing back e la propagazione. Il register `world.md` di root li indicizza; la
-membrana `world/` gitignorata tiene i symlink a `economia`, `salute`, `nixos` e
-`bi` — duale del link `method/` con cui gli adottanti leggono i nodi canonici —
-e i binari delle fonti autorevoli su Drive. Quel link è
+`metodo` è un meta-artefatto e ha due Mondi distinti. Il _Mondo runtime_ è
+composto da due superfici: i quattro progetti adottanti e le fonti teoriche su
+`gdrive/`. Dagli adottanti entrano esigenze, drift e convergenze; lì tornano il
+filing back e la propagazione. Dalle fonti entra il pavimento concettuale che
+regge il canone, e il register `world.md` ne conserva la provenienza. In questo
+checkout `gdrive/` è il symlink gitignorato alle fonti Drive, mentre i
+repository adottanti sono checkout locali o remoti dichiarati nel territorio,
+non raccolti in un symlink root `world/`. Il link `method/` negli adottanti è
 _inteso_ in lettura, ma **afforda anche la scrittura** (`affordance-signifier`):
 un agente che risolve un problema in un adottante può modificare un nodo di
 canone attraverso il symlink. È legittimo come atto runtime — vale la cucitura

@@ -106,9 +106,10 @@ Ricetta metodologica:
   e substrato i2 quando viene letta.
 - strato input: cattura il ritorno (i1 valenza-neutro → i2 interpretazione → i3
   formalizzazione) e permette all'artefatto di ascoltare ciò che lo smentisce.
-- `world/`: membrana host-local non versionata verso il Mondo runtime. L'atto e
-  il grezzo vivono qui; o3/i1 ne sono i riflessi versionati quando precisione o
-  durata lo richiedono. Non ha manifest.
+- superfici `world`: membrane host-local non versionate verso il Mondo runtime.
+  L'atto e il grezzo vivono lì; o3/i1 ne sono i riflessi versionati quando
+  precisione o durata lo richiedono. Non hanno manifest e non hanno un nome di
+  path canonico: sono dichiarate nel register `world.md`.
 - convenzioni markdown: frontmatter minimale per nodi e task, nessun frontmatter nei file root, H1, corpo autonomo, link inline solo quando servono alla frase, sezione finale `Connessioni:` come footer di navigazione. Il dettaglio vive nei nodi `node` e `tasks`.
 
 Creazione di un nuovo progetto:
@@ -119,7 +120,8 @@ Creazione di un nuovo progetto:
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
 - creare `kb/kb.md` come catalogo dei nodi e i register dei poli `goal.md` e `world.md`
-- dichiarare la membrana `world/` e gli strati input/output del dominio, senza
+- dichiarare le superfici della membrana in `world.md` e gli strati
+  input/output del dominio, senza
   creare riflessi versionati che l'uso non richiede ancora
 - creare `i3/verdicts.md` e, se serve, un primo file-filo di fondazione
 - creare `o1/plan.md` come Plan e `o2/` per i dettagli operativi, inserendovi solo lavoro futuro, mai storico

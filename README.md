@@ -22,11 +22,22 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([method-developm
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i progetti adottanti — da lì emerge dal basso l'esigenza e lì ritorna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i quattro progetti adottanti più le fonti teoriche su `gdrive/` — da lì emergono esigenza dal basso e pavimento concettuale, e lì torna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Metodo
 
-Questo è il repository **canonico** del metodo: non lo adotta, lo custodisce. Il symlink `world/` (gitignorato) punta agli adottanti, duale del `method/` con cui ogni adottante legge i nodi qui; l'hub d'ingresso è [`cognitive-artifact-design.md`](kb/cognitive-artifact-design.md), il solo nome di nodo assunto stabile come punto d'aggancio. Questa è la **sezione README canonica** ([readme](kb/readme.md)) — comune ai cinque repo: dichiara l'adozione e punta ai due poli, che vivono nei register di root — [`goal.md`](goal.md) (il nord: obiettivi, segnali, lavoro corrente) e [`world.md`](world.md) (il territorio: i quattro adottanti, le superfici della membrana, le fonti) — da cui la home ricava i poli Goal e World rendendone l'intro.
+Questo è il repository **canonico** del metodo: non lo adotta, lo custodisce. I
+repo adottanti leggono i nodi canonici via il loro symlink `method/`; qui il
+territorio e le superfici sono dichiarati nel register [`world.md`](world.md)
+e la superficie Drive delle fonti vive come `gdrive/` gitignorato, non come
+`world/`. L'hub d'ingresso è
+[`cognitive-artifact-design.md`](kb/cognitive-artifact-design.md), il solo nome
+di nodo assunto stabile come punto d'aggancio. Questa è la **sezione README
+canonica** ([readme](kb/readme.md)) — comune ai cinque repo: dichiara l'adozione
+e punta ai due poli, che vivono nei register di root — [`goal.md`](goal.md) (il
+nord: obiettivi, segnali, lavoro corrente) e [`world.md`](world.md) (il
+territorio: i quattro adottanti, le superfici della membrana, le fonti) — da
+cui la home ricava i poli Goal e World rendendone l'intro.
 
 ## Orientarsi
 
@@ -49,7 +60,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia 
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del ciclo:
 
 - **[goal.md](goal.md)** — il polo superiore: il nord declinato in obiettivi, ognuno coi segnali che lo misurano e il lavoro corrente che lo serve; custode umano ([goal](kb/goal.md))
-- **[world.md](world.md)** — il polo inferiore: il territorio (i quattro adottanti), le superfici della membrana `world/` e la provenienza delle fonti-mondo autorevoli, base dei `## Riferimenti` (i3) ([world](kb/world.md))
+- **[world.md](world.md)** — il polo inferiore: il territorio (i quattro adottanti), le superfici della membrana e la provenienza delle fonti-mondo autorevoli, base dei `## Riferimenti` (i3) ([world](kb/world.md))
 
 Il cruscotto di lavoro è la coppia [`o1/plan.md`](o1/plan.md) (lato esecuzione: i task aperti) e [`i3/`](i3/verdicts.md) (lato valutazione: i verdetti aperti). L'ordine di bootstrap è `README → CLAUDE → nodo`.
 
@@ -67,8 +78,7 @@ I progetti adottanti sono il Mondo runtime, indicizzati nel register
 [`world.md`](world.md). Per collegarne uno nuovo:
 
 1. Crea il symlink `method/` verso i nodi canonici: `ln -s ../method/kb method`
-   dalla root del progetto, e aggiungilo al register `world.md` di `metodo` e,
-   se condiviso, alla membrana `world/`.
+   dalla root del progetto, e aggiungilo al register `world.md` di `metodo`.
 2. Scrivi la **sezione README canonica** ([readme](kb/readme.md)): `## Metodo`
    con la dichiarazione di adozione, il symlink `method/` e i puntatori ai due
    register dei poli — poi crea `goal.md` e `world.md` del dominio ([goal](kb/goal.md),
@@ -82,5 +92,6 @@ I progetti adottanti sono il Mondo runtime, indicizzati nel register
    davvero da quella specifica — dipendenza intenzionale, non accidentale (cfr.
    [method-development](kb/method-development.md), «Il confine canone↔adottante:
    dichiara e taci»).
-4. Dichiara gli strati input/output e la membrana `world/` del dominio; crea il
-   symlink host-local solo quando il progetto viene messo in uso.
+4. Dichiara gli strati input/output e le superfici della membrana del dominio
+   in `world.md`; crea symlink o mount host-local solo quando il progetto viene
+   messo in uso, con nomi fisici descrittivi.

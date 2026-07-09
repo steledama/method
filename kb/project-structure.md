@@ -85,7 +85,7 @@ La disciplina è l'**inventario**: ogni voce dell'`ls` della root appartiene a u
 - register dei poli (`goal.md`, `world.md`);
 - contenuto versionato ricollocato nello stadio funzionale previsto;
 - **eccezioni di toolchain** — file che lo strumento inchioda alla root (`flake.nix`/`flake.lock`, `package.json`, dotfile): vincoli, non scelte; dichiarate una volta;
-- **traffico runtime** — cache, log, output intermedi: membrana `world/` o gitignore, mai voci versionate senza classe.
+- **traffico runtime** — cache, log, output intermedi: superfici della membrana dichiarate in `world.md` o gitignore, mai voci versionate senza classe.
 
 Ciò che non si lascia collocare si conta come eccezione, e il conteggio è il
 **verdetto di fit** del metodo sul dominio: poche eccezioni motivate = il
@@ -137,14 +137,14 @@ dell'artefatto e vincola la collocazione funzionale; non costringe a
 ribattezzare il contenuto di dominio oltre le sottocartelle necessarie dentro
 lo stadio corretto.
 
-Anche `world/` ha nome uniforme, ma non è una collezione dell'artefatto. È un
-symlink host-local verso la cartella di progetto non versionata, tipicamente su
-Drive: la membrana fisica attraversata da atti e segnali grezzi, sempre
-gitignorata e senza manifest. La porta versionata del polo è il register
-`world.md`, che dichiara le superfici della membrana senza versionarne il
-contenuto. Nel repo `method`, `world/` contiene symlink ai repository adottanti
-e le fonti autorevoli, e materializza il suo Mondo runtime senza versionarne i
-path.
+La membrana fisica non è una collezione dell'artefatto e non ha un nome di path
+uniforme. È una o più superfici host-local verso contenuti non versionati,
+tipicamente Drive, mount, sync o sistemi esterni: attraversate da atti e
+segnali grezzi, sempre gitignorate e senza manifest. La porta versionata del
+polo è il register `world.md`, che dichiara quelle superfici senza versionarne
+il contenuto. Nel repo `method`, la superficie Drive delle fonti autorevoli è
+`gdrive/`; i repository adottanti sono territorio runtime dichiarato nel
+register, non contenuto di un symlink root `world/`.
 
 ## Caratteristiche
 
@@ -162,8 +162,8 @@ path.
 - indici di collezione, dentro la cartella: `i1/perceptions.md` · `i2/interpretations.md` · `i3/verdicts.md` · `o1/plan.md` · `o2/tasks.md` · `o3/prescriptions.md`
 - ali trasversali: `kb/` con catalogo `kb/kb.md`; `presentation/` con `index.html`, viste generate e `assets/`
 - register dei poli (verso i confini del ciclo, non collezioni dell'artefatto): `goal.md` (il nord) · `world.md` (territorio, superfici della membrana, fonti autorevoli)
-- membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
-  versionata, senza manifest
+- membrane locali: superfici gitignorate dichiarate in `world.md` (`gdrive/`,
+  mount, sync, sistemi esterni), senza manifest
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
   compilati e intermedi che non appartengono alla storia dell'artefatto
 - `.claude/skills/` · `.codex/skills/`

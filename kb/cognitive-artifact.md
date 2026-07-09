@@ -29,7 +29,7 @@ L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera. L'artef
 ## Riferimenti
 
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993): Cap. 2 «Experiential and Reflective Cognition» (i due modi, radice dei tre livelli di `processing-layers`) e Cap. 3 «The Power of Representation». Volume integrale ora reperito; citare per **capitolo**, non per pagina (la riedizione 2014 ripagina l'originale 1993).
-- Fonte grezza (`world`, su Drive): EPUB integrale (`TTMUS.txt` la superficie di
+- Fonte grezza (`gdrive/`, su Drive): EPUB integrale (`TTMUS.txt` la superficie di
   lavoro); provenienza nel register `world.md` (sezione fonti).
 
 Connessioni:

@@ -1,8 +1,11 @@
 # World
 
-Il Mondo runtime di `metodo` sono i **progetti adottanti** — da lì emerge
-l'esigenza dal basso e lì torna la propagazione; il Mondo di sviluppo sono i
-nodi `kb/` e la loro coerenza:
+Il Mondo runtime di `metodo` ha due facce: i **quattro progetti adottanti**,
+da cui emerge l'esigenza dal basso e a cui torna la propagazione, e le
+**fonti teoriche su `gdrive/`**, da cui il canone trae il proprio pavimento. Il
+Mondo di sviluppo sono invece i nodi `kb/` e la loro coerenza.
+
+Adottanti:
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati
@@ -15,11 +18,13 @@ Register del polo World, gemello di [`goal.md`](goal.md): il goal è il nord, il
 world è il territorio. Forma e contratto (l'intro è il polo che la home rende)
 in [world](kb/world.md).
 
-- `world/` — symlink host-local gitignorato, due contenuti: i symlink ai
-  repository adottanti (il canale runtime, duale del `method/` con cui gli
-  adottanti leggono i nodi canonici) e i binari delle fonti-mondo autorevoli su
+- `gdrive/` — symlink host-local gitignorato verso le fonti-mondo autorevoli su
   Drive (libri e paper sotto copyright, con superfici di lavoro `.txt`
-  rigenerabili).
+  rigenerabili). Il nome fisico resta descrittivo della superficie, per non
+  confonderla col register `world.md`.
+- Repository adottanti — checkout locali o remoti dichiarati nel territorio
+  sotto, non raccolti in un symlink root chiamato `world/`: il canale runtime è
+  concettuale e operativo, non dipende da quel nome di path.
 - Il Mondo di **sviluppo** non ha superficie propria: sono i nodi `kb/` e la
   loro coerenza — un commit agisce sui nodi, lint e audit ne percepiscono la
   risposta ([world](kb/world.md), «Il Mondo del metodo»).
@@ -33,7 +38,7 @@ adottanti è descritto in [project-structure](kb/project-structure.md).
 
 La provenienza delle fonti-mondo autorevoli: quale edizione esatta ha
 alimentato quale concetto ([source-of-truth](kb/source-of-truth.md)). I binari
-vivono in `world/` (su Drive, gitignorati): grezzo esterno persistente, fuori
+vivono in `gdrive/` (su Drive, gitignorati): grezzo esterno persistente, fuori
 dall'artefatto — non per questo diventano i1. Si versiona una cattura del
 Perceive (in `i1/`) solo quando il grezzo è effimero o quando precisione,
 revisione e durata richiedono un riflesso stabile; i libri, già persistenti e
@@ -65,7 +70,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
   EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`.
   Il volume integrale rende obsoleto il vecchio estratto del solo Cap. 3 (`representation.*`, di
-  uno stato precedente di `world/`, non presente in questa cartella). Fonte di `cognitive-artifact` (Cap. 3
+  uno stato precedente della superficie Drive, non presente in questa cartella). Fonte di `cognitive-artifact` (Cap. 3
   «The Power of Representation», già distillato) e, da distillare, del pavimento ontologico:
   **Cap. 6 «Distributed Cognition»** (la trattazione di Norman, accanto a Hutchins/Clark) e i
   capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non

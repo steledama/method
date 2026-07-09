@@ -40,7 +40,7 @@ facet `ciclo`.
    register, contenuto versionato collocato per funzione negli stadi,
    **eccezione di toolchain** (file che lo strumento inchioda alla root:
    `flake.nix`, `package.json` — dichiarata una volta), **traffico runtime**
-   (cache, log, output intermedi → membrana `world/` o gitignore). Il corpo di
+   (cache, log, output intermedi → superfici della membrana o gitignore). Il corpo di
    dominio non è una classe che autorizza la permanenza in root: è materiale da
    portare nello spazio funzionale previsto (`i1` cattura, `i2` sintesi, `o1`
    piano, `o2` specifica, `o3` atto/prescrizione/esecutore), salvo eccezione
