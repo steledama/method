@@ -119,6 +119,58 @@ def render_markdown(markdown: str, link_prefix: str = "") -> str:
     return "\n".join(render_block(block, link_prefix) for block in blocks if block)
 
 
+def heading_slug(title: str) -> str:
+    text = re.sub(r"`([^`]+)`", r"\1", title)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)
+    return re.sub(r"[-\s]+", "-", text).strip("-")
+
+
+def section_body(markdown: str, title: str, level: int) -> str:
+    hashes = "#" * level
+    boundary = r"^#{1," + str(level) + r"}\s+|\Z"
+    pattern = re.compile(
+        rf"^{re.escape(hashes)}\s+{re.escape(title)}\s*$"
+        rf"(?P<body>.*?)(?={boundary})",
+        re.M | re.S,
+    )
+    match = pattern.search(markdown)
+    if not match:
+        return ""
+    return match.group("body")
+
+
+def headings(markdown: str, level: int) -> list[str]:
+    hashes = "#" * level
+    return [
+        match.group(1).strip()
+        for match in re.finditer(rf"^{re.escape(hashes)}\s+(.+)$", markdown, re.M)
+    ]
+
+
+def pole_links(items: list[tuple[str, str]], label: str) -> str:
+    if not items:
+        return ""
+    links = "\n".join(
+        f'          <a href="{html.escape(href, quote=True)}">'
+        f"{inline_markdown(title)}</a>"
+        for title, href in items
+    )
+    return f"""        <nav class="pole-links" aria-label="{html.escape(label, quote=True)}">
+{links}
+        </nav>"""
+
+
+def goal_runtime_links(root: Path) -> list[tuple[str, str]]:
+    text = (root / "goal.md").read_text(encoding="utf-8")
+    runtime = section_body(text, "Obiettivi runtime", 2)
+    return [
+        (title, f"../goal.md#{heading_slug(title)}")
+        for title in headings(runtime, 3)
+    ]
+
+
 # --- Sezioni ------------------------------------------------------------------
 
 
@@ -127,6 +179,7 @@ def goal_pole_html(root: Path) -> str:
     return f"""      <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
 {render_markdown(goal, "../")}
+{pole_links(goal_runtime_links(root), "Obiettivi runtime")}
       </section>"""
 
 

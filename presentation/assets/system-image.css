@@ -37,6 +37,29 @@
   margin: 0.2rem 0;
 }
 
+.pole-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+  max-width: 860px;
+}
+
+.pole-links a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--accent-ink);
+  display: inline-flex;
+  font-size: 0.88rem;
+  line-height: 1.25;
+  padding: 0.45rem 0.65rem;
+  text-decoration: none;
+}
+
+.pole-links a:hover {
+  background: var(--soft);
+}
+
 .pole-goal {
   padding-bottom: 0.5rem;
 }
