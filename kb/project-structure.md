@@ -16,7 +16,7 @@ Dalla ristrutturazione dell'atrio (2026-07-04) le sei collezioni-stadio portano 
 
 Ogni collezione porta il suo **indice dentro la cartella**, e la coppia dei nomi si divide il lavoro: la cartella porta il _codice_ dello stadio, l'indice il suo _nome_ — `i1/perceptions.md`, `i2/interpretations.md`, `i3/verdicts.md`, `o2/tasks.md`, `o3/prescriptions.md`. In `o1/` l'indice è `plan.md` stesso (Specify è la coda del Plan: `plan.md` tiene una riga per ogni file di `o2/`). Il _significato_ dello stadio vive nell'atomo (`perceive`, `interpret`, `compare`, `plan`, `specify`, `perform`); l'indice dichiara ed elenca. Ogni item di collezione dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui insiste — artefatto → `dev`, adottanti/dominio → `runtime` (cfr. `development-meta-cycle`).
 
-Questo **supera** la regola della «triade alta in root» (README, `plan.md`, `verdict.md` come file-ciclo di root): Plan e Compare restano la quota alta del ciclo — un'unica istanza corrente, aggiornata in place — ma vivono nella propria stanza (`o1/plan.md`, i fili di `i3/`). La root non ospita più _istanze_ di stadio: ospita gli stadi. In root restano la bussola e le regole (README, CLAUDE, AGENTS), che non sono stadi ma il Goal e la costituzione.
+Questo **supera** la regola della «triade alta in root» (README, `plan.md`, `verdict.md` come file-ciclo di root): Plan e Compare restano la quota alta del ciclo — un'unica istanza corrente, aggiornata in place — ma vivono nella propria stanza (`o1/plan.md`, i fili di `i3/`). La root non ospita più _istanze_ di stadio: ospita gli stadi. In root restano la bussola e le regole (README, CLAUDE, AGENTS), che non sono stadi ma l'ingresso e la costituzione, e i register dei due poli (`goal.md`, `world.md`), che non sono stadi ma i confini del ciclo.
 
 ## Le specie di file root
 
@@ -30,15 +30,17 @@ funzionale previsto, eccezioni di toolchain e traffico runtime dichiarati (vedi
 
 **1. Bussola e regole** — letti a _ogni_ sessione per capire e agire:
 
-- `README.md` — la **bussola** e il Goal: identità, principi e dominio in sintesi; orienta e _punta_ a `o1/plan.md`, `kb/kb.md` e al modello (nodi/`i2/`, register `map` dove esiste)
+- `README.md` — la **bussola**: identità, principi e dominio in sintesi; orienta e _punta_ a `o1/plan.md`, `kb/kb.md`, al modello (nodi/`i2/`) e ai register dei poli
 - `CLAUDE.md` + `AGENTS.md` — le regole d'azione (AGENTS come wrapper agent-agnostico)
 
 Il **cruscotto** — `o1/plan.md` (i task aperti prioritizzati, con dipendenze, ciclo e i vincoli che ne ordinano l'esecuzione, le `scadenze` del dominio in una sezione propria) e i fili di `i3/` — si legge anch'esso a ogni sessione, ma vive nelle stanze del ciclo, non in root.
 
-**2. Register** — porte verso ciò che sta _fuori_ dall'artefatto (`world`/`source-of-truth`), non verso una collezione interna; visibili nell'atrio e letti on-demand:
+**2. Register** — porte verso ciò che sta _fuori_ dall'artefatto, non verso una collezione interna; visibili nell'atrio e letti on-demand. I register sono **i due poli del ciclo**: come le sei stanze materializzano gli stadi, i due register materializzano i confini che il ciclo non controlla — l'atrio non _racconta_ il ciclo, lo _è_, poli compresi:
 
-- `map.md` — l'indice-di-dominio: il territorio reale (host, entità, sistemi) legato ai nodi, presente **dove il dominio ha un territorio da indicizzare**; assente dove è astratto (in `metodo` non c'è)
-- `sources.md` — il **registro di provenienza** delle fonti-mondo autorevoli (`source-of-truth`): quale edizione regge quale nodo. I binari non stanno nell'artefatto ma in `world` (gitignorati, su Drive); `sources.md` è il loro riflesso versionato e portabile, e alimenta i `## Riferimenti` (i3). Presente dove il dominio poggia su fonti esterne autorevoli
+- `goal.md` — il polo superiore: il nord del dominio, gli obiettivi declinati con i segnali che li misurano e il lavoro corrente che li serve; custode umano dichiarato (forma e disciplina in `goal`)
+- `world.md` — il polo inferiore: il territorio che l'artefatto ritiene rilevante — superfici della membrana, entità, sistemi e attori legati ai nodi, provenienza delle fonti-mondo autorevoli (forma in `world`)
+
+I due register condividono il contratto machine-readable: l'intro (H1 → primo H2) è il polo in sintesi, resa fedelmente dalla home; le sezioni sono la profondità. Questo **supera** la vecchia coppia `map.md`/`sources.md`: l'indice-di-dominio e il registro di provenienza erano entrambi indici del Mondo e confluiscono in `world.md` (la dimensione interna di `map` — «dove vivono o1, o2, o3» — è superata dall'atrio, che si auto-dichiara); il polo Goal, che prima viveva in una sezione del README, guadagna la porta simmetrica.
 
 I cataloghi non salgono più in root. `kb.md` è l'indice interno omonimo di `kb/` (`kb/kb.md`): la KB resta il **nucleo di conoscenza formalizzata** del system image, trasversale agli stadi (cfr. `system-image`, `knowledge-base`), ma la trasversalità non richiede la root — l'atrio mostra la porta `kb/`, l'ordine di bootstrap dice quando aprirla. `tools.md` è **soppresso**: gli strumenti sono gli **esecutori deterministici** del ciclo di sviluppo e hanno nel Perform il loro stadio — vivono in `o3/`, registrati nella sezione «Strumenti» dell'indice `prescriptions.md` (prescrizioni eseguibili accanto a quelle narrative; l'omologo runtime nei repo code-based sono gli `scripts/` di dominio). Questo **supera** la specie «cataloghi trasversali in root». Anche la vecchia «collisione» tra catalogo e nodo-concetto `kb/index.md` si è sciolta da sé: il catalogo è `kb/kb.md`, omonimo della collezione, e `index` ne documenta la funzione.
 
@@ -50,7 +52,7 @@ I cataloghi non salgono più in root. `kb.md` è l'indice interno omonimo di `kb
 
 Questo **supera**, in due tempi, la vecchia regola «un file-meta vive dentro la cartella se on-demand, sale in root solo se letto a ogni sessione»: prima ammettendo cataloghi trasversali on-demand in root (`kb.md`, `tools.md`), poi — con la ristrutturazione dell'atrio — riportando anche quelli dentro le collezioni. La posizione non codifica mai il caricamento: lo codifica il bootstrap. Perfino il cruscotto (`o1/plan.md`, `i3/`), letto sempre, vive in cartella.
 
-Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file-ciclo, distinto dal README per pace». Quella regola trattava "map" come una cosa sola — il modello che evolve. La scomposizione lo scioglie meglio: la **bussola** (orientamento d'ingresso, stabile) è il README; il **modello** (la teoria che evolve) vive nei nodi e in `i2/`; l'**indice-di-dominio** (il territorio reale) è il register `map.md`, una porta on-demand. Così lo strato veloce resta fuori dal README — la pace è rispettata meglio del compromesso del 06-06 — e non serve più un `map.md`-bussola separato. Il README **orienta e punta, non immagazzina** (regola in readme).
+Questo **supera** anche la regola del 2026-06-06 «`map` resta in root come file-ciclo, distinto dal README per pace». Quella regola trattava "map" come una cosa sola — il modello che evolve. La scomposizione lo scioglie meglio: la **bussola** (orientamento d'ingresso, stabile) è il README; il **modello** (la teoria che evolve) vive nei nodi e in `i2/`; l'**indice del territorio** è il register del polo World (`world.md`, porta on-demand). Così lo strato veloce resta fuori dal README — la pace è rispettata meglio del compromesso del 06-06. Il README **orienta e punta, non immagazzina** (regola in readme).
 
 ## Collocazione per funzione, non estensione della root
 
@@ -80,7 +82,7 @@ La disciplina è l'**inventario**: ogni voce dell'`ls` della root appartiene a u
 
 - bussola e regole (README, CLAUDE, AGENTS);
 - collezioni-stadio (`i1/`–`o3/`) e ali (`kb/`, `presentation/`);
-- register (`map.md`, `sources.md`);
+- register dei poli (`goal.md`, `world.md`);
 - contenuto versionato ricollocato nello stadio funzionale previsto;
 - **eccezioni di toolchain** — file che lo strumento inchioda alla root (`flake.nix`/`flake.lock`, `package.json`, dotfile): vincoli, non scelte; dichiarate una volta;
 - **traffico runtime** — cache, log, output intermedi: membrana `world/` o gitignore, mai voci versionate senza classe.
@@ -116,7 +118,7 @@ I fili di `i3/` sono il verdetto attuale, per filo/area aperta — non un log. I
 
 ## Skill base
 
-`kb-review`, `tasks-review` e `commit`. `kb-review` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il catalogo `kb/kb.md` dal conteggio dei nodi. `tasks-review` mantiene vera la supervisione: coerenza `o1/plan.md`↔`o2/`, priorità, dipendenze, task superati. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli esecutori in `o3/`, così parsing e conteggi restano deterministici.
+`kb-review`, `plan-review`, `verdicts-review` e `commit`. `kb-review` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il catalogo `kb/kb.md` dal conteggio dei nodi. `plan-review` e `verdicts-review` sono la coppia simmetrica di supervisione — una per braccio del ciclo, col register `goal.md` come cerniera: la prima tiene onesto il piano (coerenza `o1/plan.md`↔`o2/`, priorità, dipendenze, lente task→obiettivo), la seconda tiene onesto il confronto (i fili `i3/` contro i segnali reali, copertura obiettivo→filo, bonifica del plan dalla narrativa di stato). `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli esecutori in `o3/`, così parsing e conteggi restano deterministici.
 
 `method-review` completa questa base sul confine tra repository: legge i commit
 del metodo successivi al marker versionato dell'adottante, classifica ciò che è
@@ -137,10 +139,12 @@ lo stadio corretto.
 
 Anche `world/` ha nome uniforme, ma non è una collezione dell'artefatto. È un
 symlink host-local verso la cartella di progetto non versionata, tipicamente su
-Drive: la membrana fisica attraversata da atti e segnali grezzi. Non ha una
-porta `world.md` né un manifest, a differenza di `sources.md`; il symlink è
-sempre gitignorato. Nel repo `method`, `world/` contiene symlink ai repository
-adottanti e materializza il suo Mondo runtime senza versionarne i path.
+Drive: la membrana fisica attraversata da atti e segnali grezzi, sempre
+gitignorata e senza manifest. La porta versionata del polo è il register
+`world.md`, che dichiara le superfici della membrana senza versionarne il
+contenuto. Nel repo `method`, `world/` contiene symlink ai repository adottanti
+e le fonti autorevoli, e materializza il suo Mondo runtime senza versionarne i
+path.
 
 ## Caratteristiche
 
@@ -157,7 +161,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - collezioni-stadio: `i1/` · `i2/` · `i3/` · `o1/` · `o2/` · `o3/`
 - indici di collezione, dentro la cartella: `i1/perceptions.md` · `i2/interpretations.md` · `i3/verdicts.md` · `o1/plan.md` · `o2/tasks.md` · `o3/prescriptions.md`
 - ali trasversali: `kb/` con catalogo `kb/kb.md`; `presentation/` con `index.html`, viste generate e `assets/`
-- register (verso `world`/`source-of-truth`, non collezioni dell'artefatto): `map.md` dove il dominio lo richiede · `sources.md` per fonti-mondo autorevoli
+- register dei poli (verso i confini del ciclo, non collezioni dell'artefatto): `goal.md` (il nord) · `world.md` (territorio, superfici della membrana, fonti autorevoli)
 - membrana locale: `world/`, symlink gitignorato alla cartella di progetto non
   versionata, senza manifest
 - workspace locale opzionale: `data/`, ignorato da Git, per fonti, dati
@@ -169,7 +173,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - file UPPERCASE — riconosciuti e caricati per nome da tool o LLM: `README.md`, `CLAUDE.md`, `AGENTS.md` (solo `CLAUDE.md` è auto-caricato dall'harness Claude Code; gli altri seguono l'ordine di bootstrap)
 - cartelle-stadio con codice del ciclo (`i1/`-`o3/`); indici con nome leggibile dello stadio (`perceptions.md`, `interpretations.md`, `verdicts.md`, `plan.md`, `tasks.md`, `prescriptions.md`)
 - catalogo KB dentro la collezione (`kb/kb.md`), omonimo alla cartella
-- register lowercase in root (`map.md`, `sources.md`): stesso stile, ma puntano _fuori_ dall'artefatto (`world`/`source-of-truth`), non a una collezione interna
+- register lowercase in root (`goal.md`, `world.md`): stesso stile, ma puntano _fuori_ dall'artefatto (i due poli del ciclo), non a una collezione interna; singolare come i poli che nominano
 - forma inglese per filename, H1 e artefatti strutturali vivi (`map`, `plan`, `verdicts`, `kb`); prosa italiana per la documentazione concettuale
 - nodi `kb/` — lowercase inglese con trattini, singolare come forma canonica (regola dettagliata in node)
 
@@ -178,7 +182,7 @@ adottanti e materializza il suo Mondo runtime senza versionarne i path.
 - `kb/*.md`: frontmatter obbligatorio `stato`, secondo il nodo node
 - item di collezione-stadio: frontmatter obbligatorio `ciclo: dev|runtime`
 - task in `o2/`: frontmatter obbligatorio `stato: aperto` + `sintesi`, secondo il nodo tasks, oltre a `ciclo: dev|runtime`
-- bussola/regole (`README.md`, `CLAUDE.md`, `AGENTS.md`), register (`map.md`, `sources.md`) e indici ordinari di collezione (`i1/perceptions.md`, `kb/kb.md`, …): nessun frontmatter; `o1/plan.md` fa eccezione perché è anche l'istanza corrente del Plan
+- bussola/regole (`README.md`, `CLAUDE.md`, `AGENTS.md`), register (`goal.md`, `world.md`) e indici ordinari di collezione (`i1/perceptions.md`, `kb/kb.md`, …): nessun frontmatter; `o1/plan.md` fa eccezione perché è anche l'istanza corrente del Plan
 
 La ragione è funzionale. I nodi, i task e gli item di collezione sono unità analizzabili dagli strumenti; bussola, regole, register e indici di collezione sono ingressi operativi o cataloghi leggibili direttamente. Aggiungere frontmatter lì crea metadati editoriali difficili da mantenere e senza funzione metodologica stabile.
 
@@ -195,7 +199,7 @@ La ragione è funzionale. I nodi, i task e gli item di collezione sono unità an
 Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di ciascun componente vivono nel nodo dedicato.
 
 - README: funzione, doppia audience e sezioni tipiche in readme; il catalogo dei nodi sta in `kb/kb.md`, nodo-concetto indice
-- map e plan: indice-di-dominio (il territorio) in map dove esiste, supervisione del lavoro in plan
+- register dei poli: forma e disciplina di `goal.md` in goal, di `world.md` in world; supervisione del lavoro in plan
 - CLAUDE e AGENTS: regole d'azione, bootstrap esplicito, confini con il dominio in claude e agents
 - o2/: corrispondenza uno a uno `plan` ↔ file, frontmatter e ciclo di vita del task in tasks
 - i3/: formato canonico dei fili e distinzione da diario/stato in verdict
@@ -265,7 +269,6 @@ Connessioni:
 - [claude](claude.md)
 - [readme](readme.md)
 - [index](index.md)
-- [map](map.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)

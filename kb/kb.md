@@ -28,9 +28,9 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [processing-layers](processing-layers.md) — I tre strati di elaborazione di Norman applicati alle altitudini del ciclo; il viscerale comprende world e i riflessi i1/o3
 - [cognitive-artifact](cognitive-artifact.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [cognitive-system](cognitive-system.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
-- [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo
+- [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; register root `goal.md` (obiettivi con segnali e lavoro corrente, custode umano)
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo: dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il dominio sceglie la gradualità, non le dimensioni
-- [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand
+- [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand; register root `world.md` (territorio, superfici, fonti — assorbe map e sources) e criterio del significato senza artefatto
 - [development-meta-cycle](development-meta-cycle.md) — Il runtime cycle e il development meta-cycle: la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
 - [action-cycle-matrix](action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse ciclo dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
 - [output](output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
@@ -52,7 +52,6 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [claude](claude.md) — Costituzione operativa per agenti: regole d'azione, vincoli e bootstrap
 - [readme](readme.md) — La bussola dell'artefatto: orienta e punta, non immagazzina; ingresso per umano e LLM
 - [index](index.md) — Catalogo statico dei nodi: recupero rapido distinto dalla mappa; nodo-concetto del catalogo `kb/kb.md`
-- [map](map.md) — Indice-di-dominio: il territorio reale (entità, sistemi, fonti) legato ai nodi; register root `map.md`, porta on-demand
 - [plan](plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza `o1/plan.md`
 - [tasks](tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `o2/`, stadio Specify
 - [verdict](verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; fili in `i3/`, aggiornati in place

@@ -15,7 +15,10 @@ Regole:
 - può essere tecnica, documentale o umana a seconda del dominio
 - non deve essere versionata per forza: autorevolezza, persistenza, backup e
   controllo versione sono proprietà distinte
-- va collegata dalle mappe e dai nodi ad alta responsabilità
+- la **provenienza** delle fonti-mondo autorevoli (quale edizione regge quale
+  nodo) si versiona nella sezione fonti del register `world.md` (che assorbe il
+  vecchio `sources.md`) e alimenta i `## Riferimenti` dei nodi
+- va collegata dal register `world.md` e dai nodi ad alta responsabilità
 - alimenta i controlli di fedeltà cognitiva
 - non tutti i nodi richiedono la stessa intensità di verifica
 
@@ -36,6 +39,6 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
-- [map](map.md)
+- [world](world.md)
 - [kb-tools](kb-tools.md)
 - [knowledge-base](knowledge-base.md)

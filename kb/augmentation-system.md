@@ -22,7 +22,7 @@ La lettura della Sez. III conferma sul testo primario, non per analogia, che la 
 
 ## Riferimenti
 
-- Douglas C. Engelbart, _Augmenting Human Intellect: A Conceptual Framework_, SRI Summary Report AFOSR-3223 (Stanford Research Institute, ottobre 1962), Sez. I-IV. Provenienza e qualità OCR nel register `sources.md`; citare per **sezione**, non per pagina. La cornice H-LAM/T è in Sez. II; il bootstrap «Tools Developed vs Tools Used» in §IV-E; le schede edge-notched, la mossa «orange rind» e la cooperazione collaborativa in Sez. III.
+- Douglas C. Engelbart, _Augmenting Human Intellect: A Conceptual Framework_, SRI Summary Report AFOSR-3223 (Stanford Research Institute, ottobre 1962), Sez. I-IV. Provenienza e qualità OCR nella sezione fonti del register `world.md`; citare per **sezione**, non per pagina. La cornice H-LAM/T è in Sez. II; il bootstrap «Tools Developed vs Tools Used» in §IV-E; le schede edge-notched, la mossa «orange rind» e la cooperazione collaborativa in Sez. III.
 
 Connessioni:
 

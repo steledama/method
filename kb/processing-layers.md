@@ -67,7 +67,7 @@ La specularità si legge anche per **funzione**, non solo per altitudine — è 
 
 - Donald Norman, _Emotional Design: Why We Love (or Hate) Everyday Things_ (Basic Books, 2004), Prologo "Three Teapots" e Cap. 1 "Attractive Things Work Better". Il modello dei tre livelli è di Norman con Andrew Ortony e William Revelle (cfr. Figura 1.1, "Three levels of processing").
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 2 «Experiential and Reflective Cognition» — i due modi da cui i tre livelli del 2004 derivano (cfr. `cognitive-artifact`).
-- Fonte grezza (`world`, su Drive): PDF, provenienza nel registro `sources.md`.
+- Fonte grezza (`world`, su Drive): PDF, provenienza nel register `world.md` (sezione fonti).
 
 Connessioni:
 

@@ -1,43 +1,58 @@
-# Fonti
+# World
 
-**Register** di provenienza nell'atrio di root — non un catalogo né una collezione
-interna: il manifest di **provenienza delle fonti-mondo autorevoli**, quale edizione esatta
-ha alimentato quale concetto. È materiale di `world`, non dello strato input: la
-fonte di verità (`source-of-truth`) contro cui si verifica ciò che i nodi
-affermano, che vive **fuori** dall'artefatto. Sibling di `map.md`: entrambi
-indicizzano il territorio esterno, non una cartella interna. Diventa i1
-(`perceptions/`) solo se un'elaborazione ne cattura una porzione versionata;
-finché resta grezzo non elaborato, è Mondo. La rifondazione input/output è
-documentata in [verdict.md](verdict.md).
+Il Mondo runtime di `metodo` sono i **progetti adottanti** — da lì emerge
+l'esigenza dal basso e lì torna la propagazione; il Mondo di sviluppo sono i
+nodi `kb/` e la loro coerenza:
 
-I binari vivono in `world` (su Drive, via il symlink `world/`, gitignorati):
-grezzo esterno persistente, fuori dall'artefatto. Non per questo diventano i1. Si
-versiona una cattura del Perceive (in `perceptions/`) solo quando il grezzo è
-effimero o quando precisione, revisione e durata richiedono un riflesso stabile.
-Le percezioni di `salute` possono richiederlo; i libri di `method`, già
-persistenti e sotto copyright, no — di loro resta versionata solo la provenienza,
-qui sotto.
+- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host
+- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati
+- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale
+- **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale
 
-I file binari **non sono versionati** (vedi `.gitignore`): sono sotto copyright e il repo
-è pubblico. Versionato è solo questo manifest, che registra la _provenienza_ delle fonti —
-quale edizione esatta ha alimentato quale concetto. È la base dei `## Riferimenti` nei nodi
-(fedeltà alle fonti: quale libro per quale idea).
+## Superfici della membrana
+
+Register del polo World, gemello di [`goal.md`](goal.md): il goal è il nord, il
+world è il territorio. Forma e contratto (l'intro è il polo che la home rende)
+in [world](kb/world.md).
+
+- `world/` — symlink host-local gitignorato, due contenuti: i symlink ai
+  repository adottanti (il canale runtime, duale del `method/` con cui gli
+  adottanti leggono i nodi canonici) e i binari delle fonti-mondo autorevoli su
+  Drive (libri e paper sotto copyright, con superfici di lavoro `.txt`
+  rigenerabili).
+- Il Mondo di **sviluppo** non ha superficie propria: sono i nodi `kb/` e la
+  loro coerenza — un commit agisce sui nodi, lint e audit ne percepiscono la
+  risposta ([world](kb/world.md), «Il Mondo del metodo»).
+
+Il territorio degli adottanti è indicizzato qui e letto dall'osservatorio
+([method-observatory](kb/method-observatory.md),
+[adopter-comparison](kb/adopter-comparison.md)); il canale i1/o3 con gli
+adottanti è descritto in [project-structure](kb/project-structure.md).
+
+## Fonti
+
+La provenienza delle fonti-mondo autorevoli: quale edizione esatta ha
+alimentato quale concetto ([source-of-truth](kb/source-of-truth.md)). I binari
+vivono in `world/` (su Drive, gitignorati): grezzo esterno persistente, fuori
+dall'artefatto — non per questo diventano i1. Si versiona una cattura del
+Perceive (in `i1/`) solo quando il grezzo è effimero o quando precisione,
+revisione e durata richiedono un riflesso stabile; i libri, già persistenti e
+sotto copyright, no — di loro resta versionata solo la provenienza, qui sotto,
+che è la base dei `## Riferimenti` nei nodi (fedeltà alle fonti: quale libro
+per quale idea).
 
 Accanto a ogni binario può vivere una sua estrazione testuale `.txt` (resa
-leggibile con `pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest, ciò
-su cui si grep-pa e si verificano le citazioni. Non è i2, perché non contiene
-interpretazione; nel metodo non è neppure i1, perché resta ignorata insieme al
-grezzo persistente nel `world` degenere. Sarebbe i1 se venisse selezionata e
-versionata come cattura necessaria del Perceive. Le uniche porzioni versionate
-restano le citazioni brevi dentro i `## Riferimenti` dei nodi. I `.txt` si
-rigenerano dai binari:
+leggibile con `pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest,
+ciò su cui si grep-pa e si verificano le citazioni. Non è i2, perché non
+contiene interpretazione; non è neppure i1, perché resta ignorata insieme al
+grezzo persistente. I `.txt` si rigenerano dai binari:
 
 ```
 pandoc -f epub -t plain "<file>.epub" -o "<file>.txt"   # per gli EPUB
 pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 ```
 
-## Fonti presenti
+### Fonti presenti
 
 - **The Design of Everyday Things** — Revised and Expanded, 2013, EPUB, ISBN 978-0465050659.
   Fonte canonica per `action-cycle`. L'ed. 2013 è quella che **aggiunge** affordance e
@@ -55,7 +70,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   **Cap. 6 «Distributed Cognition»** (la trattazione di Norman, accanto a Hutchins/Clark) e i
   capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non
   per pagina (la paginazione della riedizione 2014 differisce dall'originale 1993). Solo
-  provenienza qui, niente cattura in `perceptions/`.
+  provenienza qui, niente cattura in `i1/`.
 - **How Buildings Learn: What Happens After They're Built** — Stewart Brand, originale **1994**
   (Viking Penguin), Penguin Books **1995**, EPUB con testo nativo, ISBN 978-1-101-56264-2,
   superficie di lavoro `HowBuildingsLearn.txt` generata con `pandoc`. Fonte di
@@ -79,7 +94,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
   repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.) — quest'ultimo è l'i1
   scelto. Copia legale ma sotto copyright Oxford/Wiley e persistente: solo provenienza
-  qui, niente cattura in `perceptions/` (come i libri di Norman). **i3 scritto** nella
+  qui, niente cattura in `i1/` (come i libri di Norman). **i3 scritto** nella
   chirurgia coordinata dei nodi (2026-06-21): pavimento ontologico in `kb/cognitive-system.md`
   (active externalism, parity, scaffolding, 007, mente-come-controllore, criterio scaffold
   action-oriented). Nota di fedeltà: la pagina d'autore riporta una
@@ -90,7 +105,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   (Otto), questo libro copre embodiment e **scaffolding** — è la fonte del claim «artefatto
   come corpo/ambiente ingegnerizzato» che da sola _The Extended Mind_ non regge. Procurato in
   PDF con **strato di testo nativo** (pulito), superficie di lavoro `BeingThere.txt`; niente
-  OCR né cattura in `perceptions/`, solo provenienza qui. Nota di fedeltà: il nome del file
+  OCR né cattura in `i1/`, solo provenienza qui. Nota di fedeltà: il nome del file
   riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997. **i1 letto e
   i3 scritto**: lo scaffolding e il «007 principle» sono distillati nel pavimento ontologico
   di `kb/cognitive-system.md`.
@@ -108,7 +123,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   è prosa pulita ed è la **superficie di lavoro** scelta (`1962-engelbart-AHI-framework.txt`),
   GLM-OCR non necessario. Il **PDF è stato rimosso** perché scadente: restano EPUB + txt. Cita
   per **sezione**, non per pagina, vista la qualità OCR. Solo provenienza versionata qui, niente
-  cattura in `perceptions/`. **i1 letto integralmente (Sez. I-IV)**: cornice H-LAM/T, synergism,
+  cattura in `i1/`. **i1 letto integralmente (Sez. I-IV)**: cornice H-LAM/T, synergism,
   ipotesi Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used»; la Sez. III (memex di Bush,
   il sistema di schede edge-notched di Engelbart, il dialogo «Joe», team cooperation) conferma
   sul testo primario che la cornice contiene già nodi atomici con link tipizzati e provenienza,
@@ -126,7 +141,7 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   propagazione dello stato rappresentazionale tra media, e la sintesi del cap. 9 (non scambiare
   le proprietà del sistema socioculturale per quelle della mente individuale) — esattamente il
   punto che Clark cita (Hutchins 1995 cap. 9). Solo provenienza qui, niente cattura in
-  `perceptions/`.
+  `i1/`.
 - **Activity, Consciousness, and Personality** — A. N. Leont'ev, traduzione inglese **1978**
   (orig. russo _Деятельность. Сознание. Личность_, 1975). Fonte di `goal` per la **gerarchia
   attività / azione / operazione** (azione ↔ goal, attività ↔ motivo, operazione ↔ condizioni).
@@ -134,10 +149,10 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   niente OCR), superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è **§3.5
   «The General Structure of Activity»**. Citare per **sezione** (la traduzione marxists.org può
   differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo provenienza qui, niente
-  cattura in `perceptions/`. **§3.5 sorzata in `kb/goal.md`**: confermata la distinzione
+  cattura in `i1/`. **§3.5 sorzata in `kb/goal.md`**: confermata la distinzione
   attività/motivo, azione/goal o scopo cosciente, operazione/condizioni.
 
-### Scelta delle copie (2026-06-05)
+#### Scelta delle copie (2026-06-05)
 
 Per DOET erano arrivate quattro copie. Tenuta solo l'**EPUB 2013** perché:
 
@@ -147,7 +162,7 @@ Per DOET erano arrivate quattro copie. Tenuta solo l'**EPUB 2013** perché:
 Scartate: l'ed. 2002 (superata, priva di signifier), una scansione da 23 MB senza strato
 testo (inservibile), e il PDF 2013 (ridondante con l'EPUB).
 
-## Gap noto
+### Gap noto
 
 Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
 (Hutchins/Clark/Norman) e `goal` (Leontiev) sono tutti reperiti. Restano due lavori di

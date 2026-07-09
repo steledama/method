@@ -142,13 +142,15 @@ def parse_task(root: Path, relative: str) -> TaskDetail:
     )
 
 
-def canonical_readme_section(root: Path, heading: str) -> str:
-    text = (root / "README.md").read_text(encoding="utf-8")
-    pattern = re.compile(
-        rf"^### {re.escape(heading)}\n(?P<body>.*?)(?=^#{{2,3}} |\Z)",
-        re.M | re.S,
-    )
+def register_intro(root: Path, name: str) -> str:
+    """Intro di un register di polo (`goal.md`/`world.md`): dall'H1 al primo H2.
+
+    È il contratto machine-readable dei register: l'intro è il polo in sintesi,
+    reso fedelmente dalla home; le sezioni successive sono profondità on-demand.
+    """
+    text = (root / f"{name}.md").read_text(encoding="utf-8")
+    pattern = re.compile(r"^# .+?\n(?P<body>.*?)(?=^## |\Z)", re.M | re.S)
     match = pattern.search(text)
-    if not match:
-        raise SystemExit(f"README.md: sezione canonica mancante: {heading}")
+    if not match or not match.group("body").strip():
+        raise SystemExit(f"{name}.md: intro del register mancante (H1 → primo H2)")
     return match.group("body").strip()

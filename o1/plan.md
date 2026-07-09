@@ -14,6 +14,7 @@ pianificazione.
 | Ciclo   | Task                                                     | Dip.      |
 | ------- | -------------------------------------------------------- | --------- |
 | runtime | Recepimento prescrizione atrio (inventario: tutti e 4)   | —         |
+| runtime | Propagazione poli-register e quartetto di review         | —         |
 | dev     | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev     | Protocollo runtime-o1 (audit periodico top-down)         | —         |
 | dev     | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
@@ -27,6 +28,7 @@ più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 ## Dettagli task
 
 - [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto
+- [Propagazione poli-register e quartetto di review](../o2/propagazione-poli-register.md)
 - [Recepimento della prescrizione dell'atrio](../o2/propagazione-atrio-adottanti.md)
 - [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
 - [Redraw tavole vista Interpretazioni](../o2/redraw-tavole-interpretazioni.md)

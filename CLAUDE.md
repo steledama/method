@@ -4,7 +4,7 @@ Regole operative per agenti che lavorano su questo repository.
 
 ## Bootstrap di sessione
 
-La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario, che è il ciclo stesso. Le _collezioni-stadio_ sono le sei cartelle `i1/` (Perceive), `i2/` (Interpret), `i3/` (Compare), `o1/` (Plan), `o2/` (Specify), `o3/` (Perform), ognuna col proprio indice interno (`perceptions.md`, `interpretations.md`, `verdicts.md`, `plan.md`, `tasks.md`, `prescriptions.md`); le due ali trasversali sono `kb/` (nodi, col catalogo interno omonimo `kb/kb.md`) e `presentation/` (home `index.html`, viste generate, asset); il _register_ `sources.md` punta fuori dall'artefatto. Il cruscotto (`o1/plan.md` e i fili in `i3/`) si legge a ogni sessione; catalogo, register e collezioni si aprono on-demand. Ogni item di collezione dichiara la facet `ciclo: dev|runtime` nel frontmatter, letta dal Mondo su cui insiste: artefatto → `dev`, adottanti → `runtime`. Ordine: `README → CLAUDE → nodo`.
+La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario, che è il ciclo stesso. Le _collezioni-stadio_ sono le sei cartelle `i1/` (Perceive), `i2/` (Interpret), `i3/` (Compare), `o1/` (Plan), `o2/` (Specify), `o3/` (Perform), ognuna col proprio indice interno (`perceptions.md`, `interpretations.md`, `verdicts.md`, `plan.md`, `tasks.md`, `prescriptions.md`); le due ali trasversali sono `kb/` (nodi, col catalogo interno omonimo `kb/kb.md`) e `presentation/` (home `index.html`, viste generate, asset); i _register dei poli_ `goal.md` (il nord: obiettivi, segnali, lavoro corrente; custode umano) e `world.md` (il territorio: adottanti, superfici della membrana, fonti) puntano fuori dall'artefatto. Il cruscotto (`o1/plan.md` e i fili in `i3/`) si legge a ogni sessione; catalogo, register e collezioni si aprono on-demand. Ogni item di collezione dichiara la facet `ciclo: dev|runtime` nel frontmatter, letta dal Mondo su cui insiste: artefatto → `dev`, adottanti → `runtime`. Ordine: `README → CLAUDE → nodo`.
 
 1. `README.md` — la bussola: scopo, dominio in breve, orientamento operativo; punta a `o1/plan.md` (lavoro), `kb/kb.md` (catalogo), `i2/` e nodi (modello)
 2. nodo pertinente alla modifica richiesta
@@ -17,12 +17,13 @@ La root è l'**atrio** dell'artefatto: l'`ls` dichiara l'inventario, che è il c
 
 ## Skill
 
-La triade operativa del metodo e la skill di allineamento vivono versionate anche
+Il quartetto operativo del metodo e la skill di allineamento vivono versionati anche
 qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 `.claude/skills/` con wrapper Codex in `.codex/skills/`.
 
 - `/kb-review` — health check della KB via `o3/kb_tools.py` (diagnosi, non corregge)
-- `/tasks-review` — supervisione di `o1/plan.md`/`o2/`: drift, priorità, dipendenze, prossimo task
+- `/plan-review` — supervisione di `o1/plan.md`/`o2/`: drift, priorità, dipendenze, direzione task→obiettivo (`goal.md`), prossimo task
+- `/verdicts-review` — supervisione dei fili `i3/`: verità contro i segnali, copertura obiettivo→filo, bonifica del plan dalla narrativa di stato
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
 - `/method-review` — revisione del drift tra un adottante e i commit di `method`
 

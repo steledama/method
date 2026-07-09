@@ -27,10 +27,18 @@ un accumulo di entry datate. Quando un filo si chiude (verdetto stabile, nessuna
 tensione aperta), il file si rimuove: la storia resta in git, non qui.
 
 **La cascata.** Un cambio di verdetto non finisce in sé stesso: può propagarsi a
-`o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/tasks-review`) o persino al
+`o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/plan-review`) o persino al
 Goal stesso, quando il filo che cambia è di formazione-goal e non di verdetto su un
 goal noto. Rendere esplicita questa domanda ad ogni commit è ciò che tiene scorrevole
 il ciclo dell'azione e riduce il drift (cfr. `action-cycle`).
+
+**I due presìdi.** Le regole dei fili hanno un guardiano capillare e uno
+periodico: il gate `/commit` guarda una modifica alla volta («il verdetto
+cambia?»); la skill `/verdicts-review` rivede periodicamente l'insieme dei fili
+contro i segnali reali e il register `goal.md` — è la simmetrica di
+`/plan-review` sul braccio di valutazione (cfr. `skill`). Ogni voce
+dell'indice `verdicts.md` può portare l'annotazione `misura:` verso
+l'obiettivo del register che il filo misura.
 
 Regole:
 

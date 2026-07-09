@@ -50,8 +50,8 @@ La distinzione è operativa: dire «il metodo è portabile» significa dire «l'
 
 ## Riferimenti
 
-- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; ora reperito e sourced (cfr. `sources.md`, qualità OCR media: verificare le citazioni verbatim sulla scansione). Citare per capitolo; cap. 9 per la sintesi (non scambiare le proprietà del sistema socioculturale per quelle della mente individuale).
-- Andy Clark & David J. Chalmers, «The Extended Mind», _Analysis_ 58(1):7-19, 1998; Andy Clark, _Being There_ (MIT Press, 1997) — pavimento ontologico della mente estesa: active externalism, parity, scaffolding, 007 principle, mente-come-controllore. Provenienza in `sources.md`.
+- Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul sistema cognitivo come unità di analisi; ora reperito e sourced (cfr. la sezione fonti di `world.md`, qualità OCR media: verificare le citazioni verbatim sulla scansione). Citare per capitolo; cap. 9 per la sintesi (non scambiare le proprietà del sistema socioculturale per quelle della mente individuale).
+- Andy Clark & David J. Chalmers, «The Extended Mind», _Analysis_ 58(1):7-19, 1998; Andy Clark, _Being There_ (MIT Press, 1997) — pavimento ontologico della mente estesa: active externalism, parity, scaffolding, 007 principle, mente-come-controllore. Provenienza nella sezione fonti di `world.md`.
 - Donald Norman, «Cognitive Artifacts», in J. Carroll (ed.), _Designing Interaction_ (Cambridge University Press, 1991) — definizione dell'artefatto cognitivo e della persona-più-artefatto come sistema.
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993), Cap. 3 (rappresentazione, cfr. `kb/cognitive-artifact.md`) e Cap. 6 «Distributed Cognition» (la cognizione distribuita di Norman stesso, che cita Hutchins).
 

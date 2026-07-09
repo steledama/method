@@ -1,14 +1,17 @@
 ---
-description: Revisione consistenza, priorità e dipendenze dei task aperti del metodo
+description: Revisione consistenza, priorità, dipendenze e direzione task→obiettivo dei task aperti del metodo
 user-invocable: true
 ---
 
-Rivedi i task aperti come supervisione corrente del lavoro sul metodo. Usa questa
-skill a inizio sessione quando bisogna scegliere cosa affrontare, e a fine
-sessione quando decisioni metodologiche, generalizzazioni emerse dagli adottanti o
-ristrutturazioni di nodi possono aver cambiato priorità, dipendenze o completezza
-dei task. Questa è la copia canonica della skill: gli adottanti la forkano e la
-parametrizzano sui propri segnali di dominio.
+Rivedi i task aperti come supervisione corrente del lavoro sul metodo. È la
+skill simmetrica di `verdicts-review`: questa tiene onesto il piano (braccio di
+esecuzione), quella tiene onesto il confronto (braccio di valutazione); il
+register `goal.md` è la cerniera che entrambe controllano da versanti opposti.
+Usa questa skill a inizio sessione quando bisogna scegliere cosa affrontare, e a
+fine sessione quando decisioni metodologiche, generalizzazioni emerse dagli
+adottanti o ristrutturazioni di nodi possono aver cambiato priorità, dipendenze
+o completezza dei task. Questa è la copia canonica della skill: gli adottanti la
+forkano e la parametrizzano sui propri segnali di dominio.
 
 ## Procedura
 
@@ -22,7 +25,7 @@ git status --short
 git log --oneline -5
 ```
 
-Leggi `o1/plan.md`, `map.md` se esiste, i fili recenti in `i3/` e i file `o2/` necessari per capire
+Leggi `o1/plan.md`, il register `goal.md`, i fili recenti in `i3/` e i file `o2/` necessari per capire
 i task aperti. Se l'obiettivo è solo un health check, puoi limitarti ai
 titoli/frontmatter dei file `o2/`.
 
@@ -36,6 +39,10 @@ Controlla:
   restano aperti
 - `o1/plan.md` resta povero: il `metodo` non è una backlog board per gli adottanti
   (cfr. `kb/plan.md`), i suoi task sono rari e riguardano solo questo repo
+- **direzione task→obiettivo**: ogni task serve un obiettivo dichiarato nel
+  register `goal.md` (un task senza obiettivo è un candidato al taglio); il
+  «lavoro corrente» citato nel register corrisponde a righe vive del plan. La
+  direzione opposta (obiettivo→segnale/filo) è di `verdicts-review`
 
 **3. Rivaluta stato, dipendenze e priorità**
 

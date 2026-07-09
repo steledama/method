@@ -37,6 +37,5 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [readme](readme.md)
-- [map](map.md)
 - [node](node.md)
 - [kb-tools](kb-tools.md)

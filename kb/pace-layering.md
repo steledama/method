@@ -24,7 +24,6 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [project-structure](project-structure.md)
-- [map](map.md)
 - [knowledge-base](knowledge-base.md)
 - [design-principles](design-principles.md)
 - [plan](plan.md)

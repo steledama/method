@@ -17,7 +17,7 @@ locali che richiedono giudizio.
 ## Confini
 
 - Non modificare altri repo adottanti.
-- Non sostituire `/tasks-review`: qui si valuta la relazione adottante-metodo;
+- Non sostituire `/plan-review`: qui si valuta la relazione adottante-metodo;
   l'eventuale lavoro futuro entra in `o1/plan.md`/`o2/` locale.
 - Non applicare automaticamente differenze editoriali o di dominio.
 - Non certificare configurazioni host esterne ai repository.
@@ -104,7 +104,7 @@ prova sufficiente da solo.
 Confronta i commit dell'intervallo con lo stato locale attuale:
 
 - `README.md`, `CLAUDE.md`, `AGENTS.md`;
-- cruscotto e porte (`o1/plan.md`, fili `i3/`, `kb/kb.md`, `map.md`,
+- cruscotto e porte (`o1/plan.md`, fili `i3/`, `kb/kb.md`, register `goal.md`/`world.md`,
   collezioni `i1/`-`o3/`, `presentation/`);
 - riferimenti locali ai nodi metodologici condivisi;
 - `.claude/skills/` e `.codex/skills/`;
@@ -140,7 +140,7 @@ Prima delle modifiche presenta una tabella sintetica:
 
 Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o
-aggiorna un task nel repo adottante e usa `/tasks-review` per inserirlo nel plan.
+aggiorna un task nel repo adottante e usa `/plan-review` per inserirlo nel plan.
 
 ### 6. Chiudi la revisione
 

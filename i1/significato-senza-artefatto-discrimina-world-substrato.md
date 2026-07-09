@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Segnale: il significato senza artefatto discrimina `world` e substrato
 
 Data: 2026-07-09 · Fonte: `bi`, durante la migrazione del substrato runtime fuori dalla root

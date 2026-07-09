@@ -32,7 +32,7 @@ Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione
 
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition (Basic Books, 2013), Cap. 1 "The Psychopathology of Everyday Things", sezioni _Affordances_ e _Signifiers_. Il signifier è l'aggiunta dichiarata dell'edizione 2013 («Signifiers are the most important addition to the chapter»); l'affordance era già nella prima edizione (1988), dove Norman introdusse il termine nel mondo del design.
 - Fonte grezza (`world`, su Drive): EPUB dell'edizione 2013; provenienza nel
-  registro `sources.md`.
+  register `world.md` (sezione fonti).
 
 Connessioni:
 

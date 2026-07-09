@@ -69,6 +69,51 @@ Qui il ciclo si chiude e si riapre. Il goal si declina in task — la coda opera
 
 Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre un goal nuovo per triage, senza un confronto che lo precede (cfr. «Formazione del Goal dai due archi» e `world`). I due poli sono dunque le due sorgenti del lavoro: il Goal lo rigenera chiudendo loop noti, il Mondo lo apre con segnali inattesi.
 
+## Il register `goal.md`
+
+Il polo Goal ha una porta versionata nell'atrio: il **register root `goal.md`**,
+gemello di `world.md` (il goal è il nord, il world è il territorio). Nato in
+`bi` (2026-07-09) progettando i primi loop delegati: i fili i3 dicevano «perché
+conta» ma non «rispetto a quale obiettivo», il plan ordinava per urgenza e non
+per obiettivo servito, e i guardrail di un loop di runtime chiedevano un
+ancoraggio senza avere un posto a cui agganciarsi. Il register è quella casa: la
+cerniera superiore resa indirizzabile — lo stesso gap che i runbook chiudono per
+l'azione, chiuso sulla direzione.
+
+La forma segue il **contratto machine-readable** condiviso con `world.md`:
+l'**intro** (dall'H1 al primo H2) è il polo in sintesi — il motivo che muove
+l'artefatto — ed è ciò che la home rende come polo Goal; le sezioni successive
+sono la profondità. Il motivo (livello attività) si declina in **obiettivi**
+(livello azione), albero volutamente basso, un livello; ogni obiettivo porta due
+soli aggetti, i due versi della cerniera:
+
+- **segnali** che lo misurano — fili `i3/`, report di substrato, viste: il
+  verso i3 che risale;
+- **lavoro corrente** che lo serve — righe di `o1/plan.md`, citate per titolo:
+  il verso o1 che scende.
+
+Una sezione **Goal di sviluppo** fotografa la posizione auspicata lungo le
+dimensioni comuni: è la casa per-adottante che `development-goal` chiedeva
+senza nominare.
+
+La **disciplina è costitutiva della forma**, non un accessorio di `bi`:
+
+- fotografia aggiornata in place come i fili, **non documento di aspirazioni**;
+- **custode umano dichiarato**: gli agenti propongono scostamenti, non
+  riscrivono il nord — è ciò che tiene il register dentro il vincolo «la KB
+  informa il Goal, non lo genera», e vale a maggior ragione nei domini a bassa
+  delegabilità, dove il motivo non è esternalizzabile;
+- ogni obiettivo ha almeno un **segnale vivo**; un obiettivo senza segnale è un
+  buco di misura da dichiarare, non da nascondere; un task senza obiettivo è un
+  candidato al taglio;
+- un obiettivo **a regime** — segnali vivi, lavoro assente — resta visibile
+  come voce: è informazione che prima non esisteva da nessuna parte, e se un
+  segnale peggiora il lavoro riapre da lì.
+
+La coppia di skill `plan-review`/`verdicts-review` controlla la cerniera dai
+due versanti (task→obiettivo, obiettivo→segnale/filo — cfr. `skill`). Il README
+resta la bussola: l'identità in una riga sta lì, l'articolazione del polo qui.
+
 ## Riferimenti
 
 - A. N. Leont'ev, _Activity, Consciousness, and Personality_ (1978), §3.5 "The General Structure of Activity" — gerarchia attività/azione/operazione: attività ↔ motivo, azione ↔ goal/scopo cosciente, operazione ↔ condizioni.

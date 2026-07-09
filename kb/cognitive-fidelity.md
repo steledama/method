@@ -153,6 +153,5 @@ Connessioni:
 - [node](node.md)
 - [kb-tools](kb-tools.md)
 - [source-of-truth](source-of-truth.md)
-- [map](map.md)
 - [adopter-comparison](adopter-comparison.md)
 - [action-cycle](action-cycle.md)

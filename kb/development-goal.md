@@ -36,7 +36,7 @@ Le posizioni auspicate dei cinque sull'asse autonomia/temporalità — la gradua
 - `economia`: decisioni episodiche, umano _in-the-loop_ — poste alte, supervisione richiesta.
 - `metodo`: event-driven sul segnale dell'adottante, umano _in-the-loop_.
 
-Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo: `metodo` dà le dimensioni comuni, non la fotografia altrui. È teoria dall'alto, ancorata a un disagio reale (la cella Goal-dev mal-filed) e tenuta dalla guardia dal-basso contro la sovra-ingegnerizzazione (`method-development`): le dimensioni restano candidate finché l'uso non le conferma.
+Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo: `metodo` dà le dimensioni comuni, non la fotografia altrui. La fotografia ha ora una **casa dichiarata**: la sezione «Goal di sviluppo» del register root `goal.md` dell'adottante (cfr. `goal`) — la prima istanza è nata in `bi` insieme al register stesso. È teoria dall'alto, ancorata a un disagio reale (la cella Goal-dev mal-filed) e tenuta dalla guardia dal-basso contro la sovra-ingegnerizzazione (`method-development`): le dimensioni restano candidate finché l'uso non le conferma.
 
 Connessioni:
 

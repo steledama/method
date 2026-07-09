@@ -59,7 +59,7 @@ Il divieto colpisce ciò che è relazione, storia, lavoro o priorità travestito
 
 La proprietà estesa è **locale all'adottante** — vive nella sua `kb/` e non nel canone, salvo che emerga come generalizzazione portabile: ciò che il metodo sanziona è il meccanismo, non la singola proprietà. Esempio: `nixos` marca ogni nodo con `mondo: lavoro | casa | trasversale`, attributo intrinseco a valori chiusi che rende meccanico un futuro split dei repository.
 
-Il frontmatter appartiene ai nodi, ai task operativi e agli item delle collezioni-stadio, non a bussola, regole, register o indici ordinari. `README.md`, `CLAUDE.md`, `AGENTS.md`, `map.md`, `sources.md`, `kb/kb.md`, `i3/verdicts.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter. `o1/plan.md` è l'eccezione: è insieme indice dello stadio o1 e istanza corrente del Plan, quindi dichiara `ciclo:`.
+Il frontmatter appartiene ai nodi, ai task operativi e agli item delle collezioni-stadio, non a bussola, regole, register o indici ordinari. `README.md`, `CLAUDE.md`, `AGENTS.md`, `goal.md`, `world.md`, `kb/kb.md`, `i3/verdicts.md` e file locali come `stato.md`, `scadenze.md` o `diario.md` non devono avere frontmatter. `o1/plan.md` è l'eccezione: è insieme indice dello stadio o1 e istanza corrente del Plan, quindi dichiara `ciclo:`.
 
 Regole di creazione:
 

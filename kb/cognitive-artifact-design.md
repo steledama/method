@@ -64,7 +64,8 @@ Indice cognitivo del metodo:
 - `README.md`: dove sono e da dove parto?
 - `kb/kb.md`: quali nodi esistono e come li trovo?
 - `o1/plan.md`: cosa dobbiamo fare adesso?
-- `map.md`: com'è fatto il territorio reale del dominio, e come si lega ai nodi? (dove esiste)
+- `goal.md`: verso quale nord lavora il progetto, misurato da quali segnali?
+- `world.md`: com'è fatto il territorio reale del dominio — superfici, entità, fonti — e come si lega ai nodi?
 - nodo: che cosa significa questo concetto specifico?
 - connessioni: a quali altri concetti è legato?
 - `o2/`: quali sono i dettagli operativi e di contesto dei singoli task aperti?
@@ -90,14 +91,14 @@ Ricetta metodologica:
   richiede verifica anti-drift, `cognitive-fidelity`. Negli adottanti questi nodi
   possono vivere in `method/` come symlink, mentre `kb/` resta dedicata al
   dominio.
-- `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `o1/plan.md`, il catalogo in `kb/kb.md`, il modello nei nodi e in `i2/` (e nell'indice-di-dominio `map` dove esiste). Dettaglio nel nodo `readme`.
+- `README.md`: la **bussola** e il file di bootstrap per umano e LLM. Presenta nome, dominio, scopo e principi locali in sintesi, e punta al resto del cruscotto. È il primo punto di accesso e deve permettere di orientarsi senza leggere tutto il repository: **orienta e punta, non immagazzina** — i task in `o1/plan.md`, il catalogo in `kb/kb.md`, il modello nei nodi e in `i2/`, i poli nei register `goal.md` e `world.md`. Dettaglio nel nodo `readme`.
 - `CLAUDE.md`: costituzione operativa del progetto. Contiene regole d'azione, vincoli, workflow consentiti e riferimenti rapidi per agenti; non contiene conoscenza di dominio né descrizioni narrative del sistema. Quando cresce oltre il ruolo operativo, il contenuto va trasferito nei nodi tematici e sostituito da pointer.
 - `AGENTS.md`: wrapper agent-agnostico minimale. Non duplica le regole operative; esplicita l'ordine di lettura e rimanda a `README.md` e `CLAUDE.md`, così agenti diversi entrano nello stesso protocollo di lavoro.
-- `map.md`: l'**indice-di-dominio** in root, una porta aperta on-demand. Collega il territorio reale — entità, fonti di verità, flussi — ai nodi che lo spiegano. Presente dove il dominio ha un territorio da indicizzare; assente dove è astratto (in `metodo` non c'è). Non è la bussola (quella è il README) né il modello (che vive nei nodi e in `i2/`). Dettaglio nel nodo `map`.
+- `goal.md` + `world.md`: i **register dei due poli** in root, porte aperte on-demand. `goal.md` declina il nord in obiettivi con segnali e lavoro corrente (custode umano); `world.md` indicizza il territorio — superfici della membrana, entità, fonti di verità con provenienza — e lo lega ai nodi che lo spiegano. Non sono la bussola (quella è il README) né il modello (che vive nei nodi e in `i2/`). Dettaglio nei nodi `goal` e `world`.
 - `i3/`: i verdetti attuali, un file per filo/area aperta. Il git log conserva cosa è cambiato; il filo conserva come stanno le cose ora e perché conta, aggiornato in place — la cronologia di un filo è il git history del file stesso. Non è un archivio di output automatici.
 - `o1/plan.md` + `o2/`: il Plan supervisiona il lavoro futuro; `o2/` ne tiene i dettagli operativi. `o1/plan.md` è l'indice di `o2/`: ogni task sostanziale ha una riga e, quando serve contesto, un file dedicato. I task completati vengono rimossi; la storia resta in git, nei fili `i3/` e nei nodi aggiornati.
 - `o3/`: prescrizioni e strumenti versionati per la parte deterministica della manutenzione (la macchina del ciclo di _sviluppo_, distinta dagli `scripts/` di output del _runtime_ nei repo code-based). `o3/kb_tools.py`, quando presente, gestisce audit, link, backlink, README, migrazione, candidati terminologici e controlli specifici di dominio. Gli strumenti devono produrre segnali verificabili; il giudizio resta umano/LLM.
-- `.claude/skills/`: interfacce operative per workflow ricorrenti. La triade operativa ufficiale è `kb-review` (diagnosi), `tasks-review` (supervisione del lavoro futuro) e `commit` (gate di filing back); `method-review` verifica l'allineamento dell'adottante ai commit del metodo. Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
+- `.claude/skills/`: interfacce operative per workflow ricorrenti. Il quartetto operativo ufficiale è `kb-review` (diagnosi), `plan-review` (supervisione del braccio di esecuzione), `verdicts-review` (supervisione del braccio di valutazione) e `commit` (gate di filing back); `method-review` verifica l'allineamento dell'adottante ai commit del metodo. Ogni progetto può aggiungere skill locali per workflow di dominio. Una skill interpreta e orchestra gli strumenti versionati, senza reimplementare parsing fragile in chat.
 - `.codex/skills/`: wrapper opzionali quando il progetto deve essere usabile anche da Codex. Devono rimandare alle skill canoniche senza duplicare workflow.
 - strato output: traduce la KB in azione possibile (o1 macchina / o2 decisione
   / o3 prescrizione versionata). Lo strato di sintesi-documento ha nome
@@ -114,10 +115,10 @@ Creazione di un nuovo progetto:
 
 - partire dalla ricetta metodologica come checklist, non come gerarchia concettuale
 - personalizzare nome, dominio, scopo, cluster iniziali, fonti di verità e task aperti
-- generare `README.md` come bussola concisa che orienta e punta a `o1/plan.md`, `kb/kb.md` e al modello (nodi/`i2/`, e `map.md` dove esiste)
+- generare `README.md` come bussola concisa che orienta e punta a `o1/plan.md`, `kb/kb.md`, al modello (nodi/`i2/`) e ai register dei poli
 - generare `CLAUDE.md` come costituzione operativa, non come documentazione narrativa
 - generare `AGENTS.md` come wrapper minimale verso `README.md` e `CLAUDE.md`
-- creare `kb/kb.md` come catalogo dei nodi e, dove il dominio ha un territorio da indicizzare, `map.md` come indice-di-dominio
+- creare `kb/kb.md` come catalogo dei nodi e i register dei poli `goal.md` e `world.md`
 - dichiarare la membrana `world/` e gli strati input/output del dominio, senza
   creare riflessi versionati che l'uso non richiede ancora
 - creare `i3/verdicts.md` e, se serve, un primo file-filo di fondazione
@@ -220,7 +221,6 @@ Connessioni:
 - [readme](readme.md)
 - [index](index.md)
 - [plan](plan.md)
-- [map](map.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
 - [git-history](git-history.md)

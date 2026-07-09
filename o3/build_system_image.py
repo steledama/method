@@ -14,7 +14,7 @@ import html
 import re
 from pathlib import Path
 
-from presentation import canonical_readme_section
+from presentation import register_intro
 
 # --- CONFIG specifico del repo ------------------------------------------------
 
@@ -50,13 +50,6 @@ SLOTS = {
         "I segnali catturati dallo stadio Perceive.",
     ),
 }
-
-RUNTIME_GOAL = (
-    "Coltivare il metodo e propagarne il canone agli adottanti custodendo la "
-    "portabilità, indipendenza dal modello, adattabilità, autocorrezione e "
-    "rigore delle fonti."
-)
-
 
 # --- Helpers ------------------------------------------------------------------
 
@@ -129,15 +122,16 @@ def render_markdown(markdown: str, link_prefix: str = "") -> str:
 # --- Sezioni ------------------------------------------------------------------
 
 
-def goal_pole_html() -> str:
+def goal_pole_html(root: Path) -> str:
+    goal = register_intro(root, "goal")
     return f"""      <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
-        <p>{RUNTIME_GOAL}</p>
+{render_markdown(goal, "../")}
       </section>"""
 
 
 def world_pole_html(root: Path) -> str:
-    world = canonical_readme_section(root, "World")
+    world = register_intro(root, "world")
     return f"""      <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
 {render_markdown(world, "../")}
@@ -190,7 +184,7 @@ def render(root: Path) -> str:
     </header>
 
     <main>
-{goal_pole_html()}
+{goal_pole_html(root)}
 {cycle_html()}
 {world_pole_html(root)}
     </main>

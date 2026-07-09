@@ -16,42 +16,66 @@ Regole:
 - deve dichiarare scope, limiti e comportamento atteso
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
-- ogni repo del metodo — `metodo` incluso — deve esporre la triade operativa
-  ufficiale: `kb-review`, `tasks-review`, `commit`. Gli adottanti espongono anche
-  `method-review`, che controlla il drift rispetto al metodo. La copia in
-  `metodo` è quella canonica di riferimento; gli adottanti la forkano e la
-  parametrizzano
+- ogni repo del metodo — `metodo` incluso — deve esporre il quartetto operativo
+  ufficiale: `kb-review`, `plan-review`, `verdicts-review`, `commit`. Gli
+  adottanti espongono anche `method-review`, che controlla il drift rispetto al
+  metodo. La copia in `metodo` è quella canonica di riferimento; gli adottanti
+  la forkano e la parametrizzano
 - deve distinguere diagnosi, supervisione e prevenzione: `kb-review` fotografa lo
-  stato, `tasks-review` mantiene viva la coda del lavoro futuro, `commit`
-  verifica che le modifiche appena fatte siano documentate nel posto giusto
-  prima di fissarle nella storia
+  stato, la coppia `plan-review`/`verdicts-review` mantiene vere le due
+  supervisioni del cruscotto, `commit` verifica che le modifiche appena fatte
+  siano documentate nel posto giusto prima di fissarle nella storia
 
 ## Base ufficiale
 
-La triade operativa del metodo è `kb-review`, `tasks-review` e `commit`. Ogni repo
-deve averla nella propria `.claude/skills/`, con wrapper Codex corrispondente in
-`.codex/skills/`. Questo vale anche per `metodo` stesso: è il repo-modello e fa
-dogfooding degli strumenti che teorizza. `method-review` è la quarta skill
-condivisa, ma opera sul confine: la copia canonica vive in `metodo` e viene
-eseguita negli adottanti per revisionare i commit del metodo successivi al marker
-versionato locale.
+Il quartetto operativo del metodo è `kb-review`, `plan-review`,
+`verdicts-review` e `commit`. Ogni repo deve averlo nella propria
+`.claude/skills/`, con wrapper Codex corrispondente in `.codex/skills/`. Questo
+vale anche per `metodo` stesso: è il repo-modello e fa dogfooding degli
+strumenti che teorizza. `method-review` è la quinta skill condivisa, ma opera
+sul confine: la copia canonica vive in `metodo` e viene eseguita negli
+adottanti per revisionare i commit del metodo successivi al marker versionato
+locale.
+
+Il cuore del quartetto è la **coppia simmetrica di supervisione**, una per
+braccio del ciclo, col register `goal.md` come cerniera controllata dai due
+versanti opposti. Prima della coppia il cruscotto aveva un'asimmetria: il
+braccio di esecuzione aveva cura capillare (`commit`) e periodica
+(`tasks-review`), quello di valutazione solo la capillare — nessuno rivedeva
+mai l'insieme dei fili `i3/`, e la narrativa di stato colava nel plan
+(mini-fili mai nati, parcheggiati tra le note). I nomi portano la simmetria:
+ogni review porta il nome dell'**indice che tiene onesto** (`plan-review` :
+`o1/plan.md` :: `verdicts-review` : `i3/verdicts.md`) — la rinomina da
+`tasks-review` corregge anche un signifier che mentiva, perché l'oggetto della
+skill è il piano, non i task (cfr. `goal` sul non mescolare altitudini nei
+nomi).
 
 `kb-review` è la skill diagnostica. Misura salute strutturale, link, copertura,
 frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
 interpretare strumenti locali come `o3/kb_tools.py`, ma non deve trasformarsi
 in procedura di correzione automatica.
 
-`tasks-review` è la skill di supervisione del lavoro futuro. Controlla
-coerenza tra `o1/plan.md` e `o2/`, rivaluta priorità e dipendenze, individua task
-superati o nuovi task emersi dai fatti e propone il prossimo lavoro. Resta
-parametrizzata per-progetto perché i segnali che cambiano i task dipendono dal
-dominio: scadenze e pratiche in `economia`, rebuild e host in `nixos`, flussi dati
-in `bi`, ingest, diario e quadro in `salute`, generalizzazioni emerse e rinomine di
-nodi da propagare in `metodo`.
+`plan-review` è la supervisione del braccio di esecuzione. Controlla coerenza
+tra `o1/plan.md` e `o2/`, rivaluta priorità e dipendenze, individua task
+superati o nuovi task emersi dai fatti, verifica la direzione task→obiettivo
+verso il register `goal.md` e propone il prossimo lavoro. Resta parametrizzata
+per-progetto perché i segnali che cambiano i task dipendono dal dominio:
+scadenze e pratiche in `economia`, rebuild e host in `nixos`, flussi dati in
+`bi`, ingest, diario e quadro in `salute`, generalizzazioni emerse e rinomine
+di nodi da propagare in `metodo`.
+
+`verdicts-review` è la supervisione del braccio di valutazione. Quattro domande
+per ogni filo `i3/` (è ancora vero rispetto ai segnali? è ancora aperto? è
+ancora _un_ filo? è stato, non log?), copertura bidirezionale col register
+(ogni obiettivo ha un segnale vivo, ogni filo dichiara quale obiettivo misura),
+bonifica del plan e dei task dalla narrativa di stato che vi si parcheggia, e
+il modo due dell'i3 — la formazione-goal sugli input esogeni, sempre in
+proposta al custode umano.
 
 `commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
-map, nodo KB, task in `o2/` o fili `i3/` siano stati aggiornati coerentemente.
+register dei poli, nodo KB, task in `o2/` o fili `i3/` siano stati aggiornati
+coerentemente.
 
 `method-review` è la skill di allineamento trans-repo. Distingue cambiamenti già
 soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
@@ -65,19 +89,20 @@ stato applicato, risultava già soddisfatto, è registrato come divergenza
 intenzionale oppure è affidato a un task locale. Lo SHA avanza solo dopo questa
 classificazione; la storia delle revisioni resta in Git, non nel marker.
 
-La triade evita tre errori ricorrenti: chiedere all'audit di correggere ciò
+Il quartetto evita gli errori ricorrenti: chiedere all'audit di correggere ciò
 che deve solo fotografare, lasciare che la coda dei task diventi un backlog
-morto, oppure committare cambiamenti operativi senza filing back nella KB.
-L'audit resta diagnostico; la revisione task mantiene vera la supervisione del
-lavoro; il commit è il gate di documentazione.
+morto, lasciare che i fili degenerino in log o che la narrativa di stato coli
+nel plan, oppure committare cambiamenti operativi senza filing back nella KB.
+L'audit resta diagnostico; le due review mantengono vere le supervisioni dei
+due bracci; il commit è il gate di documentazione.
 
 ## Applicazione nei repo del metodo
 
-- **`metodo`** — situazione attuale: triade canonica `kb-review`, `tasks-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
-- **`nixos`** — situazione attuale: secondo pilot di `method-review` completato, idempotente e committato (`5d076ae`), con triade riallineata e marker a `df9e651`. Confronto con il metodo: conferma che le skill comuni possono preservare formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
-- **`bi`** — situazione attuale: terzo pilot di `method-review` completato, idempotente e committato (`48f9e2cc`), con triade riallineata, marker a `18424f8` e rename `interpretations/`. Confronto con il metodo: i guardrail BI e gli usi applicativi di `--append-note` restano locali, mentre il protocollo comune si applica senza confonderli con l'append dell'audit.
-- **`economia`** — situazione attuale: primo pilot completato, idempotente e committato (`4c633b8`), con triade riallineata e `method-review`. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal.
-- **`salute`** — situazione attuale: quarto pilot completato, idempotente e committato (`bc1eaef`), con triade riallineata, marker a `7b97c0b` e rename `interpretations/`. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti, registro azioni e `elabora-trascrizione` restano adattamenti locali senza derogare all'anatomia comune.
+- **`metodo`** — situazione attuale: quartetto canonico `kb-review`, `plan-review`, `verdicts-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
+- **`bi`** — situazione attuale: **origine della coppia** — `plan-review` (rinomina) e `verdicts-review` sono nate lì (`52b2b600`) insieme al register `goal.md`; marker `method-review` a `18424f8`. Confronto con il metodo: la forma è stata scritta già portabile e la ratifica l'ha promossa a canone.
+- **`nixos`** — situazione attuale: triade storica (`tasks-review`) riallineata col secondo pilot di `method-review` (`5d076ae`); la migrazione al quartetto è nella propagazione dei poli-register. Confronto con il metodo: conferma che le skill comuni possono preservare formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
+- **`economia`** — situazione attuale: triade storica riallineata col primo pilot (`4c633b8`); è il **banco più severo** della coppia — il sintomo (46 righe di narrativa di stato nel plan) è più avanzato e il register manca: candidato pilota di register + quartetto. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal.
+- **`salute`** — situazione attuale: triade storica riallineata col quarto pilot (`bc1eaef`), marker a `7b97c0b`; migrazione al quartetto in propagazione. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti, registro azioni e `elabora-trascrizione` restano adattamenti locali senza derogare all'anatomia comune.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il
