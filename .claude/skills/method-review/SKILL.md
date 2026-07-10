@@ -38,7 +38,11 @@ status: aligned
 
 # Method review
 
-Ultima revisione completata del metodo.
+Cursore del canale col canone: il marker nel frontmatter è l'ultimo commit di
+`method` recepito. Questo register tiene solo il contratto durevole
+(divergenze e adattamenti che la prossima review non deve ri-segnalare); il
+verdetto sull'allineamento vive in un filo `i3/`, la cronaca dei giri nella
+storia git di questo file.
 
 ## Adattamenti intenzionali
 
@@ -59,7 +63,11 @@ Valori ammessi per `status`:
 
 Gli adattamenti intenzionali devono dire quale superficie diverge, perché e, se
 utile, da quale commit del metodo deriva la decisione. Non usare il ledger come
-changelog: la storia delle revisioni resta in Git.
+changelog: la storia delle revisioni resta in Git. Il file non ha una sezione
+«Esiti»: la tabella per commit è output di sessione (passo 5) e non entra mai
+nel file; il verdetto sull'allineamento vive in un filo `i3/` dell'adottante,
+aggiornato in place. Una divergenza riassorbita si cancella dal ledger, non si
+annota come evento: la sua storia è il diff.
 
 ## Procedura
 
@@ -137,6 +145,9 @@ Prima delle modifiche presenta una tabella sintetica:
 | Commit | Cambiamento | Esito | Azione locale |
 | ------ | ----------- | ----- | ------------- |
 | ...    | ...         | ...   | ...           |
+
+La tabella è output di sessione: si presenta nella conversazione e resta nel
+riepilogo finale, **non si scrive in `method-review.md`**.
 
 Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o

@@ -21,6 +21,12 @@ La tessitura è una scelta di economia della cattura, non un confine di stadio.
 
 Ciò che separa i1 dall'i2 non è la fedeltà ma l'ingresso della **valenza e dell'interpretazione**: il "perché", il confronto, il significato attribuito. Una mail ripulita dalle firme e dalle ripetizioni resta i1; un commento che ne valuta le implicazioni è già i2 (`interpret`). La cattura tenuta valenza-neutra è ciò che permette all'arco di valutazione di ascoltare il mondo che smentisce, invece di confermare ciò che si vuole sentire (cfr. `goal`).
 
+## Chiusura del ciclo di vita
+
+Una cattura è **consumata** quando un verdetto in `i3/` l'ha valutata, o una decisione esplicita l'ha giudicata non pertinente: il suo valore è risalito nei fili, nei nodi e nelle prescrizioni. Come per i task completati (cfr. `tasks`), il file si elimina insieme alla riga nell'indice — la storia resta in git, la collezione tiene solo i segnali aperti; un i1 che accumula segnali consumati è un archivio travestito, e l'archivio è git (cfr. `git-history`).
+
+Una differenza dal task va onorata alla potatura: la percezione è **evidenza**, non intenzione esaurita — rileggerla può servire quando un verdetto torna in discussione. Il filo che la consuma perciò la nomina in prosa (titolo, fonte, data) invece di linkare il file, così il segnale originale resta ritrovabile nella storia senza dipendere da un path vivo.
+
 Connessioni:
 
 - [action-cycle](action-cycle.md)
@@ -30,3 +36,5 @@ Connessioni:
 - [world](world.md)
 - [goal](goal.md)
 - [processing-layers](processing-layers.md)
+- [tasks](tasks.md)
+- [git-history](git-history.md)

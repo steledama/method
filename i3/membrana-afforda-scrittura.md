@@ -6,8 +6,8 @@ ciclo: runtime
 
 Emerso dal basso da `bi` (2026-06-23): stabilizzando `coverage --check` l'agente ha
 modificato il nodo canonico `kb-tools` **via symlink** `method/`, accorgendosi poi che
-l'edit non compariva nel diff del proprio commit (cattura i1 in
-`i1/modifica-di-canone-nata-in-un-adottante.md`). Il canone descriveva il
+l'edit non compariva nel diff del proprio commit (cattura i1 «modifica di canone
+nata in un adottante», consumata e potata — storia in git). Il canone descriveva il
 canale col suo **uso inteso** — gli adottanti «leggono i nodi» — non con la sua
 **affordance**: il symlink è read-write, e afforda la scrittura (corretto in
 `world.md`). Non è l'agente ad aver sbagliato: è il modello ad aver descritto la
