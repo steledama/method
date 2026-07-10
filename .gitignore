@@ -1,6 +1,9 @@
 .obsidian/
 
-# cache dello strumento di lint/format Python (rigenerata)
+# cache degli strumenti locali (rigenerata)
+cache/
+
+# cache legacy dello strumento di lint/format Python
 .ruff_cache/
 __pycache__/
 

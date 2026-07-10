@@ -1,0 +1,13 @@
+[project]
+name = "method"
+version = "1.0.0"
+description = "Repository canonico del metodo per artefatti cognitivi condivisi"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+cache-dir = "cache/.ruff_cache"
+
+[tool.pytest.ini_options]
+cache_dir = "cache/.pytest_cache"
