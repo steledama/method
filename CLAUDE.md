@@ -27,6 +27,10 @@ qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
 - `/method-review` — revisione del drift tra un adottante e i commit di `method`
 
+Skill di dominio (il Mondo runtime di `metodo` sono gli adottanti; non si forka):
+
+- `/adopters-review` — audit runtime-o1 mensile dei quattro adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
+
 Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 [skill](kb/skill.md). Gli adottanti le forkano e le parametrizzano.
 

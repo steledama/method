@@ -14,7 +14,6 @@ pianificazione.
 | Ciclo | Task                                                     | Dip.      |
 | ----- | -------------------------------------------------------- | --------- |
 | dev   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
-| dev   | Protocollo runtime-o1 (audit periodico top-down)         | —         |
 | dev   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
 Legenda dipendenze esterne:
@@ -22,6 +21,11 @@ Legenda dipendenze esterne:
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
+
+## Scadenze
+
+- 2026-08-11 → `/adopters-review`, audit runtime-o1 dei quattro adottanti
+  (mensile) → esiti nel filo [i3/audit-adottanti.md](../i3/audit-adottanti.md)
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

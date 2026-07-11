@@ -24,10 +24,13 @@ proprio `method-review`, senza che `metodo` gestisca le loro code.
 
 - **Canone recepito dai quattro** — atrio e poli-register/quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `method-review.md` degli
-  adottanti, filo [poli-register-goal-world](i3/poli-register-goal-world.md);
-  lavoro: nessun task aperto, nessuna prescrizione in `o3/` — obiettivo **a
-  regime**, il giro vive nei `method-review` degli adottanti; watchpoint: la
-  disciplina del register di `salute` al suo primo `verdicts-review`.
+  adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
+  dell'audit mensile), filo
+  [poli-register-goal-world](i3/poli-register-goal-world.md);
+  lavoro: il battito mensile `/adopters-review` (primo giro 2026-07-11),
+  nessuna prescrizione in `o3/` — obiettivo **a regime**, il giro vive nei
+  `method-review` degli adottanti; watchpoint: la disciplina del register di
+  `salute` al suo primo `verdicts-review`.
 
 ### 3. Ascoltare il basso
 
@@ -46,9 +49,9 @@ Posizione auspicata lungo le dimensioni comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul
 segnale dell'adottante, umano **in-the-loop**, **basso attrito di lettura**
 (bussola snella, viste che si aprono dal checkout), KB riflessiva coerente,
-loop di propagazione che si chiude. Lavoro corrente che la serve: «Protocollo
-runtime-o1» (l'audit periodico top-down che manca al giro), «Redraw tavole
-vista Interpretazioni» (attrito di lettura della vista i2).
+loop di propagazione che si chiude. Lavoro corrente che la serve: il battito
+mensile `/adopters-review` (l'audit runtime-o1 che chiude il giro dall'alto),
+«Redraw tavole vista Interpretazioni» (attrito di lettura della vista i2).
 
 ## Disciplina
 
