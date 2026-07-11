@@ -72,70 +72,6 @@
     <div class="reveal">
       <div class="slides">
         <section
-          id="il-corpo-di-dominio-si-colloca-in-o3-ratifica-di-una-riclassificazione"
-          class="slide level2"
-        >
-          <h2>
-            Il corpo di dominio si colloca in <code>o3/</code>: ratifica di una
-            riclassificazione
-          </h2>
-          <p>
-            Il canone ha oscillato in pochi commit su dove vive il corpo di
-            dominio di un adottante code-based: prima «la configurazione che
-            gira in <code>nixos</code> è o1/runtime»
-            (<code>project-structure</code>, sezione uniformità), poi
-            l’inventario dell’atrio ha introdotto una classe
-            <strong>corpo di dominio</strong> che ne autorizzava la permanenza
-            in root purché dichiarata (<code>9af4093</code>), infine il passo 1
-            del pilot ha forzato la posizione attuale: il corpo di dominio va
-            <strong>ricollocato in <code>o3/</code> come o3-runtime</strong>, e
-            la classe che autorizzava la permanenza è abolita
-            (<code>05fb179</code>). Questo filo fissa il perché, che i commit da
-            soli non dicono.
-          </p>
-          <p>
-            <strong>Perché o3 e non o1.</strong> La dichiarazione (moduli, host,
-            client, script) non è un piano: è ciò che
-            <strong>prepara e compie l’atto sul Mondo</strong> — il
-            rebuild/deploy la applica, il commit agisce su di lei. È Perform,
-            non Plan; <code>o1/</code> resta il cruscotto del lavoro aperto.
-            <strong>Perché non la root:</strong> la permanenza in root era
-            inerzia travestita da classe — con una classe-dispensa il verdetto
-            di fit non misurava niente, perché tutto ciò che non entrava
-            diventava «corpo di dominio» a costo zero. Abolita la dispensa, ogni
-            eccezione pesa e il conteggio torna a essere un verdetto onesto.
-          </p>
-          <p>
-            <strong>Collaudo.</strong> <code>nixos</code> ha eseguito la
-            ricollocazione (<code>fe4c65d</code>: <code>home/</code>,
-            <code>hosts/</code>, <code>modules/</code>, <code>identity/</code>,
-            <code>patches/</code>, <code>scripts/</code> → <code>o3/</code>,
-            flake aggiornato ai path nuovi) con verdetto di fit pieno, e il
-            rebuild reale su <code>deck</code> (2026-07-05) ha confermato che la
-            struttura nuova regge il runtime — non solo il grep.
-            <code>economia</code> (<code>a0538f5</code>, 2026-07-05) è il
-            secondo dato: un toolchain Python con <code>pyproject.toml</code> in
-            root ha accettato libreria, config e test sotto
-            <code>o3/</code> (<code>py_compile</code> pulito;
-            <code>pytest</code> non disponibile nell’ambiente, verifica
-            parziale). <code>salute</code> (<code>9f997c8</code>, 2026-07-06) è
-            il terzo: repo doc-based con toolchain leggera (script e esecutori →
-            <code>o3/</code>), fit pieno senza attrito — il dato conferma ma non
-            stressa il claim, che resta in attesa di <code>bi</code>.
-          </p>
-          <p>
-            Claim falsificabile: la regola della collocazione piena regge finché
-            il toolchain non inchioda il <em>layout</em> oltre ai singoli file.
-            <code>bi</code> è lo stress-test: se ricollocare
-            <code>client/</code> e gli esecutori produce troppe eccezioni o
-            rompe vincoli di build (path attesi da <code>package.json</code>,
-            convenzioni <code>src/</code>), il verdetto non è un adattamento
-            locale ma un limite di fit — e questo filo si riapre. Chiude quando
-            anche <code>bi</code> ha eseguito l’inventario senza degradare la
-            regola.
-          </p>
-        </section>
-        <section
           id="il-criterio-del-significato-senza-artefatto-per-il-confine-worldsubstrato"
           class="slide level2"
         >
@@ -244,9 +180,9 @@
             </li>
             <li>
               <strong>Propagazione del motore della home</strong>: col motore
-              ridotto a ciclo singolo e CONFIG minimale il fork è banale;
-              viaggia nella prescrizione dell’atrio
-              (<code>o2/propagazione-atrio-adottanti.md</code>).
+              ridotto a ciclo singolo e CONFIG minimale il fork è banale; ha
+              viaggiato nella prescrizione dell’atrio, recepita dai quattro
+              adottanti (chiusa 2026-07-11).
             </li>
             <li>
               <strong>CSS della home</strong>:
@@ -454,19 +390,19 @@
           <p>
             Stato: <code>metodo</code> materializzato per intero — register di
             root, README asciugato, builder sui register, quartetto in
-            <code>.claude/skills/</code> — e canone inciso. Aperta la
-            <strong>propagazione ai quattro adottanti</strong> (task
-            «Propagazione poli-register e quartetto di review», pilota
-            <code>economia</code>: il banco più severo, 46 righe di narrativa di
-            stato nel plan e register assente). <code>bi</code> è a metà strada:
-            origine di register e coppia (<code>goal.md</code>,
-            <code>plan-review</code>, <code>verdicts-review</code> in
-            <code>52b2b600</code>), ma con <code>map.md</code> ancora da fondere
-            in <code>world.md</code>, README e builder da allineare. Watchpoint:
-            i link degli adottanti a <code>method/map.md</code> restano rotti
-            finché il loro <code>method-review</code> non recepisce; la
-            disciplina del register (fotografia, custode) è dichiarata, il primo
-            giro di <code>verdicts-review</code> la collauda.
+            <code>.claude/skills/</code> — e canone inciso. La propagazione è a
+            <strong>tre su quattro</strong>: <code>economia</code> (pilota, il
+            banco più severo: la bonifica del plan ha collaudato la coppia di
+            review), <code>nixos</code> (2026-07-10, coppia parametrizzata sui
+            segnali di dominio) e <code>bi</code> (2026-07-11 — l’origine di
+            register e coppia in <code>52b2b600</code> ha chiuso il giro:
+            <code>map.md</code> fuso in <code>world.md</code>, quartetto
+            completo; il suo marker registra la ratifica a valle del canone).
+            Resta <code>salute</code> (task «Propagazione poli-register e
+            quartetto di review»); watchpoint residui: la divergenza dichiarata
+            di <code>salute</code> su <code>sources.md</code> e la disciplina
+            del register (fotografia, custode) da collaudare al suo primo giro
+            di <code>verdicts-review</code>.
           </p>
         </section>
       </div>

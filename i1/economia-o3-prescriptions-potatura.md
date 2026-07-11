@@ -1,3 +1,7 @@
+---
+ciclo: runtime
+---
+
 # Economia — potatura delle prescriptions o3 consumate
 
 Segnale dall'adottante `economia`: `o3/` accumulava canovacci, bozze email e messaggi già eseguiti. Molti file erano marcati o descritti come inviati, assorbiti o conservati come storico; gli esiti reali erano ormai nel `world` (Gmail, WhatsApp, call registrate), nei task `o2/` o nei nodi KB.

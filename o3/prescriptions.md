@@ -12,13 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [ristrutturazione-atrio.md](ristrutturazione-atrio.md) — porta gli adottanti
-  alle collezioni-stadio `i1/`–`o3/`, al catalogo `kb/kb.md`, al verdetto a fili,
-  a `presentation/` e alla facet `ciclo`, col passo-cuore dell'**inventario
-  dell'atrio** (contenuti versionati ricollocati per funzione, eccezioni
-  dichiarate, verdetto di fit); migrazione strutturale collaudata e corretta dal
-  pilot `nixos` (2026-07-05), da eseguire sugli altri tre adottanti —
-  recepimento tracciato in `o2/propagazione-atrio-adottanti.md`.
 - [poli-register.md](poli-register.md) — porta gli adottanti ai **poli-register**
   (`goal.md` gemello di `world.md`, che assorbe `map.md` e `sources.md`), al
   README-bussola con la sezione canonica asciugata, alla home che rende l'intro
@@ -27,11 +20,12 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   banco più severo: la bonifica del plan è il collaudo della coppia) —
   recepimento tracciato in `o2/propagazione-poli-register.md`.
 
-L'ultima chiusa è `disaccoppiamento-adottanti` (round 1 della propagazione del
-cluster: adozione della sezione README canonica e classificazione dei link al
-metodo in generale / intenzionale / accidentale; recepita dai quattro adottanti via
-il proprio `method-review` il 2026-06-21, cfr. fili `i3/`). La storia resta in
-Git.
+L'ultima chiusa è `ristrutturazione-atrio` (collezioni-stadio `i1/`–`o3/`,
+catalogo `kb/kb.md`, verdetto a fili, `presentation/`, facet `ciclo`, col
+passo-cuore dell'**inventario dell'atrio**; pilot `nixos` 2026-07-05, recepita
+dai quattro il 2026-07-11 con la chiusura di `bi`, validata dal suo run
+notturno di produzione). Prima di lei `disaccoppiamento-adottanti`
+(2026-06-21). La storia resta in Git.
 
 ## Strumenti
 

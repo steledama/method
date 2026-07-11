@@ -30,13 +30,13 @@ controllata dai due versanti. Canone in `kb/goal.md`, `kb/world.md`,
 di sviluppo» del register).
 
 Stato: `metodo` materializzato per intero — register di root, README asciugato,
-builder sui register, quartetto in `.claude/skills/` — e canone inciso. Aperta
-la **propagazione ai quattro adottanti** (task «Propagazione poli-register e
-quartetto di review», pilota `economia`: il banco più severo, 46 righe di
-narrativa di stato nel plan e register assente). `bi` è a metà strada: origine
-di register e coppia (`goal.md`, `plan-review`, `verdicts-review` in
-`52b2b600`), ma con `map.md` ancora da fondere in `world.md`, README e builder
-da allineare. Watchpoint: i link degli adottanti a `method/map.md` restano
-rotti finché il loro `method-review` non recepisce; la disciplina del register
-(fotografia, custode) è dichiarata, il primo giro di `verdicts-review` la
-collauda.
+builder sui register, quartetto in `.claude/skills/` — e canone inciso. La
+propagazione è a **tre su quattro**: `economia` (pilota, il banco più severo:
+la bonifica del plan ha collaudato la coppia di review), `nixos` (2026-07-10,
+coppia parametrizzata sui segnali di dominio) e `bi` (2026-07-11 — l'origine di
+register e coppia in `52b2b600` ha chiuso il giro: `map.md` fuso in `world.md`,
+quartetto completo; il suo marker registra la ratifica a valle del canone).
+Resta `salute` (task «Propagazione poli-register e quartetto di review»);
+watchpoint residui: la divergenza dichiarata di `salute` su `sources.md` e la
+disciplina del register (fotografia, custode) da collaudare al suo primo giro
+di `verdicts-review`.

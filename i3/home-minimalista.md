@@ -21,8 +21,8 @@ Code chiuse dal giro di semplificazione:
   ristrutturazione-atrio): tenute, uniformate a deck (74df440); saranno la sede
   naturale del futuro filtro dev/runtime.
 - **Propagazione del motore della home**: col motore ridotto a ciclo singolo e
-  CONFIG minimale il fork è banale; viaggia nella prescrizione dell'atrio
-  (`o2/propagazione-atrio-adottanti.md`).
+  CONFIG minimale il fork è banale; ha viaggiato nella prescrizione dell'atrio,
+  recepita dai quattro adottanti (chiusa 2026-07-11).
 - **CSS della home**: `presentation/assets/system-image.css` è parte dello stesso
   contratto minimale. Tiene solo token, base e classi emesse dalla home
   (`hero`, `kicker`, `pole*`, `arc-dir`, `cycle*`, `card-title`); non conserva

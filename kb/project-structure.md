@@ -206,17 +206,17 @@ Questo nodo tiene l'overview; le regole proprie e i criteri di revisione di cias
 
 ## Applicazione nei progetti adottanti
 
-Lo stato sotto fotografa i progetti _prima_ della migrazione all'atrio: ognuno
-la recepisce con un task locale (catalogo→`kb/kb.md`; collezioni-stadio
-`i1/`–`o3/` coi loro indici: cattura cronologica→`i1/`, sintesi-documento→`i2/`,
-verdetto a fili→`i3/`, `plan`→`o1/plan.md`, dettagli task→`o2/`, strumenti di
-sviluppo e corpo performativo→`o3/`, viste→`presentation/`; `scadenze`→sezione
-di `o1/plan.md`), letto dal canone via symlink. Il cuore della migrazione è
-l'**inventario dell'atrio** (sezione sopra): decidere voce per voce dove vive il
-contenuto di dominio, spostarlo nello spazio funzionale previsto e dichiarare
-le eccezioni residue. La prescrizione di propagazione è attiva
-(`o3/ristrutturazione-atrio.md`, pilot `nixos`); il recepimento è tracciato in
-`o2/propagazione-atrio-adottanti.md`.
+La migrazione all'atrio è stata recepita da tutti e quattro gli adottanti
+(prescrizione `ristrutturazione-atrio`, pilot `nixos` 2026-07-05, chiusa col
+recepimento di `bi` il 2026-07-11; consumata e rimossa da `o3/`, la storia
+resta in git). Ogni recepimento è stato un task locale (catalogo→`kb/kb.md`;
+collezioni-stadio `i1/`–`o3/` coi loro indici: cattura cronologica→`i1/`,
+sintesi-documento→`i2/`, verdetto a fili→`i3/`, `plan`→`o1/plan.md`, dettagli
+task→`o2/`, strumenti di sviluppo e corpo performativo→`o3/`,
+viste→`presentation/`; `scadenze`→sezione di `o1/plan.md`), letto dal canone
+via symlink. Il cuore della migrazione è l'**inventario dell'atrio** (sezione
+sopra): decidere voce per voce dove vive il contenuto di dominio, spostarlo
+nello spazio funzionale previsto e dichiarare le eccezioni residue.
 
 - **`nixos`** — situazione attuale: pilot recepito fino in fondo: il corpo
   dichiarativo versionato (`home/`, `hosts/`, `modules/`, `identity/`,
@@ -224,7 +224,15 @@ le eccezioni residue. La prescrizione di propagazione è attiva
   restano solo atrio, register ed eccezioni di toolchain. Confronto con il
   metodo: è il riferimento operativo per un progetto code-based — pochi
   componenti locali, fonti dichiarative forti e strumenti anti-drift maturi.
-- **`bi`** — situazione attuale: struttura completa e ricca: README, CLAUDE, AGENTS, `verdict`, `tasks/`, `scripts/`, skill, presentazione, client e mappa. Confronto con il metodo: il metodo è adottato, ma la complessità operativa ha fatto crescere `CLAUDE.md` oltre la sua funzione costituzionale.
+- **`bi`** — situazione attuale: atrio recepito per intero (2026-07-11,
+  marker a `2f2f39a`): collezioni-stadio coi loro indici, esecutori e substrato
+  runtime fuori dalla root (il churn gitignored e annidato per stadio:
+  `i1/pending`, `i1/processed`, `o3/traces/`), superfici `world` in home
+  (`~/bi-client`, `~/bi-foto`) dichiarate nel register, zero eccezioni di
+  grammatica; validato in produzione dal run notturno. Confronto con il metodo:
+  il caso più costoso dell'inventario — il costo è stato la coreografia
+  cross-repo, non un limite di fit — e l'origine bottom-up di register gemelli
+  e coppia di review, ratificati a valle dal canone.
 - **`economia`** — situazione attuale: atrio recepito per intero (`a0538f5`,
   2026-07-05): strumenti, script, libreria, config e test in `o3/`, viste in
   `presentation/`, i3 a file-per-filo, legenda dell'atrio estesa all'`ls -A`,
