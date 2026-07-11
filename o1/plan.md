@@ -11,12 +11,11 @@ pianificazione.
 
 ## Task
 
-| Ciclo   | Task                                                              | Dip.      |
-| ------- | ----------------------------------------------------------------- | --------- |
-| runtime | Propagazione poli-register e quartetto di review (resta `salute`) | —         |
-| dev     | Redraw tavole vista Interpretazioni (residui cosmetici)           | —         |
-| dev     | Protocollo runtime-o1 (audit periodico top-down)                  | —         |
-| dev     | Enforcement della cucitura «agisci attraverso, ratifica»          | pause [a] |
+| Ciclo | Task                                                     | Dip.      |
+| ----- | -------------------------------------------------------- | --------- |
+| dev   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
+| dev   | Protocollo runtime-o1 (audit periodico top-down)         | —         |
+| dev   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
 Legenda dipendenze esterne:
 

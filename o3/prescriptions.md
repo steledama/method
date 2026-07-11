@@ -12,20 +12,17 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [poli-register.md](poli-register.md) — porta gli adottanti ai **poli-register**
-  (`goal.md` gemello di `world.md`, che assorbe `map.md` e `sources.md`), al
-  README-bussola con la sezione canonica asciugata, alla home che rende l'intro
-  dei register e al **quartetto di review** (`plan-review`, `verdicts-review`);
-  passo-cuore il register `goal.md` col custode umano. Pilot `economia` (il
-  banco più severo: la bonifica del plan è il collaudo della coppia) —
-  recepimento tracciato in `o2/propagazione-poli-register.md`.
+Nessuna prescrizione aperta.
 
-L'ultima chiusa è `ristrutturazione-atrio` (collezioni-stadio `i1/`–`o3/`,
-catalogo `kb/kb.md`, verdetto a fili, `presentation/`, facet `ciclo`, col
-passo-cuore dell'**inventario dell'atrio**; pilot `nixos` 2026-07-05, recepita
-dai quattro il 2026-07-11 con la chiusura di `bi`, validata dal suo run
-notturno di produzione). Prima di lei `disaccoppiamento-adottanti`
-(2026-06-21). La storia resta in Git.
+L'ultima chiusa è `poli-register` (register gemelli `goal.md`/`world.md` che
+assorbono `map.md` e `sources.md`, home che rende l'intro dei register,
+quartetto di review; pilot `economia` 2026-07-09, recepita dai quattro il
+2026-07-11 con la chiusura di `salute`). Prima di lei `ristrutturazione-atrio`
+(collezioni-stadio `i1/`–`o3/`, catalogo `kb/kb.md`, verdetto a fili,
+`presentation/`, facet `ciclo`; pilot `nixos` 2026-07-05, recepita dai quattro
+il 2026-07-11 con la chiusura di `bi`, validata dal suo run notturno di
+produzione) e `disaccoppiamento-adottanti` (2026-06-21). La storia resta in
+Git.
 
 ## Strumenti
 

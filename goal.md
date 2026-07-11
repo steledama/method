@@ -22,13 +22,12 @@ le fonti-mondo.
 Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col
 proprio `method-review`, senza che `metodo` gestisca le loro code.
 
-- **Atrio recepito dai quattro** — **raggiunto** (2026-07-11, chiusura di `bi`
-  validata dal run notturno di produzione); segnali: marker `method-review.md`
-  degli adottanti; lavoro: nessun task aperto, prescrizione rimossa da `o3/`.
-- **Poli-register e quartetto di review propagati** — segnali: filo
-  [poli-register-goal-world](i3/poli-register-goal-world.md) — recepito da
-  `economia`, `nixos` e `bi`, resta `salute`; lavoro:
-  «Propagazione poli-register e quartetto di review».
+- **Canone recepito dai quattro** — atrio e poli-register/quartetto chiusi
+  (2026-07-11, ultimo `salute`); segnali: marker `method-review.md` degli
+  adottanti, filo [poli-register-goal-world](i3/poli-register-goal-world.md);
+  lavoro: nessun task aperto, nessuna prescrizione in `o3/` — obiettivo **a
+  regime**, il giro vive nei `method-review` degli adottanti; watchpoint: la
+  disciplina del register di `salute` al suo primo `verdicts-review`.
 
 ### 3. Ascoltare il basso
 

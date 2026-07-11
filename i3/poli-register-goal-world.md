@@ -31,12 +31,15 @@ di sviluppo» del register).
 
 Stato: `metodo` materializzato per intero — register di root, README asciugato,
 builder sui register, quartetto in `.claude/skills/` — e canone inciso. La
-propagazione è a **tre su quattro**: `economia` (pilota, il banco più severo:
-la bonifica del plan ha collaudato la coppia di review), `nixos` (2026-07-10,
-coppia parametrizzata sui segnali di dominio) e `bi` (2026-07-11 — l'origine di
-register e coppia in `52b2b600` ha chiuso il giro: `map.md` fuso in `world.md`,
-quartetto completo; il suo marker registra la ratifica a valle del canone).
-Resta `salute` (task «Propagazione poli-register e quartetto di review»);
-watchpoint residui: la divergenza dichiarata di `salute` su `sources.md` e la
-disciplina del register (fotografia, custode) da collaudare al suo primo giro
+propagazione è **compiuta, quattro su quattro**: `economia` (pilota, il banco
+più severo: la bonifica del plan ha collaudato la coppia di review), `nixos`
+(2026-07-10, coppia parametrizzata sui segnali di dominio), `bi` (2026-07-11 —
+l'origine di register e coppia in `52b2b600`: `map.md` fuso in `world.md`,
+quartetto completo) e `salute` (2026-07-11, marker `method-review.md` a
+`2f2f39af`, `status: aligned` — verificato anche sul checkout locale: register
+gemelli in root, quartetto in `.claude/skills/`, la divergenza su `sources.md`
+si è sciolta nell'assorbimento in `world.md`). Task «Propagazione poli-register
+e quartetto di review» chiuso e prescrizione `o3/poli-register.md` rimossa;
+l'obiettivo 2 di `goal.md` è **a regime**. Watchpoint residuo: la disciplina
+del register (fotografia, custode) di `salute` da collaudare al suo primo giro
 di `verdicts-review`.

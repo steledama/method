@@ -5,6 +5,5 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 ## Contenuti
 
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.
-- [propagazione-poli-register.md](propagazione-poli-register.md) — seguire il recepimento della prescrizione poli-register (`o3/poli-register.md`) nei quattro adottanti; `economia`, `nixos` e `bi` recepiti, resta `salute`.
 - [protocollo-runtime-o1.md](protocollo-runtime-o1.md) — costruire il protocollo d'audit periodico top-down (runtime-o1), distinto dal micromanagement; dipende dalla maturazione dell'osservatorio.
 - [redraw-tavole-interpretazioni.md](redraw-tavole-interpretazioni.md) — residui cosmetici delle tavole della vista Interpretazioni: tavola ontologia in inglese, glitch «o3 3», «P1»→«Pi», didascalia della tavola KB.
