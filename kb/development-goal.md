@@ -26,6 +26,28 @@ Le tre paiono raggrupparsi in **due famiglie**, da verificare: la **chiusura/att
 
 Il polo Goal è la **posizione auspicata** — il punto-bersaglio nello spazio delle dimensioni, dove l'artefatto _vuole_ stare. Il riempimento del ciclo nella matrice (`action-cycle-matrix`) è la **fotografia dello stato attuale**. La **distanza** tra i due è il gulf of execution a scala macro che il ciclo di sviluppo lavora a chiudere: non la distanza di un singolo atto, ma quella dell'intero artefatto dalla forma che si è dato come bersaglio. Il Goal-dev dichiara dove si vuole essere, la matrice fotografa dove si è, e lo sviluppo è il lavoro che accorcia quella distanza.
 
+## Il punto asintotico: l'artefatto invisibile
+
+Le due famiglie hanno un punto di fuga comune. Un artefatto che matura tende a:
+coda dev → **vuota** (nessun task una-tantum: la macchina ha la forma giusta e
+non chiede interventi), runtime → **ricorrente e schedulato** (il battito va da
+solo, umano _on-the-loop_). Il telos è l'**artefatto invisibile** — fa
+funzionare i suoi goal senza disturbare — eco di Weiser («le tecnologie più
+profonde sono quelle che scompaiono», 1991) e dello strumento trasparente.
+
+Due precisazioni lo tengono onesto. È un **asintoto, non un bersaglio
+obbligato**: la gradualità resta di dominio — dove il Goal-runtime vuole l'umano
+dentro il giro per costituzione (`salute`: il motivo non è esternalizzabile),
+l'invisibilità si declina come attrito zero della macchina, non come assenza
+dell'umano. E misura la **macchina**, non lo scopo: un artefatto invisibile con
+goal sbagliati è solo un errore che gira da solo.
+
+La sua firma è leggibile nel plan dell'adottante: la **composizione delle code**
+— la tabella dev che si svuota, il battito ricorrente in `## Scadenze` o nella
+config versionata dello scheduler (cfr. `plan`, `skill`) — è la fotografia della
+distanza dal telos. È la metrica candidata per il protocollo runtime-o1 di
+`metodo` (l'audit periodico misura la maturità, non prescrive la coda).
+
 ## Fotografie per artefatto
 
 Le posizioni auspicate dei cinque sull'asse autonomia/temporalità — la gradualità è di dominio, le dimensioni no:
@@ -45,4 +67,6 @@ Connessioni:
 - [development-meta-cycle](development-meta-cycle.md)
 - [action-cycle-matrix](action-cycle-matrix.md)
 - [method-development](method-development.md)
+- [plan](plan.md)
+- [skill](skill.md)
 - [world](world.md)

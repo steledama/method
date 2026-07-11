@@ -141,6 +141,25 @@ tra parentesi — `(mensile)`, `(annuale)`, `(biennale)` — e la **prossima
 occorrenza** come data. Una ricorrente che non muove la coda resta nel file di
 dominio, come sopra.
 
+I **run automatizzati** sono la terza specie di riga: il battito ricorrente che
+uno scheduler versionato esegue da solo. La riga è **senza data** di prossima
+occorrenza — per una cadenza quotidiana la data sarebbe stantia ogni mattina —
+e porta la cadenza qualificata più il rimando alla config: `(quotidiano,
+automatizzato)` → la config scheduler, che resta la fonte di verità
+sull'orologio. La regola «chi possiede l'orologio» si estende: mondo → data in
+`## Scadenze`, noi → legenda del `pause`, **macchina → riga senza data con
+rimando alla config**. La riga serve alla visibilità del polso — la
+composizione delle code è la fotografia della maturità dell'artefatto (cfr.
+`development-goal`, il punto asintotico) — non alla supervisione dell'esito:
+«ha girato? è fallito?» è un segnale da `goal.md`, non una scadenza. (Forma
+pilotata da `bi`, 2026-07-11.)
+
+Una scadenza ricorrente appena **resa visibile** — mai tracciata prima — è un
+caso degenere da nominare: la prossima occorrenza non è ricavabile da nessuna
+traccia e **non si inventa**; si chiede al custode, o si fissa per decisione
+dichiarata, e da lì l'orologio è tracciato. (Emerso in `bi` sul ciclo
+semestrale degli script concorrenza.)
+
 Le righe di ingest semplici possono non avere un file in `o2/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
 tabella e i path completi vivono in `## Fonti da elaborare`, in coda al file.
@@ -161,10 +180,12 @@ che varia è il **carattere del dominio**, non la forma:
 
 - **`economia`** — coda ampia legata a scadenze, adempimenti e situazioni aperte.
   È l'**origine** di `pause`, dell'identità per solo nome, del passo `3b` di
-  lettura strategica e dell'indice unico dei dettagli in `o2/tasks.md`. Mantiene
-  `scadenze.md` separato perché il calendario è una funzione di dominio più
-  ampia della priorità dei task.
-- **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`.
+  lettura strategica e dell'indice unico dei dettagli in `o2/tasks.md`. Il
+  vecchio `scadenze.md` separato è stato assorbito da `## Scadenze` in
+  `o1/plan.md`: anche il calendario di dominio vive ora col plan.
+- **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`, ed
+  è il **pilota della terza specie** di riga in `## Scadenze` (run automatizzati
+  senza data, orologi manuali con data, caso degenere della prima occorrenza).
   Tiene un guardrail operativo (uso di un tool su PROD) nelle Note invece che
   come significante di dipendenza.
 - **`salute`** — coda media con una sezione di **holding** `## Sospesi` (forma a
@@ -184,5 +205,6 @@ Connessioni:
 - [verdict](verdict.md)
 - [git-history](git-history.md)
 - [action-cycle](action-cycle.md)
+- [development-goal](development-goal.md)
 - [project-structure](project-structure.md)
 - [affordance-signifier](affordance-signifier.md)

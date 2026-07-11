@@ -35,6 +35,23 @@ ancora il momento di costruirlo a pieno.
 - manca l'**o1-runtime**: il piano/la cadenza/il luogo dove gli esiti dell'audit
   aggregano e diventano azione top-down ripetibile.
 
+## Il telos che dà la metrica
+
+Intuizione del custode (2026-07-11, dalla riflessione sul battito ricorrente di
+`bi`): **l'artefatto ideale ha solo task ricorrenti e nessun una-tantum** — coda
+dev vuota (la macchina ha la forma giusta e non chiede interventi), runtime
+schedulato che va da solo. «L'artefatto migliore è invisibile: fa funzionare i
+suoi goal senza disturbare.»
+
+Questo dà all'audit periodico la metrica che gli mancava, e tiene ferma la lama:
+non «ecco i tuoi task» ma **la distanza di ciascun adottante dal telos**,
+leggibile dal suo stesso `o1/plan.md` — la composizione delle code: quanta
+tabella dev, quanto battito ricorrente in `## Scadenze`, quanto del ricorrente è
+schedulato (config versionata). L'audit misura la maturità; la coda resta
+dell'adottante. Canone: `kb/development-goal.md` § punto asintotico. Pilota in
+corso: `bi` (visibilità del battito ricorrente in `## Scadenze`, incluse le
+righe senza data per i run automatizzati).
+
 ## Dipendenza
 
 Maturazione dell'osservatorio (i2/o2-runtime, oggi una sola istanza): l'o1 si
