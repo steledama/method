@@ -85,7 +85,7 @@ La disciplina è l'**inventario**: ogni voce dell'`ls` della root appartiene a u
 - register dei poli (`goal.md`, `world.md`);
 - contenuto versionato ricollocato nello stadio funzionale previsto;
 - **eccezioni di toolchain** — file che lo strumento inchioda alla root (`flake.nix`/`flake.lock`, `package.json`, dotfile): vincoli, non scelte; dichiarate una volta;
-- **traffico runtime** — cache, log, output intermedi: superfici della membrana dichiarate in `world.md` o gitignore, mai voci versionate senza classe.
+- **traffico runtime** — cache, log, output intermedi: superfici della membrana dichiarate in `world.md` o gitignore, mai voci versionate senza classe; per le cache degli strumenti di sviluppo (lint, test) il pattern collaudato su più adottanti è un file di configurazione minimale che le dirige tutte sotto un'unica cartella locale, gitignorata con una riga sola invece di una voce per strumento.
 
 Ciò che non si lascia collocare si conta come eccezione, e il conteggio è il
 **verdetto di fit** del metodo sul dominio: poche eccezioni motivate = il
