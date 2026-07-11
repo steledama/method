@@ -4,7 +4,7 @@ stato: bozza
 
 # Plan
 
-Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`, il file unico che regna nella stanza `o1/` e indicizza i dettagli in `o2/`.
+Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`, il file unico che regna nella stanza `o1/`; i dettagli vivono in `o2/`, indicizzati dall'indice interno della collezione (`o2/tasks.md`), a cui il plan rimanda.
 
 `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (l'azione sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, l'azione sul mondo). Non nega l'omologia Plan=o1 — `action-cycle` la mappa — la **qualifica per ciclo**: stesso stadio, due movimenti della relazione runtime/meta-ciclo.
 
@@ -30,18 +30,25 @@ La revisione del plan va fatta come controllo leggero a inizio sessione e come c
 
 ## La forma e l'identità unica dei task
 
-La forma dell'istanza `o1/plan.md` si descrive **una volta sola, qui nel nodo**: il file non ripete le istruzioni. Letto, si auto-spiega — una tabella ordinata per esecuzione e un footer di link sono leggibili a colpo d'occhio — e le convenzioni che la forma non rende evidenti da sé vivono in questo nodo, a cui `CLAUDE.md`/`AGENTS.md` rimandano invece di duplicarle. È la fonte-unica-di-verità applicata al plan, e il vantaggio dei symlink preservato: cambiare la forma è un edit solo, ereditato da tutti gli adottanti — incorporare le istruzioni in ogni `plan.md` lo annullerebbe.
+La forma dell'istanza `o1/plan.md` si descrive **una volta sola, qui nel nodo**: il file non ripete le istruzioni. Letto, si auto-spiega — una tabella ordinata per esecuzione e un rimando all'indice dei dettagli (`o2/tasks.md`) sono leggibili a colpo d'occhio — e le convenzioni che la forma non rende evidenti da sé vivono in questo nodo, a cui `CLAUDE.md`/`AGENTS.md` rimandano invece di duplicarle. È la fonte-unica-di-verità applicata al plan, e il vantaggio dei symlink preservato: cambiare la forma è un edit solo, ereditato da tutti gli adottanti — incorporare le istruzioni in ogni `plan.md` lo annullerebbe.
 
 Un task ha **un solo identificatore: il suo titolo**. È lo stesso ovunque — nella
 tabella, in `Dip.` (`↳ <titolo>`), in conversazione e nei commit — e ancora al
-file `o2/` tramite un footer ordinato per titolo, disaccoppiato dall'ordine di
-esecuzione. L'ordine non è un identificatore: è la **sequenza delle righe**, che
+file `o2/` tramite l'indice interno `o2/tasks.md`, ordinato per titolo,
+disaccoppiato dall'ordine di esecuzione. L'ordine non è un identificatore: è la **sequenza delle righe**, che
 esprime la priorità (l'imminenza della prossima mossa) e si riordina spostando
 righe, senza rinumerare nulla. Un numero `#` di riga sarebbe un **secondo**
 identificatore da tenere in sincronia — riordinare toccherebbe la tabella _e_
 ogni riferimento `#n` in `Dip.` — e veniva letto come ID stabile pur essendo
 effimero: per questo non c'è. (La doppia vita del `#` è l'attrito che gli
 adottanti `economia` e `bi` hanno sciolto dal basso togliendolo.)
+
+Per la stessa ragione il plan non porta un footer `## Dettagli task`: sarebbe un
+**secondo indice** dei file `o2/`, da tenere in sincronia con l'indice interno
+della collezione — la stessa patologia del `#`. Vale un solo indice per
+collezione (la regola dell'atrio): la riga di supervisione vive nella tabella,
+il link al dettaglio in `o2/tasks.md`, e il plan chiude con il solo rimando
+all'indice. (Sciolto dal basso da `economia`, 2026-07-10.)
 
 La tabella resta **stretta e portabile** — `Ciclo · Task · Dip.` — con i
 collegamenti fuori dalle celle. `Ciclo` apre la riga: è la colonna a valori
@@ -111,7 +118,8 @@ ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
 
 ## Scadenze e fonti da elaborare
 
-`o1/plan.md` può contenere una sezione `## Scadenze` dopo `## Dettagli task`, ma
+`o1/plan.md` può contenere una sezione `## Scadenze` dopo la tabella e la sua
+eventuale legenda, ma
 solo quando una data **esogena** interagisce con la priorità dei task. La scadenza
 è input dal mondo: avvicinandosi può far salire il lavoro collegato. Non è solo un
 _termine ultimo_ ("non oltre X"): può essere una **finestra tattica** ("non prima
@@ -135,8 +143,8 @@ dominio, come sopra.
 
 Le righe di ingest semplici possono non avere un file in `o2/`. Quando i path
 delle fonti renderebbero la tabella illeggibile, il titolo breve resta nella
-tabella e i path completi vivono in `## Fonti da elaborare`, dopo `## Dettagli
-task`. Se l'ingest richiede contesto, decisioni o più passaggi, resta un task
+tabella e i path completi vivono in `## Fonti da elaborare`, in coda al file.
+Se l'ingest richiede contesto, decisioni o più passaggi, resta un task
 sostanziale e deve avere il proprio file in `o2/`.
 
 ## Sviluppo del metodo e perimetro dei task
@@ -152,9 +160,10 @@ I quattro adottanti sono allineati alla forma corrente (identità per titolo,
 che varia è il **carattere del dominio**, non la forma:
 
 - **`economia`** — coda ampia legata a scadenze, adempimenti e situazioni aperte.
-  È l'**origine** di `pause`, dell'identità per solo nome e del passo `3b` di
-  lettura strategica. Mantiene `scadenze.md` separato perché il calendario è una
-  funzione di dominio più ampia della priorità dei task.
+  È l'**origine** di `pause`, dell'identità per solo nome, del passo `3b` di
+  lettura strategica e dell'indice unico dei dettagli in `o2/tasks.md`. Mantiene
+  `scadenze.md` separato perché il calendario è una funzione di dominio più
+  ampia della priorità dei task.
 - **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`.
   Tiene un guardrail operativo (uso di un tool su PROD) nelle Note invece che
   come significante di dipendenza.

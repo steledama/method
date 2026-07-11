@@ -10,5 +10,4 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [Economia — indice o2/tasks.md sottoutilizzato](economia-o2-tasks-index.md)
-- [Economia — potatura delle prescriptions o3 consumate](economia-o3-prescriptions-potatura.md)
+Nessun segnale aperto.

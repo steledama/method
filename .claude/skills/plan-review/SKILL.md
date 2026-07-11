@@ -33,8 +33,14 @@ titoli/frontmatter dei file `o2/`.
 
 Controlla:
 
-- ogni file `o2/*.md` con `stato: aperto` ha una riga corrispondente in `o1/plan.md`
-- ogni link `o2/` in `o1/plan.md` esiste
+- ogni file `o2/*.md` ha una riga corrispondente in `o1/plan.md` e la sua voce
+  nell'indice `o2/tasks.md` — l'unico indice dei dettagli: il plan porta solo
+  il rimando, non un secondo elenco di link (cfr. `kb/plan.md`)
+- ogni voce dell'indice `o2/tasks.md` punta a un file esistente
+- le prescrizioni `o3/` collegate a lavoro chiuso non restano in collezione:
+  una prescrizione consumata (atto compiuto, o recepita da tutti gli adottanti)
+  si pota insieme alla sua riga in `o3/prescriptions.md` (cfr. `kb/perform.md`,
+  «Chiusura del ciclo di vita»)
 - task chiusi da un commit, una propagazione completata o un nodo creato non
   restano aperti
 - `o1/plan.md` resta povero: il `metodo` non è una backlog board per gli adottanti

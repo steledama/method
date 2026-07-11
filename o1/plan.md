@@ -24,9 +24,5 @@ Legenda dipendenze esterne:
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
-## Dettagli task
-
-- [Enforcement della cucitura canone](../o2/enforcement-cucitura-canone.md) — `bozza`, trattenuto
-- [Propagazione poli-register e quartetto di review](../o2/propagazione-poli-register.md)
-- [Protocollo runtime-o1](../o2/protocollo-runtime-o1.md)
-- [Redraw tavole vista Interpretazioni](../o2/redraw-tavole-interpretazioni.md)
+I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
+[`o2/tasks.md`](../o2/tasks.md).

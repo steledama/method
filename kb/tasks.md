@@ -13,6 +13,10 @@ Regole:
 - contiene solo task futuri o in corso
 - non conserva storico dei task completati
 - ogni file deve corrispondere a una riga in `o1/plan.md`
+- ogni file ha la sua voce nell'indice interno `o2/tasks.md` (titolo-link e
+  chiosa breve): è l'**unico** indice dei dettagli — `o1/plan.md` tiene la riga
+  di supervisione e il rimando all'indice, non un secondo elenco di link
+  (cfr. `plan`)
 - ogni riga sostanziale di `o1/plan.md` deve avere un file quando serve contesto
 - può linkare nodi KB per contesto stabile
 - va ripulita quando il task viene completato
