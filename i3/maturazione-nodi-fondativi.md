@@ -22,6 +22,7 @@ verdetti che **attendono l'uso reale**:
   finché non testato su un repo nato senza il metodo;
 - il check `[FACET]`/`EXTENDED_FACETS` in `kb_tools` (meccanismo di estensione del
   frontmatter col criterio dei quattro requisiti, inciso in `kb/node.md`): chiuso sul
-  lato `method`, attende come falsificatore-da-implementazione il primo giro reale di
-  un adottante (`nixos` Fase 4 con `mondo:` required, `economia` con `tipo:`
-  opzionale).
+  lato `method`; il primo giro reale è avvenuto — `nixos` tiene la facet `mondo` in
+  `EXTENDED_FACETS` nel suo fork (marker 2026-07-10) e `bi` corrobora il lato opposto
+  (nessuna facet finché non ne emerge una reale: l'opt-in regge); resta da osservare
+  `economia` con `tipo:` opzionale.

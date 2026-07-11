@@ -20,9 +20,10 @@ dichiarate nel register `world.md` (è la dichiarazione a tenere onesta la
 system image; se un medium degrada, il fallback è un altro supporto world, non
 il ritorno a substrato).
 
-Stato: canone inciso; il collaudo reale è la migrazione di `foto/` in `bi`
-(mount Drive come seconda superficie world, prova I/O prima del flip — vive nel
-suo plan, non qui). Watchpoint: l'**estensione per-stadio** del criterio (ogni
+Stato: canone inciso e **collaudato** da `bi` (2026-07-11): due superfici
+world in home — `~/bi-client` e `~/bi-foto` — dichiarate nel register e
+validate dal run notturno di produzione; il vecchio symlink di root è rimosso.
+Watchpoint: l'**estensione per-stadio** del criterio (ogni
 collezione che si chiede «questo contenuto è mio o del mondo?») resta
 deliberatamente non scritta — attende un secondo segnale reale da un adottante
 prima di diventare disciplina.

@@ -14,10 +14,10 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 
 ## Contenuti
 
-- [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale
-- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; restano i verdetti che attendono l'uso reale (bozza→maturo, tipologia, matrice, facet) — misura: «Custodire un canone coerente»
-- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime rimandata a filtri nelle viste; restano watchpoint tavole raster e fili parcheggiati
+- [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale — misura: «Custodire un canone coerente»
+- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; restano i verdetti che attendono l'uso reale (bozza→maturo, tipologia, matrice; facet collaudata da `nixos`) — misura: «Custodire un canone coerente»
+- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime rimandata a filtri nelle viste; restano watchpoint tavole raster e fili parcheggiati — misura: goal di sviluppo «basso attrito di lettura»
 - [membrana-afforda-scrittura.md](membrana-afforda-scrittura.md) — la cucitura «agisci attraverso, ratifica in `method`»: dichiarata, non presidiata — misura: «Ascoltare il basso»
 - [poli-register-goal-world.md](poli-register-goal-world.md) — i register dell'atrio sono i due poli: `goal.md`/`world.md` gemelli (map e sources assorbiti), quartetto di review ratificato; recepito da `economia`, `nixos` e `bi`, resta `salute` — misura: «Poli-register e quartetto propagati»
-- [criterio-world-substrato.md](criterio-world-substrato.md) — il test «significato senza artefatto» è canone in `world`; chi-scrive indicatore, superfici multiple dichiarate; estensione per-stadio in attesa di un secondo segnale
+- [criterio-world-substrato.md](criterio-world-substrato.md) — il test «significato senza artefatto» è canone in `world`, collaudato da `bi` (superfici multiple in produzione); estensione per-stadio in attesa di un secondo segnale — misura: «Custodire un canone coerente»
 - [igiene-stadi-output.md](igiene-stadi-output.md) — un solo indice per collezione (`o2/tasks.md`, plan col solo rimando) e potatura delle prescrizioni o3 consumate; canone inciso, presidio leggero in `plan-review`, review dedicata attende ricorrenza — misura: «Canale-perception funzionante»

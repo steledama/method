@@ -1,5 +1,5 @@
 ---
-stato: bozza
+stato: maturo
 ---
 
 # Plan
