@@ -96,12 +96,48 @@ nel plan, oppure committare cambiamenti operativi senza filing back nella KB.
 L'audit resta diagnostico; le due review mantengono vere le supervisioni dei
 due bracci; il commit è il gate di documentazione.
 
+## Skill di dominio e ricorrenza
+
+Una skill non è un task e non vive negli stadi di lavoro futuro: il task si
+consuma (riga in `o1/plan.md` e file in `o2/` eliminati a completamento), la
+skill resta — capacità permanente, versionata. Quando un workflow è ricorrente
+il metodo separa i due piani:
+
+- la **capacità** → skill in `.claude/skills/`, appoggiata a script o
+  procedure in `o3/` per la parte deterministica;
+- la **ricorrenza** → riga in `## Scadenze` di `o1/plan.md` con la cadenza tra
+  parentesi e la prossima occorrenza come data (cfr. `plan`); se l'esecuzione è
+  automatizzata da uno scheduler, la sua configurazione versionata diventa la
+  fonte di verità sulla cadenza e la riga può cadere.
+
+L'origine dal basso è `monthly-review` in `economia`: la skill orchestra i
+parser, la procedura vive in `o3/ciclo-mensile.md`, la ricorrenza in
+`## Scadenze` come `(mensile)` col trigger esogeno (la busta paga).
+
+### Dove sono elencate
+
+La collezione delle skill è `.claude/skills/` (wrapper Codex in
+`.codex/skills/`): il suo `ls` è l'inventario — la regola dell'atrio — ed è
+l'harness stesso a leggerlo, iniettando le skill disponibili in contesto a
+inizio sessione. Non serve un registro parallelo per gli agenti; i punti di
+lettura umani sono due, con ruoli diversi:
+
+- `CLAUDE.md` porta l'elenco commentato di bootstrap (una riga per skill),
+  distinguendo le **skill di metodo** (il quartetto più `method-review`,
+  forkate dal canone) dalle **skill di dominio** (locali al progetto);
+- l'indice `o3/prescriptions.md` può catalogare le skill locali accanto agli
+  strumenti che avvolgono (precedente: `salute`), perché il Perform è il loro
+  stadio.
+
+Elencarle in `o2/tasks.md` sarebbe un errore di collezione: quello è l'indice
+del lavoro che si consuma, e la skill non si consuma.
+
 ## Applicazione nei repo del metodo
 
 - **`metodo`** — situazione attuale: quartetto canonico `kb-review`, `plan-review`, `verdicts-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
 - **`bi`** — situazione attuale: **origine della coppia** — `plan-review` (rinomina) e `verdicts-review` sono nate lì (`52b2b600`) insieme al register `goal.md`; marker `method-review` a `18424f8`. Confronto con il metodo: la forma è stata scritta già portabile e la ratifica l'ha promossa a canone.
 - **`nixos`** — situazione attuale: triade storica (`tasks-review`) riallineata col secondo pilot di `method-review` (`5d076ae`); la migrazione al quartetto è nella propagazione dei poli-register. Confronto con il metodo: conferma che le skill comuni possono preservare formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
-- **`economia`** — situazione attuale: triade storica riallineata col primo pilot (`4c633b8`); è il **banco più severo** della coppia — il sintomo (46 righe di narrativa di stato nel plan) è più avanzato e il register manca: candidato pilota di register + quartetto. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal.
+- **`economia`** — situazione attuale: triade storica riallineata col primo pilot (`4c633b8`); è il **banco più severo** della coppia — il sintomo (46 righe di narrativa di stato nel plan) è più avanzato e il register manca: candidato pilota di register + quartetto. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal; è l'origine del pattern skill-ricorrente ↔ `## Scadenze` con `monthly-review`.
 - **`salute`** — situazione attuale: triade storica riallineata col quarto pilot (`bc1eaef`), marker a `7b97c0b`; migrazione al quartetto in propagazione. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti, registro azioni e `elabora-trascrizione` restano adattamenti locali senza derogare all'anatomia comune.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
@@ -117,6 +153,8 @@ Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
+- [plan](plan.md)
+- [tasks](tasks.md)
 - [kb-tools](kb-tools.md)
 - [claude](claude.md)
 - [agents](agents.md)
