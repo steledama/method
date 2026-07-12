@@ -10,7 +10,4 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [Le due review dei bracci sembrano compartimenti stagni](doppio-movimento-review.md)
-  — dal custode su `economia`: manca un doppio movimento verdetti↔piano
-  post-evento e un canale di affilatura dei goal; o il sintomo è l'assenza di
-  un canale i1 per gli eventi?
+Nessun segnale aperto.

@@ -10,8 +10,11 @@ register `goal.md` è la cerniera che entrambe controllano da versanti opposti.
 Usa questa skill a inizio sessione quando bisogna scegliere cosa affrontare, e a
 fine sessione quando decisioni metodologiche, generalizzazioni emerse dagli
 adottanti o ristrutturazioni di nodi possono aver cambiato priorità, dipendenze
-o completezza dei task. Questa è la copia canonica della skill: gli adottanti la
-forkano e la parametrizzano sui propri segnali di dominio.
+o completezza dei task. Dopo eventi del mondo gira per **ultima** nel
+protocollo post-evento (percezione i1 → `verdicts-review` → `plan-review`):
+le priorità si rivalutano su verdetti freschi, non stantii. Questa è la copia
+canonica della skill: gli adottanti la forkano e la parametrizzano sui propri
+segnali di dominio.
 
 ## Procedura
 
@@ -28,6 +31,12 @@ git log --oneline -5
 Leggi `o1/plan.md`, il register `goal.md`, i fili recenti in `i3/` e i file `o2/` necessari per capire
 i task aperti. Se l'obiettivo è solo un health check, puoi limitarti ai
 titoli/frontmatter dei file `o2/`.
+
+Cerca gli **handoff pendenti**: gli «impatti sul piano» di un
+`verdicts-review` appena girato e le catture i1 con impatti o1 non ancora
+consumate. Sono input, non comandi: consumali con giudizio e dichiara le
+divergenze (es. una dipendenza che resta `world` anche se l'attesa puntuale è
+sciolta).
 
 **2. Verifica consistenza o1/plan.md/o2**
 
@@ -100,6 +109,14 @@ costo/opportunità.
 **5. Applica solo dopo conferma**
 
 Applica modifiche a `o1/plan.md` e `o2/` solo dopo conferma esplicita dell'utente.
+
+**6. Chiudi con l'handoff inverso «verdetti da rivalutare»**
+
+Task i cui fatti, visti dal versante esecuzione, smentiscono o incrinano un
+filo `i3/`. Se il protocollo post-evento è stato rispettato l'elenco è
+normalmente **vuoto** — il vuoto è il segnale che la verità è passata per
+prima, non un fallimento. Se non è vuoto, segnalalo al custode: il movimento
+di ritorno è l'eccezione che va giustificata, non un secondo giro automatico.
 
 ## Note operative
 

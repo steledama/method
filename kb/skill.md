@@ -96,6 +96,19 @@ nel plan, oppure committare cambiamenti operativi senza filing back nella KB.
 L'audit resta diagnostico; le due review mantengono vere le supervisioni dei
 due bracci; il commit è il gate di documentazione.
 
+La coppia comunica per **protocollo post-evento**, non per fusione: dopo
+eventi del mondo l'ordine è percezione (i1) → `verdicts-review` →
+`plan-review` — la verità prima delle priorità — e ogni review chiude con un
+handoff per l'altra: `verdicts-review` emette «impatti sul piano»,
+`plan-review` l'inverso «verdetti da rivalutare». Il movimento è asimmetrico:
+l'andata è ordinaria, il ritorno è l'eccezione da giustificare al custode — e
+un ritorno vuoto è il segnale che l'ordine ha funzionato, non un fallimento.
+L'handoff è input, non comando: la review ricevente conserva il giudizio e
+dichiara le divergenze. Verso l'alto la coppia non scrive mai: l'affilatura
+dei goal viaggia sempre come proposta al custode (il passo di formazione-goal
+di `verdicts-review`). Collaudato in `economia` (2026-07-12): cattura email →
+verdetto aggiornato → piano riprioritizzato, handoff inverso vuoto.
+
 ## Skill di dominio e ricorrenza
 
 Una skill non è un task e non vive negli stadi di lavoro futuro: il task si

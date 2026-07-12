@@ -9,9 +9,11 @@ esecuzione), questa tiene onesto il confronto (braccio di valutazione); il
 register `goal.md` è la cerniera che entrambe controllano da versanti opposti.
 Usala quando un giro del ciclo produce esiti (una propagazione recepita, una
 percezione valutata, un verdetto ratificato), a inizio sessione strategica, o
-quando fili e note sembrano crescere senza controllo. Questa è la copia
-canonica della skill (nata in `bi`): gli adottanti la forkano e la
-parametrizzano sui propri segnali di dominio.
+quando fili e note sembrano crescere senza controllo. Dopo eventi del mondo
+vale il **protocollo post-evento**: percezione (i1) → `verdicts-review` →
+`plan-review` — la verità prima delle priorità (pilota `economia`,
+2026-07-12). Questa è la copia canonica della skill (nata in `bi`): gli
+adottanti la forkano e la parametrizzano sui propri segnali di dominio.
 
 ## Procedura
 
@@ -68,6 +70,14 @@ Presenta le modifiche come elenco — una voce per filo/obiettivo, con azione
 (aggiorna/chiudi/split/crea, migra dal plan) e motivo. Se non c'è nulla da
 proporre, dillo esplicitamente. Applica a `i3/`, `goal.md` e `o1/plan.md` solo
 dopo conferma dell'utente; chiudi suggerendo `/commit`.
+
+**7. Chiudi con l'handoff «impatti sul piano»**
+
+Elenco puntato, non eseguito: ogni verdetto cambiato in questo giro che
+implica modifiche a `o1/plan.md`/`o2/` (priorità, attese sciolte, scadenze,
+task superati), come input per il `plan-review` a valle. L'handoff è input,
+non comando: la review ricevente conserva il giudizio e dichiara le
+divergenze. Se non c'è nulla da passare, dillo esplicitamente.
 
 ## Note operative
 
