@@ -10,4 +10,6 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-Nessun segnale aperto.
+- [Skill con più cadenze via l'argomento-scope](skill-multi-cadenza-via-argomento.md)
+  — da nixos (`update-review`→`update`): la ricorrenza si attacca a (skill +
+  argomento + `mondo` dell'host), non alla skill.
