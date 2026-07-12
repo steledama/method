@@ -130,10 +130,17 @@ mondo. Corollari:
   battito), le cadenze migrano in **config dichiarativa per entità**,
   versionata accanto alla skill: la config diventa la fonte di verità e il
   plan tiene solo il polso aggregato — stessa logica della config scheduler
-  per la terza specie.
+  per la terza specie;
+- la cadenza non entra mai nel **nome** della skill: il nome porta la capacità
+  o l'indice che tiene onesto (come nella rinomina `tasks-review` →
+  `plan-review`), il ritmo vive nelle righe di `## Scadenze` e, come attesa
+  indicativa, nel corpo della skill — un nome-cadenza è un signifier destinato
+  a mentire quando il mondo cambia orologio.
 
-L'origine dal basso è `monthly-review` in `economia`: la skill orchestra i
-parser, la procedura vive in `o3/ciclo-mensile.md`, la ricorrenza in
+L'origine dal basso è `finanze-review` in `economia` (nata `monthly-review`,
+rinominata 2026-07-12 proprio per il corollario del nome: l'oggetto tenuto
+onesto sono le finanze, non il mese): la skill orchestra i parser, la
+procedura vive in `o3/ciclo-finanze.md`, la ricorrenza in
 `## Scadenze` come `(mensile)` col trigger esogeno (la busta paga) — il caso
 mono-battito è quello degenere, non la norma: lì la porzione di mondo ha un
 orologio solo. Il multi-battito è collaudato da `update` in `nixos`
@@ -176,7 +183,7 @@ del lavoro che si consuma, e la skill non si consuma.
 - **`metodo`** — situazione attuale: quartetto canonico `kb-review`, `plan-review`, `verdicts-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex; più la prima skill di dominio, `adopters-review` — l'audit runtime-o1 mensile sugli adottanti (ricorrenza in `## Scadenze`, esiti nel filo `i3/audit-adottanti.md`), che non si forka perché il suo Mondo sono gli adottanti stessi. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
 - **`bi`** — situazione attuale: **origine della coppia** — `plan-review` (rinomina) e `verdicts-review` sono nate lì (`52b2b600`) insieme al register `goal.md`; marker `method-review` a `572890b`, prima skill di dominio in specifica (`ordini`, `o2/skill-ordini-fornitori.md`: fornitore come argomento di scope, cadenze per entità in config dichiarativa modulate dalle vendite); `## Scadenze` porta il battito ricorrente, incluse le righe senza data dei run automatizzati (pilota della terza specie, cfr. `plan`). Confronto con il metodo: la forma è stata scritta già portabile e la ratifica l'ha promossa a canone.
 - **`nixos`** — situazione attuale: quartetto completo più `method-review` (marker a `572890b`) e prima skill di dominio `update` (refactor 2026-07-12 di `update-review` con argomento di scope `home|system|docker|all` sui tre script versionati; esecutiva sul ramo home/AI, diagnostica su system e Docker; tre battiti in `## Scadenze` — quotidiano, settimanale casa, mensile server); elenco CLAUDE.md già nella forma metodo/dominio. Confronto con il metodo: primo adottante a recepire il canone skill-non-task, seconda istanza del pattern di ricorrenza e origine del multi-battito per (invocazione + porzione di mondo); conferma che le skill comuni preservano formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
-- **`economia`** — situazione attuale: quartetto completo più `method-review` (marker a `572890b`) e skill di dominio `monthly-review`; register `goal.md`/`world.md` nati qui (pilot poli-register 2026-07-09); elenco CLAUDE.md nella forma metodo/dominio. Il catalogo delle skill locali vive in `o3/tools.md` accanto a `prescriptions.md`: divergenza di forma-item intenzionale, registrata nel ledger locale. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal; è l'origine del pattern skill-ricorrente ↔ `## Scadenze` con `monthly-review`.
+- **`economia`** — situazione attuale: quartetto completo più `method-review` (marker a `8de72d1`) e skill di dominio `finanze-review` (già `monthly-review`, rinominata 2026-07-12 con la procedura `o3/ciclo-finanze.md`: cadenza fuori dal nome, attesa indicativa nel corpo); register `goal.md`/`world.md` nati qui (pilot poli-register 2026-07-09); elenco CLAUDE.md nella forma metodo/dominio. Il catalogo delle skill locali vive in `o3/tools.md` accanto a `prescriptions.md`: divergenza di forma-item intenzionale, registrata nel ledger locale. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal; è l'origine del pattern skill-ricorrente ↔ `## Scadenze` con `monthly-review`, oggi `finanze-review`.
 - **`salute`** — situazione attuale: quartetto completo più `method-review` (marker a `572890b`) e skill di dominio `elabora-trascrizione`; è il **precedente** del catalogo skill locali nell'indice o3, e la sua §Skill porta la distinzione metodo/dominio. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti e registro azioni restano adattamenti locali senza derogare all'anatomia comune; `elabora-trascrizione` incarna la ricorrenza a evento.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è

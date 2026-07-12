@@ -33,10 +33,15 @@ Gli strumenti si adeguano al mondo, l'artefatto si conforma. Corollari incisi:
   polso aggregato;
 - righe di specie diverse coesistono per la stessa skill (il ramo quotidiano
   di `update` è destinato a riga-macchina via timer systemd, il settimanale
-  resta riga-mondo).
+  resta riga-mondo);
+- la cadenza non entra mai nel nome della skill (corollario emerso dalla
+  propagazione su `economia`, 2026-07-12): `monthly-review` hardcodava
+  l'orologio nel signifier — se il mondo cambia ritmo il nome mente, come già
+  `tasks-review` mentiva sull'oggetto. Attesa indicativa nel corpo della
+  skill: sì; ritmo nel nome: mai.
 
 Corroborazioni dall'approfondimento: `economia` mostra il mono-battito come
-caso degenere (la porzione di mondo di `monthly-review` ha un orologio solo,
+caso degenere (la porzione di mondo di `finanze-review` ha un orologio solo,
 la busta paga); `bi` estende su tre fronti — la specifica `ordini` (fornitore
 come argomento, default `all`) scala a molte entità con cadenze in config
 dichiarativa modulate dalle vendite; la raccolta prezzi concorrenza mette
@@ -54,4 +59,10 @@ importare la facet locale.
 Watchpoint aperti: la skill `ordini` di `bi` è in specifica — quando atterra
 sarà la prima istanza reale della config-per-entità e della cadenza modulata
 dal mondo; la migrazione a timer systemd del ramo quotidiano di `update`
-collauderà la coesistenza di specie per la stessa skill.
+collauderà la coesistenza di specie per la stessa skill. La rinomina in
+`economia` è atterrata (2026-07-12, `3497881`): `monthly-review` →
+`finanze-review` e `o3/ciclo-mensile.md` → `o3/ciclo-finanze.md`, cadenza nel
+corpo come attesa col rimando a `## Scadenze`; esempi di `skill.md` aggiornati.
+Caso limite lasciato aperto da `economia`: `o3/fotografia_mensile.py` nomina
+l'artefatto che genera (la fotografia del mese), non una cadenza della skill —
+il corollario per ora copre i nomi delle skill, non degli esecutori.
