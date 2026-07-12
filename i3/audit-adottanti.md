@@ -25,9 +25,11 @@ Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
 
 - **nixos** — il più vicino al telos: coda dev vuota, 4 task runtime (2 in
-  `world` su upstream), battito settimanale `/update-review` con data in
-  `## Scadenze`, prima skill di dominio. Dominio set-and-review: la
-  composizione combacia con la posizione auspicata.
+  `world` su upstream), tre battiti di `/update` (quotidiano/settimanale/
+  mensile, refactor multi-scope del 2026-07-12, cfr.
+  `ricorrenza-per-battito.md`) con data in `## Scadenze`, prima skill di
+  dominio. Dominio set-and-review: la composizione combacia con la posizione
+  auspicata.
 - **bi** — l'unico con la terza specie viva: 2 run automatizzati senza data
   (config versionata in `nixos`) più 3 orologi manuali; 1 task dev su 7.
   On-the-loop come da goal: il battito più maturo dei quattro.

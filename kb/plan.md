@@ -141,6 +141,22 @@ tra parentesi — `(mensile)`, `(annuale)`, `(biennale)` — e la **prossima
 occorrenza** come data. Una ricorrente che non muove la coda resta nel file di
 dominio, come sopra.
 
+La riga ricorrente ha per soggetto il **battito**, non lo strumento che lo
+serve: la regola «chi possiede l'orologio» si raffina — porzioni diverse di
+mondo possiedono orologi diversi per la stessa capacità. Una skill multi-scope
+compare quindi **più volte** nella sezione, una riga per battito (invocazione
+con scope + porzione di mondo + eventuale risorsa), raggruppate per cadenza; e
+righe di specie diverse coesistono per la stessa skill — un ramo può migrare a
+riga-macchina senza data mentre gli altri restano righe-mondo datate.
+(Istanza: `update home|system|docker` in `nixos`, 2026-07-12.) Anche lo stesso
+strumento può portare battiti di natura diversa, ciascuno con la sua riga: in
+`bi` la raccolta prezzi concorrenza (l'orologio è la freschezza del dato
+d'input, gli script sono idempotenti) e la manutenzione degli script stessi
+(l'orologio è lo strumento) sono due righe semestrali distinte. Quando le
+porzioni di mondo diventano molte entità con battiti propri, le cadenze vivono
+in config dichiarativa per entità e il plan tiene il polso aggregato (cfr.
+`skill`).
+
 I **run automatizzati** sono la terza specie di riga: il battito ricorrente che
 uno scheduler versionato esegue da solo. La riga è **senza data** di prossima
 occorrenza — per una cadenza quotidiana la data sarebbe stantia ogni mattina —
