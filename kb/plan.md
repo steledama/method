@@ -104,7 +104,7 @@ terza incarnazione: un fatto non vive in due rappresentazioni da tenere in
 sincronia; o ne vive una sola, o la seconda è **derivata** dalla prima e ancorata
 a essa da una chiave. Dove le due sono parallele divergono in silenzio, e la
 coerenza diventa un controllo da ricordarsi invece che una proprietà della forma
-(cfr. [constraint](constraint.md)).
+(cfr. `constraint`).
 
 Un **batch** di task trattenuti per la stessa ragione non chiede un significante
 nuovo: condividono una sola chiave di legenda (`pause [a]` su più righe), chiosata
