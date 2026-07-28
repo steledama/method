@@ -53,6 +53,31 @@ la difformità si legge prima di normalizzarla: può essere un secondo significa
 e allora è il contratto ad ammettere entrambe le forme. Appiattire la fonte sulla
 forma prevista dal parser distrugge informazione in silenzio.
 
+## Freschezza: la vista non è più vecchia delle sue fonti
+
+Il contratto verifica la coerenza fra le fonti **quando il generatore gira**, e
+per questo non può nulla contro il difetto opposto: il generatore che non è più
+stato eseguito. Sono due obblighi distinti della stessa vista — coerente con le
+fonti, e non più vecchia delle fonti — e il secondo si soddisfa solo fuori dal
+generatore, nell'atto che cambia le fonti.
+
+Il rimedio non è descrivere le fonti di ogni vista in un manifesto leggibile da
+uno strumento: il generatore le conosce già, e un elenco parallelo sarebbe la
+seconda rappresentazione che diverge — è anche ciò che rende irrilevante la
+differenza fra una vista a fonti nominate e una che le raccoglie con un glob. Il
+rimedio è **rigenerare**, e il prezzo è quasi nullo perché la generazione è
+deterministica: se le fonti non sono cambiate l'output è identico e `git status`
+non mostra niente. Da qui il gesto meccanico del gate `/commit` — si esegue la
+build e si legge `git status`: una vista che compare modificata **era** stale, e
+la sua rigenerazione entra nel commit. Non è più una domanda di giudizio.
+
+Una vista versionata è dunque un artefatto con un debito: la si versiona perché
+deve aprirsi dal checkout senza build, e si paga l'obbligo di rigenerarla
+nell'atto stesso che tocca le sue fonti. Un hook che lo faccia da sé resta fuori:
+richiede installazione host-locale, cioè stato non versionato dentro un artefatto
+che si vuole portabile — la stessa via che qui si era già rotta in silenzio dopo
+un rename.
+
 ## HTML apribile direttamente
 
 Il formato operativo minimo è un HTML versionato con path relativi, apribile con

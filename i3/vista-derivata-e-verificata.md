@@ -126,14 +126,54 @@ invece che appiattite — e `bi` ne è il primo recepimento, arrivato col normal
 `method-review` senza bisogno di una prescrizione `o3/`. Restano `nixos` ed
 `economia`, che il battito dell'11 agosto guarderà con la lente 5.
 
-Watchpoint aperto, sotto-asse nuovo: una vista può essere vecchia rispetto alle
-proprie fonti **senza** che nulla diverga — il generatore è corretto e le fonti
-coerenti, solo l'esecuzione non è stata rifatta. Due istanze in due repo
-(`economia`, home ferma da cinque giorni; `bi`, `verdict.html` stantia rispetto
-ai fili), catturate come segnale i1 `vista-generata-non-rigenerata.md` e non
-ancora valutate: il contratto non le vede per costruzione, e il presidio che
-esiste — il check i2 del gate `/commit` — è di nuovo riflessivo. Il verdetto su
-questo resta da fare in i2→i3, non qui.
+**Due obblighi, non uno.** Ratificato il 2026-07-29 dalla valutazione i2→i3 della
+percezione «una vista generata può essere stale senza che nulla diverga»
+(2026-07-29, da `economia` e `bi`, consumata qui). Una vista derivata deve essere
+coerente con le fonti **e** non più vecchia delle fonti. Il contratto copre il
+primo obbligo e non può coprire il secondo per costruzione: gira quando gira il
+generatore, e il difetto è che il generatore non è più stato eseguito. La home di
+`economia` era ferma da cinque giorni e tre commit del proprio register — le
+mancava il criterio con cui quel register dice di giudicare ogni scelta — e
+`verdict.html` di `bi` era stantia **mentre** una sessione di manutenzione girava
+sul repo: è l'argomento più duro contro il presidio riflessivo, perché lì
+qualcuno stava attivamente guardando.
+
+**Rigenerare, non descrivere.** La strada che sembrava ovvia — dichiarare le
+fonti di ogni vista in un manifesto e confrontare i timestamp — è stata scartata:
+il generatore le fonti le conosce già, e un elenco parallelo sarebbe la seconda
+rappresentazione che diverge, cioè l'errore che questo filo denuncia. Scartarla
+scioglie anche la domanda sul glob: senza manifesto, una vista a fonti nominate e
+una che le raccoglie con un pattern si comportano allo stesso modo. Resta
+rigenerare, e la determinismo già canonica rende il prezzo quasi nullo — misurato
+qui: 1,1 secondi per le quattro viste, e `git status` vuoto quando le fonti non
+si sono mosse. Il check i2 del gate `/commit` smette perciò di essere un giudizio
+(«è cambiato il significato?») e diventa un gesto: esegui la build, leggi `git
+status`, ciò che compare **era** stale. Il giudizio resta solo dove la build non
+arriva, cioè su una sintesi `i2/` il cui significato è cambiato davvero.
+
+Onestà sul livello raggiunto: è un check reso meccanico, non una forcing
+function. Il vincolo vero sarebbe un hook, e resta fuori per una ragione di
+principio e non di pigrizia — richiede installazione host-locale, stato non
+versionato dentro un artefatto che si vuole portabile, ed è la via che in `bi` si
+era già rotta in silenzio dopo un rename. La vista versionata è quindi un
+artefatto con un debito: si versiona perché deve aprirsi dal checkout, e si paga
+rigenerandola nell'atto che tocca le fonti.
+
+**Il modo del ritrovamento ha tarato il rimedio.** Nessuna delle due istanze è un
+danno subito: una viene da un'ispezione deliberata, l'altra è emersa dentro
+un'altra revisione. Un segnale così licenzia il rimedio più economico che
+l'avrebbe intercettato — un comando nel gate — e non un manifesto, una classe di
+check nuova o un'infrastruttura di hook. La regola è salita a canone in
+`method-development`, dove già vive la guardia contro la sovra-ingegnerizzazione:
+lì diceva _se_ rispondere, ora dice anche _quanto_.
+
+Watchpoint: se una vista stale passa comunque un commit dopo questa modifica del
+gate, il check meccanico non basta e l'escalation è il vincolo vero — a quel
+punto il costo dell'installazione host-locale va ridiscusso contro la
+portabilità, non dato per perso in partenza. Da guardare anche negli adottanti
+con la lente 5 dell'11 agosto: `bi` ha già pagato il debito una volta,
+`economia` non ancora (la sua home resta da rigenerare nel suo repo, atto del
+custode).
 
 Il terzo caso non si va a cercare: un caso cercato dimostra che il pattern
 esiste, non che la generalizzazione serve, e il dal-basso è la guardia contro la

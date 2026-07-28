@@ -10,8 +10,4 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [Una vista generata può essere stale senza che nulla diverga](vista-generata-non-rigenerata.md)
-  — da `economia` (home ferma da cinque giorni rispetto al proprio `goal.md`) e
-  da `bi` (vista dei verdetti stantia rispetto ai fili `i3/`): fonti coerenti,
-  generatore corretto, esecuzione non rifatta; il presidio esistente è il check
-  riflessivo del gate `/commit` e in `economia` non ha sparato per tre commit.
+Nessun segnale aperto.

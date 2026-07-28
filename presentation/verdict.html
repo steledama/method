@@ -1060,17 +1060,72 @@
             agosto guarderà con la lente 5.
           </p>
           <p>
-            Watchpoint aperto, sotto-asse nuovo: una vista può essere vecchia
-            rispetto alle proprie fonti <strong>senza</strong> che nulla diverga
-            — il generatore è corretto e le fonti coerenti, solo l’esecuzione
-            non è stata rifatta. Due istanze in due repo (<code>economia</code>,
-            home ferma da cinque giorni; <code>bi</code>,
-            <code>verdict.html</code>
-            stantia rispetto ai fili), catturate come segnale i1
-            <code>vista-generata-non-rigenerata.md</code> e non ancora valutate:
-            il contratto non le vede per costruzione, e il presidio che esiste —
-            il check i2 del gate <code>/commit</code> — è di nuovo riflessivo.
-            Il verdetto su questo resta da fare in i2→i3, non qui.
+            <strong>Due obblighi, non uno.</strong> Ratificato il 2026-07-29
+            dalla valutazione i2→i3 della percezione «una vista generata può
+            essere stale senza che nulla diverga» (2026-07-29, da
+            <code>economia</code> e <code>bi</code>, consumata qui). Una vista
+            derivata deve essere coerente con le fonti <strong>e</strong> non
+            più vecchia delle fonti. Il contratto copre il primo obbligo e non
+            può coprire il secondo per costruzione: gira quando gira il
+            generatore, e il difetto è che il generatore non è più stato
+            eseguito. La home di <code>economia</code> era ferma da cinque
+            giorni e tre commit del proprio register — le mancava il criterio
+            con cui quel register dice di giudicare ogni scelta — e
+            <code>verdict.html</code> di <code>bi</code> era stantia
+            <strong>mentre</strong> una sessione di manutenzione girava sul
+            repo: è l’argomento più duro contro il presidio riflessivo, perché
+            lì qualcuno stava attivamente guardando.
+          </p>
+          <p>
+            <strong>Rigenerare, non descrivere.</strong> La strada che sembrava
+            ovvia — dichiarare le fonti di ogni vista in un manifesto e
+            confrontare i timestamp — è stata scartata: il generatore le fonti
+            le conosce già, e un elenco parallelo sarebbe la seconda
+            rappresentazione che diverge, cioè l’errore che questo filo
+            denuncia. Scartarla scioglie anche la domanda sul glob: senza
+            manifesto, una vista a fonti nominate e una che le raccoglie con un
+            pattern si comportano allo stesso modo. Resta rigenerare, e la
+            determinismo già canonica rende il prezzo quasi nullo — misurato
+            qui: 1,1 secondi per le quattro viste, e
+            <code>git status</code> vuoto quando le fonti non si sono mosse. Il
+            check i2 del gate <code>/commit</code> smette perciò di essere un
+            giudizio («è cambiato il significato?») e diventa un gesto: esegui
+            la build, leggi <code>git status</code>, ciò che compare
+            <strong>era</strong> stale. Il giudizio resta solo dove la build non
+            arriva, cioè su una sintesi <code>i2/</code> il cui significato è
+            cambiato davvero.
+          </p>
+          <p>
+            Onestà sul livello raggiunto: è un check reso meccanico, non una
+            forcing function. Il vincolo vero sarebbe un hook, e resta fuori per
+            una ragione di principio e non di pigrizia — richiede installazione
+            host-locale, stato non versionato dentro un artefatto che si vuole
+            portabile, ed è la via che in <code>bi</code> si era già rotta in
+            silenzio dopo un rename. La vista versionata è quindi un artefatto
+            con un debito: si versiona perché deve aprirsi dal checkout, e si
+            paga rigenerandola nell’atto che tocca le fonti.
+          </p>
+          <p>
+            <strong>Il modo del ritrovamento ha tarato il rimedio.</strong>
+            Nessuna delle due istanze è un danno subito: una viene da
+            un’ispezione deliberata, l’altra è emersa dentro un’altra revisione.
+            Un segnale così licenzia il rimedio più economico che l’avrebbe
+            intercettato — un comando nel gate — e non un manifesto, una classe
+            di check nuova o un’infrastruttura di hook. La regola è salita a
+            canone in
+            <code>method-development</code>, dove già vive la guardia contro la
+            sovra-ingegnerizzazione: lì diceva <em>se</em> rispondere, ora dice
+            anche <em>quanto</em>.
+          </p>
+          <p>
+            Watchpoint: se una vista stale passa comunque un commit dopo questa
+            modifica del gate, il check meccanico non basta e l’escalation è il
+            vincolo vero — a quel punto il costo dell’installazione host-locale
+            va ridiscusso contro la portabilità, non dato per perso in partenza.
+            Da guardare anche negli adottanti con la lente 5 dell’11 agosto:
+            <code>bi</code> ha già pagato il debito una volta,
+            <code>economia</code> non ancora (la sua home resta da rigenerare
+            nel suo repo, atto del custode).
           </p>
           <p>
             Il terzo caso non si va a cercare: un caso cercato dimostra che il
