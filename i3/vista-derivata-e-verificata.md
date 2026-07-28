@@ -60,6 +60,41 @@ ha intercettato subito una divergenza reale che nessuno aveva visto — un task
 intitolato «Completare la famiglia…» in `o2/` contro «Completare famiglia…» nel
 plan e in due fili `i3/` — poi allineata.
 
+**`nixos` è il quarto, e ha pagato la stessa moneta.** Il suo `method-review`
+(2026-07-29, intervallo `6133ace..b42164c`, marker a `b42164c`) ha recepito il
+contratto e nell'atto ha scoperto la propria incarnazione del guasto: anche lì
+la potatura del footer aveva tolto l'unica chiave, il generatore locale faceva
+`continue` in silenzio, e `presentation/tasks.html` era fermo al 10 luglio senza
+il task aperto il 20 — **diciannove giorni** con audit, fidelity e `check.sh`
+verdi per tutto il periodo. Quattro repo su cinque, stessa dinamica. Il contratto
+ha poi intercettato tre righe del plan col titolo divergente dal proprio file
+`o2/`, per una delle quali l'indice portava una **terza** variante: la stessa
+classe di divergenza trovata in `bi`, e il secondo adottante su due a pagarla al
+primo contatto.
+
+**Un vincolo che arriva tardi è anche un rilevatore.** Ratificato il 2026-07-29
+dalla valutazione i2→i3 della percezione «il recepimento di un vincolo fa
+emergere il drift che era già lì» (2026-07-29, da `nixos`, consumata qui).
+`constraint` diceva il vincolo solo in avanti — rende l'azione sbagliata
+impossibile o rumorosa — e così si legge come pura prevenzione, il cui valore si
+misura in errori che non accadranno. Installarlo dove c'è già storia fa una
+seconda cosa: al primo giro non previene, **rivela**, e ciò che rivela è il drift
+maturato nel tempo in cui non c'era. Il tempo silenzioso ne è la misura — tre
+settimane in `bi`, diciannove giorni in `nixos`, diciassette in `metodo` — ed è
+anche la risposta a chi legge il recepimento come costo: quel lavoro non nasce
+col vincolo, diventa solo esigibile. Il canone si allunga di una riga in
+`constraint`, dove la regola già vive; `view` non cambia, perché il fatto non
+riguarda le viste ma i vincoli in generale.
+
+**Il canale del canone ha battuto il battito.** L'inventario delle viste era
+stato affidato alla quinta lente di `/adopters-review` dell'11 agosto, e `nixos`
+era uno dei due repo che quella lente doveva ancora guardare: ci è arrivato prima
+il `method-review` dell'adottante, alla propria cadenza. Non è un difetto del
+battito né una ragione per spostare la lente: le due vie hanno soggetti diversi —
+il canone che scende, l'audit che guarda — e la ridondanza è precisamente ciò che
+ha preso il caso. Conseguenza sullo scope: alla lente 5 dell'11 agosto resta
+`economia` sola su questo asse.
+
 Il trigger del watchpoint è quindi scattato, ma la conseguenza **non** è
 trascrivere in `view` la forma del contratto. `bi` non è una terza invenzione
 convergente: è un port, e la forma vive già in un'implementazione versionata che
@@ -122,8 +157,8 @@ dei quattro.
 Watchpoint chiuso sul contratto: le invenzioni indipendenti restano due —
 `salute` (quadro corporeo) e `metodo` (plan × `o2/`), convergenti su
 indicizzazione, coerenza dei valori dichiarati due volte e varianti ammesse
-invece che appiattite — e `bi` ne è il primo recepimento, arrivato col normale
-`method-review` senza bisogno di una prescrizione `o3/`. Restano `nixos` ed
+invece che appiattite — e `bi` e `nixos` ne sono i recepimenti, arrivati col
+normale `method-review` senza bisogno di una prescrizione `o3/`. Resta
 `economia`, che il battito dell'11 agosto guarderà con la lente 5.
 
 **Due obblighi, non uno.** Ratificato il 2026-07-29 dalla valutazione i2→i3 della
@@ -178,8 +213,8 @@ custode).
 Il terzo caso non si va a cercare: un caso cercato dimostra che il pattern
 esiste, non che la generalizzazione serve, e il dal-basso è la guardia contro la
 sovra-ingegnerizzazione. Ma il non-cercare vale per il canone, non per il
-runtime: due campioni su due esaminati — `nixos`, `bi` ed `economia` non li ha
-guardati nessuno su questo asse — e il costo di una vista che inganna matura in
+runtime: quattro campioni su quattro esaminati, e su `economia` nessuno ha ancora
+guardato l'asse del contratto — il costo di una vista che inganna matura in
 silenzio proprio dove nessuno guarda. L'inventario «quali viste non sono
 generate» perciò non resta appeso a questa riga: è la quinta lente di
 `/adopters-review` (superfici e viste), dentro il battito mensile che già esiste

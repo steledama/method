@@ -16,3 +16,7 @@ __pycache__/
 # Versionata resta solo la loro provenienza, nel register world.md.
 world
 gdrive
+
+# stato host-local dell'harness (settings locali e loro temporanei)
+.claude/settings.local.json
+.claude/settings.local.json.tmp.*
