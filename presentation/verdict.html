@@ -867,6 +867,172 @@
             degli esecutori.
           </p>
         </section>
+        <section
+          id="una-vista-è-derivata-solo-se-verificata-il-generatore-legge-le-fonti-come-contratto"
+          class="slide level2"
+        >
+          <h2>
+            Una vista è derivata solo se verificata: il generatore legge le
+            fonti come contratto
+          </h2>
+          <p>
+            Aperto (2026-07-28) dalla valutazione i2→i3 della percezione di
+            <code>salute</code> («una vista derivata mantenuta a mano può
+            invertire l’effetto che cerca», catturata il 2026-07-28, consumata
+            da questo filo).
+          </p>
+          <p>
+            <strong>Il canone non mancava: mancava il vincolo.</strong>
+            <code>view</code> diceva già «vista derivata, mai seconda fonte» e
+            che il contenuto non si mantiene a mano se esiste una sorgente
+            canonica. Il deck di <code>salute</code> violava una regola già
+            scritta, e nessun controllo se ne accorgeva: la regola viveva al
+            livello riflessivo — ricordarsi di aggiornare — e non nella
+            struttura. È la seconda incarnazione della lezione già incisa in
+            <code>constraint</code> col deploy rotto dal rename in
+            <code>bi</code>: là nulla forzava «servito = repo», qui nulla forza
+            «vista = fonte». Ciò che si aggiunge al nodo non è la regola ma la
+            sua esigibilità:
+            <strong>derivata senza verificata è mezza garanzia</strong>. Un
+            generatore che trasforma una sola sorgente non può divergere; quando
+            le sorgenti sono più d’una e possono contraddirsi, o le legge come
+            un contratto e rompe la build, o produce comunque un output
+            plausibile e falso.
+          </p>
+          <p>
+            <strong
+              ><code>metodo</code> ha la stessa patologia, e se l’è inflitta
+              potando.</strong
+            >
+            <code>presentation/tasks.html</code> è un mazzo
+            <strong>vuoto</strong> dall’11 luglio (commit <code>25a92d1</code>):
+            tre slide → zero, con due task aperti nel plan. Il footer
+            <code>## Dettagli task</code> rimosso quel giorno era un secondo
+            indice per il lettore umano — potarlo era giusto — ma era anche
+            l’<strong>unica chiave</strong> con cui
+            <code>o3/presentation.py</code> legava una riga del plan al suo file
+            <code>o2/</code>. Rimossa la chiave, <code>build_views.py</code> fa
+            <code>if not row.source: continue</code> e la vista si svuota in
+            silenzio: diciassette giorni, mentre l’audit strutturale continuava
+            a riportare 0 problemi su 197 nodi.
+          </p>
+          <p>
+            Riparato lo stesso giorno, e la riparazione ha precisato il difetto.
+            Non era il <code>continue</code> in sé: il canone ammette una riga
+            di plan senza dettaglio <code>o2/</code> («il file serve
+            <em>quando serve contesto</em>», <code>tasks</code>), quindi la
+            vista ora la rende con i soli dati della tabella invece di saltarla.
+            Il difetto era che
+            <strong>nessuno guardava dall’altra parte</strong>: un file
+            <code>o2/</code> che nessuna riga risolve è la divergenza vera, e
+            ora rompe la build per nome. La risoluzione passa dall’indice unico
+            <code>o2/tasks.md</code> — la chiave che il canone aveva già eletto
+            quando ha abolito il footer — e il contratto verifica quattro cose:
+            ogni file indicizzato esiste, ogni file esistente è indicizzato,
+            ogni file è legato a una riga e a una sola, e il
+            <code>ciclo</code> dichiarato nel plan coincide col frontmatter del
+            dettaglio. Verificato iniettando le quattro violazioni, e sullo
+            stato reale dell’11 luglio: col generatore nuovo quel plan rende le
+            sue quattro slide invece di zero.
+          </p>
+          <p>
+            Il reperto corregge anche il verdetto precedente: «potare è fondere,
+            non cancellare» chiedeva quale copia portasse il fatto più fresco.
+            Qui il contenuto era fuso correttamente — il fatto viveva già in
+            <code>o2/tasks.md</code> — e la potatura ha rotto lo stesso, perché
+            la copia rimossa aveva un <strong>secondo lettore</strong>, una
+            macchina. Fondere guarda ai lettori, non solo al contenuto (riga
+            estesa al passo 4 di <code>verdicts-review</code>, dove l’atto
+            vive).
+          </p>
+          <p>
+            <strong>Il drift colpisce il fatto più fresco.</strong> Una vista a
+            mano non degrada in modo uniforme: diverge dove la sorgente si
+            muove, cioè dove conta. In <code>salute</code> l’unico aggiornamento
+            sostanziale del mese — un esame ritirato su indicazione medica — è
+            esattamente ciò che il deck non aveva recepito, e per sedici giorni
+            ha continuato a invitare a chiederlo: il danno non è l’incompletezza
+            ma l’<strong>inversione</strong>. In <code>metodo</code> la vista si
+            è svuotata nell’atto stesso in cui il plan cambiava forma.
+            Conseguenza operativa: verificare una vista a campione sul contenuto
+            vecchio è il test sbagliato — si controlla contro l’ultima modifica
+            della fonte.
+          </p>
+          <p>
+            <strong>Non serve una classe di controllo nuova.</strong> Gli audit
+            strutturali non attraversano il confine tra una vista e ciò da cui
+            deriva, ed è giusto così: un generatore che rompe la build
+            <strong>è</strong> già quel controllo, e arriva prima
+            (<code>constraint</code>: il vincolo rende l’azione sbagliata
+            rumorosa, il check riflessivo può saltare). La domanda utile non è
+            chi controlla le viste, ma
+            <strong>quali viste non sono ancora generate</strong> e, tra quelle
+            generate, quali derivano da più fonti senza verificarle. In
+            <code>metodo</code> le quattro viste di
+            <code>presentation/</code> sono tutte generate;
+            <code>tasks.html</code> è l’unica a fonti multiple (tabella del plan
+            × file <code>o2/</code>) ed è appunto quella che ha ceduto. La home
+            è a sorgente-per-sezione — collega le collezioni, non le rende — e
+            sull’unico input che legge davvero, l’H1 del <code>README</code>,
+            rompeva già: non può divergere, e la riga di <code>view</code> che
+            la diceva derivata dal plan è stata corretta.
+          </p>
+          <p>
+            <strong>Il costo del drift ordina, non classifica.</strong> Su
+            <code>salute</code> una vista stale invitava a un esame che un
+            medico aveva ritirato; su altri domini sarebbe rumore. L’asimmetria
+            non produce due regole né una tassonomia di viste per danno: la
+            regola resta una — una vista si genera, e se ha più fonti le
+            verifica — mentre il costo di dominio decide l’<strong
+              >ordine</strong
+            >
+            in cui le viste ancora a mano vengono convertite.
+          </p>
+          <p>
+            <strong
+              >La difformità di una fonte può essere un secondo
+              significato.</strong
+            >
+            Il parser di <code>salute</code> è inciampato su un file-area su
+            otto che dichiarava una <code>Riapertura</code> invece della coppia
+            <code>Prossima azione</code>/<code>Entro</code>: normalizzarlo alla
+            forma maggioritaria avrebbe distrutto la distinzione tra area
+            <em>dormiente</em>, che aspetta un trigger, e <em>attiva</em>, che
+            aspetta una data — la stessa che <code>plan</code> fa tra una
+            scadenza e una pausa con condizione di risveglio. Il contratto
+            ammette entrambe le forme invece di imporne una. È «fondere, non
+            cancellare» su un secondo asse: là copia contro copia, qui schema
+            contro fonte. Due assi diversi, la stessa assunzione implicita — che
+            il difforme sia il difettoso. Resta nominato qui e nella forma
+            view-specifica in <code>view</code>; se compare un terzo asse, sale
+            a nodo proprio.
+          </p>
+          <p>
+            <strong>Il filo non ha bisogno di un campo nuovo.</strong> La
+            domanda era se un filo che valuta un artefatto composto — fonte più
+            superficie che la rende — debba dichiarare quale dei due sta
+            misurando. No: un verdetto è sulla fonte di verità, e una superficie
+            che può essere falsa della propria fonte è un difetto della
+            superficie, non una dimensione mancante del filo. Generata e
+            verificata la vista, la distinzione collassa. Si riaprirebbe solo
+            per una superficie che <strong>non si può</strong> generare — fuori
+            dal repo, mantenuta da altri: caso oggi non presente in nessuno dei
+            quattro.
+          </p>
+          <p>
+            Watchpoint: i campioni di generatore-contratto sono due —
+            <code>salute</code> (quadro corporeo) e <code>metodo</code> (plan ×
+            <code>o2/</code>) — e convergono sulle stesse tre verifiche:
+            indicizzazione, coerenza dei valori dichiarati due volte, varianti
+            ammesse invece che appiattite. Convergenza non ancora sufficiente a
+            incidere in <code>view</code> la forma del contratto oltre l’elenco
+            di esempi: serve il terzo, e nessuna prescrizione
+            <code>o3/</code> parte prima — la modifica è puntuale e viaggia col
+            normale <code>method-review</code>. L’inventario «quali viste non
+            sono generate» negli adottanti si legge invece dove già si guarda:
+            l’audit mensile <code>/adopters-review</code>.
+          </p>
+        </section>
       </div>
     </div>
 

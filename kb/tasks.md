@@ -18,6 +18,9 @@ Regole:
   di supervisione e il rimando all'indice, non un secondo elenco di link
   (cfr. `plan`)
 - ogni riga sostanziale di `o1/plan.md` deve avere un file quando serve contesto
+- il legame plan × `o2/` è un **contratto verificato**, non una convenzione: il
+  generatore delle viste rompe la build su un file scollegato, non indicizzato o
+  con `ciclo` divergente dal plan (cfr. `view`, «Derivata implica verificata»)
 - può linkare nodi KB per contesto stabile
 - va ripulita quando il task viene completato
 - nel repo `metodo`, contiene solo task propri del metodo, non verifiche operative

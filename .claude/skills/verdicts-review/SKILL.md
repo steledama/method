@@ -63,6 +63,13 @@ stale, la destinazione è vera — non regge sempre: nella potatura di `economia
 (2026-07-28) in due casi su otto era il plan a portare il fatto più recente, e
 potare alla cieca avrebbe distrutto informazione.
 
+Fondere guarda anche ai **lettori**, non solo al contenuto: chiedersi chi altro
+legge la copia che stai rimuovendo, macchine incluse. In `metodo` il footer
+`## Dettagli task` era un secondo indice per l'umano ma l'unica chiave con cui il
+generatore risolveva una riga del plan al suo `o2/`: potato il footer, la vista
+dei task è rimasta vuota per diciassette giorni senza che nulla rompesse
+(`i3/vista-derivata-e-verificata.md`).
+
 **5. Formazione goal (modo due dell'i3)**
 
 Input esogeni che non chiudono loop noti ma ne aprono di nuovi (una percezione

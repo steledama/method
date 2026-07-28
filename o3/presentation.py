@@ -14,6 +14,7 @@ class PlanRow:
     task: str
     dependency: str
     source: str | None
+    ciclo: str | None = None
 
 
 @dataclass(frozen=True)
@@ -78,13 +79,51 @@ def _detail_source(detail_links: dict[str, str], task: str) -> str | None:
     return None
 
 
+_INDEX_ENTRY = re.compile(r"^- \[[^\]]+\]\(([^)]+\.md)\)", re.M)
+
+
+def o2_index(root: Path) -> list[str]:
+    """I file `o2/` indicizzati da `o2/tasks.md`, come path relativi alla root.
+
+    `o2/tasks.md` è l'**unico** indice dei dettagli (cfr. `kb/tasks.md`): è la
+    chiave con cui una riga del plan risolve al proprio file. Le voci che
+    puntano fuori da `o2/` (rimandi ai nodi nel preambolo) non sono voci
+    d'indice.
+    """
+    index = root / "o2" / "tasks.md"
+    if not index.exists():
+        return []
+    entries: list[str] = []
+    for match in _INDEX_ENTRY.finditer(index.read_text(encoding="utf-8")):
+        href = match.group(1).removeprefix("../")
+        if "/" in href.removeprefix("o2/"):
+            continue
+        relative = href if href.startswith("o2/") else f"o2/{href}"
+        if relative not in entries:
+            entries.append(relative)
+    return entries
+
+
+def _index_titles(root: Path) -> dict[str, str]:
+    titles: dict[str, str] = {}
+    for relative in o2_index(root):
+        if (root / relative).exists():
+            titles[parse_task(root, relative).title] = relative
+    return titles
+
+
 def parse_plan(root: Path) -> list[PlanRow]:
     plan = root / "o1" / "plan.md"
     text = plan.read_text(encoding="utf-8")
-    detail_links = {
-        match.group(1).strip(): match.group(2).removeprefix("../")
-        for match in re.finditer(r"- \[([^\]]+)\]\(((?:\.\./)?o2/[^)]+\.md)\)", text)
-    }
+    # L'indice unico `o2/tasks.md` è la chiave canonica; i bullet `- [x](o2/…)`
+    # nel plan sono la forma precedente, ancora in uso negli adottanti.
+    detail_links = _index_titles(root)
+    detail_links.update(
+        {
+            match.group(1).strip(): match.group(2).removeprefix("../")
+            for match in re.finditer(r"- \[([^\]]+)\]\(((?:\.\./)?o2/[^)]+\.md)\)", text)
+        }
+    )
     rows: list[PlanRow] = []
     position = 0
     for line in text.splitlines():
@@ -98,14 +137,17 @@ def parse_plan(root: Path) -> list[PlanRow]:
             continue
         if cells[0] in {"#", "Task", "Ciclo"} or set(cells[0]) == {"-"}:
             continue
+        ciclo: str | None = None
         if len(cells) == 3 and cells[0] in {"dev", "runtime"}:
             # Forma canonica: Ciclo · Task · Dip.
             position += 1
             position_value, task_cell, dependency = str(position), cells[1], cells[2]
+            ciclo = cells[0]
         elif len(cells) == 3 and cells[1] in {"dev", "runtime"}:
             # Forma precedente (Task · Ciclo · Dip.), ancora in uso negli adottanti.
             position += 1
             position_value, task_cell, dependency = str(position), cells[0], cells[2]
+            ciclo = cells[1]
         elif len(cells) == 3:
             position_value, task_cell, dependency = cells
         else:
@@ -113,20 +155,67 @@ def parse_plan(root: Path) -> list[PlanRow]:
             position_value, task_cell, dependency = str(position), cells[0], cells[1]
         link = re.search(r"\[([^\]]+)\]\(((?:\.\./)?o2/[^)]+\.md)\)", task_cell)
         task = link.group(1) if link else task_cell
-        source = (
-            link.group(2).removeprefix("../")
-            if link
-            else _detail_source(detail_links, task)
-        )
+        source = link.group(2).removeprefix("../") if link else _detail_source(detail_links, task)
         rows.append(
             PlanRow(
                 position=position_value,
                 task=task,
                 dependency=dependency,
                 source=source,
+                ciclo=ciclo,
             )
         )
     return rows
+
+
+def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
+    """Legge plan e `o2/` come un contratto: rompe invece di degradare.
+
+    Una riga del plan **può** non avere dettaglio (`kb/tasks.md`: il file serve
+    «quando serve contesto»), ma un file `o2/` scollegato, non indicizzato o in
+    contraddizione col plan è una divergenza tra due fonti dello stesso fatto —
+    la vista che la ignora invita ad agire su ciò che il plan non dice più
+    (`kb/view.md`, «Derivata implica verificata»).
+    """
+    errors: list[str] = []
+    indexed = o2_index(root)
+    on_disk = sorted(
+        f"o2/{path.name}" for path in (root / "o2").glob("*.md") if path.name != "tasks.md"
+    )
+
+    for relative in indexed:
+        if not (root / relative).exists():
+            errors.append(f"{relative}: voce di o2/tasks.md senza file")
+    for relative in on_disk:
+        if relative not in indexed:
+            errors.append(f"{relative}: file non indicizzato in o2/tasks.md")
+
+    bound: dict[str, list[str]] = {}
+    for row in rows:
+        if row.source:
+            bound.setdefault(row.source, []).append(row.task)
+    for relative in on_disk:
+        if relative not in bound:
+            errors.append(
+                f"{relative}: nessuna riga di o1/plan.md risolve a questo file "
+                f"(titolo «{parse_task(root, relative).title}»)"
+            )
+        elif len(bound[relative]) > 1:
+            errors.append(
+                f"{relative}: risolto da più righe del plan ({', '.join(bound[relative])})"
+            )
+
+    for row in rows:
+        if not row.source or not row.ciclo:
+            continue
+        detail_ciclo = parse_task(root, row.source).ciclo
+        if detail_ciclo != row.ciclo:
+            errors.append(
+                f"{row.source}: ciclo divergente — plan «{row.ciclo}», frontmatter «{detail_ciclo}»"
+            )
+
+    if errors:
+        raise SystemExit("contratto plan × o2 violato:\n- " + "\n- ".join(errors))
 
 
 def parse_task(root: Path, relative: str) -> TaskDetail:

@@ -25,9 +25,33 @@ Nel repo `metodo` le viste generate vivono in `presentation/`:
 - `presentation/interpretations.html` deriva da `i2/metodo-in-sintesi.md`;
 - `presentation/tasks.html` deriva da `o1/plan.md` e dai file in `o2/`;
 - `presentation/verdict.html` deriva dai fili in `i3/`;
-- `presentation/index.html` deriva da `README.md`, `o1/plan.md` e dalla configurazione delle viste.
+- `presentation/index.html` deriva dal titolo di `README.md`, dagli intro dei due register `goal.md`/`world.md` e dalla configurazione degli slot; le collezioni-stadio le _collega_, non le rende (una sorgente per sezione: nessuna divergenza possibile).
 
 Le sorgenti rimangono pure: `i2/`, `o2/`, `o1/plan.md` e `i3/` non incorporano HTML generato.
+
+Una vista mantenuta a mano è una seconda fonte di verità travestita, anche
+quando si dichiara derivata. Non degrada in modo uniforme: diverge dove la
+sorgente si muove, cioè sul fatto più fresco — quello per cui la si apre. Il
+danno non è l'incompletezza ma l'**inversione**: continua a proporre l'azione che
+la sorgente ha appena ritirato. Ne segue che il test giusto non è un campione sul
+contenuto vecchio, ma il confronto con l'ultima modifica della fonte.
+
+## Derivata implica verificata
+
+Generare non basta quando le sorgenti sono più d'una e possono contraddirsi: il
+generatore le legge come un **contratto** ed esce con errore invece di produrre
+un output plausibile — un valore dichiarato due volte che diverge, una sorgente
+non indicizzata dove l'indice è la chiave, una riga che non risolve al proprio
+dettaglio. È una forcing function (`constraint`), e prende il posto del controllo
+periodico: gli audit strutturali non attraversano il confine tra una vista e ciò
+da cui deriva, quindi la domanda utile non è chi controlla le viste ma quali
+viste non sono ancora generate — e, tra quelle generate, quali derivano da più
+fonti senza verificarle.
+
+Quando il generatore incontra una sorgente difforme dallo schema maggioritario,
+la difformità si legge prima di normalizzarla: può essere un secondo significato,
+e allora è il contratto ad ammettere entrambe le forme. Appiattire la fonte sulla
+forma prevista dal parser distrugge informazione in silenzio.
 
 ## HTML apribile direttamente
 

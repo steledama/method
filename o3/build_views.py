@@ -7,7 +7,7 @@ import argparse
 import re
 from pathlib import Path
 
-from presentation import parse_plan, parse_task
+from presentation import check_plan_contract, parse_plan, parse_task
 
 
 def repo_root() -> Path:
@@ -21,20 +21,24 @@ def task_view(root: Path) -> str:
         lines += ["## Nessun task aperto", "", "La coda operativa è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
 
+    check_plan_contract(root, rows)
+
     for row in rows:
-        if not row.source:
-            continue
-        task = parse_task(root, row.source)
+        # Una riga senza dettaglio `o2/` è legittima (`kb/tasks.md`: il file
+        # serve quando serve contesto) e si rende con i soli dati del plan;
+        # ciò che non è legittimo — e che il contratto ha già intercettato — è
+        # saltarla in silenzio.
+        task = parse_task(root, row.source) if row.source else None
         lines += [
-            f"## {task.title}",
+            f"## {task.title if task else row.task}",
             "",
-            f"ciclo: `{task.ciclo}` · dipendenza: `{row.dependency}`",
+            f"ciclo: `{task.ciclo if task else row.ciclo or '—'}` · dipendenza: `{row.dependency}`",
             "",
-            task.sintesi,
-            "",
-            f"Sorgente: [`{row.source}`](../{row.source})",
+            task.sintesi if task else "Riga di piano senza dettaglio in `o2/`.",
             "",
         ]
+        if row.source:
+            lines += [f"Sorgente: [`{row.source}`](../{row.source})", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
