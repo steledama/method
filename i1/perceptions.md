@@ -10,4 +10,8 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-Nessun segnale aperto.
+- [Una vista derivata mantenuta a mano può invertire l'effetto che cerca](vista-a-mano-inverte-effetto.md)
+  — da `salute`: per sedici giorni il deck del quadro corporeo ha continuato a
+  invitare all'esame che la fonte aveva appena ritirato su indicazione medica;
+  nessun audit strutturale attraversava il confine tra vista e fonte, e la
+  difformità di una fonte si è rivelata un secondo significato, non rumore.
