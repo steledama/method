@@ -64,7 +64,31 @@ quota schedulata che cresce — sempre pesata sulla gradualità del dominio.
 `ls .claude/skills/` dell'adottante: quartetto più `method-review` presenti;
 skill di dominio; residui (nomi vecchi dopo una rinomina, doppioni).
 
-### 5. Verdetto aggregato
+### 5. Superfici e viste
+
+L'unica lente che attraversa il confine tra una vista e ciò da cui deriva: gli
+audit strutturali non lo attraversano, quindi una superficie può contraddire la
+propria fonte mentre ogni altro controllo dice che va tutto bene (cfr.
+`kb/view.md`, «Derivata implica verificata», e il filo
+[`i3/vista-derivata-e-verificata.md`](../../../i3/vista-derivata-e-verificata.md)).
+
+Per adottante, in sola lettura:
+
+- **quali superfici esistono** (`presentation/` o l'equivalente dichiarato nel
+  suo `world.md`) e **quali sono generate** da uno script versionato: una vista
+  il cui file cambia senza che cambi un generatore è mantenuta a mano;
+- tra le generate, **quali derivano da più fonti** che possono contraddirsi, e
+  se il generatore le legge come contratto o si limita a trasformare (una vista
+  a fonte unica non può divergere: non è un buco);
+- il test rapido su una vista a mano è il confronto con l'**ultima** modifica
+  della fonte, non un campione sul contenuto vecchio: il drift colpisce il fatto
+  più fresco, cioè quello per cui la vista si apre.
+
+Il costo **ordina, non classifica**: la regola è una per tutti, ma una vista a
+mano che rende fatti su cui si agisce (salute, denaro, scadenze) si guarda per
+prima. Segnale rosso: la vista invita a un'azione che la fonte ha già ritirato.
+
+### 6. Verdetto aggregato
 
 Aggiorna `i3/audit-adottanti.md` in place: una fotografia sottile per
 adottante (canale, composizione, distanza dal telos contro la sua gradualità)
@@ -72,7 +96,7 @@ più le lezioni cross-repo. Classifica ogni scostamento: **prescrizione o3**
 (drift di canone), **segnale i1** (lezione dal basso), **niente** (coda di
 dominio). Aggiorna la riga del filo nell'indice `i3/verdicts.md`.
 
-### 6. Chiudi il giro
+### 7. Chiudi il giro
 
 Avanza la data della riga `(mensile)` in `## Scadenze` di `o1/plan.md` alla
 prossima occorrenza. Riporta in conversazione: fotografia per adottante,

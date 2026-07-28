@@ -106,5 +106,16 @@ indicizzazione, coerenza dei valori dichiarati due volte, varianti ammesse
 invece che appiattite. Convergenza non ancora sufficiente a incidere in `view` la
 forma del contratto oltre l'elenco di esempi: serve il terzo, e nessuna
 prescrizione `o3/` parte prima — la modifica è puntuale e viaggia col normale
-`method-review`. L'inventario «quali viste non sono generate» negli adottanti si
-legge invece dove già si guarda: l'audit mensile `/adopters-review`.
+`method-review`.
+
+Il terzo caso non si va a cercare: un caso cercato dimostra che il pattern
+esiste, non che la generalizzazione serve, e il dal-basso è la guardia contro la
+sovra-ingegnerizzazione. Ma il non-cercare vale per il canone, non per il
+runtime: due campioni su due esaminati — `nixos`, `bi` ed `economia` non li ha
+guardati nessuno su questo asse — e il costo di una vista che inganna matura in
+silenzio proprio dove nessuno guarda. L'inventario «quali viste non sono
+generate» perciò non resta appeso a questa riga: è la quinta lente di
+`/adopters-review` (superfici e viste), dentro il battito mensile che già esiste
+invece che in un atto nuovo. Se fosse restato un rimando in prosa sarebbe stato
+lo stesso difetto che questo filo denuncia — una regola al livello riflessivo
+invece che nella struttura.
