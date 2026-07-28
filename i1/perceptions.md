@@ -10,4 +10,9 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-Nessun segnale aperto.
+- [Il recepimento di un vincolo fa emergere il drift che era già lì](vincolo-recepito-rileva.md)
+  — da `nixos` (`method-review` del 2026-07-29): portando il contratto plan ×
+  `o2/` sono emersi una vista dei task vuota da diciannove giorni e tre righe
+  col titolo divergente dal proprio file `o2/`, tutti invisibili ai controlli
+  locali fino a quel momento; è il secondo adottante su due a pagare al primo
+  contatto col vincolo.
