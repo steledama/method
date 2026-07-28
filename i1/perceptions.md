@@ -10,7 +10,4 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [La sezione cause del plan diventa una seconda fonte di verità](cause-plan-seconda-fonte.md)
-  — da `economia`: la sezione era cresciuta al 44% del file duplicando lo stato
-  dei task; la dottrina che lo vietava esisteva già in `verdicts-review` ma,
-  priva di una soglia misurabile, non era mai stata eseguita.
+Nessun segnale aperto.

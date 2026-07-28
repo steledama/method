@@ -27,7 +27,8 @@ Regole:
 - **`nixos`** — fonti di verità attuali: `flake.nix`, host, moduli Nix, profili Home Manager, filesystem. Confronto con il metodo: caso più verificabile — le fonti sono dichiarative e leggibili dagli script.
 - **`bi`** — fonti di verità attuali: script, moduli JS, configurazioni, Baserow, WooCommerce, Danea, Google Sheets e output intermedi. Confronto con il metodo: dominio più complesso — bisogna distinguere fonti tecniche locali da sistemi esterni non sempre esportabili.
 - **`economia`** — fonti di verità attuali: documenti grezzi, JSON compilati
-  localmente in `data/json/`, `stato.md`, `scadenze.md`, nodi entità e mappa.
+  localmente in `data/json/`, `stato.md`, `## Scadenze` in `o1/plan.md` (che ha
+  assorbito il vecchio `scadenze.md`), nodi entità e mappa.
   Confronto con il metodo: caso non-code ad alta responsabilità — la fonte
   autoritativa per analisi è il JSON compilato, pur non essendo versionato; Git
   conserva parser, regole e presentazioni, non lo stato finanziario granulare.

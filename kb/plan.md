@@ -87,6 +87,25 @@ risveglio). La chiave è **facoltativa**: un `world` o `pause` nudo basta quando
 titolo già dice tutto, e il testo libero non gonfia mai le celle. Tre livelli:
 significante in tabella, chiosa in legenda, dettaglio pieno nel file in `o2/`.
 
+La voce di chiosa è **sottile** come quella di `## Scadenze`: `chiave → causa →
+risveglio → rimando a o2/`, nell'ordine in cui le chiavi compaiono in tabella.
+Una voce esiste **solo** se la sua chiave è in tabella, e ogni chiave in tabella
+ha una voce sola: la legenda non è una sezione parallela con vita propria, è la
+chiosa di ciò che la tabella già dichiara. Importi, protocolli e cronache stanno
+nel file `o2/`, non qui — e un task `—` non ha chiave, quindi non ha voce: se ha
+qualcosa da dire, lo dice il suo file. La forma non è un budget di righe scelto a
+piacere: sono tre slot nominati, e uno sforamento si vede senza leggere il
+contenuto. (Scritta perché mancava: in `economia` la sezione delle cause era
+degenerata in prosa libera al 44% del file — potata il 2026-07-28.)
+
+Il vincolo che regge le tre regole — niente colonna `#`, niente footer `##
+Dettagli task`, legenda ancorata alle chiavi — è **uno solo**, e questa è la sua
+terza incarnazione: un fatto non vive in due rappresentazioni da tenere in
+sincronia; o ne vive una sola, o la seconda è **derivata** dalla prima e ancorata
+a essa da una chiave. Dove le due sono parallele divergono in silenzio, e la
+coerenza diventa un controllo da ricordarsi invece che una proprietà della forma
+(cfr. [constraint](constraint.md)).
+
 Un **batch** di task trattenuti per la stessa ragione non chiede un significante
 nuovo: condividono una sola chiave di legenda (`pause [a]` su più righe), chiosata
 una volta. E quando il fronte parcheggiato è grande abbastanza da fare rumore
@@ -224,3 +243,4 @@ Connessioni:
 - [development-goal](development-goal.md)
 - [project-structure](project-structure.md)
 - [affordance-signifier](affordance-signifier.md)
+- [constraint](constraint.md)

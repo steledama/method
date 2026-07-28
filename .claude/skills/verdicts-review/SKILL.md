@@ -57,6 +57,12 @@ operativo di esecuzione. Stessa lente sui task `o2/`: i diari di sessione si
 potano a chiusura. È il gemello del passo «igiene» di `plan-review`, guardato
 dal versante opposto.
 
+Migrare è **fondere, non cancellare**: prima di potare una copia, stabilisci
+quale delle due porta il fatto più fresco. L'assunzione naturale — la copia è
+stale, la destinazione è vera — non regge sempre: nella potatura di `economia`
+(2026-07-28) in due casi su otto era il plan a portare il fatto più recente, e
+potare alla cieca avrebbe distrutto informazione.
+
 **5. Formazione goal (modo due dell'i3)**
 
 Input esogeni che non chiudono loop noti ma ne aprono di nuovi (una percezione
