@@ -946,6 +946,35 @@
             vive).
           </p>
           <p>
+            <strong
+              ><code>bi</code> è il terzo repo, e il contratto ha pagato al
+              primo contatto.</strong
+            >
+            Il <code>method-review</code> di <code>bi</code> (2026-07-29, marker
+            a <code>b42164c</code>) ha trovato nel proprio fork del generatore
+            lo stesso guasto silenzioso: dal 7 luglio, quando il suo plan è
+            passato all’indice unico, <strong>nessuna</strong> delle undici
+            righe risolveva più al proprio <code>o2/</code> e la vista dei task
+            era vuota da tre settimane. Tre repo su cinque, stessa dinamica,
+            sempre invisibile agli audit strutturali. Portato il contratto, ha
+            intercettato subito una divergenza reale che nessuno aveva visto —
+            un task intitolato «Completare la famiglia…» in
+            <code>o2/</code> contro «Completare famiglia…» nel plan e in due
+            fili <code>i3/</code> — poi allineata.
+          </p>
+          <p>
+            Il trigger del watchpoint è quindi scattato, ma la conseguenza
+            <strong>non</strong> è trascrivere in <code>view</code> la forma del
+            contratto. <code>bi</code> non è una terza invenzione convergente: è
+            un port, e la forma vive già in un’implementazione versionata che
+            gli adottanti forkano (<code>check_plan_contract</code> in
+            <code>o3/presentation.py</code>). Metterla anche in prosa sarebbe
+            una seconda rappresentazione dello stesso fatto — l’errore che
+            questo filo intero denuncia. Il nodo tiene il principio, il codice
+            tiene la forma (cfr. <code>skill</code>: le skill sono interfacce
+            sugli strumenti versionati, non documentazione).
+          </p>
+          <p>
             <strong>Il drift colpisce il fatto più fresco.</strong> Una vista a
             mano non degrada in modo uniforme: diverge dove la sorgente si
             muove, cioè dove conta. In <code>salute</code> l’unico aggiornamento
@@ -1020,15 +1049,28 @@
             quattro.
           </p>
           <p>
-            Watchpoint: i campioni di generatore-contratto sono due —
-            <code>salute</code> (quadro corporeo) e <code>metodo</code> (plan ×
-            <code>o2/</code>) — e convergono sulle stesse tre verifiche:
-            indicizzazione, coerenza dei valori dichiarati due volte, varianti
-            ammesse invece che appiattite. Convergenza non ancora sufficiente a
-            incidere in <code>view</code> la forma del contratto oltre l’elenco
-            di esempi: serve il terzo, e nessuna prescrizione
-            <code>o3/</code> parte prima — la modifica è puntuale e viaggia col
-            normale <code>method-review</code>.
+            Watchpoint chiuso sul contratto: le invenzioni indipendenti restano
+            due — <code>salute</code> (quadro corporeo) e
+            <code>metodo</code> (plan × <code>o2/</code>), convergenti su
+            indicizzazione, coerenza dei valori dichiarati due volte e varianti
+            ammesse invece che appiattite — e <code>bi</code> ne è il primo
+            recepimento, arrivato col normale <code>method-review</code> senza
+            bisogno di una prescrizione <code>o3/</code>. Restano
+            <code>nixos</code> ed <code>economia</code>, che il battito dell’11
+            agosto guarderà con la lente 5.
+          </p>
+          <p>
+            Watchpoint aperto, sotto-asse nuovo: una vista può essere vecchia
+            rispetto alle proprie fonti <strong>senza</strong> che nulla diverga
+            — il generatore è corretto e le fonti coerenti, solo l’esecuzione
+            non è stata rifatta. Due istanze in due repo (<code>economia</code>,
+            home ferma da cinque giorni; <code>bi</code>,
+            <code>verdict.html</code>
+            stantia rispetto ai fili), catturate come segnale i1
+            <code>vista-generata-non-rigenerata.md</code> e non ancora valutate:
+            il contratto non le vede per costruzione, e il presidio che esiste —
+            il check i2 del gate <code>/commit</code> — è di nuovo riflessivo.
+            Il verdetto su questo resta da fare in i2→i3, non qui.
           </p>
           <p>
             Il terzo caso non si va a cercare: un caso cercato dimostra che il

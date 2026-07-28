@@ -50,6 +50,25 @@ rotto lo stesso, perché la copia rimossa aveva un **secondo lettore**, una
 macchina. Fondere guarda ai lettori, non solo al contenuto (riga estesa al passo
 4 di `verdicts-review`, dove l'atto vive).
 
+**`bi` è il terzo repo, e il contratto ha pagato al primo contatto.** Il
+`method-review` di `bi` (2026-07-29, marker a `b42164c`) ha trovato nel proprio
+fork del generatore lo stesso guasto silenzioso: dal 7 luglio, quando il suo plan
+è passato all'indice unico, **nessuna** delle undici righe risolveva più al
+proprio `o2/` e la vista dei task era vuota da tre settimane. Tre repo su cinque,
+stessa dinamica, sempre invisibile agli audit strutturali. Portato il contratto,
+ha intercettato subito una divergenza reale che nessuno aveva visto — un task
+intitolato «Completare la famiglia…» in `o2/` contro «Completare famiglia…» nel
+plan e in due fili `i3/` — poi allineata.
+
+Il trigger del watchpoint è quindi scattato, ma la conseguenza **non** è
+trascrivere in `view` la forma del contratto. `bi` non è una terza invenzione
+convergente: è un port, e la forma vive già in un'implementazione versionata che
+gli adottanti forkano (`check_plan_contract` in `o3/presentation.py`). Metterla
+anche in prosa sarebbe una seconda rappresentazione dello stesso fatto — l'errore
+che questo filo intero denuncia. Il nodo tiene il principio, il codice tiene la
+forma (cfr. `skill`: le skill sono interfacce sugli strumenti versionati, non
+documentazione).
+
 **Il drift colpisce il fatto più fresco.** Una vista a mano non degrada in modo
 uniforme: diverge dove la sorgente si muove, cioè dove conta. In `salute` l'unico
 aggiornamento sostanziale del mese — un esame ritirato su indicazione medica — è
@@ -100,13 +119,21 @@ la distinzione collassa. Si riaprirebbe solo per una superficie che **non si pu�
 generare — fuori dal repo, mantenuta da altri: caso oggi non presente in nessuno
 dei quattro.
 
-Watchpoint: i campioni di generatore-contratto sono due — `salute` (quadro
-corporeo) e `metodo` (plan × `o2/`) — e convergono sulle stesse tre verifiche:
-indicizzazione, coerenza dei valori dichiarati due volte, varianti ammesse
-invece che appiattite. Convergenza non ancora sufficiente a incidere in `view` la
-forma del contratto oltre l'elenco di esempi: serve il terzo, e nessuna
-prescrizione `o3/` parte prima — la modifica è puntuale e viaggia col normale
-`method-review`.
+Watchpoint chiuso sul contratto: le invenzioni indipendenti restano due —
+`salute` (quadro corporeo) e `metodo` (plan × `o2/`), convergenti su
+indicizzazione, coerenza dei valori dichiarati due volte e varianti ammesse
+invece che appiattite — e `bi` ne è il primo recepimento, arrivato col normale
+`method-review` senza bisogno di una prescrizione `o3/`. Restano `nixos` ed
+`economia`, che il battito dell'11 agosto guarderà con la lente 5.
+
+Watchpoint aperto, sotto-asse nuovo: una vista può essere vecchia rispetto alle
+proprie fonti **senza** che nulla diverga — il generatore è corretto e le fonti
+coerenti, solo l'esecuzione non è stata rifatta. Due istanze in due repo
+(`economia`, home ferma da cinque giorni; `bi`, `verdict.html` stantia rispetto
+ai fili), catturate come segnale i1 `vista-generata-non-rigenerata.md` e non
+ancora valutate: il contratto non le vede per costruzione, e il presidio che
+esiste — il check i2 del gate `/commit` — è di nuovo riflessivo. Il verdetto su
+questo resta da fare in i2→i3, non qui.
 
 Il terzo caso non si va a cercare: un caso cercato dimostra che il pattern
 esiste, non che la generalizzazione serve, e il dal-basso è la guardia contro la
