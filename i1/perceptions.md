@@ -10,4 +10,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-Nessun segnale aperto.
+- [mappatura task→obiettivo a mano](mappatura-task-obiettivo-a-mano.md) — da
+  `economia`, 2026-07-30: la direzione task→obiettivo viveva solo negli elenchi
+  scritti a mano del register ed era derivata; risolta localmente con una
+  colonna `Ob.` in `o1/plan.md`
+- [il verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md) —
+  da `economia`, 2026-07-30: tre episodi in una sessione in cui l'artefatto i3
+  era più sicuro, elegante o quantificato delle fonti che il progetto aveva già
+  in casa; nessuna review guarda in quella direzione
