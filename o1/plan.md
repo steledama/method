@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | 1   | Skill per arco: `evaluate` ed `execute` tripartite       | —         |
 | dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 

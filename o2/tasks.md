@@ -6,3 +6,4 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.
 - [redraw-tavole-interpretazioni.md](redraw-tavole-interpretazioni.md) — residui cosmetici delle tavole della vista Interpretazioni: tavola ontologia in inglese, glitch «o3 3», «P1»→«Pi», didascalia della tavola KB.
+- [skill-archi-tripartite.md](skill-archi-tripartite.md) — ritagliare il quartetto lungo il modello: `plan-review`/`verdicts-review` → `execute`/`evaluate`, tripartite sugli stadi del proprio arco, con casa per i1, i2 e o3 oggi scoperti; pilota `metodo`, poi prescrizione per i quattro.
