@@ -17,10 +17,13 @@ materia («nessun segnale nuovo»): la chiusura vuota è esito legittimo, non un
 passo saltato.
 
 **`perceive`** — raccogliere il grezzo dal Mondo, **valenza-neutro**. In `metodo`:
-i marker `method-review.md` dei quattro adottanti, l'audit `o3/kb_tools.py`, i
-segnali che il custode porta da un altro repo. Negli adottanti: posta, log,
-output di strumenti, documenti arrivati. Si cattura in `i1/` **solo** ciò che è
-effimero o che per precisione e durata chiede un riflesso stabile
+i marker `method-review.md` dei quattro adottanti, gli esiti già prodotti da
+`kb-review`, i segnali che il custode porta da un altro repo. Negli adottanti:
+posta, log, output di strumenti, documenti arrivati. `evaluate perceive` può
+acquisire una diagnosi di `kb-review`, ma non la esegue implicitamente:
+`kb-review` resta la capacità diagnostica dell'ala trasversale, fuori dai due
+archi. Si cattura in `i1/` **solo** ciò che è effimero o che per precisione e
+durata chiede un riflesso stabile
 (`kb/perceive.md`): il grezzo persistente resta fuori. Nessuna valutazione qui —
 il confine i1→i2 è l'ingresso della valenza, e anticiparlo è il difetto che lo
 stadio esiste per impedire. Esito: cosa è entrato, cosa è stato catturato e
@@ -34,9 +37,11 @@ casa, e i suoi tre obblighi vengono dritti dai segnali appena valutati:
   sintesi dichiara se è misurato, dichiarato da terzi o derivato da
   dichiarazioni. Una quantità derivata non fa da architrave;
 - **la cascata all'indietro**: quando un claim cambia o cade, le sintesi `i2/`
-  che lo usavano si inseguono e si correggono. È il buco che ha lasciato
-  propagare la cifra dei «400 €/mese» in un'analisi e nella sua classifica di
-  priorità dopo che era stata smentita;
+  che lo usavano si cercano e si correggono. La skill individua riferimenti
+  espliciti e candidati semantici da verificare, senza promettere di riconoscere
+  automaticamente ogni dipendenza implicita. È il buco che ha lasciato propagare
+  la cifra dei «400 €/mese» in un'analisi e nella sua classifica di priorità dopo
+  che era stata smentita;
 - **il materiale di casa prima**: il file `o2/`, la corrispondenza in uscita, la
   valutazione di credibilità già scritta nella KB sono fonti primarie, non
   contesto.
@@ -66,14 +71,17 @@ le **quattro proprietà cardine** come criteri di qualità dell'o2 — visibilit
 feedback, mapping, constraint (`kb/specify.md`) — che oggi nessuna skill
 controlla mai.
 
-**`perform`** — l'atto e i suoi predisposti. Nel canone: la collezione `o3/`
-tiene solo il vivo (prescrizioni consumate potate, `kb/perform.md`), gli
-strumenti registrati sono ancora eseguibili, i runbook di propagazione riflettono
-il canone corrente. Un dominio **può** montare qui i propri atti come scope
-(`execute aggiornamento` in `nixos`, `execute categorie` in `bi`), con la scelta
-del ramo guidata da giorno, host e scadenze e le cadenze in config dichiarativa
-per entità: è ammesso, non prescritto — il confine di autorizzazione segue le
-risorse dello scope, non la skill.
+**`perform`** — predisporre o compiere l'atto, secondo autorizzazione. Nel
+canone: la collezione `o3/` tiene solo il vivo (prescrizioni consumate potate,
+`kb/perform.md`), gli strumenti registrati sono ancora eseguibili, i runbook di
+propagazione riflettono il canone corrente. Quando l'atto è locale, reversibile
+e già autorizzato, `execute perform` lo compie davvero; quando tocca il Mondo o
+richiede nuova autorità, produce o valida la prescrizione e si ferma al confine.
+Un dominio **può** montare qui i propri atti come scope (`execute aggiornamento`
+in `nixos`, `execute categorie` in `bi`), con la scelta del ramo guidata da
+giorno, host e scadenze e le cadenze in config dichiarativa per entità: è
+ammesso, non prescritto — il confine di autorizzazione segue le risorse dello
+scope, non la skill.
 
 ## Cosa tocca
 
@@ -102,11 +110,14 @@ risorse dello scope, non la skill.
    skill sono interfacce sul canone, non la sua sede);
 2. scrivere `evaluate` ed `execute` in `metodo`, rifilando le procedure esistenti
    e aggiungendo i tre stadi scoperti; wrapper Codex;
-3. **pilotare su `metodo`** per almeno un giro completo dei due archi, e
-   registrare cosa si è rotto o è risultato vuoto _prima_ di propagare;
-4. decidere col pilota il destino di `adopters-review`: assorbita nello stadio
-   `perceive` di `evaluate` (i marker dei quattro sono la posta in arrivo di
-   questo repo) o skill di dominio distinta che `perceive` invoca;
+3. prima del pilota, fissare l'ipotesi su `adopters-review`: resta skill di
+   dominio distinta e produce materiale che `evaluate perceive` può acquisire;
+   l'assorbimento è una variante da rivalutare solo dopo l'uso, non
+   un'ambiguità dell'interfaccia da pilotare;
+4. **pilotare su `metodo`** i due archi end-to-end su almeno un evento reale;
+   ogni scope restituisce un esito esplicito, anche nullo, e il filo registra
+   attriti, sovrapposizioni e passaggi che non hanno cambiato l'artefatto
+   _prima_ di propagare;
 5. aggiornare nodi e bussole; emettere la prescrizione `o3/` per i quattro,
    col pilota-adottante scelto lì (candidato `nixos`, che ha già il multi-scope
    collaudato e la skill di dominio più matura da montare eventualmente su
@@ -116,9 +127,9 @@ risorse dello scope, non la skill.
 
 ## Criterio di chiusura
 
-Le due skill esistono in `metodo`, hanno girato almeno un ciclo completo, i tre
-stadi prima scoperti hanno prodotto **almeno un esito reale ciascuno** (o la loro
-vacuità è registrata nel filo come sintomo per la rivalutazione), il canone in
-`kb/skill.md` è inciso e la prescrizione per i quattro è aperta. Il recepimento
-degli adottanti **non** è parte di questo task: è loro coda, e si misura col
-battito mensile.
+Le due skill esistono in `metodo` e sono state invocate end-to-end su almeno un
+evento reale; ogni scope ha restituito un esito esplicito, anche nullo, e il
+filo registra attriti, sovrapposizioni e passaggi che non hanno cambiato
+l'artefatto. Il canone in `kb/skill.md` è inciso e la prescrizione per i quattro
+è aperta. Il recepimento degli adottanti **non** è parte di questo task: è loro
+coda, e si misura col battito mensile.
