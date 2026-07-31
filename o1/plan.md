@@ -11,10 +11,10 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Task                                                     | Dip.      |
-| ----- | -------------------------------------------------------- | --------- |
-| dev   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
-| dev   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
+| Ciclo | Ob. | Task                                                     | Dip.      |
+| ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
+| dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 
 Legenda dipendenze esterne:
 

@@ -15,6 +15,7 @@ class PlanRow:
     dependency: str
     source: str | None
     ciclo: str | None = None
+    obiettivo: str | None = None
 
 
 @dataclass(frozen=True)
@@ -133,13 +134,25 @@ def parse_plan(root: Path) -> list[PlanRow]:
             cell.strip().replace("<<PIPE>>", "|")
             for cell in line.replace(r"\|", "<<PIPE>>").strip().strip("|").split("|")
         ]
-        if len(cells) not in {2, 3}:
-            continue
         if cells[0] in {"#", "Task", "Ciclo"} or set(cells[0]) == {"-"}:
             continue
+        if len(cells) not in {2, 3, 4}:
+            # Una riga di tabella che il parser non sa leggere non si salta in
+            # silenzio: sarebbe un task invisibile alla vista mentre il plan lo
+            # dichiara (`kb/view.md`, «Derivata implica verificata»).
+            raise SystemExit(
+                f"o1/plan.md: riga di tabella con {len(cells)} colonne, "
+                f"forma non riconosciuta — «{line.strip()}»"
+            )
         ciclo: str | None = None
-        if len(cells) == 3 and cells[0] in {"dev", "runtime"}:
-            # Forma canonica: Ciclo · Task · Dip.
+        obiettivo: str | None = None
+        if len(cells) == 4:
+            # Forma canonica: Ciclo · Ob. · Task · Dip.
+            position += 1
+            position_value, task_cell, dependency = str(position), cells[2], cells[3]
+            ciclo, obiettivo = cells[0], cells[1]
+        elif len(cells) == 3 and cells[0] in {"dev", "runtime"}:
+            # Forma precedente (Ciclo · Task · Dip.), ancora in uso negli adottanti.
             position += 1
             position_value, task_cell, dependency = str(position), cells[1], cells[2]
             ciclo = cells[0]
@@ -163,9 +176,59 @@ def parse_plan(root: Path) -> list[PlanRow]:
                 dependency=dependency,
                 source=source,
                 ciclo=ciclo,
+                obiettivo=obiettivo,
             )
         )
     return rows
+
+
+_GOAL_HEADING = re.compile(r"^#{2,4}\s+(\d+)[.)]\s", re.M)
+
+
+def goal_keys(root: Path) -> set[str]:
+    """Le chiavi che la colonna `Ob.` del plan può assumere, lette da `goal.md`.
+
+    Il numero dell'obiettivo runtime, più `S` per il Goal di sviluppo: sono le
+    chiavi del register, non una lista da tenere in sincronia (`kb/goal.md`).
+    """
+    goal = root / "goal.md"
+    if not goal.exists():
+        return set()
+    text = goal.read_text(encoding="utf-8")
+    keys = set(_GOAL_HEADING.findall(text))
+    if re.search(r"^##\s+Goal di sviluppo\s*$", text, re.M):
+        keys.add("S")
+    return keys
+
+
+def _check_obiettivi(root: Path, rows: list[PlanRow]) -> list[str]:
+    """La colonna `Ob.` è derivata dal register: si verifica, non si assume.
+
+    La direzione task→obiettivo vive solo qui (`kb/plan.md`): una chiave vuota
+    è un task che non serve nessun obiettivo, una chiave che il register non ha
+    è una numerazione andata alla deriva. Entrambe rompono, invece di produrre
+    una vista che tace.
+    """
+    declared = {row.obiettivo for row in rows if row.obiettivo is not None}
+    if not declared:
+        return []
+    keys = goal_keys(root)
+    if not keys:
+        return ["goal.md: nessun obiettivo numerato, ma o1/plan.md dichiara la colonna Ob."]
+    errors: list[str] = []
+    for row in rows:
+        if row.obiettivo is None:
+            continue
+        if not row.obiettivo:
+            errors.append(f"o1/plan.md: «{row.task}» senza obiettivo (colonna Ob. vuota)")
+            continue
+        unknown = [key for key in row.obiettivo.split(",") if key.strip() not in keys]
+        if unknown:
+            errors.append(
+                f"o1/plan.md: «{row.task}» punta a obiettivi assenti dal register "
+                f"({', '.join(key.strip() for key in unknown)})"
+            )
+    return errors
 
 
 def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
@@ -213,6 +276,8 @@ def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
             errors.append(
                 f"{row.source}: ciclo divergente — plan «{row.ciclo}», frontmatter «{detail_ciclo}»"
             )
+
+    errors += _check_obiettivi(root, rows)
 
     if errors:
         raise SystemExit("contratto plan × o2 violato:\n- " + "\n- ".join(errors))

@@ -378,12 +378,12 @@
           </p>
         </section>
         <section
-          id="gli-stadi-output-tengono-solo-il-vivo-una-rappresentazione-per-fatto-potatura-di-ciò-che-è-consumato"
+          id="una-rappresentazione-per-fatto-gli-stadi-output-tengono-solo-il-vivo-e-il-register-non-trascrive-il-plan"
           class="slide level2"
         >
           <h2>
-            Gli stadi output tengono solo il vivo: una rappresentazione per
-            fatto, potatura di ciò che è consumato
+            Una rappresentazione per fatto: gli stadi output tengono solo il
+            vivo, e il register non trascrive il plan
           </h2>
           <p>
             Ratificato (2026-07-11), dalla valutazione i2→i3 di due percezioni
@@ -392,7 +392,10 @@
             consumate», consumate da questo filo); esteso il 2026-07-28 dalla
             terza percezione dello stesso adottante («la sezione cause del plan
             diventa una seconda fonte di verità», 2026-07-28, anch’essa
-            consumata qui).
+            consumata qui) e il 2026-07-31 dalla quarta («la mappatura
+            task→obiettivo vive solo nel register, a mano», 2026-07-30), che
+            porta l’invariante fuori dagli stadi output, sul confine col
+            register del Goal.
           </p>
           <p>
             <strong>Un solo indice per collezione, anche per i task.</strong> Il
@@ -452,6 +455,73 @@
             struttura e prosa non si controlla: si rende impossibile da rompere.
           </p>
           <p>
+            <strong
+              >Quarta incarnazione: la copia stava fuori dagli stadi output, nel
+              register.</strong
+            >
+            La direzione task→obiettivo viveva solo nell’elenco «Lavoro
+            corrente» di <code>goal.md</code>, trascritto a mano dai titoli del
+            plan (<code>economia</code>, 2026-07-30). Non era derivato da nulla,
+            e infatti mancava un task in <strong>posizione 2</strong>,
+            <code>—</code>, con file <code>o2/</code> e voce d’indice: lavoro
+            prioritario e sbloccato, invisibile al register. Ratificata la forma
+            di <code>economia</code> (2026-07-31): una colonna
+            <code>Ob.</code> in <code>o1/plan.md</code> con la chiave
+            dell’obiettivo — numero per gli obiettivi runtime,
+            <code>S</code> per il Goal di sviluppo — e il register che rimanda
+            alla colonna invece di elencare titoli. Canone in
+            <code>kb/plan.md</code> e <code>kb/goal.md</code>;
+            <code>metodo</code> materializzato, gli altri tre recepiscono col
+            normale <code>method-review</code>.
+          </p>
+          <p>
+            Tre reperti che l’istanza aggiunge all’invariante, e che le prime
+            tre non avevano:
+          </p>
+          <ul>
+            <li>
+              <strong
+                >la duplicazione era asimmetrica nei tempi di lettura</strong
+              >, ed è per questo che non si è fatta notare:
+              <code>o1/plan.md</code> si rilegge a ogni bootstrap,
+              <code>goal.md</code> on-demand. La copia che deriva era quella che
+              si guarda di rado. La tentazione è aggiungere un controllo alla
+              review che legge l’originale; la risposta giusta è togliere la
+              copia, ed è quella incisa nel nodo;
+            </li>
+            <li>
+              <strong>le due review si passavano il controllo a vuoto</strong>:
+              <code>plan-review</code> verificava task→obiettivo e
+              <code>verdicts-review</code> obiettivo→segnale, ma entrambe
+              leggevano lo stesso elenco scritto a mano — confermavano la copia,
+              non la realtà. Un controllo riflessivo che legge la
+              rappresentazione sbagliata non fallisce mai: è la stessa lezione
+              di <code>constraint</code>, dal versante della supervisione;
+            </li>
+            <li>
+              <strong
+                >gli indici di collezione non sono la stessa patologia</strong
+              >, e va detto perché la somiglianza inganna:
+              <code>o2/tasks.md</code>, <code>i3/verdicts.md</code>,
+              <code>o3/prescriptions.md</code> sono elenchi scritti a mano che
+              ripetono item esistenti altrove, ma sono l’<strong>unica</strong>
+              rappresentazione della collezione come collezione — non la seconda
+              di un fatto che vive già in tabella. Il difetto non è «un elenco a
+              mano», è «un elenco a mano di un fatto già rappresentato».
+            </li>
+          </ul>
+          <p>
+            La colonna è arrivata con un
+            <strong>presidio, non con una regola</strong>: il generatore delle
+            viste legge <code>Ob.</code> come contratto — chiave assente dal
+            register o cella vuota rompono la build
+            (<code>o3/presentation.py</code>), e una riga di tabella di forma
+            non riconosciuta non si salta più in silenzio. Senza quest’ultimo
+            tratto la quarta incarnazione avrebbe riprodotto il difetto di
+            <code>vista-derivata-e-verificata</code>: tabella a quattro colonne,
+            parser fermo a tre, vista dei task vuota senza che nulla rompesse.
+          </p>
+          <p>
             <strong>Potare è fondere, non cancellare.</strong> Reperto emerso
             <em>facendo</em> la potatura, e il più portabile perché indipendente
             dal plan: ogni istruzione di consolidamento del metodo assume
@@ -468,6 +538,20 @@
             a sé: sta sotto la cadenza dell’audit mensile, che già lo misura
             (<code>audit-adottanti</code>), ed è strutturale per l’adottante che
             è origine di buona parte del canone.
+          </p>
+          <p>
+            Watchpoint aperti sulla colonna <code>Ob.</code>: la chiave
+            <code>S</code> per il Goal di sviluppo è nata materializzando la
+            colonna in <code>metodo</code> — dove l’unico task non bloccato
+            serve il goal di sviluppo, che nel register non è numerato — e va
+            collaudata sui tre adottanti che devono ancora recepirla; il caso
+            «un task serve due obiettivi» (<code>1,4</code>) è ammesso ma deve
+            restare <strong>raro</strong> (in <code>economia</code> una riga su
+            diciassette), e se cresce il sospetto si sposta sui task da
+            scomporre o sugli obiettivi da riformulare. La distribuzione dei
+            task per obiettivo, ora leggibile a colpo d’occhio, resta una
+            proprietà della forma: non se ne fa un controllo di
+            <code>plan-review</code> finché la forma la mostra da sé.
           </p>
           <p>
             Watchpoint: la forma nuova del plan viaggia col normale

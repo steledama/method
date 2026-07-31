@@ -50,14 +50,42 @@ collezione (la regola dell'atrio): la riga di supervisione vive nella tabella,
 il link al dettaglio in `o2/tasks.md`, e il plan chiude con il solo rimando
 all'indice. (Sciolto dal basso da `economia`, 2026-07-10.)
 
-La tabella resta **stretta e portabile** — `Ciclo · Task · Dip.` — con i
+La tabella resta **stretta e portabile** — `Ciclo · Ob. · Task · Dip.` — con i
 collegamenti fuori dalle celle. `Ciclo` apre la riga: è la colonna a valori
 brevi e ricorrenti, e in testa raggruppa a colpo d'occhio runtime e dev
 prima ancora di leggere i titoli; distingue `dev` e `runtime`, letti dal
-Mondo su cui il task insiste. Il titolo-identità segue; l'ordine di esecuzione
+Mondo su cui il task insiste. `Ob.` la segue: il **numero dell'obiettivo** di
+`goal.md` che il task serve — la direzione task→obiettivo scritta dove il task
+esiste. Il titolo-identità segue; l'ordine di esecuzione
 esprime la priorità tra i task non bloccati; `Dip.` chiude spiegando perché un
 task importante non può ancora salire. Una colonna `Priorità` separata sarebbe quindi ridondante: **ordine +
 dipendenze codificano la priorità**.
+
+Il criterio per ammettere una colonna nuova segue da qui, e tiene la tabella
+lontana dal diventare un database: una colonna esiste solo se porta un **fatto
+che non vive altrove** e che **non è derivabile** dalle altre colonne né
+dall'ordine. `Priorità` cade per derivabilità (ordine + `Dip.`); `Ob.` passa
+perché la direzione task→obiettivo non è ricavabile da nulla di ciò che il plan
+già dichiara. Il costo di una colonna è una cella per riga: se il fatto ha
+bisogno di più di un valore breve, non è una colonna — è la legenda o il file
+`o2/`.
+
+La chiave di `Ob.` è il **numero dell'obiettivo** nel register, nell'ordine in
+cui il register li elenca; `S` quando il task serve il **Goal di sviluppo**,
+che è una sezione sola e non porta numeri. Un task che ne serve davvero due
+porta entrambi separati da virgola (`1,4`) — resta il caso raro: se una riga su
+poche è doppia è legittima, se lo sono molte il sospetto è che i task siano da
+scomporre o gli obiettivi da riformulare. Una cella vuota non è ammessa: un task
+che non serve nessun obiettivo è un candidato al taglio (`goal`), e la colonna lo
+rende visibile invece di lasciarlo implicito.
+
+Il guadagno non previsto — e la ragione per cui la colonna vale più della riga
+che elimina — è che rende leggibile la **distribuzione**: quanti task per
+obiettivo, a colpo d'occhio, senza contare nulla. In `economia` (2026-07-30) è
+risultata 11 task su un obiettivo e 1 sull'altro, e quell'1 era il traguardo
+dichiarato: il register appiattiva l'informazione spalmandola su liste separate,
+la colonna l'ha resa un fatto visibile ed è diventata materia di decisione nella
+stessa sessione. È una proprietà della forma, non un controllo da ricordarsi.
 
 `Dip.` risponde a una domanda sola: il task è pronto, e se no, _di chi è la
 mossa_ che lo sblocca? Pensare le dipendenze solo come task↔task è troppo povero:
@@ -98,13 +126,23 @@ piacere: sono tre slot nominati, e uno sforamento si vede senza leggere il
 contenuto. (Scritta perché mancava: in `economia` la sezione delle cause era
 degenerata in prosa libera al 44% del file — potata il 2026-07-28.)
 
-Il vincolo che regge le tre regole — niente colonna `#`, niente footer `##
-Dettagli task`, legenda ancorata alle chiavi — è **uno solo**, e questa è la sua
-terza incarnazione: un fatto non vive in due rappresentazioni da tenere in
+Il vincolo che regge le quattro regole — niente colonna `#`, niente footer `##
+Dettagli task`, legenda ancorata alle chiavi, `Ob.` in tabella invece che in
+elenco nel register — è **uno solo**, e questa è la sua quarta incarnazione: un
+fatto non vive in due rappresentazioni da tenere in
 sincronia; o ne vive una sola, o la seconda è **derivata** dalla prima e ancorata
 a essa da una chiave. Dove le due sono parallele divergono in silenzio, e la
 coerenza diventa un controllo da ricordarsi invece che una proprietà della forma
 (cfr. `constraint`).
+
+La quarta aggiunge il modo in cui la divergenza si **nasconde**: le due
+rappresentazioni si leggevano con frequenze diverse — `o1/plan.md` a ogni
+bootstrap, `goal.md` on-demand — e la copia che deriva era quella che si guarda
+di rado. Una duplicazione asimmetrica nei tempi di lettura non si fa notare
+dall'uso: chi legge spesso vede sempre l'originale giusto, e nulla segnala che
+l'altra superficie sia rimasta indietro. Non è un argomento per aggiungere un
+controllo alla review che legge l'originale — è l'argomento più forte per
+togliere la copia.
 
 Un **batch** di task trattenuti per la stessa ragione non chiede un significante
 nuovo: condividono una sola chiave di legenda (`pause [a]` su più righe), chiosata
@@ -210,12 +248,16 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 ## Applicazione nei progetti adottanti
 
 I quattro adottanti sono allineati alla forma corrente (identità per titolo,
-`↳`/`world`/`pause`, niente colonna `#`) dopo la propagazione del 2026-06-25. Ciò
+`↳`/`world`/`pause`, niente colonna `#`) dopo la propagazione del 2026-06-25;
+la colonna `Ob.` è ferma a `economia`, che l'ha originata, e viaggia agli altri
+col normale `method-review`. Ciò
 che varia è il **carattere del dominio**, non la forma:
 
 - **`economia`** — coda ampia legata a scadenze, adempimenti e situazioni aperte.
   È l'**origine** di `pause`, dell'identità per solo nome, del passo `3b` di
-  lettura strategica e dell'indice unico dei dettagli in `o2/tasks.md`. Il
+  lettura strategica, dell'indice unico dei dettagli in `o2/tasks.md` e della
+  colonna `Ob.` (2026-07-30, ratificata qui il 2026-07-31: gli altri tre la
+  recepiscono col normale `method-review`). Il
   vecchio `scadenze.md` separato è stato assorbito da `## Scadenze` in
   `o1/plan.md`: anche il calendario di dominio vive ora col plan.
 - **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`, ed

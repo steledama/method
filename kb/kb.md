@@ -28,7 +28,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [processing-layers](processing-layers.md) — I tre strati di elaborazione di Norman applicati alle altitudini del ciclo; il viscerale comprende world e i riflessi i1/o3
 - [cognitive-artifact](cognitive-artifact.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [cognitive-system](cognitive-system.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
-- [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; register root `goal.md` (obiettivi con segnali e lavoro corrente, custode umano)
+- [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; register root `goal.md` (obiettivi con segnali e stato del lavoro, la direzione task→obiettivo nella colonna `Ob.` del plan; custode umano)
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo: dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il dominio sceglie la gradualità, non le dimensioni
 - [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand; register root `world.md` (territorio, superfici, fonti — assorbe map e sources) e criterio del significato senza artefatto
 - [development-meta-cycle](development-meta-cycle.md) — Il runtime cycle e il development meta-cycle: la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo

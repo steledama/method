@@ -14,7 +14,7 @@ le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
   (`/kb-review`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
-  lavoro: nessun task aperto — obiettivo **a regime**, i verdetti pendenti
+  lavoro: obiettivo **a regime**, nessun fronte aperto — i verdetti pendenti
   attendono l'uso reale (bozza→maturo, tipologia, matrice, facet).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
@@ -27,10 +27,10 @@ proprio `method-review`, senza che `metodo` gestisca le loro code.
   adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile), filo
   [poli-register-goal-world](i3/poli-register-goal-world.md);
-  lavoro: il battito mensile `/adopters-review` (primo giro 2026-07-11),
-  nessuna prescrizione in `o3/` — obiettivo **a regime**, il giro vive nei
-  `method-review` degli adottanti; watchpoint: la disciplina del register di
-  `salute` al suo primo `verdicts-review`.
+  lavoro: obiettivo **a regime** — il giro vive nei `method-review` degli
+  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze` e
+  nessuna prescrizione è aperta in `o3/`; watchpoint: la disciplina del register
+  di `salute` al suo primo `verdicts-review`.
 
 ### 3. Ascoltare il basso
 
@@ -40,8 +40,9 @@ i2/i3 invece di incidere il canone di straforo.
 - **Canale-perception funzionante** — segnali: [i1/perceptions.md](i1/perceptions.md),
   fili [membrana-afforda-scrittura](i3/membrana-afforda-scrittura.md) e
   [de-cablaggio-binomio-due-agenti](i3/de-cablaggio-binomio-due-agenti.md);
-  lavoro: event-driven sul segnale — obiettivo **a regime**, l'enforcement
-  della cucitura resta trattenuto («Enforcement della cucitura», `pause`).
+  lavoro: **event-driven** sul segnale, un solo fronte aperto e trattenuto
+  (`pause`) — i task che servono l'obiettivo si leggono dalla colonna `Ob.` di
+  [`o1/plan.md`](o1/plan.md).
 
 ## Goal di sviluppo
 
@@ -49,9 +50,9 @@ Posizione auspicata lungo le dimensioni comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul
 segnale dell'adottante, umano **in-the-loop**, **basso attrito di lettura**
 (bussola snella, viste che si aprono dal checkout), KB riflessiva coerente,
-loop di propagazione che si chiude. Lavoro corrente che la serve: il battito
-mensile `/adopters-review` (l'audit runtime-o1 che chiude il giro dall'alto),
-«Redraw tavole vista Interpretazioni» (attrito di lettura della vista i2).
+loop di propagazione che si chiude. Il lavoro che la serve porta `Ob. S` in
+[`o1/plan.md`](o1/plan.md); il battito mensile `/adopters-review` — l'audit
+runtime-o1 che chiude il giro dall'alto — vive in `## Scadenze`.
 
 ## Disciplina
 
@@ -65,3 +66,7 @@ mensile `/adopters-review` (l'audit runtime-o1 che chiude il giro dall'alto),
 - Ogni obiettivo ha almeno un segnale vivo; ogni task di `o1/plan.md` serve un
   obiettivo di questo register — `/plan-review` verifica la direzione
   task→obiettivo, `/verdicts-review` la direzione obiettivo→segnale/filo.
+- La direzione task→obiettivo vive nella colonna `Ob.` del plan, non in un
+  elenco qui: la chiave è il **numero** dell'obiettivo runtime, `S` per il Goal
+  di sviluppo ([plan](kb/plan.md)). Numerazione stabile: rinumerare un obiettivo
+  invalida le chiavi in tabella.

@@ -29,10 +29,14 @@ def task_view(root: Path) -> str:
         # ciò che non è legittimo — e che il contratto ha già intercettato — è
         # saltarla in silenzio.
         task = parse_task(root, row.source) if row.source else None
+        meta = [f"ciclo: `{task.ciclo if task else row.ciclo or '—'}`"]
+        if row.obiettivo:
+            meta.append(f"obiettivo: `{row.obiettivo}`")
+        meta.append(f"dipendenza: `{row.dependency}`")
         lines += [
             f"## {task.title if task else row.task}",
             "",
-            f"ciclo: `{task.ciclo if task else row.ciclo or '—'}` · dipendenza: `{row.dependency}`",
+            " · ".join(meta),
             "",
             task.sintesi if task else "Riga di piano senza dettaglio in `o2/`.",
             "",

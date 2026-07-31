@@ -89,8 +89,18 @@ soli aggetti, i due versi della cerniera:
 
 - **segnali** che lo misurano — fili `i3/`, report di substrato, viste: il
   verso i3 che risale;
-- **lavoro corrente** che lo serve — righe di `o1/plan.md`, citate per titolo:
-  il verso o1 che scende.
+- **stato del lavoro** che lo serve — non l'elenco dei titoli di `o1/plan.md`,
+  ma la sua qualità in una riga (a regime, event-driven, un fronte aperto): il
+  verso o1 che scende.
+
+Il **verso o1 non si trascrive**. La direzione task→obiettivo vive nella colonna
+`Ob.` del plan, dove il task esiste (`plan`); il register la legge, non la
+duplica. Un elenco di titoli qui sarebbe una seconda rappresentazione dello
+stesso fatto — e quella che si legge di rado, quindi quella che deriva in
+silenzio: è successo in `economia` (2026-07-30), dove mancava un task in
+posizione 2, sbloccato, con file `o2/` e voce d'indice. Ciò che il register dice
+del lavoro è quindi lo **stato**, non l'inventario: quale obiettivo è a regime,
+quale ha un fronte aperto, quale è un buco di misura.
 
 Una sezione **Goal di sviluppo** fotografa la posizione auspicata lungo le
 dimensioni comuni: è la casa per-adottante che `development-goal` chiedeva
