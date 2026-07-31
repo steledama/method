@@ -24,11 +24,22 @@ Leggi `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`; poi `o1/plan.md` e
 segnali reali sono l'audit (`o3/kb_tools.py audit`), i marker `method-review.md`
 degli adottanti (via `world/`) e le percezioni `i1/` non ancora valutate.
 
-**2. Quattro domande per ogni filo**
+**2. Cinque domande per ogni filo**
 
 - **È ancora vero?** Confronta il verdetto col segnale reale (audit, marker,
   nodo), non con la memoria. Un filo che contraddice il suo segnale va
-  aggiornato in place prima di ogni altra cosa.
+  aggiornato in place prima di ogni altra cosa. Fra i segnali c'è il **file
+  `o2/` che alimenta il filo**: `plan-review` guarda plan↔`o2/`, questa guarda
+  filo↔segnali, e filo↔`o2/` non è di nessun'altra — è spesso la registrazione
+  più fresca e più cauta, e il filo che è più ottimista del proprio task ha già
+  in casa la propria smentita (`kb/verdict.md`).
+- **È più sicuro del suo materiale?** Sul filo che suona meglio degli altri
+  — più elegante, più quantificato, più favorevole — fai un passo in più, non
+  uno in meno: le quantità che reggono la tesi portano la provenienza (misurata
+  / dichiarata da terzi / derivata da dichiarazioni)? Ciò che il progetto ha
+  prodotto **di suo** (posta in uscita, valutazione della fonte già in KB) è
+  stato guardato? Una tesi che cade se cade una cifra derivata non è un
+  verdetto: è una congettura da retrocedere.
 - **È ancora aperto?** Verdetto stabile e nessuna tensione → il filo si chiude:
   file rimosso, voce tolta da `i3/verdicts.md`, storia in git.
 - **È ancora _un_ filo?** Se è cresciuto multi-tema, proponi lo split; ogni

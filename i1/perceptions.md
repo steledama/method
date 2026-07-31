@@ -10,7 +10,10 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [il verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md) —
-  da `economia`, 2026-07-30: tre episodi in una sessione in cui l'artefatto i3
-  era più sicuro, elegante o quantificato delle fonti che il progetto aveva già
-  in casa; nessuna review guarda in quella direzione
+Nessun segnale aperto. Le ultime due catture — «la mappatura task→obiettivo vive
+solo nel register, a mano» e «il verdetto è più sicuro del materiale», entrambe
+da `economia` il 2026-07-30 — sono state valutate il 2026-07-31 e consumate
+rispettivamente da [i3/igiene-stadi-output.md](../i3/igiene-stadi-output.md)
+(quarta incarnazione dell'invariante, colonna `Ob.` in canone) e da
+[i3/verdetto-piu-sicuro-del-materiale.md](../i3/verdetto-piu-sicuro-del-materiale.md)
+(filo nuovo). La storia resta in git.

@@ -54,7 +54,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [index](index.md) — Catalogo statico dei nodi: recupero rapido distinto dalla mappa; nodo-concetto del catalogo `kb/kb.md`
 - [plan](plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza `o1/plan.md`
 - [tasks](tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `o2/`, stadio Specify
-- [verdict](verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; fili in `i3/`, aggiornati in place
+- [verdict](verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; fili in `i3/`, aggiornati in place; il verdetto non può essere più sicuro del materiale (provenienza delle quantità, materiale di casa prima)
 - [git-history](git-history.md) — Storia verificabile dei cambiamenti e dei diff
 - [skill](skill.md) — Workflow ricorrenti codificati per agenti
 - [source-of-truth](source-of-truth.md) — Fonti contro cui verificare ciò che la KB dice
