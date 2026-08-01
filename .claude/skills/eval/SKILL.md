@@ -33,8 +33,7 @@ impedire.
 
 1. Raccogli ciò che arriva dal Mondo. In `metodo` i canali sono: i marker
    `method-review.md` degli adottanti (dai checkout dichiarati nel territorio
-   di `world.md`; da un host si leggono i marker del suo territorio, i
-   restanti al battito `/adopters-review`), gli esiti già
+   di `world.md`, superfici ssh remote comprese), gli esiti già
    prodotti da `kb-review` (che resta capacità diagnostica dell'ala
    trasversale: la sua diagnosi si acquisisce come segnale, non si esegue
    implicitamente da qui), i segnali che il custode porta da un altro repo.

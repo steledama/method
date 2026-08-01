@@ -5,12 +5,12 @@ da cui emerge l'esigenza dal basso e a cui torna la propagazione, e le
 **fonti teoriche su `gdrive/`**, da cui il canone trae il proprio pavimento. Il
 Mondo di sviluppo sono invece i nodi `kb/` e la loro coerenza.
 
-Adottanti:
+Adottanti (con la superficie da cui si leggono i marker `method-review.md`):
 
-- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host
-- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati
-- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale
-- **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale
+- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host — checkout `~/nixos` su `svezia`
+- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati — checkout `~/bi` su `svezia`
+- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
+- **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
 
 ## Superfici della membrana
 

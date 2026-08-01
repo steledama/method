@@ -148,7 +148,10 @@ al posto della coppia): sei esiti espliciti — due sostanziosi (`perceive`,
 uscita osserva. L'attrito emerso: la dicitura «via `world/`» ereditata
 verbatim da `verdicts-review` era stale rispetto alla membrana reale (il
 register dichiara checkout nel territorio, nessun symlink root — corretta
-nella skill), e da un host si leggono solo i marker del suo territorio. Le
+nella skill), e il territorio non dichiarava le superfici per host: sanato
+nel register con i checkout e il doppio salto `ssh norvegia` → `ssh deck`
+(custode, 2026-08-01), che ha permesso di completare la raccolta dei quattro
+marker nello stesso giro. Le
 conferme: l'ordine ha pagato al primo giro — `eval compare` ha intercettato
 due fotografie stale di `goal.md` (prescrizione aperta non registrata,
 «nessun fronte aperto» con un fronte vivo) prima che `exec plan`

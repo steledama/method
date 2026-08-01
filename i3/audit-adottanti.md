@@ -8,18 +8,22 @@ ciclo: runtime
 (`goal.md`, obiettivo 2).
 
 Verdetto aggregato dell'audit mensile `/adopters-review`, aggiornato in place a
-ogni giro. Ultimo giro: **2026-07-11** (primo battito; HEAD `d2d4c57`).
+ogni giro. Ultimo giro completo: **2026-07-11** (primo battito; HEAD
+`d2d4c57`); lettura fresca dei soli marker il **2026-08-01** (`eval perceive`,
+dalle superfici per host dichiarate in `world.md`).
 
 ## Verdetto
 
-Il canale del canone è vivo: tre marker su quattro a `572890b` — un solo
-commit dietro HEAD, fisiologico — tutti `aligned`. Lo scostamento è
-`economia`: marker a `3609404` (2026-07-09), **dodici commit non recepiti**,
-tra cui il canone skill-non-task/ricorrenza (`572890b`) e l'indice unico o2
-(`25a92d1`), con una `tasks-review` residua accanto a `plan-review` in
-`.claude/skills/` (la rinomina non è arrivata). Classificazione: **niente da
-prescrivere** — è ritardo ordinario del giro `method-review`, non drift di
-canone; si scioglie al suo prossimo giro, da verificare al prossimo audit.
+Il canale del canone è vivo e i quattro sono `aligned` sui marker freschi:
+`economia` è il più avanti (`a48f701`, 2026-07-29 — lo scostamento del primo
+battito è sciolto: i dodici commit recepiti, la `tasks-review` residua
+rinominata in `plan-review`), `nixos` e `bi` a `b42164c` (2026-07-29),
+`salute` il più arretrato (`6133ace`, 2026-07-28) di misura fisiologica.
+Tutti e quattro sono prima di `64f0ec0`: la prescrizione
+`quinta-domanda-verdetti` (2026-08-01) li attende, e la sua assunzione
+(«tutti e quattro portano quattro domande») è verificata sul segnale. La
+fotografia delle code qui sotto resta quella del giro completo di luglio; si
+rinnova al battito di agosto.
 
 Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
@@ -56,5 +60,6 @@ del giro è che il protocollo regge al primo battito senza toccare alcuna coda.
   (`bi`): regge alla scrittura, va vista reggere alla lettura e al primo
   `plan-review` locale (ereditata dal filo `battito-ricorrente-e-telos`,
   chiuso con questo primo audit);
-- `economia`: marker indietro e `tasks-review` residua — verificare risolti al
-  giro di agosto.
+- la prescrizione `quinta-domanda-verdetti` attende il recepimento dei
+  quattro — verificare al giro di agosto, insieme al primo contatto dei fork
+  con la rifilatura `eval`/`exec` quando la sua prescrizione sarà emessa.

@@ -82,26 +82,29 @@
           </p>
           <p>
             Verdetto aggregato dell’audit mensile <code>/adopters-review</code>,
-            aggiornato in place a ogni giro. Ultimo giro:
+            aggiornato in place a ogni giro. Ultimo giro completo:
             <strong>2026-07-11</strong> (primo battito; HEAD
-            <code>d2d4c57</code>).
+            <code>d2d4c57</code>); lettura fresca dei soli marker il
+            <strong>2026-08-01</strong> (<code>eval perceive</code>, dalle
+            superfici per host dichiarate in <code>world.md</code>).
           </p>
         </section>
         <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
-            Il canale del canone è vivo: tre marker su quattro a
-            <code>572890b</code> — un solo commit dietro HEAD, fisiologico —
-            tutti <code>aligned</code>. Lo scostamento è <code>economia</code>:
-            marker a <code>3609404</code> (2026-07-09),
-            <strong>dodici commit non recepiti</strong>, tra cui il canone
-            skill-non-task/ricorrenza (<code>572890b</code>) e l’indice unico o2
-            (<code>25a92d1</code>), con una <code>tasks-review</code> residua
-            accanto a <code>plan-review</code> in
-            <code>.claude/skills/</code> (la rinomina non è arrivata).
-            Classificazione: <strong>niente da prescrivere</strong> — è ritardo
-            ordinario del giro <code>method-review</code>, non drift di canone;
-            si scioglie al suo prossimo giro, da verificare al prossimo audit.
+            Il canale del canone è vivo e i quattro sono
+            <code>aligned</code> sui marker freschi: <code>economia</code> è il
+            più avanti (<code>a48f701</code>, 2026-07-29 — lo scostamento del
+            primo battito è sciolto: i dodici commit recepiti, la
+            <code>tasks-review</code> residua rinominata in
+            <code>plan-review</code>), <code>nixos</code> e <code>bi</code> a
+            <code>b42164c</code> (2026-07-29), <code>salute</code> il più
+            arretrato (<code>6133ace</code>, 2026-07-28) di misura fisiologica.
+            Tutti e quattro sono prima di <code>64f0ec0</code>: la prescrizione
+            <code>quinta-domanda-verdetti</code> (2026-08-01) li attende, e la
+            sua assunzione («tutti e quattro portano quattro domande») è
+            verificata sul segnale. La fotografia delle code qui sotto resta
+            quella del giro completo di luglio; si rinnova al battito di agosto.
           </p>
           <p>
             Fotografia delle code — la metrica del telos, pesata sulla
@@ -167,9 +170,12 @@
               questo primo audit);
             </li>
             <li>
-              <code>economia</code>: marker indietro e
-              <code>tasks-review</code> residua — verificare risolti al giro di
-              agosto.
+              la prescrizione <code>quinta-domanda-verdetti</code> attende il
+              recepimento dei quattro — verificare al giro di agosto, insieme al
+              primo contatto dei fork con la rifilatura <code>eval</code>/<code
+                >exec</code
+              >
+              quando la sua prescrizione sarà emessa.
             </li>
           </ul>
         </section>
@@ -1204,11 +1210,15 @@
             dicitura «via <code>world/</code>» ereditata verbatim da
             <code>verdicts-review</code> era stale rispetto alla membrana reale
             (il register dichiara checkout nel territorio, nessun symlink root —
-            corretta nella skill), e da un host si leggono solo i marker del suo
-            territorio. Le conferme: l’ordine ha pagato al primo giro —
-            <code>eval compare</code> ha intercettato due fotografie stale di
-            <code>goal.md</code> (prescrizione aperta non registrata, «nessun
-            fronte aperto» con un fronte vivo) prima che <code>exec plan</code>
+            corretta nella skill), e il territorio non dichiarava le superfici
+            per host: sanato nel register con i checkout e il doppio salto
+            <code>ssh norvegia</code> → <code>ssh deck</code> (custode,
+            2026-08-01), che ha permesso di completare la raccolta dei quattro
+            marker nello stesso giro. Le conferme: l’ordine ha pagato al primo
+            giro — <code>eval compare</code> ha intercettato due fotografie
+            stale di <code>goal.md</code> (prescrizione aperta non registrata,
+            «nessun fronte aperto» con un fronte vivo) prima che
+            <code>exec plan</code>
             ripianificasse su un register falso; nessuna sovrapposizione dannosa
             fra
             <code>compare</code> e <code>plan</code>, che leggono le stesse
