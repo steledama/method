@@ -60,7 +60,7 @@ la sintesi che ne ricava una tesi nuova non lo è. Un secondo episodio in un alt
 adottante deciderebbe se è una qualificazione da incidere in `goal`/`agent` o una
 proprietà locale dei domini a bassa delegabilità.
 
-Watchpoint: il collaudo delle cinque domande al prossimo `verdicts-review` di
+Watchpoint: il collaudo delle cinque domande al prossimo `eval compare` di
 `economia` e degli altri adottanti — il backport ai fork viaggia nella
 prescrizione `o3/quinta-domanda-verdetti.md` (2026-08-01, `economia` per
 primo), sganciata dalla rinomina `eval`/`exec` per non lasciare spenta la

@@ -27,8 +27,7 @@ proprio `method-review`, senza che `metodo` gestisca le loro code.
 - **Canone recepito dai quattro** — atrio e poli-register/quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `method-review.md` degli
   adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
-  dell'audit mensile), filo
-  [poli-register-goal-world](i3/poli-register-goal-world.md);
+  dell'audit mensile);
   lavoro: obiettivo **a regime** — il giro vive nei `method-review` degli
   adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze`
   e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
@@ -42,8 +41,7 @@ Il bottom-up: il canale i1 con gli adottanti resta vivo e i segnali passano per
 i2/i3 invece di incidere il canone di straforo.
 
 - **Canale-perception funzionante** — segnali: [i1/perceptions.md](i1/perceptions.md),
-  fili [membrana-afforda-scrittura](i3/membrana-afforda-scrittura.md) e
-  [de-cablaggio-binomio-due-agenti](i3/de-cablaggio-binomio-due-agenti.md);
+  filo [membrana-afforda-scrittura](i3/membrana-afforda-scrittura.md);
   lavoro: **event-driven** sul segnale, un solo fronte aperto e trattenuto
   (`pause`) — i task che servono l'obiettivo si leggono dalla colonna `Ob.` di
   [`o1/plan.md`](o1/plan.md).

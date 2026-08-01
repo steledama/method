@@ -16,6 +16,7 @@ pianificazione.
 | dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |
+| dev   | 1   | Rinomina le skill secondo la regola sostantivo, propaga i casi canonici | — |
 
 Legenda dipendenze esterne:
 

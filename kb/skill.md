@@ -156,6 +156,20 @@ anglicizzato. Resta vero il corollario storico: la cadenza non entra mai nel
 nome (cfr. sotto) — il nome porta la capacità (skill di dominio) o l'arco
 (canoniche), il ritmo vive in `## Scadenze`.
 
+**Sostantivo, non verbo imperativo** (ratificato 2026-08-01, cfr.
+`i3/nome-skill-dominio-verbo-o-sostantivo.md`): sia i composti canonici in
+`-review` sia le skill di dominio portano l'oggetto tenuto onesto, non
+l'azione compiuta — un imperativo ripetuto a ogni invocazione suona da
+comando, non da capacità permanente. Nomi bersaglio: `kb-review`→`kb`,
+`method-review`→`method`, `adopters-review`→`adottanti` (canone);
+`categorizza`→`categorizzazione`, `aggiorna-overlay`→`overlay` (dominio). Non
+tocca `eval`/`exec` (abbreviazioni dell'arco, regola propria sopra) né i nomi
+già sostantivo (`finanze`, `posta`, `registrazioni`, `ordini`, `tassonomia`,
+`trascrizione`, `manutenzione`). I nomi sono ratificati, non ancora applicati
+alle cartelle vive: il rename e — per i composti canonici — la prescrizione
+di propagazione ai quattro adottanti sono lavoro tracciato in
+`o2/skill-nomi-verbo-sostantivo.md`.
+
 ## Skill di dominio e ricorrenza
 
 Una skill non è un task e non vive negli stadi di lavoro futuro: il task si
