@@ -2,7 +2,7 @@
 data: 2026-08-01
 stato: attiva
 ciclo: runtime
-target: nixos (pilota montaggio per primo), salute, economia, bi
+target: salute, economia, bi (nixos recepita 2026-08-01, montaggio deciso)
 ---
 
 # La rifilatura per arco: `plan-review`/`verdicts-review` → `exec`/`eval`
@@ -57,17 +57,26 @@ La ricognizione della flotta (2026-08-01, matrice in
 `o2/skill-archi-tripartite.md` di `method` finché il task è aperto) suggerisce
 che le skill di dominio non siano tutte atti da appendere a `perform`: si
 distribuiscono sui sei stadi e su entrambi gli archi. È **ipotesi da
-pilotare**, nell'ordine **`nixos` → `salute` → `economia` → `bi`** — dal caso
-multi-scope collaudato al più complesso. Ogni pilota decide esplicitamente,
-per ciascuna skill: **assorbita** come argomento delle canoniche
-(`eval finanze`, `exec ordini <fornitore>`), **divisa** fra i due archi, o
-**mantenuta autonoma**. I risultati correggono questa prescrizione; solo le
-forme provate risalgono a canone. Le collocazioni candidate:
+pilotare**, nell'ordine residuo **`salute` → `economia` → `bi`**. Ogni pilota
+decide esplicitamente, per ciascuna skill: **assorbita** come argomento delle
+canoniche (`eval finanze`, `exec ordini <fornitore>`), **divisa** fra i due
+archi, o **mantenuta autonoma**. I risultati correggono questa prescrizione;
+solo le forme provate risalgono a canone.
 
-- **`nixos`** — `aggiorna`: `eval aggiorna` per i rami diagnostici ed
-  `exec aggiorna` per `ia`, oppure autonoma se il doppio montaggio attrita;
-  questione del pilota: una capacità può abitare due archi senza mentire nel
-  signifier? `nix-overlay-update` candidata a retrocedere a runbook `o3/`.
+Il primo pilota è **deciso** (`nixos`, 2026-08-01, esito dichiarato nel suo
+marker): entrambe le skill di dominio **restano autonome**, per un criterio
+che la ricognizione non aveva visto — nelle skill parametriche **è il ramo a
+determinare l'arco, non chi invoca**: montare `aggiorna` come argomento
+(`exec aggiorna casa`) costringerebbe il chiamante a dichiarare un arco che
+il ramo ha già deciso, lo stesso signifier-che-mente che questo canone vieta.
+E `nix-overlay-update` (un arco, uno stadio, signifier onesto) non retrocede
+a runbook: la retrocessione costerebbe l'invocazione senza dare nulla che il
+catalogo `o3/` non dia già. **Criterio per i piloti restanti**: dove
+l'argomento decide l'arco, la skill resta autonoma; l'assorbimento si valuta
+solo dove l'intera superficie insiste su un arco. Le superfici di `salute`,
+`economia` e `bi` sono mono-arco: per loro l'ipotesi resta aperta. Le
+collocazioni candidate:
+
 - **`salute`** — `elabora-trascrizione` → `eval trascrizione`; questione: la
   distillazione produce grezzo catturato o già una sintesi? Qui si normalizza
   anche il frontmatter di vecchio stile.
@@ -86,8 +95,9 @@ può essere esecutivo su un ramo e diagnostico su un altro.
 ## Ordine e chiusura
 
 La **rifilatura** (passi 1-5) si recepisce in qualunque ordine, al prossimo
-`method-review` di ciascuno. Il **pilota del montaggio** è sequenziale
-(`nixos` per primo) e vive nelle code locali: questa prescrizione non
+`method-review` di ciascuno (`nixos` ha chiuso il 2026-08-01, con
+idempotenza provata). Il **pilota del montaggio** è sequenziale
+(`salute` è il prossimo) e vive nelle code locali: questa prescrizione non
 inserisce task — la decisione di quando pilotare è dell'adottante, l'ordine
 fra adottanti è del custode. La prescrizione resta attiva finché i quattro
 non hanno recepito la rifilatura; gli esiti del montaggio la correggono

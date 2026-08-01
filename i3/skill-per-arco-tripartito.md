@@ -112,6 +112,20 @@ assorbirla, dividerla fra i due archi o mantenerla autonoma. Ordine ratificato
 dal custode (2026-08-01): **`nixos` → `salute` → `economia` → `bi`**, dal caso
 multi-scope già collaudato a quello più complesso e delicato.
 
+**Il primo pilota ha deciso** (`nixos`, 2026-08-01, esito dichiarato nel suo
+marker e acquisito dal canale): entrambe le skill di dominio restano
+**autonome**, per un criterio che la ricognizione non aveva visto — nelle
+skill parametriche **è il ramo a determinare l'arco, non chi invoca**, quindi
+montarle come argomento delle canoniche costringerebbe il chiamante a
+dichiarare un arco che il ramo ha già deciso: lo stesso signifier-che-mente
+che il canone vieta. E la skill mono-stadio dal signifier onesto
+(`nix-overlay-update`) non retrocede a runbook, perché la retrocessione
+costerebbe l'invocazione senza rendere nulla. L'assorbimento resta ipotesi
+solo per le superfici mono-arco (`salute`, `economia`, `bi`); il criterio
+sale a canone se un secondo pilota lo conferma. Watchpoint: il pilota `nixos`
+ha deciso sulla **forma**, non sull'uso — il primo giro reale di `eval`/`exec`
+lì è il collaudo che manca, ed è materia della clausola di uscita.
+
 **`eval perceive` può essere il vuoto rituale.** Dove la percezione è
 event-driven, una skill che chiede «è arrivata posta?» quando la posta _è_ il
 trigger è cerimonia. Due rimedi, entrambi già canonici: uno stadio deve poter

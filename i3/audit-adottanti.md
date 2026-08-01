@@ -14,15 +14,16 @@ dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
 
 ## Verdetto
 
-Il canale del canone è vivo e i quattro sono `aligned`: `economia` il più
-avanti (`a48f701`, 14 commit dietro — lo scostamento del primo battito è
-sciolto: dodici commit recepiti, `tasks-review` rinominata), `nixos` e `bi` a
-`b42164c` (17), `salute` il più arretrato (`6133ace`, 20). Gli intervalli
+Il canale del canone è vivo e i quattro sono `aligned`: `nixos` ha chiuso il
+giro in giornata (marker a `0128891` — rifilatura `eval`/`exec` e quinta
+domanda recepite in un colpo, idempotenza provata, pilota del montaggio
+deciso), `economia` è il più avanti dei pendenti (`a48f701` — lo scostamento
+del primo battito è sciolto: dodici commit recepiti, `tasks-review`
+rinominata), poi `bi` (`b42164c`) e `salute` (`6133ace`). Gli intervalli
 pendenti sono in gran parte nodi symlink-soddisfatti e cronache i1 interne;
-il contenuto vero in attesa è la prescrizione `quinta-domanda-verdetti`
-(attiva, li attende tutti — la sua assunzione è verificata sul segnale) e, a
-seguire, la prescrizione della rifilatura `eval`/`exec` quando sarà emessa.
-Nessun `action-required`.
+il contenuto vero in attesa sono le due prescrizioni attive
+(`quinta-domanda-verdetti` e `skill-per-arco`), che attendono `economia`,
+`salute` e `bi`. Nessun `action-required`.
 
 Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
@@ -32,9 +33,9 @@ ciascun dominio (`development-goal`, fotografie per artefatto):
   `## Scadenze`: quotidiano e settimanale fermi al 2026-07-19 (il mensile
   scade oggi) — orologio fermo o riga non avanzata, il segnale che la lente
   scadenze esiste per cogliere. Coda di dominio (materia del suo
-  `plan-review`), da verificare sciolta al prossimo giro. Residuo
-  `nix-overlay-update` accanto ad `aggiorna`, già in matrice per il pilota
-  del montaggio.
+  `exec plan`, dal recepimento), da verificare sciolta al prossimo giro.
+  `nix-overlay-update` confermata skill autonoma dal pilota del montaggio
+  (signifier onesto, catalogata nel suo o3).
 - **bi** — fase di cantiere: 13 task di cui 8 dev (tassonomia, motore
   riordini, modello sito), da 1 su 7 a luglio — legittimo per un progetto in
   costruzione. La **terza specie è maturata in timetable canonico**: cinque
@@ -69,9 +70,9 @@ stantie e orologi sforati = **code di dominio**.
 - ripetibilità: due battiti eseguiti (il secondo anticipato di dieci giorni):
   la cella runtime-o1 della matrice resta D finché il ritmo non è dimostrato
   su più giri regolari;
-- la prescrizione `quinta-domanda-verdetti` attende il recepimento dei
-  quattro — verificare al giro di settembre, insieme al primo contatto dei
-  fork con la prescrizione della rifilatura `eval`/`exec`;
+- le due prescrizioni attive: `nixos` le ha recepite entrambe in giornata
+  (2026-08-01); restano `economia`, `salute` e `bi` — verificare al giro di
+  settembre;
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;
 - `salute`: la gamba di ritorno della sua percezione (contratto e freschezza

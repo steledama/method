@@ -92,17 +92,23 @@
           <h2>Verdetto</h2>
           <p>
             Il canale del canone è vivo e i quattro sono <code>aligned</code>:
-            <code>economia</code> il più avanti (<code>a48f701</code>, 14 commit
-            dietro — lo scostamento del primo battito è sciolto: dodici commit
-            recepiti, <code>tasks-review</code> rinominata),
-            <code>nixos</code> e <code>bi</code> a <code>b42164c</code> (17),
-            <code>salute</code> il più arretrato (<code>6133ace</code>, 20). Gli
-            intervalli pendenti sono in gran parte nodi symlink-soddisfatti e
-            cronache i1 interne; il contenuto vero in attesa è la prescrizione
-            <code>quinta-domanda-verdetti</code>
-            (attiva, li attende tutti — la sua assunzione è verificata sul
-            segnale) e, a seguire, la prescrizione della rifilatura
-            <code>eval</code>/<code>exec</code> quando sarà emessa. Nessun
+            <code>nixos</code> ha chiuso il giro in giornata (marker a
+            <code>0128891</code> — rifilatura <code>eval</code>/<code
+              >exec</code
+            >
+            e quinta domanda recepite in un colpo, idempotenza provata, pilota
+            del montaggio deciso), <code>economia</code> è il più avanti dei
+            pendenti (<code>a48f701</code> — lo scostamento del primo battito è
+            sciolto: dodici commit recepiti,
+            <code>tasks-review</code> rinominata), poi
+            <code>bi</code> (<code>b42164c</code>) e
+            <code>salute</code> (<code>6133ace</code>). Gli intervalli pendenti
+            sono in gran parte nodi symlink-soddisfatti e cronache i1 interne;
+            il contenuto vero in attesa sono le due prescrizioni attive (<code
+              >quinta-domanda-verdetti</code
+            >
+            e <code>skill-per-arco</code>), che attendono <code>economia</code>,
+            <code>salute</code> e <code>bi</code>. Nessun
             <code>action-required</code>.
           </p>
           <p>
@@ -118,10 +124,10 @@
               <code>## Scadenze</code>: quotidiano e settimanale fermi al
               2026-07-19 (il mensile scade oggi) — orologio fermo o riga non
               avanzata, il segnale che la lente scadenze esiste per cogliere.
-              Coda di dominio (materia del suo <code>plan-review</code>), da
-              verificare sciolta al prossimo giro. Residuo
-              <code>nix-overlay-update</code> accanto ad <code>aggiorna</code>,
-              già in matrice per il pilota del montaggio.
+              Coda di dominio (materia del suo <code>exec plan</code>, dal
+              recepimento), da verificare sciolta al prossimo giro.
+              <code>nix-overlay-update</code> confermata skill autonoma dal
+              pilota del montaggio (signifier onesto, catalogata nel suo o3).
             </li>
             <li>
               <strong>bi</strong> — fase di cantiere: 13 task di cui 8 dev
@@ -177,10 +183,10 @@
               non è dimostrato su più giri regolari;
             </li>
             <li>
-              la prescrizione <code>quinta-domanda-verdetti</code> attende il
-              recepimento dei quattro — verificare al giro di settembre, insieme
-              al primo contatto dei fork con la prescrizione della rifilatura
-              <code>eval</code>/<code>exec</code>;
+              le due prescrizioni attive: <code>nixos</code> le ha recepite
+              entrambe in giornata (2026-08-01); restano <code>economia</code>,
+              <code>salute</code> e <code>bi</code> — verificare al giro di
+              settembre;
             </li>
             <li>
               <code>nixos</code>: le due date stantie del quotidiano/settimanale
@@ -1169,6 +1175,26 @@
               <code>economia</code> → <code>bi</code></strong
             >, dal caso multi-scope già collaudato a quello più complesso e
             delicato.
+          </p>
+          <p>
+            <strong>Il primo pilota ha deciso</strong> (<code>nixos</code>,
+            2026-08-01, esito dichiarato nel suo marker e acquisito dal canale):
+            entrambe le skill di dominio restano <strong>autonome</strong>, per
+            un criterio che la ricognizione non aveva visto — nelle skill
+            parametriche
+            <strong>è il ramo a determinare l’arco, non chi invoca</strong>,
+            quindi montarle come argomento delle canoniche costringerebbe il
+            chiamante a dichiarare un arco che il ramo ha già deciso: lo stesso
+            signifier-che-mente che il canone vieta. E la skill mono-stadio dal
+            signifier onesto (<code>nix-overlay-update</code>) non retrocede a
+            runbook, perché la retrocessione costerebbe l’invocazione senza
+            rendere nulla. L’assorbimento resta ipotesi solo per le superfici
+            mono-arco (<code>salute</code>, <code>economia</code>,
+            <code>bi</code>); il criterio sale a canone se un secondo pilota lo
+            conferma. Watchpoint: il pilota <code>nixos</code> ha deciso sulla
+            <strong>forma</strong>, non sull’uso — il primo giro reale di
+            <code>eval</code>/<code>exec</code> lì è il collaudo che manca, ed è
+            materia della clausola di uscita.
           </p>
           <p>
             <strong
