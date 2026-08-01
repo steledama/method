@@ -4,9 +4,22 @@ stato: bozza
 
 # Skill
 
-Una skill è un workflow ricorrente codificato per l'agente. Risponde alla domanda: quali workflow ricorrenti sono codificati? Traduce una procedura ripetibile in istruzioni operative, spesso appoggiandosi a script versionati per la parte deterministica.
+Una skill è un workflow ricorrente codificato per l'agente. Risponde alla
+domanda: quali workflow ricorrenti sono codificati? Traduce una procedura
+ripetibile in istruzioni operative, spesso appoggiandosi a script versionati per
+la parte deterministica.
 
-Le skill sono interfacce operative, non documentazione di dominio. Una buona skill non reimplementa parser e logiche fragili in prompt: chiama strumenti versionati, interpreta output e guida l'agente nelle decisioni che richiedono giudizio.
+Le skill sono interfacce operative, non documentazione di dominio. Una buona
+skill non reimplementa parser e logiche fragili in prompt: chiama strumenti
+versionati, interpreta output e guida l'agente nelle decisioni che richiedono
+giudizio. E sono interfacce **sul canone**, non la sua sede: il significato
+degli stadi vive negli atomi (`perceive` … `perform`), la skill lo esercita.
+
+Nota di stato (bozza): la rifilatura per arco descritta qui è ratificata
+(filo `i3/skill-per-arco-tripartito.md`) ed è in pilota su `metodo`; finché il
+pilota non chiude, le due skill montate nei repo restano `plan-review` e
+`verdicts-review`, e l'incisione definitiva di questo nodo segue il pilota
+(task `o2/skill-archi-tripartite.md`).
 
 Regole:
 
@@ -17,60 +30,74 @@ Regole:
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
 - ogni repo del metodo — `metodo` incluso — deve esporre il quartetto operativo
-  ufficiale: `kb-review`, `plan-review`, `verdicts-review`, `commit`. Gli
-  adottanti espongono anche `method-review`, che controlla il drift rispetto al
-  metodo. La copia in `metodo` è quella canonica di riferimento; gli adottanti
-  la forkano e la parametrizzano
-- deve distinguere diagnosi, supervisione e prevenzione: `kb-review` fotografa lo
-  stato, la coppia `plan-review`/`verdicts-review` mantiene vere le due
-  supervisioni del cruscotto, `commit` verifica che le modifiche appena fatte
-  siano documentate nel posto giusto prima di fissarle nella storia
+  ufficiale: **`eval`**, **`exec`**, `kb-review`, `commit`. Gli adottanti
+  espongono anche `method-review`, che controlla il drift rispetto al metodo.
+  La copia in `metodo` è quella canonica di riferimento; gli adottanti la
+  forkano e la parametrizzano
+- il quartetto distingue le nature: due **verbi d'arco** (`eval` ed `exec`
+  compiono gli stadi del ciclo, e dentro gli stadi vive la supervisione),
+  un'**ala diagnostica** (`kb-review` fotografa, non corregge), un **gate
+  preventivo** (`commit` verifica il filing back prima di fissare nella storia)
 
 ## Base ufficiale
 
-Il quartetto operativo del metodo è `kb-review`, `plan-review`,
-`verdicts-review` e `commit`. Ogni repo deve averlo nella propria
-`.claude/skills/`, con wrapper Codex corrispondente in `.codex/skills/`. Questo
-vale anche per `metodo` stesso: è il repo-modello e fa dogfooding degli
-strumenti che teorizza. `method-review` è la quinta skill condivisa, ma opera
-sul confine: la copia canonica vive in `metodo` e viene eseguita negli
-adottanti per revisionare i commit del metodo successivi al marker versionato
-locale.
+Il quartetto si ritaglia lungo il modello, non lungo la storia della propria
+crescita: **due capacità, sei scope** —
 
-Il cuore del quartetto è la **coppia simmetrica di supervisione**, una per
-braccio del ciclo, col register `goal.md` come cerniera controllata dai due
-versanti opposti. Prima della coppia il cruscotto aveva un'asimmetria: il
-braccio di esecuzione aveva cura capillare (`commit`) e periodica
-(`tasks-review`), quello di valutazione solo la capillare — nessuno rivedeva
-mai l'insieme dei fili `i3/`, e la narrativa di stato colava nel plan
-(mini-fili mai nati, parcheggiati tra le note). I nomi portano la simmetria:
-ogni review porta il nome dell'**indice che tiene onesto** (`plan-review` :
-`o1/plan.md` :: `verdicts-review` : `i3/verdicts.md`) — la rinomina da
-`tasks-review` corregge anche un signifier che mentiva, perché l'oggetto della
-skill è il piano, non i task (cfr. `goal` sul non mescolare altitudini nei
-nomi).
+- `eval [perceive|interpret|compare|all]` — il braccio di valutazione
+- `exec [plan|specify|perform|all]` — il braccio di esecuzione
 
-`kb-review` è la skill diagnostica. Misura salute strutturale, link, copertura,
-frontmatter, footer e segnali di drift cognitivo visibili a posteriori. Può
-interpretare strumenti locali come `o3/kb_tools.py`, ma non deve trasformarsi
-in procedura di correzione automatica.
+La regola precedente — ogni review porta il nome dell'indice che tiene onesto
+(`plan-review` : `o1/plan.md` :: `verdicts-review` : `i3/verdicts.md`) — era
+vera quando una skill teneva onesto _un_ indice, ed è morta di copertura:
+`plan-review` copriva o1 e o2, `verdicts-review` i3 e parte di i1, e gli stadi
+degradati — **i1, i2, o3** — erano esattamente quelli che nessun nome nominava:
+ciò che il signifier non dichiara è ciò che nessuno mantiene. Il taglio nuovo
+dà a ogni stadio un guardiano senza moltiplicare le skill: l'arco vale come
+sequenza, e spezzarlo in sei decisioni di invocazione dissolverebbe il
+protocollo post-evento che è già canone.
 
-`plan-review` è la supervisione del braccio di esecuzione. Controlla coerenza
-tra `o1/plan.md` e `o2/`, rivaluta priorità e dipendenze, individua task
-superati o nuovi task emersi dai fatti, verifica la direzione task→obiettivo
-verso il register `goal.md` e propone il prossimo lavoro. Resta parametrizzata
-per-progetto perché i segnali che cambiano i task dipendono dal dominio:
-scadenze e pratiche in `economia`, rebuild e host in `nixos`, flussi dati in
-`bi`, ingest, diario e quadro in `salute`, generalizzazioni emerse e rinomine
-di nodi da propagare in `metodo`.
+La conferma che il taglio è quello vero: **l'argomento di scope è il nome
+dell'atomo, che è il nome dell'indice della collezione** — `eval interpret` →
+`kb/interpret.md` → `i2/interpretations.md`. Nessuna nomenclatura nuova da
+inventare.
 
-`verdicts-review` è la supervisione del braccio di valutazione. Quattro domande
-per ogni filo `i3/` (è ancora vero rispetto ai segnali? è ancora aperto? è
-ancora _un_ filo? è stato, non log?), copertura bidirezionale col register
-(ogni obiettivo ha un segnale vivo, ogni filo dichiara quale obiettivo misura),
-bonifica del plan e dei task dalla narrativa di stato che vi si parcheggia, e
-il modo due dell'i3 — la formazione-goal sugli input esogeni, sempre in
-proposta al custode umano.
+Le giurisdizioni, una riga per stadio (la procedura vive nelle SKILL.md, il
+significato negli atomi):
+
+- **`eval perceive`** — raccoglie il grezzo dal Mondo, valenza-neutro; cattura
+  in `i1/` solo l'effimero o ciò che chiede un riflesso stabile (cfr.
+  `perceive`)
+- **`eval interpret`** — distilla il grezzo in sintesi `i2/` orientate dai goal
+  sulla rilevanza e neutre sulla valenza; provenienza delle quantità, cascata
+  all'indietro quando un claim cade, materiale di casa come fonte primaria
+  (cfr. `interpret`, `verdict`)
+- **`eval compare`** — il verdetto contro il Goal: le cinque domande per ogni
+  filo, la copertura bidirezionale col register `goal.md`, la formazione-goal
+  sempre in proposta al custode, la bonifica del plan dalla narrativa di stato
+  (cfr. `compare`, `verdict`)
+- **`exec plan`** — la coda: drift plan↔`o2/` (verificato dal generatore, che
+  lo scope invoca e interpreta), ordine e priorità, dipendenze reali, direzione
+  task→obiettivo, lettura strategica delle mosse (cfr. `plan`)
+- **`exec specify`** — la qualità interna dei file `o2/`: frontmatter completo,
+  diari di sessione potati, e le quattro proprietà cardine — visibilità,
+  feedback, mapping, constraint (cfr. `specify`)
+- **`exec perform`** — due piani: la supervisione della collezione `o3/` (solo
+  il vivo, strumenti ancora eseguibili, runbook freschi) e l'atto stesso quando
+  l'autorizzazione dello scope già lo copre; ciò che tocca il Mondo senza
+  autorità produce o valida la prescrizione e si ferma al confine (cfr.
+  `perform`)
+
+Ogni stadio può **chiudere in una riga** quando non ha materia («nessun segnale
+nuovo», «coda coerente»): l'esito nullo è esito, non un passo saltato. Il
+default è `all` su entrambi gli archi.
+
+`kb-review` sta fuori dai due archi perché `kb/` è un'ala trasversale al ciclo.
+È la skill diagnostica: misura salute strutturale, link, copertura, frontmatter,
+footer e segnali di drift cognitivo visibili a posteriori; può interpretare
+strumenti locali come `o3/kb_tools.py`, ma non deve trasformarsi in procedura di
+correzione automatica. `eval perceive` può acquisirne gli esiti come segnale,
+senza eseguirla implicitamente.
 
 `commit` è la skill preventiva. Intercetta il drift nel punto più capillare,
 prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
@@ -89,25 +116,45 @@ stato applicato, risultava già soddisfatto, è registrato come divergenza
 intenzionale oppure è affidato a un task locale. Lo SHA avanza solo dopo questa
 classificazione; la storia delle revisioni resta in Git, non nel marker.
 
-Il quartetto evita gli errori ricorrenti: chiedere all'audit di correggere ciò
-che deve solo fotografare, lasciare che la coda dei task diventi un backlog
-morto, lasciare che i fili degenerino in log o che la narrativa di stato coli
-nel plan, oppure committare cambiamenti operativi senza filing back nella KB.
-L'audit resta diagnostico; le due review mantengono vere le supervisioni dei
-due bracci; il commit è il gate di documentazione.
+## Protocollo post-evento e gate
 
-La coppia comunica per **protocollo post-evento**, non per fusione: dopo
-eventi del mondo l'ordine è percezione (i1) → `verdicts-review` →
-`plan-review` — la verità prima delle priorità — e ogni review chiude con un
-handoff per l'altra: `verdicts-review` emette «impatti sul piano»,
-`plan-review` l'inverso «verdetti da rivalutare». Il movimento è asimmetrico:
-l'andata è ordinaria, il ritorno è l'eccezione da giustificare al custode — e
-un ritorno vuoto è il segnale che l'ordine ha funzionato, non un fallimento.
-L'handoff è input, non comando: la review ricevente conserva il giudizio e
-dichiara le divergenze. Verso l'alto la coppia non scrive mai: l'affilatura
-dei goal viaggia sempre come proposta al custode (il passo di formazione-goal
-di `verdicts-review`). Collaudato in `economia` (2026-07-12): cattura email →
+Dopo eventi del mondo l'ordine è **`eval` → `exec`** — la verità prima delle
+priorità — e i due archi comunicano per handoff, non per fusione: `eval
+compare` emette «impatti sul piano», `exec plan` chiude con l'inverso
+«verdetti da rivalutare». Il movimento è asimmetrico: l'andata è ordinaria, il
+ritorno è l'eccezione da giustificare al custode — e un ritorno vuoto è il
+segnale che l'ordine ha funzionato, non un fallimento. L'handoff è input, non
+comando: lo scope ricevente conserva il giudizio e dichiara le divergenze.
+Verso l'alto i due archi non scrivono mai: l'affilatura dei goal viaggia sempre
+come proposta al custode (cfr. `goal`). Il protocollo è collaudato in
+`economia` (2026-07-12) nella forma precedente della coppia: cattura email →
 verdetto aggiornato → piano riprioritizzato, handoff inverso vuoto.
+
+Il **gate proponi-poi-applica** vale su entrambi gli archi: le modifiche a
+collezioni e register si applicano dopo conferma del custode, e il gate prevale
+sull'autorizzazione generica delle bussole — quella copertura è per il lavoro
+ordinario di sessione, non per l'auto-applicazione degli esiti di una
+supervisione. Fa eccezione solo l'atto che l'autorizzazione dello scope già
+copre.
+
+## La regola dei nomi
+
+Le due canoniche portano **l'arco del modello, abbreviato per la mano che lo
+digita**: `eval` ed `exec`. La regola sostituisce «l'indice che tiene onesto»
+per due ragioni: la **copertura** — una skill che mantiene tre indici non può
+portare il nome di uno solo — e il **telos inglese** — il metodo intero, KB
+compresa, migra verso l'inglese, e le canoniche fanno da avanguardia. Le forme
+lunghe Evaluate/Execute sopravvivono solo come nomi degli archi nel canone, mai
+come nome della skill: un nome solo ovunque, o qualcuno «correggerà»
+`eval`→`evaluate` credendo di sanare un drift.
+
+Gli **scope-stadio** restano per esteso: sono i nomi degli atomi e degli indici,
+e la catena `eval interpret` → `kb/interpret.md` → `i2/interpretations.md` non
+si abbrevia. Gli **scope di dominio** portano il vocabolario del loro Mondo
+(`aggiorna`, `ordini`), nella lingua che la regola locale chiede, anche a metodo
+anglicizzato. Resta vero il corollario storico: la cadenza non entra mai nel
+nome (cfr. sotto) — il nome porta la capacità (skill di dominio) o l'arco
+(canoniche), il ritmo vive in `## Scadenze`.
 
 ## Skill di dominio e ricorrenza
 
@@ -143,35 +190,45 @@ mondo. Corollari:
   battito), le cadenze migrano in **config dichiarativa per entità**,
   versionata accanto alla skill: la config diventa la fonte di verità e il
   plan tiene solo il polso aggregato — stessa logica della config scheduler
-  per la terza specie;
-- la cadenza non entra mai nel **nome** della skill: il nome porta la capacità
-  o l'indice che tiene onesto (come nella rinomina `tasks-review` →
-  `plan-review`), il ritmo vive nelle righe di `## Scadenze` e, come attesa
-  indicativa, nel corpo della skill — un nome-cadenza è un signifier destinato
-  a mentire quando il mondo cambia orologio.
+  per la terza specie.
 
 L'origine dal basso è `finanze-review` in `economia` (nata `monthly-review`,
 rinominata 2026-07-12 proprio per il corollario del nome: l'oggetto tenuto
 onesto sono le finanze, non il mese): la skill orchestra i parser, la
-procedura vive in `o3/ciclo-finanze.md`, la ricorrenza in
-`## Scadenze` come `(mensile)` col trigger esogeno (la busta paga) — il caso
-mono-battito è quello degenere, non la norma: lì la porzione di mondo ha un
-orologio solo. Il multi-battito è collaudato da `update` in `nixos`
-(2026-07-12, refactor di `update-review` con argomento di scope
-`home|system|docker|all`): tre cadenze per la stessa capacità — quotidiana ed
-esecutiva sul parco AI, settimanale diagnostica sugli host di casa, mensile
-diagnostica sui server, dove lo stesso argomento `system` aggiorna input
-diversi (`nixpkgs` vs `nixpkgs-stable`). La specifica della skill `ordini` in
-`bi` (fornitore come argomento, default `all`) porta il caso a molte entità:
-la cadenza tipica di ogni fornitore vive nella config dichiarativa per
-fornitore ed è **modulata dai segnali del mondo** (le vendite) — la cadenza
-dichiarata è l'attesa, il mondo la corregge.
+procedura vive in `o3/ciclo-finanze.md`, la ricorrenza in `## Scadenze` come
+`(mensile)` col trigger esogeno (la busta paga) — il caso mono-battito è
+quello degenere, non la norma: lì la porzione di mondo ha un orologio solo. Il
+multi-battito è collaudato in `nixos` (refactor 2026-07-12 di `update-review`,
+oggi `aggiorna` coi rami `ia|casa|lavoro|docker|all`): cadenze diverse per la
+stessa capacità, esecutiva sul ramo AI e diagnostica sugli altri, dove lo
+stesso argomento aggiorna input diversi. La skill `ordini` in `bi` (fornitore
+come argomento, default `all`) porta il caso a molte entità: la cadenza tipica
+di ogni fornitore vive nella config dichiarativa per fornitore ed è **modulata
+dai segnali del mondo** (le vendite) — la cadenza dichiarata è l'attesa, il
+mondo la corregge.
 
 La ricorrenza può anche essere **a evento** invece che a orologio
 (`elabora-trascrizione` in `salute`: il trigger è una nuova trascrizione da
 ingerire, non una data): allora nessuna riga in `## Scadenze` — l'evento stesso
 è il segnale, e forzarlo in una cadenza inventerebbe un orologio che non
 esiste.
+
+### Il montaggio come scope delle canoniche: ipotesi in pilota
+
+La ricognizione della flotta (2026-08-01) mostra che le skill di dominio non
+sono tutte atti da appendere a `perform`: si distribuiscono sui sei stadi e su
+entrambi gli archi. Il canone incide **soltanto i sei scope-stadio**;
+il declassamento delle skill di dominio ad argomenti delle canoniche
+(`eval finanze`, `exec ordini <fornitore>`) è un'ipotesi sperimentale,
+pilotata negli adottanti attraverso i loro `method-review` nell'ordine
+`nixos` → `salute` → `economia` → `bi`. Il contratto di dispatch è la materia
+del pilota: gli scope-stadio sono riservati e identici in ogni repo; uno scope
+di dominio dichiara la mappa degli stadi che attraversa e produce un esito per
+ciascuno; la capacità che attraversa entrambi gli archi non si forza sotto
+l'arco sbagliato per conservare il nome. Ogni pilota decide per ciascuna
+skill — assorbita come argomento, divisa fra i due archi, mantenuta autonoma —
+e solo le forme provate risalgono a canone (dettaglio nel task
+`o2/skill-archi-tripartite.md` finché il pilota è aperto).
 
 ### Dove sono elencate
 
@@ -193,26 +250,61 @@ del lavoro che si consuma, e la skill non si consuma.
 
 ## Applicazione nei repo del metodo
 
-- **`metodo`** — situazione attuale: quartetto canonico `kb-review`, `plan-review`, `verdicts-review`, `commit` e copia canonica di `method-review` in `.claude/skills/`, con wrapper Codex; più la prima skill di dominio, `adopters-review` — l'audit runtime-o1 mensile sugli adottanti (ricorrenza in `## Scadenze`, esiti nel filo `i3/audit-adottanti.md`), che non si forka perché il suo Mondo sono gli adottanti stessi. Confronto con il metodo: copia di riferimento e dogfooding — il repo-modello applica a sé gli strumenti che teorizza; gli adottanti forkano da qui.
-- **`bi`** — situazione attuale: **origine della coppia** — `plan-review` (rinomina) e `verdicts-review` sono nate lì (`52b2b600`) insieme al register `goal.md`; marker `method-review` a `572890b`, prima skill di dominio in specifica (`ordini`, `o2/skill-ordini-fornitori.md`: fornitore come argomento di scope, cadenze per entità in config dichiarativa modulate dalle vendite); `## Scadenze` porta il battito ricorrente, incluse le righe senza data dei run automatizzati (pilota della terza specie, cfr. `plan`). Confronto con il metodo: la forma è stata scritta già portabile e la ratifica l'ha promossa a canone.
-- **`nixos`** — situazione attuale: quartetto completo più `method-review` (marker a `572890b`) e prima skill di dominio `update` (refactor 2026-07-12 di `update-review` con argomento di scope `home|system|docker|all` sui tre script versionati; esecutiva sul ramo home/AI, diagnostica su system e Docker; tre battiti in `## Scadenze` — quotidiano, settimanale casa, mensile server); elenco CLAUDE.md già nella forma metodo/dominio. Confronto con il metodo: primo adottante a recepire il canone skill-non-task, seconda istanza del pattern di ricorrenza e origine del multi-battito per (invocazione + porzione di mondo); conferma che le skill comuni preservano formatter, fidelity, `tools/check.sh`, distinzione Home/System e vincoli di rebuild.
-- **`economia`** — situazione attuale: quartetto completo più `method-review` (marker a `8de72d1`) e skill di dominio `finanze-review` (già `monthly-review`, rinominata 2026-07-12 con la procedura `o3/ciclo-finanze.md`: cadenza fuori dal nome, attesa indicativa nel corpo); register `goal.md`/`world.md` nati qui (pilot poli-register 2026-07-09); elenco CLAUDE.md nella forma metodo/dominio. Il catalogo delle skill locali vive in `o3/tools.md` accanto a `prescriptions.md`: divergenza di forma-item intenzionale, registrata nel ledger locale. Confronto con il metodo: ha corretto la falsa eccezione `presentations/`, mostrando che anche la fotografia finanziaria è interpretazione orientata dai goal; è l'origine del pattern skill-ricorrente ↔ `## Scadenze` con `monthly-review`, oggi `finanze-review`.
-- **`salute`** — situazione attuale: quartetto completo più `method-review` (marker a `572890b`) e skill di dominio `elabora-trascrizione`; è il **precedente** del catalogo skill locali nell'indice o3, e la sua §Skill porta la distinzione metodo/dominio. Confronto con il metodo: privacy sanitaria, diario, scadenze, fonti e registro azioni restano adattamenti locali senza derogare all'anatomia comune; `elabora-trascrizione` incarna la ricorrenza a evento.
+Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
+`economia` e `salute` via `norvegia`→`deck`):
+
+- **`metodo`** — quartetto canonico e copia di riferimento di `method-review`
+  in `.claude/skills/`, con wrapper Codex; più la skill di dominio
+  `adopters-review` — l'audit runtime-o1 mensile sugli adottanti (ricorrenza
+  in `## Scadenze`, esiti nel filo `i3/audit-adottanti.md`), che non si forka
+  perché il suo Mondo sono gli adottanti stessi e resta distinta dai due
+  archi: produce materiale che `eval perceive` acquisisce. È il pilota dei sei
+  scope canonici — il repo-modello applica a sé gli strumenti che teorizza.
+- **`nixos`** — quartetto più `method-review` e la skill di dominio
+  `aggiorna [ia|casa|lavoro|docker|all]` (già `update`): tre rami insistono
+  sull'arco di valutazione (script-versioni come perceive, delta e changelog
+  come interpret, il «vale la pena ora?» come compare), `ia` è perform pieno —
+  esegue, committa e pusha in autonomia per regola del suo `CLAUDE.md`.
+  `nix-overlay-update` non è registrata nel canone ed è candidata a
+  retrocedere a runbook `o3/`. Primo pilota del montaggio di dominio.
+- **`economia`** — quartetto più `method-review` e tre skill di dominio:
+  `finanze-review` (l'arco di valutazione intero: parser come perceive,
+  verifiche/fotografia/diario come interpret, riconciliazione delle scadenze
+  come compare; procedura in `o3/ciclo-finanze.md`), `posta` e
+  `registrazioni` (canali perceive puri: cattura valenza-neutra, sola lettura,
+  handoff verso le review — che oggi citano per nome, da migrare alla
+  rinomina). Register `goal.md`/`world.md` nati qui (pilot poli-register
+  2026-07-09); catalogo delle skill locali in `o3/tools.md`, divergenza di
+  forma-item intenzionale registrata nel ledger locale.
+- **`bi`** — **origine della coppia di supervisione** (`52b2b600`, insieme al
+  register `goal.md`) e tre skill di dominio: `ordini <fornitore>` (l'intero
+  arco di esecuzione a runtime: composizione in priorità lessicografica come
+  plan, file-ordine come specify, import Danea e invio come perform con
+  ratifica umana al confine), `categorizza` e `tassonomia` (perform con
+  guardrail: solo lo script scrive). È il caso più complesso e si pilota per
+  ultimo.
+- **`salute`** — quartetto più `method-review` e la skill di dominio
+  `elabora-trascrizione`: perceive con distillazione (il confine verso
+  interpret è da verificare nel pilota), ricorrenza a evento. Frontmatter di
+  vecchio stile da normalizzare al recepimento. È il precedente del catalogo
+  skill locali nell'indice o3.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il
 pattern: lo dogfooda, possedendo la base canonica di riferimento; ogni repo
-adottante la forka con la stessa struttura e con letture contestuali diverse. La
-vecchia regola — `metodo` esente dal versionare skill — confondeva due cose: che
-le skill siano parametrizzate per-progetto (vero) e che `metodo` ne sia esente
-(non-sequitur, dato che `metodo` è esso stesso una KB con `o1/plan.md`, `o2/` e fili `i3/`).
-
-Le altre skill sono esempi di adattamento sano: codificano workflow ripetuti ma radicati in un dominio o in uno strumento locale.
+adottante la forka con la stessa struttura e con letture contestuali diverse.
 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
+- [perceive](perceive.md)
+- [interpret](interpret.md)
+- [compare](compare.md)
 - [plan](plan.md)
+- [specify](specify.md)
+- [perform](perform.md)
+- [verdict](verdict.md)
+- [goal](goal.md)
 - [tasks](tasks.md)
 - [kb-tools](kb-tools.md)
 - [claude](claude.md)
