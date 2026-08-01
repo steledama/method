@@ -2,13 +2,13 @@
 ciclo: dev
 ---
 
-# Le skill si tagliano per arco, non per indice: `evaluate` ed `execute` tripartite come il modello
+# Le skill si tagliano per arco, non per indice: `eval` ed `exec` tripartite come il modello
 
 Deciso il 2026-07-31 (custode). Il quartetto operativo si ritaglia lungo il
 modello di Norman invece che lungo la storia della sua crescita: `plan-review` e
-`verdicts-review` diventano **`execute`** ed **`evaluate`**, ciascuna con i tre
+`verdicts-review` diventano **`exec`** ed **`eval`**, ciascuna con i tre
 stadi del proprio arco dichiarati e invocabili come scope. Il lavoro vive nel
-task «Skill per arco: `evaluate` ed `execute` tripartite» (`o2/`); qui resta il
+task «Skill per arco: `eval` ed `exec` tripartite» (`o2/`); qui resta il
 verdetto e la clausola di uscita.
 
 **Il movimento è dall'alto, ed è legittimo.** Non è il caso «costruire per un
@@ -35,26 +35,34 @@ rinomina `tasks-review`→`plan-review`, applicata un livello più su.
 **Il taglio: due capacità, sei scope.** Non sei skill separate — l'arco vale come
 sequenza, e il protocollo post-evento (percezione → verdetto → piano) è già
 canone: spezzarlo in sei decisioni di invocazione lo dissolverebbe. Vale invece
-il pattern multi-scope già collaudato (`update home|system|docker|all` in
+il pattern multi-scope già collaudato (`aggiorna ia|casa|lavoro|docker|all` in
 `nixos`, `ordini <fornitore>` in `bi`), con la regola di fissione intatta — si
 spezza se diverge la capacità, mai per ritmo:
 
-- `evaluate [perceive|interpret|compare|all]`
-- `execute [plan|specify|perform|all]`
+- `eval [perceive|interpret|compare|all]`
+- `exec [plan|specify|perform|all]`
 
 Conferma che il taglio è quello vero: **l'argomento di scope è il nome
-dell'atomo, che è il nome dell'indice della collezione** (`evaluate interpret` →
+dell'atomo, che è il nome dell'indice della collezione** (`eval interpret` →
 `kb/interpret.md` → `i2/interpretations.md`). Nessuna nomenclatura nuova da
 inventare — modello, cartelle, nodi e skill si chiamano già allo stesso modo.
 
-**Il quartetto resta un quartetto**, ritagliato: due archi (`evaluate`,
-`execute`), un'ala (`kb-review`, che sta fuori dai due archi perché `kb/` è
+**I nomi digitati sono `eval` ed `exec`** (custode, 2026-08-01). Le canoniche
+portano l'arco del modello in inglese — il telos è portare il metodo intero,
+KB compresa, in inglese — nella forma abbreviata che la mano digita ogni
+giorno; Evaluate/Execute sopravvivono solo come nomi degli archi nel canone,
+mai come nome della skill. Gli scope-stadio restano per esteso (la catena
+atomo→indice non si abbrevia); gli scope di dominio restano nel vocabolario
+del loro Mondo (`exec aggiorna`, `eval posta`).
+
+**Il quartetto resta un quartetto**, ritagliato: due archi (`eval`,
+`exec`), un'ala (`kb-review`, che sta fuori dai due archi perché `kb/` è
 un'ala trasversale al ciclo), un gate (`commit`). Il conteggio non cresce, cresce
 la copertura.
 
 **Cambia la natura, e va detto.** Il canone dichiara oggi che il quartetto
 distingue diagnosi, supervisione e prevenzione. Le due skill nuove sono **verbi
-dell'atto**, non review: `evaluate perceive` raccoglie i marker, la posta e i
+dell'atto**, non review: `eval perceive` raccoglie i marker, la posta e i
 log, non ispeziona `i1/`. Nulla della supervisione si perde però: «è ancora vero
 rispetto al segnale?» **è** la domanda di Compare, e l'igiene della coda **è**
 Plan. Le procedure esistenti non si buttano, si rifilano sotto il loro stadio, e
@@ -72,26 +80,41 @@ improvvisazione.
 
 ## Le due gambe deboli, dichiarate
 
-**`execute perform` non è simmetrico a `evaluate perceive`.** Sul braccio di
+**`exec perform` non è simmetrico a `eval perceive`.** Sul braccio di
 valutazione i tre stadi lavorano tutti su collezioni dell'artefatto; sul braccio
-di esecuzione il terzo stadio è **l'atto sul Mondo**, che è dominio puro
-(`aggiorna` fa rebuild su host reali, `categorizza` tocca PROD). Il canone
-definisce quindi `execute perform` come **supervisione della collezione o3** —
-prescrizioni consumate potate, strumenti dichiarati ancora eseguibili — e
-_ammette_ che un dominio monti i propri atti come scope, senza prescriverlo:
-prescriverlo sarebbe micromanagement della coda altrui, che questo repo dichiara
-di non fare. Il montaggio lo pilota `nixos`, come `bi` ha pilotato la terza
-specie di riga; se genera attrito sul confine di autorizzazione resta
-un'opzione, se funziona sale a canone.
+di esecuzione il terzo stadio tocca il Mondo (`aggiorna` fa switch su host
+reali, `categorizza` scrive su PROD). Il canone (ratifica del custode,
+2026-08-01) dà a `exec perform` due piani: la **supervisione della
+collezione o3** — prescrizioni consumate potate, strumenti dichiarati ancora
+eseguibili — e **l'atto stesso quando l'autorizzazione già lo copre**: l'atto
+locale, reversibile e autorizzato lo compie davvero; ciò che tocca il Mondo
+senza autorità produce o valida la prescrizione e si ferma al confine. Non è
+un'estensione teorica: `aggiorna ia` in `nixos` già esegue, committa e pusha in
+autonomia per regola del suo `CLAUDE.md` — il confine di autorizzazione segue
+le risorse dello scope, non la skill.
 
-**`evaluate perceive` può essere il vuoto rituale.** Dove la percezione è
+**Il montaggio degli scope di dominio è direzione dichiarata, non opzione.** La
+ricognizione della flotta (2026-08-01, dettaglio nel task `o2/`) mostra che le
+skill di dominio non sono atti da appendere a `perform`: si distribuiscono sui
+sei stadi (`aggiorna` è valutazione per tre rami su quattro, `ordini` è
+l'intero arco exec a runtime, `finanze-review` ed `elabora-trascrizione`
+insistono sull'arco eval, e i canali i1 di `economia` — `posta`,
+`registrazioni` — sono `eval perceive` puro). Le skill di dominio diventano **scope delle due
+canoniche**, montate sullo stadio che servono, su entrambi gli archi; la
+mappatura di dettaglio resta all'adottante — dichiarare la direzione è del
+custode, il dettaglio della coda è loro, e il pilota del montaggio resta
+`nixos`.
+
+**`eval perceive` può essere il vuoto rituale.** Dove la percezione è
 event-driven, una skill che chiede «è arrivata posta?» quando la posta _è_ il
 trigger è cerimonia. Due rimedi, entrambi già canonici: uno stadio deve poter
 **chiudere in una riga** («nessun segnale nuovo»), col precedente dell'handoff
 vuoto che è segnale di buon funzionamento e non fallimento; e in `metodo` lo
 scope ha un lavoro vero — raccogliere i marker `method-review.md` dei quattro,
-che sono letteralmente la posta in arrivo di questo repo. Resta da decidere nel
-task se `adopters-review` vi si assorbe o resta skill di dominio distinta.
+che sono letteralmente la posta in arrivo di questo repo. Deciso nel task:
+`adopters-review` resta skill di dominio distinta e produce materiale che
+`eval perceive` acquisisce; l'assorbimento è una variante da rivalutare
+solo dopo l'uso.
 
 ## La clausola di uscita, dichiarata prima di partire
 
@@ -123,4 +146,4 @@ canone è inciso — questa volta serve, a differenza della colonna `Ob.`: tocca
 
 Conseguenza già registrata: la «cascata verso i2» proposta come toppa a una riga
 in `verdetto-piu-sicuro-del-materiale` decade come mossa autonoma — diventa il
-contenuto dello stadio `evaluate interpret`.
+contenuto dello stadio `eval interpret`.
