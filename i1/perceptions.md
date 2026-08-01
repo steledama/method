@@ -10,7 +10,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-Nessun segnale aperto. Le ultime due catture — «la mappatura task→obiettivo vive
+- [Il nome di una skill di dominio è verbo o sostantivo?](skill-nome-verbo-o-sostantivo.md)
+  — da nixos: terza rinomina della stessa skill in poche settimane
+  (`update` → `aggiorna` → `manutenzione`), nessuna regola esplicita in
+  `skill.md` sulla classe grammaticale del nome.
+
+Le ultime due catture precedenti — «la mappatura task→obiettivo vive
 solo nel register, a mano» e «il verdetto è più sicuro del materiale», entrambe
 da `economia` il 2026-07-30 — sono state valutate il 2026-07-31 e consumate
 rispettivamente da [i3/igiene-stadi-output.md](../i3/igiene-stadi-output.md)
