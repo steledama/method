@@ -21,9 +21,9 @@ Il quartetto operativo del metodo e la skill di allineamento vivono versionati a
 qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 `.claude/skills/` con wrapper Codex in `.codex/skills/`.
 
-- `/kb-review` — health check della KB via `o3/kb_tools.py` (diagnosi, non corregge)
-- `/plan-review` — supervisione di `o1/plan.md`/`o2/`: drift, priorità, dipendenze, direzione task→obiettivo (`goal.md`), prossimo task
-- `/verdicts-review` — supervisione dei fili `i3/`: verità contro i segnali, copertura obiettivo→filo, bonifica del plan dalla narrativa di stato
+- `/eval [perceive|interpret|compare|all]` — il braccio di valutazione: raccolta del grezzo (i1), sintesi con provenienza e cascata (i2), verdetto dei fili contro `goal.md` e bonifica del plan (i3)
+- `/exec [plan|specify|perform|all]` — il braccio di esecuzione: coda e priorità (o1), qualità interna dei task (o2), supervisione della collezione e atti autorizzati (o3)
+- `/kb-review` — health check della KB via `o3/kb_tools.py` (diagnosi, non corregge; ala fuori dai due archi)
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
 - `/method-review` — revisione del drift tra un adottante e i commit di `method`
 

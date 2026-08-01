@@ -17,7 +17,7 @@ locali che richiedono giudizio.
 ## Confini
 
 - Non modificare altri repo adottanti.
-- Non sostituire `/plan-review`: qui si valuta la relazione adottante-metodo;
+- Non sostituire `/exec plan`: qui si valuta la relazione adottante-metodo;
   l'eventuale lavoro futuro entra in `o1/plan.md`/`o2/` locale.
 - Non applicare automaticamente differenze editoriali o di dominio.
 - Non certificare configurazioni host esterne ai repository.
@@ -151,7 +151,7 @@ riepilogo finale, **non si scrive in `method-review.md`**.
 
 Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o
-aggiorna un task nel repo adottante e usa `/plan-review` per inserirlo nel plan.
+aggiorna un task nel repo adottante e usa `/exec plan` per inserirlo nel plan.
 
 ### 6. Chiudi la revisione
 

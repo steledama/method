@@ -16,10 +16,10 @@ giudizio. E sono interfacce **sul canone**, non la sua sede: il significato
 degli stadi vive negli atomi (`perceive` … `perform`), la skill lo esercita.
 
 Nota di stato (bozza): la rifilatura per arco descritta qui è ratificata
-(filo `i3/skill-per-arco-tripartito.md`) ed è in pilota su `metodo`; finché il
-pilota non chiude, le due skill montate nei repo restano `plan-review` e
-`verdicts-review`, e l'incisione definitiva di questo nodo segue il pilota
-(task `o2/skill-archi-tripartite.md`).
+(filo `i3/skill-per-arco-tripartito.md`) e in pilota — `metodo` monta già
+`eval` ed `exec`; negli adottanti restano `plan-review` e `verdicts-review`
+finché la prescrizione non arriva, e l'incisione definitiva di questo nodo
+segue il pilota (task `o2/skill-archi-tripartite.md`).
 
 Regole:
 
