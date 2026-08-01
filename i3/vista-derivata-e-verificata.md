@@ -229,7 +229,7 @@ ha ancora guardato l'asse del contratto (la freschezza sì, col giro del
 2026-08-01) — il costo di una vista che inganna matura in silenzio proprio
 dove nessuno guarda. L'inventario «quali viste non sono
 generate» perciò non resta appeso a questa riga: è la quinta lente di
-`/adopters-review` (superfici e viste), dentro il battito mensile che già esiste
+`/adottanti` (superfici e viste), dentro il battito mensile che già esiste
 invece che in un atto nuovo. Se fosse restato un rimando in prosa sarebbe stato
 lo stesso difetto che questo filo denuncia — una regola al livello riflessivo
 invece che nella struttura.

@@ -242,9 +242,7 @@ def link_map(root: Path) -> tuple[dict[str, list[str]], list[str]]:
     return links, broken
 
 
-def backlink_map(
-    links: dict[str, list[str]], inventory: set[str]
-) -> dict[str, set[str]]:
+def backlink_map(links: dict[str, list[str]], inventory: set[str]) -> dict[str, set[str]]:
     backlinks: dict[str, set[str]] = defaultdict(set)
     for source, targets in links.items():
         for target in targets:
@@ -272,9 +270,7 @@ def catalog_index(root: Path) -> tuple[list[str], list[str], list[str]]:
         paths.append(node_key(root, resolved))
     indexed = set(paths)
     missing = sorted(
-        node_key(root, path)
-        for path in doc_files(root)
-        if node_key(root, path) not in indexed
+        node_key(root, path) for path in doc_files(root) if node_key(root, path) not in indexed
     )
     return paths, broken, missing
 
@@ -289,8 +285,7 @@ def filename_findings(root: Path) -> tuple[list[str], list[str]]:
             continue
         if re.search(r"[^a-z0-9./\-]", rel):
             if all(
-                char.islower() or char.isdigit() or char in "./-" or ord(char) > 127
-                for char in rel
+                char.islower() or char.isdigit() or char in "./-" or ord(char) > 127 for char in rel
             ):
                 accented.append(rel)
             else:
@@ -304,11 +299,7 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
     body_inline: list[str] = []
     for path in doc_files(root):
         text = path.read_text(encoding="utf-8")
-        fm = (
-            text.split("---", 2)[1]
-            if text.startswith("---\n") and text.count("---") >= 2
-            else ""
-        )
+        fm = text.split("---", 2)[1] if text.startswith("---\n") and text.count("---") >= 2 else ""
         if text.startswith("---\n") and "\nstato:" in fm:
             frontmatter += 1
         if "\nConnessioni:\n" in text:
@@ -321,11 +312,7 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
 
 def frontmatter_block(path: Path) -> str:
     text = path.read_text(encoding="utf-8")
-    return (
-        text.split("---", 2)[1]
-        if text.startswith("---\n") and text.count("---") >= 2
-        else ""
-    )
+    return text.split("---", 2)[1] if text.startswith("---\n") and text.count("---") >= 2 else ""
 
 
 def facet_value(fm: str, name: str) -> str | None:
@@ -333,18 +320,14 @@ def facet_value(fm: str, name: str) -> str | None:
     return match.group(1).strip() if match else None
 
 
-def validate_facet(
-    key: str, fm: str, name: str, facet: Facet, violations: list[str]
-) -> None:
+def validate_facet(key: str, fm: str, name: str, facet: Facet, violations: list[str]) -> None:
     value = facet_value(fm, name)
     if value is None:
         if facet.required:
             violations.append(f"{key}: manca `{name}`")
         return
     if value not in facet.values:
-        violations.append(
-            f"{key}: `{name}: {value}` fuori dominio {sorted(facet.values)}"
-        )
+        violations.append(f"{key}: `{name}: {value}` fuori dominio {sorted(facet.values)}")
 
 
 def facet_violations(root: Path) -> list[str]:
@@ -464,9 +447,7 @@ def term_candidates(root: Path, limit: int = 12) -> list[dict[str, int | str]]:
 
 def recent_commits(root: Path) -> list[str]:
     try:
-        output = subprocess.check_output(
-            ["git", "log", "--oneline", "-15"], cwd=root, text=True
-        )
+        output = subprocess.check_output(["git", "log", "--oneline", "-15"], cwd=root, text=True)
     except (subprocess.CalledProcessError, FileNotFoundError):
         return []
     return [line for line in output.splitlines() if line.strip()]
@@ -530,16 +511,10 @@ def run_task_frontmatter(root: Path) -> TaskFrontmatter:
     task_files = [p for p in sorted((root / "o2").glob("*.md")) if p.name != "tasks.md"]
     for path in task_files:
         text = path.read_text(encoding="utf-8")
-        fm = (
-            text.split("---", 2)[1]
-            if text.startswith("---\n") and text.count("---") >= 2
-            else ""
-        )
+        fm = text.split("---", 2)[1] if text.startswith("---\n") and text.count("---") >= 2 else ""
         absent = [key for key in ("sintesi",) if f"\n{key}:" not in f"\n{fm}"]
         if "\nstato:" in f"\n{fm}":
-            absent.append(
-                "stato presente (soppresso: un task in o2/ è aperto per esistenza)"
-            )
+            absent.append("stato presente (soppresso: un task in o2/ è aperto per esistenza)")
         if absent:
             missing.append(f"{node_key(root, path)}: {', '.join(absent)}")
     return TaskFrontmatter(
@@ -562,9 +537,7 @@ def run_audit(root: Path) -> AuditResult:
 
     orphans = sorted(node for node in inventory if not backlinks[node])
     isolated = sorted(
-        node
-        for node in inventory
-        if len(links.get(node, [])) == 0 and len(backlinks[node]) <= 1
+        node for node in inventory if len(links.get(node, [])) == 0 and len(backlinks[node]) <= 1
     )
     hubs = [
         {"nodo": node, "backlink": count}
@@ -589,12 +562,9 @@ def run_audit(root: Path) -> AuditResult:
         connessioni_count=connessioni,
         body_inline_links=body_inline,
         clusters_total=len(clusters),
-        cluster_isolated=sorted(
-            cluster for cluster in clusters if not cluster_out.get(cluster)
-        ),
+        cluster_isolated=sorted(cluster for cluster in clusters if not cluster_out.get(cluster)),
         cluster_out_counts={
-            cluster: len(cluster_out.get(cluster, set()))
-            for cluster in sorted(clusters)
+            cluster: len(cluster_out.get(cluster, set())) for cluster in sorted(clusters)
         },
         term_candidates=term_candidates(root),
         hubs=hubs,
@@ -616,7 +586,7 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.facet_violations)
     )
     lines = [
-        f"## [{date.today().isoformat()}] kb-review",
+        f"## [{date.today().isoformat()}] kb",
         "",
         "### OK",
         "",
@@ -647,12 +617,9 @@ def markdown_report(result: AuditResult) -> str:
     problems += [f"- [ORFANO] {node} — nessun backlink" for node in result.orphans]
     problems += [f"- [LINK-ROTTO] {item}" for item in result.broken_links]
     problems += [
-        f"- [CATALOGO-LINK-ROTTO] {CATALOG_NAME} -> {item}"
-        for item in result.catalog_broken
+        f"- [CATALOGO-LINK-ROTTO] {CATALOG_NAME} -> {item}" for item in result.catalog_broken
     ]
-    problems += [
-        f"- [CATALOGO-MISSING] {item}" for item in result.catalog_missing_nodes
-    ]
+    problems += [f"- [CATALOGO-MISSING] {item}" for item in result.catalog_missing_nodes]
     problems += [f"- [NOME-INVALIDO] {item}" for item in result.invalid_names]
     problems += [f"- [CLUSTER-ISOLATO] {item}" for item in result.cluster_isolated]
     problems += [f"- [LINK-INLINE-CORPO] {item}" for item in result.body_inline_links]
@@ -703,9 +670,7 @@ def command_backlinks(args: argparse.Namespace) -> None:
     links, broken = link_map(root)
     inventory = {node_key(root, path) for path in doc_files(root)}
     matches = [
-        node
-        for node in inventory
-        if node == requested or Path(node).name == Path(requested).name
+        node for node in inventory if node == requested or Path(node).name == Path(requested).name
     ]
     if not matches:
         raise SystemExit(f"Nodo non trovato: {requested}")
@@ -801,14 +766,10 @@ def build_parser() -> argparse.ArgumentParser:
     orphans = sub.add_parser("orphans", help="lista nodi senza backlink")
     orphans.set_defaults(func=command_orphans)
 
-    readme = sub.add_parser(
-        "readme", help=f"verifica copertura del catalogo {CATALOG_NAME}"
-    )
+    readme = sub.add_parser("readme", help=f"verifica copertura del catalogo {CATALOG_NAME}")
     readme.set_defaults(func=command_readme)
 
-    migration = sub.add_parser(
-        "migration", help="verifica frontmatter e footer Connessioni"
-    )
+    migration = sub.add_parser("migration", help="verifica frontmatter e footer Connessioni")
     migration.set_defaults(func=command_migration)
 
     terms = sub.add_parser("terms", help="candidati a nuovi nodi da termini ricorrenti")

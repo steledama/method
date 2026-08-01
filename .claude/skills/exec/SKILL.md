@@ -95,7 +95,7 @@ come prossimo task:
 
 - **mandato/canale** — la mossa scavalca un agente o un canale con mandato?
   Nel `metodo`: scrivere diretto nei file di un adottante invece di lasciare
-  che il suo `method-review` tiri il canone scavalca la membrana («agisci
+  che il suo `method` tiri il canone scavalca la membrana («agisci
   attraverso, ratifica»).
 - **sequenza/informazione** — un uso o una conversazione imminente darebbe un
   _read_ prima di muoverci? Nel `metodo`: l'uso reale di un adottante darebbe
@@ -165,7 +165,7 @@ Due piani, secondo autorizzazione:
   compie davvero; quando tocca il Mondo o richiede nuova autorità, si produce
   o si valida la prescrizione e ci si ferma al confine. In `metodo` il Mondo
   runtime sono gli adottanti: l'atto tipico è la prescrizione, e a compierla
-  è il `method-review` dell'adottante — o3 prescrive, l'adottante ratifica.
+  è il `method` dell'adottante — o3 prescrive, l'adottante ratifica.
 
 Esito: stato della collezione (prescrizioni vive e loro freschezza, strumenti
 verificati), atti compiuti o predisposti, o la chiusura in una riga.

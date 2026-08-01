@@ -250,14 +250,14 @@ Il repo `metodo` non è una backlog board per i progetti adottanti. Non deve con
 I quattro adottanti sono allineati alla forma corrente (identità per titolo,
 `↳`/`world`/`pause`, niente colonna `#`) dopo la propagazione del 2026-06-25;
 la colonna `Ob.` è ferma a `economia`, che l'ha originata, e viaggia agli altri
-col normale `method-review`. Ciò
+col normale `method`. Ciò
 che varia è il **carattere del dominio**, non la forma:
 
 - **`economia`** — coda ampia legata a scadenze, adempimenti e situazioni aperte.
   È l'**origine** di `pause`, dell'identità per solo nome, del passo `3b` di
   lettura strategica, dell'indice unico dei dettagli in `o2/tasks.md` e della
   colonna `Ob.` (2026-07-30, ratificata qui il 2026-07-31: gli altri tre la
-  recepiscono col normale `method-review`). Il
+  recepiscono col normale `method`). Il
   vecchio `scadenze.md` separato è stato assorbito da `## Scadenze` in
   `o1/plan.md`: anche il calendario di dominio vive ora col plan.
 - **`bi`** — coda media; ha co-segnalato la rimozione del `#` e `|`→`pause`, ed

@@ -3,7 +3,7 @@ description: Revisiona il drift di un repo adottante rispetto ai commit del meto
 user-invocable: true
 ---
 
-# method-review
+# method
 
 Esegui questa skill dalla root di un repository che adotta `method`. La copia
 canonica vive nel repo `method`; ogni adottante la forka e può aggiungere

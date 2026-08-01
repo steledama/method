@@ -202,7 +202,7 @@ due fotografie stale di `goal.md` (prescrizione aperta non registrata,
 «nessun fronte aperto» con un fronte vivo) prima che `exec plan`
 ripianificasse su un register falso; nessuna sovrapposizione dannosa fra
 `compare` e `plan`, che leggono le stesse fonti da versanti opposti. Il
-secondo collaudo candidato è il battito `/adopters-review` del 2026-08-11,
+secondo collaudo candidato è il battito `/adottanti` del 2026-08-11,
 con la posta vera degli adottanti, prima dell'incisione.
 Il canone è inciso (2026-08-01: `kb/skill.md` a `stato: maturo`, consumatori
 migrati) e **la propagazione si è chiusa lo stesso giorno**: la prescrizione

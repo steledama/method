@@ -84,7 +84,7 @@ Stato al 2026-06-05: il nodo `ponte` è stato sostituito da `output` (rifondazio
 - **metodo / output** — azione: promuovere `output` e `action-cycle` da bozza a maturo quando il pilota `salute/quadro/` produce cicli completi documentati; tipo: filing back atteso
 - **metodo / task** — azione: mantenere `metodo/o2/` solo per manutenzione propria del metodo; le verifiche operative restano nei repo adottanti; tipo: regola stabile
 - **metodo / strumenti** — azione: un report cross-repo automatico resta non necessario finché l'osservatorio si ricostruisce a mano in poche query; aprire solo se il costo cresce; tipo: bottom-up: in attesa
-- **metodo / skill** — azione: mantenere il quartetto `eval` / `exec` / `kb-review` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
+- **metodo / skill** — azione: mantenere il quartetto `eval` / `exec` / `kb` / `commit` come base ufficiale, lasciando locali le parametrizzazioni di dominio; tipo: regola stabile
 - **metodo / frontmatter** — azione: policy chiarita: `kb/` e gli item di collezione hanno frontmatter minimale; bussola, regole, register e indici ordinari ne restano privi; tipo: completato
 
 Connessioni:

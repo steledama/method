@@ -13,7 +13,7 @@ I nodi `kb/` reggono il peso del metodo: atomici, connessi, verificabili contro
 le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
-  (`/kb-review`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
+  (`/kb`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
   lavoro: la ristrutturazione delle skill per arco è chiusa (2026-08-01);
   resta il task `pause` di rivalutazione della clausola di uscita (`Ob. 1`
   nel plan); i verdetti pendenti attendono l'uso reale (bozza→maturo,
@@ -22,14 +22,14 @@ le fonti-mondo.
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
 Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col
-proprio `method-review`, senza che `metodo` gestisca le loro code.
+proprio `method`, senza che `metodo` gestisca le loro code.
 
 - **Canone recepito dai quattro** — atrio e poli-register/quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `method-review.md` degli
   adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
-  lavoro: obiettivo **a regime** — il giro vive nei `method-review` degli
-  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze`
+  lavoro: obiettivo **a regime** — il giro vive nei `method` degli
+  adottanti, il battito è la riga mensile `/adottanti` in `## Scadenze`
   e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
   (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
   quattro e potate in giornata; watchpoint: il collaudo d'uso delle skill per
@@ -53,7 +53,7 @@ Posizione auspicata lungo le dimensioni comuni
 segnale dell'adottante, umano **in-the-loop**, **basso attrito di lettura**
 (bussola snella, viste che si aprono dal checkout), KB riflessiva coerente,
 loop di propagazione che si chiude. Il lavoro che la serve porta `Ob. S` in
-[`o1/plan.md`](o1/plan.md); il battito mensile `/adopters-review` — l'audit
+[`o1/plan.md`](o1/plan.md); il battito mensile `/adottanti` — l'audit
 runtime-o1 che chiude il giro dall'alto — vive in `## Scadenze`.
 
 ## Disciplina

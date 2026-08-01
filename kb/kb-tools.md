@@ -6,7 +6,7 @@ stato: maturo
 
 Gli strumenti KB sono script versionati che rendono deterministica la manutenzione della knowledge base. Non sostituiscono il giudizio dell'LLM o dell'utente: spostano però la parte fragile e ripetitiva del lavoro — parsing dei link markdown, conteggi dei backlink, verifica del README, controllo del formato dei nodi — dentro codice stabile, testabile e riusabile.
 
-Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill kb-review usa `o3/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
+Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill `kb` usa `o3/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
 
 Il repo metodo contiene la versione portabile di `o3/kb_tools.py`. Questa versione distingue due livelli:
 
@@ -70,7 +70,7 @@ Regole d'uso:
 
 Skill:
 
-- kb-review: usa kb_tools.py, interpreta il report e non corregge automaticamente senza richiesta
+- kb: usa kb_tools.py, interpreta il report e non corregge automaticamente senza richiesta
 - commit: applica formatter, controlla diff e crea commit secondo convenzioni locali
 - skill locali: descrivono workflow specifici del dominio, ma riusano strumenti versionati quando possibile
 - vecchi comandi: da evitare se la stessa funzione può essere espressa come skill o regola di bootstrap
@@ -85,7 +85,7 @@ Wrapper Codex:
 Requisiti per un nuovo progetto:
 
 - copiare o creare `o3/kb_tools.py` se serve audit strutturale
-- creare .claude/skills/kb-review con istruzioni locali e backend script
+- creare .claude/skills/kb con istruzioni locali e backend script
 - creare .claude/skills/commit se il progetto ha convenzioni di commit
 - creare wrapper .codex/skills solo se il progetto deve supportare Codex
 - aggiungere formatter disponibili in CLAUDE.md, senza inventare strumenti non installati

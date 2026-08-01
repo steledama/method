@@ -47,8 +47,13 @@ rinomine future, elimina l'oscillazione su questo asse specifico.
 - **`aggiorna-overlay` (nixos) → `overlay`**: stesso principio, locale a
   nixos, nessuna propagazione.
 
-Nessun caso resta aperto: i cinque nomi bersaglio sono decisi. Il lavoro di
-rename delle cartelle vive e — per i tre casi canonici — la prescrizione di
-propagazione sono nel task
-[o2/skill-nomi-verbo-sostantivo.md](../o2/skill-nomi-verbo-sostantivo.md),
-handoff a `exec`.
+Nessun caso resta aperto sulla decisione: i cinque nomi bersaglio sono
+ratificati. L'esecuzione è avanzata (`exec`, 2026-08-01): `metodo` ha
+rinominato le due cartelle canoniche (`kb`, `method`) e i propri riferimenti,
+`adopters-review`→`adottanti` è applicato localmente, ed è attiva la
+prescrizione [o3/skill-nomi-verbo-sostantivo.md](../o3/skill-nomi-verbo-sostantivo.md)
+che propaga i due rename canonici ai quattro adottanti e porta due
+raccomandazioni forti di dominio (non bloccanti): `aggiorna-overlay`→`overlay`
+a `nixos`, verifica del nome vivo di `categorizza` a `bi`. Resta il
+recepimento dei quattro; dettaglio e stato del lavoro in
+[o2/skill-nomi-verbo-sostantivo.md](../o2/skill-nomi-verbo-sostantivo.md).

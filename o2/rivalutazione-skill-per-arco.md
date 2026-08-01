@@ -1,12 +1,12 @@
 ---
-sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al battito /adopters-review del 2026-11-01 — il terzo successivo al recepimento dai quattro, chiuso il 2026-08-01. I sintomi da leggere sono la clausola di uscita del filo i3/skill-per-arco-tripartito.md; qui vivono la condizione, la data e il materiale da raccogliere."
+sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al battito /adottanti del 2026-11-01 — il terzo successivo al recepimento dai quattro, chiuso il 2026-08-01. I sintomi da leggere sono la clausola di uscita del filo i3/skill-per-arco-tripartito.md; qui vivono la condizione, la data e il materiale da raccogliere."
 ciclo: dev
 ---
 
 # Rivalutazione clausola di uscita skill per arco
 
 Task `pause`. La condizione di risveglio era «il terzo battito mensile
-`/adopters-review` successivo al recepimento della rifilatura da tutti e
+`/adottanti` successivo al recepimento della rifilatura da tutti e
 quattro gli adottanti»: il recepimento si è chiuso il **2026-08-01** (tutti e
 quattro nello stesso giorno), quindi il risveglio è il battito del
 **2026-11-01**. La condizione è stata scritta prima di partire perché il

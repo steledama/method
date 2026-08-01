@@ -3,7 +3,7 @@ description: Health check completo della knowledge base del metodo usando gli st
 user-invocable: true
 ---
 
-# kb-review
+# kb
 
 Esegui un health check completo sulla knowledge base del metodo usando
 `o3/kb_tools.py` come backend deterministico. Lo script è la fonte di verità

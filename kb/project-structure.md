@@ -93,14 +93,14 @@ metodo si applica e il dominio caratterizza la struttura; molte eccezioni o
 voci inclassificabili = il metodo lì non si applica adeguatamente. Prenderne
 atto è un esito legittimo: la negazione onesta della tesi è un verdetto, il
 non-averci-provato no. Il verdetto risale all'osservatorio con l'esito del
-`method-review`.
+`method`.
 
 ## L'i1 e l'o3 di `method`: il canale con gli adottanti
 
 `method` è un meta-artefatto e materializza anch'esso i due riflessi che baciano la membrana `world`, dove il Mondo runtime sono gli adottanti (cfr. `world`, `input`, `output`).
 
 - **i1 → `i1/`** — il segnale metodologico che un adottante solleva mentre risolve un problema concreto («nel repo X la regola Z è scomoda»). Si cattura qui, **valenza-neutro**: il confine i1→i2 è l'ingresso della valenza, quindi la valutazione (generalizza? come?) è i2→i3 e avviene in `method` (fili di `i3/`, nodi), non nel repo che segnala. Un adottante perciò **non pianifica** un cambio di canone nel proprio `plan.md` — non è suo lavoro, non può sequenziarlo né dargli dipendenze: emette il segnale. Pianificare il canone è di `method`.
-- **o3 → `o3/`** — il runbook di adozione di un cambio di canone, preparato per repo ed eseguito dal `method-review` dell'adottante: o3 prescrive, method-review compie l'atto. È la forma concreta della propagazione.
+- **o3 → `o3/`** — il runbook di adozione di un cambio di canone, preparato per repo ed eseguito dal `method` dell'adottante: o3 prescrive, method compie l'atto. È la forma concreta della propagazione.
 
 Così `method` ha l'atrio completo del ciclo (i1/i2/i3 e o2/o3) e fa da modello agli adottanti dogfoodando anche il proprio arco di input/output, non solo la KB.
 
@@ -118,9 +118,9 @@ I fili di `i3/` sono il verdetto attuale, per filo/area aperta — non un log. I
 
 ## Skill base
 
-`eval`, `exec`, `kb-review` e `commit`. `eval` ed `exec` sono i due verbi d'arco — uno per braccio del ciclo, col register `goal.md` come cerniera, tripartiti sugli stadi del proprio arco (`eval perceive|interpret|compare`, `exec plan|specify|perform`): `exec` tiene onesta l'esecuzione (la coda `o1/plan.md`↔`o2/` con priorità e dipendenze, la qualità interna dei task, la collezione `o3/` e gli atti autorizzati), `eval` la valutazione (il grezzo dal Mondo, le sintesi `i2/` con provenienza e cascata, i fili `i3/` contro i segnali reali con la copertura obiettivo→filo e la bonifica del plan). `kb-review` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il catalogo `kb/kb.md` dal conteggio dei nodi. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli esecutori in `o3/`, così parsing e conteggi restano deterministici.
+`eval`, `exec`, `kb` e `commit`. `eval` ed `exec` sono i due verbi d'arco — uno per braccio del ciclo, col register `goal.md` come cerniera, tripartiti sugli stadi del proprio arco (`eval perceive|interpret|compare`, `exec plan|specify|perform`): `exec` tiene onesta l'esecuzione (la coda `o1/plan.md`↔`o2/` con priorità e dipendenze, la qualità interna dei task, la collezione `o3/` e gli atti autorizzati), `eval` la valutazione (il grezzo dal Mondo, le sintesi `i2/` con provenienza e cascata, i fili `i3/` contro i segnali reali con la copertura obiettivo→filo e la bonifica del plan). `kb` è l'health check periodico: link rotti, nodi orfani, connessioni tra cluster, naming, escludendo il catalogo `kb/kb.md` dal conteggio dei nodi. `commit` è il gate di filing back. Le skill sono versionate nel progetto, non globali, perché ogni KB ha check, fonti e segnali locali diversi; quando possibile delegano la parte meccanica agli esecutori in `o3/`, così parsing e conteggi restano deterministici.
 
-`method-review` completa questa base sul confine tra repository: legge i commit
+`method` completa questa base sul confine tra repository: legge i commit
 del metodo successivi al marker versionato dell'adottante, classifica ciò che è
 diretto, adattato, non pertinente o già soddisfatto e lascia l'eventuale lavoro
 futuro in `o1/plan.md`/`o2/` locale. Non sostituisce la triade: controlla la

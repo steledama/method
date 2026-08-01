@@ -3,7 +3,7 @@ description: Audit runtime-o1 periodico dei progetti adottanti — distanza dal 
 user-invocable: true
 ---
 
-# adopters-review
+# adottanti
 
 Esegui questa skill dalla root di `metodo`. È l'**o1-runtime** del ciclo:
 l'audit periodico top-down sui progetti adottanti dichiarati in `world.md`.
@@ -27,7 +27,7 @@ aggiornato in place a ogni giro.
 - Se emerge drift di canone, l'atto top-down è una **prescrizione in `o3/`**;
   se risale una lezione dal basso, è un **segnale in `i1/`**; tutto il resto è
   coda di dominio e non ci riguarda.
-- Non sostituisce `method-review` (il giro per-adottante guidato dal marker,
+- Non sostituisce `method` (il giro per-adottante guidato dal marker,
   eseguito _nell'adottante_): questo è il giro d'insieme, dall'alto.
 
 ## Procedura
@@ -61,7 +61,7 @@ quota schedulata che cresce — sempre pesata sulla gradualità del dominio.
 
 ### 4. Inventario skill
 
-`ls .claude/skills/` dell'adottante: quartetto più `method-review` presenti;
+`ls .claude/skills/` dell'adottante: quartetto più `method` presente;
 skill di dominio; residui (nomi vecchi dopo una rinomina, doppioni).
 
 ### 5. Superfici e viste

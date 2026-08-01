@@ -30,13 +30,13 @@ Regole:
 - non deve duplicare contenuto stabile che appartiene ai nodi
 - va confrontata cross-repo quando più progetti hanno workflow simili
 - ogni repo del metodo — `metodo` incluso — deve esporre il quartetto operativo
-  ufficiale: **`eval`**, **`exec`**, `kb-review`, `commit`. Gli adottanti
-  espongono anche `method-review`, che controlla il drift rispetto al metodo.
+  ufficiale: **`eval`**, **`exec`**, `kb`, `commit`. Gli adottanti
+  espongono anche `method`, che controlla il drift rispetto al metodo.
   La copia in `metodo` è quella canonica di riferimento; gli adottanti la
   forkano e la parametrizzano
 - il quartetto distingue le nature: due **verbi d'arco** (`eval` ed `exec`
   compiono gli stadi del ciclo, e dentro gli stadi vive la supervisione),
-  un'**ala diagnostica** (`kb-review` fotografa, non corregge), un **gate
+  un'**ala diagnostica** (`kb` fotografa, non corregge), un **gate
   preventivo** (`commit` verifica il filing back prima di fissare nella storia)
 
 ## Base ufficiale
@@ -92,7 +92,7 @@ Ogni stadio può **chiudere in una riga** quando non ha materia («nessun segnal
 nuovo», «coda coerente»): l'esito nullo è esito, non un passo saltato. Il
 default è `all` su entrambi gli archi.
 
-`kb-review` sta fuori dai due archi perché `kb/` è un'ala trasversale al ciclo.
+`kb` sta fuori dai due archi perché `kb/` è un'ala trasversale al ciclo.
 È la skill diagnostica: misura salute strutturale, link, copertura, frontmatter,
 footer e segnali di drift cognitivo visibili a posteriori; può interpretare
 strumenti locali come `o3/kb_tools.py`, ma non deve trasformarsi in procedura di
@@ -104,7 +104,7 @@ prima che una modifica venga fissata nella storia, chiedendo se README, CLAUDE,
 register dei poli, nodo KB, task in `o2/` o fili `i3/` siano stati aggiornati
 coerentemente.
 
-`method-review` è la skill di allineamento trans-repo. Distingue cambiamenti già
+`method` è la skill di allineamento trans-repo. Distingue cambiamenti già
 soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
 uno SHA completo di `method` come cursore e non avanza il marker finché ogni voce
 pertinente non è risolta o tracciata in un task locale.
@@ -165,9 +165,9 @@ comando, non da capacità permanente. Nomi bersaglio: `kb-review`→`kb`,
 `categorizza`→`categorizzazione`, `aggiorna-overlay`→`overlay` (dominio). Non
 tocca `eval`/`exec` (abbreviazioni dell'arco, regola propria sopra) né i nomi
 già sostantivo (`finanze`, `posta`, `registrazioni`, `ordini`, `tassonomia`,
-`trascrizione`, `manutenzione`). I nomi sono ratificati, non ancora applicati
-alle cartelle vive: il rename e — per i composti canonici — la prescrizione
-di propagazione ai quattro adottanti sono lavoro tracciato in
+`trascrizione`, `manutenzione`). Le cartelle vive in `metodo` sono rinominate
+(2026-08-01: `kb`, `method`, `adottanti`); la prescrizione di propagazione dei
+due composti canonici ai quattro adottanti resta lavoro tracciato in
 `o2/skill-nomi-verbo-sostantivo.md`.
 
 ## Skill di dominio e ricorrenza
@@ -269,7 +269,7 @@ inizio sessione. Non serve un registro parallelo per gli agenti; i punti di
 lettura umani sono due, con ruoli diversi:
 
 - `CLAUDE.md` porta l'elenco commentato di bootstrap (una riga per skill),
-  distinguendo le **skill di metodo** (il quartetto più `method-review`,
+  distinguendo le **skill di metodo** (il quartetto più `method`,
   forkate dal canone) dalle **skill di dominio** (locali al progetto);
 - l'indice `o3/prescriptions.md` può catalogare le skill locali accanto agli
   strumenti che avvolgono (precedente: `salute`), perché il Perform è il loro
@@ -283,9 +283,9 @@ del lavoro che si consuma, e la skill non si consuma.
 Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
 `economia` e `salute` via `norvegia`→`deck`):
 
-- **`metodo`** — quartetto canonico e copia di riferimento di `method-review`
+- **`metodo`** — quartetto canonico e copia di riferimento di `method`
   in `.claude/skills/`, con wrapper Codex; più la skill di dominio
-  `adopters-review` — l'audit runtime-o1 mensile sugli adottanti (ricorrenza
+  `adottanti` — l'audit runtime-o1 mensile sugli adottanti (ricorrenza
   in `## Scadenze`, esiti nel filo `i3/audit-adottanti.md`), che non si forka
   perché il suo Mondo sono gli adottanti stessi e resta distinta dai due
   archi: produce materiale che `eval perceive` acquisisce. È il pilota dei sei

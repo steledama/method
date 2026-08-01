@@ -7,7 +7,7 @@ ciclo: runtime
 **Misura**: «Propagare il canone e chiudere il loop con gli adottanti»
 (`goal.md`, obiettivo 2).
 
-Verdetto aggregato dell'audit mensile `/adopters-review`, aggiornato in place a
+Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
 ogni giro. Ultimo giro: **2026-08-01** (secondo battito, anticipato
 dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
 `world.md`).

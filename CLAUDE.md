@@ -23,13 +23,13 @@ qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 
 - `/eval [perceive|interpret|compare|all]` — il braccio di valutazione: raccolta del grezzo (i1), sintesi con provenienza e cascata (i2), verdetto dei fili contro `goal.md` e bonifica del plan (i3)
 - `/exec [plan|specify|perform|all]` — il braccio di esecuzione: coda e priorità (o1), qualità interna dei task (o2), supervisione della collezione e atti autorizzati (o3)
-- `/kb-review` — health check della KB via `o3/kb_tools.py` (diagnosi, non corregge; ala fuori dai due archi)
+- `/kb` — health check della KB via `o3/kb_tools.py` (diagnosi, non corregge; ala fuori dai due archi)
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
-- `/method-review` — revisione del drift tra un adottante e i commit di `method`
+- `/method` — revisione del drift tra un adottante e i commit di `method`
 
 Skill di dominio (il Mondo runtime di `metodo` sono gli adottanti; non si forka):
 
-- `/adopters-review` — audit runtime-o1 mensile dei quattro adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
+- `/adottanti` — audit runtime-o1 mensile dei quattro adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
 
 Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 [skill](kb/skill.md). Gli adottanti le forkano e le parametrizzano.
