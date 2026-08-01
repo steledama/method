@@ -159,13 +159,11 @@ ripianificasse su un register falso; nessuna sovrapposizione dannosa fra
 `compare` e `plan`, che leggono le stesse fonti da versanti opposti. Il
 secondo collaudo candidato è il battito `/adopters-review` del 2026-08-11,
 con la posta vera degli adottanti, prima dell'incisione.
-La propagazione ai quattro nasce come prescrizione `o3/` quando quel nucleo è
-inciso — questa volta serve, a differenza della colonna `Ob.`: tocca
-`.claude/skills/` e `.codex/skills/` di ogni repo, i `CLAUDE.md`, e le righe
-`## Scadenze` che citano le skill per nome (il pattern è quello di
-`ristrutturazione-atrio`). Dentro quella prescrizione il montaggio delle skill
-locali resta un esperimento sequenziale, e solo gli esiti provati risalgono a
-canone.
+Il canone è inciso (2026-08-01: `kb/skill.md` a `stato: maturo`, consumatori
+migrati) e la propagazione è emessa: `o3/skill-per-arco.md`, che porta la
+rifilatura per i quattro e, dentro, il montaggio delle skill locali come
+esperimento sequenziale — solo gli esiti provati risalgono a canone. Chi
+recepisce la rifilatura chiude anche l'arretrato della quinta domanda.
 
 Conseguenza già registrata: la «cascata verso i2» proposta come toppa a una riga
 in `verdetto-piu-sicuro-del-materiale` decade come mossa autonoma — diventa il

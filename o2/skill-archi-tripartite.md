@@ -259,17 +259,19 @@ plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
    attriti e conferme nel filo); il secondo collaudo candidato è il battito
    `/adopters-review` del 2026-08-11, che porta esattamente la posta che
    `eval perceive` raccoglie — l'incisione del passo 5 attende quel giro;
-5. aggiornare nodi, register, bussole e skill consumatrici (incisione dei soli
-   sei scope canonici in `kb/skill.md`); emettere la prescrizione `o3/` per i
-   quattro. La prescrizione porta la matrice sopra come **ipotesi di
-   montaggio**, non come esito già deciso; l'arretrato della quinta domanda
-   viaggia già per conto suo (`o3/quinta-domanda-verdetti.md`);
-6. prescrivere il pilotaggio del montaggio di dominio attraverso i
-   `method-review` degli adottanti, nell'ordine **`nixos` → `salute` →
-   `economia` → `bi`**. L'esecuzione resta nelle loro code; ogni pilota decide
-   esplicitamente per ciascuna skill: assorbita come argomento, divisa fra i
-   due archi oppure mantenuta autonoma. I risultati correggono la prescrizione
-   e solo le forme provate risalgono poi a canone;
+5. **fatto** (2026-08-01) — aggiornare nodi, register, bussole e skill
+   consumatrici (incisione dei soli sei scope canonici in `kb/skill.md`,
+   `stato: maturo`; grep classificato: normative migrate, storiche intatte);
+   emessa la prescrizione `o3/skill-per-arco.md` con la matrice come
+   **ipotesi di montaggio**; l'arretrato della quinta domanda viaggia già per
+   conto suo (`o3/quinta-domanda-verdetti.md`, e chi recepisce la rifilatura
+   chiude anche quella);
+6. **fatto** (2026-08-01, dentro la stessa prescrizione) — il pilotaggio del
+   montaggio di dominio è prescritto come esperimento sequenziale
+   **`nixos` → `salute` → `economia` → `bi`**, coi criteri di decisione
+   (assorbita/divisa/autonoma) e il contratto di dispatch come questioni del
+   pilota. L'esecuzione resta nelle loro code; i risultati correggono la
+   prescrizione e solo le forme provate risalgono a canone;
 7. alla chiusura, aprire il task di rivalutazione `pause` con la condizione di
    risveglio della clausola di uscita (filo `i3/`).
 

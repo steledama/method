@@ -4,7 +4,7 @@ stato: bozza
 
 # Interpret (i2)
 
-Lo stadio i2 del ciclo d'azione: il distillato, il luogo dove l'interpretazione accade. È l'atto che attribuisce significato al segnale catturato (`perceive`) e lo trasforma in nota — un nodo `kb/` in `stato: bozza` o un item nella collezione `i2/`. La cartella porta il codice dello stadio, mentre l'indice `i2/interpretations.md` ne porta il nome leggibile. La stessa superficie si legge specularmente come o2 quando viene prodotta come vista di decisione (cfr. `specify`): non è una seconda etichetta sulla cartella, è il doppio verso del medesimo artefatto nel ciclo.
+Lo stadio i2 del ciclo d'azione: il distillato, il luogo dove l'interpretazione accade. È l'atto che attribuisce significato al segnale catturato (`perceive`) e lo trasforma in nota — un nodo `kb/` in `stato: bozza` o un item nella collezione `i2/`. La cartella porta il codice dello stadio, mentre l'indice `i2/interpretations.md` ne porta il nome leggibile. La stessa superficie si legge specularmente come o2 quando viene prodotta come vista di decisione (cfr. `specify`): non è una seconda etichetta sulla cartella, è il doppio verso del medesimo artefatto nel ciclo. La fetta di skill che mantiene questo stadio è lo scope `interpret` di `eval` — provenienza delle quantità, cascata all'indietro, materiale di casa prima (cfr. `skill`).
 
 ## L'i2 ha bisogno di un substrato
 

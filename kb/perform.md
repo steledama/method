@@ -20,10 +20,12 @@ prescrizioni eseguite è un archivio travestito, e l'archivio è git (cfr.
 `git-history`). L'indice può nominare in prosa l'ultima chiusa, come ponte
 verso la storia. Nel repo `metodo` la regola è la stessa a scala di
 propagazione: una prescrizione resta finché tutti gli adottanti non l'hanno
-recepita, poi si rimuove. Il presidio è leggero e vive in `plan-review`, che
-rivedendo i task verifica che le prescrizioni collegate a lavoro chiuso non
-restino in collezione; una review dedicata dello stadio entra in gioco solo se
-l'accumulo ricorre. (Sciolto dal basso da `economia`, 2026-07-10.)
+recepita, poi si rimuove. Il presidio è lo scope `perform` di `exec`, la
+fetta di skill che mantiene questo stadio: supervisiona la collezione
+(consumate potate, strumenti ancora eseguibili, runbook freschi) e compie
+l'atto quando l'autorizzazione dello scope già lo copre (cfr. `skill`). Nato
+leggero dentro `plan-review` (sciolto dal basso da `economia`, 2026-07-10),
+ha guadagnato la casa propria con la rifilatura per arco.
 
 ## L'esecuzione può far emergere Goal
 

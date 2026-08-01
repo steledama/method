@@ -120,8 +120,9 @@ La **disciplina è costitutiva della forma**, non un accessorio di `bi`:
   come voce: è informazione che prima non esisteva da nessuna parte, e se un
   segnale peggiora il lavoro riapre da lì.
 
-La coppia di skill `plan-review`/`verdicts-review` controlla la cerniera dai
-due versanti (task→obiettivo, obiettivo→segnale/filo — cfr. `skill`). Il README
+La coppia di skill `exec`/`eval` controlla la cerniera dai due versanti
+(task→obiettivo in `exec plan`, obiettivo→segnale/filo in `eval compare` —
+cfr. `skill`). Il README
 resta la bussola: l'identità in una riga sta lì, l'articolazione del polo qui.
 
 ## Riferimenti

@@ -1,5 +1,5 @@
 ---
-stato: bozza
+stato: maturo
 ---
 
 # Skill
@@ -15,11 +15,11 @@ versionati, interpreta output e guida l'agente nelle decisioni che richiedono
 giudizio. E sono interfacce **sul canone**, non la sua sede: il significato
 degli stadi vive negli atomi (`perceive` … `perform`), la skill lo esercita.
 
-Nota di stato (bozza): la rifilatura per arco descritta qui è ratificata
-(filo `i3/skill-per-arco-tripartito.md`) e in pilota — `metodo` monta già
-`eval` ed `exec`; negli adottanti restano `plan-review` e `verdicts-review`
-finché la prescrizione non arriva, e l'incisione definitiva di questo nodo
-segue il pilota (task `o2/skill-archi-tripartite.md`).
+Il canone qui inciso copre i **soli sei scope-stadio**; il montaggio delle
+skill di dominio come argomenti resta ipotesi sperimentale (sotto). Negli
+adottanti la rifilatura arriva con la prescrizione `o3/skill-per-arco.md`
+(2026-08-01): finché il loro `method-review` non la recepisce, i fork montano
+ancora `plan-review` e `verdicts-review`.
 
 Regole:
 

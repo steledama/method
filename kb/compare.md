@@ -6,7 +6,7 @@ stato: bozza
 
 Lo stadio i3 del ciclo d'azione: la conoscenza formalizzata o il verdetto, l'atto che chiude il cappio e alimenta il prossimo Goal. È l'apice dell'arco di valutazione (cfr. `input`): l'interpretazione (`interpret`) che ha superato il giudizio di stabilità diventa conoscenza stabile in `kb/` (`stato: maturo`) o verdetto. Il passaggio i2→i3 non è automatico — è il giudizio che decide se un'interpretazione è abbastanza stabile da entrare nella KB; la maturazione `bozza→maturo` di un nodo _è_ questo passaggio.
 
-Il residuo scritto dell'i3 nel ciclo di sviluppo sono i fili in `i3/`: lo stato corrente per filo aperto, non un log (cfr. `verdict`).
+Il residuo scritto dell'i3 nel ciclo di sviluppo sono i fili in `i3/`: lo stato corrente per filo aperto, non un log (cfr. `verdict`). La fetta di skill che mantiene questo stadio è lo scope `compare` di `eval` (cfr. `skill`).
 
 ## I due modi dell'i3
 

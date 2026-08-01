@@ -1,6 +1,6 @@
 # Prescriptions
 
-Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e predisposto sul Mondo runtime. Il significato dello stadio vive nell'atomo [perform](../kb/perform.md). Il Mondo runtime di `method` sono gli adottanti: l'o3 di `method` è il **runbook di propagazione** — la ricetta, per repo, che porta un adottante al canone nuovo. Lo esegue il `method-review` dell'adottante: o3 prescrive, method-review compie l'atto ([action-cycle](../kb/action-cycle.md)). Una prescrizione nasce quando un segnale i1 ([perceptions](../i1/perceptions.md)) è stato valutato e ha prodotto un cambio di canone; resta finché tutti gli adottanti non l'hanno recepita.
+Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e predisposto sul Mondo runtime. Il significato dello stadio vive nell'atomo [perform](../kb/perform.md). Il Mondo runtime di `method` sono gli adottanti: l'o3 di `method` è il **runbook di propagazione** — la ricetta, per repo, che porta un adottante al canone nuovo. Lo esegue il `method-review` dell'adottante: o3 prescrive, method-review compie l'atto ([action-cycle](../kb/action-cycle.md)). Una prescrizione nasce quando un segnale i1 ([perceptions](../i1/perceptions.md)) è stato valutato e ha prodotto un cambio di canone; resta finché tutti gli adottanti non l'hanno recepita. La fetta di skill che mantiene lo stadio è lo scope `perform` di [exec](../.claude/skills/exec/SKILL.md).
 
 ## Divisione del lavoro
 
@@ -16,7 +16,14 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   (2026-08-01): backport ai quattro fork di `verdicts-review` della quinta
   domanda «è più sicuro del suo materiale?» (`64f0ec0`), sganciato dalla
   rinomina `eval`/`exec` per non lasciare spenta la guardia nelle settimane
-  del pilota. `economia` per primo.
+  del pilota. `economia` per primo. Chi recepisce prima `skill-per-arco`
+  chiude anche questa: il fork di `eval` porta già le cinque domande.
+- [skill-per-arco](skill-per-arco.md) — **attiva** (2026-08-01): la
+  rifilatura `plan-review`/`verdicts-review` → `exec`/`eval` tripartite sui
+  sei scope-stadio, con rimozione della coppia dopo la rifilatura del fork
+  locale; porta il montaggio delle skill di dominio come **esperimento
+  sequenziale** (`nixos` → `salute` → `economia` → `bi`), non come esito
+  deciso.
 
 L'ultima chiusa è `poli-register` (register gemelli `goal.md`/`world.md` che
 assorbono `map.md` e `sources.md`, home che rende l'intro dei register,

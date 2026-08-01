@@ -1,6 +1,6 @@
 # Interpretazioni
 
-Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sintesi sorgente che rendono co-presenti le tensioni tra i nodi e aggiornano il modello mentale di chi mantiene il metodo. Il significato dello stadio vive nell'atomo [interpret](../kb/interpret.md); la stessa superficie si legge specularmente come o2 ([specify](../kb/specify.md)). La disciplina delle viste navigabili è in [view](../kb/view.md). Qui restano l'elenco dei contenuti e la nota di build.
+Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sintesi sorgente che rendono co-presenti le tensioni tra i nodi e aggiornano il modello mentale di chi mantiene il metodo. Il significato dello stadio vive nell'atomo [interpret](../kb/interpret.md); la stessa superficie si legge specularmente come o2 ([specify](../kb/specify.md)). La disciplina delle viste navigabili è in [view](../kb/view.md); la fetta di skill che mantiene lo stadio è lo scope `interpret` di [eval](../.claude/skills/eval/SKILL.md). Qui restano l'elenco dei contenuti e la nota di build.
 
 ## Contenuti
 
