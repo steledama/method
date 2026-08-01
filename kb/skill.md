@@ -213,22 +213,32 @@ ingerire, non una data): allora nessuna riga in `## Scadenze` — l'evento stess
 è il segnale, e forzarlo in una cadenza inventerebbe un orologio che non
 esiste.
 
-### Il montaggio come scope delle canoniche: ipotesi in pilota
+### Il montaggio come scope delle canoniche
 
 La ricognizione della flotta (2026-08-01) mostra che le skill di dominio non
 sono tutte atti da appendere a `perform`: si distribuiscono sui sei stadi e su
-entrambi gli archi. Il canone incide **soltanto i sei scope-stadio**;
-il declassamento delle skill di dominio ad argomenti delle canoniche
-(`eval finanze`, `exec ordini <fornitore>`) è un'ipotesi sperimentale,
-pilotata negli adottanti attraverso i loro `method-review` nell'ordine
-`nixos` → `salute` → `economia` → `bi`. Il contratto di dispatch è la materia
-del pilota: gli scope-stadio sono riservati e identici in ogni repo; uno scope
-di dominio dichiara la mappa degli stadi che attraversa e produce un esito per
-ciascuno; la capacità che attraversa entrambi gli archi non si forza sotto
-l'arco sbagliato per conservare il nome. Ogni pilota decide per ciascuna
-skill — assorbita come argomento, divisa fra i due archi, mantenuta autonoma —
-e solo le forme provate risalgono a canone (dettaglio nel task
-`o2/skill-archi-tripartite.md` finché il pilota è aperto).
+entrambi gli archi. I primi due piloti (`nixos` e `salute`, 2026-08-01,
+decisi indipendentemente lo stesso giorno con esiti opposti) hanno inciso il
+**criterio di montaggio**:
+
+- dove **l'argomento decide l'arco** (skill parametriche multi-ramo come
+  `aggiorna`), la skill resta **autonoma**: montarla come argomento delle
+  canoniche costringerebbe il chiamante a dichiarare un arco che il ramo ha
+  già deciso — un signifier che mente;
+- dove **l'intera superficie insiste su un arco**, la skill può essere
+  **assorbita come scope di dominio** (`eval trascrizione`): lo scope
+  dichiara il proprio stadio e conserva il vocabolario del suo Mondo;
+- lo **sweep `all` percorre i soli scope-stadio**: gli scope di dominio non
+  vi entrano, così i canali event-driven non diventano passaggi rituali;
+- la **retrocessione a runbook non è dovuta**: se il signifier di una skill
+  mono-stadio è onesto, togliere l'invocazione costa senza rendere.
+
+Restano riservati gli scope-stadio, identici in ogni repo; la capacità che
+attraversa entrambi gli archi non si forza sotto l'arco sbagliato per
+conservare il nome. Il montaggio resta sperimentale per le superfici non
+ancora pilotate (ordine `economia` → `bi`): ogni pilota decide — assorbita,
+divisa, autonoma — e i risultati correggono la prescrizione
+`o3/skill-per-arco.md` (dettaglio lì finché è attiva).
 
 ### Dove sono elencate
 
@@ -260,13 +270,15 @@ Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
   perché il suo Mondo sono gli adottanti stessi e resta distinta dai due
   archi: produce materiale che `eval perceive` acquisisce. È il pilota dei sei
   scope canonici — il repo-modello applica a sé gli strumenti che teorizza.
-- **`nixos`** — quartetto più `method-review` e la skill di dominio
-  `aggiorna [ia|casa|lavoro|docker|all]` (già `update`): tre rami insistono
-  sull'arco di valutazione (script-versioni come perceive, delta e changelog
-  come interpret, il «vale la pena ora?» come compare), `ia` è perform pieno —
-  esegue, committa e pusha in autonomia per regola del suo `CLAUDE.md`.
-  `nix-overlay-update` non è registrata nel canone ed è candidata a
-  retrocedere a runbook `o3/`. Primo pilota del montaggio di dominio.
+- **`nixos`** — rifilatura recepita (2026-08-01, con la quinta domanda in un
+  giro e idempotenza provata): `eval`/`exec` montate coi segnali di dominio
+  sotto lo stadio che li compete, ed `exec perform` che compie lo switch
+  home-manager e si ferma al confine del rebuild di sistema. Skill di dominio
+  **autonome** per esito del pilota: `aggiorna [ia|casa|lavoro|docker|all]`
+  (il ramo determina l'arco — tre rami di valutazione, `ia` perform pieno che
+  esegue, committa e pusha per regola del suo `CLAUDE.md`) e
+  `nix-overlay-update` (mono-stadio dal signifier onesto, catalogata nel suo
+  o3).
 - **`economia`** — quartetto più `method-review` e tre skill di dominio:
   `finanze-review` (l'arco di valutazione intero: parser come perceive,
   verifiche/fotografia/diario come interpret, riconciliazione delle scadenze
@@ -283,11 +295,12 @@ Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
   ratifica umana al confine), `categorizza` e `tassonomia` (perform con
   guardrail: solo lo script scrive). È il caso più complesso e si pilota per
   ultimo.
-- **`salute`** — quartetto più `method-review` e la skill di dominio
-  `elabora-trascrizione`: perceive con distillazione (il confine verso
-  interpret è da verificare nel pilota), ricorrenza a evento. Frontmatter di
-  vecchio stile da normalizzare al recepimento. È il precedente del catalogo
-  skill locali nell'indice o3.
+- **`salute`** — rifilatura recepita (2026-08-01, `e6d6f28`):
+  `elabora-trascrizione` **assorbita** come scope di dominio `trascrizione`
+  sotto `eval` (stadio `perceive`: la distillazione seleziona senza giudicare
+  — cattura i1, non sintesi i2; ricorrenza a evento, fuori da `all`);
+  frontmatter normalizzato, contratto plan×`o2/` cablato nel generatore della
+  home. È il precedente del catalogo skill locali nell'indice o3.
 
 La regola generale è: la funzione è ufficiale e metodologica, l'applicazione è
 parametrizzata per-progetto. Il repo `metodo` non si limita a documentare il

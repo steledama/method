@@ -92,23 +92,21 @@
           <h2>Verdetto</h2>
           <p>
             Il canale del canone è vivo e i quattro sono <code>aligned</code>:
-            <code>nixos</code> ha chiuso il giro in giornata (marker a
-            <code>0128891</code> — rifilatura <code>eval</code>/<code
-              >exec</code
-            >
-            e quinta domanda recepite in un colpo, idempotenza provata, pilota
-            del montaggio deciso), <code>economia</code> è il più avanti dei
-            pendenti (<code>a48f701</code> — lo scostamento del primo battito è
-            sciolto: dodici commit recepiti,
-            <code>tasks-review</code> rinominata), poi
-            <code>bi</code> (<code>b42164c</code>) e
-            <code>salute</code> (<code>6133ace</code>). Gli intervalli pendenti
-            sono in gran parte nodi symlink-soddisfatti e cronache i1 interne;
-            il contenuto vero in attesa sono le due prescrizioni attive (<code
+            <code>nixos</code> e <code>salute</code> hanno chiuso il giro in
+            giornata (marker a <code>0128891</code> — rifilatura
+            <code>eval</code>/<code>exec</code> e quinta domanda recepite in un
+            colpo, piloti del montaggio decisi; <code>salute</code> col commit
+            locale <code>e6d6f28</code>), <code>economia</code> è il più avanti
+            dei pendenti (<code>a48f701</code> — lo scostamento del primo
+            battito è sciolto: dodici commit recepiti,
+            <code>tasks-review</code> rinominata), resta
+            <code>bi</code> (<code>b42164c</code>). Gli intervalli pendenti sono
+            in gran parte nodi symlink-soddisfatti e cronache i1 interne; il
+            contenuto vero in attesa sono le due prescrizioni attive (<code
               >quinta-domanda-verdetti</code
             >
-            e <code>skill-per-arco</code>), che attendono <code>economia</code>,
-            <code>salute</code> e <code>bi</code>. Nessun
+            e <code>skill-per-arco</code>), che attendono
+            <code>economia</code> e <code>bi</code>. Nessun
             <code>action-required</code>.
           </p>
           <p>
@@ -154,14 +152,16 @@
               <strong>ritorno della sua stessa percezione</strong>: «vista a
               mano inverte l’effetto» (f8e8a73) è diventata il contratto
               derivata-implica-verificata (a7fa93e) e il canone della freschezza
-              — il loop dal basso ha inciso, la gamba di ritorno attende il suo
-              <code>method-review</code>.
+              — il loop dal basso ha inciso, e la gamba di ritorno è arrivata in
+              giornata col recepimento (<code>e6d6f28</code>): il giro
+              percezione→canone→ritorno chiuso in quattro giorni.
             </li>
           </ul>
           <p>
-            Superfici e viste: <code>nixos</code>, <code>bi</code> ed
-            <code>economia</code> hanno recepito il contratto
-            plan×<code>o2/</code>; <code>salute</code> lo riceve col gap. Nessun
+            Superfici e viste: tutti e quattro i recepenti hanno ora il
+            contratto plan×<code>o2/</code> (<code>salute</code> l’ha cablato
+            col recepimento, e ha rotto al primo giro su una divergenza reale);
+            su questo asse resta da guardare solo <code>economia</code>. Nessun
             segnale rosso rilevato, col limite dichiarato sotto.
           </p>
           <p>
@@ -183,9 +183,10 @@
               non è dimostrato su più giri regolari;
             </li>
             <li>
-              le due prescrizioni attive: <code>nixos</code> le ha recepite
-              entrambe in giornata (2026-08-01); restano <code>economia</code>,
-              <code>salute</code> e <code>bi</code> — verificare al giro di
+              le due prescrizioni attive: <code>nixos</code> e
+              <code>salute</code>
+              le hanno recepite entrambe in giornata (2026-08-01); restano
+              <code>economia</code> e <code>bi</code> — verificare al giro di
               settembre;
             </li>
             <li>
@@ -193,8 +194,11 @@
               — verificare sciolte al giro di settembre;
             </li>
             <li>
-              <code>salute</code>: la gamba di ritorno della sua percezione
-              (contratto e freschezza delle viste) — verificare recepita.
+              <code>salute</code>: la gamba di ritorno della sua percezione è
+              arrivata col recepimento (<code>e6d6f28</code>: contratto
+              plan×<code>o2/</code> cablato nel generatore della home, che ha
+              subito rotto su una divergenza reale) — resta nella sua coda la
+              domanda se la home basti a esercitare il contratto.
             </li>
           </ul>
         </section>
@@ -1177,24 +1181,40 @@
             delicato.
           </p>
           <p>
-            <strong>Il primo pilota ha deciso</strong> (<code>nixos</code>,
-            2026-08-01, esito dichiarato nel suo marker e acquisito dal canale):
-            entrambe le skill di dominio restano <strong>autonome</strong>, per
-            un criterio che la ricognizione non aveva visto — nelle skill
-            parametriche
-            <strong>è il ramo a determinare l’arco, non chi invoca</strong>,
-            quindi montarle come argomento delle canoniche costringerebbe il
-            chiamante a dichiarare un arco che il ramo ha già deciso: lo stesso
-            signifier-che-mente che il canone vieta. E la skill mono-stadio dal
-            signifier onesto (<code>nix-overlay-update</code>) non retrocede a
-            runbook, perché la retrocessione costerebbe l’invocazione senza
-            rendere nulla. L’assorbimento resta ipotesi solo per le superfici
-            mono-arco (<code>salute</code>, <code>economia</code>,
-            <code>bi</code>); il criterio sale a canone se un secondo pilota lo
-            conferma. Watchpoint: il pilota <code>nixos</code> ha deciso sulla
+            <strong>I primi due piloti hanno deciso</strong> (2026-08-01,
+            indipendentemente l’uno dall’altro nello stesso giorno —
+            <code>salute</code> ha deciso senza conoscere l’esito di
+            <code>nixos</code>, e il suo ledger si crede primo: cronaca innocua,
+            la convergenza indipendente rafforza il criterio invece di
+            indebolirlo). Gli esiti opposti stringono il criterio dai due lati:
+            <code>nixos</code> tiene <strong>autonome</strong> le sue skill —
+            nelle skill parametriche
+            <strong>è il ramo a determinare l’arco, non chi invoca</strong>, e
+            montarle come argomento costringerebbe il chiamante a dichiarare un
+            arco che il ramo ha già deciso (signifier che mente); la skill
+            mono-stadio dal signifier onesto (<code>nix-overlay-update</code>)
+            non retrocede a runbook, perché la retrocessione costerebbe
+            l’invocazione senza rendere nulla. <code>salute</code>
+            <strong>assorbe</strong> <code>elabora-trascrizione</code> come
+            scope <code>trascrizione</code> sotto <code>eval</code> — superficie
+            mono-arco e mono-stadio (<code>perceive</code>: la distillazione
+            seleziona senza giudicare, cattura i1 e non sintesi i2),
+            <strong>fuori da <code>all</code></strong> perché il canale
+            event-driven non diventi rituale. Con la doppia conferma
+            <strong
+              >il criterio e la regola dello sweep sono saliti a canone</strong
+            >
+            (<code>kb/skill.md</code>); il montaggio resta sperimentale per le
+            sole superfici non pilotate (<code>economia</code> →
+            <code>bi</code>). Watchpoint: entrambi i piloti hanno deciso sulla
             <strong>forma</strong>, non sull’uso — il primo giro reale di
-            <code>eval</code>/<code>exec</code> lì è il collaudo che manca, ed è
-            materia della clausola di uscita.
+            <code>eval</code>/<code>exec</code> negli adottanti è il collaudo
+            che manca (materia della clausola di uscita); e
+            <code>salute</code> solleva che il suo contratto plan×<code
+              >o2/</code
+            >
+            non ha una vista che lo eserciti pienamente oltre la home (resta
+            nella sua coda).
           </p>
           <p>
             <strong
@@ -1641,11 +1661,20 @@
             due — <code>salute</code> (quadro corporeo) e
             <code>metodo</code> (plan × <code>o2/</code>), convergenti su
             indicizzazione, coerenza dei valori dichiarati due volte e varianti
-            ammesse invece che appiattite — e <code>bi</code> e
-            <code>nixos</code> ne sono i recepimenti, arrivati col normale
-            <code>method-review</code> senza bisogno di una prescrizione
-            <code>o3/</code>. Resta <code>economia</code>, che il battito
-            dell’11 agosto guarderà con la lente 5.
+            ammesse invece che appiattite — e <code>bi</code>,
+            <code>nixos</code> e <code>salute</code> stessa ne sono i
+            recepimenti, arrivati col normale <code>method-review</code> senza
+            bisogno di una prescrizione <code>o3/</code>. <code>salute</code> è
+            la quinta istanza della stessa dinamica (2026-08-01,
+            <code>e6d6f28</code>): il suo <code>parse_plan</code> era codice
+            morto, importato da nessun generatore, quindi nulla legava una riga
+            del plan al suo file — il recepimento l’ha cablato nel generatore
+            della home e il contratto ha rotto la build al primo giro su una
+            divergenza reale di titolo (H1 di <code>o2/</code> contro riga del
+            plan), il terzo adottante su tre a pagarla al primo contatto. Resta
+            <code>economia</code>, unico repo su cinque non ancora guardato su
+            questo asse (la lente 5 del battito, al giro di settembre o al suo
+            <code>method-review</code>).
           </p>
           <p>
             <strong>Due obblighi, non uno.</strong> Ratificato il 2026-07-29

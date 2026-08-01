@@ -112,19 +112,27 @@ assorbirla, dividerla fra i due archi o mantenerla autonoma. Ordine ratificato
 dal custode (2026-08-01): **`nixos` → `salute` → `economia` → `bi`**, dal caso
 multi-scope già collaudato a quello più complesso e delicato.
 
-**Il primo pilota ha deciso** (`nixos`, 2026-08-01, esito dichiarato nel suo
-marker e acquisito dal canale): entrambe le skill di dominio restano
-**autonome**, per un criterio che la ricognizione non aveva visto — nelle
-skill parametriche **è il ramo a determinare l'arco, non chi invoca**, quindi
-montarle come argomento delle canoniche costringerebbe il chiamante a
-dichiarare un arco che il ramo ha già deciso: lo stesso signifier-che-mente
-che il canone vieta. E la skill mono-stadio dal signifier onesto
-(`nix-overlay-update`) non retrocede a runbook, perché la retrocessione
-costerebbe l'invocazione senza rendere nulla. L'assorbimento resta ipotesi
-solo per le superfici mono-arco (`salute`, `economia`, `bi`); il criterio
-sale a canone se un secondo pilota lo conferma. Watchpoint: il pilota `nixos`
-ha deciso sulla **forma**, non sull'uso — il primo giro reale di `eval`/`exec`
-lì è il collaudo che manca, ed è materia della clausola di uscita.
+**I primi due piloti hanno deciso** (2026-08-01, indipendentemente l'uno
+dall'altro nello stesso giorno — `salute` ha deciso senza conoscere l'esito
+di `nixos`, e il suo ledger si crede primo: cronaca innocua, la convergenza
+indipendente rafforza il criterio invece di indebolirlo). Gli esiti opposti
+stringono il criterio dai due lati: `nixos` tiene **autonome** le sue skill —
+nelle skill parametriche **è il ramo a determinare l'arco, non chi invoca**,
+e montarle come argomento costringerebbe il chiamante a dichiarare un arco
+che il ramo ha già deciso (signifier che mente); la skill mono-stadio dal
+signifier onesto (`nix-overlay-update`) non retrocede a runbook, perché la
+retrocessione costerebbe l'invocazione senza rendere nulla. `salute`
+**assorbe** `elabora-trascrizione` come scope `trascrizione` sotto `eval` —
+superficie mono-arco e mono-stadio (`perceive`: la distillazione seleziona
+senza giudicare, cattura i1 e non sintesi i2), **fuori da `all`** perché il
+canale event-driven non diventi rituale. Con la doppia conferma **il criterio
+e la regola dello sweep sono saliti a canone** (`kb/skill.md`); il montaggio
+resta sperimentale per le sole superfici non pilotate (`economia` → `bi`).
+Watchpoint: entrambi i piloti hanno deciso sulla **forma**, non sull'uso — il
+primo giro reale di `eval`/`exec` negli adottanti è il collaudo che manca
+(materia della clausola di uscita); e `salute` solleva che il suo contratto
+plan×`o2/` non ha una vista che lo eserciti pienamente oltre la home (resta
+nella sua coda).
 
 **`eval perceive` può essere il vuoto rituale.** Dove la percezione è
 event-driven, una skill che chiede «è arrivata posta?» quando la posta _è_ il

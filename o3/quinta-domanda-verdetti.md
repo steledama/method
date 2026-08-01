@@ -63,11 +63,10 @@ la rinomina l'avrebbe lasciata spenta negli adottanti per settimane note.
 
 ## Ordine e chiusura
 
-`economia` per primo, gli altri in qualunque ordine al loro prossimo
-`method-review`. `nixos` l'ha già chiusa recependo la rifilatura
-`skill-per-arco` (2026-08-01: il fork di `eval` porta le cinque domande con
-le quantità di dominio). La prescrizione resta attiva finché i quattro non
-l'hanno recepita; recepita da tutti, si rimuove dalla collezione — la storia resta in
+`economia` per primo, `bi` in coda al suo prossimo `method-review`. `nixos` e
+`salute` l'hanno già chiusa recependo la rifilatura `skill-per-arco`
+(2026-08-01: il fork di `eval` porta le cinque domande con le quantità di
+dominio). La prescrizione resta attiva finché i quattro non l'hanno recepita; recepita da tutti, si rimuove dalla collezione — la storia resta in
 git. La prescrizione della rifilatura `eval`/`exec` che seguirà sposterà le
 cinque domande sotto `eval compare`: recepire questa non anticipa quella, e la
 rinomina troverà la quinta domanda già al suo posto.

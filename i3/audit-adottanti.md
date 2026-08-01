@@ -14,16 +14,16 @@ dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
 
 ## Verdetto
 
-Il canale del canone è vivo e i quattro sono `aligned`: `nixos` ha chiuso il
-giro in giornata (marker a `0128891` — rifilatura `eval`/`exec` e quinta
-domanda recepite in un colpo, idempotenza provata, pilota del montaggio
-deciso), `economia` è il più avanti dei pendenti (`a48f701` — lo scostamento
-del primo battito è sciolto: dodici commit recepiti, `tasks-review`
-rinominata), poi `bi` (`b42164c`) e `salute` (`6133ace`). Gli intervalli
-pendenti sono in gran parte nodi symlink-soddisfatti e cronache i1 interne;
-il contenuto vero in attesa sono le due prescrizioni attive
-(`quinta-domanda-verdetti` e `skill-per-arco`), che attendono `economia`,
-`salute` e `bi`. Nessun `action-required`.
+Il canale del canone è vivo e i quattro sono `aligned`: `nixos` e `salute`
+hanno chiuso il giro in giornata (marker a `0128891` — rifilatura
+`eval`/`exec` e quinta domanda recepite in un colpo, piloti del montaggio
+decisi; `salute` col commit locale `e6d6f28`), `economia` è il più avanti dei
+pendenti (`a48f701` — lo scostamento del primo battito è sciolto: dodici
+commit recepiti, `tasks-review` rinominata), resta `bi` (`b42164c`). Gli
+intervalli pendenti sono in gran parte nodi symlink-soddisfatti e cronache i1
+interne; il contenuto vero in attesa sono le due prescrizioni attive
+(`quinta-domanda-verdetti` e `skill-per-arco`), che attendono `economia` e
+`bi`. Nessun `action-required`.
 
 Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
@@ -52,12 +52,14 @@ ciascun dominio (`development-goal`, fotografie per artefatto):
   coerente col riequilibrio prescritto. Il suo gap contiene il **ritorno
   della sua stessa percezione**: «vista a mano inverte l'effetto» (f8e8a73) è
   diventata il contratto derivata-implica-verificata (a7fa93e) e il canone
-  della freschezza — il loop dal basso ha inciso, la gamba di ritorno attende
-  il suo `method-review`.
+  della freschezza — il loop dal basso ha inciso, e la gamba di ritorno è
+  arrivata in giornata col recepimento (`e6d6f28`): il giro
+  percezione→canone→ritorno chiuso in quattro giorni.
 
-Superfici e viste: `nixos`, `bi` ed `economia` hanno recepito il contratto
-plan×`o2/`; `salute` lo riceve col gap. Nessun segnale rosso rilevato, col
-limite dichiarato sotto.
+Superfici e viste: tutti e quattro i recepenti hanno ora il contratto
+plan×`o2/` (`salute` l'ha cablato col recepimento, e ha rotto al primo giro
+su una divergenza reale); su questo asse resta da guardare solo `economia`.
+Nessun segnale rosso rilevato, col limite dichiarato sotto.
 
 Classificazione degli scostamenti: **nessuna prescrizione nuova** (le due in
 canna — quinta domanda attiva, rifilatura pianificata — coprono tutto il
@@ -70,13 +72,15 @@ stantie e orologi sforati = **code di dominio**.
 - ripetibilità: due battiti eseguiti (il secondo anticipato di dieci giorni):
   la cella runtime-o1 della matrice resta D finché il ritmo non è dimostrato
   su più giri regolari;
-- le due prescrizioni attive: `nixos` le ha recepite entrambe in giornata
-  (2026-08-01); restano `economia`, `salute` e `bi` — verificare al giro di
+- le due prescrizioni attive: `nixos` e `salute` le hanno recepite entrambe
+  in giornata (2026-08-01); restano `economia` e `bi` — verificare al giro di
   settembre;
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;
-- `salute`: la gamba di ritorno della sua percezione (contratto e freschezza
-  delle viste) — verificare recepita.
+- `salute`: la gamba di ritorno della sua percezione è arrivata col
+  recepimento (`e6d6f28`: contratto plan×`o2/` cablato nel generatore della
+  home, che ha subito rotto su una divergenza reale) — resta nella sua coda
+  la domanda se la home basti a esercitare il contratto.
 
 ## Limiti
 

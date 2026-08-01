@@ -17,15 +17,16 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   domanda «è più sicuro del suo materiale?» (`64f0ec0`), sganciato dalla
   rinomina `eval`/`exec` per non lasciare spenta la guardia nelle settimane
   del pilota. `economia` per primo. Chi recepisce prima `skill-per-arco`
-  chiude anche questa: `nixos` l'ha fatto (2026-08-01); restano `economia`,
-  `salute`, `bi`.
+  chiude anche questa: `nixos` e `salute` l'hanno fatto (2026-08-01); restano
+  `economia` e `bi`.
 - [skill-per-arco](skill-per-arco.md) — **attiva** (2026-08-01): la
   rifilatura `plan-review`/`verdicts-review` → `exec`/`eval` tripartite sui
   sei scope-stadio, con rimozione della coppia dopo la rifilatura del fork
   locale; porta il montaggio delle skill di dominio come **esperimento
-  sequenziale**, non come esito deciso. `nixos` recepita (2026-08-01, pilota
-  del montaggio deciso: skill di dominio autonome, il ramo determina l'arco);
-  restano `salute`, `economia`, `bi`.
+  sequenziale**, non come esito deciso. Recepita da `nixos` (autonome: il
+  ramo determina l'arco) e `salute` (assorbita: `eval trascrizione` sotto
+  `perceive`, fuori da `all`), 2026-08-01 — il criterio è confermato dai due
+  lati e inciso in `kb/skill.md`; restano `economia` e `bi`.
 
 L'ultima chiusa è `poli-register` (register gemelli `goal.md`/`world.md` che
 assorbono `map.md` e `sources.md`, home che rende l'intro dei register,

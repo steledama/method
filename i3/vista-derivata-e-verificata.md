@@ -157,9 +157,16 @@ dei quattro.
 Watchpoint chiuso sul contratto: le invenzioni indipendenti restano due —
 `salute` (quadro corporeo) e `metodo` (plan × `o2/`), convergenti su
 indicizzazione, coerenza dei valori dichiarati due volte e varianti ammesse
-invece che appiattite — e `bi` e `nixos` ne sono i recepimenti, arrivati col
-normale `method-review` senza bisogno di una prescrizione `o3/`. Resta
-`economia`, che il battito dell'11 agosto guarderà con la lente 5.
+invece che appiattite — e `bi`, `nixos` e `salute` stessa ne sono i
+recepimenti, arrivati col normale `method-review` senza bisogno di una
+prescrizione `o3/`. `salute` è la quinta istanza della stessa dinamica
+(2026-08-01, `e6d6f28`): il suo `parse_plan` era codice morto, importato da
+nessun generatore, quindi nulla legava una riga del plan al suo file — il
+recepimento l'ha cablato nel generatore della home e il contratto ha rotto la
+build al primo giro su una divergenza reale di titolo (H1 di `o2/` contro
+riga del plan), il terzo adottante su tre a pagarla al primo contatto. Resta
+`economia`, unico repo su cinque non ancora guardato su questo asse (la lente
+5 del battito, al giro di settembre o al suo `method-review`).
 
 **Due obblighi, non uno.** Ratificato il 2026-07-29 dalla valutazione i2→i3 della
 percezione «una vista generata può essere stale senza che nulla diverga»

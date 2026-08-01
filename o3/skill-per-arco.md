@@ -2,7 +2,7 @@
 data: 2026-08-01
 stato: attiva
 ciclo: runtime
-target: salute, economia, bi (nixos recepita 2026-08-01, montaggio deciso)
+target: economia, bi (nixos e salute recepite 2026-08-01, piloti decisi)
 ---
 
 # La rifilatura per arco: `plan-review`/`verdicts-review` → `exec`/`eval`
@@ -56,30 +56,37 @@ quartetto: due archi, un'ala (`kb-review`), un gate (`commit`). Pilotato in
 La ricognizione della flotta (2026-08-01, matrice in
 `o2/skill-archi-tripartite.md` di `method` finché il task è aperto) suggerisce
 che le skill di dominio non siano tutte atti da appendere a `perform`: si
-distribuiscono sui sei stadi e su entrambi gli archi. È **ipotesi da
-pilotare**, nell'ordine residuo **`salute` → `economia` → `bi`**. Ogni pilota
-decide esplicitamente, per ciascuna skill: **assorbita** come argomento delle
+distribuiscono sui sei stadi e su entrambi gli archi. Ogni pilota decide
+esplicitamente, per ciascuna skill: **assorbita** come scope di dominio delle
 canoniche (`eval finanze`, `exec ordini <fornitore>`), **divisa** fra i due
 archi, o **mantenuta autonoma**. I risultati correggono questa prescrizione;
 solo le forme provate risalgono a canone.
 
-Il primo pilota è **deciso** (`nixos`, 2026-08-01, esito dichiarato nel suo
-marker): entrambe le skill di dominio **restano autonome**, per un criterio
-che la ricognizione non aveva visto — nelle skill parametriche **è il ramo a
-determinare l'arco, non chi invoca**: montare `aggiorna` come argomento
-(`exec aggiorna casa`) costringerebbe il chiamante a dichiarare un arco che
-il ramo ha già deciso, lo stesso signifier-che-mente che questo canone vieta.
-E `nix-overlay-update` (un arco, uno stadio, signifier onesto) non retrocede
-a runbook: la retrocessione costerebbe l'invocazione senza dare nulla che il
-catalogo `o3/` non dia già. **Criterio per i piloti restanti**: dove
-l'argomento decide l'arco, la skill resta autonoma; l'assorbimento si valuta
-solo dove l'intera superficie insiste su un arco. Le superfici di `salute`,
-`economia` e `bi` sono mono-arco: per loro l'ipotesi resta aperta. Le
-collocazioni candidate:
+I primi due piloti hanno **deciso** (2026-08-01, indipendentemente l'uno
+dall'altro nello stesso giorno, esiti nei rispettivi marker e ledger), e gli
+esiti opposti stringono il criterio dai due lati:
 
-- **`salute`** — `elabora-trascrizione` → `eval trascrizione`; questione: la
-  distillazione produce grezzo catturato o già una sintesi? Qui si normalizza
-  anche il frontmatter di vecchio stile.
+- **`nixos` — autonome entrambe.** Nelle skill parametriche **è il ramo a
+  determinare l'arco, non chi invoca**: montare `aggiorna` come argomento
+  (`exec aggiorna casa`) costringerebbe il chiamante a dichiarare un arco che
+  il ramo ha già deciso — il signifier-che-mente che questo canone vieta. E
+  `nix-overlay-update` (un arco, uno stadio, signifier onesto) non retrocede
+  a runbook: costerebbe l'invocazione senza dare nulla che il catalogo `o3/`
+  non dia già.
+- **`salute` — assorbita.** `elabora-trascrizione` diventa lo scope di
+  dominio `trascrizione` sotto `eval`, con lo stadio dichiarato (`perceive`:
+  la distillazione seleziona senza giudicare — tiene il contenuto della
+  fonte, non il giudizio: cattura i1, non sintesi i2) e **fuori da `all`**,
+  perché un canale event-driven non diventi passaggio rituale; frontmatter
+  normalizzato e chiusura del ciclo di vita aggiunta.
+
+**Il criterio è confermato e vincola i due piloti restanti** (inciso in
+`kb/skill.md`): dove l'argomento decide l'arco, la skill resta autonoma; dove
+l'intera superficie insiste su un arco, l'assorbimento come scope di dominio
+funziona — lo scope dichiara il proprio stadio e **non entra nello sweep
+`all`**, che percorre i soli scope-stadio. Le collocazioni candidate
+restanti, nell'ordine **`economia` → `bi`**:
+
 - **`economia`** — `finanze-review` → `eval finanze` (arco intero); `posta` e
   `registrazioni` → `eval posta`, `eval registrazioni` (canali `perceive`);
   questione: l'argomento conserva un handoff leggibile verso `exec plan`? un
@@ -95,9 +102,9 @@ può essere esecutivo su un ramo e diagnostico su un altro.
 ## Ordine e chiusura
 
 La **rifilatura** (passi 1-5) si recepisce in qualunque ordine, al prossimo
-`method-review` di ciascuno (`nixos` ha chiuso il 2026-08-01, con
-idempotenza provata). Il **pilota del montaggio** è sequenziale
-(`salute` è il prossimo) e vive nelle code locali: questa prescrizione non
+`method-review` di ciascuno (`nixos` e `salute` hanno chiuso il 2026-08-01).
+Il **pilota del montaggio** è sequenziale
+(`economia` è il prossimo) e vive nelle code locali: questa prescrizione non
 inserisce task — la decisione di quando pilotare è dell'adottante, l'ordine
 fra adottanti è del custode. La prescrizione resta attiva finché i quattro
 non hanno recepito la rifilatura; gli esiti del montaggio la correggono
