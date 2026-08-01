@@ -14,8 +14,9 @@ le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
   (`/kb-review`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
-  lavoro: obiettivo **a regime**, nessun fronte aperto — i verdetti pendenti
-  attendono l'uso reale (bozza→maturo, tipologia, matrice, facet).
+  lavoro: un fronte aperto — il task «Skill per arco: `eval` ed `exec`
+  tripartite» (`Ob. 1` nel plan); i verdetti pendenti attendono l'uso reale
+  (bozza→maturo, tipologia, matrice, facet).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
@@ -28,8 +29,9 @@ proprio `method-review`, senza che `metodo` gestisca le loro code.
   dell'audit mensile), filo
   [poli-register-goal-world](i3/poli-register-goal-world.md);
   lavoro: obiettivo **a regime** — il giro vive nei `method-review` degli
-  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze` e
-  nessuna prescrizione è aperta in `o3/`; watchpoint: la disciplina del register
+  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze`;
+  una prescrizione attiva in `o3/` (`quinta-domanda-verdetti`, 2026-08-01)
+  attende il recepimento dei quattro; watchpoint: la disciplina del register
   di `salute` al suo primo `verdicts-review`.
 
 ### 3. Ascoltare il basso
@@ -64,8 +66,8 @@ runtime-o1 che chiude il giro dall'alto — vive in `## Scadenze`.
 - Custode umano: Stefano. Gli agenti propongono scostamenti, non riscrivono il
   nord.
 - Ogni obiettivo ha almeno un segnale vivo; ogni task di `o1/plan.md` serve un
-  obiettivo di questo register — `/plan-review` verifica la direzione
-  task→obiettivo, `/verdicts-review` la direzione obiettivo→segnale/filo.
+  obiettivo di questo register — `exec plan` verifica la direzione
+  task→obiettivo, `eval compare` la direzione obiettivo→segnale/filo.
 - La direzione task→obiettivo vive nella colonna `Ob.` del plan, non in un
   elenco qui: la chiave è il **numero** dell'obiettivo runtime, `S` per il Goal
   di sviluppo ([plan](kb/plan.md)). Numerazione stabile: rinumerare un obiettivo

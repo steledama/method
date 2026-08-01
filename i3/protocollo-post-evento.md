@@ -2,7 +2,7 @@
 ciclo: dev
 ---
 
-# Le review comunicano per protocollo post-evento, non per fusione
+# I due archi comunicano per protocollo post-evento, non per fusione
 
 Ratificato (2026-07-12), dalla valutazione i2→i3 della percezione «le due
 review dei bracci sembrano compartimenti stagni» (sollevata dal custode su
@@ -36,10 +36,13 @@ scritto. Il pilota (skill `email` istituita → cattura → `verdicts-review` �
   misure verso il basso e proposte verso l'alto, mai per scritture
   automatiche sugli scopi.
 
-Trattamento applicato: protocollo inciso nelle copie canoniche di
-`verdicts-review` e `plan-review` (posizione nel protocollo nel cappello,
-passo di handoff in chiusura) e nel paragrafo della coppia simmetrica in
-`skill.md`. Gli adottanti lo recepiranno al prossimo giro di `method-review`.
+Trattamento applicato: protocollo inciso nelle copie canoniche — oggi la
+coppia per arco `eval`/`exec` (rifilatura 2026-08-01: ordine nel cappello,
+handoff in chiusura di `compare` e `plan`) — e in `skill.md` («Protocollo
+post-evento e gate»); l'ordine si scrive `eval` → `exec`, con gli stadi
+dentro gli archi. Negli adottanti vige nella forma precedente
+(`verdicts-review`/`plan-review`) finché la prescrizione della rifilatura non
+arriva.
 
 Watchpoint aperti: il pattern «email come superficie i1» ha una sola istanza
 (`economia`); il secondo segnale atteso è la casella `acquisti@` della skill

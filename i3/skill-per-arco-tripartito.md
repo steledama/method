@@ -142,6 +142,20 @@ averla promessa:
 
 Primo pilota: **`metodo` stesso**, che ha entrambi i cicli ed è il repo dove
 l'errore costa meno; prova i sei scope canonici, non il montaggio di dominio.
+**Il primo giro end-to-end è compiuto** (2026-08-01, skill montate in `metodo`
+al posto della coppia): sei esiti espliciti — due sostanziosi (`perceive`,
+`compare`), quattro nulli o quasi, primo punto della serie che la clausola di
+uscita osserva. L'attrito emerso: la dicitura «via `world/`» ereditata
+verbatim da `verdicts-review` era stale rispetto alla membrana reale (il
+register dichiara checkout nel territorio, nessun symlink root — corretta
+nella skill), e da un host si leggono solo i marker del suo territorio. Le
+conferme: l'ordine ha pagato al primo giro — `eval compare` ha intercettato
+due fotografie stale di `goal.md` (prescrizione aperta non registrata,
+«nessun fronte aperto» con un fronte vivo) prima che `exec plan`
+ripianificasse su un register falso; nessuna sovrapposizione dannosa fra
+`compare` e `plan`, che leggono le stesse fonti da versanti opposti. Il
+secondo collaudo candidato è il battito `/adopters-review` del 2026-08-11,
+con la posta vera degli adottanti, prima dell'incisione.
 La propagazione ai quattro nasce come prescrizione `o3/` quando quel nucleo è
 inciso — questa volta serve, a differenza della colonna `Ob.`: tocca
 `.claude/skills/` e `.codex/skills/` di ogni repo, i `CLAUDE.md`, e le righe

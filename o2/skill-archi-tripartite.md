@@ -241,22 +241,24 @@ plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
 
 ## Sequenza
 
-1. riscrivere `kb/skill.md` col taglio nuovo (il canone prima delle skill: le
-   skill sono interfacce sul canone, non la sua sede); il nodo resta
-   `stato: bozza` fino a pilota concluso — l'incisione è al passo 5;
-2. scrivere `eval` ed `exec` in `metodo`, rifilando le procedure
-   esistenti **a diff contro le due SKILL.md correnti** (§Invarianti) e
-   aggiungendo i tre stadi scoperti; wrapper Codex;
+1. **fatto** (`20299fd`) — riscrivere `kb/skill.md` col taglio nuovo (il
+   canone prima delle skill: le skill sono interfacce sul canone, non la sua
+   sede); il nodo resta `stato: bozza` fino a pilota concluso — l'incisione è
+   al passo 5;
+2. **fatto** (`f1e654e`) — scrivere `eval` ed `exec` in `metodo`, rifilando le
+   procedure esistenti **a diff contro le due SKILL.md correnti**
+   (§Invarianti) e aggiungendo i tre stadi scoperti; wrapper Codex;
 3. l'ipotesi su `adopters-review` è fissata (task e filo): resta skill di
    dominio distinta e produce materiale che `eval perceive` può acquisire;
    l'assorbimento è una variante da rivalutare solo dopo l'uso, non
    un'ambiguità dell'interfaccia da pilotare;
-4. **pilotare su `metodo`** i due archi end-to-end su almeno un evento reale —
-   candidato naturale il battito `/adopters-review` del 2026-08-11, che porta
-   esattamente la posta che `eval perceive` raccoglie; ogni scope
-   restituisce un esito esplicito, anche nullo, e il filo registra attriti,
-   sovrapposizioni e passaggi che non hanno cambiato l'artefatto _prima_ di
-   propagare;
+4. **pilotare su `metodo`** i due archi end-to-end su almeno un evento reale;
+   ogni scope restituisce un esito esplicito, anche nullo, e il filo registra
+   attriti, sovrapposizioni e passaggi che non hanno cambiato l'artefatto
+   _prima_ di propagare. **Primo giro compiuto** (2026-08-01: sei esiti,
+   attriti e conferme nel filo); il secondo collaudo candidato è il battito
+   `/adopters-review` del 2026-08-11, che porta esattamente la posta che
+   `eval perceive` raccoglie — l'incisione del passo 5 attende quel giro;
 5. aggiornare nodi, register, bussole e skill consumatrici (incisione dei soli
    sei scope canonici in `kb/skill.md`); emettere la prescrizione `o3/` per i
    quattro. La prescrizione porta la matrice sopra come **ipotesi di
