@@ -61,7 +61,9 @@ adottante deciderebbe se è una qualificazione da incidere in `goal`/`agent` o u
 proprietà locale dei domini a bassa delegabilità.
 
 Watchpoint: il collaudo delle cinque domande al prossimo `verdicts-review` di
-`economia` e degli altri adottanti (la skill è canonica qui, i fork la ereditano
-col `method-review`); la marcatura di provenienza sulle quantità già presenti nei
+`economia` e degli altri adottanti — il backport ai fork viaggia nella
+prescrizione `o3/quinta-domanda-verdetti.md` (2026-08-01, `economia` per
+primo), sganciata dalla rinomina `eval`/`exec` per non lasciare spenta la
+guardia; la marcatura di provenienza sulle quantità già presenti nei
 fili — non si ritratta all'indietro tutto lo storico, ma un numero che regge una
 tesi e non porta provenienza va risolto quando il filo si tocca.

@@ -59,19 +59,27 @@ e l'handoff «impatti sul piano» verso `exec`.
 
 ## Il canovaccio di `exec [plan|specify|perform|all]`
 
-**`plan`** — la coda: drift `o1/plan.md`↔`o2/`, ordine e priorità, dipendenze
-reali (non preferenze d'ordine), direzione task→obiettivo letta dalla colonna
-`Ob.`, `## Scadenze` e finestre tattiche, task consigliato per la sessione. È il
-cuore dell'attuale `plan-review`.
+Il braccio di esecuzione, nell'ordine del ciclo, simmetrico a `eval`: default
+`all`, ogni stadio invocabile da solo, e anche qui ogni stadio può **chiudere
+in una riga** quando non ha materia («coda coerente, nessun intervento») — il
+criterio di chiusura pretende un esito esplicito da tutti e sei gli scope, e
+l'esito nullo è esito.
+
+**`plan`** — la coda: drift `o1/plan.md`↔`o2/` — il contratto plan×`o2/` lo
+verifica il generatore, e lo scope lo invoca e ne interpreta l'esito, non lo
+reimplementa —, ordine e priorità, dipendenze reali (non preferenze d'ordine),
+direzione task→obiettivo letta dalla colonna `Ob.`, `## Scadenze` e finestre
+tattiche, task consigliato per la sessione. È il cuore dell'attuale
+`plan-review`.
 
 **`specify`** — i dettagli, con un confine netto verso `plan`: `plan` guarda la
-corrispondenza e l'ordine delle righe (il piano come coda), `specify` la
-qualità interna dei file `o2/`. Ogni task sostanziale ha il suo file, il
-frontmatter è completo (`sintesi`, `ciclo`), i diari di sessione si potano a
-chiusura; il contratto plan×`o2/` lo verifica il generatore — lo scope lo
-invoca e ne interpreta l'esito, non lo reimplementa. Qui vivono le **quattro
-proprietà cardine** come criteri di qualità dell'o2 — visibilità, feedback,
-mapping, constraint (`kb/specify.md`) — che oggi nessuna skill controlla mai.
+corrispondenza e l'ordine delle righe (il piano come coda, generatore incluso),
+`specify` la qualità interna dei file `o2/` — la corrispondenza non si verifica
+in due case. Ogni task sostanziale ha il suo file, il frontmatter è completo
+(`sintesi`, `ciclo`), i diari di sessione si potano a chiusura. Qui vivono le
+**quattro proprietà cardine** come criteri di qualità dell'o2 — visibilità,
+feedback, mapping, constraint (`kb/specify.md`) — che oggi nessuna skill
+controlla mai.
 
 **`perform`** — predisporre o compiere l'atto, secondo autorizzazione. Nel
 canone: la collezione `o3/` tiene solo il vivo (prescrizioni consumate potate,
@@ -167,8 +175,12 @@ categorizza`, `exec tassonomia`; stadi: `perform` con guardrail; confidenza:
   **alta** sulla collocazione; questione del pilota: dimostrare che
   l'assorbimento non nasconda il vincolo «solo lo script scrive».
 - **Arretrato dei fork**: **tutti e quattro** portano quattro domande in
-  `verdicts-review` (manca «è più sicuro del suo materiale?», `64f0ec0`): la
-  prescrizione assorbe rifilatura e arretrato in un solo recepimento. E gli
+  `verdicts-review` (manca «è più sicuro del suo materiale?», `64f0ec0`). Il
+  backport è **sganciato** da questo task (custode, 2026-08-01): viaggia
+  subito nella mini-prescrizione `o3/quinta-domanda-verdetti.md` — la domanda
+  è la guardia contro il modo di fallimento dei «400 €/mese», e attenderne la
+  rinomina l'avrebbe lasciata spenta negli adottanti per settimane note; la
+  prescrizione grande porta solo la rifilatura. E gli
   handoff delle skill-canale di `economia` (`posta`, `registrazioni`) citano
   `/verdicts-review` e `/plan-review` **per nome**: il grep della rinomina va
   esteso alle skill di dominio degli adottanti.
@@ -180,8 +192,12 @@ esistente ha una destinazione dichiarata sotto uno stadio, o una rimozione
 motivata. In particolare i pezzi che le enumerazioni sopra non nominano:
 
 - il **gate proponi-poi-applica**: le modifiche a collezioni e register si
-  applicano dopo conferma del custode; fa eccezione solo l'atto che
-  l'autorizzazione dello scope già copre (`aggiorna ia`);
+  applicano dopo conferma del custode, e il gate **prevale
+  sull'autorizzazione generica delle bussole** — in `metodo` il `CLAUDE.md`
+  consente la scrittura di `o1/plan.md` e dei fili `i3/` senza chiedere, ma
+  quella copertura è per il lavoro ordinario di sessione, non per
+  l'auto-applicazione degli esiti di una supervisione; fa eccezione solo
+  l'atto che l'autorizzazione dello scope già copre (`aggiorna ia`);
 - i **due handoff**: `eval compare` emette «impatti sul piano», `exec
 plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
   l'eccezione da giustificare al custode, il vuoto resta buon segno;
@@ -243,8 +259,9 @@ plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
    propagare;
 5. aggiornare nodi, register, bussole e skill consumatrici (incisione dei soli
    sei scope canonici in `kb/skill.md`); emettere la prescrizione `o3/` per i
-   quattro. La prescrizione porta l'arretrato dei fork (la quinta domanda) e la
-   matrice sopra come **ipotesi di montaggio**, non come esito già deciso;
+   quattro. La prescrizione porta la matrice sopra come **ipotesi di
+   montaggio**, non come esito già deciso; l'arretrato della quinta domanda
+   viaggia già per conto suo (`o3/quinta-domanda-verdetti.md`);
 6. prescrivere il pilotaggio del montaggio di dominio attraverso i
    `method-review` degli adottanti, nell'ordine **`nixos` → `salute` →
    `economia` → `bi`**. L'esecuzione resta nelle loro code; ogni pilota decide

@@ -12,7 +12,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-Nessuna prescrizione aperta.
+- [quinta-domanda-verdetti](quinta-domanda-verdetti.md) — **attiva**
+  (2026-08-01): backport ai quattro fork di `verdicts-review` della quinta
+  domanda «è più sicuro del suo materiale?» (`64f0ec0`), sganciato dalla
+  rinomina `eval`/`exec` per non lasciare spenta la guardia nelle settimane
+  del pilota. `economia` per primo.
 
 L'ultima chiusa è `poli-register` (register gemelli `goal.md`/`world.md` che
 assorbono `map.md` e `sources.md`, home che rende l'intro dei register,
