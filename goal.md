@@ -14,9 +14,10 @@ le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
   (`/kb-review`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
-  lavoro: un fronte aperto — il task «Skill per arco: `eval` ed `exec`
-  tripartite» (`Ob. 1` nel plan); i verdetti pendenti attendono l'uso reale
-  (bozza→maturo, tipologia, matrice, facet).
+  lavoro: la ristrutturazione delle skill per arco è chiusa (2026-08-01);
+  resta il task `pause` di rivalutazione della clausola di uscita (`Ob. 1`
+  nel plan); i verdetti pendenti attendono l'uso reale (bozza→maturo,
+  tipologia, matrice, facet).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 

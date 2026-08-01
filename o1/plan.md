@@ -13,15 +13,19 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
-| dev   | 1   | Skill per arco: `eval` ed `exec` tripartite              | —         |
 | dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |
 
 Legenda dipendenze esterne:
 
 `[a]` = trattenuto finché un write-through di canone non passa **inosservato** (o
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
+
+`[b]` = risveglio al **terzo battito** `/adopters-review` successivo al
+recepimento della prescrizione `skill-per-arco` da tutti e quattro gli
+adottanti. Vedi `o2/rivalutazione-skill-per-arco.md`.
 
 ## Scadenze
 

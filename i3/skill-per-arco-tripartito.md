@@ -7,9 +7,13 @@ ciclo: dev
 Deciso il 2026-07-31 (custode). Il quartetto operativo si ritaglia lungo il
 modello di Norman invece che lungo la storia della sua crescita: `plan-review` e
 `verdicts-review` diventano **`exec`** ed **`eval`**, ciascuna con i tre
-stadi del proprio arco dichiarati e invocabili come scope. Il lavoro vive nel
-task «Skill per arco: `eval` ed `exec` tripartite» (`o2/`); qui resta il
-verdetto e la clausola di uscita.
+stadi del proprio arco dichiarati e invocabili come scope. Il lavoro di
+ristrutturazione in `metodo` è **chiuso** (2026-08-01: canone inciso, coppia
+rifilata, prescrizione emessa; storia nel task `skill-archi-tripartite`, in
+git); restano vivi il recepimento e il pilotaggio del montaggio negli
+adottanti (prescrizione `o3/skill-per-arco.md`) e il task `pause` di
+rivalutazione (`o2/rivalutazione-skill-per-arco.md`); qui resta il verdetto e
+la clausola di uscita.
 
 **Il movimento è dall'alto, ed è legittimo.** Non è il caso «costruire per un
 futuro immaginato» che il dal-basso presidia: `method-development` dichiara i due
