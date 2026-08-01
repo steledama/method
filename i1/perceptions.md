@@ -14,6 +14,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   — da nixos: terza rinomina della stessa skill in poche settimane
   (`update` → `aggiorna` → `manutenzione`), nessuna regola esplicita in
   `skill.md` sulla classe grammaticale del nome.
+- [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
+  le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
+  `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
+  skill-owned sempre attuale, sync tra host via git); domanda più ampia se
+  i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
+  delle nature dei file che ospitano.
 
 Le ultime due catture precedenti — «la mappatura task→obiettivo vive
 solo nel register, a mano» e «il verdetto è più sicuro del materiale», entrambe
