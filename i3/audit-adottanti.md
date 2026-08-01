@@ -14,16 +14,14 @@ dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
 
 ## Verdetto
 
-Il canale del canone è vivo e i quattro sono `aligned`: `nixos` e `salute`
-hanno chiuso il giro in giornata (marker a `0128891` — rifilatura
-`eval`/`exec` e quinta domanda recepite in un colpo, piloti del montaggio
-decisi; `salute` col commit locale `e6d6f28`), `economia` è il più avanti dei
-pendenti (`a48f701` — lo scostamento del primo battito è sciolto: dodici
-commit recepiti, `tasks-review` rinominata), resta `bi` (`b42164c`). Gli
-intervalli pendenti sono in gran parte nodi symlink-soddisfatti e cronache i1
+Il canale del canone è vivo e i quattro sono `aligned`: **tre su quattro
+hanno chiuso il giro in giornata** — `nixos` e `salute` (marker a `0128891`;
+`salute` col commit `e6d6f28`) ed `economia` in serata (marker a `d2607f6`,
+commit `1844978`) — con rifilatura `eval`/`exec` e quinta domanda recepite in
+un colpo e i piloti del montaggio decisi. Resta `bi` (`b42164c`), il cui
+intervallo pendente è in gran parte nodi symlink-soddisfatti e cronache i1
 interne; il contenuto vero in attesa sono le due prescrizioni attive
-(`quinta-domanda-verdetti` e `skill-per-arco`), che attendono `economia` e
-`bi`. Nessun `action-required`.
+(`quinta-domanda-verdetti` e `skill-per-arco`). Nessun `action-required`.
 
 Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
@@ -44,9 +42,11 @@ ciascun dominio (`development-goal`, fotografie per artefatto):
   vista reggere alla lettura») è sciolta. Due orologi manuali sforati di un
   giorno: fisiologico.
 - **economia** — 17 task runtime, 0 dev, in-the-loop come da costituzione;
-  colonna `Ob.` viva (ne è l'origine), ordinamento dichiarato «per imminenza
-  della prossima mossa», chiose per titolo (divergenza registrata). Contratto
-  viste e freschezza già recepiti: è l'adottante più allineato.
+  colonna `Ob.` viva (ne è l'origine, e la divergenza è rientrata a canone in
+  quattro giorni), ordinamento dichiarato «per imminenza della prossima
+  mossa», chiose per titolo (divergenza registrata). Rifilatura recepita in
+  serata (`1844978`, marker a `d2607f6`): tre skill assorbite come scope di
+  `eval`, entrambe le prescrizioni chiuse.
 - **salute** — 7 task attivi (2 dev) più 7 sospesi ought in holding,
   `## Scadenze` di soli appuntamenti sanitari datati (imminente il 7/8):
   coerente col riequilibrio prescritto. Il suo gap contiene il **ritorno
@@ -56,10 +56,12 @@ ciascun dominio (`development-goal`, fotografie per artefatto):
   arrivata in giornata col recepimento (`e6d6f28`): il giro
   percezione→canone→ritorno chiuso in quattro giorni.
 
-Superfici e viste: tutti e quattro i recepenti hanno ora il contratto
-plan×`o2/` (`salute` l'ha cablato col recepimento, e ha rotto al primo giro
-su una divergenza reale); su questo asse resta da guardare solo `economia`.
-Nessun segnale rosso rilevato, col limite dichiarato sotto.
+Superfici e viste: `nixos`, `bi` e `salute` hanno il contratto plan×`o2/`
+cablato ed esercitato — ciascuno ha rotto la build al primo contatto su una
+divergenza reale (`salute` col recepimento di oggi); `economia` ha il canone
+ma il cablaggio nel suo fork non è ancora stato esercitato, mentre la
+freschezza sì (tre entrypoint nel gate, viste già fresche). Nessun segnale
+rosso rilevato, col limite dichiarato sotto.
 
 Classificazione degli scostamenti: **nessuna prescrizione nuova** (le due in
 canna — quinta domanda attiva, rifilatura pianificata — coprono tutto il
@@ -72,15 +74,20 @@ stantie e orologi sforati = **code di dominio**.
 - ripetibilità: due battiti eseguiti (il secondo anticipato di dieci giorni):
   la cella runtime-o1 della matrice resta D finché il ritmo non è dimostrato
   su più giri regolari;
-- le due prescrizioni attive: `nixos` e `salute` le hanno recepite entrambe
-  in giornata (2026-08-01); restano `economia` e `bi` — verificare al giro di
-  settembre;
+- le due prescrizioni attive: recepite da tre su quattro in giornata
+  (2026-08-01); resta `bi` — verificare al giro di settembre;
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;
 - `salute`: la gamba di ritorno della sua percezione è arrivata col
   recepimento (`e6d6f28`: contratto plan×`o2/` cablato nel generatore della
   home, che ha subito rotto su una divergenza reale) — resta nella sua coda
-  la domanda se la home basti a esercitare il contratto.
+  la domanda se la home basti a esercitare il contratto;
+- `economia`: il cablaggio del contratto plan×`o2/` nel suo fork non è ancora
+  stato esercitato — unico dei quattro, materia della lente 5 a settembre;
+- il **costo dell'assorbimento** sollevato da `economia`: con gli scope di
+  dominio montati sulle canoniche, l'`ls` di `.claude/skills/` non è più
+  l'inventario completo delle capacità — da misurare all'uso nei tre repo che
+  hanno assorbito, e da pesare nel pilota di `bi`.
 
 ## Limiti
 

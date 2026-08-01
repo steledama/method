@@ -2,7 +2,7 @@
 data: 2026-08-01
 stato: attiva
 ciclo: runtime
-target: economia, bi (nixos e salute recepite 2026-08-01, piloti decisi)
+target: bi (nixos, salute ed economia recepite 2026-08-01, piloti decisi)
 ---
 
 # La rifilatura per arco: `plan-review`/`verdicts-review` → `exec`/`eval`
@@ -62,9 +62,8 @@ canoniche (`eval finanze`, `exec ordini <fornitore>`), **divisa** fra i due
 archi, o **mantenuta autonoma**. I risultati correggono questa prescrizione;
 solo le forme provate risalgono a canone.
 
-I primi due piloti hanno **deciso** (2026-08-01, indipendentemente l'uno
-dall'altro nello stesso giorno, esiti nei rispettivi marker e ledger), e gli
-esiti opposti stringono il criterio dai due lati:
+I primi tre piloti hanno **deciso** (2026-08-01, esiti nei rispettivi marker
+e ledger), e gli esiti stringono il criterio da entrambi i lati:
 
 - **`nixos` — autonome entrambe.** Nelle skill parametriche **è il ramo a
   determinare l'arco, non chi invoca**: montare `aggiorna` come argomento
@@ -80,21 +79,30 @@ esiti opposti stringono il criterio dai due lati:
   perché un canale event-driven non diventi passaggio rituale; frontmatter
   normalizzato e chiusura del ciclo di vita aggiunta.
 
-**Il criterio è confermato e vincola i due piloti restanti** (inciso in
+- **`economia` — assorbite tutte e tre.** `finanze-review` → `eval finanze`
+  (scope di dominio che attraversa l'**intero arco**, con la mappa
+  dichiarata: parser in `perceive`, verifiche in `interpret`, riconciliazione
+  in `compare`), `posta` e `registrazioni` → `eval posta`,
+  `eval registrazioni` (`perceive`): superfici mono-arco, coerenti col
+  criterio. Il recepimento ha riallineato anche il suo `world.md` (le
+  superfici citano gli scope nuovi con lo stadio dichiarato). **Watchpoint
+  sollevato**: il costo dell'assorbimento è reale e non ancora misurato —
+  l'`ls` di `.claude/skills/` non è più l'inventario completo delle capacità
+  di dominio; da verificare all'uso se la discoverability persa si sente o se
+  il raggruppamento per arco la compensa.
+
+**Il criterio è confermato e vincola il pilota restante** (inciso in
 `kb/skill.md`): dove l'argomento decide l'arco, la skill resta autonoma; dove
 l'intera superficie insiste su un arco, l'assorbimento come scope di dominio
-funziona — lo scope dichiara il proprio stadio e **non entra nello sweep
-`all`**, che percorre i soli scope-stadio. Le collocazioni candidate
-restanti, nell'ordine **`economia` → `bi`**:
+funziona — lo scope dichiara il proprio stadio (o la propria mappa di stadi)
+e **non entra nello sweep `all`**, che percorre i soli scope-stadio. La
+collocazione candidata restante — `bi`, che pesa anche il watchpoint sulla
+discoverability prima di assorbire:
 
-- **`economia`** — `finanze-review` → `eval finanze` (arco intero); `posta` e
-  `registrazioni` → `eval posta`, `eval registrazioni` (canali `perceive`);
-  questione: l'argomento conserva un handoff leggibile verso `exec plan`? un
-  canale event-driven non diventi passaggio rituale.
 - **`bi`** — `categorizza`/`tassonomia` → `exec categorizza`,
   `exec tassonomia` (`perform` con guardrail «solo lo script scrive»);
   `ordini <fornitore>` → `exec ordini` (arco intero, ratifica umana al
-  confine): il caso più delicato, per ultimo.
+  confine): il caso più delicato, per ultimo come da disegno.
 
 L'autorizzazione segue le risorse dello scope, non la skill: lo stesso arco
 può essere esecutivo su un ramo e diagnostico su un altro.
@@ -102,9 +110,9 @@ può essere esecutivo su un ramo e diagnostico su un altro.
 ## Ordine e chiusura
 
 La **rifilatura** (passi 1-5) si recepisce in qualunque ordine, al prossimo
-`method-review` di ciascuno (`nixos` e `salute` hanno chiuso il 2026-08-01).
-Il **pilota del montaggio** è sequenziale
-(`economia` è il prossimo) e vive nelle code locali: questa prescrizione non
+`method-review` di ciascuno (`nixos`, `salute` ed `economia` hanno chiuso il
+2026-08-01). Il **pilota del montaggio** è sequenziale
+(`bi` è l'ultimo) e vive nelle code locali: questa prescrizione non
 inserisce task — la decisione di quando pilotare è dell'adottante, l'ordine
 fra adottanti è del custode. La prescrizione resta attiva finché i quattro
 non hanno recepito la rifilatura; gli esiti del montaggio la correggono

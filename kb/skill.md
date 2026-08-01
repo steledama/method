@@ -279,15 +279,17 @@ Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
   esegue, committa e pusha per regola del suo `CLAUDE.md`) e
   `nix-overlay-update` (mono-stadio dal signifier onesto, catalogata nel suo
   o3).
-- **`economia`** — quartetto più `method-review` e tre skill di dominio:
-  `finanze-review` (l'arco di valutazione intero: parser come perceive,
-  verifiche/fotografia/diario come interpret, riconciliazione delle scadenze
-  come compare; procedura in `o3/ciclo-finanze.md`), `posta` e
-  `registrazioni` (canali perceive puri: cattura valenza-neutra, sola lettura,
-  handoff verso le review — che oggi citano per nome, da migrare alla
-  rinomina). Register `goal.md`/`world.md` nati qui (pilot poli-register
-  2026-07-09); catalogo delle skill locali in `o3/tools.md`, divergenza di
-  forma-item intenzionale registrata nel ledger locale.
+- **`economia`** — rifilatura recepita (2026-08-01, `1844978`): le tre skill
+  di dominio **assorbite** come scope di `eval` — `finanze` con la mappa
+  dell'intero arco dichiarata (parser in perceive, verifiche/fotografia/
+  diario in interpret, riconciliazione in compare; procedura in
+  `o3/ciclo-finanze.md`), `posta` e `registrazioni` come canali `perceive`,
+  tutti fuori da `all`. Ha sollevato il watchpoint sul **costo
+  dell'assorbimento**: l'`ls` di `.claude/skills/` non è più l'inventario
+  completo delle capacità di dominio — da misurare all'uso. Register
+  `goal.md`/`world.md` nati qui (pilot poli-register 2026-07-09); catalogo
+  delle skill locali in `o3/tools.md`, divergenza di forma-item intenzionale
+  registrata nel ledger locale.
 - **`bi`** — **origine della coppia di supervisione** (`52b2b600`, insieme al
   register `goal.md`) e tre skill di dominio: `ordini <fornitore>` (l'intero
   arco di esecuzione a runtime: composizione in priorità lessicografica come

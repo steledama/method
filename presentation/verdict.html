@@ -92,22 +92,19 @@
           <h2>Verdetto</h2>
           <p>
             Il canale del canone è vivo e i quattro sono <code>aligned</code>:
-            <code>nixos</code> e <code>salute</code> hanno chiuso il giro in
-            giornata (marker a <code>0128891</code> — rifilatura
+            <strong>tre su quattro hanno chiuso il giro in giornata</strong> —
+            <code>nixos</code> e <code>salute</code> (marker a
+            <code>0128891</code>; <code>salute</code> col commit
+            <code>e6d6f28</code>) ed <code>economia</code> in serata (marker a
+            <code>d2607f6</code>, commit <code>1844978</code>) — con rifilatura
             <code>eval</code>/<code>exec</code> e quinta domanda recepite in un
-            colpo, piloti del montaggio decisi; <code>salute</code> col commit
-            locale <code>e6d6f28</code>), <code>economia</code> è il più avanti
-            dei pendenti (<code>a48f701</code> — lo scostamento del primo
-            battito è sciolto: dodici commit recepiti,
-            <code>tasks-review</code> rinominata), resta
-            <code>bi</code> (<code>b42164c</code>). Gli intervalli pendenti sono
+            colpo e i piloti del montaggio decisi. Resta
+            <code>bi</code> (<code>b42164c</code>), il cui intervallo pendente è
             in gran parte nodi symlink-soddisfatti e cronache i1 interne; il
             contenuto vero in attesa sono le due prescrizioni attive (<code
               >quinta-domanda-verdetti</code
             >
-            e <code>skill-per-arco</code>), che attendono
-            <code>economia</code> e <code>bi</code>. Nessun
-            <code>action-required</code>.
+            e <code>skill-per-arco</code>). Nessun <code>action-required</code>.
           </p>
           <p>
             Fotografia delle code — la metrica del telos, pesata sulla
@@ -140,9 +137,12 @@
             <li>
               <strong>economia</strong> — 17 task runtime, 0 dev, in-the-loop
               come da costituzione; colonna <code>Ob.</code> viva (ne è
-              l’origine), ordinamento dichiarato «per imminenza della prossima
-              mossa», chiose per titolo (divergenza registrata). Contratto viste
-              e freschezza già recepiti: è l’adottante più allineato.
+              l’origine, e la divergenza è rientrata a canone in quattro
+              giorni), ordinamento dichiarato «per imminenza della prossima
+              mossa», chiose per titolo (divergenza registrata). Rifilatura
+              recepita in serata (<code>1844978</code>, marker a
+              <code>d2607f6</code>): tre skill assorbite come scope di
+              <code>eval</code>, entrambe le prescrizioni chiuse.
             </li>
             <li>
               <strong>salute</strong> — 7 task attivi (2 dev) più 7 sospesi
@@ -158,11 +158,14 @@
             </li>
           </ul>
           <p>
-            Superfici e viste: tutti e quattro i recepenti hanno ora il
-            contratto plan×<code>o2/</code> (<code>salute</code> l’ha cablato
-            col recepimento, e ha rotto al primo giro su una divergenza reale);
-            su questo asse resta da guardare solo <code>economia</code>. Nessun
-            segnale rosso rilevato, col limite dichiarato sotto.
+            Superfici e viste: <code>nixos</code>, <code>bi</code> e
+            <code>salute</code> hanno il contratto plan×<code>o2/</code> cablato
+            ed esercitato — ciascuno ha rotto la build al primo contatto su una
+            divergenza reale (<code>salute</code> col recepimento di oggi);
+            <code>economia</code> ha il canone ma il cablaggio nel suo fork non
+            è ancora stato esercitato, mentre la freschezza sì (tre entrypoint
+            nel gate, viste già fresche). Nessun segnale rosso rilevato, col
+            limite dichiarato sotto.
           </p>
           <p>
             Classificazione degli scostamenti:
@@ -183,10 +186,8 @@
               non è dimostrato su più giri regolari;
             </li>
             <li>
-              le due prescrizioni attive: <code>nixos</code> e
-              <code>salute</code>
-              le hanno recepite entrambe in giornata (2026-08-01); restano
-              <code>economia</code> e <code>bi</code> — verificare al giro di
+              le due prescrizioni attive: recepite da tre su quattro in giornata
+              (2026-08-01); resta <code>bi</code> — verificare al giro di
               settembre;
             </li>
             <li>
@@ -198,7 +199,22 @@
               arrivata col recepimento (<code>e6d6f28</code>: contratto
               plan×<code>o2/</code> cablato nel generatore della home, che ha
               subito rotto su una divergenza reale) — resta nella sua coda la
-              domanda se la home basti a esercitare il contratto.
+              domanda se la home basti a esercitare il contratto;
+            </li>
+            <li>
+              <code>economia</code>: il cablaggio del contratto plan×<code
+                >o2/</code
+              >
+              nel suo fork non è ancora stato esercitato — unico dei quattro,
+              materia della lente 5 a settembre;
+            </li>
+            <li>
+              il <strong>costo dell’assorbimento</strong> sollevato da
+              <code>economia</code>: con gli scope di dominio montati sulle
+              canoniche, l’<code>ls</code> di <code>.claude/skills/</code> non è
+              più l’inventario completo delle capacità — da misurare all’uso nei
+              tre repo che hanno assorbito, e da pesare nel pilota di
+              <code>bi</code>.
             </li>
           </ul>
         </section>
@@ -1204,17 +1220,36 @@
             <strong
               >il criterio e la regola dello sweep sono saliti a canone</strong
             >
-            (<code>kb/skill.md</code>); il montaggio resta sperimentale per le
-            sole superfici non pilotate (<code>economia</code> →
-            <code>bi</code>). Watchpoint: entrambi i piloti hanno deciso sulla
-            <strong>forma</strong>, non sull’uso — il primo giro reale di
-            <code>eval</code>/<code>exec</code> negli adottanti è il collaudo
-            che manca (materia della clausola di uscita); e
-            <code>salute</code> solleva che il suo contratto plan×<code
+            (<code>kb/skill.md</code>).
+            <strong>Il terzo pilota</strong> (<code>economia</code>, stesso
+            giorno, <code>1844978</code>) conferma alla scala maggiore:
+            <strong>assorbite tutte e tre</strong> — <code>finanze</code> come
+            scope che attraversa l’intero arco con la mappa dichiarata
+            (parser/verifiche/riconciliazione sui tre stadi),
+            <code>posta</code> e <code>registrazioni</code> come canali
+            <code>perceive</code> — e nel recepimento la fedeltà ha corretto
+            anche il suo <code>world.md</code>, che citava ancora le skill
+            vecchie come superfici. Il montaggio resta sperimentale per la sola
+            superficie non pilotata (<code>bi</code>, l’ultima come da disegno).
+          </p>
+          <p>
+            Watchpoint: i tre piloti hanno deciso sulla <strong>forma</strong>,
+            non sull’uso — il primo giro reale di <code>eval</code>/<code
+              >exec</code
+            >
+            negli adottanti è il collaudo che manca (materia della clausola di
+            uscita); <code>salute</code> solleva che il suo contratto plan×<code
               >o2/</code
             >
             non ha una vista che lo eserciti pienamente oltre la home (resta
-            nella sua coda).
+            nella sua coda); ed <code>economia</code> solleva il
+            <strong>costo dell’assorbimento</strong>: l’<code>ls</code> di
+            <code>.claude/skills/</code> non è più l’inventario completo delle
+            capacità di dominio — la regola dell’atrio si indebolisce sul ramo
+            assorbito, e va misurato all’uso se la discoverability persa si
+            sente o se il raggruppamento per arco la compensa.
+            <code>bi</code> lo pesa prima di assorbire; se il costo si conferma,
+            è materia della clausola di uscita, non un ritocco d’urgenza.
           </p>
           <p>
             <strong
@@ -1672,9 +1707,13 @@
             della home e il contratto ha rotto la build al primo giro su una
             divergenza reale di titolo (H1 di <code>o2/</code> contro riga del
             plan), il terzo adottante su tre a pagarla al primo contatto. Resta
-            <code>economia</code>, unico repo su cinque non ancora guardato su
-            questo asse (la lente 5 del battito, al giro di settembre o al suo
-            <code>method-review</code>).
+            <code>economia</code>: il suo <code>method-review</code> del
+            2026-08-01 ha eseguito i tre entrypoint trovando le viste
+            <strong>fresche</strong> — l’obbligo di freschezza è a posto — ma
+            nessun giro ha ancora esercitato il
+            <strong>cablaggio del contratto</strong> nel suo fork, l’unico asse
+            su cui i tre adottanti hanno pagato al primo contatto. Resta alla
+            lente 5 del battito di settembre.
           </p>
           <p>
             <strong>Due obblighi, non uno.</strong> Ratificato il 2026-07-29
@@ -1739,25 +1778,28 @@
             modifica del gate, il check meccanico non basta e l’escalation è il
             vincolo vero — a quel punto il costo dell’installazione host-locale
             va ridiscusso contro la portabilità, non dato per perso in partenza.
-            Da guardare anche negli adottanti con la lente 5 dell’11 agosto:
-            <code>bi</code> ha già pagato il debito una volta,
-            <code>economia</code> non ancora (la sua home resta da rigenerare
-            nel suo repo, atto del custode).
+            Negli adottanti il debito è saldato: <code>bi</code> l’aveva già
+            pagato una volta, ed <code>economia</code> l’ha chiuso col
+            <code>method-review</code> del 2026-08-01 — i tre entrypoint
+            eseguiti nel gate, home e fotografia già fresche,
+            <code>git status</code> vuoto su di esse. Il check meccanico ha
+            retto al primo giro reale in tre repo su tre.
           </p>
           <p>
             Il terzo caso non si va a cercare: un caso cercato dimostra che il
             pattern esiste, non che la generalizzazione serve, e il dal-basso è
             la guardia contro la sovra-ingegnerizzazione. Ma il non-cercare vale
             per il canone, non per il runtime: quattro campioni su quattro
-            esaminati, e su <code>economia</code> nessuno ha ancora guardato
-            l’asse del contratto — il costo di una vista che inganna matura in
-            silenzio proprio dove nessuno guarda. L’inventario «quali viste non
-            sono generate» perciò non resta appeso a questa riga: è la quinta
-            lente di <code>/adopters-review</code> (superfici e viste), dentro
-            il battito mensile che già esiste invece che in un atto nuovo. Se
-            fosse restato un rimando in prosa sarebbe stato lo stesso difetto
-            che questo filo denuncia — una regola al livello riflessivo invece
-            che nella struttura.
+            esaminati, e sul solo <code>economia</code> nessuno ha ancora
+            guardato l’asse del contratto (la freschezza sì, col giro del
+            2026-08-01) — il costo di una vista che inganna matura in silenzio
+            proprio dove nessuno guarda. L’inventario «quali viste non sono
+            generate» perciò non resta appeso a questa riga: è la quinta lente
+            di <code>/adopters-review</code> (superfici e viste), dentro il
+            battito mensile che già esiste invece che in un atto nuovo. Se fosse
+            restato un rimando in prosa sarebbe stato lo stesso difetto che
+            questo filo denuncia — una regola al livello riflessivo invece che
+            nella struttura.
           </p>
         </section>
       </div>

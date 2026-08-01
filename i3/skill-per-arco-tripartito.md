@@ -126,13 +126,25 @@ retrocessione costerebbe l'invocazione senza rendere nulla. `salute`
 superficie mono-arco e mono-stadio (`perceive`: la distillazione seleziona
 senza giudicare, cattura i1 e non sintesi i2), **fuori da `all`** perché il
 canale event-driven non diventi rituale. Con la doppia conferma **il criterio
-e la regola dello sweep sono saliti a canone** (`kb/skill.md`); il montaggio
-resta sperimentale per le sole superfici non pilotate (`economia` → `bi`).
-Watchpoint: entrambi i piloti hanno deciso sulla **forma**, non sull'uso — il
+e la regola dello sweep sono saliti a canone** (`kb/skill.md`). **Il terzo
+pilota** (`economia`, stesso giorno, `1844978`) conferma alla scala maggiore:
+**assorbite tutte e tre** — `finanze` come scope che attraversa l'intero arco
+con la mappa dichiarata (parser/verifiche/riconciliazione sui tre stadi),
+`posta` e `registrazioni` come canali `perceive` — e nel recepimento la
+fedeltà ha corretto anche il suo `world.md`, che citava ancora le skill
+vecchie come superfici. Il montaggio resta sperimentale per la sola
+superficie non pilotata (`bi`, l'ultima come da disegno).
+
+Watchpoint: i tre piloti hanno deciso sulla **forma**, non sull'uso — il
 primo giro reale di `eval`/`exec` negli adottanti è il collaudo che manca
-(materia della clausola di uscita); e `salute` solleva che il suo contratto
+(materia della clausola di uscita); `salute` solleva che il suo contratto
 plan×`o2/` non ha una vista che lo eserciti pienamente oltre la home (resta
-nella sua coda).
+nella sua coda); ed `economia` solleva il **costo dell'assorbimento**:
+l'`ls` di `.claude/skills/` non è più l'inventario completo delle capacità
+di dominio — la regola dell'atrio si indebolisce sul ramo assorbito, e va
+misurato all'uso se la discoverability persa si sente o se il raggruppamento
+per arco la compensa. `bi` lo pesa prima di assorbire; se il costo si
+conferma, è materia della clausola di uscita, non un ritocco d'urgenza.
 
 **`eval perceive` può essere il vuoto rituale.** Dove la percezione è
 event-driven, una skill che chiede «è arrivata posta?» quando la posta _è_ il

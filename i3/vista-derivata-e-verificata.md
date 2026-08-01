@@ -165,8 +165,11 @@ nessun generatore, quindi nulla legava una riga del plan al suo file — il
 recepimento l'ha cablato nel generatore della home e il contratto ha rotto la
 build al primo giro su una divergenza reale di titolo (H1 di `o2/` contro
 riga del plan), il terzo adottante su tre a pagarla al primo contatto. Resta
-`economia`, unico repo su cinque non ancora guardato su questo asse (la lente
-5 del battito, al giro di settembre o al suo `method-review`).
+`economia`: il suo `method-review` del 2026-08-01 ha eseguito i tre
+entrypoint trovando le viste **fresche** — l'obbligo di freschezza è a posto —
+ma nessun giro ha ancora esercitato il **cablaggio del contratto** nel suo
+fork, l'unico asse su cui i tre adottanti hanno pagato al primo contatto.
+Resta alla lente 5 del battito di settembre.
 
 **Due obblighi, non uno.** Ratificato il 2026-07-29 dalla valutazione i2→i3 della
 percezione «una vista generata può essere stale senza che nulla diverga»
@@ -212,17 +215,19 @@ lì diceva _se_ rispondere, ora dice anche _quanto_.
 Watchpoint: se una vista stale passa comunque un commit dopo questa modifica del
 gate, il check meccanico non basta e l'escalation è il vincolo vero — a quel
 punto il costo dell'installazione host-locale va ridiscusso contro la
-portabilità, non dato per perso in partenza. Da guardare anche negli adottanti
-con la lente 5 dell'11 agosto: `bi` ha già pagato il debito una volta,
-`economia` non ancora (la sua home resta da rigenerare nel suo repo, atto del
-custode).
+portabilità, non dato per perso in partenza. Negli adottanti il debito è
+saldato: `bi` l'aveva già pagato una volta, ed `economia` l'ha chiuso col
+`method-review` del 2026-08-01 — i tre entrypoint eseguiti nel gate, home e
+fotografia già fresche, `git status` vuoto su di esse. Il check meccanico ha
+retto al primo giro reale in tre repo su tre.
 
 Il terzo caso non si va a cercare: un caso cercato dimostra che il pattern
 esiste, non che la generalizzazione serve, e il dal-basso è la guardia contro la
 sovra-ingegnerizzazione. Ma il non-cercare vale per il canone, non per il
-runtime: quattro campioni su quattro esaminati, e su `economia` nessuno ha ancora
-guardato l'asse del contratto — il costo di una vista che inganna matura in
-silenzio proprio dove nessuno guarda. L'inventario «quali viste non sono
+runtime: quattro campioni su quattro esaminati, e sul solo `economia` nessuno
+ha ancora guardato l'asse del contratto (la freschezza sì, col giro del
+2026-08-01) — il costo di una vista che inganna matura in silenzio proprio
+dove nessuno guarda. L'inventario «quali viste non sono
 generate» perciò non resta appeso a questa riga: è la quinta lente di
 `/adopters-review` (superfici e viste), dentro il battito mensile che già esiste
 invece che in un atto nuovo. Se fosse restato un rimando in prosa sarebbe stato
