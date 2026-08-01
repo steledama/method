@@ -25,8 +25,9 @@ più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
 ## Scadenze
 
-- 2026-08-11 → `/adopters-review`, audit runtime-o1 dei quattro adottanti
-  (mensile) → esiti nel filo [i3/audit-adottanti.md](../i3/audit-adottanti.md)
+- 2026-09-01 → `/adopters-review`, audit runtime-o1 dei quattro adottanti
+  (mensile; secondo battito anticipato al 2026-08-01) → esiti nel filo
+  [i3/audit-adottanti.md](../i3/audit-adottanti.md)
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

@@ -82,29 +82,28 @@
           </p>
           <p>
             Verdetto aggregato dell’audit mensile <code>/adopters-review</code>,
-            aggiornato in place a ogni giro. Ultimo giro completo:
-            <strong>2026-07-11</strong> (primo battito; HEAD
-            <code>d2d4c57</code>); lettura fresca dei soli marker il
-            <strong>2026-08-01</strong> (<code>eval perceive</code>, dalle
-            superfici per host dichiarate in <code>world.md</code>).
+            aggiornato in place a ogni giro. Ultimo giro:
+            <strong>2026-08-01</strong> (secondo battito, anticipato dall’11;
+            HEAD <code>dbed337</code>, letture via le superfici per host
+            dichiarate in <code>world.md</code>).
           </p>
         </section>
         <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
-            Il canale del canone è vivo e i quattro sono
-            <code>aligned</code> sui marker freschi: <code>economia</code> è il
-            più avanti (<code>a48f701</code>, 2026-07-29 — lo scostamento del
-            primo battito è sciolto: i dodici commit recepiti, la
-            <code>tasks-review</code> residua rinominata in
-            <code>plan-review</code>), <code>nixos</code> e <code>bi</code> a
-            <code>b42164c</code> (2026-07-29), <code>salute</code> il più
-            arretrato (<code>6133ace</code>, 2026-07-28) di misura fisiologica.
-            Tutti e quattro sono prima di <code>64f0ec0</code>: la prescrizione
-            <code>quinta-domanda-verdetti</code> (2026-08-01) li attende, e la
-            sua assunzione («tutti e quattro portano quattro domande») è
-            verificata sul segnale. La fotografia delle code qui sotto resta
-            quella del giro completo di luglio; si rinnova al battito di agosto.
+            Il canale del canone è vivo e i quattro sono <code>aligned</code>:
+            <code>economia</code> il più avanti (<code>a48f701</code>, 14 commit
+            dietro — lo scostamento del primo battito è sciolto: dodici commit
+            recepiti, <code>tasks-review</code> rinominata),
+            <code>nixos</code> e <code>bi</code> a <code>b42164c</code> (17),
+            <code>salute</code> il più arretrato (<code>6133ace</code>, 20). Gli
+            intervalli pendenti sono in gran parte nodi symlink-soddisfatti e
+            cronache i1 interne; il contenuto vero in attesa è la prescrizione
+            <code>quinta-domanda-verdetti</code>
+            (attiva, li attende tutti — la sua assunzione è verificata sul
+            segnale) e, a seguire, la prescrizione della rifilatura
+            <code>eval</code>/<code>exec</code> quando sarà emessa. Nessun
+            <code>action-required</code>.
           </p>
           <p>
             Fotografia delle code — la metrica del telos, pesata sulla
@@ -113,69 +112,94 @@
           </p>
           <ul>
             <li>
-              <strong>nixos</strong> — il più vicino al telos: coda dev vuota, 4
-              task runtime (2 in <code>world</code> su upstream), tre battiti di
-              <code>/update</code> (quotidiano/settimanale/ mensile, refactor
-              multi-scope del 2026-07-12, cfr.
-              <code>ricorrenza-per-battito.md</code>) con data in
-              <code>## Scadenze</code>, prima skill di dominio. Dominio
-              set-and-review: la composizione combacia con la posizione
-              auspicata.
+              <strong>nixos</strong> — coda dev vuota, 5 task runtime (2 in
+              <code>world</code> su upstream): composizione da telos, come a
+              luglio. Ma <strong>due date stantie</strong> in
+              <code>## Scadenze</code>: quotidiano e settimanale fermi al
+              2026-07-19 (il mensile scade oggi) — orologio fermo o riga non
+              avanzata, il segnale che la lente scadenze esiste per cogliere.
+              Coda di dominio (materia del suo <code>plan-review</code>), da
+              verificare sciolta al prossimo giro. Residuo
+              <code>nix-overlay-update</code> accanto ad <code>aggiorna</code>,
+              già in matrice per il pilota del montaggio.
             </li>
             <li>
-              <strong>bi</strong> — l’unico con la terza specie viva: 2 run
-              automatizzati senza data (config versionata in <code>nixos</code>)
-              più 3 orologi manuali; 1 task dev su 7. On-the-loop come da goal:
-              il battito più maturo dei quattro.
+              <strong>bi</strong> — fase di cantiere: 13 task di cui 8 dev
+              (tassonomia, motore riordini, modello sito), da 1 su 7 a luglio —
+              legittimo per un progetto in costruzione. La
+              <strong>terza specie è maturata in timetable canonico</strong>:
+              cinque run automatizzati con gli orari che vivono solo nel plan e
+              le config scheduler che li implementano e rimandano — la tensione
+              del primo giro («va vista reggere alla lettura») è sciolta. Due
+              orologi manuali sforati di un giorno: fisiologico.
             </li>
             <li>
-              <strong>economia</strong> — 15 task runtime, 0 dev;
-              <code>## Scadenze</code> ricco di ricorrenti a orologio manuale, 0
-              automatizzati — coerente con un dominio episodico in-the-loop (le
-              poste alte non si schedulano). Distanza dal telos non patologica;
-              il segnale vero è il canale (sopra). La legenda del plan porta
-              molta cronaca di stato: materia del suo
-              <code>verdicts-review</code>, non nostra.
+              <strong>economia</strong> — 17 task runtime, 0 dev, in-the-loop
+              come da costituzione; colonna <code>Ob.</code> viva (ne è
+              l’origine), ordinamento dichiarato «per imminenza della prossima
+              mossa», chiose per titolo (divergenza registrata). Contratto viste
+              e freschezza già recepiti: è l’adottante più allineato.
             </li>
             <li>
-              <strong>salute</strong> — il più lontano, coerentemente col
-              riequilibrio in corso: 3 task dev su 8 attivi più 7 sospesi in
-              holding; <code>## Scadenze</code> di soli appuntamenti datati,
-              nessuna ricorrente a orologio — legittimo: il battito quotidiano
-              vive nell’uso e la ricorrenza a evento in
-              <code>elabora-trascrizione</code>. Watchpoint ereditato dal
-              register: la disciplina di <code>goal.md</code> al primo
-              <code>verdicts-review</code>.
+              <strong>salute</strong> — 7 task attivi (2 dev) più 7 sospesi
+              ought in holding, <code>## Scadenze</code> di soli appuntamenti
+              sanitari datati (imminente il 7/8): coerente col riequilibrio
+              prescritto. Il suo gap contiene il
+              <strong>ritorno della sua stessa percezione</strong>: «vista a
+              mano inverte l’effetto» (f8e8a73) è diventata il contratto
+              derivata-implica-verificata (a7fa93e) e il canone della freschezza
+              — il loop dal basso ha inciso, la gamba di ritorno attende il suo
+              <code>method-review</code>.
             </li>
           </ul>
           <p>
-            Nessuna prescrizione o3 aperta dal giro; nessun segnale i1 nuovo —
-            la lezione del giro è che il protocollo regge al primo battito senza
-            toccare alcuna coda.
+            Superfici e viste: <code>nixos</code>, <code>bi</code> ed
+            <code>economia</code> hanno recepito il contratto
+            plan×<code>o2/</code>; <code>salute</code> lo riceve col gap. Nessun
+            segnale rosso rilevato, col limite dichiarato sotto.
+          </p>
+          <p>
+            Classificazione degli scostamenti:
+            <strong>nessuna prescrizione nuova</strong> (le due in canna —
+            quinta domanda attiva, rifilatura pianificata — coprono tutto il
+            drift osservato), <strong>nessun segnale i1 nuovo</strong> (la
+            maturazione della terza specie in <code>bi</code> corrobora
+            <code>ricorrenza-per-battito</code>, non apre un filo), date stantie
+            e orologi sforati = <strong>code di dominio</strong>.
           </p>
         </section>
         <section id="tensioni-aperte" class="slide level2">
           <h2>Tensioni aperte</h2>
           <ul>
             <li>
-              l’istituzione ha un solo battito: la cella runtime-o1 della
-              matrice resta D finché la ripetibilità non è dimostrata su più
-              giri;
-            </li>
-            <li>
-              la terza specie di riga (run automatizzati senza data) ha una sola
-              istanza (<code>bi</code>): regge alla scrittura, va vista reggere
-              alla lettura e al primo <code>plan-review</code> locale (ereditata
-              dal filo <code>battito-ricorrente-e-telos</code>, chiuso con
-              questo primo audit);
+              ripetibilità: due battiti eseguiti (il secondo anticipato di dieci
+              giorni): la cella runtime-o1 della matrice resta D finché il ritmo
+              non è dimostrato su più giri regolari;
             </li>
             <li>
               la prescrizione <code>quinta-domanda-verdetti</code> attende il
-              recepimento dei quattro — verificare al giro di agosto, insieme al
-              primo contatto dei fork con la rifilatura <code>eval</code>/<code
-                >exec</code
-              >
-              quando la sua prescrizione sarà emessa.
+              recepimento dei quattro — verificare al giro di settembre, insieme
+              al primo contatto dei fork con la prescrizione della rifilatura
+              <code>eval</code>/<code>exec</code>;
+            </li>
+            <li>
+              <code>nixos</code>: le due date stantie del quotidiano/settimanale
+              — verificare sciolte al giro di settembre;
+            </li>
+            <li>
+              <code>salute</code>: la gamba di ritorno della sua percezione
+              (contratto e freschezza delle viste) — verificare recepita.
+            </li>
+          </ul>
+        </section>
+        <section id="limiti" class="slide level2">
+          <h2>Limiti</h2>
+          <ul>
+            <li>
+              Superfici remote verificate per struttura e marker, non col test
+              di freschezza sul contenuto (ultima modifica fonte vs vista):
+              resta per un giro con accesso pieno o per i
+              <code>method-review</code> locali.
             </li>
           </ul>
         </section>
