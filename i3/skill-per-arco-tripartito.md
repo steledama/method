@@ -93,17 +93,20 @@ un'estensione teorica: `aggiorna ia` in `nixos` già esegue, committa e pusha in
 autonomia per regola del suo `CLAUDE.md` — il confine di autorizzazione segue
 le risorse dello scope, non la skill.
 
-**Il montaggio degli scope di dominio è direzione dichiarata, non opzione.** La
+**Il montaggio degli scope di dominio è un'ipotesi direzionata, non ancora
+canone.** La
 ricognizione della flotta (2026-08-01, dettaglio nel task `o2/`) mostra che le
 skill di dominio non sono atti da appendere a `perform`: si distribuiscono sui
 sei stadi (`aggiorna` è valutazione per tre rami su quattro, `ordini` è
 l'intero arco exec a runtime, `finanze-review` ed `elabora-trascrizione`
 insistono sull'arco eval, e i canali i1 di `economia` — `posta`,
-`registrazioni` — sono `eval perceive` puro). Le skill di dominio diventano **scope delle due
-canoniche**, montate sullo stadio che servono, su entrambi gli archi; la
-mappatura di dettaglio resta all'adottante — dichiarare la direzione è del
-custode, il dettaglio della coda è loro, e il pilota del montaggio resta
-`nixos`.
+`registrazioni` — sono `eval perceive` puro). La ricognizione giustifica il
+pilota, non ancora l'incisione: il primo canone porta soltanto i sei
+scope-stadio; ogni skill di dominio viene poi provata come possibile argomento
+delle due canoniche attraverso il `method-review` dell'adottante. Il pilota può
+assorbirla, dividerla fra i due archi o mantenerla autonoma. Ordine ratificato
+dal custode (2026-08-01): **`nixos` → `salute` → `economia` → `bi`**, dal caso
+multi-scope già collaudato a quello più complesso e delicato.
 
 **`eval perceive` può essere il vuoto rituale.** Dove la percezione è
 event-driven, una skill che chiede «è arrivata posta?» quando la posta _è_ il
@@ -137,12 +140,15 @@ averla promessa:
 - **cosa si snellisce per primo**, se si snellisce: gli scope, non gli stadi —
   si accorpa l'invocazione, non si smette di distinguere i passi.
 
-Pilota: **`metodo` stesso**, che ha entrambi i cicli ed è il repo dove l'errore
-costa meno. La propagazione ai quattro nasce come prescrizione `o3/` quando il
-canone è inciso — questa volta serve, a differenza della colonna `Ob.`: tocca
+Primo pilota: **`metodo` stesso**, che ha entrambi i cicli ed è il repo dove
+l'errore costa meno; prova i sei scope canonici, non il montaggio di dominio.
+La propagazione ai quattro nasce come prescrizione `o3/` quando quel nucleo è
+inciso — questa volta serve, a differenza della colonna `Ob.`: tocca
 `.claude/skills/` e `.codex/skills/` di ogni repo, i `CLAUDE.md`, e le righe
 `## Scadenze` che citano le skill per nome (il pattern è quello di
-`ristrutturazione-atrio`).
+`ristrutturazione-atrio`). Dentro quella prescrizione il montaggio delle skill
+locali resta un esperimento sequenziale, e solo gli esiti provati risalgono a
+canone.
 
 Conseguenza già registrata: la «cascata verso i2» proposta come toppa a una riga
 in `verdetto-piu-sicuro-del-materiale` decade come mossa autonoma — diventa il

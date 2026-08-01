@@ -1,5 +1,5 @@
 ---
-sintesi: "Ritagliare il quartetto lungo il modello: `plan-review` e `verdicts-review` diventano `exec` ed `eval`, con i tre stadi del proprio arco come scope (`plan|specify|perform`, `perceive|interpret|compare`). Le procedure esistenti non si buttano, si rifilano sotto il loro stadio; si guadagna la casa per i1, i2 e o3, oggi scoperti. Le skill di dominio della flotta migrano a scope delle due canoniche, su entrambi gli archi. Pilota `metodo`, poi prescrizione o3 per i quattro."
+sintesi: "Ritagliare il quartetto lungo il modello: `plan-review` e `verdicts-review` diventano `exec` ed `eval`, con i tre stadi del proprio arco come scope (`plan|specify|perform`, `perceive|interpret|compare`). Le procedure esistenti non si buttano, si rifilano sotto il loro stadio; si guadagna la casa per i1, i2 e o3, oggi scoperti. Si incide inizialmente solo la coppia canonica; il montaggio delle skill di dominio come argomenti resta ipotesi sperimentale da provare negli adottanti, nell'ordine `nixos` → `salute` → `economia` → `bi`."
 ciclo: dev
 ---
 
@@ -79,25 +79,42 @@ canone: la collezione `o3/` tiene solo il vivo (prescrizioni consumate potate,
 propagazione riflettono il canone corrente. Quando l'atto è locale, reversibile
 e già autorizzato, `exec perform` lo compie davvero; quando tocca il Mondo o
 richiede nuova autorità, produce o valida la prescrizione e si ferma al confine.
-Gli atti di dominio si montano secondo la direzione dichiarata nella sezione
-seguente — non più «ammesso, non prescritto».
+La sezione seguente conserva la ricognizione degli atti di dominio come ipotesi
+da pilotare, senza anticiparne il montaggio nel canone.
 
-## Scope di dominio: la direzione dichiarata
+## Scope di dominio: ipotesi da pilotare
 
-La ricognizione della flotta (sotto) rovescia l'inciso «un dominio può montare
-qui i propri atti»: le skill di dominio esistenti non sono atti da appendere a
-`perform` — si distribuiscono sui sei stadi, su **entrambi** gli archi. La
-direzione è del custode (2026-08-01, incisa nel filo): **le skill di dominio
-diventano scope delle due canoniche**, montate sullo stadio che servono; la
-mappatura di dettaglio resta all'adottante, dentro la prescrizione. Regole del
-montaggio:
+La ricognizione della flotta (sotto) suggerisce che le skill di dominio non
+siano tutte atti da appendere a `perform`: si distribuiscono sui sei stadi e su
+entrambi gli archi. È una direzione promettente, non ancora canone. Il primo
+taglio incide soltanto i **sei scope-stadio canonici**; l'eventuale
+declassamento delle skill di dominio ad argomenti di `eval` ed `exec` resta
+un'ipotesi sperimentale da verificare negli adottanti attraverso la
+prescrizione e il loro `method-review`.
 
-- **grammatica a due livelli**: lo scope di dominio conserva i propri
+Il pilota deve risolvere il contratto di dispatch, che il canone iniziale non
+finge già noto:
+
+- gli scope-stadio (`eval interpret`, `exec perform`) sono riservati e hanno
+  semantica identica in ogni repo;
+- uno scope di dominio candidato (`eval finanze`, `exec ordini`) può
+  attraversare uno o più stadi del proprio arco, ma deve dichiararne la mappa e
+  produrre un esito distinto per ciascuno;
+- se una capacità attraversa entrambi gli archi, il pilota decide se
+  rappresentarla con due argomenti omonimi, dividerla o lasciarla skill
+  autonoma: non la forza sotto l'arco sbagliato per conservare il nome;
+- l'invocazione di un singolo stadio dentro uno scope di dominio e la
+  composizione con `all` sono questioni aperte del pilota, non grammatica
+  canonica anticipata.
+
+Indicazioni di massima da sottoporre al pilota:
+
+- **grammatica candidata a due livelli**: lo scope di dominio conserva i propri
   argomenti — `exec aggiorna casa`, `exec categorizza life 50`,
   `eval finanze`;
-- **la scelta del ramo sale nella skill**: giorno contro `## Scadenze`, host
-  corrente, cadenze in config dichiarativa per entità — ciò che oggi decide
-  l'umano scegliendo l'argomento;
+- **se il pilota la conferma, la scelta del ramo sale nella skill**: giorno
+  contro `## Scadenze`, host corrente, cadenze in config dichiarativa per
+  entità — ciò che oggi decide l'umano scegliendo l'argomento;
 - **nomi**: le canoniche portano l'arco del modello in inglese — il telos è
   portare il metodo intero, KB compresa, in inglese — nella forma abbreviata
   che la mano digita: **`eval`** ed **`exec`** (custode, 2026-08-01). La forma
@@ -112,38 +129,43 @@ montaggio:
 - **autorizzazione**: il confine segue le risorse dello scope, non la skill —
   lo stesso arco è esecutivo su un ramo e diagnostico su un altro.
 
-## La flotta reale (ricognizione 2026-08-01)
+## Matrice sperimentale della flotta (ricognizione 2026-08-01)
 
 Verificata sul posto per tutti e quattro (2026-08-01; `economia` e `salute`
 via `norvegia`→`deck`).
 
-- **`nixos`** — `aggiorna [ia|casa|lavoro|docker|all]` (già `update`,
-  rinominata coi rami nuovi): tre rami su quattro sono valutazione (gli script
-  versioni sono perceive, delta e changelog sono interpret, il «vale la pena
-  ora?» è il verdetto), solo `ia` è perform pieno — ed esegue, committa e
-  pusha già oggi in autonomia. Candidata `exec aggiorna <ramo>`, con
-  l'avvertenza che i rami diagnostici sono materia d'arco eval: la
-  mappatura fine è del pilota-adottante. `nix-overlay-update` non è registrata
-  nel canone ed è una procedura più che un'interfaccia: candidata a
-  retrocedere a runbook `o3/` invocato da `exec perform`.
-- **`bi`** — tre skill di dominio, non una. `ordini` è l'**intero arco exec
-  a runtime**: compone l'ordine dai goal in priorità lessicografica (plan), a
-  regime persiste il file-ordine `o2/` (specify), l'import Danea e l'invio
-  futuri sono perform con ratifica umana al confine → `exec ordini
-<fornitore>`. `categorizza` e `tassonomia` sono perform con guardrail (solo
-  lo script scrive) → `exec categorizza`, `exec tassonomia`.
-- **`economia`** — tre skill di dominio, non una. `finanze-review` è il giro
-  runtime di valutazione intero (parser = perceive, verifiche/fotografia/
-  diario = interpret, riconciliazione scadenze = il confronto con o1);
-  `posta` e `registrazioni` sono **canali i1 puri** — cattura valenza-neutra,
-  sola lettura, handoff alle review senza eseguirle: `eval perceive`
-  runtime da manuale → candidate `eval finanze`, `eval posta`,
-  `eval registrazioni`. Il canone conosce solo `finanze-review`.
-- **`salute`** — `elabora-trascrizione` distilla la trascrizione grezza in
-  documento per `perceptions/`: perceive con distillazione, arco eval →
-  candidata `eval trascrizione`. Frontmatter di vecchio stile
-  (`name`/`disable-model-invocation`, niente `user-invocable`): la
-  prescrizione la normalizza.
+- **`nixos` · `aggiorna [ia|casa|lavoro|docker|all]`** — collocazione candidata:
+  `eval aggiorna` per i rami diagnostici ed `exec aggiorna` per quelli
+  esecutivi, oppure skill autonoma se il doppio montaggio aumenta l'attrito;
+  stadi: `perceive` → `interpret` → `compare` per tre rami, `perform` pieno per
+  `ia`; confidenza: **media**; questione del pilota: una capacità unica può
+  abitare due archi senza mentire nel signifier? `nix-overlay-update` non è
+  registrata nel canone ed è candidata a retrocedere a runbook `o3/`.
+- **`salute` · `elabora-trascrizione`** — collocazione candidata: `eval
+trascrizione`; stadi: soprattutto `perceive`, con una distillazione il cui
+  confine verso `interpret` va verificato; confidenza: **alta** sulla famiglia
+  `eval`, **media** sullo stadio; questione del pilota: la distillazione produce
+  ancora grezzo catturato o già una sintesi? Il frontmatter è di vecchio stile
+  (`name`/`disable-model-invocation`, niente `user-invocable`).
+- **`economia` · `finanze-review`** — collocazione candidata: `eval finanze`;
+  stadi: intero arco (`perceive` parser, `interpret` verifiche/fotografia/diario,
+  `compare` riconciliazione delle scadenze); confidenza: **alta**; questione del
+  pilota: il nuovo argomento conserva un handoff leggibile verso `exec plan`?
+- **`economia` · `posta`, `registrazioni`** — collocazione candidata: `eval
+posta` ed `eval registrazioni`; stadi: `perceive`; confidenza: **alta**;
+  questione del pilota: evitare che un canale event-driven diventi un passaggio
+  rituale. Le skill sono sola lettura e oggi citano `/verdicts-review` e
+  `/plan-review` per nome.
+- **`bi` · `ordini <fornitore>`** — collocazione candidata: `exec ordini
+<fornitore>`; stadi: intero arco (`plan` priorità lessicografica, `specify`
+  file-ordine, `perform` import Danea e invio futuri); confidenza: **media**;
+  questione del pilota: preservare ratifica umana, config per fornitore e
+  confine fra specifica presente e atti futuri. È il caso più complesso e si
+  pilota per ultimo.
+- **`bi` · `categorizza`, `tassonomia`** — collocazione candidata: `exec
+categorizza`, `exec tassonomia`; stadi: `perform` con guardrail; confidenza:
+  **alta** sulla collocazione; questione del pilota: dimostrare che
+  l'assorbimento non nasconda il vincolo «solo lo script scrive».
 - **Arretrato dei fork**: **tutti e quattro** portano quattro domande in
   `verdicts-review` (manca «è più sicuro del suo materiale?», `64f0ec0`): la
   prescrizione assorbe rifilatura e arretrato in un solo recepimento. E gli
@@ -183,9 +205,15 @@ plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
   (ricognizione sopra), non dal testo corrente, che è già stantio
   (`update`→`aggiorna`, `nix-overlay-update` mai registrata, le tre skill di
   `bi`).
-- **Nodi che citano le due skill per nome**: `kb/plan.md`, `kb/goal.md`,
+- **Consumatori della coppia corrente**: fare un grep completo al momento
+  della migrazione e classificare ogni occorrenza come normativa, operativa o
+  storica. Le occorrenze normative e operative vanno migrate; i fili storici
+  possono conservare il nome che descrive il fatto passato. L'inventario vivo
+  noto comprende almeno `goal.md`, `kb/skill.md`, `kb/plan.md`, `kb/goal.md`,
   `kb/verdict.md`, `kb/perceive.md`, `kb/interpret.md`, `kb/compare.md`,
-  `kb/specify.md`, `kb/perform.md` — da verificare con un grep, non a memoria.
+  `kb/specify.md`, `kb/perform.md`, `kb/project-structure.md`,
+  `kb/cognitive-artifact-design.md`, `kb/adopter-comparison.md`,
+  `.claude/skills/commit/SKILL.md` e `.claude/skills/method-review/SKILL.md`.
   Gli atomi degli stadi guadagnano il rimando alla propria fetta di skill.
 - **Bussole**: `README.md` e `CLAUDE.md` di `metodo` (l'elenco commentato delle
   skill), e negli adottanti gli stessi due file più le righe `## Scadenze` e le
@@ -213,20 +241,27 @@ plan` chiude con l'inverso «verdetti da rivalutare» — il ritorno resta
    restituisce un esito esplicito, anche nullo, e il filo registra attriti,
    sovrapposizioni e passaggi che non hanno cambiato l'artefatto _prima_ di
    propagare;
-5. aggiornare nodi e bussole (incisione di `kb/skill.md`); emettere la
-   prescrizione `o3/` per i quattro, col pilota-adottante scelto lì (candidato
-   `nixos`: multi-scope collaudato e `aggiorna` come primo montaggio). La
-   prescrizione porta, per ogni adottante, la mappatura skill-di-dominio→scope
-   (la ricognizione è completa, 2026-08-01) e l'arretrato dei fork (la quinta
-   domanda);
-6. alla chiusura, aprire il task di rivalutazione `pause` con la condizione di
+5. aggiornare nodi, register, bussole e skill consumatrici (incisione dei soli
+   sei scope canonici in `kb/skill.md`); emettere la prescrizione `o3/` per i
+   quattro. La prescrizione porta l'arretrato dei fork (la quinta domanda) e la
+   matrice sopra come **ipotesi di montaggio**, non come esito già deciso;
+6. prescrivere il pilotaggio del montaggio di dominio attraverso i
+   `method-review` degli adottanti, nell'ordine **`nixos` → `salute` →
+   `economia` → `bi`**. L'esecuzione resta nelle loro code; ogni pilota decide
+   esplicitamente per ciascuna skill: assorbita come argomento, divisa fra i
+   due archi oppure mantenuta autonoma. I risultati correggono la prescrizione
+   e solo le forme provate risalgono poi a canone;
+7. alla chiusura, aprire il task di rivalutazione `pause` con la condizione di
    risveglio della clausola di uscita (filo `i3/`).
 
 ## Criterio di chiusura
 
 Le due skill esistono in `metodo` e sono state invocate end-to-end su almeno un
-evento reale; ogni scope ha restituito un esito esplicito, anche nullo, e il
-filo registra attriti, sovrapposizioni e passaggi che non hanno cambiato
-l'artefatto. Il canone in `kb/skill.md` è inciso e la prescrizione per i quattro
-è aperta. Il recepimento degli adottanti **non** è parte di questo task: è loro
-coda, e si misura col battito mensile.
+evento reale; ciascuno dei **sei scope-stadio canonici** ha restituito un esito
+esplicito, anche nullo, e il filo registra attriti, sovrapposizioni e passaggi
+che non hanno cambiato l'artefatto. Il canone iniziale in `kb/skill.md` incide
+soltanto quei sei scope; la prescrizione per i quattro è aperta e dichiara
+sperimentale il montaggio di dominio. Il task `pause` di rivalutazione esiste
+con risveglio al terzo battito successivo al recepimento dai quattro. Il
+recepimento completo degli adottanti **non** è parte di questo task: è la loro
+coda e si misura col battito mensile.
