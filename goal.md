@@ -30,11 +30,11 @@ proprio `method-review`, senza che `metodo` gestisca le loro code.
   dell'audit mensile), filo
   [poli-register-goal-world](i3/poli-register-goal-world.md);
   lavoro: obiettivo **a regime** — il giro vive nei `method-review` degli
-  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze`;
-  due prescrizioni attive in `o3/` (`quinta-domanda-verdetti` e
-  `skill-per-arco`, 2026-08-01) attendono il recepimento dei quattro;
-  watchpoint: la disciplina del register di `salute` al suo primo giro di
-  supervisione dei verdetti.
+  adottanti, il battito è la riga mensile `/adopters-review` in `## Scadenze`
+  e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
+  (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
+  quattro e potate in giornata; watchpoint: il collaudo d'uso delle skill per
+  arco negli adottanti, che nessuno ha ancora girato su un evento reale.
 
 ### 3. Ascoltare il basso
 

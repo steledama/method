@@ -23,9 +23,9 @@ Legenda dipendenze esterne:
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
-`[b]` = risveglio al **terzo battito** `/adopters-review` successivo al
-recepimento della prescrizione `skill-per-arco` da tutti e quattro gli
-adottanti. Vedi `o2/rivalutazione-skill-per-arco.md`.
+`[b]` = risveglio al battito `/adopters-review` del **2026-11-01**, il terzo
+successivo al recepimento della rifilatura dai quattro (chiuso il
+2026-08-01). Vedi `o2/rivalutazione-skill-per-arco.md`.
 
 ## Scadenze
 

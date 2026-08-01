@@ -12,26 +12,22 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [quinta-domanda-verdetti](quinta-domanda-verdetti.md) — **attiva**
-  (2026-08-01): backport ai quattro fork di `verdicts-review` della quinta
-  domanda «è più sicuro del suo materiale?» (`64f0ec0`), sganciato dalla
-  rinomina `eval`/`exec` per non lasciare spenta la guardia nelle settimane
-  del pilota. Chiusa via `skill-per-arco` da `nixos`, `salute` ed `economia`
-  (2026-08-01); resta `bi`.
-- [skill-per-arco](skill-per-arco.md) — **attiva** (2026-08-01): la
-  rifilatura `plan-review`/`verdicts-review` → `exec`/`eval` tripartite sui
-  sei scope-stadio, con rimozione della coppia dopo la rifilatura del fork
-  locale; porta il montaggio delle skill di dominio come **esperimento
-  sequenziale**, non come esito deciso. Recepita da `nixos` (autonome: il
-  ramo determina l'arco), `salute` (assorbita: `eval trascrizione`) ed
-  `economia` (assorbite tutte e tre, `finanze` con mappa multi-stadio;
-  watchpoint sul costo di discoverability dell'assorbimento), 2026-08-01 —
-  il criterio è inciso in `kb/skill.md`; resta `bi`.
+Nessuna prescrizione aperta.
 
-L'ultima chiusa è `poli-register` (register gemelli `goal.md`/`world.md` che
+Le ultime due chiuse sono nate e si sono consumate **nello stesso giorno**
+(2026-08-01, recepite da tutti e quattro): `skill-per-arco` — la rifilatura
+`plan-review`/`verdicts-review` → `eval`/`exec` tripartite sui sei
+scope-stadio, che portava il montaggio delle skill di dominio come
+esperimento sequenziale e l'ha chiuso col bilancio 2-2 (autonome in `nixos` e
+`bi`, assorbite in `salute` ed `economia`) — e `quinta-domanda-verdetti`, il
+backport della domanda «è più sicuro del suo materiale?», sganciata perché la
+guardia non restasse spenta durante il pilota e chiusa dentro la rifilatura
+per tutti e quattro.
+
+Prima di loro `poli-register` (register gemelli `goal.md`/`world.md` che
 assorbono `map.md` e `sources.md`, home che rende l'intro dei register,
 quartetto di review; pilot `economia` 2026-07-09, recepita dai quattro il
-2026-07-11 con la chiusura di `salute`). Prima di lei `ristrutturazione-atrio`
+2026-07-11 con la chiusura di `salute`), `ristrutturazione-atrio`
 (collezioni-stadio `i1/`–`o3/`, catalogo `kb/kb.md`, verdetto a fili,
 `presentation/`, facet `ciclo`; pilot `nixos` 2026-07-05, recepita dai quattro
 il 2026-07-11 con la chiusura di `bi`, validata dal suo run notturno di

@@ -15,11 +15,11 @@ versionati, interpreta output e guida l'agente nelle decisioni che richiedono
 giudizio. E sono interfacce **sul canone**, non la sua sede: il significato
 degli stadi vive negli atomi (`perceive` … `perform`), la skill lo esercita.
 
-Il canone qui inciso copre i **soli sei scope-stadio**; il montaggio delle
-skill di dominio come argomenti resta ipotesi sperimentale (sotto). Negli
-adottanti la rifilatura arriva con la prescrizione `o3/skill-per-arco.md`
-(2026-08-01): finché il loro `method-review` non la recepisce, i fork montano
-ancora `plan-review` e `verdicts-review`.
+Il canone copre i **sei scope-stadio** in ogni repo; il montaggio delle skill
+di dominio come scope resta una scelta dell'adottante, guidata dal criterio
+inciso sotto. La rifilatura è recepita da tutti e quattro gli adottanti
+(2026-08-01, prescrizione `skill-per-arco` consumata e potata): `plan-review`
+e `verdicts-review` non esistono più in nessun repo della flotta.
 
 Regole:
 
@@ -215,11 +215,11 @@ esiste.
 
 ### Il montaggio come scope delle canoniche
 
-La ricognizione della flotta (2026-08-01) mostra che le skill di dominio non
-sono tutte atti da appendere a `perform`: si distribuiscono sui sei stadi e su
-entrambi gli archi. I primi due piloti (`nixos` e `salute`, 2026-08-01,
-decisi indipendentemente lo stesso giorno con esiti opposti) hanno inciso il
-**criterio di montaggio**:
+Le skill di dominio non sono tutte atti da appendere a `perform`: si
+distribuiscono sui sei stadi e su entrambi gli archi. L'esperimento del
+montaggio è **concluso** — quattro piloti, quattro decisioni esplicite
+(2026-08-01), bilancio 2-2: autonome in `nixos` e `bi`, assorbite in `salute`
+ed `economia`. Nessun caso ha smentito il **criterio**, che vale come regola:
 
 - dove **l'argomento decide l'arco** (skill parametriche multi-ramo come
   `aggiorna`), la skill resta **autonoma**: montarla come argomento delle
@@ -235,10 +235,16 @@ decisi indipendentemente lo stesso giorno con esiti opposti) hanno inciso il
 
 Restano riservati gli scope-stadio, identici in ogni repo; la capacità che
 attraversa entrambi gli archi non si forza sotto l'arco sbagliato per
-conservare il nome. Il montaggio resta sperimentale per le superfici non
-ancora pilotate (ordine `economia` → `bi`): ogni pilota decide — assorbita,
-divisa, autonoma — e i risultati correggono la prescrizione
-`o3/skill-per-arco.md` (dettaglio lì finché è attiva).
+conservare il nome. Uno scope di dominio che attraversa più stadi del proprio
+arco ne dichiara la **mappa** (`eval finanze`: parser in perceive, verifiche
+in interpret, riconciliazione in compare).
+
+L'assorbimento ha un **costo dichiarato**: dove una skill diventa scope, l'`ls`
+di `.claude/skills/` smette di essere l'inventario completo delle capacità di
+dominio — la regola dell'atrio si indebolisce su quel ramo, e il guadagno di
+raggruppamento va pesato contro la discoverability persa. È il motivo per cui
+la scelta resta dell'adottante, repo per repo, e non una direzione unica del
+canone.
 
 ### Dove sono elencate
 
@@ -291,12 +297,15 @@ Fotografia dalla ricognizione della flotta (2026-08-01, verificata sul posto;
   delle skill locali in `o3/tools.md`, divergenza di forma-item intenzionale
   registrata nel ledger locale.
 - **`bi`** — **origine della coppia di supervisione** (`52b2b600`, insieme al
-  register `goal.md`) e tre skill di dominio: `ordini <fornitore>` (l'intero
-  arco di esecuzione a runtime: composizione in priorità lessicografica come
-  plan, file-ordine come specify, import Danea e invio come perform con
-  ratifica umana al confine), `categorizza` e `tassonomia` (perform con
-  guardrail: solo lo script scrive). È il caso più complesso e si pilota per
-  ultimo.
+  register `goal.md`) e il repo che l'ha ritirata per ultimo: rifilatura
+  recepita (2026-08-01, `20cf5b7d`), con la colonna `Ob.` portata nel
+  generatore e provata in negativo su entrambi i modi di rottura. Le tre
+  skill di dominio restano **autonome** per esito del pilota (divergenza
+  dichiarata nel suo ledger): `ordini <fornitore>` (l'intero arco di
+  esecuzione a runtime: composizione in priorità lessicografica come plan,
+  file-ordine come specify, import Danea e invio come perform con ratifica
+  umana al confine), `categorizza` e `tassonomia` (perform con guardrail:
+  solo lo script scrive).
 - **`salute`** — rifilatura recepita (2026-08-01, `e6d6f28`):
   `elabora-trascrizione` **assorbita** come scope di dominio `trascrizione`
   sotto `eval` (stadio `perceive`: la distillazione seleziona senza giudicare

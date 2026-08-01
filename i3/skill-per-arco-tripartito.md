@@ -127,13 +127,19 @@ superficie mono-arco e mono-stadio (`perceive`: la distillazione seleziona
 senza giudicare, cattura i1 e non sintesi i2), **fuori da `all`** perché il
 canale event-driven non diventi rituale. Con la doppia conferma **il criterio
 e la regola dello sweep sono saliti a canone** (`kb/skill.md`). **Il terzo
-pilota** (`economia`, stesso giorno, `1844978`) conferma alla scala maggiore:
+pilota** (`economia`, `1844978`) conferma alla scala maggiore:
 **assorbite tutte e tre** — `finanze` come scope che attraversa l'intero arco
 con la mappa dichiarata (parser/verifiche/riconciliazione sui tre stadi),
 `posta` e `registrazioni` come canali `perceive` — e nel recepimento la
 fedeltà ha corretto anche il suo `world.md`, che citava ancora le skill
-vecchie come superfici. Il montaggio resta sperimentale per la sola
-superficie non pilotata (`bi`, l'ultima come da disegno).
+vecchie come superfici. **Il quarto chiude l'esperimento** (`bi`,
+`20cf5b7d`): tiene **autonome** le tre skill di dominio, registrandolo come
+divergenza dichiarata nel proprio ledger — ed è il repo che aveva inventato
+la coppia `plan-review`/`verdicts-review` a mandarla in pensione per ultimo.
+Il bilancio finale è **2-2 su quattro piloti** e nessun caso ha smentito il
+criterio, che perciò vale come regola e non più come ipotesi. Il razionale
+puntuale di `bi` vive nel suo ledger: risalirà col prossimo giro, e se pesa
+il costo di discoverability sollevato da `economia` è la parte che interessa.
 
 Watchpoint: i tre piloti hanno deciso sulla **forma**, non sull'uso — il
 primo giro reale di `eval`/`exec` negli adottanti è il collaudo che manca
@@ -166,9 +172,10 @@ danno la misura del prezzo dell'alternativa. Ma la scommessa si rivaluta, e la
 condizione si scrive **ora** perché fra tre mesi non dipenda da chi si ricorda di
 averla promessa:
 
-- **quando**: alla chiusura del task nasce un task di rivalutazione `pause`, con
-  risveglio al **terzo battito mensile `/adopters-review`** successivo al
-  recepimento dai quattro;
+- **quando**: il task di rivalutazione `pause` esiste
+  (`o2/rivalutazione-skill-per-arco.md`) e la sua condizione ha una data —
+  il recepimento dai quattro si è chiuso il 2026-08-01, quindi il terzo
+  battito mensile successivo è il **2026-11-01**;
 - **sintomi che direbbero «troppo»**: uno stadio che chiude vuoto in _tutti_ i
   repo per tre giri; un'invocazione che nessuno fa se non per disciplina; il
   tempo dell'arco che cresce senza che cambi nulla nel verdetto o nella coda;
@@ -198,10 +205,11 @@ ripianificasse su un register falso; nessuna sovrapposizione dannosa fra
 secondo collaudo candidato è il battito `/adopters-review` del 2026-08-11,
 con la posta vera degli adottanti, prima dell'incisione.
 Il canone è inciso (2026-08-01: `kb/skill.md` a `stato: maturo`, consumatori
-migrati) e la propagazione è emessa: `o3/skill-per-arco.md`, che porta la
-rifilatura per i quattro e, dentro, il montaggio delle skill locali come
-esperimento sequenziale — solo gli esiti provati risalgono a canone. Chi
-recepisce la rifilatura chiude anche l'arretrato della quinta domanda.
+migrati) e **la propagazione si è chiusa lo stesso giorno**: la prescrizione
+`skill-per-arco` è nata, è stata recepita da tutti e quattro gli adottanti ed
+è stata potata da `o3/` in giornata, portandosi dietro anche l'arretrato
+della quinta domanda. `plan-review` e `verdicts-review` non esistono più in
+nessun repo della flotta.
 
 Conseguenza già registrata: la «cascata verso i2» proposta come toppa a una riga
 in `verdetto-piu-sicuro-del-materiale` decade come mossa autonoma — diventa il

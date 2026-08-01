@@ -6,4 +6,4 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.
 - [redraw-tavole-interpretazioni.md](redraw-tavole-interpretazioni.md) — residui cosmetici delle tavole della vista Interpretazioni: tavola ontologia in inglese, glitch «o3 3», «P1»→«Pi», didascalia della tavola KB.
-- [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: riaprire il giudizio sulla scommessa della tripartizione `eval`/`exec` al terzo battito `/adopters-review` dopo il recepimento dai quattro; sintomi e contromisure dalla clausola di uscita del filo.
+- [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: riaprire il giudizio sulla scommessa della tripartizione `eval`/`exec` al battito del 2026-11-01 (terzo dopo il recepimento dai quattro); sintomi nella clausola di uscita del filo, qui condizione e materiale.

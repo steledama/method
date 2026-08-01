@@ -14,14 +14,13 @@ dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
 
 ## Verdetto
 
-Il canale del canone è vivo e i quattro sono `aligned`: **tre su quattro
-hanno chiuso il giro in giornata** — `nixos` e `salute` (marker a `0128891`;
-`salute` col commit `e6d6f28`) ed `economia` in serata (marker a `d2607f6`,
-commit `1844978`) — con rifilatura `eval`/`exec` e quinta domanda recepite in
-un colpo e i piloti del montaggio decisi. Resta `bi` (`b42164c`), il cui
-intervallo pendente è in gran parte nodi symlink-soddisfatti e cronache i1
-interne; il contenuto vero in attesa sono le due prescrizioni attive
-(`quinta-domanda-verdetti` e `skill-per-arco`). Nessun `action-required`.
+Il canale del canone ha fatto il giro completo in un giorno: **tutti e
+quattro hanno recepito** la rifilatura `eval`/`exec` e la quinta domanda, con
+i rispettivi piloti del montaggio decisi — `nixos` e `salute` (marker a
+`0128891`; `salute` col commit `e6d6f28`), `economia` (marker a `d2607f6`,
+commit `1844978`) e `bi` per ultimo (marker a `3940c8b`, commit `20cf5b7d`).
+Le due prescrizioni sono consumate e potate dalla collezione. Tutti
+`aligned`, nessun `action-required`.
 
 Fotografia delle code — la metrica del telos, pesata sulla gradualità di
 ciascun dominio (`development-goal`, fotografie per artefatto):
@@ -40,7 +39,11 @@ ciascun dominio (`development-goal`, fotografie per artefatto):
   run automatizzati con gli orari che vivono solo nel plan e le config
   scheduler che li implementano e rimandano — la tensione del primo giro («va
   vista reggere alla lettura») è sciolta. Due orologi manuali sforati di un
-  giorno: fisiologico.
+  giorno: fisiologico. Rifilatura recepita per ultima (`20cf5b7d`): tre skill
+  di dominio autonome per esito del pilota, colonna `Ob.` portata nel
+  generatore e provata su entrambi i modi di rottura — che ha subito rilevato
+  una voce del register non corrispondente a nessuna riga del plan (quarta
+  incarnazione del «vincolo che arriva tardi rivela»).
 - **economia** — 17 task runtime, 0 dev, in-the-loop come da costituzione;
   colonna `Ob.` viva (ne è l'origine, e la divergenza è rientrata a canone in
   quattro giorni), ordinamento dichiarato «per imminenza della prossima
@@ -74,8 +77,10 @@ stantie e orologi sforati = **code di dominio**.
 - ripetibilità: due battiti eseguiti (il secondo anticipato di dieci giorni):
   la cella runtime-o1 della matrice resta D finché il ritmo non è dimostrato
   su più giri regolari;
-- le due prescrizioni attive: recepite da tre su quattro in giornata
-  (2026-08-01); resta `bi` — verificare al giro di settembre;
+- il collaudo d'**uso** delle skill nuove: tutti e quattro hanno recepito la
+  forma in un giorno, nessuno ha ancora girato `eval`/`exec` su un evento
+  reale del proprio dominio — è il dato che manca alla clausola di uscita
+  (risveglio 2026-11-01);
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;
 - `salute`: la gamba di ritorno della sua percezione è arrivata col
@@ -86,8 +91,9 @@ stantie e orologi sforati = **code di dominio**.
   stato esercitato — unico dei quattro, materia della lente 5 a settembre;
 - il **costo dell'assorbimento** sollevato da `economia`: con gli scope di
   dominio montati sulle canoniche, l'`ls` di `.claude/skills/` non è più
-  l'inventario completo delle capacità — da misurare all'uso nei tre repo che
-  hanno assorbito, e da pesare nel pilota di `bi`.
+  l'inventario completo delle capacità — da misurare all'uso nei due repo che
+  hanno assorbito (`salute`, `economia`), mentre `nixos` e `bi` restano il
+  controfattuale a inventario intatto.
 
 ## Limiti
 

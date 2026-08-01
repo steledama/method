@@ -1,35 +1,38 @@
 ---
-sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al terzo battito /adopters-review successivo al recepimento della rifilatura dai quattro: leggere i sintomi della clausola di uscita (filo i3/skill-per-arco-tripartito.md) contro i giri reali e decidere se la rigidità ha pagato o se si snellisce — gli scope, non gli stadi."
+sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al battito /adopters-review del 2026-11-01 — il terzo successivo al recepimento dai quattro, chiuso il 2026-08-01. I sintomi da leggere sono la clausola di uscita del filo i3/skill-per-arco-tripartito.md; qui vivono la condizione, la data e il materiale da raccogliere."
 ciclo: dev
 ---
 
 # Rivalutazione clausola di uscita skill per arco
 
-Task `pause`: la condizione di risveglio è **il terzo battito mensile
-`/adopters-review` successivo al recepimento della prescrizione
-`skill-per-arco` da parte di tutti e quattro** gli adottanti. La clausola è
-stata scritta prima di partire (filo
-[`i3/skill-per-arco-tripartito.md`](../i3/skill-per-arco-tripartito.md),
-«La clausola di uscita, dichiarata prima di partire») perché il giudizio non
-dipenda da chi si ricorda di averla promessa.
+Task `pause`. La condizione di risveglio era «il terzo battito mensile
+`/adopters-review` successivo al recepimento della rifilatura da tutti e
+quattro gli adottanti»: il recepimento si è chiuso il **2026-08-01** (tutti e
+quattro nello stesso giorno), quindi il risveglio è il battito del
+**2026-11-01**. La condizione è stata scritta prima di partire perché il
+giudizio non dipendesse da chi si ricorda di averla promessa; ora ha una data
+e non dipende più nemmeno dal conteggio.
 
 ## Cosa si valuta al risveglio
 
-- **Sintomi che direbbero «troppo»**: uno stadio che chiude vuoto in _tutti_
-  i repo per tre giri; un'invocazione che nessuno fa se non per disciplina;
-  il tempo dell'arco che cresce senza che cambi nulla nel verdetto o nella
-  coda.
-- **Sintomi che direbbero «ha pagato»**: un errore intercettato dallo stadio
-  che prima non esisteva (una sintesi i2 corretta perché il claim è caduto,
-  un segnale i1 che sarebbe rimasto orfano, una prescrizione o3 consumata
-  potata).
-- **Cosa si snellisce per primo**, se si snellisce: gli scope, non gli stadi
-  — si accorpa l'invocazione, non si smette di distinguere i passi.
+I **sintomi** — «troppo», «ha pagato», cosa si snellisce per primo — vivono
+nella clausola di uscita del filo
+[`i3/skill-per-arco-tripartito.md`](../i3/skill-per-arco-tripartito.md), dove
+vive il verdetto: qui non si ricopiano, o le due liste divergerebbero alla
+prima rifinitura. Il task porta la condizione, la data e il materiale.
 
-Materiale al risveglio: i fili `i3/` dei giri (`audit-adottanti` per i
-battiti, `skill-per-arco-tripartito` per gli esiti del montaggio di dominio
-negli adottanti), i marker `method-review.md`, gli esiti dei piloti
-sequenziali `nixos` → `salute` → `economia` → `bi`.
+## Materiale da raccogliere
+
+- i **giri reali** di `eval`/`exec` in `metodo` e negli adottanti: al
+  2026-08-01 nessun adottante aveva ancora girato le skill nuove su un evento
+  del proprio dominio — è il dato che manca, ed è il più importante;
+- il **costo dell'assorbimento** (watchpoint di `economia`): nei due repo che
+  hanno assorbito (`salute`, `economia`) l'`ls` di `.claude/skills/` non è più
+  l'inventario completo delle capacità; `nixos` e `bi`, che hanno tenuto le
+  skill autonome, sono il controfattuale a inventario intatto;
+- i fili `i3/` dei battiti (`audit-adottanti`) e i marker `method-review.md`;
+- il **conteggio degli esiti nulli** per stadio: quale scope ha chiuso vuoto,
+  in quali repo e per quanti giri di fila.
 
 ## Criterio di chiusura
 

@@ -91,20 +91,17 @@
         <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
-            Il canale del canone è vivo e i quattro sono <code>aligned</code>:
-            <strong>tre su quattro hanno chiuso il giro in giornata</strong> —
-            <code>nixos</code> e <code>salute</code> (marker a
-            <code>0128891</code>; <code>salute</code> col commit
-            <code>e6d6f28</code>) ed <code>economia</code> in serata (marker a
-            <code>d2607f6</code>, commit <code>1844978</code>) — con rifilatura
-            <code>eval</code>/<code>exec</code> e quinta domanda recepite in un
-            colpo e i piloti del montaggio decisi. Resta
-            <code>bi</code> (<code>b42164c</code>), il cui intervallo pendente è
-            in gran parte nodi symlink-soddisfatti e cronache i1 interne; il
-            contenuto vero in attesa sono le due prescrizioni attive (<code
-              >quinta-domanda-verdetti</code
-            >
-            e <code>skill-per-arco</code>). Nessun <code>action-required</code>.
+            Il canale del canone ha fatto il giro completo in un giorno:
+            <strong>tutti e quattro hanno recepito</strong> la rifilatura
+            <code>eval</code>/<code>exec</code> e la quinta domanda, con i
+            rispettivi piloti del montaggio decisi — <code>nixos</code> e
+            <code>salute</code> (marker a <code>0128891</code>;
+            <code>salute</code> col commit <code>e6d6f28</code>),
+            <code>economia</code> (marker a <code>d2607f6</code>, commit
+            <code>1844978</code>) e <code>bi</code> per ultimo (marker a
+            <code>3940c8b</code>, commit <code>20cf5b7d</code>). Le due
+            prescrizioni sono consumate e potate dalla collezione. Tutti
+            <code>aligned</code>, nessun <code>action-required</code>.
           </p>
           <p>
             Fotografia delle code — la metrica del telos, pesata sulla
@@ -132,7 +129,13 @@
               cinque run automatizzati con gli orari che vivono solo nel plan e
               le config scheduler che li implementano e rimandano — la tensione
               del primo giro («va vista reggere alla lettura») è sciolta. Due
-              orologi manuali sforati di un giorno: fisiologico.
+              orologi manuali sforati di un giorno: fisiologico. Rifilatura
+              recepita per ultima (<code>20cf5b7d</code>): tre skill di dominio
+              autonome per esito del pilota, colonna <code>Ob.</code> portata
+              nel generatore e provata su entrambi i modi di rottura — che ha
+              subito rilevato una voce del register non corrispondente a nessuna
+              riga del plan (quarta incarnazione del «vincolo che arriva tardi
+              rivela»).
             </li>
             <li>
               <strong>economia</strong> — 17 task runtime, 0 dev, in-the-loop
@@ -186,9 +189,11 @@
               non è dimostrato su più giri regolari;
             </li>
             <li>
-              le due prescrizioni attive: recepite da tre su quattro in giornata
-              (2026-08-01); resta <code>bi</code> — verificare al giro di
-              settembre;
+              il collaudo d’<strong>uso</strong> delle skill nuove: tutti e
+              quattro hanno recepito la forma in un giorno, nessuno ha ancora
+              girato <code>eval</code>/<code>exec</code> su un evento reale del
+              proprio dominio — è il dato che manca alla clausola di uscita
+              (risveglio 2026-11-01);
             </li>
             <li>
               <code>nixos</code>: le due date stantie del quotidiano/settimanale
@@ -213,8 +218,9 @@
               <code>economia</code>: con gli scope di dominio montati sulle
               canoniche, l’<code>ls</code> di <code>.claude/skills/</code> non è
               più l’inventario completo delle capacità — da misurare all’uso nei
-              tre repo che hanno assorbito, e da pesare nel pilota di
-              <code>bi</code>.
+              due repo che hanno assorbito (<code>salute</code>,
+              <code>economia</code>), mentre <code>nixos</code> e
+              <code>bi</code> restano il controfattuale a inventario intatto.
             </li>
           </ul>
         </section>
@@ -1221,16 +1227,26 @@
               >il criterio e la regola dello sweep sono saliti a canone</strong
             >
             (<code>kb/skill.md</code>).
-            <strong>Il terzo pilota</strong> (<code>economia</code>, stesso
-            giorno, <code>1844978</code>) conferma alla scala maggiore:
+            <strong>Il terzo pilota</strong> (<code>economia</code>,
+            <code>1844978</code>) conferma alla scala maggiore:
             <strong>assorbite tutte e tre</strong> — <code>finanze</code> come
             scope che attraversa l’intero arco con la mappa dichiarata
             (parser/verifiche/riconciliazione sui tre stadi),
             <code>posta</code> e <code>registrazioni</code> come canali
             <code>perceive</code> — e nel recepimento la fedeltà ha corretto
             anche il suo <code>world.md</code>, che citava ancora le skill
-            vecchie come superfici. Il montaggio resta sperimentale per la sola
-            superficie non pilotata (<code>bi</code>, l’ultima come da disegno).
+            vecchie come superfici.
+            <strong>Il quarto chiude l’esperimento</strong> (<code>bi</code>,
+            <code>20cf5b7d</code>): tiene <strong>autonome</strong> le tre skill
+            di dominio, registrandolo come divergenza dichiarata nel proprio
+            ledger — ed è il repo che aveva inventato la coppia
+            <code>plan-review</code>/<code>verdicts-review</code> a mandarla in
+            pensione per ultimo. Il bilancio finale è
+            <strong>2-2 su quattro piloti</strong> e nessun caso ha smentito il
+            criterio, che perciò vale come regola e non più come ipotesi. Il
+            razionale puntuale di <code>bi</code> vive nel suo ledger: risalirà
+            col prossimo giro, e se pesa il costo di discoverability sollevato
+            da <code>economia</code> è la parte che interessa.
           </p>
           <p>
             Watchpoint: i tre piloti hanno deciso sulla <strong>forma</strong>,
@@ -1284,12 +1300,12 @@
           </p>
           <ul>
             <li>
-              <strong>quando</strong>: alla chiusura del task nasce un task di
-              rivalutazione <code>pause</code>, con risveglio al
-              <strong
-                >terzo battito mensile <code>/adopters-review</code></strong
-              >
-              successivo al recepimento dai quattro;
+              <strong>quando</strong>: il task di rivalutazione
+              <code>pause</code>
+              esiste (<code>o2/rivalutazione-skill-per-arco.md</code>) e la sua
+              condizione ha una data — il recepimento dai quattro si è chiuso il
+              2026-08-01, quindi il terzo battito mensile successivo è il
+              <strong>2026-11-01</strong>;
             </li>
             <li>
               <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
@@ -1337,12 +1353,14 @@
             battito <code>/adopters-review</code> del 2026-08-11, con la posta
             vera degli adottanti, prima dell’incisione. Il canone è inciso
             (2026-08-01: <code>kb/skill.md</code> a <code>stato: maturo</code>,
-            consumatori migrati) e la propagazione è emessa:
-            <code>o3/skill-per-arco.md</code>, che porta la rifilatura per i
-            quattro e, dentro, il montaggio delle skill locali come esperimento
-            sequenziale — solo gli esiti provati risalgono a canone. Chi
-            recepisce la rifilatura chiude anche l’arretrato della quinta
-            domanda.
+            consumatori migrati) e
+            <strong>la propagazione si è chiusa lo stesso giorno</strong>: la
+            prescrizione <code>skill-per-arco</code> è nata, è stata recepita da
+            tutti e quattro gli adottanti ed è stata potata da
+            <code>o3/</code> in giornata, portandosi dietro anche l’arretrato
+            della quinta domanda. <code>plan-review</code> e
+            <code>verdicts-review</code> non esistono più in nessun repo della
+            flotta.
           </p>
           <p>
             Conseguenza già registrata: la «cascata verso i2» proposta come
