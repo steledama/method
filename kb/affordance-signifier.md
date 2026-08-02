@@ -28,6 +28,19 @@ Che l'affordance sia una _relazione_ e non una proprietà non è un dettaglio te
 
 Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione stessa: l'agente che interagisce è «a person, animal, **or machine**». Norman nomina la macchina tra gli agenti. La KB ha quindi affordance e signifier per _due_ agenti che la leggono — l'umano e l'LLM — e i due strati output ne sono la conseguenza: L1 porta i signifier di cui ha bisogno l'agente macchina (fatti strutturati, scadenze esplicite), L2 quelli di cui ha bisogno l'agente umano (vista leggibile a colpo d'occhio). Un nodo ben _segnalato_ per l'umano può essere muto per la macchina, e viceversa. La distinzione affordance/signifier dà il criterio per progettare entrambi senza confonderli, ed è il completamento naturale delle quattro proprietà cardine già usate come criteri di qualità per L2.
 
+## Corollario: il nome di un output eredita il produttore, salvo collisione
+
+Quando un file di output ha un produttore singolo e deterministico (uno
+script, una skill), il suo nome dovrebbe — quando possibile — riflettere il
+produttore: posizione, nome ed estensione da soli devono raccontare cosa sia
+il file senza aprirlo. Generalizza il giudizio già dato in `kb/skill.md` a
+`nix-overlay-update` («signifier onesto») dai nomi delle skill ai file che le
+skill scrivono. Vale una clausola di precedenza: il nome-funzione stabile
+vince quando l'eredità del nome del produttore produce collisione o
+ambiguità con un nome già vivo nello stesso spazio dei nomi — un signifier
+ambiguo non è più onesto di uno stabile solo perché più recente (caso
+concreto e ratifica: `i3/allineamento-marker-stadio.md`).
+
 ## Riferimenti
 
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition (Basic Books, 2013), Cap. 1 "The Psychopathology of Everyday Things", sezioni _Affordances_ e _Signifiers_. Il signifier è l'aggiunta dichiarata dell'edizione 2013 («Signifiers are the most important addition to the chapter»); l'affordance era già nella prima edizione (1988), dove Norman introdusse il termine nel mondo del design.
