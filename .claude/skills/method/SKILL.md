@@ -31,11 +31,13 @@ la root ospita il symlink `method` verso il canone (`../method/kb`), e un
 marker con nome simile accanto ad esso è un signifier ambiguo, non un ledger
 onesto (`i3/allineamento-marker-stadio.md` nel repo `method`). È insieme
 cursore machine-readable e verdetto — cursore e narrazione fusi in un solo
-file-i3, forma «stato attuale aggiornato in place», non un log:
+file-i3, forma «stato attuale aggiornato in place», non un log. `ciclo: dev`
+perché la relazione con `method` è materia del proprio artefatto (dev),
+non del Mondo runtime che l'adottante gestisce nel proprio dominio:
 
 ```markdown
 ---
-ciclo: runtime
+ciclo: dev
 method_commit: <SHA completo di method>
 reviewed_at: YYYY-MM-DD
 status: aligned
