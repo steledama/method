@@ -12,17 +12,24 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [skill-nomi-verbo-sostantivo](skill-nomi-verbo-sostantivo.md) — **attiva**
-  (2026-08-01): il rename sostantivo dei due composti canonici in `-review`,
-  `kb-review`→`kb` e `method-review`→`method` (ratifica in
-  `i3/nome-skill-dominio-verbo-o-sostantivo.md`); `metodo` ha già applicato il
-  rename e i propri riferimenti, resta il recepimento dei quattro adottanti.
-  Porta anche due raccomandazioni forti di dominio, non bloccanti per la
-  chiusura: `aggiorna-overlay`→`overlay` a `nixos`, verifica del nome vivo di
-  `categorizza` a `bi`.
+Nessuna prescrizione attiva.
 
-Le ultime due chiuse sono nate e si sono consumate **nello stesso giorno**
-(2026-08-01, recepite da tutti e quattro): `skill-per-arco` — la rifilatura
+L'ultima chiusa, `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
+tutti e quattro il 2026-08-02): il rename sostantivo dei due composti
+canonici in `-review`, `kb-review`→`kb` e `method-review`→`method` (ratifica
+in `i3/nome-skill-dominio-verbo-o-sostantivo.md`, filo chiuso). A metà corsa
+si è aggiunto il trasloco del marker di allineamento da root a
+`i3/allineamento-metodo.md` (verdetto `i3/allineamento-marker-stadio.md`,
+filo chiuso), innescato da una divergenza di `nixos` sul nome del marker e
+risolto generalizzando il principio «il nome eredita il produttore, salvo
+collisione» (`kb/affordance-signifier.md`). Raccomandazione di dominio
+`categorizza`→`categorizzazione` a `bi`: applicata (la fotografia di
+`metodo` la classificava già conforme, ma era stale). `aggiorna-overlay`→`overlay`
+a `nixos`: non bloccante, non risulta ancora applicata.
+
+Le due chiuse prima di questa sono nate e si sono consumate **nello stesso
+giorno** (2026-08-01, recepite da tutti e quattro): `skill-per-arco` — la
+rifilatura
 `plan-review`/`verdicts-review` → `eval`/`exec` tripartite sui sei
 scope-stadio, che portava il montaggio delle skill di dominio come
 esperimento sequenziale e l'ha chiuso col bilancio 2-2 (autonome in `nixos` e

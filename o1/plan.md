@@ -11,13 +11,11 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                                                        | Dip.      |
-| ----- | --- | --------------------------------------------------------------------------- | --------- |
-| dev   | 1   | Trasloca il marker di allineamento a `i3/`, aggiorna prescrizione e propaga | —         |
-| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)                     | —         |
-| dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica»                    | pause [a] |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco                             | pause [b] |
-| dev   | 1   | Rinomina le skill secondo la regola sostantivo, propaga i casi canonici     | world [c] |
+| Ciclo | Ob. | Task                                                     | Dip.      |
+| ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
+| dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |
 
 Legenda dipendenze esterne:
 
@@ -28,10 +26,6 @@ più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 `[b]` = risveglio al battito `/adottanti` del **2026-11-01**, il terzo
 successivo al recepimento della rifilatura dai quattro (chiuso il
 2026-08-01). Vedi `o2/rivalutazione-skill-per-arco.md`.
-
-`[c]` = rename e riferimenti già applicati in `metodo`; resta il recepimento
-dei quattro adottanti della prescrizione `o3/skill-nomi-verbo-sostantivo.md`.
-Vedi `o2/skill-nomi-verbo-sostantivo.md`.
 
 ## Scadenze
 

@@ -23,15 +23,14 @@ La cattura precedente — «il nome di un file di output dovrebbe ereditare il
 nome del produttore», da nixos il 2026-08-02 (il custode aveva derogato alla
 clausola §3 di `o3/skill-nomi-verbo-sostantivo.md`, rinominando
 `method-review.md`→`method.md`) — è stata valutata lo stesso giorno e
-consumata da
-[i3/allineamento-marker-stadio.md](../i3/allineamento-marker-stadio.md)
-(filo nuovo, ratificato: il principio resta ma il caso concreto non regge —
-collide col symlink `method` già in root — e la correzione vera è il
-trasloco del marker in `i3/`). Quella ancora precedente — «il nome di una
-skill di dominio è verbo o sostantivo?», da nixos il 2026-08-01 — è stata
-valutata lo stesso giorno e consumata da
-[i3/nome-skill-dominio-verbo-o-sostantivo.md](../i3/nome-skill-dominio-verbo-o-sostantivo.md)
-(filo nuovo, ratificato: il sostantivo vince). Le due catture ancora
+consumata da `i3/allineamento-marker-stadio.md` (ratificato: il principio
+resta ma il caso concreto non regge — collide col symlink `method` già in
+root — e la correzione vera è il trasloco del marker in `i3/`; filo chiuso,
+recepito dai quattro il 2026-08-02). Quella ancora precedente — «il nome di
+una skill di dominio è verbo o sostantivo?», da nixos il 2026-08-01 — è stata
+valutata lo stesso giorno e consumata da `i3/nome-skill-dominio-verbo-o-sostantivo.md`
+(ratificato: il sostantivo vince; filo chiuso, recepito dai quattro il
+2026-08-02). Le due catture ancora
 precedenti — «la mappatura task→obiettivo vive solo nel register, a mano» e
 «il verdetto è più sicuro del materiale», entrambe da `economia` il
 2026-07-30 — sono state valutate il 2026-07-31 e consumate rispettivamente da
