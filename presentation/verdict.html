@@ -72,6 +72,142 @@
     <div class="reveal">
       <div class="slides">
         <section
+          id="il-marker-di-allineamento-trasloca-in-i3-il-nome-del-produttore-vince-solo-senza-collisione"
+          class="slide level2"
+        >
+          <h2>
+            Il marker di allineamento trasloca in <code>i3/</code>; il nome del
+            produttore vince solo senza collisione
+          </h2>
+          <p>
+            Ratificato (custode, 2026-08-02) dalla percezione «il nome di un
+            file di output dovrebbe ereditare il nome del produttore» (nixos,
+            consumata qui): resta il principio, cade l’istanza concreta che l’ha
+            innescato — sostituita da una correzione più radicale.
+          </p>
+        </section>
+        <section
+          id="il-principio-nome-eredita-produttore-con-una-clausola-di-precedenza"
+          class="slide level2"
+        >
+          <h2>
+            Il principio: nome-eredita-produttore, con una clausola di
+            precedenza
+          </h2>
+          <p>
+            Quando un output ha un produttore singolo e deterministico (uno
+            script, una skill) e nessun nome già vivo nello stesso spazio dei
+            nomi confligge, il nome del file dovrebbe riflettere il produttore:
+            generalizza il criterio già in canone in <code>kb/skill.md</code> —
+            il “signifier onesto” giudicato per
+            <code>nix-overlay-update</code> — dai nomi delle skill ai file che
+            le skill scrivono. Corollario inciso in
+            <code>kb/affordance-signifier.md</code>.
+          </p>
+          <p>
+            Il nome-funzione stabile vince quando l’eredità del nome del
+            produttore produrrebbe collisione o ambiguità con un nome già canone
+            nello stesso spazio dei nomi. È il caso concreto che ha innescato la
+            percezione.
+          </p>
+        </section>
+        <section
+          id="il-caso-concreto-perché-method-review.md-method.md-non-regge"
+          class="slide level2"
+        >
+          <h2>
+            Il caso concreto: perché <code>method-review.md</code> →
+            <code>method.md</code> non regge
+          </h2>
+          <p>
+            <code>nixos</code> (istruita dal custode) ha rinominato
+            <code>method-review.md</code> → <code>method.md</code>, in deroga
+            alla clausola §3 di
+            <code>o3/skill-nomi-verbo-sostantivo.md</code> («il marker non
+            cambia nome»). Verifica sul materiale reale (<code>ls ~/nixos</code
+            >): <code>method.md</code> siede accanto al symlink
+            <code>method</code> (→ <code>../method/kb</code>), già presente e
+            identico nei quattro adottanti. La coppia <code>method</code>/<code
+              >method.md</code
+            >
+            è più ambigua di quella che sostituiva (<code>method</code> symlink
+            + <code>method-review.md</code>) — il nome nuovo non è un signifier
+            più onesto, lo è meno, proprio nella root che deve raccontare
+            l’anatomia senza aprire nulla
+            (<code>kb/project-structure.md</code>).
+          </p>
+          <p>
+            La clausola §3 originale aveva la conclusione giusta (non rinominare
+            in root) ma la motivazione debole (stabilità del ledger nel tempo).
+            La motivazione vera è più radicale:
+            <strong>il marker non dovrebbe stare in root affatto.</strong> È lo
+            stato corrente di una relazione (l’allineamento col canone), non un
+            cursore d’atrio come <code>goal.md</code>/<code>world.md</code> — la
+            sua forma (cursore + prosa di stato, aggiornata in place, non un
+            log) è esattamente quella che il canone già dà a
+            <strong>i3</strong> (<code>kb/project-structure.md</code>, riga 117:
+            «stato attuale… non una sequenza di entry datate»).
+          </p>
+          <p>
+            <code>nixos</code> aveva già anticipato lo split, tenendo il
+            verdetto narrativo in <code>i3/allineamento-metodo.md</code> locale
+            e solo il cursore in root. Questa ratifica generalizza lo split fino
+            in fondo: il cursore trasloca anch’esso in <code>i3/</code>, un solo
+            file per adottante, <strong>nome uniforme tra i progetti</strong>
+            (<code>i3/allineamento-metodo.md</code>, sul principio già in canone
+            che le collezioni standard portano nomi uniformi —
+            <code>kb/project-structure.md</code>, riga 131) invece del file ad
+            hoc in root.
+          </p>
+        </section>
+        <section id="casi-decisi" class="slide level2">
+          <h2>Casi decisi</h2>
+          <ul>
+            <li>
+              Il marker (<code>method-review.md</code>/<code>method.md</code>)
+              trasloca da root a <code>i3/allineamento-metodo.md</code> nei
+              quattro adottanti: cursore (<code>method_commit</code>,
+              <code>reviewed_at</code>, <code>status</code>) e verdetto
+              narrativo fusi in un solo file, stessa forma-i3 di ogni altro
+              filo.
+            </li>
+            <li>
+              Il principio nome-eredita-produttore resta canone generale per
+              output a produttore singolo, con la clausola di precedenza sul
+              nome-funzione stabile quando collide.
+            </li>
+            <li>
+              <code>nixos</code> è avanti sullo split concettuale ma sul posto
+              sbagliato (root, non <code>i3/</code>): la correzione è nella
+              prescrizione, non un rimprovero.
+            </li>
+          </ul>
+        </section>
+        <section
+          id="prossimi-passi-fuori-da-questo-filo-materia-exec"
+          class="slide level2"
+        >
+          <h2>
+            Prossimi passi (fuori da questo filo, materia <code>exec</code>)
+          </h2>
+          <ul>
+            <li>
+              Aggiornare <code>o3/skill-nomi-verbo-sostantivo.md</code> §3 (o
+              emettere una prescrizione dedicata) col nuovo canone di posizione
+              del marker, propagata ai quattro adottanti.
+            </li>
+            <li>
+              <code>.claude/skills/method/SKILL.md</code> e
+              <code>kb/skill.md</code> (riga 112) da aggiornare per riflettere
+              <code>i3/allineamento-metodo.md</code> come sede canonica.
+            </li>
+            <li>
+              <code>world.md</code> (riga 8) cita la superficie «marker
+              <code>method-review.md</code>» — da aggiornare al nuovo path.
+            </li>
+          </ul>
+        </section>
+        <section
           id="audit-runtime-o1-la-distanza-dei-quattro-dal-telos"
           class="slide level2"
         >
@@ -785,7 +921,7 @@
             elimina l’oscillazione su questo asse specifico.
           </p>
         </section>
-        <section id="casi-decisi" class="slide level2">
+        <section id="casi-decisi-1" class="slide level2">
           <h2>Casi decisi</h2>
           <ul>
             <li>

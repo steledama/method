@@ -11,12 +11,13 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                                                    | Dip.      |
-| ----- | --- | ----------------------------------------------------------------------- | --------- |
-| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)                 | —         |
-| dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica»                | pause [a] |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco                         | pause [b] |
-| dev   | 1   | Rinomina le skill secondo la regola sostantivo, propaga i casi canonici | world [c] |
+| Ciclo | Ob. | Task                                                                        | Dip.      |
+| ----- | --- | --------------------------------------------------------------------------- | --------- |
+| dev   | 1   | Trasloca il marker di allineamento a `i3/`, aggiorna prescrizione e propaga | —         |
+| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)                     | —         |
+| dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica»                    | pause [a] |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco                             | pause [b] |
+| dev   | 1   | Rinomina le skill secondo la regola sostantivo, propaga i casi canonici     | world [c] |
 
 Legenda dipendenze esterne:
 

@@ -109,8 +109,10 @@ soddisfatti, diretti, da adattare, non pertinenti e divergenze intenzionali; usa
 uno SHA completo di `method` come cursore e non avanza il marker finché ogni voce
 pertinente non è risolta o tracciata in un task locale.
 
-Il marker vive in `method-review.md` nella root dell'adottante, con
-`method_commit`, `reviewed_at` e `status`. `aligned` non significa che ogni
+Il marker vive in `i3/allineamento-metodo.md` dell'adottante, non in root —
+la root ospita il symlink `method` verso il canone e un marker con nome
+simile accanto ad esso è un signifier ambiguo (`i3/allineamento-marker-stadio.md`
+di `method`) — con `method_commit`, `reviewed_at` e `status`. `aligned` non significa che ogni
 differenza sia stata cancellata: significa che ciascun cambiamento pertinente è
 stato applicato, risultava già soddisfatto, è registrato come divergenza
 intenzionale oppure è affidato a un task locale. Lo SHA avanza solo dopo questa

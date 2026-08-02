@@ -32,8 +32,8 @@ l'ingresso della valenza, e anticiparlo è il difetto che lo stadio esiste per
 impedire.
 
 1. Raccogli ciò che arriva dal Mondo. In `metodo` i canali sono: i marker
-   `method-review.md` degli adottanti (dai checkout dichiarati nel territorio
-   di `world.md`, superfici ssh remote comprese), gli esiti già
+   `i3/allineamento-metodo.md` degli adottanti (dai checkout dichiarati nel
+   territorio di `world.md`, superfici ssh remote comprese), gli esiti già
    prodotti da `kb` (che resta capacità diagnostica dell'ala
    trasversale: la sua diagnosi si acquisisce come segnale, non si esegue
    implicitamente da qui), i segnali che il custode porta da un altro repo.
@@ -69,9 +69,9 @@ verificate, quali affermazioni restano non verificate e sono dichiarate tali.
 Leggi `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`; poi `o1/plan.md` e
 `git log --oneline -15` per gli eventi dall'ultima revisione. I segnali reali
 sono gli esiti di `perceive` e `interpret` di questo giro, l'audit
-(`o3/kb_tools.py audit`), i marker `method-review.md` degli adottanti (dai
-checkout dichiarati nel territorio di `world.md`) e le percezioni `i1/` non
-ancora valutate.
+(`o3/kb_tools.py audit`), i marker `i3/allineamento-metodo.md` degli
+adottanti (dai checkout dichiarati nel territorio di `world.md`) e le
+percezioni `i1/` non ancora valutate.
 
 **2. Cinque domande per ogni filo**
 

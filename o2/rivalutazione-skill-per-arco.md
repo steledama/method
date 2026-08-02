@@ -30,7 +30,7 @@ prima rifinitura. Il task porta la condizione, la data e il materiale.
   hanno assorbito (`salute`, `economia`) l'`ls` di `.claude/skills/` non è più
   l'inventario completo delle capacità; `nixos` e `bi`, che hanno tenuto le
   skill autonome, sono il controfattuale a inventario intatto;
-- i fili `i3/` dei battiti (`audit-adottanti`) e i marker `method-review.md`;
+- i fili `i3/` dei battiti (`audit-adottanti`) e i marker `i3/allineamento-metodo.md`;
 - il **conteggio degli esiti nulli** per stadio: quale scope ha chiuso vuoto,
   in quali repo e per quanti giri di fila.
 

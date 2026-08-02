@@ -25,8 +25,8 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col
 proprio `method`, senza che `metodo` gestisca le loro code.
 
 - **Canone recepito dai quattro** — atrio e poli-register/quartetto chiusi
-  (2026-07-11, ultimo `salute`); segnali: marker `method-review.md` degli
-  adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
+  (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
+  degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
   lavoro: obiettivo **a regime** — il giro vive nei `method` degli
   adottanti, il battito è la riga mensile `/adottanti` in `## Scadenze`

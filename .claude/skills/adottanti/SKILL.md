@@ -39,7 +39,7 @@ Leggi l'elenco degli adottanti dal register `world.md` e l'HEAD di `metodo`
 
 ### 2. Canale del canone (per adottante)
 
-Leggi `method-review.md` nella root dell'adottante: `method_commit`,
+Leggi `i3/allineamento-metodo.md` dell'adottante: `method_commit`,
 `reviewed_at`, `status`. Misura il ritardo marker→HEAD in commit
 (`git rev-list --count <marker>..HEAD`) e scorri i soggetti non recepiti.
 `status: action-required` o un ritardo che accumula canone strutturale sono i

@@ -26,22 +26,27 @@ locali che richiedono giudizio.
 
 ## Marker versionato
 
-Il marker vive in `method-review.md` nella root dell'adottante. È insieme cursore
-machine-readable e ledger umano:
+Il marker vive in `i3/allineamento-metodo.md` nell'adottante — non in root:
+la root ospita il symlink `method` verso il canone (`../method/kb`), e un
+marker con nome simile accanto ad esso è un signifier ambiguo, non un ledger
+onesto (`i3/allineamento-marker-stadio.md` nel repo `method`). È insieme
+cursore machine-readable e verdetto — cursore e narrazione fusi in un solo
+file-i3, forma «stato attuale aggiornato in place», non un log:
 
 ```markdown
 ---
+ciclo: runtime
 method_commit: <SHA completo di method>
 reviewed_at: YYYY-MM-DD
 status: aligned
 ---
 
-# Method review
+# Allineamento con method
 
 Cursore del canale col canone: il marker nel frontmatter è l'ultimo commit di
-`method` recepito. Questo register tiene solo il contratto durevole
-(divergenze e adattamenti che la prossima review non deve ri-segnalare); il
-verdetto sull'allineamento vive in un filo `i3/`, la cronaca dei giri nella
+`method` recepito. Il corpo tiene il contratto durevole (divergenze e
+adattamenti che la prossima review non deve ri-segnalare) e il verdetto
+sull'allineamento, aggiornato in place; la cronaca dei giri resta nella
 storia git di questo file.
 
 ## Adattamenti intenzionali
@@ -89,7 +94,7 @@ automatici: il confronto è con il checkout disponibile.
 
 ### 2. Determina l'intervallo
 
-Leggi `method_commit` dal frontmatter di `method-review.md` e verifica:
+Leggi `method_commit` dal frontmatter di `i3/allineamento-metodo.md` e verifica:
 
 ```bash
 git -C "$method_repo" cat-file -e "<SHA>^{commit}"
@@ -101,7 +106,8 @@ git -C "$method_repo" log --reverse --format='%H%x09%ad%x09%s' \
 Per ogni commit pertinente, usa `git show --stat --oneline <SHA>` e
 `git show --format=fuller <SHA> -- <path>` solo sui path necessari.
 
-Se `method-review.md` non esiste, non inventare un baseline silenziosamente.
+Se `i3/allineamento-metodo.md` non esiste (né, per repo non ancora migrati,
+`method-review.md` in root), non inventare un baseline silenziosamente.
 Ricostruisci l'ultimo allineamento verificabile dalla storia locale e da quella
 di `method`, proponi lo SHA iniziale all'utente e crea il marker solo dopo
 conferma. Un commit locale con stesso soggetto o timestamp è un indizio, non una
@@ -147,7 +153,7 @@ Prima delle modifiche presenta una tabella sintetica:
 | ...    | ...         | ...   | ...           |
 
 La tabella è output di sessione: si presenta nella conversazione e resta nel
-riepilogo finale, **non si scrive in `method-review.md`**.
+riepilogo finale, **non si scrive in `i3/allineamento-metodo.md`**.
 
 Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o
@@ -162,9 +168,12 @@ Il marker può avanzare a `HEAD` di `method` solo quando ogni voce pertinente è
 - registrata come divergenza intenzionale; oppure
 - affidata a un task locale esistente e linkato nel riepilogo della sessione.
 
-Aggiorna `method-review.md` in place, mantenendo solo lo stato corrente. Se resta
-una voce pertinente senza una delle risoluzioni sopra, imposta
-`status: action-required` e non cambiare `method_commit`.
+Aggiorna `i3/allineamento-metodo.md` in place, mantenendo solo lo stato
+corrente. Se resta una voce pertinente senza una delle risoluzioni sopra,
+imposta `status: action-required` e non cambiare `method_commit`. Se il
+repo ha ancora `method-review.md`/`method.md` in root, spostalo in
+`i3/allineamento-metodo.md` come parte di questa chiusura, non come voce
+separata.
 
 Concludi riportando:
 

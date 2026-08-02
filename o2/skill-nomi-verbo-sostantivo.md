@@ -62,7 +62,14 @@ Dominio, per repo:
 
 Task chiuso quando: le due cartelle canoniche sono rinominate in `metodo`
 (fatto), la prescrizione di propagazione è recepita dai quattro adottanti
-(marker `method-review.md` aggiornati — **in attesa**), e
+(marker aggiornati — **in attesa**), e
 `adopters-review`→`adottanti` è applicato localmente (fatto). Il punto 4
 (`aggiorna-overlay`) non blocca la chiusura: è un suggerimento a `nixos`, non
 un obbligo di propagazione da questo repo.
+
+**Nota**: la clausola §3 della prescrizione («il marker non cambia nome») è
+superata da [i3/allineamento-marker-stadio.md](../i3/allineamento-marker-stadio.md)
+— il marker trasloca a `i3/allineamento-metodo.md`, non resta
+`method-review.md` in root. Il lavoro di prescrizione e propagazione per
+questo punto vive ora in
+[o2/marker-allineamento-i3.md](marker-allineamento-i3.md), non qui.

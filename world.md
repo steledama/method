@@ -5,7 +5,7 @@ da cui emerge l'esigenza dal basso e a cui torna la propagazione, e le
 **fonti teoriche su `gdrive/`**, da cui il canone trae il proprio pavimento. Il
 Mondo di sviluppo sono invece i nodi `kb/` e la loro coerenza.
 
-Adottanti (con la superficie da cui si leggono i marker `method-review.md`):
+Adottanti (con la superficie da cui si leggono i marker `i3/allineamento-metodo.md`):
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host — checkout `~/nixos` su `svezia`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati — checkout `~/bi` su `svezia`

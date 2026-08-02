@@ -58,11 +58,20 @@ tabella verificata sono in `o2/skill-nomi-verbo-sostantivo.md` di `method`.
    e classifica: riferimenti operativi/normativi si migrano al nome nuovo, i
    fili storici che narrano un fatto passato datato conservano il nome che
    descriveva quel fatto in quel momento — non si riscrive la storia.
-3. **Il marker non cambia nome**: `method-review.md` nella root dell'adottante
-   resta `method-review.md` — è il file del ledger, non il nome della skill
-   che lo gestisce. Solo la skill che lo legge/scrive si chiama ora `method`.
+3. **Il marker trasloca da root a `i3/`**: `method-review.md` (o, per
+   `nixos`, il `method.md` già derogato) non resta in root — la root ospita
+   il symlink `method` verso il canone (`../method/kb`), e un marker
+   `method.md` accanto ad esso è un signifier ambiguo, non un ledger onesto
+   (verdetto: `i3/allineamento-marker-stadio.md` nel repo `method`). Il
+   marker si fonde nel filo `i3/allineamento-metodo.md`, nome uniforme nei
+   quattro adottanti: stesso frontmatter cursore (`method_commit`,
+   `reviewed_at`, `status`) più il verdetto narrativo che prima viveva in un
+   filo `i3/` separato, ora nello stesso file. `nixos` parte da uno stato
+   intermedio (`method.md` in root, non il default `method-review.md`): lo
+   sposta e lo rinomina in un solo passo, non due.
 4. **Recepimento ordinario**: canale `method` (ex `method-review`), marker
-   avanti dopo la classificazione.
+   avanti dopo la classificazione — ora scrivendo/aggiornando
+   `i3/allineamento-metodo.md` invece del file in root.
 
 Nessun impatto sul contratto plan×`o2/`: il rename tocca solo `.claude/skills/`
 e `.codex/skills/`, non le collezioni `o1`/`o2`/`o3`.
@@ -70,8 +79,9 @@ e `.codex/skills/`, non le collezioni `o1`/`o2`/`o3`.
 ## Ordine e chiusura
 
 Si recepisce in qualunque ordine, al prossimo `method` di ciascun adottante.
-Resta attiva finché i quattro non hanno rinominato le due cartelle canoniche e
-aggiornato i propri riferimenti; recepita da tutti, si rimuove dalla
+Resta attiva finché i quattro non hanno rinominato le due cartelle canoniche,
+aggiornato i propri riferimenti **e traslocato il marker** da root a
+`i3/allineamento-metodo.md`; recepita da tutti, si rimuove dalla
 collezione — la storia resta in git. Le due raccomandazioni di dominio
 (`nixos`, `bi`) non bloccano la chiusura: sono lette e decise, non eseguite
 per obbligo di questa prescrizione.
