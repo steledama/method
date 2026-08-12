@@ -14,7 +14,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [project-structure](project-structure.md) — La root come atrio/system image: collezioni-stadio `i1/`-`o3/`, ali trasversali e register
 - [kb-tools](kb-tools.md) — Strumenti versionati portabili e profili avanzati per audit, backlink, copertura e candidati terminologici
 - [method-observatory](method-observatory.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
-- [adopter-comparison](adopter-comparison.md) — Sintesi della situazione attuale dei quattro progetti che adottano il metodo
+- [adopter-comparison](adopter-comparison.md) — Sintesi periodica degli adottanti; fotografia storica dei primi quattro e ingresso fondativo del CRM
 - [cognitive-fidelity](cognitive-fidelity.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
 - [design-principles](design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e meta-ciclo di sviluppo

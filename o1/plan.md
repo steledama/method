@@ -29,7 +29,7 @@ successivo al recepimento della rifilatura dai quattro (chiuso il
 
 ## Scadenze
 
-- 2026-09-01 → `/adottanti`, audit runtime-o1 dei quattro adottanti
+- 2026-09-01 → `/adottanti`, audit runtime-o1 dei cinque adottanti
   (mensile; secondo battito anticipato al 2026-08-01) → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md)
 

@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `metodo` ha due facce: i **quattro progetti adottanti**,
+Il Mondo runtime di `metodo` ha due facce: i **cinque progetti adottanti**,
 da cui emerge l'esigenza dal basso e a cui torna la propagazione, e le
 **fonti teoriche su `gdrive/`**, da cui il canone trae il proprio pavimento. Il
 Mondo di sviluppo sono invece i nodi `kb/` e la loro coerenza.
@@ -11,6 +11,7 @@ Adottanti (con la superficie da cui si leggono i marker `i3/allineamento-metodo.
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati — checkout `~/bi` su `svezia`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
 - **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
+- **[crm](https://github.com/tt-sviluppo/crm)** — CRM commerciale custom minimale per proposte e richiami affidabili — checkout `~/crm` su `svezia`
 
 ## Superfici della membrana
 

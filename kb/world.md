@@ -150,11 +150,14 @@ L'elenco separa ciò che accade nel Mondo dai riflessi versionati.
 - **`bi`** — `world`: relazione con fornitori e Danea, siti e plugin in
   esercizio; o3: payload o runbook predisposti; i1: cataloghi, export e
   risposte catturati per l'elaborazione.
+- **`crm`** — `world`: aziende, proposte, operatori, richiami e destinatari
+  HTTP; o3: consegna idempotente e runbook operativi; i1: esiti e anomalie
+  catturati quando il runtime entrerà in esercizio.
 
 ## Il Mondo del metodo
 
 `metodo` è un meta-artefatto e ha due Mondi distinti. Il _Mondo runtime_ è
-composto da due superfici: i quattro progetti adottanti e le fonti teoriche su
+composto da due superfici: i cinque progetti adottanti e le fonti teoriche su
 `gdrive/`. Dagli adottanti entrano esigenze, drift e convergenze; lì tornano il
 filing back e la propagazione. Dalle fonti entra il pavimento concettuale che
 regge il canone, e il register `world.md` ne conserva la provenienza. In questo

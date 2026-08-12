@@ -22,7 +22,7 @@ Lo sviluppo del metodo procede per due movimenti in alternanza ([method-developm
 
 ## Il dominio in breve
 
-Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i quattro progetti adottanti più le fonti teoriche su `gdrive/` — da lì emergono esigenza dal basso e pavimento concettuale, e lì torna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
+Il dominio di questo repo è il metodo stesso. Come meta-artefatto ha due facce del [world](kb/world.md): il Mondo runtime sono i cinque progetti adottanti più le fonti teoriche su `gdrive/` — da lì emergono esigenza dal basso e pavimento concettuale, e lì torna la propagazione — mentre il Mondo di sviluppo sono i nodi `kb/` e la loro coerenza, non codice o dati. Il metodo si inscrive in una cornice di augmentation ([augmentation-system](kb/augmentation-system.md), l'H-LAM/T di Engelbart) che _contiene_ i suoi riferimenti — [zettelkasten](kb/zettelkasten.md) (l'unità atomica), [action-cycle](kb/action-cycle.md) (l'interfaccia col Mondo), e [karpathy-pattern](kb/karpathy-pattern.md) come istanza contemporanea della gamba di manutenzione — e poggia su un'ontologia a tre piani: artefatto, sistema, metodo ([cognitive-artifact](kb/cognitive-artifact.md), [cognitive-system](kb/cognitive-system.md), col pavimento Hutchins/Clark). I principi guida vivono in [design-principles](kb/design-principles.md). Il modello completo e illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md); il dettaglio concettuale nei nodi. Questo README **orienta e punta**: non ripete né il modello né il catalogo.
 
 ## Metodo
 
@@ -33,10 +33,10 @@ e la superficie Drive delle fonti vive come `gdrive/` gitignorato, non come
 `world/`. L'hub d'ingresso è
 [`cognitive-artifact-design.md`](kb/cognitive-artifact-design.md), il solo nome
 di nodo assunto stabile come punto d'aggancio. Questa è la **sezione README
-canonica** ([readme](kb/readme.md)) — comune ai cinque repo: dichiara l'adozione
+canonica** ([readme](kb/readme.md)) — comune ai sei repo: dichiara l'adozione
 e punta ai due poli, che vivono nei register di root — [`goal.md`](goal.md) (il
 nord: obiettivi, segnali, lavoro corrente) e [`world.md`](world.md) (il
-territorio: i quattro adottanti, le superfici della membrana, le fonti) — da
+territorio: i cinque adottanti, le superfici della membrana, le fonti) — da
 cui la home ricava i poli Goal e World rendendone l'intro.
 
 ## Orientarsi
@@ -60,7 +60,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia 
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del ciclo:
 
 - **[goal.md](goal.md)** — il polo superiore: il nord declinato in obiettivi, ognuno coi segnali che lo misurano e il lavoro corrente che lo serve; custode umano ([goal](kb/goal.md))
-- **[world.md](world.md)** — il polo inferiore: il territorio (i quattro adottanti), le superfici della membrana e la provenienza delle fonti-mondo autorevoli, base dei `## Riferimenti` (i3) ([world](kb/world.md))
+- **[world.md](world.md)** — il polo inferiore: il territorio (i cinque adottanti), le superfici della membrana e la provenienza delle fonti-mondo autorevoli, base dei `## Riferimenti` (i3) ([world](kb/world.md))
 
 Il cruscotto di lavoro è la coppia [`o1/plan.md`](o1/plan.md) (lato esecuzione: i task aperti) e [`i3/`](i3/verdicts.md) (lato valutazione: i verdetti aperti). L'ordine di bootstrap è `README → CLAUDE → nodo`.
 

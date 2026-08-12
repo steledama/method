@@ -2,7 +2,7 @@
 ciclo: runtime
 ---
 
-# Audit runtime-o1: la distanza dei quattro dal telos
+# Audit runtime-o1: la distanza degli adottanti dal telos
 
 **Misura**: «Propagare il canone e chiudere il loop con gli adottanti»
 (`goal.md`, obiettivo 2).
@@ -10,7 +10,8 @@ ciclo: runtime
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
 ogni giro. Ultimo giro: **2026-08-01** (secondo battito, anticipato
 dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
-`world.md`).
+`world.md`). Il verdetto sotto fotografa i **quattro** allora in territorio:
+`crm` è entrato il 2026-08-12, dopo il giro, ed è materia del prossimo.
 
 ## Verdetto
 
@@ -77,6 +78,14 @@ stantie e orologi sforati = **code di dominio**.
 - ripetibilità: due battiti eseguiti (il secondo anticipato di dieci giorni):
   la cella runtime-o1 della matrice resta D finché il ritmo non è dimostrato
   su più giri regolari;
+- **`crm` quinto adottante** (entrato il 2026-08-12, allineato al canone
+  corrente): il territorio passa da quattro a cinque e il battito del
+  2026-09-01 è il suo primo audit. Non ha storia da confrontare — la lente da
+  usare è la **baseline fondativa**, non la distanza dal giro precedente: un
+  codebase ancora vuoto rende la composizione della coda un dato debole, e il
+  segnale utile è se la struttura adottata regge al primo lavoro reale invece
+  di restare scaffolding. Da qui esce anche il primo dato per
+  `adopter-comparison`, che oggi lo tiene fuori dai conteggi comparativi;
 - il collaudo d'**uso** delle skill nuove: tutti e quattro hanno recepito la
   forma in un giorno, nessuno ha ancora girato `eval`/`exec` su un evento
   reale del proprio dominio — è il dato che manca alla clausola di uscita

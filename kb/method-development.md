@@ -16,7 +16,7 @@ Una precisazione contro un equivoco: il «dall'alto» di questo nodo è il top-d
 
 ## Il confine canone↔adottante: dichiara e taci
 
-La propagazione ha un costo che non va pagato a ogni rotazione interna del canone. Quando un nodo cambia nome o si scompone, finché l'adottante replica nei propri file un inventario dei path interni del metodo, ogni rename si propaga come una bonifica diffusa su `CLAUDE.md`, `README.md` e nodi locali dei quattro repo. È coupling alla **struttura interna** del canone, non alla sua **interfaccia**: l'adottante dipende da come il metodo è organizzato oggi, non solo da ciò che gli serve davvero.
+La propagazione ha un costo che non va pagato a ogni rotazione interna del canone. Quando un nodo cambia nome o si scompone, finché l'adottante replica nei propri file un inventario dei path interni del metodo, ogni rename si propaga come una bonifica diffusa su `CLAUDE.md`, `README.md` e nodi locali dei repo adottanti. È coupling alla **struttura interna** del canone, non alla sua **interfaccia**: l'adottante dipende da come il metodo è organizzato oggi, non solo da ciò che gli serve davvero.
 
 La regola che scioglie il nodo è **dichiara e taci**: l'adottante dichiara _una volta_ l'adozione del metodo come insieme, e altrove collega solo ciò da cui il proprio contenuto dipende davvero. Tre gradi di dipendenza, da non confondere:
 
