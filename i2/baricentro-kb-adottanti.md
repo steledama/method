@@ -168,6 +168,17 @@ abbiamo plasmati col metodo. Il test esterno vero è un repo costruito _senza_ i
 metodo — vi cadrebbe ancora un baricentro pulito? Finché non lo proviamo, il
 risultato è incoraggiante, non conclusivo.
 
+**Aggiornamento 2026-08-12 sul test esterno.** L'ingresso di `crm` come quinto
+adottante **non** lo fornisce: è fondato col metodo, struttura prima del codice e
+zero adattamenti dichiarati — il caso più plasmato dei cinque, quindi peggiora il
+caveat invece di allentarlo. Il candidato è `danea-auto` (cresciuto senza il
+canone, valutato per il sesto ingresso), col limite che la sua articolazione
+recente viene dalla stessa mano che tiene il canone: condizione, specimen
+pre-adozione e scadenza della contaminazione stanno in
+[maturazione-nodi-fondativi](../i3/maturazione-nodi-fondativi.md). Il conteggio
+«quattro» di questa sintesi resta quello del 2026-06-20: è la fotografia di
+allora, non un numero da aggiornare.
+
 ## Ricaduta: il nodo a venire
 
 Questa interpretazione è l'osservazione (i2-runtime). La **generalizzazione** —
@@ -181,7 +192,11 @@ quattro casi prima che il test esterno li metta alla prova.
 ## Riferimenti
 
 - Cataloghi `kb/` dei quattro adottanti (`economia`, `nixos`, `bi`, `salute`),
-  letti via `world/` il 2026-06-20; campione verificato per repo.
+  letti il 2026-06-20 dai checkout dichiarati nel territorio di `world.md`;
+  campione verificato per repo. (La lettura avvenne allora via un symlink di root
+  `world/`, superficie che il canone ha poi abolito — i checkout si dichiarano nel
+  register, cfr. `world.md`: la provenienza è aggiornata alla superficie reale,
+  non alla sua forma di allora.)
 - [system-image](../kb/system-image.md), [knowledge-base](../kb/knowledge-base.md),
   [action-cycle-matrix](../kb/action-cycle-matrix.md),
   [development-meta-cycle](../kb/development-meta-cycle.md), [goal](../kb/goal.md),

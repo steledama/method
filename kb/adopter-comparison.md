@@ -24,7 +24,7 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 - **`bi`** — nodi KB: 84; link KB: 329; cluster index: 11; file tasks: 7; skill locali: `audit-kb`, `tasks-review`, `commit`, `graphify`; stato audit: nessun link rotto, orfano o cluster isolato
 - **`economia`** — nodi KB: 55; link KB: 198; cluster index: 3; file tasks: 21; skill locali: `audit-kb`, `tasks-review`, `commit`; stato audit: nessun errore, avviso o nota
 - **`salute`** — nodi KB: 197; link KB: 2210; cluster index: 8; file tasks: 7; skill locali: `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`; stato audit: rete integra; audit pulito
-- **`crm`** — baseline del 2026-08-12: 1 nodo KB di dominio, 1 task e 2 fili i3; non incluso nei conteggi comparativi del 2026-06-03
+- **`crm`** — baseline del 2026-08-12, **contata a mano** perché non ha `o3/kb_tools.py` (struttura prima delle automazioni): 1 nodo KB di dominio, 1 sintesi i2 (il no-go di Twenty — il suo artefatto più sostanziale), 2 fili i3, 1 task. Non entra nei conteggi comparativi del 2026-06-03, che sono misurati con l'audit: le due provenienze non si sommano
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 

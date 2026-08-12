@@ -173,6 +173,24 @@
             limite dichiarato sotto.
           </p>
           <p>
+            Nota fuori giro — spazzata dei marker del
+            <strong>2026-08-12</strong> durante un <code>eval</code>, non un
+            battito, quindi il cursore del filo resta al 2026-08-01:
+            <code>nixos</code>, <code>bi</code> ed <code>economia</code> sono a
+            <code>2bc3cd4</code>, <code>salute</code> e <code>crm</code> a
+            <code>9e9e3be</code>, tutti <code>aligned</code>. <code>bi</code> ed
+            <code>economia</code> portano ancora <code>ciclo: runtime</code> nel
+            marker, che <code>b39c8a7</code> ha corretto in <code>dev</code>:
+            <strong>non è drift</strong> — la correzione è successiva al loro
+            cursore e il loro prossimo <code>method</code> la recepisce.
+            <code>nixos</code> ha già <code>dev</code> come adattamento
+            dichiarato, che <code>b39c8a7</code> ha canonizzato: al suo prossimo
+            giro la dichiarazione di divergenza si cancella
+            (<code>method/SKILL.md</code>, «una divergenza riassorbita si
+            cancella dal ledger»). Questo è lo stato da cui parte il battito di
+            settembre.
+          </p>
+          <p>
             Classificazione degli scostamenti:
             <strong>nessuna prescrizione nuova</strong> (le due in canna —
             quinta domanda attiva, rifilatura pianificata — coprono tutto il
@@ -198,9 +216,14 @@
               <strong>baseline fondativa</strong>, non la distanza dal giro
               precedente: un codebase ancora vuoto rende la composizione della
               coda un dato debole, e il segnale utile è se la struttura adottata
-              regge al primo lavoro reale invece di restare scaffolding. Da qui
-              esce anche il primo dato per <code>adopter-comparison</code>, che
-              oggi lo tiene fuori dai conteggi comparativi;
+              regge al primo lavoro reale invece di restare scaffolding. Vincolo
+              concreto da non ignorare: <code>crm</code> non ha
+              <code>o3/kb_tools.py</code> (scelta dichiarata — struttura prima
+              delle automazioni), quindi i numeri strutturali che le altre righe
+              portano <strong>per lui non esistono</strong> e la lente non deve
+              andarli a cercare: il suo dato si conta a mano. Da qui esce anche
+              il primo dato per <code>adopter-comparison</code>, che oggi lo
+              tiene fuori dai conteggi comparativi;
             </li>
             <li>
               il collaudo d’<strong>uso</strong> delle skill nuove: tutti e
@@ -676,8 +699,11 @@
             <li>
               <code>kb-content-typology</code> (<code>bozza</code>): ha retto
               contro lo stato reale di <code>salute</code> (validazione parziale
-              — i quattro adottanti sono plasmati dal metodo); il test esterno
-              vero resta un repo nato senza;
+              — gli adottanti sono plasmati dal metodo, e <code>crm</code> è il
+              caso più plasmato di tutti: fondato sulla struttura prima del
+              codice, zero adattamenti dichiarati, quindi il quinto ingresso
+              <strong>aggrava</strong> il caveat invece di allargare il
+              campione); il test esterno vero resta un repo nato senza;
             </li>
             <li>
               l’esito «zero forzati» della matrice del ciclo
@@ -697,6 +723,57 @@
               <code>tipo:</code> opzionale.
             </li>
           </ul>
+        </section>
+        <section
+          id="il-falsificatore-ha-un-candidato-e-una-scadenza"
+          class="slide level2"
+        >
+          <h2>Il falsificatore ha un candidato, e una scadenza</h2>
+          <p>
+            I due verdetti in attesa del «repo nato senza» hanno un candidato
+            concreto: <code>danea-auto</code> (<a
+              href="https://github.com/tt-sviluppo/danea-auto"
+              >tt-sviluppo/danea-auto</a
+            >, copia locale <code>~/danea-auto</code>, esercizio su Windows) è
+            un artefatto di produzione cresciuto <strong>senza</strong> il
+            canone — 50 commit dal 2026-06-05, nessuno stadio
+            <code>i1</code>–<code>o3</code>, nessun register dei poli, nodi
+            <code>kb/</code> senza frontmatter né <code>Connessioni:</code> — ed
+            è candidato al sesto ingresso. Due cose da tenere separate quando lo
+            si userà come test, perché la seconda è la ragione per cui il
+            risultato non sarà conclusivo:
+          </p>
+          <ul>
+            <li>
+              <strong
+                >la convergenza indipendente è una sola, e ha una data</strong
+              >: «validato dal vivo» nasce il 2026-07-29 (<code>b276c76</code>,
+              <code>3a4a760</code>) su fix reali di GUI automation, due
+              settimane prima che il repo avesse una <code>kb/</code> — è la
+              sostanza della facet <code>stato</code> arrivata dalla pressione
+              del dominio, non dal canone;
+            </li>
+            <li>
+              <strong>il resto non è indipendente</strong>: la <code>kb/</code>,
+              lo split d’altitudine (<code>CLAUDE.md</code> = non fare danni
+              oggi / <code>kb/</code> = perché il codice è così) e la regola di
+              non-derivabilità nascono il 2026-08-12 (<code>d45d4cb</code>), lo
+              stesso giorno del lavoro sul canone e per la stessa mano.
+              Plausibile trasferimento, non invenzione parallela: il caveat
+              anti-complicità non si solleva, si
+              <strong>sposta dall’artefatto al custode</strong>.
+            </li>
+          </ul>
+          <p>
+            Da cui il vincolo nuovo di questo giro: il campione si contamina a
+            ogni sessione in cui il custode lo tocca col metodo in testa, e oggi
+            è già costato l’articolazione delle regole. Lo stato pre-adozione è
+            <strong><code>fb83c0d</code></strong> (l’ultimo prima
+            dell’estrazione della <code>kb/</code>): è lì che il test va
+            eseguito, non sullo stato corrente. Se il sesto ingresso fosse
+            invece un’altra adozione fondativa come <code>crm</code>, i due
+            verdetti restano provvisori e continuano ad aspettare.
+          </p>
         </section>
         <section
           id="la-membrana-method-afforda-scrittura-agisci-attraverso-ratifica-in-method"

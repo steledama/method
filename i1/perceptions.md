@@ -10,6 +10,13 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [L'ingresso di un adottante nel territorio non ha protocollo](ingresso-adottante-senza-protocollo.md)
+  — da `metodo` stesso: l'ingresso di `crm` (2026-08-12) è costato una bonifica
+  a mano su nove file e tre strati, con una vista stale scoperta solo dal gate
+  di `/commit`; nessuna skill copre il passaggio «un artefatto entra nel
+  territorio». Un caso reale più uno annunciato (`danea-auto` in valutazione per
+  il sesto): resta aperta in attesa del secondo, valutazione i2→i3 allora.
+
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro

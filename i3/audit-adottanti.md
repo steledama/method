@@ -67,6 +67,16 @@ ma il cablaggio nel suo fork non è ancora stato esercitato, mentre la
 freschezza sì (tre entrypoint nel gate, viste già fresche). Nessun segnale
 rosso rilevato, col limite dichiarato sotto.
 
+Nota fuori giro — spazzata dei marker del **2026-08-12** durante un `eval`, non
+un battito, quindi il cursore del filo resta al 2026-08-01: `nixos`, `bi` ed
+`economia` sono a `2bc3cd4`, `salute` e `crm` a `9e9e3be`, tutti `aligned`. `bi`
+ed `economia` portano ancora `ciclo: runtime` nel marker, che `b39c8a7` ha
+corretto in `dev`: **non è drift** — la correzione è successiva al loro cursore e
+il loro prossimo `method` la recepisce. `nixos` ha già `dev` come adattamento
+dichiarato, che `b39c8a7` ha canonizzato: al suo prossimo giro la dichiarazione
+di divergenza si cancella (`method/SKILL.md`, «una divergenza riassorbita si
+cancella dal ledger»). Questo è lo stato da cui parte il battito di settembre.
+
 Classificazione degli scostamenti: **nessuna prescrizione nuova** (le due in
 canna — quinta domanda attiva, rifilatura pianificata — coprono tutto il
 drift osservato), **nessun segnale i1 nuovo** (la maturazione della terza
@@ -84,8 +94,12 @@ stantie e orologi sforati = **code di dominio**.
   usare è la **baseline fondativa**, non la distanza dal giro precedente: un
   codebase ancora vuoto rende la composizione della coda un dato debole, e il
   segnale utile è se la struttura adottata regge al primo lavoro reale invece
-  di restare scaffolding. Da qui esce anche il primo dato per
-  `adopter-comparison`, che oggi lo tiene fuori dai conteggi comparativi;
+  di restare scaffolding. Vincolo concreto da non ignorare: `crm` non ha
+  `o3/kb_tools.py` (scelta dichiarata — struttura prima delle automazioni),
+  quindi i numeri strutturali che le altre righe portano **per lui non
+  esistono** e la lente non deve andarli a cercare: il suo dato si conta a
+  mano. Da qui esce anche il primo dato per `adopter-comparison`, che oggi lo
+  tiene fuori dai conteggi comparativi;
 - il collaudo d'**uso** delle skill nuove: tutti e quattro hanno recepito la
   forma in un giorno, nessuno ha ancora girato `eval`/`exec` su un evento
   reale del proprio dominio — è il dato che manca alla clausola di uscita
