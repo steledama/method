@@ -174,7 +174,7 @@ zero adattamenti dichiarati — il caso più plasmato dei cinque, quindi peggior
 caveat invece di allentarlo. Il candidato è `danea-auto` (cresciuto senza il
 canone, valutato per il sesto ingresso), col limite che la sua articolazione
 recente viene dalla stessa mano che tiene il canone: condizione, specimen
-pre-adozione e scadenza della contaminazione stanno in
+pre-adozione e limite del risultato stanno in
 [maturazione-nodi-fondativi](../i3/maturazione-nodi-fondativi.md). Il conteggio
 «quattro» di questa sintesi resta quello del 2026-06-20: è la fotografia di
 allora, non un numero da aggiornare.

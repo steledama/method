@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | 1   | Test esterno della tipologia su specimen `danea-auto`    | —         |
 | dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |

@@ -29,7 +29,7 @@ verdetti che **attendono l'uso reale**:
   (nessuna facet finché non ne emerge una reale: l'opt-in regge); resta da osservare
   `economia` con `tipo:` opzionale.
 
-## Il falsificatore ha un candidato, e una scadenza
+## Il falsificatore ha un candidato, e un limite
 
 I due verdetti in attesa del «repo nato senza» hanno un candidato concreto:
 `danea-auto` ([tt-sviluppo/danea-auto](https://github.com/tt-sviluppo/danea-auto),
@@ -51,9 +51,17 @@ risultato non sarà conclusivo:
   invenzione parallela: il caveat anti-complicità non si solleva, si **sposta
   dall'artefatto al custode**.
 
-Da cui il vincolo nuovo di questo giro: il campione si contamina a ogni sessione
-in cui il custode lo tocca col metodo in testa, e oggi è già costato
-l'articolazione delle regole. Lo stato pre-adozione è **`fb83c0d`** (l'ultimo
-prima dell'estrazione della `kb/`): è lì che il test va eseguito, non sullo stato
-corrente. Se il sesto ingresso fosse invece un'altra adozione fondativa come
-`crm`, i due verdetti restano provvisori e continuano ad aspettare.
+Il **repo** si contamina a ogni sessione in cui il custode lo tocca col metodo in
+testa — oggi è già costato l'articolazione delle regole — ma lo **specimen no**:
+lo stato pre-adozione è **`fb83c0d`** (l'ultimo prima dell'estrazione della
+`kb/`), immutabile in git, ed è lì che il test va eseguito, non sullo stato
+corrente. Quindi il test **non ha scadenza** e non deve precedere l'adozione: la
+prima stesura di questo filo lo aveva presentato come una finestra che si chiude,
+e incidere lo SHA è precisamente ciò che ha disinnescato l'urgenza — il rischio
+era perdere di vista _quale_ stato fosse pulito, non perdere lo stato. Ciò che
+deperisce davvero è più tenue e non versionabile: il ricordo, nel custode, di
+cosa ha inventato in quel repo e cosa ha trasferito dal canone — e anche di
+quello la parte databile è salva.
+
+Se il sesto ingresso fosse invece un'altra adozione fondativa come `crm`, i due
+verdetti restano provvisori e continuano ad aspettare.

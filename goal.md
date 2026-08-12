@@ -18,8 +18,8 @@ le fonti-mondo.
   resta il task `pause` di rivalutazione della clausola di uscita (`Ob. 1`
   nel plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso
   reale, mentre tipologia e matrice attendono un **test esterno** — un repo
-  nato senza il metodo: candidato `danea-auto`, specimen pre-adozione che si
-  contamina a ogni sessione (filo).
+  nato senza il metodo: candidato `danea-auto`, specimen pre-adozione fissato a
+  `fb83c0d`, da cui il test va eseguito (filo, `Ob. 1` nel plan).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
