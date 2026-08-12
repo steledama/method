@@ -153,11 +153,14 @@ L'elenco separa ciò che accade nel Mondo dai riflessi versionati.
 - **`crm`** — `world`: aziende, proposte, operatori, richiami e destinatari
   HTTP; o3: consegna idempotente e runbook operativi; i1: esiti e anomalie
   catturati quando il runtime entrerà in esercizio.
+- **`danea-auto`** — `world`: postazione Windows `danea2`, Danea Easyfatt,
+  LibreOffice, Task Scheduler, BI, e-commerce e backup; o3: automazioni AHK e
+  PowerShell predisposte; i1: log, screenshot, incidenti ed esiti dei task.
 
 ## Il Mondo del metodo
 
 `metodo` è un meta-artefatto e ha due Mondi distinti. Il _Mondo runtime_ è
-composto da due superfici: i cinque progetti adottanti e le fonti teoriche su
+composto da due superfici: i sei progetti adottanti e le fonti teoriche su
 `gdrive/`. Dagli adottanti entrano esigenze, drift e convergenze; lì tornano il
 filing back e la propagazione. Dalle fonti entra il pavimento concettuale che
 regge il canone, e il register `world.md` ne conserva la provenienza. In questo

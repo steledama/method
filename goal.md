@@ -32,13 +32,15 @@ proprio `method`, senza che `metodo` gestisca le loro code.
   (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
-  lavoro: il CRM è entrato come quinto adottante il 2026-08-12, allineato al
-  canone corrente; obiettivo **a regime** — il giro vive nei `method` degli
+  lavoro: `crm` e `danea-auto` sono entrati come quinto e sesto adottante il
+  2026-08-12, entrambi allineati al canone corrente; obiettivo **a regime** —
+  il giro vive nei `method` degli
   adottanti, il battito è la riga mensile `/adottanti` in `## Scadenze`
   e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
   (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
-  quattro e potate in giornata; watchpoint: il collaudo d'uso delle skill per
-  arco negli adottanti, che nessuno ha ancora girato su un evento reale.
+  quattro adottanti allora presenti e potate in giornata; watchpoint: il
+  collaudo d'uso delle skill per arco negli adottanti, che nessuno ha ancora
+  girato su un evento reale.
 
 ### 3. Ascoltare il basso
 

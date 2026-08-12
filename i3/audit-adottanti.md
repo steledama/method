@@ -10,8 +10,9 @@ ciclo: runtime
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
 ogni giro. Ultimo giro: **2026-08-01** (secondo battito, anticipato
 dall'11; HEAD `dbed337`, letture via le superfici per host dichiarate in
-`world.md`). Il verdetto sotto fotografa i **quattro** allora in territorio:
-`crm` è entrato il 2026-08-12, dopo il giro, ed è materia del prossimo.
+`world.md`). Il verdetto sotto fotografa i **quattro** allora in territorio.
+`crm` e `danea-auto` sono entrati il 2026-08-12, dopo il giro, e sono materia
+del prossimo.
 
 ## Verdetto
 
@@ -69,8 +70,9 @@ rosso rilevato, col limite dichiarato sotto.
 
 Nota fuori giro — spazzata dei marker del **2026-08-12** durante un `eval`, non
 un battito, quindi il cursore del filo resta al 2026-08-01: `nixos`, `bi` ed
-`economia` sono a `2bc3cd4`, `salute` e `crm` a `9e9e3be`, tutti `aligned`. `bi`
-ed `economia` portano ancora `ciclo: runtime` nel marker, che `b39c8a7` ha
+`economia` sono a `2bc3cd4`, `salute` a `9e9e3be`, `crm` e `danea-auto` a
+`c6939d6`, tutti `aligned`. `bi` ed `economia` portano ancora `ciclo: runtime`
+nel marker, che `b39c8a7` ha
 corretto in `dev`: **non è drift** — la correzione è successiva al loro cursore e
 il loro prossimo `method` la recepisce. `nixos` ha già `dev` come adattamento
 dichiarato, che `b39c8a7` ha canonizzato: al suo prossimo giro la dichiarazione
@@ -100,6 +102,15 @@ stantie e orologi sforati = **code di dominio**.
   esistono** e la lente non deve andarli a cercare: il suo dato si conta a
   mano. Da qui esce anche il primo dato per `adopter-comparison`, che oggi lo
   tiene fuori dai conteggi comparativi;
+- **`danea-auto` sesto adottante** (entrato il 2026-08-12, marker a
+  `c6939d6`, commit locale `57ef8a6`): è il controprofilo di `crm`, un artefatto
+  già in produzione che conserva intenzionalmente entrypoint AHK/PowerShell in
+  root e segnali runtime nei path correnti finché le migrazioni i1/o3 non
+  saranno validate dal vivo. Il primo audit deve leggere questa gradualità e
+  non scambiare i limiti documentali dell'adozione per certificazione di Danea,
+  Task Scheduler, backup o sessione Windows. Baseline contata a mano: 4 nodi
+  KB, 1 sintesi i2, 1 filo i3, 5 task e 3 skill locali; quantità misurate sul
+  checkout `57ef8a6`, non confrontabili con la fotografia del 2026-06-03;
 - il collaudo d'**uso** delle skill nuove: tutti e quattro hanno recepito la
   forma in un giorno, nessuno ha ancora girato `eval`/`exec` su un evento
   reale del proprio dominio — è il dato che manca alla clausola di uscita

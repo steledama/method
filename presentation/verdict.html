@@ -86,8 +86,9 @@
             <strong>2026-08-01</strong> (secondo battito, anticipato dall’11;
             HEAD <code>dbed337</code>, letture via le superfici per host
             dichiarate in <code>world.md</code>). Il verdetto sotto fotografa i
-            <strong>quattro</strong> allora in territorio: <code>crm</code> è
-            entrato il 2026-08-12, dopo il giro, ed è materia del prossimo.
+            <strong>quattro</strong> allora in territorio. <code>crm</code> e
+            <code>danea-auto</code> sono entrati il 2026-08-12, dopo il giro, e
+            sono materia del prossimo.
           </p>
         </section>
         <section id="verdetto" class="slide level2">
@@ -177,8 +178,9 @@
             <strong>2026-08-12</strong> durante un <code>eval</code>, non un
             battito, quindi il cursore del filo resta al 2026-08-01:
             <code>nixos</code>, <code>bi</code> ed <code>economia</code> sono a
-            <code>2bc3cd4</code>, <code>salute</code> e <code>crm</code> a
-            <code>9e9e3be</code>, tutti <code>aligned</code>. <code>bi</code> ed
+            <code>2bc3cd4</code>, <code>salute</code> a <code>9e9e3be</code>,
+            <code>crm</code> e <code>danea-auto</code> a <code>c6939d6</code>,
+            tutti <code>aligned</code>. <code>bi</code> ed
             <code>economia</code> portano ancora <code>ciclo: runtime</code> nel
             marker, che <code>b39c8a7</code> ha corretto in <code>dev</code>:
             <strong>non è drift</strong> — la correzione è successiva al loro
@@ -224,6 +226,20 @@
               andarli a cercare: il suo dato si conta a mano. Da qui esce anche
               il primo dato per <code>adopter-comparison</code>, che oggi lo
               tiene fuori dai conteggi comparativi;
+            </li>
+            <li>
+              <strong><code>danea-auto</code> sesto adottante</strong> (entrato
+              il 2026-08-12, marker a <code>c6939d6</code>, commit locale
+              <code>57ef8a6</code>): è il controprofilo di <code>crm</code>, un
+              artefatto già in produzione che conserva intenzionalmente
+              entrypoint AHK/PowerShell in root e segnali runtime nei path
+              correnti finché le migrazioni i1/o3 non saranno validate dal vivo.
+              Il primo audit deve leggere questa gradualità e non scambiare i
+              limiti documentali dell’adozione per certificazione di Danea, Task
+              Scheduler, backup o sessione Windows. Baseline contata a mano: 4
+              nodi KB, 1 sintesi i2, 1 filo i3, 5 task e 3 skill locali;
+              quantità misurate sul checkout <code>57ef8a6</code>, non
+              confrontabili con la fotografia del 2026-06-03;
             </li>
             <li>
               il collaudo d’<strong>uso</strong> delle skill nuove: tutti e
@@ -616,6 +632,63 @@
           </p>
         </section>
         <section
+          id="lammissione-di-un-adottante-richiede-un-protocollo-leggero"
+          class="slide level2"
+        >
+          <h2>L’ammissione di un adottante richiede un protocollo leggero</h2>
+          <p>
+            Due ingressi nello stesso giorno bastano a sciogliere l’attesa del
+            segnale: <code>crm</code>, fondativo e senza runtime, e
+            <code>danea-auto</code>, produttivo e cresciuto senza il canone,
+            hanno richiesto la stessa bonifica distribuita nel repository
+            <code>metodo</code>. La variazione fra i due non riduce il pattern:
+            mostra che l’operazione appartiene al confine del metodo, non alla
+            forma del progetto ammesso.
+          </p>
+          <p>
+            Il verdetto è che serve un protocollo ripetibile di ammissione, ma
+            non una nuova skill autonoma finché l’uso non ne dimostra la
+            frequenza. Il primo rimedio è un runbook/checklist nel flusso
+            dell’osservatorio che renda visibili:
+          </p>
+          <ul>
+            <li>
+              registrazione nel territorio e verifica del marker di
+              allineamento;
+            </li>
+            <li>
+              distinzione fra inventario corrente e conteggi storici datati;
+            </li>
+            <li>
+              baseline locale, adattamenti intenzionali e superfici non
+              verificate;
+            </li>
+            <li>
+              aggiornamento di Goal, audit successivo e sintesi degli adottanti;
+            </li>
+            <li>
+              build delle viste e ricerca delle rappresentazioni correnti
+              rimaste stale.
+            </li>
+          </ul>
+          <p>
+            La parte meccanica può cercare conteggi e rigenerare viste; la
+            classificazione fra fotografia corrente e storica resta un giudizio.
+            Automatizzarla interamente produrrebbe proprio l’errore che i due
+            casi hanno mostrato: correggere numeri veri perché sembrano vecchi.
+            Il task di sviluppo parte quindi dalla procedura e lascia
+            l’eventuale estrazione di uno strumento a una ricorrenza osservata.
+          </p>
+          <p>
+            Il segnale i1 è consumato. La tensione resta aperta finché il
+            protocollo non è inciso e provato sul prossimo ingresso; la sua
+            utilità intermedia si misura già al battito di settembre, che dovrà
+            trattare <code>crm</code> e <code>danea-auto</code> come baseline
+            diverse senza confonderle con i quattro adottanti della fotografia
+            precedente.
+          </p>
+        </section>
+        <section
           id="maturazione-dei-nodi-fondativi-e-falsificatori-in-attesa-di-uso-reale"
           class="slide level2"
         >
@@ -795,8 +868,9 @@
             >, copia locale <code>~/danea-auto</code>, esercizio su Windows):
             artefatto di produzione cresciuto <strong>senza</strong> il canone —
             50 commit dal 2026-06-05, nessuno stadio
-            <code>i1</code>–<code>o3</code>, nessun register dei poli — ed è
-            candidato al sesto ingresso. Al commit letto (<code>fb83c0d</code>)
+            <code>i1</code>–<code>o3</code>, nessun register dei poli — ed è poi
+            entrato come sesto adottante col commit <code>57ef8a6</code>. Al
+            commit letto (<code>fb83c0d</code>)
             <strong>non esiste nessuna <code>kb/</code></strong
             >: il sapere durevole sta in un <code>CLAUDE.md</code> da 1046 righe
             più <code>TODO.md</code> e <code>danea-backup.md</code>, ed è ciò

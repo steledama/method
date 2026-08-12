@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | 2   | Formalizzare il protocollo d'ingresso adottante          | —         |
 | dev   | 1   | Verificare la tipologia sulla KB di metodo               | —         |
 | dev   | S   | Redraw tavole vista Interpretazioni                      | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
@@ -30,7 +31,7 @@ successivo al recepimento della rifilatura dai quattro (chiuso il
 
 ## Scadenze
 
-- 2026-09-01 → `/adottanti`, audit runtime-o1 dei cinque adottanti
+- 2026-09-01 → `/adottanti`, audit runtime-o1 dei sei adottanti
   (mensile; secondo battito anticipato al 2026-08-01) → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md)
 

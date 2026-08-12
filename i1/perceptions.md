@@ -10,13 +10,6 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [L'ingresso di un adottante nel territorio non ha protocollo](ingresso-adottante-senza-protocollo.md)
-  — da `metodo` stesso: l'ingresso di `crm` (2026-08-12) è costato una bonifica
-  a mano su nove file e tre strati, con una vista stale scoperta solo dal gate
-  di `/commit`; nessuna skill copre il passaggio «un artefatto entra nel
-  territorio». Un caso reale più uno annunciato (`danea-auto` in valutazione per
-  il sesto): resta aperta in attesa del secondo, valutazione i2→i3 allora.
-
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
@@ -26,7 +19,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   secondo segnale prima di generalizzare (cfr. `de-cablaggio`,
   `criterio-world-substrato` per lo stesso pattern di attesa).
 
-La cattura precedente — «il nome di un file di output dovrebbe ereditare il
+La cattura «l'ingresso di un adottante nel territorio non ha protocollo», nata
+dall'ingresso di `crm`, è stata consumata il 2026-08-12 quando l'adozione di
+`danea-auto` ha fornito il secondo caso: sintesi in
+[i2/ingresso-adottante.md](../i2/ingresso-adottante.md), verdetto in
+[i3/ingresso-adottante.md](../i3/ingresso-adottante.md). La cattura precedente
+— «il nome di un file di output dovrebbe ereditare il
 nome del produttore», da nixos il 2026-08-02 (il custode aveva derogato alla
 clausola §3 di `o3/skill-nomi-verbo-sostantivo.md`, rinominando
 `method-review.md`→`method.md`) — è stata valutata lo stesso giorno e

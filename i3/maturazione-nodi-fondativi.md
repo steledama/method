@@ -100,7 +100,8 @@ Lo specimen è `danea-auto`
 ([tt-sviluppo/danea-auto](https://github.com/tt-sviluppo/danea-auto), copia locale
 `~/danea-auto`, esercizio su Windows): artefatto di produzione cresciuto **senza**
 il canone — 50 commit dal 2026-06-05, nessuno stadio `i1`–`o3`, nessun register dei
-poli — ed è candidato al sesto ingresso. Al commit letto (`fb83c0d`) **non esiste
+poli — ed è poi entrato come sesto adottante col commit `57ef8a6`. Al commit
+letto (`fb83c0d`) **non esiste
 nessuna `kb/`**: il sapere durevole sta in un `CLAUDE.md` da 1046 righe più
 `TODO.md` e `danea-backup.md`, ed è ciò che rende il test più severo di quanto
 previsto (i quattro hanno una `kb/` perché il metodo gliel'ha prescritta). Due cose

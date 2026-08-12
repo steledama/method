@@ -4,7 +4,7 @@ stato: bozza
 
 # Adopter comparison
 
-Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` è entrato come quinto adottante il 2026-08-12 e sarà incluso nel successivo audit mensile. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` e `danea-auto` sono entrati come quinto e sesto adottante il 2026-08-12 e saranno inclusi nel successivo audit mensile. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -17,6 +17,7 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 - **`economia`** — profilo: variante domain-specific con stato, scadenze, dati e documenti autoritativi; segnale: buon adattamento a fonti legali/finanziarie; audit ora pulito; coda `tasks/` molto attiva (21 file di lavoro reale)
 - **`salute`** — profilo: KB ampia e riflessiva, nata prima della separazione metodologica piena; segnale: rete dei nodi molto forte; mappa, principi locali e verifica nel vivere ora rendono più esplicito l'adattamento del metodo
 - **`crm`** — profilo: adozione fondativa su un codebase ancora vuoto, dopo il no-go di Twenty; segnale: contratto del workflow callback già formalizzato, architettura custom ancora da definire
+- **`danea-auto`** — profilo: adozione conservativa su automazioni GUI Windows già in produzione; segnale: conoscenza locale e guardrail operativi preservati, migrazioni i1/o3 rinviate a passaggi coordinati e validati dal vivo
 
 ## Dati strutturali
 
@@ -25,6 +26,7 @@ Il confronto usa due assi. Il primo confronta i progetti tra loro, per capire qu
 - **`economia`** — nodi KB: 55; link KB: 198; cluster index: 3; file tasks: 21; skill locali: `audit-kb`, `tasks-review`, `commit`; stato audit: nessun errore, avviso o nota
 - **`salute`** — nodi KB: 197; link KB: 2210; cluster index: 8; file tasks: 7; skill locali: `audit-kb`, `tasks-review`, `commit`, `elabora-trascrizione`; stato audit: rete integra; audit pulito
 - **`crm`** — baseline del 2026-08-12, **contata a mano** perché non ha `o3/kb_tools.py` (struttura prima delle automazioni): 1 nodo KB di dominio, 1 sintesi i2 (il no-go di Twenty — il suo artefatto più sostanziale), 2 fili i3, 1 task. Non entra nei conteggi comparativi del 2026-06-03, che sono misurati con l'audit: le due provenienze non si sommano
+- **`danea-auto`** — baseline del 2026-08-12, **contata a mano** perché non ha `o3/kb_tools.py`: 4 nodi KB di dominio, 1 sintesi i2, 1 filo i3, 5 task e 3 skill locali (`eval`, `exec`, `method`). Non entra nei conteggi comparativi del 2026-06-03; il runtime Windows, Task Scheduler e le automazioni live non sono stati verificati dall'adozione documentale
 
 Questi numeri non sono graduatorie. `salute` ha molti più nodi perché il suo dominio è concettuale e riflessivo; `nixos` ha meno nodi perché il codice dichiarativo è una fonte di verità molto compatta; `bi` ha molti nodi perché ogni flusso applicativo richiede runbook e reference; `economia` ha una KB media ma dipende molto da file esterni, JSON e stato corrente.
 
@@ -35,7 +37,9 @@ bootstrap, `CLAUDE.md` come ingresso operativo, `AGENTS.md` come wrapper, fili
 `i3/` come memoria interpretativa, `o2/` come spazio temporaneo dei dettagli
 operativi e nodi atomici con footer `Connessioni:`. I primi quattro hanno già
 strumenti e skill maturati dall'uso; `crm` parte intenzionalmente dalla sola
-struttura e aggiungerà automazioni quando emergeranno workflow reali.
+struttura e aggiungerà automazioni quando emergeranno workflow reali;
+`danea-auto` parte invece da un runtime maturo e conserva temporaneamente in
+root gli entrypoint produttivi e nei path correnti i segnali i1.
 
 La separazione `method/ -> ../method/kb` è ormai il punto comune: i nodi metodologici sono consumati come dipendenza e non duplicati localmente. Questo rende più facile aggiornare il metodo, ma limita l'accesso dei progetti a eventuali futuri strumenti o skill centralizzati che vivessero fuori da `kb/`.
 
