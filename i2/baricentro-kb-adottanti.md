@@ -187,8 +187,10 @@ diventano **tre**: esiste contenuto **normativo sulla macchina** — norme
 d'ingegneria con la motivazione dell'alternativa scartata — che l'ought non
 ospita, perché l'ought qui è definito come il polo Goal (valori, obiettivi). E lo
 «zero forzati» va **qualificato**: valeva sui quattro cataloghi, non su materiale
-esterno, dove è comparso un forzato e 4 unità su 11 sono cadute a due facce
-invece che pulite.
+esterno, dove è comparso un forzato e **4 unità su 11** sono cadute a due facce
+invece che pulite. Entrambe le quantità sono **misurate manualmente** sulla
+classificazione dichiarata dello snapshot `fb83c0d`, non stimate né derivate da
+dichiarazioni di terzi.
 
 La terza tensione non viene dallo specimen: `kb/design-principles.md` (`maturo`)
 è della stessa specie. Non era emersa perché **questa sintesi classificò i

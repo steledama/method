@@ -273,59 +273,6 @@
           </ul>
         </section>
         <section
-          id="la-cache-degli-strumenti-resta-esempio-nel-canone-esistente-non-nodo-nuovo"
-          class="slide level2"
-        >
-          <h2>
-            La cache degli strumenti resta esempio nel canone esistente, non
-            nodo nuovo
-          </h2>
-          <p>
-            Ratificato (2026-07-11), dalla valutazione i2→i3 della percezione
-            «pattern cache degli strumenti Python replicato in tre adottanti
-            senza nodo canonico» (catturata da <code>nixos</code>, commit
-            <code>20fbc3f</code>, consumata da questo filo).
-          </p>
-          <p>
-            Il segnale osservava che <code>economia</code>,
-            <code>method</code> e <code>nixos</code> avevano convergito per
-            imitazione diretta sullo stesso schema —
-            <code>pyproject.toml</code> minimale che dirige le cache di
-            <code>ruff</code>/<code>pytest</code> sotto un’unica cartella locale
-            gitignorata — senza un nodo <code>kb/</code> che lo descrivesse, pur
-            soddisfacendo la soglia dei due progetti diversi per l’ingresso di
-            un nodo (cfr. CLAUDE.md, «Quando aggiungere un nodo»).
-          </p>
-          <p>
-            <strong>Verdetto: non nasce un nodo dedicato.</strong> Il concetto
-            metodologico — classificare il traffico runtime come superficie di
-            membrana, mai voce versionata senza classe — era già canone in
-            <code>project-structure</code> («L’inventario dell’atrio»). Lo
-            schema <code>pyproject.toml</code> è l’implementazione di quel
-            principio per il tooling Python, non un secondo principio: creare un
-            nodo per ogni ricetta di configurazione strumento avrebbe reso la KB
-            enciclopedica proprio dove <code>node.md</code> mette in guardia. Il
-            bar dei due progetti (CLAUDE.md) è necessario ma non sufficiente —
-            il concetto deve anche essere metodologico, non solo replicato.
-          </p>
-          <p>
-            Trattamento scelto: <strong>rafforzare il nodo esistente</strong>,
-            non crearne uno nuovo — «aggiornare un nodo esistente quando la
-            nuova informazione rafforza un concetto già presente»
-            (<code>kb/node.md</code>). La voce «traffico runtime» in
-            <code>project-structure</code> guadagna la ricetta collaudata (file
-            di configurazione minimale, cartella unica gitignorata) come esempio
-            ora validato su tre adottanti, senza nominare lo strumento specifico
-            (Python-only, non generalizza ad adottanti non-Python).
-          </p>
-          <p>
-            Il corollario delle directory vuote (<code>scripts/</code>,
-            <code>tools/</code> non tracciate, rimovibili) resta fuori: igiene
-            repo situazionale, non pattern ricorrente — nessun secondo segnale
-            finora lo corrobora.
-          </p>
-        </section>
-        <section
           id="il-criterio-del-significato-senza-artefatto-per-il-confine-worldsubstrato"
           class="slide level2"
         >

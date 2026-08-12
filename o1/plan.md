@@ -13,7 +13,8 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
-| dev   | S   | Redraw tavole vista Interpretazioni (residui cosmetici)  | —         |
+| dev   | 1   | Verificare la tipologia sulla KB di metodo               | —         |
+| dev   | S   | Redraw tavole vista Interpretazioni                      | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |
 
