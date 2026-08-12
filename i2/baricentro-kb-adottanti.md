@@ -179,6 +179,24 @@ pre-adozione e limite del risultato stanno in
 «quattro» di questa sintesi resta quello del 2026-06-20: è la fotografia di
 allora, non un numero da aggiornare.
 
+**Il test è stato eseguito lo stesso giorno, e la condizione di caduta scritta
+sopra è stata esercitata.** Esito nel filo; qui conta ciò che tocca _questa_
+sintesi. Il baricentro dello specimen (macchina↔is) cade dove la tipologia
+predice, quindi il verdetto di giugno regge nella sostanza. Ma le «due tensioni»
+diventano **tre**: esiste contenuto **normativo sulla macchina** — norme
+d'ingegneria con la motivazione dell'alternativa scartata — che l'ought non
+ospita, perché l'ought qui è definito come il polo Goal (valori, obiettivi). E lo
+«zero forzati» va **qualificato**: valeva sui quattro cataloghi, non su materiale
+esterno, dove è comparso un forzato e 4 unità su 11 sono cadute a due facce
+invece che pulite.
+
+La terza tensione non viene dallo specimen: `kb/design-principles.md` (`maturo`)
+è della stessa specie. Non era emersa perché **questa sintesi classificò i
+cataloghi dei quattro adottanti e `metodo` si escluse**, mentre i principi di
+dominio degli adottanti vivono nei loro README per prescrizione, non come nodi —
+il disegno del campione teneva la specie fuori inquadratura. La prima verifica da
+fare è quindi interna e mai fatta: applicare la tipologia alla `kb/` di `metodo`.
+
 ## Ricaduta: il nodo a venire
 
 Questa interpretazione è l'osservazione (i2-runtime). La **generalizzazione** —

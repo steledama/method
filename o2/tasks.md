@@ -4,7 +4,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 ## Contenuti
 
-- [test-esterno-tipologia-danea-auto.md](test-esterno-tipologia-danea-auto.md) — il test esterno che due verdetti di canone aspettano da giugno (tipologia G/M/A, «zero forzati» della matrice), su `danea-auto`: si legge il solo snapshot pre-adozione `fb83c0d`, in sola lettura; risultato indicativo per il limite di contaminazione dal custode, raggio a valle di cinque artefatti se falsifica.
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.
 - [redraw-tavole-interpretazioni.md](redraw-tavole-interpretazioni.md) — residui cosmetici delle tavole della vista Interpretazioni: tavola ontologia in inglese, glitch «o3 3», «P1»→«Pi», didascalia della tavola KB.
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: riaprire il giudizio sulla scommessa della tripartizione `eval`/`exec` al battito del 2026-11-01 (terzo dopo il recepimento dai quattro); sintomi nella clausola di uscita del filo, qui condizione e materiale.

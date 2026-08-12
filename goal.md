@@ -17,9 +17,11 @@ le fonti-mondo.
   lavoro: la ristrutturazione delle skill per arco è chiusa (2026-08-01);
   resta il task `pause` di rivalutazione della clausola di uscita (`Ob. 1`
   nel plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso
-  reale, mentre tipologia e matrice attendono un **test esterno** — un repo
-  nato senza il metodo: candidato `danea-auto`, specimen pre-adozione fissato a
-  `fb83c0d`, da cui il test va eseguito (filo, `Ob. 1` nel plan).
+  reale; tipologia e matrice hanno avuto il loro **test esterno**
+  (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
+  una forzatura aperta — la norma sulla macchina non ha cella, e
+  `design-principles` (`maturo`) è della stessa specie — che attende una
+  decisione di canone (filo).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
