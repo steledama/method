@@ -4,7 +4,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 ## Contenuti
 
-- [presidiare-documenti-world-chiusura-task.md](presidiare-documenti-world-chiusura-task.md) — estendere la chiusura dei task alle materializzazioni sulle superfici dichiarate del Mondo, distinguendo effetti ed evidenze durevoli dalle copie operative consumate senza inferire autorità alla cancellazione.
 - [formalizzare-ingresso-adottante.md](formalizzare-ingresso-adottante.md) — rendere ripetibile l'ammissione di un nuovo adottante nel territorio dopo che `crm` e `danea-auto` hanno richiesto la stessa bonifica manuale cross-strato.
 - [verificare-tipologia-kb-metodo.md](verificare-tipologia-kb-metodo.md) — applicare la tipologia G/M/A alla `kb/` di `metodo`, il campione che la validazione originaria escludeva, prima di decidere se ampliare `ought` o introdurre una quarta regione.
 - [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.

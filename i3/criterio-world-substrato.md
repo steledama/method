@@ -38,6 +38,10 @@ materializzazioni sulle superfici dichiarate in `world.md` e classificate col
 test del significato senza artefatto. Effetti ed evidenze durevoli restano nel
 Mondo; una copia operativa consumata è candidata alla pulizia. Il controllo non
 autorizza cancellazioni generiche: la skill propone la rimozione indicando il
-target esatto e si ferma quando manca l'autorità per agire sul Mondo. Resta da
-incidere la disciplina nei nodi e in `exec plan`, coordinandola con `perform`
-quando il task aveva anche una prescrizione `o3/`.
+target esatto e si ferma quando manca l'autorità per agire sul Mondo. La
+disciplina è incisa in `world`, `tasks`, `perform` e nello scope `plan` di
+`exec`; il caso `salute` la verifica retrospettivamente: il PDF è copia
+operativa consumata, mentre diario, storia clinica, quadro e scadenze sono il
+contenuto durevole già risalito. La propagazione ai fork locali della skill è
+predisposta in `o3/chiusura-task-controlla-world.md`; il filo resta aperto fino
+al recepimento degli adottanti.

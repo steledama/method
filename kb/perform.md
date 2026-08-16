@@ -27,6 +27,12 @@ l'atto quando l'autorizzazione dello scope già lo copre (cfr. `skill`). Nato
 leggero dentro `plan-review` (sciolto dal basso da `economia`, 2026-07-10),
 ha guadagnato la casa propria con la rifilatura per arco.
 
+La chiusura della prescrizione si coordina con quella del task, ma non la
+sostituisce: `perform` supervisiona la collezione `o3/`; `plan` enumera anche
+le materializzazioni che il task ha prodotto sulle superfici dichiarate del
+Mondo. Se una prescrizione nomina payload, export o copie operative esterne,
+quei target alimentano il controllo di chiusura del task (cfr. `tasks`).
+
 ## L'esecuzione può far emergere Goal
 
 Predisporre un atto obbliga a specificare destinatari, vincoli, poste e criteri di successo. Questo lavoro può rendere visibili Goal latenti non ancora formalizzati: il canovaccio non si limita a eseguire un'intenzione, può rivelare che l'intenzione era incompleta. Il triage/formazione-goal non appartiene quindi solo all'input esogeno (cfr. `compare`); può essere innescato anche dall'arco di esecuzione. Il nuovo Goal resta una decisione riflessiva, non un prodotto automatico di o3 (cfr. `goal`).

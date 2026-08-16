@@ -62,6 +62,13 @@ giudizio ciò che il generatore non copre:
   il dettaglio è giurisdizione di `perform`, qui basta il rimando
 - task chiusi da un commit, una propagazione completata o un nodo creato non
   restano aperti
+- prima di chiudere un task, enumera le sue materializzazioni note sulle
+  superfici dichiarate in `world.md`, usando il file `o2/` e l'eventuale
+  prescrizione `o3/` come mappa primaria; applica il test del significato senza
+  artefatto (`kb/world.md`): effetti ed evidenze durevoli restano, copie
+  operative consumate sono candidate alla pulizia. Non scandire genericamente
+  il Mondo e non inferire autorità: senza target esatto e autorizzazione proponi
+  la rimozione e fermati alla membrana
 - `o1/plan.md` resta povero: il `metodo` non è una backlog board per gli
   adottanti (cfr. `kb/plan.md`), i suoi task sono rari e riguardano solo
   questo repo
@@ -176,5 +183,8 @@ verificati), atti compiuti o predisposti, o la chiusura in una riga.
 - La colonna `Dip.` deve riflettere dipendenze reali, non preferenze d'ordine
 - I task completati si rimuovono da `o1/plan.md` e `o2/`; lo storico resta in
   git, nei fili `i3/` e nei nodi aggiornati
+- La chiusura di un task coordina l'eventuale prescrizione `o3/` con i documenti
+  operativi che ha prodotto nel Mondo: `perform` tiene onesta la collezione,
+  `plan` controlla che non restino copie consumate sulle superfici dichiarate
 - Dopo la revisione, suggerisci `/commit` per chiudere la sessione quando ci
   sono modifiche da fissare

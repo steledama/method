@@ -12,7 +12,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-Nessuna prescrizione attiva.
+- [La chiusura dei task controlla anche i documenti nel
+  Mondo](chiusura-task-controlla-world.md) — estendere `exec plan` nei sei
+  adottanti: enumerare le materializzazioni note del task sulle superfici
+  dichiarate, distinguere evidenze durevoli e copie consumate, proporre la
+  pulizia soltanto con target e autorità espliciti.
 
 L'ultima chiusa, `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti

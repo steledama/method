@@ -43,7 +43,20 @@ Il frontmatter dei task è obbligatorio perché permette agli strumenti cross-re
 
 Non c'è una proprietà `stato`: in `o2/` un task o è aperto o non è — lo stato coinciderebbe con l'esistenza del file, e un valore tautologico è un signifier che suggerisce un ciclo di vita che nel frontmatter non esiste. Le sfumature vivono dove già vivono: «trattenuto» è il significante `pause` in `o1/plan.md`, «spec non pronta» una chiosa nel footer o nel corpo, la data di apertura in git. (Soppressa 2026-07-04; non confondere con lo `stato: bozza|maturo` dei nodi `kb/`, che porta informazione reale di maturità e resta.) `sintesi` è una frase autoriale e autosufficiente sul risultato atteso: non replica il titolo, non registra priorità, non contiene dipendenze e non sostituisce il corpo del task. `ciclo: dev|runtime` è la facet del Mondo su cui il task insiste (cfr. `development-meta-cycle`). Priorità e dipendenze vivono in `o1/plan.md`, perché `plan` è il punto di supervisione corrente.
 
-Quando un task viene completato, il file viene eliminato insieme alla riga in `o1/plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, nei fili di `i3/` e nei nodi aggiornati.
+Quando un task viene completato, il file viene eliminato insieme alla riga in
+`o1/plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, nei fili di
+`i3/` e nei nodi aggiornati.
+
+La chiusura non termina al confine del repository. Prima di potare il task,
+enumera le sue **materializzazioni note sulle superfici dichiarate in
+`world.md`**, usando la specifica e l'eventuale prescrizione `o3/` come mappa
+primaria: non è una scansione indiscriminata del Mondo. Per ciascuna applica il
+test del significato senza artefatto (`world`): effetti, evidenze e fonti con
+significato autonomo restano nel Mondo; copie operative consumate sono
+candidate alla pulizia. Potare resta fondere, non cancellare: prima si verifica
+che il contenuto utile sia risalito nell'artefatto o resti in una fonte
+durevole. Una rimozione esterna richiede sempre target esatto e autorità
+esplicita; altrimenti la chiusura propone l'atto e si ferma alla membrana.
 
 ## Applicazione nei progetti adottanti
 
@@ -61,3 +74,5 @@ Connessioni:
 - [readme](readme.md)
 - [verdict](verdict.md)
 - [connection](connection.md)
+- [world](world.md)
+- [perform](perform.md)

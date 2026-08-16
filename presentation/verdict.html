@@ -361,10 +361,15 @@
             operativa consumata è candidata alla pulizia. Il controllo non
             autorizza cancellazioni generiche: la skill propone la rimozione
             indicando il target esatto e si ferma quando manca l’autorità per
-            agire sul Mondo. Resta da incidere la disciplina nei nodi e in
-            <code>exec plan</code>, coordinandola con
-            <code>perform</code> quando il task aveva anche una prescrizione
-            <code>o3/</code>.
+            agire sul Mondo. La disciplina è incisa in <code>world</code>,
+            <code>tasks</code>, <code>perform</code> e nello scope
+            <code>plan</code> di <code>exec</code>; il caso
+            <code>salute</code> la verifica retrospettivamente: il PDF è copia
+            operativa consumata, mentre diario, storia clinica, quadro e
+            scadenze sono il contenuto durevole già risalito. La propagazione ai
+            fork locali della skill è predisposta in
+            <code>o3/chiusura-task-controlla-world.md</code>; il filo resta
+            aperto fino al recepimento degli adottanti.
           </p>
         </section>
         <section

@@ -72,10 +72,13 @@ criterio — l'artefatto stesso scrive legittimamente contenuto-mondo, perché o
 scrive effetti nel mondo (un payload pubblicato è Mondo pur essendo scritto
 dall'artefatto) — ma nella direzione «scritto dal mondo → membrana» è forte.
 
-Il criterio è nato su un caso e resta da collaudare oltre il confine
-world/substrato: l'estensione per-stadio (ogni collezione che si chiede «questo
-contenuto è mio o del mondo?») attende un secondo segnale reale prima di
-diventare disciplina (cfr. `method-development`, la guardia dal basso).
+Il secondo segnale è arrivato da `salute` il 2026-08-16: chiuso un task, un PDF
+operativo prodotto per l'atto era rimasto nella superficie `gdrive/` pur avendo
+perso significato autonomo. L'estensione per-stadio è quindi disciplina: quando
+una collezione si chiede «questo contenuto è mio o del mondo?» — incluso
+`exec plan` alla chiusura di un task — applica lo stesso test. Il test classifica,
+non autorizza: riconoscere una copia operativa consumata non conferisce il
+permesso di cancellarla dal Mondo (cfr. `tasks`, `consent`).
 
 ## Materializzazione fisica
 
