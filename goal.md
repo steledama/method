@@ -39,8 +39,9 @@ proprio `method`, senza che `metodo` gestisca le loro code.
   e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
   (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
   quattro adottanti allora presenti e potate in giornata; watchpoint: il
-  collaudo d'uso delle skill per arco negli adottanti, che nessuno ha ancora
-  girato su un evento reale.
+  collaudo d'uso delle skill per arco negli adottanti: `bi` ha iniziato a
+  girarle ripetutamente su eventi reali dal 2026-08-05; restano da misurare gli
+  altri profili e la clausola di uscita al battito del 2026-11-01.
 
 ### 3. Ascoltare il basso
 

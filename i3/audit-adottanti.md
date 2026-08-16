@@ -79,6 +79,15 @@ dichiarato, che `b39c8a7` ha canonizzato: al suo prossimo giro la dichiarazione
 di divergenza si cancella (`method/SKILL.md`, «una divergenza riassorbita si
 cancella dal ledger»). Questo è lo stato da cui parte il battito di settembre.
 
+Seconda nota fuori giro, verificata il **2026-08-16**: `bi` ha ormai usato
+`eval` e `exec` ripetutamente su eventi reali dal 5 al 14 agosto, quindi il
+collaudo d'uso non è più vuoto. Il marker di `danea-auto`, rivisto il 14 agosto,
+registra inoltre quattro task passati dal vivo sui nuovi entrypoint e il backup
+Drive verificato; resta non esercitato il percorso diagnostico, mentre sessione
+desktop, Danea, LibreOffice e sito e-commerce restano non certificati. Il
+cursore mensile resta al 2026-08-01: questi sono segnali per la baseline di
+settembre, non un terzo battito anticipato.
+
 Classificazione degli scostamenti: **nessuna prescrizione nuova** (le due in
 canna — quinta domanda attiva, rifilatura pianificata — coprono tutto il
 drift osservato), **nessun segnale i1 nuovo** (la maturazione della terza
@@ -111,9 +120,9 @@ stantie e orologi sforati = **code di dominio**.
   Task Scheduler, backup o sessione Windows. Baseline contata a mano: 4 nodi
   KB, 1 sintesi i2, 1 filo i3, 5 task e 3 skill locali; quantità misurate sul
   checkout `57ef8a6`, non confrontabili con la fotografia del 2026-06-03;
-- il collaudo d'**uso** delle skill nuove: tutti e quattro hanno recepito la
-  forma in un giorno, nessuno ha ancora girato `eval`/`exec` su un evento
-  reale del proprio dominio — è il dato che manca alla clausola di uscita
+- il collaudo d'**uso** delle skill nuove: `bi` ha iniziato i giri reali di
+  `eval`/`exec`; restano da osservare gli altri profili, gli esiti nulli per
+  stadio e il costo dell'assorbimento fino alla clausola di uscita
   (risveglio 2026-11-01);
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;

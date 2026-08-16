@@ -23,7 +23,21 @@ il ritorno a substrato).
 Stato: canone inciso e **collaudato** da `bi` (2026-07-11): due superfici
 world in home — `~/bi-client` e `~/bi-foto` — dichiarate nel register e
 validate dal run notturno di produzione; il vecchio symlink di root è rimosso.
-Watchpoint: l'**estensione per-stadio** del criterio (ogni
-collezione che si chiede «questo contenuto è mio o del mondo?») resta
-deliberatamente non scritta — attende un secondo segnale reale da un adottante
-prima di diventare disciplina.
+Il **secondo segnale reale** è arrivato da `salute` il 2026-08-16: un task per
+un incontro medico era stato chiuso e potato da `o1/` e `o2/`, ma il PDF
+operativo prodotto dal task era rimasto nella superficie dichiarata
+`gdrive/varie/`. Decisioni ed esiti erano già risaliti nell'artefatto; il PDF
+non aveva più significato autonomo senza il task. Il caso consuma la percezione
+«la chiusura di un task può lasciare documenti operativi nel Mondo» e scioglie
+l'attesa sull'estensione per-stadio: il criterio deve accompagnare anche il
+controllo con cui `exec plan` riconosce e chiude un task, non soltanto la
+classificazione statica world/substrato.
+
+Verdetto corrente: alla chiusura di un task vanno enumerate anche le sue
+materializzazioni sulle superfici dichiarate in `world.md` e classificate col
+test del significato senza artefatto. Effetti ed evidenze durevoli restano nel
+Mondo; una copia operativa consumata è candidata alla pulizia. Il controllo non
+autorizza cancellazioni generiche: la skill propone la rimozione indicando il
+target esatto e si ferma quando manca l'autorità per agire sul Mondo. Resta da
+incidere la disciplina nei nodi e in `exec plan`, coordinandola con `perform`
+quando il task aveva anche una prescrizione `o3/`.

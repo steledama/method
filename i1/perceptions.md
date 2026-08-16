@@ -10,11 +10,6 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [Una prescrizione o3 consumata può lasciare una materializzazione nel
-  Mondo](materializzazione-o3-consumata-nel-world.md) — da salute: il PDF di un
-  canovaccio medico è sopravvissuto alla chiusura del task e della prescrizione;
-  domanda se `perform` debba enumerare anche copie operative ed export sulle
-  superfici dichiarate, distinguendoli dagli effetti e dalle evidenze del Mondo.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
@@ -24,7 +19,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   secondo segnale prima di generalizzare (cfr. `de-cablaggio`,
   `criterio-world-substrato` per lo stesso pattern di attesa).
 
-La cattura «l'ingresso di un adottante nel territorio non ha protocollo», nata
+La cattura «la chiusura di un task può lasciare documenti operativi nel
+Mondo», da `salute` il 2026-08-16, è stata consumata nello stesso giro da
+[i3/criterio-world-substrato.md](../i3/criterio-world-substrato.md): il secondo
+segnale scioglie l'attesa sull'estensione per-stadio del criterio e passa a
+`exec plan` l'incisione del controllo. La cattura precedente, «l'ingresso di
+un adottante nel territorio non ha protocollo», nata
 dall'ingresso di `crm`, è stata consumata il 2026-08-12 quando l'adozione di
 `danea-auto` ha fornito il secondo caso: sintesi in
 [i2/ingresso-adottante.md](../i2/ingresso-adottante.md), verdetto in

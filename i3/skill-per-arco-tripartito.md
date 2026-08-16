@@ -141,9 +141,13 @@ criterio, che perciò vale come regola e non più come ipotesi. Il razionale
 puntuale di `bi` vive nel suo ledger: risalirà col prossimo giro, e se pesa
 il costo di discoverability sollevato da `economia` è la parte che interessa.
 
-Watchpoint: i tre piloti hanno deciso sulla **forma**, non sull'uso — il
-primo giro reale di `eval`/`exec` negli adottanti è il collaudo che manca
-(materia della clausola di uscita); `salute` solleva che il suo contratto
+Watchpoint: i tre piloti avevano deciso sulla **forma**, non sull'uso. Il
+collaudo reale è ora iniziato: dal 2026-08-05 `bi` ha eseguito più giri di
+`eval` su segnali runtime e drift di sviluppo e più giri di `exec`, fino al
+riallineamento di priorità e task del 2026-08-14 (`bf9a2751`). È il primo
+adottante che supera il solo recepimento; la clausola di uscita resta al
+2026-11-01 per misurare ripetizione, esiti nulli e costo sugli altri profili.
+`salute` solleva che il suo contratto
 plan×`o2/` non ha una vista che lo eserciti pienamente oltre la home (resta
 nella sua coda); ed `economia` solleva il **costo dell'assorbimento**:
 l'`ls` di `.claude/skills/` non è più l'inventario completo delle capacità

@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
+| dev   | 1   | Presidiare documenti World alla chiusura task            | —         |
 | dev   | 2   | Formalizzare il protocollo d'ingresso adottante          | —         |
 | dev   | 1   | Verificare la tipologia sulla KB di metodo               | —         |
 | dev   | S   | Redraw tavole vista Interpretazioni                      | —         |
