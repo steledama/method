@@ -10,6 +10,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Una prescrizione o3 consumata può lasciare una materializzazione nel
+  Mondo](materializzazione-o3-consumata-nel-world.md) — da salute: il PDF di un
+  canovaccio medico è sopravvissuto alla chiusura del task e della prescrizione;
+  domanda se `perform` debba enumerare anche copie operative ed export sulle
+  superfici dichiarate, distinguendoli dagli effetti e dalle evidenze del Mondo.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
