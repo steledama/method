@@ -39,6 +39,77 @@ Analisi periodiche:
 - confronto fedeltà: fonti di verità disponibili, fatti verificabili, aree scoperte, segnali anti-drift
 - confronto operativo: task aperti, voci verdict significative, problemi ricorrenti e interventi rimandati ai repo locali
 
+## Protocollo d'ingresso di un adottante
+
+Ammettere un progetto nel territorio è un'operazione dell'osservatorio, non
+soltanto l'aggiunta di una voce a `world.md`. Il protocollo resta una checklist
+qui, senza skill autonoma: due ingressi nello stesso giorno (`crm` e
+`danea-auto`, 2026-08-12) giustificano una forma ripetibile, non ancora una
+nuova automazione.
+
+### 1. Verifica l'adozione locale
+
+- identifica il commit esatto dell'adottante e conserva l'eventuale specimen
+  pre-adozione;
+- verifica il symlink `method/`, i register `goal.md` e `world.md`, la sezione
+  README canonica e il marker `i3/allineamento-metodo.md`;
+- leggi dal marker adattamenti intenzionali, limiti di verifica e commit di
+  `method` recepito: `aligned` certifica l'allineamento documentale dichiarato,
+  non il runtime esterno;
+- non correggere la coda locale: task, gradualità e priorità restano
+  giurisdizione dell'adottante.
+
+### 2. Fissa una baseline con provenienza
+
+- conta soltanto ciò che la superficie permette di misurare e dichiara il
+  metodo: audit, query o conteggio manuale;
+- registra almeno nodi KB, sintesi i2, fili i3, task e skill locali quando
+  esistono; una quantità manuale non si somma retroattivamente a serie prodotte
+  da un audit diverso;
+- separa i limiti del checkout dai limiti del sistema vivo: assenza di accesso a
+  host, scheduler, servizi o backup resta esplicita e non diventa una
+  certificazione negativa;
+- se manca storia comparabile, la baseline fondativa sostituisce il delta e il
+  primo `/adottanti` valuta se la struttura regge all'uso reale.
+
+### 3. Aggiorna solo le rappresentazioni correnti
+
+- registra nome, profilo e superficie nel register `world.md`;
+- cerca nel repository le enumerazioni e i conteggi correnti degli adottanti
+  (`rg` propone candidati, non decide): bussola e regole operative, `goal.md`,
+  nodi dell'osservatorio e del Mondo, indice/verdetto dell'audit e scadenza del
+  prossimo battito;
+- classifica ogni occorrenza prima di modificarla: **inventario corrente** da
+  aggiornare, **baseline locale** da aggiungere con provenienza, oppure
+  **fotografia storica datata** da preservare nel numero e nel perimetro
+  originari;
+- non riscrivere una fotografia vera soltanto perché contiene «quattro» o
+  «cinque»: aggiungi invece la nota che colloca il nuovo ingresso fuori giro.
+
+### 4. Predisponi il primo giro
+
+- aggiungi l'adottante alla prossima finestra `/adottanti` e dichiara quale
+  segnale costituirà la sua prima verifica;
+- aggiorna il filo `i3/audit-adottanti.md` senza anticipare il cursore mensile:
+  l'ingresso è un evento fuori giro, non un audit aggiuntivo;
+- rigenera le viste con `o3/build-presentation.sh` e
+  `o3/build-system-image.sh`; ciò che cambia era una rappresentazione derivata,
+  non una fonte da correggere a mano;
+- chiudi con `o3/kb_tools.py audit`, `git diff --check` e una ricerca finale dei
+  candidati classificati, dichiarando quelli storici lasciati intenzionalmente
+  invariati.
+
+### Retroprova sui due ingressi
+
+La checklist ricostruisce entrambi i casi senza memoria di sessione. Per `crm`
+parte dal commit d'ingresso canonico `b9d01b5`, conserva la baseline fondativa
+contata a mano e colloca il progetto nel primo audit successivo. Per
+`danea-auto` parte dallo specimen pre-adozione `fb83c0d`, dal commit locale
+`57ef8a6` e dal commit canonico `23b2356`; preserva la gradualità delle
+migrazioni e separa l'allineamento documentale dai limiti del runtime Windows.
+In entrambi aggiorna l'inventario corrente a sei senza riscrivere le fotografie
+del 2026-05-23, 2026-06-03 e 2026-08-01 sui quattro adottanti allora presenti.
+
 La forma ideale è un ciclo leggero:
 
 1. partire da un problema concreto in un repo adottante

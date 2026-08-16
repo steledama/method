@@ -28,11 +28,11 @@ verifica piena è la prima slide di ciascun artefatto (cfr.
 [action-cycle-matrix](../kb/action-cycle-matrix.md), «Protocollo di
 riempimento»).
 
-> **IL RISCHIO È LA COMPLICITÀ CON SÉ STESSI.** Una tipologia che cerca tre
-> categorie le trova sempre. Vale solo se ogni baricentro riceve un verdetto
+> **IL RISCHIO È LA COMPLICITÀ CON SÉ STESSI.** Una tipologia che cerca le
+> proprie categorie le trova sempre. Vale solo se ogni baricentro riceve un verdetto
 > onesto, e solo se «forzato» o «la categoria non basta» è un esito _gradito_,
-> non da smussare. I due punti dove la tripletta si tende — il repertorio d'atto
-> e le sorgenti-come-nodi — sono tenuti espliciti, non lisciati.
+> non da smussare. Il repertorio d'atto e le sorgenti-come-nodi sono tenuti
+> espliciti, non lisciati.
 
 ## Scala di classificazione
 
@@ -45,14 +45,17 @@ Ogni nodo è classificato per **dove sta il suo contenuto sul ciclo**, non per c
   agisce. Cfr. [world](../kb/world.md).
 - **A — Macchina / Mondo-dev** (la cucitura, in mezzo): com'è fatto l'artefatto
   stesso. È il Mondo del ciclo di sviluppo (cfr. [development-meta-cycle](../kb/development-meta-cycle.md)).
+- **N — Norma della macchina**: come l'artefatto deve essere costruito o
+  mantenuto — invarianti, convenzioni e principi d'ingegneria. Distinta da G
+  (motivo e valori del dominio) e da A (descrizione della macchina).
 - **O — Atto / repertorio** (contenuto o3, sceso verso la membrana): _come si
   agisce_ — procedure, pratiche. Prescrive l'atto sul Mondo-runtime.
 - **S — Sorgente / autorità**: maestri e fonti promossi a nodo. Non è un polo del
   ciclo: è un'**anomalia strutturale**, perché canonicamente le fonti vivono in
   `sources.md`/`world`, non come nodi. È tenuta perché _emerge_ dai dati.
 
-I primi tre (G/M/A) sono la tripletta-bersaglio. O e S sono i due punti dove la
-tripletta si tende: il segnale onesto, non un fallimento.
+G/M/A/N sono le quattro regioni primarie. O è una forma laterale d'atto e S
+un'anomalia strutturale: segnali onesti, non fallimenti da assorbire.
 
 ## Verdetto per repo
 
@@ -150,15 +153,16 @@ maestri a nodo; negli altri tre le fonti stanno in `sources.md`/`world`. Coerent
 col tradimento di `principi-salute` («fonti come mappe, non sostituiscono
 conoscenza-diretta»): una KB che accumula chi-l'ha-detto invece di cosa-è-vero-per-me.
 
-## Verdetto: la tipologia regge, con due tensioni
+## Verdetto della fotografia 2026-06-20: la tipologia reggeva, con due tensioni
 
-- La tripletta **G / M / A** copre i quattro repo senza forzare: ogni baricentro
-  cade pulito.
+- La tripletta allora in esame, **G / M / A**, copriva i quattro repo senza
+  forzare: ogni baricentro cadeva pulito.
 - **Tensione 1 — «Macchina» si sdoppia.** Struttura-dell'artefatto (A:
   `server-role`, `architettura-database`) vs repertorio-d'atto (O: `server-reboot`,
   `saluto-al-sole`): la prima descrive il Mondo-dev, il secondo prescrive l'atto sul
-  Mondo-runtime (contenuto o3). Non rompe la tripletta — la raffina: «macchina» è
-  «il come», con due facce.
+  Mondo-runtime (contenuto o3). Il test successivo ha mostrato che «il come» non
+  è una sola regione: A descrive la macchina, N ne prescrive la forma, O
+  prescrive l'atto.
 - **Tensione 2 — le sorgenti (S)** non sono un polo: sono fonti fuori posto. La
   tipologia le segnala come anomalia invece di inventargli una casa — esito gradito.
 
@@ -199,15 +203,74 @@ dominio degli adottanti vivono nei loro README per prescrizione, non come nodi �
 il disegno del campione teneva la specie fuori inquadratura. La prima verifica da
 fare è quindi interna e mai fatta: applicare la tipologia alla `kb/` di `metodo`.
 
-## Ricaduta: il nodo a venire
+## Verifica interna sulla KB di `metodo` (2026-08-16)
 
-Questa interpretazione è l'osservazione (i2-runtime). La **generalizzazione** —
-un nodo `kb/` sulla tipologia-contenuto della KB (la tripletta G/M/A, le due
-tensioni, il baricentro come diagnosi) — è il passo separato che ne discende, da
-connettere a [knowledge-base](../kb/knowledge-base.md),
+Unità e criteri sono stati fissati prima della classificazione: i **48 nodi
+unici indicizzati** in `kb/kb.md` al commit `6c17107`, uno per unità; codice
+primario assegnato per ciò che il nodo denota, non per maturità o forma. La
+verifica fu eseguita contro il vecchio insieme G/M/A/O: un nodo veniva marcato
+**F** (_forzato_) quando il suo contenuto primario era una norma sulla macchina.
+La ratifica del custode del 2026-08-16 ha introdotto **N** per quella specie;
+le facce secondarie restano annotate separatamente e non entrano due volte nei
+conteggi.
+
+Classificazione completa, ripetibile sul catalogo:
+
+- **G — 15**: `cognitive-artifact-design`, `kb-content-typology`,
+  `augmentation-system`, `action-cycle`, `affordance-signifier`, `constraint`,
+  `agent`, `processing-layers`, `cognitive-artifact`, `cognitive-system`,
+  `goal`, `development-goal`, `world`, `development-meta-cycle`,
+  `pace-layering`;
+- **M — 1**: `adopter-comparison`;
+- **A — 12**: `knowledge-base`, `kb-tools`, `method-observatory`,
+  `system-image`, `action-cycle-matrix`, `output`, `input`, `perceive`,
+  `interpret`, `specify`, `perform`, `compare`;
+- **O — 5**: `cognitive-fidelity`, `zettelkasten`, `karpathy-pattern`,
+  `method-development`, `consent`;
+- **N — 15** (F nel test sul vecchio insieme): `node`, `project-structure`, `design-principles`, `view`,
+  `connection`, `agents`, `claude`, `readme`, `index`, `plan`, `tasks`,
+  `verdict`, `git-history`, `skill`, `source-of-truth`.
+
+Le quantità sono **misurate manualmente** sull'elenco corrente del catalogo:
+15 + 1 + 12 + 5 + 15 = 48. Non sono stime né derivate da dichiarazioni di
+terzi. La maturità dei nodi non è stata usata come evidenza: fra i casi N
+convivono `maturo` (`node`, `design-principles`, `connection`) e `bozza`.
+
+Facce secondarie sostanziali, anch'esse verificate sul contenuto:
+`knowledge-base` e `system-image` sono G↔A; `method-observatory` è A↔O con
+materiale M; `action-cycle-matrix` è A↔M; `cognitive-fidelity` è O↔A;
+`zettelkasten` è O↔G; `design-principles` è N↔G; `source-of-truth` è N↔M.
+Sono **8 nodi su 48 misurati** a due facce sostanziali; la doppia faccia non
+richiede di forzare la regione primaria.
+
+### Cosa mostra il campione interno
+
+La norma sulla macchina è una specie coerente, non una manciata di eccezioni:
+**15 nodi su 48 misurati** condividono la stessa forma primaria. I nove nodi dei
+componenti (`agents`–`skill`) dicono quale funzione e quale forma deve avere ogni
+parte dell'artefatto; `node`, `project-structure`, `view`, `connection`,
+`design-principles` e `source-of-truth` prescrivono gli invarianti trasversali.
+Collocarli in A confonderebbe descrizione e norma; collocarli in G allargherebbe
+il polo Goal fino a includere convenzioni di costruzione che non sono motivi,
+valori od obiettivi del dominio.
+
+Il custode ha ratificato il 2026-08-16 la quarta regione **N — norma della
+macchina**. La scelta conserva stretti entrambi i confini che il campione aveva
+reso visibili: G resta motivo/valore/obiettivo e A resta descrizione della
+macchina. I 15 F del test diventano 15 N nella scala rivista; F resta l'esito
+storico che ha falsificato il vecchio insieme di celle, non una quinta regione.
+Nessun frontmatter dei 48 nodi va migrato, perché la tipologia resta una
+classificazione analitica e non una facet.
+
+## Ricaduta nel canone
+
+Questa interpretazione è l'osservazione (i2-runtime). La **generalizzazione**
+vive in [kb-content-typology](../kb/kb-content-typology.md): G/M/A/N come quattro
+regioni, O e S come forme laterali, il baricentro come diagnosi. È connessa a
+[knowledge-base](../kb/knowledge-base.md),
 [development-meta-cycle](../kb/development-meta-cycle.md), [goal](../kb/goal.md) e
-[world](../kb/world.md). Tenere distinti osservazione e nodo evita di canonizzare
-quattro casi prima che il test esterno li metta alla prova.
+[world](../kb/world.md). Il nodo resta `bozza`: la lacuna interna è risolta, ma
+un secondo specimen esterno indipendente dal custode non è ancora disponibile.
 
 ## Riferimenti
 

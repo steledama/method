@@ -123,7 +123,7 @@ stantie e orologi sforati = **code di dominio**.
 - il collaudo d'**uso** delle skill nuove: `bi` ha iniziato i giri reali di
   `eval`/`exec`; restano da osservare gli altri profili, gli esiti nulli per
   stadio e il costo dell'assorbimento fino alla clausola di uscita
-  (risveglio 2026-11-01);
+  (risveglio anticipato al 2026-09-01; 2026-11-01 solo fallback motivato);
 - `nixos`: le due date stantie del quotidiano/settimanale — verificare
   sciolte al giro di settembre;
 - `salute`: la gamba di ritorno della sua percezione è arrivata col

@@ -145,8 +145,11 @@ Watchpoint: i tre piloti avevano deciso sulla **forma**, non sull'uso. Il
 collaudo reale è ora iniziato: dal 2026-08-05 `bi` ha eseguito più giri di
 `eval` su segnali runtime e drift di sviluppo e più giri di `exec`, fino al
 riallineamento di priorità e task del 2026-08-14 (`bf9a2751`). È il primo
-adottante che supera il solo recepimento; la clausola di uscita resta al
-2026-11-01 per misurare ripetizione, esiti nulli e costo sugli altri profili.
+adottante che supera il solo recepimento. Il custode ha anticipato la clausola
+di uscita al battito del **2026-09-01**: il primo mese e il confronto sui sei
+adottanti bastano per tentare una decisione; il 2026-11-01 resta solo fallback
+motivato se ripetizione, esiti nulli e costo sugli altri profili non fossero
+ancora discriminanti.
 `salute` solleva che il suo contratto
 plan×`o2/` non ha una vista che lo eserciti pienamente oltre la home (resta
 nella sua coda); ed `economia` solleva il **costo dell'assorbimento**:
@@ -177,9 +180,10 @@ condizione si scrive **ora** perché fra tre mesi non dipenda da chi si ricorda 
 averla promessa:
 
 - **quando**: il task di rivalutazione `pause` esiste
-  (`o2/rivalutazione-skill-per-arco.md`) e la sua condizione ha una data —
-  il recepimento dai quattro si è chiuso il 2026-08-01, quindi il terzo
-  battito mensile successivo è il **2026-11-01**;
+  (`o2/rivalutazione-skill-per-arco.md`); la data originaria del terzo battito
+  (**2026-11-01**) è stata anticipata dal custode al **2026-09-01**, perché il
+  presupposto di zero uso reale è già caduto. Settembre porta una decisione;
+  novembre si riattiva soltanto dichiarando quale evidenza manca;
 - **sintomi che direbbero «troppo»**: uno stadio che chiude vuoto in _tutti_ i
   repo per tre giri; un'invocazione che nessuno fa se non per disciplina; il
   tempo dell'arco che cresce senza che cambi nulla nel verdetto o nella coda;

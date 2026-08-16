@@ -13,9 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                                     | Dip.      |
 | ----- | --- | -------------------------------------------------------- | --------- |
-| dev   | 2   | Formalizzare il protocollo d'ingresso adottante          | —         |
-| dev   | 1   | Verificare la tipologia sulla KB di metodo               | —         |
-| dev   | S   | Redraw tavole vista Interpretazioni                      | —         |
 | dev   | 3   | Enforcement della cucitura «agisci attraverso, ratifica» | pause [a] |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco          | pause [b] |
 
@@ -25,9 +22,10 @@ Legenda dipendenze esterne:
 arriva un secondo utente su un adottante): allora la disciplina manuale non scala
 più e il task si attiva. Vedi `o2/enforcement-cucitura-canone.md`.
 
-`[b]` = risveglio al battito `/adottanti` del **2026-11-01**, il terzo
-successivo al recepimento della rifilatura dai quattro (chiuso il
-2026-08-01). Vedi `o2/rivalutazione-skill-per-arco.md`.
+`[b]` = risveglio anticipato al battito `/adottanti` del **2026-09-01**:
+decisione sulla base del primo mese d'uso e del confronto sui sei adottanti;
+il 2026-11-01 resta solo fallback motivato se il materiale non fosse ancora
+discriminante. Vedi `o2/rivalutazione-skill-per-arco.md`.
 
 ## Scadenze
 

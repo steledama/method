@@ -21,8 +21,9 @@ strati, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e
 comportamento.
 
 Vista dal ciclo, la KB è il **campo** in cui la macchina degli stadi è immersa:
-il modello del mondo e dell'artefatto, guidato dai goal (le tre regioni di
-contenuto — ought, is, macchina — vivono in `kb-content-typology`), e in questo
+il modello del mondo e dell'artefatto, guidato dai goal (le quattro regioni di
+contenuto — ought, is, macchina, norma della macchina — vivono in
+`kb-content-typology`), e in questo
 senso il **requisito dell'azione** — gli agenti agiscono da dentro il proprio
 modello. Il campo però non tocca il Mondo: il contatto resta alla coppia
 viscerale o3↔i1 alla membrana `world`, e la KB orienta l'azione senza eseguirla

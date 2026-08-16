@@ -31,8 +31,9 @@ Code chiuse dal giro di semplificazione:
 Watchpoint: le tavole della vista Interpretazioni sono **asset raster statici**,
 non diagrammi derivati dalla sorgente — se un nodo cambia il senso di una tavola,
 la rigenerazione è un atto manuale/creativo, non di build; presidiato solo dal
-check i2 di `/commit` (i residui cosmetici stanno in
-`o2/redraw-tavole-interpretazioni.md`).
+check i2 di `/commit`. Il redraw pendente è chiuso il 2026-08-16: ontologia
+uniformata in italiano, `P1`→`Pi`, didascalia KB estesa e gradiente rafforzato;
+la tavola runtime/dev era già conforme ed è rimasta invariata.
 
 Fili parcheggiati dello stesso fronte: dei due assi ortogonali di `plan` — ciclo
 (sviluppo/runtime) × natura (metodologico/merito) — la colonna `Ciclo` è incisa

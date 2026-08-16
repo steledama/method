@@ -19,9 +19,9 @@ le fonti-mondo.
   nel plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso
   reale; tipologia e matrice hanno avuto il loro **test esterno**
   (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
-  una forzatura aperta — la norma sulla macchina non ha cella, e
-  `design-principles` (`maturo`) è della stessa specie — che attende una
-  decisione di canone (filo).
+  la forzatura emersa è risolta nel canone con la quarta regione `N` (norma
+  della macchina), distinta da Goal e descrizione della macchina; la tipologia
+  resta `bozza` in attesa di un secondo specimen esterno indipendente (filo).
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
@@ -41,7 +41,9 @@ proprio `method`, senza che `metodo` gestisca le loro code.
   quattro adottanti allora presenti e potate in giornata; watchpoint: il
   collaudo d'uso delle skill per arco negli adottanti: `bi` ha iniziato a
   girarle ripetutamente su eventi reali dal 2026-08-05; restano da misurare gli
-  altri profili e la clausola di uscita al battito del 2026-11-01.
+  altri profili e la clausola di uscita, anticipata dal custode al battito del
+  2026-09-01; il 2026-11-01 resta solo fallback se a settembre manca evidenza
+  discriminante.
 
 ### 3. Ascoltare il basso
 

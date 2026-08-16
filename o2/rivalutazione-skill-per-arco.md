@@ -1,17 +1,17 @@
 ---
-sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al battito /adottanti del 2026-11-01 — il terzo successivo al recepimento dai quattro, chiuso il 2026-08-01. I sintomi da leggere sono la clausola di uscita del filo i3/skill-per-arco-tripartito.md; qui vivono la condizione, la data e il materiale da raccogliere."
+sintesi: "Riaprire il giudizio sulla scommessa della tripartizione eval/exec al battito /adottanti del 2026-09-01, dopo il primo mese d'uso e col confronto sui sei adottanti. Il 2026-11-01 resta solo fallback motivato se il materiale non fosse discriminante. I sintomi da leggere sono la clausola di uscita del filo i3/skill-per-arco-tripartito.md; qui vivono condizione, data e materiale."
 ciclo: dev
 ---
 
 # Rivalutazione clausola di uscita skill per arco
 
-Task `pause`. La condizione di risveglio era «il terzo battito mensile
-`/adottanti` successivo al recepimento della rifilatura da tutti e
-quattro gli adottanti»: il recepimento si è chiuso il **2026-08-01** (tutti e
-quattro nello stesso giorno), quindi il risveglio è il battito del
-**2026-11-01**. La condizione è stata scritta prima di partire perché il
-giudizio non dipendesse da chi si ricorda di averla promessa; ora ha una data
-e non dipende più nemmeno dal conteggio.
+Task `pause`. Il risveglio, inizialmente fissato al terzo battito mensile dopo
+il recepimento del 2026-08-01, è anticipato per decisione del custode al
+battito `/adottanti` del **2026-09-01**. Il presupposto originario — nessun uso
+reale — non vale più: `metodo` ha già mostrato un beneficio concreto e `bi` ha
+accumulato più giri. Settembre è quindi una **decisione vera**, non un check
+intermedio. Il **2026-11-01** resta solo fallback: va rifissato esplicitamente
+e motivato indicando quale evidenza discriminante manca.
 
 ## Cosa si valuta al risveglio
 
@@ -23,9 +23,9 @@ prima rifinitura. Il task porta la condizione, la data e il materiale.
 
 ## Materiale da raccogliere
 
-- i **giri reali** di `eval`/`exec` in `metodo` e negli adottanti: al
-  2026-08-01 nessun adottante aveva ancora girato le skill nuove su un evento
-  del proprio dominio — è il dato che manca, ed è il più importante;
+- i **giri reali** di `eval`/`exec` in `metodo` e negli adottanti, distinguendo
+  chi ha già superato il solo recepimento (`bi`) da chi non ha ancora prodotto
+  abbastanza uso osservabile;
 - il **costo dell'assorbimento** (watchpoint di `economia`): nei due repo che
   hanno assorbito (`salute`, `economia`) l'`ls` di `.claude/skills/` non è più
   l'inventario completo delle capacità; `nixos` e `bi`, che hanno tenuto le
@@ -37,5 +37,7 @@ prima rifinitura. Il task porta la condizione, la data e il materiale.
 ## Criterio di chiusura
 
 Verdetto esplicito nel filo: la tripartizione resta com'è, si snellisce
-(quali scope si accorpano e perché), o si corregge il canone. La decisione è
-del custode; il task si consuma col verdetto inciso.
+(quali scope si accorpano e perché), o si corregge il canone. Se il materiale
+non discrimina ancora, il verdetto deve dire **cosa manca** e può riattivare il
+fallback del 2026-11-01. La decisione è del custode; il task si consuma col
+verdetto inciso oppure resta `pause` sulla nuova evidenza dichiarata.

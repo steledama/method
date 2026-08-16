@@ -26,7 +26,15 @@ produrrebbe proprio l'errore che i due casi hanno mostrato: correggere numeri
 veri perché sembrano vecchi. Il task di sviluppo parte quindi dalla procedura e
 lascia l'eventuale estrazione di uno strumento a una ricorrenza osservata.
 
-Il segnale i1 è consumato. La tensione resta aperta finché il protocollo non è
-inciso e provato sul prossimo ingresso; la sua utilità intermedia si misura già
-al battito di settembre, che dovrà trattare `crm` e `danea-auto` come baseline
-diverse senza confonderle con i quattro adottanti della fotografia precedente.
+Il segnale i1 è consumato. Il protocollo leggero è inciso in
+`kb/method-observatory.md` e retroverificato sui due ingressi: ricostruisce
+commit e specimen, baseline con provenienza, inventario corrente, fotografie
+storiche da preservare, limiti e prima finestra di audit senza memoria di
+sessione. Non nasce una skill autonoma né un'automazione: un eventuale terzo
+uso ne misurerà il costo reale.
+
+La tensione resta aperta soltanto come collaudo prospettico: il prossimo
+ingresso dovrà mostrare se la checklist regge fuori dai due casi che l'hanno
+generata. La sua utilità intermedia si misura già al battito di settembre, che
+dovrà trattare `crm` e `danea-auto` come baseline diverse senza confonderle con
+i quattro adottanti della fotografia precedente.

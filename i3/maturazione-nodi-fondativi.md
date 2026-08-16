@@ -78,11 +78,21 @@ README per prescrizione, non come nodi. La validazione a quattro **non poteva
 incontrare questa specie**. Lo specimen esterno non ha aperto un buco: ha reso
 visibile un buco che il disegno del test teneva fuori inquadratura.
 
-Trattamento aperto, **da decidere dal custode** (tocca un nodo di canone): o
-l'ought si allarga a includere la norma sulla macchina oltre al valore sul Goal, o
-nasce una quarta regione. Fino alla decisione la tipologia resta `bozza`, e la
-prima verifica da fare è la più economica e la più ovvia in retrospettiva —
-**applicare la tipologia alla `kb/` di `metodo`**, che nessuno ha ancora fatto.
+**Trattamento ratificato dal custode il 2026-08-16:** nasce la quarta regione
+**N — norma della macchina**. G resta il polo Goal (motivi, valori, obiettivi),
+A la descrizione della macchina; N prescrive come l'artefatto deve essere
+costruito o mantenuto. La tipologia resta `bozza` non per una decisione aperta,
+ma perché manca un secondo specimen esterno indipendente. La prima verifica
+interna è eseguita (dettaglio in
+`i2/baricentro-kb-adottanti.md`): sui **48 nodi indicizzati**, quantità misurata
+manualmente sul catalogo a `6c17107`, risultano G 15, M 1, A 12, O 5 e **15
+N**; 8 nodi hanno una seconda faccia sostanziale. Quei 15 casi erano forzati
+contro il vecchio insieme di celle e formano una
+specie coerente di norme sulla macchina (`node`, `project-structure`,
+`design-principles`, i componenti `agents`–`skill` e gli invarianti collegati),
+non casi assorbibili uno per uno. N rende esplicito il confine; allargare
+tacitamente A o G sarebbe rimasta precisamente la forzatura resa visibile dalla
+verifica.
 
 ### Limiti del risultato
 
@@ -131,6 +141,6 @@ di cosa ha inventato in quel repo e cosa ha trasferito dal canone — e anche di
 quello la parte databile è salva.
 
 Lo specimen resta **riusabile**: `fb83c0d` è immutabile, quindi una tipologia
-rivista (se l'ought si allarga o nasce una quarta regione) si può riprovare sullo
+rivista con N si può riprovare sullo
 stesso materiale senza cercare un artefatto nuovo. Un secondo specimen esterno,
 indipendente da questo custode, resta il test che nessuno ha ancora.
