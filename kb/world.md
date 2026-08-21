@@ -188,7 +188,6 @@ Connessioni:
 - [affordance-signifier](affordance-signifier.md)
 - [source-of-truth](source-of-truth.md)
 - [readme](readme.md)
-- [adopter-comparison](adopter-comparison.md)
 - [method-observatory](method-observatory.md)
 - [method-development](method-development.md)
 - [project-structure](project-structure.md)

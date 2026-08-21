@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Parsing condiviso per viste generate e system image."""
 
 from __future__ import annotations
@@ -52,7 +51,7 @@ def first_paragraph(markdown: str, limit: int = 220) -> str:
     block: list[str] = []
     for line in markdown.splitlines():
         stripped = line.strip()
-        if stripped.startswith("#") or stripped.startswith("---"):
+        if stripped.startswith(("#", "---")):
             continue
         if not stripped:
             if block:
@@ -80,7 +79,7 @@ def _detail_source(detail_links: dict[str, str], task: str) -> str | None:
     return None
 
 
-_INDEX_ENTRY = re.compile(r"^- \[[^\]]+\]\(([^)]+\.md)\)", re.M)
+_INDEX_ENTRY = re.compile(r"^- \[[^\]]+\]\(([^)]+\.md)\)", re.MULTILINE)
 
 
 def o2_index(root: Path) -> list[str]:
@@ -182,7 +181,7 @@ def parse_plan(root: Path) -> list[PlanRow]:
     return rows
 
 
-_GOAL_HEADING = re.compile(r"^#{2,4}\s+(\d+)[.)]\s", re.M)
+_GOAL_HEADING = re.compile(r"^#{2,4}\s+(\d+)[.)]\s", re.MULTILINE)
 
 
 def goal_keys(root: Path) -> set[str]:
@@ -196,7 +195,7 @@ def goal_keys(root: Path) -> set[str]:
         return set()
     text = goal.read_text(encoding="utf-8")
     keys = set(_GOAL_HEADING.findall(text))
-    if re.search(r"^##\s+Goal di sviluppo\s*$", text, re.M):
+    if re.search(r"^##\s+Goal di sviluppo\s*$", text, re.MULTILINE):
         keys.add("S")
     return keys
 
@@ -303,7 +302,7 @@ def register_intro(root: Path, name: str) -> str:
     reso fedelmente dalla home; le sezioni successive sono profondità on-demand.
     """
     text = (root / f"{name}.md").read_text(encoding="utf-8")
-    pattern = re.compile(r"^# .+?\n(?P<body>.*?)(?=^## |\Z)", re.M | re.S)
+    pattern = re.compile(r"^# .+?\n(?P<body>.*?)(?=^## |\Z)", re.MULTILINE | re.DOTALL)
     match = pattern.search(text)
     if not match or not match.group("body").strip():
         raise SystemExit(f"{name}.md: intro del register mancante (H1 → primo H2)")

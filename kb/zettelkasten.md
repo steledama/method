@@ -6,21 +6,21 @@ stato: maturo
 
 Metodo di gestione della conoscenza basato su nodi atomici interconnessi, ideato dal sociologo tedesco Niklas Luhmann (1927-1998). Il nome significa letteralmente "scatola di appunti" (Zettel = appunto, Kasten = scatola). Luhmann ha usato questo sistema per produrre oltre settanta libri e quattrocento articoli accademici, descrivendolo come un "partner di comunicazione" nel processo di pensiero. Ogni nodo contiene una singola idea, collegata ad altre attraverso riferimenti, creando una rete di connessioni che genera nuova conoscenza emergente. Nessun nodo ha significato pienamente isolato: il significato emerge dalle relazioni.
 
-Robert Pirsig ha descritto nei suoi libri, in particolare in "Lila", una versione personale dello stesso metodo: un sistema di schede (slip) su cui annotava e riorganizzava le proprie idee, usato per scrivere i libri stessi. La descrizione di Pirsig è tra le piu vivide dell'esperienza di lavorare con un sistema di note interconnesse.
+Robert Pirsig ha descritto nei suoi libri, in particolare in "Lila", una versione personale dello stesso metodo: un sistema di schede (slip) su cui annotava e riorganizzava le proprie idee, usato per scrivere i libri stessi. La descrizione di Pirsig è tra le più vivide dell'esperienza di lavorare con un sistema di note interconnesse.
 
 Un precursore meno noto vive nella cornice di sistema di Douglas Engelbart: il sistema di schede _edge-notched_ descritto in _Augmenting Human Intellect_ (1962, §III-A-3) è uno **Zettelkasten ante litteram** — nodi atomici con link tipizzati e provenienza, manipolabili meccanicamente con ferri da calza che selezionano le carte tagliate sul bordo. Engelbart lo accompagna alla mossa di ingest che il metodo riconosce come propria — «type the article in, tear it apart... it sits in the archives like an orange rind», l'articolo grezzo digerito in note collegate — segno che la disciplina dell'unità atomica era già parte di un sistema di augmentation co-evolvente (cfr. `augmentation-system`).
 
 Caratteristiche:
 
-- principio di atomicita: ogni nodo contiene un'unica idea, espressa in modo autonomo
+- principio di atomicità: ogni nodo contiene un'unica idea, espressa in modo autonomo
 - interconnessione: i nodi si collegano tra loro creando una rete di relazioni
 - struttura emergente: l'organizzazione nasce dal basso, dalle connessioni, non da categorie predefinite
 - crescita organica: il sistema si sviluppa gradualmente con l'aggiunta di nuovi nodi e nuovi collegamenti
 - separazione tra raccolta e organizzazione: le idee vengono prima catturate, poi integrate nella rete
 - dialogo con il sistema: rileggere e attraversare i collegamenti stimola connessioni inattese
-- strumento di creativita: la giustapposizione di idee diverse genera nuove possibilita
+- strumento di creatività: la giustapposizione di idee diverse genera nuove possibilità
 - supporto al pensiero critico: riformulare le idee con parole proprie obbliga a comprenderle in profondita
-- apprendimento attivo: scrivere e collegare e un modo di pensare, non solo di archiviare
+- apprendimento attivo: scrivere e collegare è un modo di pensare, non solo di archiviare
 
 Adattamento operativo:
 

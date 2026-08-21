@@ -16,5 +16,4 @@ Connessioni:
 
 - [action-cycle](action-cycle.md)
 - [development-meta-cycle](development-meta-cycle.md)
-- [adopter-comparison](adopter-comparison.md)
 - [cognitive-fidelity](cognitive-fidelity.md)

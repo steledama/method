@@ -30,4 +30,3 @@ Connessioni:
 - [plan](plan.md)
 - [kb-tools](kb-tools.md)
 - [design-principles](design-principles.md)
-- [adopter-comparison](adopter-comparison.md)

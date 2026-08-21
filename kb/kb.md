@@ -12,7 +12,6 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [project-structure](project-structure.md) — Struttura della root: componenti, collocazione, convenzioni e bootstrap
 - [kb-tools](kb-tools.md) — Controlli deterministici portabili e confine con il giudizio interpretativo
 - [method-observatory](method-observatory.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
-- [adopter-comparison](adopter-comparison.md) — Sintesi periodica degli adottanti; fotografia storica dei primi quattro e baseline dei nuovi ingressi CRM e danea-auto
 - [cognitive-fidelity](cognitive-fidelity.md) — Verifica strutturale, fattuale e semantica dell'aderenza al progetto reale
 - [design-principles](design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e meta-ciclo di sviluppo

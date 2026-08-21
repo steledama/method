@@ -9,9 +9,8 @@ import re
 import subprocess
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
-from datetime import date
+from datetime import UTC, datetime
 from pathlib import Path
-
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 WORD_RE = re.compile(r"\b[a-zàèéìòù][a-zàèéìòù-]{5,}\b", re.IGNORECASE)
@@ -420,7 +419,7 @@ def term_candidates(root: Path, limit: int = 12) -> list[dict[str, int | str]]:
         text = text.split("\nconnessioni:\n", 1)[0]
         for word in WORD_RE.findall(text):
             word = word.strip("-").lower()
-            singular = word[:-1] if word.endswith("i") else word
+            singular = word.removesuffix("i")
             singular_e = f"{word[:-1]}e" if word.endswith("i") else word
             if word in STOPWORDS or deaccent(word) in STOPWORDS:
                 continue
@@ -481,12 +480,18 @@ def run_code_inventory(root: Path) -> CodeInventory:
 
 def run_code_coverage(root: Path) -> CodeCoverage:
     documented = {path.stem for path in doc_files(root)}
+    collection_indexes = [
+        root / stage / index
+        for stage, index in STAGE_INDEXES.items()
+        if index is not None and (root / stage / index).exists()
+    ]
     doc_corpus = "\n".join(
         [
             (root / "README.md").read_text(encoding="utf-8")
             if (root / "README.md").exists()
             else "",
             *[path.read_text(encoding="utf-8") for path in doc_files(root)],
+            *[path.read_text(encoding="utf-8") for path in collection_indexes],
         ]
     )
     docs: list[str] = []
@@ -586,7 +591,7 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.facet_violations)
     )
     lines = [
-        f"## [{date.today().isoformat()}] kb",
+        f"## [{datetime.now(tz=UTC).date().isoformat()}] kb",
         "",
         "### OK",
         "",
@@ -601,8 +606,10 @@ def markdown_report(result: AuditResult) -> str:
         f"- {len(result.isolated)} nodi isolati",
         *(
             [
-                f"- attributi di dominio: {', '.join(EXTENDED_FACETS)} "
-                f"({len(result.facet_violations)} violazioni)"
+                (
+                    f"- attributi di dominio: {', '.join(EXTENDED_FACETS)} "
+                    f"({len(result.facet_violations)} violazioni)"
+                )
             ]
             if EXTENDED_FACETS
             else []
@@ -674,7 +681,7 @@ def command_backlinks(args: argparse.Namespace) -> None:
     ]
     if not matches:
         raise SystemExit(f"Nodo non trovato: {requested}")
-    node = sorted(matches)[0]
+    node = min(matches)
     backlinks = backlink_map(links, inventory)
     print_json(
         {

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Genera la home statica della system image: la mappa del ciclo d'azione.
 
 La home orienta sul Goal runtime, sui sei atti del ciclo e sul Mondo runtime.
@@ -94,9 +93,7 @@ def render_block(block: str, link_prefix: str = "") -> str:
 
     def flush_list() -> None:
         if items:
-            lis = "".join(
-                f"<li>{inline_markdown(item, link_prefix)}</li>" for item in items
-            )
+            lis = "".join(f"<li>{inline_markdown(item, link_prefix)}</li>" for item in items)
             parts.append(f"<ul>{lis}</ul>")
             items.clear()
 
@@ -133,7 +130,7 @@ def section_body(markdown: str, title: str, level: int) -> str:
     pattern = re.compile(
         rf"^{re.escape(hashes)}\s+{re.escape(title)}\s*$"
         rf"(?P<body>.*?)(?={boundary})",
-        re.M | re.S,
+        re.MULTILINE | re.DOTALL,
     )
     match = pattern.search(markdown)
     if not match:
@@ -145,7 +142,7 @@ def headings(markdown: str, level: int) -> list[str]:
     hashes = "#" * level
     return [
         match.group(1).strip()
-        for match in re.finditer(rf"^{re.escape(hashes)}\s+(.+)$", markdown, re.M)
+        for match in re.finditer(rf"^{re.escape(hashes)}\s+(.+)$", markdown, re.MULTILINE)
     ]
 
 
@@ -153,8 +150,7 @@ def pole_links(items: list[tuple[str, str]], label: str) -> str:
     if not items:
         return ""
     links = "\n".join(
-        f'          <a href="{html.escape(href, quote=True)}">'
-        f"{inline_markdown(title)}</a>"
+        f'          <a href="{html.escape(href, quote=True)}">{inline_markdown(title)}</a>'
         for title, href in items
     )
     return f"""        <nav class="pole-links" aria-label="{html.escape(label, quote=True)}">
@@ -165,10 +161,7 @@ def pole_links(items: list[tuple[str, str]], label: str) -> str:
 def goal_runtime_links(root: Path) -> list[tuple[str, str]]:
     text = (root / "goal.md").read_text(encoding="utf-8")
     runtime = section_body(text, "Obiettivi runtime", 2)
-    return [
-        (title, f"../goal.md#{heading_slug(title)}")
-        for title in headings(runtime, 3)
-    ]
+    return [(title, f"../goal.md#{heading_slug(title)}") for title in headings(runtime, 3)]
 
 
 # --- Sezioni ------------------------------------------------------------------

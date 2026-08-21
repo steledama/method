@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Genera sorgenti Markdown derivate per le viste Reveal."""
 
 from __future__ import annotations
@@ -54,7 +53,7 @@ def verdict_view(root: Path) -> str:
         text = path.read_text(encoding="utf-8")
         if text.startswith("---\n"):
             text = text.split("---\n", 2)[2].lstrip()
-        text = re.sub(r"^# ", "## ", text, count=1, flags=re.M)
+        text = re.sub(r"^# ", "## ", text, count=1, flags=re.MULTILINE)
         parts += [text.rstrip(), ""]
     return "\n".join(parts).rstrip() + "\n"
 

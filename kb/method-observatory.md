@@ -99,17 +99,6 @@ nuova automazione.
   candidati classificati, dichiarando quelli storici lasciati intenzionalmente
   invariati.
 
-### Retroprova sui due ingressi
-
-La checklist ricostruisce entrambi i casi senza memoria di sessione. Per `crm`
-parte dal commit d'ingresso canonico `b9d01b5`, conserva la baseline fondativa
-contata a mano e colloca il progetto nel primo audit successivo. Per
-`danea-auto` parte dallo specimen pre-adozione `fb83c0d`, dal commit locale
-`57ef8a6` e dal commit canonico `23b2356`; preserva la gradualità delle
-migrazioni e separa l'allineamento documentale dai limiti del runtime Windows.
-In entrambi aggiorna l'inventario corrente a sei senza riscrivere le fotografie
-del 2026-05-23, 2026-06-03 e 2026-08-01 sui quattro adottanti allora presenti.
-
 La forma ideale è un ciclo leggero:
 
 1. partire da un problema concreto in un repo adottante
@@ -121,18 +110,9 @@ La forma ideale è un ciclo leggero:
 
 Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla cognizione: non solo documenta come pensare con una KB, ma osserva come le KB reali evolvono, dove falliscono, dove divergono e quali forme si dimostrano più robuste.
 
-## Prima fotografia cross-repo
-
-La fotografia del 2026-05-23 è sintetizzata nel nodo `adopter-comparison`. Il principio adottato è distribuire il confronto: la sintesi tira le somme, mentre i nodi dei singoli componenti contengono la situazione concreta dei quattro progetti e il confronto tra teoria e applicazione pratica.
-
-Questa forma evita due errori opposti. Il README resta leggero e non diventa report analitico; il confronto non resta però confinato in un documento isolato, perché ogni componente del metodo accumula i propri esempi reali.
-
-Esito metodologico iniziale:
-
-- `nixos` è il riferimento per strumenti anti-drift code-based;
-- `bi` è il caso guida per chiarire il confine tra `CLAUDE.md`, nodi KB e strumenti locali;
-- `economia` è il caso guida per fonti autoritative, stato corrente e scadenze;
-- `salute` è il caso guida per KB concettuali, filing back e mappa non tecnica.
+Le fotografie e le baseline prodotte da questo ciclo appartengono a `i2/`; il
+verdetto aggregato corrente appartiene a `i3/`. Il nodo conserva il protocollo,
+non i risultati datati né le azioni suggerite ai singoli adottanti.
 
 Connessioni:
 
@@ -144,11 +124,9 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [readme](readme.md)
 - [claude](claude.md)
-- [claude](claude.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
 - [git-history](git-history.md)
 - [skill](skill.md)
 - [source-of-truth](source-of-truth.md)
-- [adopter-comparison](adopter-comparison.md)

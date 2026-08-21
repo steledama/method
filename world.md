@@ -32,9 +32,9 @@ in [world](kb/world.md).
   risposta ([world](kb/world.md), «Il Mondo del metodo»).
 
 Il territorio degli adottanti è indicizzato qui e letto dall'osservatorio
-([method-observatory](kb/method-observatory.md),
-[adopter-comparison](kb/adopter-comparison.md)); il canale i1/o3 con gli
-adottanti è descritto in [project-structure](kb/project-structure.md).
+([method-observatory](kb/method-observatory.md)); il canale i1/o3 con gli
+adottanti è descritto in [project-structure](kb/project-structure.md). Le
+fotografie periodiche vivono in `i2/` e il loro verdetto corrente in `i3/`.
 
 ## Fonti
 
@@ -71,11 +71,9 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). **Volume integrale ora
   reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
   EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`.
-  Il volume integrale rende obsoleto il vecchio estratto del solo Cap. 3 (`representation.*`, di
-  uno stato precedente della superficie Drive, non presente in questa cartella). Fonte di `cognitive-artifact` (Cap. 3
-  «The Power of Representation», già distillato) e, da distillare, del pavimento ontologico:
-  **Cap. 6 «Distributed Cognition»** (la trattazione di Norman, accanto a Hutchins/Clark) e i
-  capitoli su cognizione esperienziale vs riflessiva (Cap. 2, 5). Citare per **capitolo**, non
+  Fonte di `cognitive-artifact` (Cap. 3 «The Power of Representation»),
+  `processing-layers` (Cap. 2) e `cognitive-system` (Cap. 6 «Distributed
+  Cognition», accanto a Hutchins/Clark). Citare per **capitolo**, non
   per pagina (la paginazione della riedizione 2014 differisce dall'originale 1993). Solo
   provenienza qui, niente cattura in `i1/`.
 - **How Buildings Learn: What Happens After They're Built** — Stewart Brand, originale **1994**
@@ -159,25 +157,10 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   cattura in `i1/`. **§3.5 sorzata in `kb/goal.md`**: confermata la distinzione
   attività/motivo, azione/goal o scopo cosciente, operazione/condizioni.
 
-#### Scelta delle copie (2026-06-05)
+### Copertura fondativa
 
-Per DOET erano arrivate quattro copie. Tenuta solo l'**EPUB 2013** perché:
-
-- è l'edizione che contiene i concetti che servono (affordance/signifier, aggiunti nel 2013);
-- l'EPUB ha testo nativo, qualità superiore al PDF per l'estrazione (i1→i2).
-
-Scartate: l'ed. 2002 (superata, priva di signifier), una scansione da 23 MB senza strato
-testo (inservibile), e il PDF 2013 (ridondante con l'EPUB).
-
-### Gap noto
-
-Nessun debito di **fonte** fondativo resta aperto: frame (Engelbart), pavimento
-(Hutchins/Clark/Norman) e `goal` (Leontiev) sono tutti reperiti. Restano due lavori di
-**distillazione** (non di fonte), tracciati altrove:
-
-- _Things That Make Us Smart_ (Norman 1993) — volume integrale reperito; Cap. 2 e 6 **i3
-  scritto** (2026-06-21): Cap. 2 (esperienziale/riflessivo, radice dei tre livelli) in
-  `kb/cognitive-artifact.md` e `kb/processing-layers.md`; Cap. 6 (cognizione distribuita di
-  Norman) in `kb/cognitive-system.md`. Cap. 3 già in `kb/cognitive-artifact.md`; Cap. 5 e altri opzionali.
-- _Activity, Consciousness, and Personality_ (Leont'ev 1978) — §3.5 sorzata in `kb/goal.md`;
-  resta solo l'eventuale distillazione ulteriore se nascerà da uso reale del nodo.
+Non restano debiti di fonte fondativi: la cornice di augmentation (Engelbart),
+il pavimento ontologico (Hutchins, Clark e Norman) e la gerarchia del Goal
+(Leontiev) hanno una fonte primaria registrata e una distillazione nei nodi
+indicati sopra. Letture ulteriori restano esplorazione on-demand, non lavoro
+futuro implicito in questo register.

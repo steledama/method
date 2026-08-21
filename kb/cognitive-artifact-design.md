@@ -141,7 +141,10 @@ Evidenza dai progetti adottanti:
   con altri (`bi`), mentre un artefatto solo riflessivo fatica a generare azione
   coordinata
 
-La fotografia comparativa corrente vive nel nodo `adopter-comparison`. I nodi dei singoli componenti contengono invece il dettaglio per progetto, così il confronto non resta una nota generale ma diventa parte della definizione pratica del componente.
+Le fotografie comparative vivono nelle sintesi `i2/`; il loro giudizio
+corrente vive nei fili `i3/`. I nodi conservano soltanto le generalizzazioni
+portabili emerse dal confronto, così la KB non diventa archivio di snapshot o
+coda di azioni per gli adottanti.
 
 Tipi documentali:
 
@@ -228,7 +231,6 @@ Connessioni:
 - [source-of-truth](source-of-truth.md)
 - [method-observatory](method-observatory.md)
 - [method-development](method-development.md)
-- [adopter-comparison](adopter-comparison.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [design-principles](design-principles.md)
 - [zettelkasten](zettelkasten.md)

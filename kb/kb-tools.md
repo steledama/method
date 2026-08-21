@@ -24,8 +24,12 @@ dichiarare facet locali tramite `EXTENDED_FACETS`. Le estensioni preservano i
 comandi base, così skill e audit comparativi possono usare la stessa interfaccia.
 
 La documentazione segue una sola gerarchia: README rende lo strumento
-rintracciabile, CLAUDE indica quando usarlo, questo nodo ne definisce capacità e
-limiti. Ripetere ovunque procedure e opzioni crea drift.
+rintracciabile, CLAUDE indica quando usarlo, i nodi ne definiscono capacità e
+limiti, mentre gli indici delle collezioni registrano prescrizioni ed esecutori
+concreti. Per questo `coverage` considera README, KB e indici di collezione:
+richiedere un nodo per ogni modulo interno trasformerebbe la KB in un inventario
+della macchina già custodito da `o3/prescriptions.md`. Ripetere ovunque
+procedure, opzioni e file crea drift.
 
 Regole d'uso:
 
@@ -47,4 +51,3 @@ Connessioni:
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [source-of-truth](source-of-truth.md)
 - [method-observatory](method-observatory.md)
-- [adopter-comparison](adopter-comparison.md)
