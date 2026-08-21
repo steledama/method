@@ -50,5 +50,5 @@ Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [zettelkasten](zettelkasten.md)
-- [index](index.md)
+- [node](node.md)
 - [node](node.md)

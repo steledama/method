@@ -18,10 +18,10 @@ Per ogni scaglione:
 6. misurare parole e nodi prima/dopo;
 7. eseguire build, audit e controlli specifici.
 
-Prossimo scaglione: componenti documentali (`readme`, `claude`, `agents`,
-`index`, `project-structure`). `project-structure` ha già ricevuto la prima
-potatura; il confronto deve ora decidere se i cinque nodi restano distinti e
-quale informazione ciascuno possiede in esclusiva.
+Prossimo scaglione: manutenzione della KB (`knowledge-base`, `kb-tools`,
+`cognitive-fidelity`). Il confronto deve distinguere identità della KB,
+strumenti meccanici e verifica semantica, eliminando teoria o procedure
+duplicate fra i tre nodi.
 
 ## Criterio di chiusura
 

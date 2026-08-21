@@ -13,6 +13,13 @@ Il primo scaglione ratifica il criterio: `atrio`, `ali` e `stanze` non
 superavano il test e sono rimossi dal canone; `project-structure` conserva solo
 la specifica corrente. La struttura dei repository non cambia.
 
+Il secondo scaglione conferma che atomicità non significa un nodo per ogni
+filename: `agents` e `index` non possedevano una decisione o distinzione
+autonoma e sono stati assorbiti. `readme`, `claude` e `project-structure`
+restano separati perché orientamento, istruzione prima dell'atto e collocazione
+sono tre funzioni diverse. La KB è ora a 46 nodi e 50.014 parole, quantità
+misurate sul checkout dopo la revisione.
+
 Il filo resta aperto per gli scaglioni elencati in `i2/potatura-kb.md`. La
 potatura non insegue una soglia numerica e non premia automaticamente il nodo
 più corto: protegge guardrail, distinzioni e fonti che cambiano davvero il modo

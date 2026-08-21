@@ -144,7 +144,7 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [readme](readme.md)
 - [claude](claude.md)
-- [agents](agents.md)
+- [claude](claude.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)

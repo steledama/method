@@ -1,9 +1,7 @@
 # Indice dei nodi
 
-Catalogo statico della KB — l'indice interno omonimo di `kb/`: si vede aprendo la
-collezione, si legge on-demand (non al bootstrap). Forma in inglese (`kb`, register
-vivo), distinta dal nodo-concetto [index](index.md) (italiano, documentazione). I
-conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
+Catalogo statico della KB — l'indice interno omonimo di `kb/`, letto on-demand.
+I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 ## Metodo generale
 
@@ -23,7 +21,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [action-cycle](action-cycle.md) — Modello di Norman, l'interfaccia col Mondo dentro la cornice di augmentation: sei atti due poli, due gulf, quattro proprietà cardine come criteri di o2
 - [affordance-signifier](affordance-signifier.md) — Distinzione di Norman tra azione possibile e segnale di dove agire; l'agente «person, animal, or machine» fonda i due strati output
 - [constraint](constraint.md) — La limitazione progettata (guardrail): tipi di Norman, presidio strutturale sotto il check riflessivo, l'errore reso impossibile o rumoroso
-- [agent](agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti; distinto da `agents`, che è il file
+- [agent](agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti
 - [system-image](system-image.md) — Triangolo di Norman: la KB è il system image che porta il peso della comunicazione tra agenti che non si parlano
 - [processing-layers](processing-layers.md) — I tre strati di elaborazione di Norman applicati alle altitudini del ciclo; il viscerale comprende world e i riflessi i1/o3
 - [cognitive-artifact](cognitive-artifact.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
@@ -48,10 +46,8 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 ## Componenti della ricetta
 
-- [agents](agents.md) — Wrapper agent-agnostico: ingresso comune verso README e CLAUDE
 - [claude](claude.md) — Costituzione operativa per agenti: regole d'azione, vincoli e bootstrap
 - [readme](readme.md) — La bussola dell'artefatto: orienta e punta, non immagazzina; ingresso per umano e LLM
-- [index](index.md) — Catalogo statico dei nodi: recupero rapido distinto dalla mappa; nodo-concetto del catalogo `kb/kb.md`
 - [plan](plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza `o1/plan.md`
 - [tasks](tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `o2/`, stadio Specify
 - [verdict](verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; fili in `i3/`, aggiornati in place; il verdetto non può essere più sicuro del materiale (provenienza delle quantità, materiale di casa prima)

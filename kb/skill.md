@@ -348,5 +348,5 @@ Connessioni:
 - [tasks](tasks.md)
 - [kb-tools](kb-tools.md)
 - [claude](claude.md)
-- [agents](agents.md)
+- [claude](claude.md)
 - [method-observatory](method-observatory.md)

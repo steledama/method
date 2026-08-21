@@ -13,7 +13,7 @@ Riconoscere la popolazione di agenti invece del binomio ha una conseguenza sul m
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
-- [agents](agents.md)
+- [claude](claude.md)
 - [affordance-signifier](affordance-signifier.md)
 - [system-image](system-image.md)
 - [cognitive-system](cognitive-system.md)

@@ -33,14 +33,28 @@ fotografie degli adottanti, esempi e razionali presenti altrove. Il primo
 scaglione lo riduce a specifica corrente; Git conserva la storia e
 l'osservatorio le fotografie.
 
+## Secondo scaglione
+
+La revisione dei componenti documentali ha distinto le funzioni reali:
+
+- `readme` resta perché definisce l'orientamento al dominio;
+- `claude` resta perché definisce ciò che l'agente deve sapere prima di agire;
+- `project-structure` resta come specifica di collocazione e convenzioni;
+- `agents` è assorbito in `claude` e `project-structure`: documentava un
+  wrapper di poche righe senza un concetto autonomo;
+- `index` è assorbito dal catalogo vivo `kb/kb.md`, da `node` e da `kb-tools`:
+  non aggiungeva un comportamento oltre «indicizza tutti i nodi».
+
+Quantità **misurate** prima/dopo lo scaglione: cluster da 3.171 a 1.088 parole;
+KB da 52.159 a 50.014 parole; nodi da 48 a 46. Dal punto di partenza della
+potatura la KB è scesa da 55.861 a 50.014 parole.
+
 ## Scaglioni successivi
 
-1. componenti documentali: `readme`, `claude`, `agents`, `index` e
-   `project-structure`;
-2. manutenzione della KB: `knowledge-base`, `kb-tools` e
+1. manutenzione della KB: `knowledge-base`, `kb-tools` e
    `cognitive-fidelity`;
-3. lavoro e agenti: `plan`, `tasks`, `verdict` e `skill`;
-4. impianto teorico: `action-cycle`, `action-cycle-matrix`,
+2. lavoro e agenti: `plan`, `tasks`, `verdict` e `skill`;
+3. impianto teorico: `action-cycle`, `action-cycle-matrix`,
    `processing-layers`, `input`, `output`, sei nodi-stadio e
    `development-meta-cycle`.
 

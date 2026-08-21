@@ -73,7 +73,7 @@ README, CLAUDE, un register, un indice o un nodo, va rimossa o ricollocata.
 - `o1/plan.md` fa eccezione perché è insieme indice e item corrente del Plan.
 
 La forma dettagliata dei singoli componenti vive nei nodi dedicati (`readme`,
-`claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`). Questo nodo
+`claude`, `goal`, `world`, `plan`, `tasks`, `verdict`). Questo nodo
 non la replica.
 
 ## Bootstrap
@@ -89,7 +89,6 @@ Connessioni:
 - [node](node.md)
 - [readme](readme.md)
 - [claude](claude.md)
-- [agents](agents.md)
 - [goal](goal.md)
 - [world](world.md)
 - [plan](plan.md)

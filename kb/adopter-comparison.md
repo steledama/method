@@ -4,7 +4,7 @@ stato: bozza
 
 # Adopter comparison
 
-Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia quantitativa comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` e `danea-auto`, entrati come quinto e sesto adottante il 2026-08-12, partecipano alla successiva lettura qualitativa del bootstrap ma non vengono sommati retroattivamente ai conteggi prodotti con strumenti diversi. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia quantitativa comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` e `danea-auto`, entrati come quinto e sesto adottante il 2026-08-12, partecipano alla successiva lettura qualitativa del bootstrap ma non vengono sommati retroattivamente ai conteggi prodotti con strumenti diversi. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -133,7 +133,6 @@ Connessioni:
 - [project-structure](project-structure.md)
 - [readme](readme.md)
 - [claude](claude.md)
-- [agents](agents.md)
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
