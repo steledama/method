@@ -67,3 +67,23 @@ Il comportamentale trasforma segnali in lavoro.
 Il riflessivo governa senso e direzione.
 
 La KB trattiene ciò che deve sopravvivere al singolo giro.
+
+## Separazioni utili
+
+- conoscenza stabile nella **KB**
+- segnali, interpretazioni e verdetti distinti
+- piano sintetico e specifiche operative separate
+- task consumabili distinti dalle skill permanenti
+- storia affidata a **Git**, non accumulata nei documenti
+- strumenti deterministici separati dal giudizio
+- **Goal** e **Mondo** espliciti come confini
+- sviluppo dell’artefatto distinto dal suo uso nel dominio
+
+## Conclusioni {.hero}
+
+Umano e agente collaborano attraverso un **artefatto persistente** che conserva
+conoscenza, lavoro, giudizi e capacità in forme diverse, permettendo al ciclo di
+continuare tra sessioni senza affidarsi alla memoria della chat.
+
+Questo metodo è la mia risposta attuale a questa esigenza: non l’unica possibile,
+ma quella che sto mettendo alla prova e che propongo alla discussione.
