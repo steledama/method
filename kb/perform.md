@@ -4,47 +4,18 @@ stato: bozza
 
 # Perform (o3)
 
-Lo stadio o3 del ciclo d'azione: la prescrizione versionata dell'atto, il riflesso del Perform predisposto sul lato interno della membrana `world`. o3 **non è l'atto**: l'email inviata, l'incontro, la transazione, il deploy e il gesto corporeo accadono nel Mondo. o3 è la loro prescrizione versionata — un canovaccio, un messaggio predisposto, un promemoria, un runbook, un payload pronto. È l'ultimo gradino dell'arco di esecuzione (cfr. `output`), quello che bacia la membrana `world`.
+Perform porta la specifica alla membrana del Mondo. Può essere l'atto stesso, quando autorizzato, oppure una prescrizione versionata — messaggio, runbook, payload o canovaccio — quando servono revisione, precisione o un altro agente. La prescrizione non va confusa con l'effetto reale.
 
-Come i1 (`perceive`), o3 è **on-demand**: serve quando l'esecuzione richiede precisione, revisione o durata; non ogni gesto deve lasciare un artefatto. Dove vive: la collezione `o3/`, indicizzata da `o3/prescriptions.md`, versionata quando precisione o durata lo richiedono.
+`o3/` conserva strumenti e prescrizioni ancora vive. Quando l'atto è compiuto e l'esito è risalito nel Mondo, nei task, nei fili o nella KB, la prescrizione consumata viene rimossa; Git ne conserva la storia. Una procedura riusabile resta finché mantiene una funzione operativa.
 
-## Chiusura del ciclo di vita
-
-Una prescrizione è **consumata** quando l'atto che predisponeva è compiuto e
-l'esito è risalito dove deve vivere: nel Mondo (l'email inviata, il deploy
-fatto), nei fili `i3/`, nei task `o2/` o nei nodi. Come per le catture i1
-(cfr. `perceive`) e i task completati (cfr. `tasks`), il file si elimina
-insieme alla riga nell'indice — la collezione tiene solo procedure vive,
-canovacci riusabili e artefatti ancora pronti all'atto; un o3 che accumula
-prescrizioni eseguite è un archivio travestito, e l'archivio è git (cfr.
-`git-history`). L'indice può nominare in prosa l'ultima chiusa, come ponte
-verso la storia. Nel repo `metodo` la regola è la stessa a scala di
-propagazione: una prescrizione resta finché tutti gli adottanti non l'hanno
-recepita, poi si rimuove. Il presidio è lo scope `perform` di `exec`, la
-fetta di skill che mantiene questo stadio: supervisiona la collezione
-(consumate potate, strumenti ancora eseguibili, runbook freschi) e compie
-l'atto quando l'autorizzazione dello scope già lo copre (cfr. `skill`). Nato
-leggero dentro `plan-review` (sciolto dal basso da `economia`, 2026-07-10),
-ha guadagnato la casa propria con la rifilatura per arco.
-
-La chiusura della prescrizione si coordina con quella del task, ma non la
-sostituisce: `perform` supervisiona la collezione `o3/`; `plan` enumera anche
-le materializzazioni che il task ha prodotto sulle superfici dichiarate del
-Mondo. Se una prescrizione nomina payload, export o copie operative esterne,
-quei target alimentano il controllo di chiusura del task (cfr. `tasks`).
-
-## L'esecuzione può far emergere Goal
-
-Predisporre un atto obbliga a specificare destinatari, vincoli, poste e criteri di successo. Questo lavoro può rendere visibili Goal latenti non ancora formalizzati: il canovaccio non si limita a eseguire un'intenzione, può rivelare che l'intenzione era incompleta. Il triage/formazione-goal non appartiene quindi solo all'input esogeno (cfr. `compare`); può essere innescato anche dall'arco di esecuzione. Il nuovo Goal resta una decisione riflessiva, non un prodotto automatico di o3 (cfr. `goal`).
+Specificare l'atto può rivelare un'intenzione incompleta. L'eventuale nuovo Goal non nasce automaticamente da o3: torna al giudizio di `compare` e del custode.
 
 Connessioni:
 
-- [action-cycle](action-cycle.md)
 - [output](output.md)
+- [specify](specify.md)
 - [perceive](perceive.md)
 - [world](world.md)
 - [goal](goal.md)
-- [compare](compare.md)
-- [processing-layers](processing-layers.md)
 - [tasks](tasks.md)
 - [git-history](git-history.md)

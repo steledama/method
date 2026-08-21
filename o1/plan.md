@@ -13,7 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip.      |
 | ----- | --- | ----------------------------------------------- | --------- |
-| dev   | 1   | Potatura minimalista della KB                   | —         |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | pause [a] |
 
 Legenda dipendenze esterne:

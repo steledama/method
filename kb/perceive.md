@@ -4,37 +4,14 @@ stato: bozza
 
 # Perceive (i1)
 
-Lo stadio i1 del ciclo d'azione: la cattura versionata e valenza-neutra del segnale del mondo, il riflesso del Perceive sul lato interno della membrana `world`. Non coincide con il grezzo — il grezzo resta in `world` — ma ne è l'estratto che l'artefatto trattiene quando serve. È l'apertura dell'arco di valutazione (cfr. `input`), il primo gradino della risalita dal Mondo alla KB.
+Perceive cattura ciò che arriva dal Mondo prima di interpretarlo. Il segnale può essere feedback a un atto oppure un evento esogeno. La registrazione è goal-guidata nella rilevanza ma neutra nella valenza: selezionare cosa osservare non autorizza ancora a dire se sia buono, cattivo o vero.
 
-Come o3 (`perform`), i1 è un riflesso **on-demand**. Si crea quando il segnale è effimero, oppure quando precisione, revisione o durata giustificano una cattura; se il grezzo è già persistente, accessibile e stabile, duplicarlo nel repository è spreco. Dove vive: la collezione `i1/`, indicizzata da `i1/perceptions.md`. La fetta di skill che mantiene questo stadio è lo scope `perceive` di `eval` (cfr. `skill`).
-
-## Le due tessiture
-
-La cattura può avere due tessiture, entrambe legittime:
-
-- **estrazione 1:1** — copia lossless o trascrizione fedele, scelta quando ogni dettaglio può contare;
-- **distillazione filtrata per rilevanza** — selezione lossy che conserva ciò che serve al Goal senza ancora dire che cosa significhi o se sia bene o male.
-
-La tessitura è una scelta di economia della cattura, non un confine di stadio.
-
-## Il confine i1→i2 è la valenza
-
-Ciò che separa i1 dall'i2 non è la fedeltà ma l'ingresso della **valenza e dell'interpretazione**: il "perché", il confronto, il significato attribuito. Una mail ripulita dalle firme e dalle ripetizioni resta i1; un commento che ne valuta le implicazioni è già i2 (`interpret`). La cattura tenuta valenza-neutra è ciò che permette all'arco di valutazione di ascoltare il mondo che smentisce, invece di confermare ciò che si vuole sentire (cfr. `goal`).
-
-## Chiusura del ciclo di vita
-
-Una cattura è **consumata** quando un verdetto in `i3/` l'ha valutata, o una decisione esplicita l'ha giudicata non pertinente: il suo valore è risalito nei fili, nei nodi e nelle prescrizioni. Come per i task completati (cfr. `tasks`), il file si elimina insieme alla riga nell'indice — la storia resta in git, la collezione tiene solo i segnali aperti; un i1 che accumula segnali consumati è un archivio travestito, e l'archivio è git (cfr. `git-history`).
-
-Una differenza dal task va onorata alla potatura: la percezione è **evidenza**, non intenzione esaurita — rileggerla può servire quando un verdetto torna in discussione. Il filo che la consuma perciò la nomina in prosa (titolo, fonte, data) invece di linkare il file, così il segnale originale resta ritrovabile nella storia senza dipendere da un path vivo.
+La cattura persistente è on-demand. Se la fonte resta accessibile e precisa non serve duplicarla; `i1/` conserva solo materiale effimero o segnali che richiedono un riflesso stabile. Quando il segnale è stato interpretato e il suo contenuto è risalito, la copia consumata si elimina dall'indice e dalla collezione.
 
 Connessioni:
 
-- [action-cycle](action-cycle.md)
 - [input](input.md)
 - [interpret](interpret.md)
-- [perform](perform.md)
 - [world](world.md)
 - [goal](goal.md)
-- [processing-layers](processing-layers.md)
-- [tasks](tasks.md)
-- [git-history](git-history.md)
+- [source-of-truth](source-of-truth.md)

@@ -18,26 +18,26 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e meta-ciclo di sviluppo
 - [zettelkasten](zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente; le schede edge-notched di Engelbart come precursore
 - [karpathy-pattern](karpathy-pattern.md) — Istanza contemporanea (era LLM) della gamba di manutenzione, non pilastro: ingest, query, lint e filing back
-- [action-cycle](action-cycle.md) — Modello di Norman, l'interfaccia col Mondo dentro la cornice di augmentation: sei atti due poli, due gulf, quattro proprietà cardine come criteri di o2
+- [action-cycle](action-cycle.md) — Sei atti tra Goal e Mondo: esecuzione, valutazione e prodotti versionati
 - [affordance-signifier](affordance-signifier.md) — Distinzione di Norman tra azione possibile e segnale di dove agire; l'agente «person, animal, or machine» fonda i due strati output
 - [constraint](constraint.md) — La limitazione progettata (guardrail): tipi di Norman, presidio strutturale sotto il check riflessivo, l'errore reso impossibile o rumoroso
 - [agent](agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM alla popolazione di agenti
 - [system-image](system-image.md) — Triangolo di Norman: la KB è il system image che porta il peso della comunicazione tra agenti che non si parlano
-- [processing-layers](processing-layers.md) — I tre strati di elaborazione di Norman applicati alle altitudini del ciclo; il viscerale comprende world e i riflessi i1/o3
+- [processing-layers](processing-layers.md) — Livelli visceral, behavioral e reflective come lente sul ciclo
 - [cognitive-artifact](cognitive-artifact.md) — Strumento cognitivo esterno (Norman/Hutchins): cognizione esperienziale vs riflessiva; naturalezza come criterio dell'output
 - [cognitive-system](cognitive-system.md) — Accoppiamento dinamico (Hutchins) tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria degli agenti
 - [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come confine aperto di Norman; KB informa il goal senza generarlo; register root `goal.md` (obiettivi con segnali e stato del lavoro, la direzione task→obiettivo nella colonna `Ob.` del plan; custode umano)
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo: dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il dominio sceglie la gradualità, non le dimensioni
 - [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3 sono i suoi riflessi versionati on-demand; register root `world.md` (territorio, superfici, fonti — assorbe map e sources) e criterio del significato senza artefatto
-- [development-meta-cycle](development-meta-cycle.md) — Il runtime cycle e il development meta-cycle: la cucitura per cui il Mondo di sviluppo diventa macchina del runtime, contro l'appiattimento in parallelismo
-- [action-cycle-matrix](action-cycle-matrix.md) — Verifica a 40 caselle (6 atti + 2 poli × 5 artefatti) più l'asse ciclo dev/runtime aperto in dogfooding sulle 16 celle di `metodo`, con verdetto solido/debole/forzato/vuoto contro l'auto-accondiscendenza
-- [output](output.md) — Nota-struttura dell'arco di esecuzione: conflitto Zettelkasten/Karpathy, le tre altitudini, o1 senza atomo, dati vs presentazione
-- [input](input.md) — Nota-struttura dell'arco di valutazione: i tre atomi, le due sorgenti di i1 e i due modi di i3, lo specchio con l'output
-- [perceive](perceive.md) — Stadio i1: cattura versionata e valenza-neutra; due tessiture; il confine i1→i2 è la valenza; on-demand
-- [interpret](interpret.md) — Stadio i2: il distillato dove l'interpretazione accade; serve un substrato; i2 micro/macro; `i2/` = i2
-- [specify](specify.md) — Stadio o2: la vista di decisione; la forma segue la domanda; o1/o2 due altitudini; le quattro proprietà cardine
-- [perform](perform.md) — Stadio o3: la prescrizione versionata dell'atto (o3 ≠ atto); on-demand; può far emergere Goal
-- [compare](compare.md) — Stadio i3: conoscenza formalizzata o verdetto; i due modi (verdetto/triage); chiude il ciclo verso il Goal
+- [development-meta-cycle](development-meta-cycle.md) — Il meta-ciclo che modifica la macchina usata dal runtime
+- [action-cycle-matrix](action-cycle-matrix.md) — Protocollo falsificabile per verificare il ciclo negli artefatti
+- [output](output.md) — Arco di esecuzione dal Goal al Mondo
+- [input](input.md) — Arco di valutazione dal Mondo al Goal
+- [perceive](perceive.md) — Cattura i1 rilevante e valenza-neutra del segnale
+- [interpret](interpret.md) — Interpretazione i2 prima del giudizio di stabilità
+- [specify](specify.md) — Specifica o2 che rende azioni e vincoli controllabili
+- [perform](perform.md) — Atto o prescrizione o3 alla membrana del Mondo
+- [compare](compare.md) — Giudizio i3 rispetto al Goal o triage di un Goal nuovo
 - [view](view.md) — Runbook portabile delle viste generate: sorgenti markdown canoniche, HTML versionati, asset condivisi, apertura locale e condivisione on-demand
 - [connection](connection.md) — Strategie di collegamento tra nodi: inline vs footer, motivazioni della scelta
 - [pace-layering](pace-layering.md) — Strati a frequenza di cambiamento diversa (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione

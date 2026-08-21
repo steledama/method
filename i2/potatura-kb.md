@@ -88,11 +88,27 @@ Quantità **misurate** prima/dopo lo scaglione: cluster da 7.840 a 1.116 parole;
 KB da 47.129 a 40.371 parole; nodi invariati a 46. Dal punto di partenza della
 potatura la KB è scesa da 55.861 a 40.371 parole.
 
-## Scaglioni successivi
+## Quinto scaglione
 
-1. impianto teorico: `action-cycle`, `action-cycle-matrix`,
-   `processing-layers`, `input`, `output`, sei nodi-stadio e
-   `development-meta-cycle`.
+L'impianto teorico conserva un nodo per ciascuna funzione: modello del ciclo,
+protocollo della matrice, livelli di elaborazione, due archi, sei atti e
+meta-ciclo di sviluppo. Nessuna fusione avrebbe ridotto il numero di concetti
+senza confondere scala, direzione o funzione.
 
-Ogni scaglione deve dichiarare parole e nodi prima/dopo, cosa è stato fuso o
-eliminato e quale comportamento resta invariato.
+Sono state rimosse esegesi estese delle fonti, dimostrazioni ripetute,
+fotografie datate degli adottanti, casi storici e prescrizioni già presenti
+nelle skill. `action-cycle-matrix` non incorpora più risultati destinati a
+invecchiare: conserva il protocollo falsificabile e demanda le fotografie
+all'osservatorio.
+
+Quantità **misurate** prima/dopo lo scaglione: cluster da 11.935 a 2.054
+parole; KB da 40.371 a 30.371 parole dopo l'aggiornamento del catalogo; nodi
+invariati a 46.
+
+## Esito complessivo
+
+La potatura è conclusa. La KB passa da 55.861 a 30.371 parole e da 48 a 46
+nodi. Due nodi privi di funzione autonoma sono stati assorbiti; tutti i nodi
+residui hanno superato il criterio. La riduzione è di 25.490 parole, circa il
+46% del punto di partenza, senza cambiare struttura delle collezioni, strumenti
+o contratti operativi.
