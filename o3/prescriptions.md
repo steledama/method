@@ -12,6 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Revisione coordinata del bootstrap di un
+  adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
+  CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
+  locale applica o motiva l'ultimo miglio di dominio.
 - [La chiusura dei task controlla anche i documenti nel
   Mondo](chiusura-task-controlla-world.md) — estendere `exec plan` nei sei
   adottanti: enumerare le materializzazioni note del task sulle superfici

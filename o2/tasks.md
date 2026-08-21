@@ -4,5 +4,7 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 ## Contenuti
 
-- [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — dare un presidio (skill d'inizio sessione, check o agente) alla cucitura «agisci attraverso, ratifica in `method`», oggi solo dichiarata; `bozza`, trattenuto finché un write-through non passa inosservato.
+- [enforcement-cucitura-canone.md](enforcement-cucitura-canone.md) — task
+  attivo: il secondo write-through da `salute` ha avverato il segnale di
+  risveglio; scegliere e verificare il presidio minimo sulla cucitura.
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: riaprire il giudizio sulla tripartizione `eval`/`exec` al battito del 2026-09-01; il 2026-11-01 resta solo fallback motivato se il materiale non discrimina ancora.

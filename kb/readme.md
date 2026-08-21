@@ -8,6 +8,12 @@ README.md è la **bussola** dell'artefatto e il bootstrap principale del progett
 
 README.md ha una doppia audience. Per l'umano è la porta d'ingresso leggibile; per l'LLM è il primo compressore del contesto. Per questo deve essere sintetico ma semantico: non solo elenco di file, ma orientamento al dominio e puntatori al cruscotto.
 
+Il dominio ha il primato editoriale. Dopo l'identità, il primo contenuto
+sostanziale di un README adottante è il **dominio in breve**: di quale Mondo si
+occupa l'artefatto, quali poste o tensioni lo rendono rilevante e attraverso
+quali percorsi il lettore può entrarvi. La struttura del metodo serve a navigare
+quel dominio e non deve diventare il soggetto principale del README.
+
 ## La regola: orienta e punta, non immagazzina
 
 Il README **orienta e punta, non immagazzina**. È il signifier d'ingresso: dice cosa c'è e dove sta, non lo contiene.
@@ -18,7 +24,27 @@ Il README **orienta e punta, non immagazzina**. È il signifier d'ingresso: dice
 
 Conseguenza: la bussola è il README, e i **poli non vi abitano** — il nord articolato vive nel register `goal.md`, il territorio nel register `world.md` (porte on-demand); il modello del dominio vive nei nodi e in `i2/`. Il README conserva l'identità in una riga: chi entra capisce perché il repo esiste senza aprire nulla, e apre i register per l'articolazione.
 
-Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo o teoria del metodo, il contenuto va spostato nei nodi (o nel register pertinente) e il README torna a essere un router. È il primo livello della tripartizione **README orienta · CLAUDE istruisce · KB approfondisce**, dettagliata in `kb-tools`.
+Il README deve descrivere il dominio abbastanza da renderne visibili identità,
+assi, poste e percorsi. Quando comincia invece a incorporarne il modello
+dettagliato, le fonti o il catalogo completo, quel contenuto va spostato nei
+nodi, nei register o in `i2/`. Anche la teoria del metodo resta nei nodi
+canonici: il README torna a essere un router. È il primo livello della
+tripartizione **README orienta · CLAUDE istruisce · KB approfondisce**,
+dettagliata in `kb-tools`.
+
+## Due mappe, una priorità
+
+Il README può offrire due mappe, che non vanno confuse:
+
+- la **mappa semantica** mostra regioni, entità, poste e percorsi del dominio;
+- la **mappa strutturale** mostra dove vivono i componenti dell'artefatto.
+
+La prima ha priorità editoriale. La seconda resta compressa alle porte utili
+per orientarsi: KB, cruscotto, register, collezioni, presentazione e regole
+operative. La disciplina dell'atrio richiede che ogni voce root appartenga a
+una classe dichiarata, non che ogni dotfile, cache o eccezione di toolchain sia
+spiegata nel bootstrap. L'inventario completo deve essere verificabile, ma può
+vivere in un report deterministico o in una reference operativa on-demand.
 
 ## Funzioni
 
@@ -29,6 +55,16 @@ Quando il README inizia a contenere spiegazioni di dominio, il catalogo completo
 - puntare al catalogo dei nodi `kb/kb.md`, senza incorporarlo
 - elencare molto brevemente gli strumenti disponibili, rimandando a CLAUDE per l'uso operativo e ai nodi per il dettaglio
 - distinguere metodo portabile e specificità locali
+
+Una sequenza editoriale consigliata, non un template rigido, è:
+
+1. identità e scopo;
+2. dominio in breve;
+3. percorsi per intenzione;
+4. stato e cruscotto;
+5. sezione Metodo canonica;
+6. struttura essenziale;
+7. eventuali cautele di dominio, responsabilità o privacy.
 
 Nei progetti adottanti, il README deve dichiarare il metodo condiviso come dipendenza trans-repo quando i nodi metodologici arrivano via symlink (`method/ -> ../method/kb`). Non deve indicizzare quei nodi uno per uno come se fossero conoscenza locale del dominio: il lettore deve capire cosa appartiene al metodo portabile e cosa al progetto.
 
@@ -43,14 +79,35 @@ Due vincoli sulla sezione:
 - la sezione **dichiara, non immagazzina**: resta dentro la regola «orienta e punta» — l'adozione e i puntatori, non il modello del dominio;
 - è il **solo luogo** della dipendenza generale: gli altri link al metodo nel README sono ammessi solo se intenzionali (semantici o operativi), come ovunque.
 
-## Applicazione nei progetti adottanti
+## Criteri di revisione
 
-- **`nixos`** — situazione attuale: README sintetico e molto orientativo: host, principi, task, documentazione, router "capire il progetto in 5 minuti" e catalogo completo. Confronto con il metodo: è il caso più vicino alla funzione di bussola — orienta senza diventare manuale completo e rimanda al register-territorio `map.md`.
-- **`bi`** — situazione attuale: README ampio ma funzionale: struttura, comandi, repo collegati, skill, task e indice per cluster applicativi. Confronto con il metodo: funziona come router operativo; il rischio è la crescita con la complessità del dominio — il contenuto di dettaglio va spinto nei nodi.
-- **`economia`** — situazione attuale: README combina orientamento, task urgenti, pointer agli strumenti; la sezione metodo dichiara il repo trans-repo invece di indicizzare i singoli nodi. Confronto con il metodo: buon adattamento ad alta responsabilità — il bootstrap include stato e scadenze, purché conoscenza stabile e metodo restino nei luoghi canonici.
-- **`salute`** — situazione attuale: README lungo e narrativo, con pointer espliciti a register-territorio, `principi-salute` e `verifica-nel-vivere`. Confronto con il metodo: efficace come ingresso umano; i pointer espliciti riducono il rischio che il README debba spiegare anche il modello.
+Una review qualitativa del README deve chiedere:
 
-Il confronto chiarisce che il README non deve avere una lunghezza unica. Deve però preservare la funzione di bussola: ingresso, orientamento e puntatori al cruscotto. Quando inizia a immagazzinare invece di puntare, il contenuto va spostato nei nodi (o nel register pertinente) e il README deve restare un router.
+- dopo i primi due minuti è chiaro quale Mondo rappresenta il repository?
+- sono visibili gli obiettivi o le poste che rendono rilevante quel Mondo?
+- i percorsi di approfondimento sono espressi nel linguaggio del dominio, non
+  soltanto in quello del metodo?
+- inventari, comandi e teoria estesa stanno sottraendo spazio alla funzione di
+  bussola?
+
+La lunghezza non è un criterio autonomo: un dominio ricco può richiedere più
+orientamento. È il rapporto fra segnale semantico e dettaglio immagazzinato a
+determinare se il README resta una bussola.
+
+## Evidenza dagli adottanti
+
+Le fotografie dei README reali non vivono in questo nodo: cambiano alla
+velocità dei progetti e diventerebbero una seconda fonte stale dentro il
+canone. La comparazione periodica vive nell'osservatorio, in particolare nella
+sintesi `i2/bootstrap-adottanti.md` e nel filo
+`i3/bootstrap-adottanti.md`.
+
+L'evidenza dei sei adottanti chiarisce due invarianti. Il README non ha una
+lunghezza unica: conta il rapporto fra segnale semantico e dettaglio
+immagazzinato. Inoltre non si revisiona da solo: forma con `CLAUDE.md`,
+`goal.md` e `world.md` un bootstrap distribuito, la cui coerenza va verificata
+insieme. La ricetta operativa è la prescrizione
+`o3/revisione-bootstrap-adottante.md`.
 
 Connessioni:
 

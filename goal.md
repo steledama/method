@@ -52,8 +52,10 @@ i2/i3 invece di incidere il canone di straforo.
 
 - **Canale-perception funzionante** — segnali: [i1/perceptions.md](i1/perceptions.md),
   filo [membrana-afforda-scrittura](i3/membrana-afforda-scrittura.md);
-  lavoro: **event-driven** sul segnale, un solo fronte aperto e trattenuto
-  (`pause`) — i task che servono l'obiettivo si leggono dalla colonna `Ob.` di
+  lavoro: il secondo write-through da `salute` ha avverato il segnale di
+  risveglio; `enforcement-cucitura-canone` è ora il fronte attivo, mentre la
+  revisione coordinata del bootstrap propaga tramite prescrizione o3 — i task
+  che servono l'obiettivo si leggono dalla colonna `Ob.` di
   [`o1/plan.md`](o1/plan.md).
 
 ## Goal di sviluppo

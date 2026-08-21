@@ -1,5 +1,5 @@
 ---
-sintesi: "La cucitura «agisci attraverso la membrana, ratifica in method» è dichiarata (verdict + world.md) ma non enforced: conta sull'agente adottante che si accorge e si ferma, come ha fatto bi. Task trattenuto (|): si costruisce l'enforcement solo quando un write-through passa inosservato — quel mancato accorgersi è il segnale. Critico in ottica repo adottanti multiutente."
+sintesi: "Il secondo write-through, nato revisionando il bootstrap di salute, è arrivato ai nodi canonici senza previo passaggio i1: la condizione di risveglio è avverata. Scegliere e costruire il presidio minimo che segnali l'edit trans-repo prima della ratifica."
 ciclo: dev
 ---
 
@@ -17,6 +17,11 @@ Il punto cieco: se un write-through **passasse inosservato**, l'edit di canone
 finirebbe committato senza passare per l'i2/i3 di `method` — il canone muterebbe
 senza ratifica, e potrebbe rompere silenziosamente gli altri adottanti. Nessun
 controllo lo intercetta oggi.
+
+Il 2026-08-21 il segnale di risveglio si è verificato: una sessione in `salute`
+ha modificato tre nodi canonici mentre revisionava il componente locale
+corrispondente, e il custode ha ricostruito solo a posteriori il mancato
+passaggio i1. Il task è quindi attivo.
 
 ## Le forme candidate (non ancora scelte)
 
@@ -45,22 +50,20 @@ non può più contare sul fatto che «chi scrive è anche chi ratifica». Questo
 contesto in cui l'enforcement smette di essere secondario e diventa fondante — la
 ragione per cui il task esiste ora come pietra miliare anche se non si esegue.
 
-## Perché `|` (trattenuto), non `—`
+## Scelta da compiere
 
-Costruire l'enforcement adesso, con un solo episodio e un solo utente, inventerebbe
-struttura prima dell'evidenza — l'opposto di come il metodo si sviluppa
-(`method-development`). Il muro lo alziamo **noi**, deliberatamente, non il mondo.
-
-**Segnale di risveglio (autoimposto)**: il primo write-through che passa
-**inosservato** — un edit di canone committato senza ratifica, scoperto a posteriori.
-Quel mancato accorgersi è l'evidenza che la disciplina manuale non scala, e il task
-passa da `|` ad attivo. In subordine, lo anticipa l'arrivo di un secondo utente su un
-repo adottante (la condizione multiutente sopra).
+Il primo presidio deve essere proporzionato ai due episodi osservati e coprire
+il momento in cui il contesto è ancora recuperabile. La prescrizione
+`o3/revisione-bootstrap-adottante.md` rende esplicito il percorso corretto per
+questa classe di revisione, ma non rileva da sola gli altri write-through. Va
+quindi confrontata con un check meccanico leggero sul working tree di `method`
+all'ingresso e all'uscita della sessione adottante; skill o agente devono
+orchestrare quel check, non sostituirlo con un richiamo narrativo.
 
 ## Criterio di chiusura
 
-Esiste un presidio dichiarato e funzionante — almeno il segnale all'utente
-all'ingresso di sessione, idealmente un check meccanico — che intercetta un edit di
-canone non ratificato prima che diventi canone-di-record; la cucitura «agisci
-attraverso, ratifica in `method`» smette di contare solo sull'attenzione del singolo
-agente.
+Esiste un presidio dichiarato e funzionante, verificato riproducendo almeno il
+caso adottante→symlink→working tree canonico, che intercetta un edit di canone
+non ratificato prima che diventi canone-di-record; la cucitura «agisci
+attraverso, ratifica in `method`» smette di contare solo sull'attenzione del
+singolo agente.

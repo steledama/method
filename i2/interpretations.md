@@ -8,4 +8,8 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
 - [metodo-in-sintesi.md](metodo-in-sintesi.md) — la sorgente della vista Interpretazioni: sequenzia le sette tavole con poche slide d'appoggio a elenchi e le chiuse hero sui tre livelli, minimaliste e coerenti con lo stile delle tavole (interpretazione rivolta al metodo, i2-dev).
 - [baricentro-kb-adottanti.md](baricentro-kb-adottanti.md) — dove sta il contenuto delle KB: quattro regioni G/M/A/N (Goal/ought, Mondo/is, Macchina, Norma della macchina), con O e S laterali, e il baricentro per repo come diagnosi. Prima istanza dell'osservatorio cross-repo, **i2-runtime** (rilegge gli adottanti, non i nodi del metodo) e materiale osservativo del nodo canonico sulla tipologia.
 - [ingresso-adottante.md](ingresso-adottante.md) — confronto fra gli ingressi di `crm` e `danea-auto`: stessa bonifica cross-strato, ma due profili opposti (fondativo e produttivo) mostrano che l'ammissione nel territorio è un'operazione propria del metodo, oggi senza protocollo.
+- [bootstrap-adottanti.md](bootstrap-adottanti.md) — lettura coordinata di
+  README, CLAUDE, Goal e World nei sei adottanti: il bootstrap è un sistema
+  distribuito; il canone confronta e prescrive i criteri, mentre il repo locale
+  giudica e applica l'ultimo miglio di dominio.
 - `../presentation/interpretations.html` — vista Reveal.js generata dalla sorgente markdown con `../o3/build-presentation.sh`, apribile direttamente dal checkout; gli asset stanno in `../presentation/assets/`. Il PDF per stampa/distribuzione esce dall'export della vista e non è versionato (cfr. [view](../kb/view.md) per build e condivisione).

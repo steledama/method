@@ -87,6 +87,14 @@ La disciplina è l'**inventario**: ogni voce dell'`ls` della root appartiene a u
 - **eccezioni di toolchain** — file che lo strumento inchioda alla root (`flake.nix`/`flake.lock`, `package.json`, dotfile): vincoli, non scelte; dichiarate una volta;
 - **traffico runtime** — cache, log, output intermedi: superfici della membrana dichiarate in `world.md` o gitignore, mai voci versionate senza classe; per le cache degli strumenti di sviluppo (lint, test) il pattern collaudato su più adottanti è un file di configurazione minimale che le dirige tutte sotto un'unica cartella locale, gitignorata con una riga sola invece di una voce per strumento.
 
+«Dichiarata» significa classificata e verificabile, non necessariamente
+incorporata voce per voce nel README. La bussola espone la mappa strutturale
+compressa alle porte utili; un inventario completo dell'`ls -A`, soprattutto
+nei codebase con molti dotfile ed eccezioni di toolchain, può essere prodotto
+da un audit o vivere in una reference operativa on-demand. La disciplina di fit
+resta completa senza trasformare il bootstrap in un manifest tecnico (cfr.
+`readme`).
+
 Ciò che non si lascia collocare si conta come eccezione, e il conteggio è il
 **verdetto di fit** del metodo sul dominio: poche eccezioni motivate = il
 metodo si applica e il dominio caratterizza la struttura; molte eccezioni o
@@ -148,7 +156,10 @@ register, non contenuto di un symlink root `world/`.
 
 ## Caratteristiche
 
-- root come atrio: l'`ls` dichiara l'inventario completo dei componenti; bussola, regole e cruscotto si leggono, catalogo, register e collezioni si aprono on-demand
+- root come atrio: l'`ls` rende visibili le porte e l'inventario completo dei
+  componenti resta classificato e verificabile; il README ne espone la mappa
+  compressa, mentre bussola, regole e cruscotto si leggono e catalogo, register
+  e collezioni si aprono on-demand
 - README a doppia audience: umano e LLM condividono l'interesse per una struttura semantica chiara
 - la collocazione segue la funzione e il gradiente di cardinalità interno alle stanze, non la profondità
 - `kb/kb.md` è l'indice interno della KB; `o3/` contiene gli esecutori deterministici

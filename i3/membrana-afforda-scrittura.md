@@ -22,15 +22,18 @@ proprio:
 > l'edit diventa canone-di-record. **L'orfano non-committato nel working tree di `method`
 > è la cucitura che funziona, non che fallisce.**
 
-Claim falsificabile: la perdita è **strutturale, non accidentale** — si addensa sui
-nodi-strumento con sezioni per-adottante, dove stabilizzazione locale e modifica del
-canone collassano nello stesso atto; se ricapita, dovrebbe ricapitare lì. Stato: la
-riga `kb-tools` è ratificata come generalizzata (l'**oggetto-prova** della cucitura);
-il nodo dedicato resta **in riserva** — un solo episodio non fa struttura.
-L'enforcement è **dichiarato, non presidiato**: l'unico presidio è l'agente adottante
-che si accorge e si ferma (come `bi`); il buco — un write-through che passa
-inosservato — è tracciato dal task `enforcement-cucitura-canone` (`bozza`, trattenuto
-`pause`). Un secondo arco bottom-up — la riforma della forma di `plan.md` da
-`economia`+`bi` — è nel frattempo passato per il **canale-perception** (i1→i2/i3),
-confermando che la gamba runtime→dev funziona senza mettere alla prova il presidio
-specifico del write-through.
+Il 2026-08-21 il caso si è ripetuto da `salute`: una revisione del suo README ha
+lasciato modifiche dirette in tre nodi canonici (`readme`, `project-structure`,
+`adopter-comparison`) e il custode ha rilevato a posteriori che non erano passate
+da i1. Il secondo episodio allarga il punto di addensamento: non soltanto nodi-
+strumento, ma nodi che descrivono lo stesso componente locale che l'agente sta
+revisionando. Stabilizzazione locale e generalizzazione collassano nello stesso
+atto proprio perché il symlink rende contigui i due piani.
+
+Il claim strutturale è quindi corroborato e la condizione di risveglio del task
+`enforcement-cucitura-canone` è avverata. L'enforcement resta per ora umano e
+procedurale — questa sessione ha ricostruito i1→i2→i3 prima di ratificare il diff
+— ma non può più essere descritto come sufficiente. Il task è attivo e deve
+scegliere il presidio minimo capace di segnalare un working tree di `metodo`
+modificato durante una sessione adottante prima che l'edit diventi canone-di-
+record.

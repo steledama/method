@@ -4,7 +4,7 @@ stato: bozza
 
 # Adopter comparison
 
-Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` e `danea-auto` sono entrati come quinto e sesto adottante il 2026-08-12 e saranno inclusi nel successivo audit mensile. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
+Questo nodo sintetizza la fotografia periodica dei progetti che adottano il cognitive artifact design. La fotografia quantitativa comparabile del 2026-06-03 riguarda `nixos`, `bi`, `economia` e `salute`; `crm` e `danea-auto`, entrati come quinto e sesto adottante il 2026-08-12, partecipano alla successiva lettura qualitativa del bootstrap ma non vengono sommati retroattivamente ai conteggi prodotti con strumenti diversi. Il dettaglio per componente vive nei nodi dedicati (`readme`, `claude`, `agents`, `goal`, `world`, `plan`, `tasks`, `verdict`, `kb-tools`, `skill`, `source-of-truth`, `cognitive-fidelity`); qui vengono tirate le somme.
 
 Aggiornamento 2026-06-03 (seconda fotografia, prima era 2026-05-23). Le variazioni dallo snapshot iniziale: `economia` è cresciuta (51→55 nodi, 184→198 link) e ha risolto i segnali strutturali che erano segnalati "da correggere", arrivando ad audit pulito; `bi` ha chiuso due task (task 9→7) mantenendo la KB strutturalmente stabile; `nixos` e `salute` sono invariati nei numeri. Sul piano del metodo, la novità maggiore è la formalizzazione del principio bottom-up (2026-06-01): lo sviluppo del metodo parte da un'esigenza concreta in un repo adottante e risale a `metodo` solo come generalizzazione portabile. Tutti e quattro i repo hanno audit strutturale pulito alla data.
 
@@ -69,6 +69,31 @@ Il metodo deve chiarire che ogni componente ha una parte universale e una soglia
 I nodi dei componenti devono quindi contenere esempi reali dei progetti adottanti. Questo evita una teoria astratta che non vede i casi limite: `bi` mostra il rischio di CLAUDE come manuale operativo; `economia` mostra che stato e scadenze possono essere componenti locali legittimi; `salute` mostra che una KB riflessiva può essere formalmente sana ma richiedere una mappa meno tecnica; `nixos` mostra il valore dei fact check quando la fonte di verità è dichiarativa.
 
 Gli strumenti vanno trattati come backend del metodo, non come metodo stesso. `kb_tools.py` può avere una superficie portabile comune, ma `facts` e `fidelity` devono restare adattati al dominio finché le fonti primarie non sono comparabili.
+
+## Il bootstrap dopo sei adopter
+
+La lettura qualitativa coordinata di README, CLAUDE, Goal e World nei sei
+adottanti rende visibile una tensione che i primi quattro casi lasciavano
+implicita: **mappa del dominio** e **mappa del repository** non sono la stessa
+cosa, e il bootstrap non abita in un solo file. `nixos` offre il router per
+intenzione più efficace; `economia` una forte sintesi iniziale per assi, entità
+e fonti; `danea-auto` la compressione domain-first più netta; `crm` usa stato e
+invarianti come orientamento; `bi` mostra il rischio che inventario e manuale
+operativo crescano insieme alla complessità tecnica; `salute`, primo adopter,
+mostrava il rischio storico opposto di rispiegare localmente il metodo che ormai
+vive nel canone.
+
+La conseguenza metodologica è che il dominio ha il primato editoriale nel
+README. L'atrio deve restare leggibile, ma la sua disciplina non obbliga a
+incorporare nel bootstrap l'intero `ls -A`: ogni voce deve essere classificata
+e verificabile, mentre la bussola espone solo le porte utili. Il test non è una
+soglia di parole, ma la capacità di rispondere rapidamente a tre domande: quale
+Mondo rappresenta il repository, quali Goal o poste lo rendono rilevante, quali
+percorsi semantici permettono di approfondirlo. La seconda conseguenza è che
+una potatura del README non basta se il contenuto si riversa in `CLAUDE.md` o se
+le intro di Goal e World contraddicono la nuova bussola: il quartetto si
+revisiona come sistema. La fotografia dettagliata resta nella sintesi runtime
+`i2/bootstrap-adottanti.md`, non in questo nodo.
 
 ## Strato output come componente universale
 

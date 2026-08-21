@@ -10,6 +10,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Una revisione del bootstrap nata in `salute` ha inciso direttamente il
+  canone](bootstrap-salute-write-through.md) — commit adottante `513b6ac` su
+  `README.md`/`CLAUDE.md`/`AGENTS.md` e modifiche rimaste nel working tree di
+  `metodo` su tre nodi canonici, senza previo passaggio i1; materiale per la
+  comparazione coordinata dei bootstrap dei sei adottanti.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
