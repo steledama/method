@@ -1,6 +1,6 @@
 ---
 name: kb
-description: Project skill for the metodo repository knowledge-base audit. Use when the user asks for /kb, a KB audit, health checks, catalog (kb/kb.md) coverage, or link/frontmatter validation.
+description: Project skill for structural audits and deep semantic reviews of the method knowledge base. Use for /kb audit or review, KB health, pruning, freshness, atomicity, redundancy, source-of-truth checks, catalog quality, links, or frontmatter.
 ---
 
 # kb

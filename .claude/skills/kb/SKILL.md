@@ -1,86 +1,151 @@
 ---
-description: Health check completo della knowledge base del metodo usando gli strumenti versionati del repo.
+description: Audit strutturale o revisione semantica qualitativa della knowledge base.
 user-invocable: true
 ---
 
 # kb
 
-Esegui un health check completo sulla knowledge base del metodo usando
-`o3/kb_tools.py` come backend deterministico. Lo script è la fonte di verità
-per parsing markdown, link, catalogo `kb/kb.md`, frontmatter, footer `Connessioni:` e
-statistiche strutturali. Questa è la copia canonica della skill: gli adottanti la
-forkano e la parametrizzano sul proprio dominio.
+Usa `/kb [audit|review]` dalla root del repository. Il default è `audit`.
+Questa è la copia canonica: gli adottanti la forkano e adattano strumenti e
+fonti primarie al proprio dominio.
 
-## Procedura
+- `audit` fotografa integrità strutturale e drift deterministico senza
+  correggere;
+- `review` esegue prima `audit`, poi valuta funzione, verità, attualità,
+  atomicità, ridondanza, fonti di verità e qualità del catalogo.
 
-1. Dalla root del repository esegui:
+La diagnosi e l'intervento restano atti separati. Non modificare la KB durante
+la review salvo autorizzazione esplicita successiva del custode.
+
+## Audit
+
+Esegui:
 
 ```bash
 python3 o3/kb_tools.py audit
+python3 o3/kb_tools.py inventory
+python3 o3/kb_tools.py coverage
+python3 o3/kb_tools.py facets
 ```
 
-2. Leggi il report e fai una breve valutazione qualitativa:
+Classifica errori deterministici, warning utili e falsi positivi. I candidati
+terminologici non autorizzano nuovi nodi: richiedono giudizio sulla funzione.
 
-- problemi reali vs falsi positivi
-- eventuali interventi ovvi e a basso rischio
-- candidati terminologici che meritano o non meritano un nuovo nodo, ricordando
-  che un nodo entra in `kb/` solo se è metodologico e applicabile ad almeno due
-  progetti diversi
-- esito sintetico della checklist di `kb/cognitive-fidelity.md`
+## Review semantica
 
-3. Il report è una diagnosi i1 rigenerabile: vive su stdout, **non** si archivia
-   nei fili in `i3/`. Sono il verdetto corrente per filo aperto, non un log di
-   audit datati (cfr. `kb/verdict.md`). Se l'audit fa _cambiare un verdetto_ su un filo,
-   è il punto 2 di `/commit` ad aggiornarlo in place — non l'append di un report.
+Leggi integralmente:
 
-4. Se modifichi script Python durante l'audit, formatta con:
+- `kb/cognitive-fidelity.md`;
+- `kb/kb-content-typology.md`;
+- `kb/node.md`;
+- `kb/source-of-truth.md`.
 
-```bash
-ruff format o3/*.py
-```
+Leggi README, CLAUDE, `world.md`, catalogo e tutti i nodi della KB. Non
+campionare: una revisione profonda deve vedere sovrapposizioni e contraddizioni
+tra nodi lontani. Usa dimensione, titoli e ultima modifica Git soltanto per
+orientare l'attenzione; una data recente non prova freschezza semantica.
 
-5. Non correggere automaticamente i problemi trovati dentro lo stesso audit,
-   salvo richiesta esplicita dell'utente. L'audit fotografa lo stato; le
-   correzioni sono un intervento separato.
+Nel repository `method` verifica anche che ogni nodo resti metodologico e
+portabile, applicabile ad almeno due progetti, invece di trattenere dettagli di
+un singolo adottante.
 
-## Comandi utili
+### 1. Funzione documentale
 
-```bash
-python3 o3/kb_tools.py backlinks nodo.md
-python3 o3/kb_tools.py orphans
-python3 o3/kb_tools.py readme
-python3 o3/kb_tools.py migration
-python3 o3/kb_tools.py terms --limit 20
-python3 o3/kb_tools.py audit --format json
-```
+Assegna a ogni nodo una funzione dominante: orientamento, modello del dominio,
+modello della macchina, norma, runbook, reference o router. Verifica che:
 
-## Formatter
+- README orienti senza diventare catalogo o manuale;
+- CLAUDE contenga regole d'azione, non conoscenza di dominio;
+- il catalogo descriva la funzione dei nodi e non replichi il README;
+- ogni nodo giustifichi il proprio peso e non svolga più funzioni incompatibili.
 
-- Markdown, JSON, YAML, JS, TS, CSS, HTML: `prettier`
-- Python: `ruff format`
+La tipologia descrive ciò che il contenuto denota; la funzione documentale
+descrive come viene usato. Non confondere i due assi.
 
-## Cosa controlla
+### 2. Presente, storia e lavoro futuro
 
-- link rotti tra nodi
-- nodi orfani per backlink
-- nodi isolati
-- copertura e link validi nel catalogo `kb/kb.md` (escluso dal conteggio dei nodi)
-- convenzioni sui nomi file
-- stato della migrazione frontmatter + footer `Connessioni:`
-- link markdown rimasti nel corpo dei nodi
-- cluster isolati nel catalogo
-- candidati a nuovi nodi da termini ricorrenti
-- hub principali per backlink
+Per ogni passaggio chiedi se cambia una decisione o un comportamento corrente.
 
-## Checklist semantica
+- conserva fatti attuali, invarianti, lezioni operative e assunzioni che
+  imporrebbero una revisione;
+- lascia a Git cronologia, date, vecchi nomi, commit, migrazioni concluse ed
+  esempi superati;
+- lascia a `i3/` i verdetti correnti e a `o1/`/`o2/` il lavoro futuro;
+- non eliminare misure runtime o conoscenza empirica non ricostruibile da Git
+  se continua a influenzare diagnosi o decisioni.
 
-Usa `kb/cognitive-fidelity.md` per valutare ciò che gli script non possono
-decidere: funzione documentale dei nodi, presente vs storia, accessibilità
-cognitiva, aderenza degli esempi e confini futuri emergenti. Specifico del
-`metodo`: verifica che ogni nodo resti metodologico e portabile (applicabile ad
-almeno due progetti), non scivolato in dettaglio di un singolo dominio.
+Una alternativa scartata merita spazio solo se impedisce di ripetere un errore;
+conservala come vincolo e condizione di revisione, non come cronaca.
 
-## Output
+### 3. Verità e volatilità
 
-Concludi indicando all'utente i problemi più importanti e chiedendo se vuole
-procedere con le correzioni.
+Individua i fatti che possono cambiare e la loro fonte primaria. La
+documentazione non valida altra documentazione.
+
+- codice, filesystem, dati strutturati e runtime precedono le copie narrative;
+- un fatto volatile ha una sola fonte documentale e gli altri punti vi
+  rimandano;
+- distingui default dichiarato, assetto operativo di riferimento e stato
+  realmente osservato;
+- cerca anche path in backtick o testo semplice: possono sfuggire al link
+  checker Markdown.
+
+### 4. Atomicità e ridondanza
+
+Valuta la responsabilità, non la sola somiglianza lessicale.
+
+- fondi nodi quando uno non conserva una funzione autonoma;
+- dividi soltanto quando emergono responsabilità usate separatamente;
+- trasforma i panoramici in router se duplicano comandi e troubleshooting dei
+  nodi specialistici;
+- separa modello e runbook quando hanno ritmi di cambiamento diversi;
+- non creare un nodo per un termine frequente già coperto dal lessico del
+  dominio.
+
+### 5. Chiarezza e accessibilità
+
+Controlla titolo, apertura, ordine delle sezioni, esempi, lessico e sintesi.
+Verifica che una persona possa scegliere il nodo giusto dal catalogo e che il
+nodo esponga presto scopo, confine e fonte di verità. Segnala tabelle o
+inventari che aumentano manutenzione senza comprimere davvero informazione.
+
+### 6. Test di potatura
+
+Classifica ogni nodo `mantieni`, `rifinisci`, `fondi`, `dividi` o `elimina`.
+Un contenuto giustifica il proprio peso se almeno una condizione è vera:
+
+- cambia una decisione o un comportamento;
+- distingue casi altrimenti confondibili;
+- comprime più regole in una spiegazione più semplice;
+- conserva una fonte o evidenza non ricostruibile altrove;
+- è necessario a una parte effettivamente usata del metodo o dominio.
+
+Non fissare una percentuale di riduzione: le righe eliminate sono un esito, non
+un obiettivo. Una KB breve ma priva di fatti decisionali è peggiore di una KB
+più lunga e fedele.
+
+## Output della diagnosi
+
+Concludi con:
+
+1. verdetto complessivo separando salute strutturale e semantica;
+2. contraddizioni o fatti stale con file e riga;
+3. candidati prioritizzati a potatura, fusione, divisione o riscrittura;
+4. valutazione del catalogo e dei punti d'ingresso;
+5. nodi già ben riusciti da non destabilizzare;
+6. ordine d'intervento proposto e rischi di perdita informativa;
+7. domanda esplicita al custode se vuole applicare le correzioni.
+
+## Intervento autorizzato
+
+Se il custode autorizza una fase successiva:
+
+1. correggi prima contraddizioni, riferimenti morti e fonti duplicate;
+2. riduci storia e stato transitorio conservando invarianti e lezioni;
+3. semplifica nodi sovraccarichi e sovrapposizioni;
+4. aggiorna il catalogo dopo che i confini si sono stabilizzati;
+5. formatta i file e riesegui tutti i comandi di `audit` più i check locali;
+6. riporta conteggi prima/dopo senza presentarli come misura della qualità.
+
+Non archiviare il report: è una diagnosi i1 rigenerabile. Se cambia un verdetto
+aperto, il gate `/commit` valuta l'aggiornamento in place del filo `i3/`.

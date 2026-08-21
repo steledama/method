@@ -13,7 +13,8 @@ Le skill canoniche del metodo sono:
 
 - `eval [perceive|interpret|compare|all]`, arco di valutazione;
 - `exec [plan|specify|perform|all]`, arco di esecuzione;
-- `kb`, diagnosi strutturale e semantica della conoscenza;
+- `kb [audit|review]`, diagnosi strutturale rapida o revisione semantica
+  profonda della conoscenza;
 - `commit`, gate prima del filing back nella storia;
 - `method`, allineamento degli adottanti al canone.
 

@@ -59,10 +59,11 @@ mai come nome della skill. Gli scope-stadio restano per esteso (la catena
 atomo→indice non si abbrevia); gli scope di dominio restano nel vocabolario
 del loro Mondo (`exec aggiorna`, `eval posta`).
 
-**Il quartetto resta un quartetto**, ritagliato: due archi (`eval`,
-`exec`), un'ala (`kb-review`, che sta fuori dai due archi perché `kb/` è
-un'ala trasversale al ciclo), un gate (`commit`). Il conteggio non cresce, cresce
-la copertura.
+**Il quartetto resta un quartetto**, ritagliato: due archi (`eval`, `exec`), una
+capacità trasversale (`kb`) e un gate (`commit`). `kb` distingue `audit`,
+fotografia deterministica rapida, e `review`, revisione semantica profonda
+sempre preceduta dall'audit; entrambe diagnosticano e separano l'intervento
+successivo. Il conteggio non cresce, cresce la copertura.
 
 **Cambia la natura, e va detto.** Il canone dichiara oggi che il quartetto
 distingue diagnosi, supervisione e prevenzione. Le due skill nuove sono **verbi

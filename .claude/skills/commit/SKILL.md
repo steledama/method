@@ -9,7 +9,7 @@ formatter e fonti di verità.
 
 ## Pre-commit: domande da fare prima di procedere
 
-**1. Audit KB** — Valuta se le modifiche toccano un numero significativo di nodi in `kb/` (aggiunte, rinominamenti, ristrutturazioni di link). Se sì, chiedi all'utente: _"Vuoi eseguire /kb prima del commit?"_. Se l'utente risponde sì, esegui la skill `kb` e includi eventuali fix nel commit. Se le modifiche sono minori (un file, fix puntuale), salta la domanda.
+**1. Audit KB** — Valuta se le modifiche toccano un numero significativo di nodi in `kb/` (aggiunte, rinominamenti, ristrutturazioni di link). Se sì, chiedi all'utente: _"Vuoi eseguire /kb audit prima del commit?"_. Se l'utente risponde sì, esegui lo scope `audit` della skill `kb` e includi eventuali fix nel commit. Se le modifiche sono minori (un file, fix puntuale), salta la domanda. Non avviare implicitamente `kb review`: è una revisione profonda separata, non un gate pre-commit ordinario.
 
 **1b. Formato nodo** — Per ogni nodo nuovo o pesantemente modificato in `kb/`: verifica che abbia (a) frontmatter con `stato:` in cima e (b) sezione `Connessioni:` in fondo. Se mancano entrambi, segnalalo prima di committare.
 
