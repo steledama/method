@@ -11,7 +11,7 @@ conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [node](node.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
 - [knowledge-base](knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
 - [kb-content-typology](kb-content-typology.md) — Di cosa parla la KB (≠ a cosa serve): quattro regioni — ought/is/macchina/norma della macchina — e il baricentro per repo come diagnosi
-- [project-structure](project-structure.md) — La root come atrio/system image: collezioni-stadio `i1/`-`o3/`, ali trasversali e register
+- [project-structure](project-structure.md) — Struttura della root: componenti, collocazione, convenzioni e bootstrap
 - [kb-tools](kb-tools.md) — Strumenti versionati portabili e profili avanzati per audit, backlink, copertura e candidati terminologici
 - [method-observatory](method-observatory.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
 - [adopter-comparison](adopter-comparison.md) — Sintesi periodica degli adottanti; fotografia storica dei primi quattro e baseline dei nuovi ingressi CRM e danea-auto

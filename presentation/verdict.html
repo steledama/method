@@ -346,12 +346,14 @@
             abbiano uguale ordine o lunghezza.
           </p>
           <p>
-            Impatto ulteriore: l’episodio <code>salute</code> è il secondo
-            write-through attraverso <code>method/</code> e il primo dichiarato
-            dal custode come passato senza il percorso i1. La condizione di
-            risveglio del task <code>enforcement-cucitura-canone</code> è quindi
-            avverata; il task torna attivo e deve scegliere un presidio
-            proporzionato.
+            La revisione è nata da una modifica diretta autorizzata dal custode
+            attraverso un repo che mantiene personalmente. Non è un errore di
+            canale: nei repo sotto la stessa ownership l’agente incaricato può
+            modificare il canone, che passa poi dal normale gate di review e
+            commit di <code>metodo</code>. Per adottanti mantenuti da terzi,
+            invece, il confine è una pull request: il suo diff e il suo
+            razionale sono il segnale persistente che entra nella valutazione
+            del canone.
           </p>
         </section>
         <section
@@ -484,14 +486,14 @@
                   >verdict.html</code
                 ></strong
               >
-              (ereditata dal filo ristrutturazione-atrio): tenute, uniformate a
-              deck (74df440); saranno la sede naturale del futuro filtro
-              dev/runtime.
+              (ereditata dal filo ristrutturazione della root): tenute,
+              uniformate a deck (74df440); saranno la sede naturale del futuro
+              filtro dev/runtime.
             </li>
             <li>
               <strong>Propagazione del motore della home</strong>: col motore
               ridotto a ciclo singolo e CONFIG minimale il fork è banale; ha
-              viaggiato nella prescrizione dell’atrio, recepita dai quattro
+              viaggiato nella prescrizione strutturale, recepita dai quattro
               adottanti (chiusa 2026-07-11).
             </li>
             <li>
@@ -571,7 +573,7 @@
             l’eseguito è archivio travestito, e l’archivio è git. Canone in
             <code>kb/perform.md</code> («Chiusura del ciclo di vita», il
             parallelo di <code>perceive</code> che mancava);
-            <code>metodo</code> la praticava già — la prescrizione dell’atrio è
+            <code>metodo</code> la praticava già — la prescrizione strutturale è
             stata rimossa al recepimento pieno (2026-07-11) — ora la regola è
             incisa. Presidio leggero in <code>plan-review</code> (le
             prescrizioni collegate a lavoro chiuso non restano in collezione);
@@ -1037,69 +1039,32 @@
           </p>
         </section>
         <section
-          id="la-membrana-method-afforda-scrittura-agisci-attraverso-ratifica-in-method"
+          id="la-salute-strutturale-non-basta-la-kb-deve-giustificare-il-proprio-peso"
           class="slide level2"
         >
           <h2>
-            La membrana <code>method/</code> afforda scrittura: agisci
-            attraverso, ratifica in <code>method</code>
+            La salute strutturale non basta: la KB deve giustificare il proprio
+            peso
           </h2>
           <p>
-            Emerso dal basso da <code>bi</code> (2026-06-23): stabilizzando
-            <code>coverage --check</code> l’agente ha modificato il nodo
-            canonico <code>kb-tools</code> <strong>via symlink</strong>
-            <code>method/</code>, accorgendosi poi che l’edit non compariva nel
-            diff del proprio commit (cattura i1 «modifica di canone nata in un
-            adottante», consumata e potata — storia in git). Il canone
-            descriveva il canale col suo <strong>uso inteso</strong> — gli
-            adottanti «leggono i nodi» — non con la sua
-            <strong>affordance</strong>: il symlink è read-write, e afforda la
-            scrittura (corretto in <code>world.md</code>). Non è l’agente ad
-            aver sbagliato: è il modello ad aver descritto la membrana col suo
-            uso inteso invece che con la sua affordance. La disciplina vive in
-            questo filo e in <code>world.md</code> finché un secondo
-            write-through non chieda un atomo proprio:
-          </p>
-          <blockquote>
-            <p>
-              <strong
-                >Agisci attraverso la membrana, ratifica in
-                <code>method</code>.</strong
-              >
-              Un agente che, risolvendo un problema in un adottante, modifica un
-              nodo di canone via symlink compie un atto runtime legittimo:
-              prosegue coi propri commit locali, ma
-              <em>non committa l’edit di canone</em> — lo segnala.
-              <code>method</code> lo back-filla come perception e lo fa passare
-              per i2/i3; solo allora l’edit diventa canone-di-record.
-              <strong
-                >L’orfano non-committato nel working tree di
-                <code>method</code> è la cucitura che funziona, non che
-                fallisce.</strong
-              >
-            </p>
-          </blockquote>
-          <p>
-            Il 2026-08-21 il caso si è ripetuto da <code>salute</code>: una
-            revisione del suo README ha lasciato modifiche dirette in tre nodi
-            canonici (<code>readme</code>, <code>project-structure</code>,
-            <code>adopter-comparison</code>) e il custode ha rilevato a
-            posteriori che non erano passate da i1. Il secondo episodio allarga
-            il punto di addensamento: non soltanto nodi- strumento, ma nodi che
-            descrivono lo stesso componente locale che l’agente sta
-            revisionando. Stabilizzazione locale e generalizzazione collassano
-            nello stesso atto proprio perché il symlink rende contigui i due
-            piani.
+            Verdetto: audit, link e atomicità non misurano il costo cognitivo.
+            Ogni concetto del canone deve produrre una differenza osservabile —
+            decisione, comportamento, distinzione, compressione o fondamento
+            teorico usato — oppure essere eliminato o fuso.
           </p>
           <p>
-            Il claim strutturale è quindi corroborato e la condizione di
-            risveglio del task <code>enforcement-cucitura-canone</code> è
-            avverata. L’enforcement resta per ora umano e procedurale — questa
-            sessione ha ricostruito i1→i2→i3 prima di ratificare il diff — ma
-            non può più essere descritto come sufficiente. Il task è attivo e
-            deve scegliere il presidio minimo capace di segnalare un working
-            tree di <code>metodo</code> modificato durante una sessione
-            adottante prima che l’edit diventi canone-di- record.
+            Il primo scaglione ratifica il criterio: <code>atrio</code>,
+            <code>ali</code> e <code>stanze</code> non superavano il test e sono
+            rimossi dal canone; <code>project-structure</code> conserva solo la
+            specifica corrente. La struttura dei repository non cambia.
+          </p>
+          <p>
+            Il filo resta aperto per gli scaglioni elencati in
+            <code>i2/potatura-kb.md</code>. La potatura non insegue una soglia
+            numerica e non premia automaticamente il nodo più corto: protegge
+            guardrail, distinzioni e fonti che cambiano davvero il modo di
+            operare. Ogni passaggio misura prima/dopo e verifica build, audit e
+            comportamento dei consumatori.
           </p>
         </section>
         <section
@@ -1543,8 +1508,8 @@
             nella sua coda); ed <code>economia</code> solleva il
             <strong>costo dell’assorbimento</strong>: l’<code>ls</code> di
             <code>.claude/skills/</code> non è più l’inventario completo delle
-            capacità di dominio — la regola dell’atrio si indebolisce sul ramo
-            assorbito, e va misurato all’uso se la discoverability persa si
+            capacità di dominio — l’inventario delle capacità si indebolisce sul
+            ramo assorbito, e va misurato all’uso se la discoverability persa si
             sente o se il raggruppamento per arco la compensa.
             <code>bi</code> lo pesa prima di assorbire; se il costo si conferma,
             è materia della clausola di uscita, non un ritocco d’urgenza.

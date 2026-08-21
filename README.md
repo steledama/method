@@ -41,9 +41,9 @@ cui la home ricava i poli Goal e World rendendone l'intro.
 
 ## Orientarsi
 
-La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia **è il ciclo stesso**. Le sei collezioni-stadio portano il codice del loro stadio ([project-structure](kb/project-structure.md)); ogni item dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui l'item insiste — artefatto → `dev`, adottanti → `runtime` — dentro la relazione tra runtime cycle e development meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
+La root rende visibile la struttura del progetto ([project-structure](kb/project-structure.md)). Le sei collezioni portano il codice del loro stadio; ogni item dichiara nel frontmatter la facet `ciclo: dev|runtime`, letta dal Mondo su cui insiste — artefatto → `dev`, adottanti → `runtime` — dentro la relazione tra runtime cycle e development meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
 
-**Collezioni-stadio** — le sei stanze del ciclo, ciascuna col proprio indice interno:
+**Collezioni del ciclo**, ciascuna col proprio indice:
 
 - **[i1/](i1/perceptions.md)** — Perceive: i segnali catturati valenza-neutri (indice `perceptions.md`)
 - **[i2/](i2/interpretations.md)** — Interpret: le sintesi sorgente (indice `interpretations.md`)
@@ -52,7 +52,7 @@ La root è l'atrio dell'artefatto: un `ls` ne dichiara l'anatomia, e l'anatomia 
 - **[o2/](o2/tasks.md)** — Specify: i dettagli e il contesto dei task aperti (indice `tasks.md`)
 - **[o3/](o3/prescriptions.md)** — Perform: i runbook di propagazione e gli **esecutori deterministici**, gli strumenti registrati nell'indice (`prescriptions.md`)
 
-**Le due ali fuori dal ciclo** — trasversali agli stadi:
+**Componenti trasversali**:
 
 - **[kb/](kb/kb.md)** — il nucleo di conoscenza formalizzata della system image; il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
 - **[presentation/](presentation/)** — la superficie presentativa: `index.html` (la home della system image), le viste generate e gli asset condivisi

@@ -27,7 +27,9 @@ chiude quando i sei adottanti hanno registrato nel proprio marker `/method` un
 esito sulla revisione coordinata, incluse le divergenze motivate; non richiede
 che i file abbiano uguale ordine o lunghezza.
 
-Impatto ulteriore: l'episodio `salute` è il secondo write-through attraverso
-`method/` e il primo dichiarato dal custode come passato senza il percorso i1.
-La condizione di risveglio del task `enforcement-cucitura-canone` è quindi
-avverata; il task torna attivo e deve scegliere un presidio proporzionato.
+La revisione è nata da una modifica diretta autorizzata dal custode attraverso
+un repo che mantiene personalmente. Non è un errore di canale: nei repo sotto
+la stessa ownership l'agente incaricato può modificare il canone, che passa poi
+dal normale gate di review e commit di `metodo`. Per adottanti mantenuti da
+terzi, invece, il confine è una pull request: il suo diff e il suo razionale
+sono il segnale persistente che entra nella valutazione del canone.

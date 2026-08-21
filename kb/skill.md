@@ -257,7 +257,7 @@ in interpret, riconciliazione in compare).
 
 L'assorbimento ha un **costo dichiarato**: dove una skill diventa scope, l'`ls`
 di `.claude/skills/` smette di essere l'inventario completo delle capacità di
-dominio — la regola dell'atrio si indebolisce su quel ramo, e il guadagno di
+dominio — l'inventario delle capacità si indebolisce su quel ramo, e il guadagno di
 raggruppamento va pesato contro la discoverability persa. È il motivo per cui
 la scelta resta dell'adottante, repo per repo, e non una direzione unica del
 canone.
@@ -265,7 +265,7 @@ canone.
 ### Dove sono elencate
 
 La collezione delle skill è `.claude/skills/` (wrapper Codex in
-`.codex/skills/`): il suo `ls` è l'inventario — la regola dell'atrio — ed è
+`.codex/skills/`): il suo `ls` è l'inventario delle capacità ed è
 l'harness stesso a leggerlo, iniettando le skill disponibili in contesto a
 inizio sessione. Non serve un registro parallelo per gli agenti; i punti di
 lettura umani sono due, con ruoli diversi:

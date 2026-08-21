@@ -47,7 +47,7 @@ Il principio centrale è che l'artefatto non è una cartella di appunti né un
 archivio da interrogare occasionalmente. È cumulativo: ogni ingest, query, lint
 o filing back deve lasciarlo più chiaro, più collegato o più verificabile
 di prima. La struttura della KB emerge dalle connessioni tra i nodi; la
-struttura esplicita appartiene al progetto intero: atrio, cruscotto nelle stanze
+struttura esplicita appartiene al progetto intero: root, cruscotto nelle collezioni
 `o1/` e `i3/`, cataloghi interni, collezioni-stadio, strati input/output e
 membrana `world`.
 

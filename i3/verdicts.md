@@ -14,13 +14,14 @@ resta in git. Il commit citato inline è il puntatore alla storia verificabile.
 
 ## Contenuti
 
+- [minimalismo-kb.md](minimalismo-kb.md) — audit e atomicità non misurano il
+  costo cognitivo: ogni concetto deve produrre una differenza osservabile o
+  essere eliminato/fuso; primo scaglione strutturale completato — misura:
+  «Custodire un canone coerente» e Goal di sviluppo «basso attrito di lettura»
 - [ingresso-adottante.md](ingresso-adottante.md) — il protocollo leggero di ammissione è inciso nell'osservatorio e retroverificato su `crm` e `danea-auto`: separa inventario corrente, baseline con provenienza, fotografie storiche e limiti; resta il collaudo prospettico al prossimo ingresso — misura: «Propagare il canone e chiudere il loop con gli adottanti»
 - [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale — misura: «Custodire un canone coerente»
 - [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — nessun debito di fonte aperto; il test esterno e la verifica interna sui 48 nodi hanno isolato la norma della macchina, ratificata dal custode come quarta regione `N`: G 15, M 1, A 12, O 5, N 15 e 8 nodi a due facce (quantità misurate manualmente). Il vecchio insieme aveva quindi 15 forzati; la tipologia resta `bozza` fino a un secondo specimen esterno indipendente — misura: «Custodire un canone coerente»
 - [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime resta rimandata a filtri nelle viste; il redraw pendente delle tavole è chiuso, resta il watchpoint durevole sugli asset raster non derivati — misura: goal di sviluppo «basso attrito di lettura»
-- [membrana-afforda-scrittura.md](membrana-afforda-scrittura.md) — secondo
-  write-through da `salute`: la perdita è strutturale e la condizione di
-  risveglio dell'enforcement è avverata — misura: «Ascoltare il basso»
 - [bootstrap-adottanti.md](bootstrap-adottanti.md) — la revisione coordinata
   dei quattro file di bootstrap vive su due livelli: confronto e prescrizione
   nel canone, giudizio e ultimo miglio nel dominio — misura: «Propagare il

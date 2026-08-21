@@ -84,7 +84,7 @@ mostrava il rischio storico opposto di rispiegare localmente il metodo che ormai
 vive nel canone.
 
 La conseguenza metodologica è che il dominio ha il primato editoriale nel
-README. L'atrio deve restare leggibile, ma la sua disciplina non obbliga a
+README. La root deve restare leggibile, ma la disciplina strutturale non obbliga a
 incorporare nel bootstrap l'intero `ls -A`: ogni voce deve essere classificata
 e verificabile, mentre la bussola espone solo le porte utili. Il test non è una
 soglia di parole, ma la capacità di rispondere rapidamente a tre domande: quale

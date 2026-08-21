@@ -26,7 +26,7 @@ task aperto, ordinata per titolo), il plan chiude col solo rimando. Canone in
 canovacci riusabili, artefatti pronti all'atto; l'eseguito è archivio
 travestito, e l'archivio è git. Canone in `kb/perform.md` («Chiusura del ciclo
 di vita», il parallelo di `perceive` che mancava); `metodo` la praticava già —
-la prescrizione dell'atrio è stata rimossa al recepimento pieno (2026-07-11) —
+la prescrizione strutturale è stata rimossa al recepimento pieno (2026-07-11) —
 ora la regola è incisa. Presidio leggero in `plan-review` (le prescrizioni
 collegate a lavoro chiuso non restano in collezione); una review dedicata
 dello stadio Perform resta deliberatamente fuori finché l'accumulo non ricorre

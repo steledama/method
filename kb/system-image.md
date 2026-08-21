@@ -30,7 +30,7 @@ e vive vicino al polo Goal, dove i2/i3 depositano. Il **system image** è invece
 l'**intero artefatto**, **trasversale** ai tre livelli: non uno stadio del ciclo
 ma il substrato che l'intero ciclo legge e scrive — i1 lo alimenta dal basso (in
 `i1/`), o2 vi attinge per scendere fino al viscerale (in `o2/`), ogni
-atto vi deposita o vi attinge un prodotto, sparso per l'atrio e non nella sola
+atto vi deposita o vi attinge un prodotto, distribuito nel repository e non nella sola
 `kb/`. La KB ne è il nucleo formalizzato, non il medium intero: chi le due cose le
 collassa perde il canale che porta il peso della comunicazione a ogni altezza.
 

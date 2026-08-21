@@ -18,10 +18,10 @@ Code chiuse dal giro di semplificazione:
   16 celle e la scala a cinque valori restano lo strumento analitico del nodo
   (il suo paragrafo presentativo è aggiornato di conseguenza).
 - **Sorte delle viste `tasks.html`/`verdict.html`** (ereditata dal filo
-  ristrutturazione-atrio): tenute, uniformate a deck (74df440); saranno la sede
+  ristrutturazione della root): tenute, uniformate a deck (74df440); saranno la sede
   naturale del futuro filtro dev/runtime.
 - **Propagazione del motore della home**: col motore ridotto a ciclo singolo e
-  CONFIG minimale il fork è banale; ha viaggiato nella prescrizione dell'atrio,
+  CONFIG minimale il fork è banale; ha viaggiato nella prescrizione strutturale,
   recepita dai quattro adottanti (chiusa 2026-07-11).
 - **CSS della home**: `presentation/assets/system-image.css` è parte dello stesso
   contratto minimale. Tiene solo token, base e classi emesse dalla home

@@ -34,7 +34,7 @@ quartetto**, non la qualità isolata di un file.
 Il README apre con sistema, host e tensione production/standby; Goal e World
 sono intro brevi, semantiche e coerenti. Il router «Capire il progetto in 5
 minuti» è il percorso per intenzione più efficace del gruppo. La seconda metà
-del README conserva però strumenti, legenda completa dell'atrio e inventario
+del README conserva però strumenti, legenda completa della root e inventario
 tecnico: orientamento forte con sovraccarico strutturale. `CLAUDE.md` (144 righe
 misurate) resta prevalentemente costituzione operativa; rilevamento host,
 confini rebuild e guardrail giustificano la sua specificità.

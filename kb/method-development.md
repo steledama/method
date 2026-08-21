@@ -26,6 +26,15 @@ La regola che scioglie il nodo è **dichiara e taci**: l'adottante dichiara _una
 
 La metrica non è «zero link» ma «zero link senza funzione locale». Il confine è lo stesso dei due movimenti: interfaccia stabile sopra, struttura interna volatile sotto, e l'**ultimo miglio** — quali link tenere, riscrivere o rimuovere — deciso nel repo adottante contro il suo stato reale, perché solo lì si vede se un link porta significato o è rumore. La _forma_ uniforme che la dichiarazione prende vive in `readme`: questo nodo dice _perché_ disaccoppiare, `readme` dice _quale forma_.
 
+## Contribuire al canone
+
+Il canale dipende dall'ownership, non dal fatto che `method/` sia un symlink
+scrivibile. Nei repository mantenuti direttamente dal custode, un agente da lui
+incaricato può modificare il canone: la modifica passa dal normale gate di
+review e commit di `metodo`, senza una cerimonia i1 separata. Un adottante
+mantenuto da terzi propone invece una pull request; il diff e il razionale
+della PR costituiscono il segnale persistente da valutare prima del merge.
+
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)

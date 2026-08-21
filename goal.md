@@ -13,11 +13,11 @@ I nodi `kb/` reggono il peso del metodo: atomici, connessi, verificabili contro
 le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
-  (`/kb`), filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md);
-  lavoro: la ristrutturazione delle skill per arco è chiusa (2026-08-01);
-  resta il task `pause` di rivalutazione della clausola di uscita (`Ob. 1`
-  nel plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso
-  reale; tipologia e matrice hanno avuto il loro **test esterno**
+  (`/kb`), fili [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md)
+  e [minimalismo-kb](i3/minimalismo-kb.md); lavoro: potatura progressiva della
+  KB e task `pause` di rivalutazione della clausola di uscita (`Ob. 1` nel
+  plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso reale;
+  tipologia e matrice hanno avuto il loro **test esterno**
   (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
   la forzatura emersa è risolta nel canone con la quarta regione `N` (norma
   della macchina), distinta da Goal e descrizione della macchina; la tipologia
@@ -28,7 +28,7 @@ le fonti-mondo.
 Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col
 proprio `method`, senza che `metodo` gestisca le loro code.
 
-- **Canone recepito dagli adottanti** — atrio e poli-register/quartetto chiusi
+- **Canone recepito dagli adottanti** — struttura, register e quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
@@ -50,12 +50,10 @@ proprio `method`, senza che `metodo` gestisca le loro code.
 Il bottom-up: il canale i1 con gli adottanti resta vivo e i segnali passano per
 i2/i3 invece di incidere il canone di straforo.
 
-- **Canale-perception funzionante** — segnali: [i1/perceptions.md](i1/perceptions.md),
-  filo [membrana-afforda-scrittura](i3/membrana-afforda-scrittura.md);
-  lavoro: il secondo write-through da `salute` ha avverato il segnale di
-  risveglio; `enforcement-cucitura-canone` è ora il fronte attivo, mentre la
-  revisione coordinata del bootstrap propaga tramite prescrizione o3 — i task
-  che servono l'obiettivo si leggono dalla colonna `Ob.` di
+- **Canale-perception funzionante** — segnali:
+  [i1/perceptions.md](i1/perceptions.md) e le pull request degli adottanti
+  mantenuti da terzi; lavoro: event-driven sui segnali, senza task aperti — i
+  task che servono l'obiettivo si leggono dalla colonna `Ob.` di
   [`o1/plan.md`](o1/plan.md).
 
 ## Goal di sviluppo

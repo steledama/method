@@ -41,7 +41,7 @@ Il README può offrire due mappe, che non vanno confuse:
 
 La prima ha priorità editoriale. La seconda resta compressa alle porte utili
 per orientarsi: KB, cruscotto, register, collezioni, presentazione e regole
-operative. La disciplina dell'atrio richiede che ogni voce root appartenga a
+operative. La disciplina strutturale richiede che ogni voce root appartenga a
 una classe dichiarata, non che ogni dotfile, cache o eccezione di toolchain sia
 spiegata nel bootstrap. L'inventario completo deve essere verificabile, ma può
 vivere in un report deterministico o in una reference operativa on-demand.

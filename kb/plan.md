@@ -4,7 +4,7 @@ stato: maturo
 
 # Plan
 
-Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`, il file unico che regna nella stanza `o1/`; i dettagli vivono in `o2/`, indicizzati dall'indice interno della collezione (`o2/tasks.md`), a cui il plan rimanda.
+Il plan risponde alla domanda: cosa dobbiamo fare adesso? È la supervisione corrente del lavoro futuro, ordinata per priorità e collegata ai dettagli operativi quando servono. È lo **stadio Plan del ciclo di sviluppo**: la sua istanza è `o1/plan.md`; i dettagli vivono in `o2/`, indicizzati da `o2/tasks.md`, a cui il plan rimanda.
 
 `plan` è **o1-sviluppo**: il Plan del ciclo di sviluppo (l'azione sull'artefatto), distinto da **o1-runtime** (il Plan del runtime in action-cycle, l'azione sul mondo). Non nega l'omologia Plan=o1 — `action-cycle` la mappa — la **qualifica per ciclo**: stesso stadio, due movimenti della relazione runtime/meta-ciclo.
 
@@ -46,7 +46,7 @@ adottanti `economia` e `bi` hanno sciolto dal basso togliendolo.)
 Per la stessa ragione il plan non porta un footer `## Dettagli task`: sarebbe un
 **secondo indice** dei file `o2/`, da tenere in sincronia con l'indice interno
 della collezione — la stessa patologia del `#`. Vale un solo indice per
-collezione (la regola dell'atrio): la riga di supervisione vive nella tabella,
+collezione: la riga di supervisione vive nella tabella,
 il link al dettaglio in `o2/tasks.md`, e il plan chiude con il solo rimando
 all'indice. (Sciolto dal basso da `economia`, 2026-07-10.)
 
@@ -169,7 +169,7 @@ titolo usa lo spazio che rimane dopo le colonne necessarie al dominio.
 
 La forma è **uniforme su tutti i repo adottanti**: la granularità del dominio
 vive nel contenuto — quanti task, di che natura — non nella forma. È la regola
-dell'atrio applicata al plan (struttura uniforme, carattere nel contenuto): un
+della struttura uniforme applicata al plan (forma comune, carattere nel contenuto): un
 nodo in `kb/` contiene solo l'invariante generale, e ciò che è qui si applica
 ovunque — nessuna coda è tanto piccola da giustificare una forma propria.
 

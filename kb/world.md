@@ -99,8 +99,8 @@ altro supporto world, non il ritorno a substrato.
 
 ## Il register `world.md`
 
-Il polo World ha una porta versionata nell'atrio: il **register root
-`world.md`**, gemello di `goal.md` (il goal è il nord, il world è il
+Il polo World ha un register versionato nella root: **`world.md`**, gemello di
+`goal.md` (il goal è il nord, il world è il
 territorio — cfr. `goal`). È l'indice del Mondo che l'artefatto, con i suoi
 goal, ritiene rilevante: non versiona il mondo (che persiste da sé), ne
 versiona la _vista_.
@@ -108,9 +108,9 @@ versiona la _vista_.
 Il register **assorbe due file che il canone teneva separati**:
 
 - `map.md` — l'indice-di-dominio (entità, sistemi, flussi, attori legati ai
-  nodi) _era già_ un indice del territorio, cioè del Mondo; la sua dimensione
-  interna («dove vivono o1, o2, o3») è superata dall'atrio, che si
-  auto-dichiara. Ciò che resta di insostituibile è il territorio: vive qui.
+  nodi) _era già_ un indice del territorio, cioè del Mondo; la struttura
+  interna del repository è già visibile nella root. Ciò che resta di
+  insostituibile è il territorio: vive qui.
 - `sources.md` — il registro di provenienza delle fonti-mondo autorevoli
   (`source-of-truth`) era «sibling di `map.md`»: i sibling si fondono nella
   sezione fonti del register del polo, che continua ad alimentare i
@@ -169,14 +169,14 @@ filing back e la propagazione. Dalle fonti entra il pavimento concettuale che
 regge il canone, e il register `world.md` ne conserva la provenienza. In questo
 checkout `gdrive/` è il symlink gitignorato alle fonti Drive, mentre i
 repository adottanti sono checkout locali o remoti dichiarati nel territorio,
-non raccolti in un symlink root `world/`. Il link `method/` negli adottanti è
-_inteso_ in lettura, ma **afforda anche la scrittura** (`affordance-signifier`):
-un agente che risolve un problema in un adottante può modificare un nodo di
-canone attraverso il symlink. È legittimo come atto runtime — vale la cucitura
-**«agisci attraverso la membrana, ratifica in `method`»**: l'edit prosegue come
-_segnale_, non come canone-di-record, finché non passa per l'i2/i3 di `method`
-(cfr. i fili `i3/`). Il _Mondo di sviluppo_ sono invece i nodi `kb/` e la loro
-coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la risposta.
+non raccolti in un symlink root `world/`. Nei repository mantenuti dal custode,
+un agente da lui incaricato può modificare direttamente il canone attraverso
+il symlink `method/`: ownership e autorizzazione, non il percorso tecnico,
+determinano il confine. Un adottante mantenuto da terzi propone invece le
+modifiche con una pull request; diff e razionale della PR sono il segnale
+persistente valutato da `metodo`. Il _Mondo di sviluppo_ sono i nodi `kb/` e la
+loro coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la
+risposta.
 
 Connessioni:
 

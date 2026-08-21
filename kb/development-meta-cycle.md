@@ -88,7 +88,7 @@ domain-specifici. La portabilità non vive fuori dal runtime: è una qualità de
 macchina runtime voluta dal meta-ciclo.
 
 Per un artefatto come `method`, il cui dominio è il metodo stesso, la distinzione
-si legge nell'atrio. Il runtime di `method` sono gli adottanti: segnali che
+si legge nella struttura del repository. Il runtime di `method` sono gli adottanti: segnali che
 emergono da loro, confronto cross-repo, prescrizioni di canone che tornano a
 loro. Il meta-ciclo di sviluppo di `method` agisce invece sui nodi, sulle viste,
 sul piano e sugli strumenti di questo repo.

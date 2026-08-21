@@ -71,7 +71,7 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 
 ## Il register `goal.md`
 
-Il polo Goal ha una porta versionata nell'atrio: il **register root `goal.md`**,
+Il polo Goal ha un register versionato nella root: **`goal.md`**,
 gemello di `world.md` (il goal è il nord, il world è il territorio). Nato in
 `bi` (2026-07-09) progettando i primi loop delegati: i fili i3 dicevano «perché
 conta» ma non «rispetto a quale obiettivo», il plan ordinava per urgenza e non

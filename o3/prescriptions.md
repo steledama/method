@@ -12,6 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Semplificare il lessico della
+  struttura](semplificazione-lessico-struttura.md) — rimuovere dagli adottanti
+  `atrio`, `ali` e `stanze`, usando nomi diretti senza introdurre nuove
+  metafore; cogliere l'occasione per potare inventari duplicati.
 - [Revisione coordinata del bootstrap di un
   adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
   CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
@@ -49,7 +53,7 @@ per tutti e quattro.
 Prima di loro `poli-register` (register gemelli `goal.md`/`world.md` che
 assorbono `map.md` e `sources.md`, home che rende l'intro dei register,
 quartetto di review; pilot `economia` 2026-07-09, recepita dai quattro il
-2026-07-11 con la chiusura di `salute`), `ristrutturazione-atrio`
+2026-07-11 con la chiusura di `salute`), ristrutturazione della root
 (collezioni-stadio `i1/`–`o3/`, catalogo `kb/kb.md`, verdetto a fili,
 `presentation/`, facet `ciclo`; pilot `nixos` 2026-07-05, recepita dai quattro
 il 2026-07-11 con la chiusura di `bi`, validata dal suo run notturno di

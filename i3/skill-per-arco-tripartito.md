@@ -154,7 +154,7 @@ ancora discriminanti.
 plan×`o2/` non ha una vista che lo eserciti pienamente oltre la home (resta
 nella sua coda); ed `economia` solleva il **costo dell'assorbimento**:
 l'`ls` di `.claude/skills/` non è più l'inventario completo delle capacità
-di dominio — la regola dell'atrio si indebolisce sul ramo assorbito, e va
+di dominio — l'inventario delle capacità si indebolisce sul ramo assorbito, e va
 misurato all'uso se la discoverability persa si sente o se il raggruppamento
 per arco la compensa. `bi` lo pesa prima di assorbire; se il costo si
 conferma, è materia della clausola di uscita, non un ritocco d'urgenza.
