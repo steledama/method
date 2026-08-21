@@ -22,17 +22,25 @@ Regole:
 - alimenta i controlli di fedeltà cognitiva
 - non tutti i nodi richiedono la stessa intensità di verifica
 
-## Applicazione nei progetti adottanti
+## Casi osservati negli adottanti
 
-- **`nixos`** — fonti di verità attuali: `flake.nix`, host, moduli Nix, profili Home Manager, filesystem. Confronto con il metodo: caso più verificabile — le fonti sono dichiarative e leggibili dagli script.
-- **`bi`** — fonti di verità attuali: script, moduli JS, configurazioni, Baserow, WooCommerce, Danea, Google Sheets e output intermedi. Confronto con il metodo: dominio più complesso — bisogna distinguere fonti tecniche locali da sistemi esterni non sempre esportabili.
-- **`economia`** — fonti di verità attuali: documenti grezzi, JSON compilati
-  localmente in `data/json/`, `stato.md`, `## Scadenze` in `o1/plan.md` (che ha
-  assorbito il vecchio `scadenze.md`), nodi entità e mappa.
-  Confronto con il metodo: caso non-code ad alta responsabilità — la fonte
-  autoritativa per analisi è il JSON compilato, pur non essendo versionato; Git
-  conserva parser, regole e presentazioni, non lo stato finanziario granulare.
-- **`salute`** — fonti di verità attuali: fonti testuali elaborate, fonti raw, nodi concettuali, diario e pratica personale. Confronto con il metodo: la fonte di verità è meno meccanica — conta la tracciabilità interpretativa più che il fact check automatico.
+Quattro configurazioni ricorrenti, non l'inventario del territorio (che vive nel
+register `world.md`):
+
+- **configurazione dichiarativa** — la fonte è il codice stesso: flake, moduli,
+  profili, filesystem. È il caso più verificabile, perché le fonti sono
+  leggibili direttamente dagli script.
+- **integrazione di sistemi esterni** — accanto a script e configurazioni locali
+  vivono gestionali, e-commerce e fogli remoti. La difficoltà è distinguere le
+  fonti tecniche locali dai sistemi esterni, non sempre esportabili né
+  interrogabili a piacere.
+- **dominio non-code ad alta responsabilità** — la fonte autoritativa per
+  l'analisi può essere un dato compilato da parser e **non versionato**, mentre
+  Git conserva parser, regole e presentazioni ma non lo stato granulare. Qui la
+  provenienza e la temporalità pesano più della verificabilità automatica.
+- **dominio riflessivo** — fonti testuali elaborate, materiale grezzo e pratica
+  personale: la fonte è meno meccanica e conta la tracciabilità interpretativa
+  più del fact check automatico.
 
 Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità" non significa sempre codice: può essere un JSON prodotto da parser, una tabella esterna, un documento legale, una fonte testuale o una scelta interpretativa dichiarata. La regola comune è esplicitare il livello di fiducia e non verificare documentazione contro altra documentazione.
 

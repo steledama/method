@@ -13,10 +13,11 @@ I nodi `kb/` reggono il peso del metodo: atomici, connessi, verificabili contro
 le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
-  (`/kb`), fili [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md)
-  e [minimalismo-kb](i3/minimalismo-kb.md); lavoro: potatura progressiva della
-  KB e task `pause` di rivalutazione della clausola di uscita (`Ob. 1` nel
-  plan); dei verdetti pendenti, bozza→maturo e facet attendono l'uso reale;
+  (`/kb`) e filo
+  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro:
+  potatura progressiva della KB e task `pause` di rivalutazione della clausola
+  di uscita (`Ob. 1` nel plan); dei verdetti pendenti, bozza→maturo e facet
+  attendono l'uso reale;
   tipologia e matrice hanno avuto il loro **test esterno**
   (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
   la forzatura emersa è risolta nel canone con la quarta regione `N` (norma

@@ -16,3 +16,14 @@ fiducia/privacy, divisione per stadio del ciclo — resta **deliberatamente non
 scritta**: attende che un secondo livello di agente entri nell'uso reale. Scriverla
 ora sarebbe inventare struttura prima dell'evidenza, l'opposto di come il metodo si
 sviluppa.
+
+Una rifinitura della prima metà è arrivata dalla review semantica della KB: le
+sigle `L1`/`L2`, che nominavano i due strati output, sono sciolte in prosa — «la
+resa per l'agente macchina», «la resa per l'agente umano» — in
+`affordance-signifier`, `system-image` e `cognitive-system`. Erano un residuo del
+cablaggio: una notazione che fissava la cardinalità a due e non aveva casa
+dichiarata in nessun nodo, al punto che in `cognitive-system` le stesse lettere
+indicavano anche i tre livelli dello stack agente/harness/artefatto. La prosa dice
+la stessa asimmetria senza inciderne il numero, e la distinzione ha ora una casa
+sola in `affordance-signifier`. È ancora prima metà — additiva, nessuna struttura
+nuova.

@@ -130,15 +130,17 @@ Creazione di un nuovo progetto:
 
 Ogni componente della ricetta merita un nodo autonomo, anche quando è ancora in stato bozza. Il nodo autonomo rende esplicita la funzione cognitiva del componente, permette confronti cross-repo e segnala quali parti del metodo sono mature e quali sono ancora work in progress. Un componente può essere descritto anche in `project-structure`, ma il suo nodo dedicato resta il punto in cui accumulare regole, esempi reali e criteri di revisione.
 
-Evidenza dai progetti adottanti:
+Generalizzazioni emerse dal confronto tra adottanti:
 
-- `nixos` e `bi` usano il metodo come nucleo condiviso linkato da `method/`, con README molto forti come router e mappe di progetto specifiche
-- `economia` incorpora una variante locale con file aggiuntivi (`stato.md`, `scadenze.md`, `diario.md`) e fonti di verità JSON, mostrando che la ricetta deve ammettere componenti di dominio senza assorbirli nel nucleo portabile
-- `salute` conserva una forma più narrativa del metodo nel README, utile come traccia storica ma meno separata tra metodo portabile, filosofia locale e indice della KB
+- il nucleo portabile si consuma come symlink `method/`, mentre la `kb/` locale
+  resta dedicata al dominio: è la separazione che permette a un adottante di
+  avere componenti propri senza che entrino nel canone
+- la ricetta deve ammettere componenti di dominio — file di stato, diari, fonti
+  di verità compilate — senza assorbirli nel nucleo portabile
 - i progetti tecnici richiedono strumenti anti-drift e fonti di verità verificabili; i progetti riflessivi richiedono soprattutto accessi cognitivi, hub semantici e filing back accurato
 - ogni progetto adottante attraversa già `world` e ha strati input/output, anche
   senza averli nominati; dove o2 è forte il progetto serve decisioni condivise
-  con altri (`bi`), mentre un artefatto solo riflessivo fatica a generare azione
+  con altri, mentre un artefatto solo riflessivo fatica a generare azione
   coordinata
 
 Le fotografie comparative vivono nelle sintesi `i2/`; il loro giudizio

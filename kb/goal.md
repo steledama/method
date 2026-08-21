@@ -45,14 +45,15 @@ esternalizzabile, supervisione permanente).
 
 ## Esempi per artefatto
 
-Il goal è il polo opposto al Mondo: l'apice contro cui gli input percepiti dal fondo del ciclo vengono confrontati. Per ciascun artefatto adottante il goal sintetizza il motivo che lo muove (di cosa è fatto il Mondo è in `world`).
+Il goal è il polo opposto al Mondo: l'apice contro cui gli input percepiti dal fondo del ciclo vengono confrontati. Per ogni artefatto adottante il goal sintetizza il motivo che lo muove (di cosa è fatto il Mondo è in `world`). Gli esempi sotto illustrano lo spettro, non esauriscono il territorio: quello è indicizzato nel register `world.md`.
 
 - `salute`: stare bene, declinato come equilibrio corpo-mente.
 - `economia`: la graduale indipendenza dalla gestione condivisa con la sorella, l'acquisto della casa al mare, la semplificazione degli interessi e l'equilibrio tra entrate e uscite.
 - `nixos`: due goal in tensione — un sistema snello, semplice e minimalista, e insieme un'alta affidabilità (host Svezia e Norvegia intercambiabili, replicabilità) che richiede ridondanza. L'artefatto bilancia il «meno» del minimalismo col «di più» della resilienza.
 - `bi`: propagare ai plugin degli e-commerce gli aggiornamenti di disponibilità e prezzo dell'intero catalogo, e facilitare la gestione del catalogo prodotti.
+- `danea-auto`: tenere affidabile il flusso automatico che porta i dati dal gestionale alla pipeline BI e al catalogo, riducendo il lavoro manuale senza sacrificare freschezza, integrità dei dati e sicurezza della sessione.
 
-I quattro mostrano lo spettro di delegabilità: `bi` e `nixos` hanno goal in larga parte codificabili (autonomia alta), `salute` ed `economia` hanno goal radicati in motivi personali non esternalizzabili (supervisione permanente).
+Gli esempi mostrano lo spettro di delegabilità: `danea-auto`, `bi` e `nixos` hanno goal in larga parte codificabili (autonomia alta), `salute` ed `economia` hanno goal radicati in motivi personali non esternalizzabili (supervisione permanente).
 
 ## Il Goal come polo simmetrico al Mondo
 
@@ -60,7 +61,7 @@ Il Goal e il Mondo sono i due confini del ciclo. Se il Mondo è il confine infer
 
 La simmetria è più piena di quanto sembri: entrambe le cerniere sono scrivi-poi-leggi attraverso un medium persistente. Al Mondo o3 scrive un effetto e i1 lo rilegge più tardi — il mondo trattiene lo stato; al Goal i3 scrive l'esito nella KB e il goal successivo lo legge. L'unica vera asimmetria non è tra le due cerniere ma tra i due medium: il mondo persiste da solo, la KB persiste solo se qualcuno la scrive (cfr. `action-cycle`, `system-image`). Da qui il principio gemello di quello del Mondo — un confronto che non si scrive nella KB è un task perso — e la ragione per cui la KB ha bisogno di un custode.
 
-Qui il ciclo si chiude e si riapre. Il goal si declina in task — la coda operativa che lo realizza — ma i task non vivono in questo nodo né in `metodo`: vivono in `o1/plan.md` e `o2/` di ciascun artefatto, perché sono operativi e volatili. Ciò che è stabile, e quindi metodologico, è dove avviene il confronto da cui i task nascono: la sintesi dello stato corrente che l'i3 mette a paragone con il goal. Per artefatto:
+Qui il ciclo si chiude e si riapre. Il goal si declina in task — la coda operativa che lo realizza — ma i task non vivono in questo nodo né in `metodo`: vivono in `o1/plan.md` e `o2/` di ciascun artefatto, perché sono operativi e volatili. Ciò che è stabile, e quindi metodologico, è dove avviene il confronto da cui i task nascono: la sintesi dello stato corrente che l'i3 mette a paragone con il goal. Qualche esempio:
 
 - `economia`: la fotografia dello stato (`stato.md`, scadenze) confrontata con gli obiettivi fa emergere gli scostamenti, e da lì i nuovi task.
 - `salute`: il quadro corporeo con i suoi semafori rende visibili i disequilibri rispetto all'equilibrio corpo-mente; ogni banda gialla o rossa pianifica i task di riequilibrio.

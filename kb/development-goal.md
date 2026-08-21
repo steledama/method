@@ -14,7 +14,7 @@ Da qui si scioglie lo split lasciato provvisorio dal gate. Il **Goal-runtime** r
 
 ## Le dimensioni comuni
 
-Tre dimensioni candidate, emerse dalla riflessione sui cinque artefatti e da raffinare con l'uso — non un'ontologia chiusa:
+Tre dimensioni candidate, emerse dalla riflessione sui cinque artefatti allora in territorio e da raffinare con l'uso — non un'ontologia chiusa:
 
 - **attrito / fluidità** — quanto il ciclo scorre senza gulf of execution o di evaluation; quanto poco l'artefatto frappone tra intenzione e atto, e tra esito e significato.
 - **autonomia dell'umano** — umano _in-the-loop_ (dentro ogni iterazione) contro _on-the-loop_ (a supervisione); è lo stesso spettro di delegabilità di `goal` (motivo codificabile contro motivo non esternalizzabile).
@@ -48,17 +48,19 @@ config versionata dello scheduler (cfr. `plan`, `skill`) — è la fotografia de
 distanza dal telos. È la metrica candidata per il protocollo runtime-o1 di
 `metodo` (l'audit periodico misura la maturità, non prescrive la coda).
 
-## Fotografie per artefatto
+## Gradualità di dominio e casa della fotografia
 
-Le posizioni auspicate dei cinque sull'asse autonomia/temporalità — la gradualità è di dominio, le dimensioni no:
+Le posizioni auspicate si distribuiscono lungo le stesse dimensioni: la
+gradualità è di dominio, le dimensioni no. Due contrasti bastano a mostrarlo.
+Dove il motivo non è esternalizzabile la supervisione è permanente per
+costituzione — il loop è quotidiano e l'umano resta profondamente
+_in-the-loop_. Dove il motivo è codificabile l'umano si sposta _on-the-loop_ e
+sorveglia un battito schedulato che gira da solo. Tra i due estremi stanno i
+cicli episodici, che non hanno cadenza fissa ma si aprono su un evento: un
+set-and-review di configurazione, una decisione a posta alta, il segnale di un
+adottante.
 
-- `salute`: loop quotidiano, umano profondamente _in-the-loop_ — il motivo non è esternalizzabile, la supervisione è permanente.
-- `bi`: sync schedulato, umano _on-the-loop_ (monitoraggio) — il più automatizzabile dei cinque.
-- `nixos`: episodico, set-and-review — non un loop a cadenza fissa.
-- `economia`: decisioni episodiche, umano _in-the-loop_ — poste alte, supervisione richiesta.
-- `metodo`: event-driven sul segnale dell'adottante, umano _in-the-loop_.
-
-Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo: `metodo` dà le dimensioni comuni, non la fotografia altrui. La fotografia ha ora una **casa dichiarata**: la sezione «Goal di sviluppo» del register root `goal.md` dell'adottante (cfr. `goal`) — la prima istanza è nata in `bi` insieme al register stesso. È teoria dall'alto, ancorata a un disagio reale (la cella Goal-dev mal-filed) e tenuta dalla guardia dal-basso contro la sovra-ingegnerizzazione (`method-development`): le dimensioni restano candidate finché l'uso non le conferma.
+Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo: `metodo` dà le dimensioni comuni, non la fotografia altrui — tenerne qui un elenco sarebbe la seconda rappresentazione che deriva in silenzio. La fotografia ha una **casa dichiarata**: la sezione «Goal di sviluppo» del register root `goal.md` dell'adottante (cfr. `goal`) — la prima istanza è nata in `bi` insieme al register stesso. È teoria dall'alto, ancorata a un disagio reale (la cella Goal-dev mal-filed) e tenuta dalla guardia dal-basso contro la sovra-ingegnerizzazione (`method-development`): le dimensioni restano candidate finché l'uso non le conferma.
 
 Connessioni:
 

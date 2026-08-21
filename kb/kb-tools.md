@@ -11,7 +11,10 @@ interpretano e modificano la conoscenza.
 
 `o3/kb_tools.py` offre una superficie portabile usata dalla skill `kb`:
 
-- `audit [--format markdown|json]`: report strutturale completo;
+- `audit [--format markdown|json]`: report strutturale completo; i link sono
+  verificati anche fuori dall'inventario dei nodi — register dei poli, bussola,
+  regole e indici delle collezioni — perché un riferimento a un filo rimosso
+  resterebbe altrimenti invisibile;
 - `backlinks NODE`, `orphans`: topologia della rete;
 - `readme`, `migration`: catalogo e convenzioni documentali;
 - `facets`: attributi di dominio dichiarati nel frontmatter;

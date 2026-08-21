@@ -19,7 +19,10 @@ Regole:
 
 ## Applicazione nei progetti adottanti
 
-Tutti i progetti usano git come memoria analitica dei cambiamenti e i fili di verdetto come memoria interpretativa. La differenza è nel peso della storia: `nixos` e `bi` hanno commit frequenti legati a codice e documentazione; `economia` alterna aggiornamenti di dati, nodi e pratiche; `salute` conserva una storia più legata a ingest, rinomine e maturazione metodologica.
+Ogni adottante usa git come memoria analitica dei cambiamenti e i fili di
+verdetto come memoria interpretativa. Cambia il peso della storia — un repo di
+codice commit-ta spesso e in modo fine, un repo riflessivo alterna ingest,
+rinomine e maturazione — ma non la divisione dei compiti.
 
 Il confronto conferma la regola del metodo: i task completati possono sparire da `o2/` perché git conserva il dettaglio, ma le decisioni che cambiano il modo di lavorare devono essere registrate nei fili `i3/` o nei nodi. La sola git history non basta a ricostruire il perché.
 

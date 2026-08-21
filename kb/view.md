@@ -6,8 +6,8 @@ stato: bozza
 
 La view è una rappresentazione navigabile e derivata: rende leggibile una sorgente
 del progetto senza diventare una seconda fonte di verità. È la cerniera o2/i2 del
-metodo (cfr. `action-cycle`, sezione i2 micro/macro): o2 quando orienta una
-decisione, i2 quando viene letta per attribuire significato a ciò che sintetizza.
+metodo (cfr. `action-cycle`): o2 quando orienta una decisione, i2 quando viene
+letta per attribuire significato a ciò che sintetizza.
 
 La vista Reveal a slide è una forma concreta di view, adatta a una sintesi che si scorre.
 Non è l'unica forma possibile. La forma segue la domanda (Karpathy): pagina

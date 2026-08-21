@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 from collections import Counter, defaultdict
@@ -132,6 +133,8 @@ class AuditResult:
     frontmatter_count: int
     connessioni_count: int
     body_inline_links: list[str]
+    footer_duplicates: list[str]
+    non_node_broken_links: list[str]
     clusters_total: int
     cluster_isolated: list[str]
     cluster_out_counts: dict[str, int]
@@ -307,6 +310,58 @@ def migration_state(root: Path) -> tuple[int, int, list[str]]:
         if re.search(r"\[[^\]]+\]\([^)]+\.md\)", body):
             body_inline.append(node_key(root, path))
     return frontmatter, connessioni, body_inline
+
+
+def markdown_sources(root: Path) -> list[Path]:
+    """Tutti i markdown versionati del repository. `os.walk` non segue i symlink,
+    così le superfici della membrana (`gdrive/` e simili) restano fuori
+    dall'artefatto senza doverle nominare qui."""
+    files: list[Path] = []
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = [
+            name for name in dirnames if not name.startswith(".") and name not in CODE_EXCLUDE_PARTS
+        ]
+        files.extend(Path(dirpath) / name for name in filenames if name.endswith(".md"))
+    return sorted(files)
+
+
+def non_node_broken_links(root: Path) -> list[str]:
+    """Link morti nei markdown che non sono nodi: register dei poli, bussola,
+    regole operative e indici delle collezioni. `link_map` copre soltanto
+    l'inventario dei nodi, quindi un riferimento a un filo rimosso resterebbe
+    altrimenti invisibile."""
+    checked = {path.resolve() for path in doc_files(root)}
+    catalog = catalog_path(root)
+    if catalog is not None:
+        # Il catalogo ha già il proprio controllo dedicato (catalog_broken).
+        checked.add(catalog.resolve())
+
+    findings: list[str] = []
+    for path in markdown_sources(root):
+        if path.resolve() in checked:
+            continue
+        for target in markdown_links(path.read_text(encoding="utf-8")):
+            resolved = resolve_link(path, target)
+            if resolved is not None and not resolved.exists():
+                findings.append(f"{node_key(root, path)} -> {target}")
+    return findings
+
+
+def footer_duplicates(root: Path) -> list[str]:
+    """Link ripetuti nella sezione Connessioni: le connessioni sono deduplicate
+    (cfr. `connection`), ma un target ripetuto resta invisibile al conteggio dei
+    link e al catalogo."""
+    findings: list[str] = []
+    for path in doc_files(root):
+        text = path.read_text(encoding="utf-8")
+        if "\nConnessioni:\n" not in text:
+            continue
+        footer = text.split("\nConnessioni:\n", 1)[1]
+        counts = Counter(markdown_links(footer))
+        for target, count in sorted(counts.items()):
+            if count > 1:
+                findings.append(f"{node_key(root, path)} -> {target} (x{count})")
+    return findings
 
 
 def frontmatter_block(path: Path) -> str:
@@ -566,6 +621,8 @@ def run_audit(root: Path) -> AuditResult:
         frontmatter_count=frontmatter,
         connessioni_count=connessioni,
         body_inline_links=body_inline,
+        footer_duplicates=footer_duplicates(root),
+        non_node_broken_links=non_node_broken_links(root),
         clusters_total=len(clusters),
         cluster_isolated=sorted(cluster for cluster in clusters if not cluster_out.get(cluster)),
         cluster_out_counts={
@@ -588,6 +645,8 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.invalid_names)
         + len(result.cluster_isolated)
         + len(result.body_inline_links)
+        + len(result.footer_duplicates)
+        + len(result.non_node_broken_links)
         + len(result.facet_violations)
     )
     lines = [
@@ -597,12 +656,14 @@ def markdown_report(result: AuditResult) -> str:
         "",
         f"- {result.total_nodes} nodi verificati",
         f"- {result.total_links} link interni tra nodi, {len(result.broken_links)} link rotti",
+        f"- {len(result.non_node_broken_links)} link rotti fuori dai nodi (register, bussola, indici)",
         f"- {result.catalog_links} link {CATALOG_NAME} ({result.catalog_unique_links} unici)",
         f"- {result.total_nodes - len(result.catalog_missing_nodes)} nodi indicizzati in {CATALOG_NAME}",
         f"- {result.frontmatter_count}/{result.total_nodes} nodi con frontmatter `stato`",
         f"- {result.connessioni_count}/{result.total_nodes} nodi con footer `Connessioni:`",
         f"- {result.stage_cycle_count} item di collezione con facet `ciclo` valida",
         f"- {len(result.body_inline_links)} nodi con link markdown nel corpo",
+        f"- {len(result.footer_duplicates)} link ripetuti in `Connessioni:`",
         f"- {len(result.isolated)} nodi isolati",
         *(
             [
@@ -623,6 +684,7 @@ def markdown_report(result: AuditResult) -> str:
     problems: list[str] = []
     problems += [f"- [ORFANO] {node} — nessun backlink" for node in result.orphans]
     problems += [f"- [LINK-ROTTO] {item}" for item in result.broken_links]
+    problems += [f"- [LINK-ROTTO-FUORI-NODI] {item}" for item in result.non_node_broken_links]
     problems += [
         f"- [CATALOGO-LINK-ROTTO] {CATALOG_NAME} -> {item}" for item in result.catalog_broken
     ]
@@ -630,6 +692,7 @@ def markdown_report(result: AuditResult) -> str:
     problems += [f"- [NOME-INVALIDO] {item}" for item in result.invalid_names]
     problems += [f"- [CLUSTER-ISOLATO] {item}" for item in result.cluster_isolated]
     problems += [f"- [LINK-INLINE-CORPO] {item}" for item in result.body_inline_links]
+    problems += [f"- [CONNESSIONE-DUPLICATA] {item}" for item in result.footer_duplicates]
     problems += [f"- [FACET] {item}" for item in result.facet_violations]
     lines += problems[:30] if problems else ["- Nessun problema strutturale rilevato"]
     if len(problems) > 30:

@@ -22,11 +22,11 @@ I signifier possono essere deliberati (la scritta PUSH su una porta) o accidenta
 
 ## Perché conta per il metodo
 
-Un artefatto del metodo — un nodo `kb/`, un quadro, una vista di output — ha _affordance_ (quali azioni rende possibili a chi lo legge) e ha bisogno di _signifier_ (cosa dice al lettore dove e come agire). Gran parte del lavoro dello strato output, in particolare L2, è aggiunta di signifier: il termometro, lo schema, la raccomandazione accanto allo stato non creano nuove azioni possibili, segnalano quelle che già esistono. La provocazione registrata nel ciclo di azione — «se l'utente non agisce, la KB è mal progettata, non l'utente è pigro» — si affina qui: spesso non manca l'affordance (l'azione era possibile) ma il signifier (niente la segnalava).
+Un artefatto del metodo — un nodo `kb/`, un quadro, una vista di output — ha _affordance_ (quali azioni rende possibili a chi lo legge) e ha bisogno di _signifier_ (cosa dice al lettore dove e come agire). Gran parte del lavoro dello strato output, soprattutto nella resa destinata all'agente umano, è aggiunta di signifier: il termometro, lo schema, la raccomandazione accanto allo stato non creano nuove azioni possibili, segnalano quelle che già esistono. La provocazione registrata nel ciclo di azione — «se l'utente non agisce, la KB è mal progettata, non l'utente è pigro» — si affina qui: spesso non manca l'affordance (l'azione era possibile) ma il signifier (niente la segnalava).
 
 Che l'affordance sia una _relazione_ e non una proprietà non è un dettaglio terminologico: la colloca nell'accoppiamento agente-artefatto, esattamente dove Hutchins e Clark collocano la cognizione (cfr. `cognitive-system`). Il signifier è allora ciò che rende _percepibile_ quella relazione dentro il sistema di augmentation — il means che porta l'azione possibile alla soglia dell'atto.
 
-Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione stessa: l'agente che interagisce è «a person, animal, **or machine**». Norman nomina la macchina tra gli agenti. La KB ha quindi affordance e signifier per _due_ agenti che la leggono — l'umano e l'LLM — e i due strati output ne sono la conseguenza: L1 porta i signifier di cui ha bisogno l'agente macchina (fatti strutturati, scadenze esplicite), L2 quelli di cui ha bisogno l'agente umano (vista leggibile a colpo d'occhio). Un nodo ben _segnalato_ per l'umano può essere muto per la macchina, e viceversa. La distinzione affordance/signifier dà il criterio per progettare entrambi senza confonderli, ed è il completamento naturale delle quattro proprietà cardine già usate come criteri di qualità per L2.
+Il dettaglio che fonda testualmente l'estensione del metodo è nella definizione stessa: l'agente che interagisce è «a person, animal, **or machine**». Norman nomina la macchina tra gli agenti. La KB ha quindi affordance e signifier per _due_ agenti che la leggono — l'umano e l'LLM — e lo strato output ne è la conseguenza: si sdoppia in due rese dello stesso contenuto. La resa per l'agente macchina porta i signifier di cui quello ha bisogno — fatti strutturati, scadenze esplicite, stato leggibile senza inferenza; la resa per l'agente umano porta i suoi — una vista comprensibile a colpo d'occhio. Un nodo ben _segnalato_ per l'umano può essere muto per la macchina, e viceversa. La distinzione affordance/signifier dà il criterio per progettare entrambe senza confonderle, ed è il completamento naturale delle quattro proprietà cardine già usate come criteri di qualità della resa umana.
 
 ## Corollario: il nome di un output eredita il produttore, salvo collisione
 
@@ -38,8 +38,9 @@ il file senza aprirlo. Generalizza il giudizio già dato in `kb/skill.md` a
 skill scrivono. Vale una clausola di precedenza: il nome-funzione stabile
 vince quando l'eredità del nome del produttore produce collisione o
 ambiguità con un nome già vivo nello stesso spazio dei nomi — un signifier
-ambiguo non è più onesto di uno stabile solo perché più recente (caso
-concreto e ratifica: `i3/allineamento-marker-stadio.md`).
+ambiguo non è più onesto di uno stabile solo perché più recente. La clausola
+è nata da un caso concreto, il marker di allineamento degli adottanti, il cui
+nome-funzione ha prevalso sull'eredità del produttore.
 
 ## Riferimenti
 
