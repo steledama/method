@@ -4,79 +4,37 @@ stato: maturo
 
 # Knowledge base
 
-Una knowledge base (KB) basata su LLM è un artefatto persistente e cumulativo: non un sistema di recupero delle informazioni (RAG), ma una rete di nodi interconnessi che cresce e si consolida nel tempo. Quando si aggiunge una nuova fonte, l'LLM non si limita a indicizzarla per il recupero futuro — la legge, ne estrae la conoscenza rilevante e la integra nella rete esistente, aggiornando i nodi correlati, segnalando le contraddizioni, rafforzando le connessioni. La conoscenza è compilata una volta e mantenuta aggiornata, non ri-derivata a ogni interrogazione.
+La knowledge base è la memoria stabile e cumulativa del progetto. Non conserva
+materiale grezzo né si limita a recuperarlo: integra conoscenza già interpretata
+in nodi collegati, aggiornando ciò che una nuova fonte conferma, corregge o
+contraddice. Ciò che vi entra non dovrebbe essere ricostruito a ogni sessione.
 
-Per essere davvero utile a un LLM, però, la KB non deve solo contenere conoscenza corretta: deve offrirla attraverso una buona interfaccia cognitiva. Servono punti di ingresso, mappe, router per intenzione, fonti di verità riconoscibili e nodi con funzioni distinguibili. Una rete formalmente sana ma priva di accessi leggibili costringe l'LLM a ricostruire ogni volta il modello del dominio; una KB ben progettata rende esplicito quel modello e abbassa il costo di comprensione.
+Per un agente la KB è anche un'interfaccia cognitiva. Catalogo, punti di ingresso,
+fonti di verità riconoscibili e nodi con una funzione dominante rendono il
+dominio ricostruibile senza leggere tutto. La validità dei link non basta: la
+rete deve restare aderente al progetto reale (`cognitive-fidelity`).
 
-Il sistema si inscrive in una cornice di augmentation (Engelbart / H-LAM/T) che contiene i suoi riferimenti invece di affiancarli: lo Zettelkasten dà la forma del nodo atomico, Norman il ciclo di azione tra utente e sistema, e la gamba di manutenzione dell'insieme con l'LLM ha nel pattern Karpathy la sua istanza contemporanea, non un pilastro pari. La trattazione completa della cornice e di ciò che vi sta dentro vive in `augmentation-system`: qui basta sapere che insieme coprono come pensare i nodi, come mantenerli nel tempo e come chiudere il ciclo producendo azione nel mondo.
+La KB orienta il ciclo ma non lo sostituisce. Non contiene task aperti, segnali
+grezzi o prescrizioni: conserva concetti, decisioni e conoscenza che devono
+sopravvivere al singolo giro. Le collezioni `i*` e `o*` trattano invece il lavoro
+in transito; README orienta, CLAUDE istruisce l'agente, Git conserva la storia.
 
-La KB non è il fine, né è l'intero medium interno. Come _livello di elaborazione_
-è lo strato riflessivo dell'artefatto — concetti e generalizzazioni (cfr.
-`processing-layers`) — ed è il **nucleo di conoscenza formalizzata** del _system
-image_; il system image è però l'intero artefatto, trasversale ai tre livelli, il
-substrato che l'intero ciclo legge e scrive (cfr. `system-image`). Lo strato output traduce la conoscenza in
-azione possibile (o1/o2/o3); lo strato input cattura e interpreta il ritorno
-(i1/i2/i3); l'atto e il grezzo attraversano la membrana `world`. Senza questi
-strati, la KB accumula conoscenza ma non chiude il ciclo tra comprensione e
-comportamento.
+La manutenzione divide responsabilità diverse. L'umano resta autore e decide
+cosa è vero o rilevante; l'LLM integra, collega e segnala incoerenze; gli script
+versionati eseguono i controlli ripetitivi (`kb-tools`). Questa separazione
+permette alla rete di crescere senza trasformare giudizi interpretativi in
+automatismi fittizi.
 
-Vista dal ciclo, la KB è il **campo** in cui la macchina degli stadi è immersa:
-il modello del mondo e dell'artefatto, guidato dai goal (le quattro regioni di
-contenuto — ought, is, macchina, norma della macchina — vivono in
-`kb-content-typology`), e in questo
-senso il **requisito dell'azione** — gli agenti agiscono da dentro il proprio
-modello. Il campo però non tocca il Mondo: il contatto resta alla coppia
-viscerale o3↔i1 alla membrana `world`, e la KB orienta l'azione senza eseguirla
-(cfr. `processing-layers`). Ciò che distingue la KB dalle superfici di stadio è
-la tenuta: **trattiene ciò che deve sopravvivere al singolo giro del ciclo** —
-l'interpretazione maturata sedimenta nei nodi e non va ri-derivata al giro
-successivo.
-
-La divisione del lavoro tra umano e LLM è asimmetrica per design. L'umano cura le fonti, dirige l'analisi, pone le domande giuste, scrive e corregge nel dettaglio — l'authorship resta sempre umana. L'LLM gestisce la manutenzione: cross-referencing, deduplica dei link, aggiornamento dei footer Connessioni, health check periodico. Questa asimmetria è sostenibile perché il costo di manutenzione per l'LLM è quasi nullo, mentre per un umano crescerebbe fino ad abbandonare il sistema. Umano e LLM sono qui il caso saliente di una popolazione di agenti più ampia (cfr. `agent`): la stessa divisione del lavoro può ripartirsi tra livelli di agente — per capacità e per stadio del ciclo — quando l'uso multi-agente diventa reale.
-
-Caratteristiche:
-
-- artefatto cumulativo: ogni ingest arricchisce la KB; le connessioni già tracciate non vanno ri-derivate
-- formato portabile: markdown puro, leggibile ovunque, senza dipendenze da strumenti proprietari
-- tre operazioni ricorrenti: ingest (nuova fonte → nodi), lint (audit periodico della rete), filing back (le sintesi di sessione non vanno perse nella chat)
-- authorship umana: il LLM assiste, non sostituisce; scrivere e correggere è parte dell'obiettivo
-- strumenti versionati: i controlli ripetitivi della KB vivono in script stabili, mentre il LLM interpreta e decide
-- replicabile: lo schema si trasferisce tra progetti con minima personalizzazione; ogni progetto è autonomo
-- interfaccia cognitiva: README, mappe e router rendono il dominio accessibile prima ancora della ricerca puntuale
-- fedeltà cognitiva: la KB viene valutata anche per aderenza al sistema reale,
-  non solo per link validi e formato corretto
-
-Confini:
-
-- kb/ contiene conoscenza stabile, non task aperti
-- `o2/` contiene lavoro futuro e contesto operativo temporaneo
-- i fili `i3/` contengono il perché delle sessioni significative, non una lista di commit
-- README.md contiene l'orientamento e punta al catalogo `kb/kb.md`, non tutta la conoscenza
-- CLAUDE.md contiene regole operative per agenti, non contenuto di dominio
-- fonti o data contengono materiali grezzi o elaborati, non nodi atomici
-
-Portabilità:
-
-- un nuovo progetto può partire dai nodi del nucleo portabile
-- ogni progetto deve poi aggiungere nodi specifici del dominio
-- i nodi del nucleo portabile non devono dipendere da dettagli di un singolo repository
-- le parti locali vanno in README.md, CLAUDE.md, skill e nodi dominio
-- quando il metodo cambia in un progetto, valutare se la modifica è portabile agli altri
+Il formato è Markdown portabile. Un nucleo metodologico può essere adottato da
+più repository, ma ogni progetto mantiene autonomamente i propri nodi di
+dominio, le fonti e le estensioni locali.
 
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)
 - [node](node.md)
-- [augmentation-system](augmentation-system.md)
-- [zettelkasten](zettelkasten.md)
-- [karpathy-pattern](karpathy-pattern.md)
-- [project-structure](project-structure.md)
 - [kb-tools](kb-tools.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
-- [connection](connection.md)
-- [output](output.md)
-- [action-cycle](action-cycle.md)
-- [processing-layers](processing-layers.md)
+- [project-structure](project-structure.md)
 - [system-image](system-image.md)
 - [kb-content-typology](kb-content-typology.md)
-- [agent](agent.md)

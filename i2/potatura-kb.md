@@ -49,12 +49,31 @@ Quantità **misurate** prima/dopo lo scaglione: cluster da 3.171 a 1.088 parole;
 KB da 52.159 a 50.014 parole; nodi da 48 a 46. Dal punto di partenza della
 potatura la KB è scesa da 55.861 a 50.014 parole.
 
+## Terzo scaglione
+
+I tre nodi sulla manutenzione restano distinti perché rispondono a domande
+diverse:
+
+- `knowledge-base`: che cosa deve sopravvivere alle sessioni e quale funzione
+  svolge;
+- `kb-tools`: quali controlli ripetitivi sono affidati a codice deterministico;
+- `cognitive-fidelity`: come verificare ciò che formato e link non possono
+  decidere.
+
+La revisione ha rimosso cornice teorica già trattata altrove, fotografie degli
+adottanti, esempi storici, procedure di installazione e ripetizioni reciproche.
+È rimasta una sola descrizione per identità, interfaccia degli strumenti e
+checklist qualitativa. La skill `kb` è stata inoltre corretta perché puntava al
+nome dismesso `fedelta-cognitiva.md`.
+
+Quantità **misurate** prima/dopo lo scaglione: cluster da 3.675 a 796 parole;
+KB da 50.014 a 47.129 parole; nodi invariati a 46. Dal punto di partenza della
+potatura la KB è scesa da 55.861 a 47.129 parole.
+
 ## Scaglioni successivi
 
-1. manutenzione della KB: `knowledge-base`, `kb-tools` e
-   `cognitive-fidelity`;
-2. lavoro e agenti: `plan`, `tasks`, `verdict` e `skill`;
-3. impianto teorico: `action-cycle`, `action-cycle-matrix`,
+1. lavoro e agenti: `plan`, `tasks`, `verdict` e `skill`;
+2. impianto teorico: `action-cycle`, `action-cycle-matrix`,
    `processing-layers`, `input`, `output`, sei nodi-stadio e
    `development-meta-cycle`.
 

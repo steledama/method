@@ -26,7 +26,7 @@ python3 o3/kb_tools.py audit
 - candidati terminologici che meritano o non meritano un nuovo nodo, ricordando
   che un nodo entra in `kb/` solo se è metodologico e applicabile ad almeno due
   progetti diversi
-- esito sintetico della checklist di `kb/fedelta-cognitiva.md`
+- esito sintetico della checklist di `kb/cognitive-fidelity.md`
 
 3. Il report è una diagnosi i1 rigenerabile: vive su stdout, **non** si archivia
    nei fili in `i3/`. Sono il verdetto corrente per filo aperto, non un log di

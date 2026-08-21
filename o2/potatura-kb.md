@@ -18,10 +18,10 @@ Per ogni scaglione:
 6. misurare parole e nodi prima/dopo;
 7. eseguire build, audit e controlli specifici.
 
-Prossimo scaglione: manutenzione della KB (`knowledge-base`, `kb-tools`,
-`cognitive-fidelity`). Il confronto deve distinguere identità della KB,
-strumenti meccanici e verifica semantica, eliminando teoria o procedure
-duplicate fra i tre nodi.
+Prossimo scaglione: lavoro e agenti (`plan`, `tasks`, `verdict`, `skill`). Il
+confronto deve distinguere supervisione, specifica operativa, memoria del
+giudizio e capacità invocabile, eliminando istruzioni replicate nei nodi e nelle
+skill reali.
 
 ## Criterio di chiusura
 

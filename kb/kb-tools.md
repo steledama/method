@@ -4,113 +4,47 @@ stato: maturo
 
 # KB tools
 
-Gli strumenti KB sono script versionati che rendono deterministica la manutenzione della knowledge base. Non sostituiscono il giudizio dell'LLM o dell'utente: spostano però la parte fragile e ripetitiva del lavoro — parsing dei link markdown, conteggi dei backlink, verifica del README, controllo del formato dei nodi — dentro codice stabile, testabile e riusabile.
+Gli strumenti KB rendono deterministici i controlli ripetitivi: parsing dei
+link, backlink, catalogo, frontmatter, formato e copertura. Non decidono quali
+concetti siano veri o utili. Lo script produce evidenze; umano e LLM le
+interpretano e modificano la conoscenza.
 
-Questa divisione del lavoro riduce gli errori di sessione. L'LLM resta utile per interpretare i risultati, decidere quali problemi siano reali, proporre connessioni semantiche e scrivere i nodi; lo script invece garantisce che i numeri strutturali siano calcolati sempre nello stesso modo. La skill `kb` usa `o3/kb_tools.py` come backend proprio per evitare di ricostruire parser e regex a ogni audit.
+`o3/kb_tools.py` offre una superficie portabile usata dalla skill `kb`:
 
-Il repo metodo contiene la versione portabile di `o3/kb_tools.py`. Questa versione distingue due livelli:
+- `audit [--format markdown|json]`: report strutturale completo;
+- `backlinks NODE`, `orphans`: topologia della rete;
+- `readme`, `migration`: catalogo e convenzioni documentali;
+- `facets`: attributi di dominio dichiarati nel frontmatter;
+- `terms`: candidati terminologici da valutare, non nuovi nodi automatici;
+- `inventory`, `coverage`: inventario e copertura per progetti con codice.
 
-- strumenti base per qualunque KB: audit strutturale, backlink, orfani, copertura README, migrazione formato e candidati terminologici
-- strumenti generici per progetti code-based: inventario dei file codice e copertura codice → nodi KB
+Il nucleo comune resta indipendente dal dominio. Un adottante può aggiungere
+controlli `facts` o `fidelity` quando dispone di fonti primarie leggibili, e può
+dichiarare facet locali tramite `EXTENDED_FACETS`. Le estensioni preservano i
+comandi base, così skill e audit comparativi possono usare la stessa interfaccia.
 
-I controlli avanzati che dipendono dal dominio restano locali. In un progetto NixOS possono confrontare host, profili e moduli con `flake.nix`; in un progetto BI possono misurare la documentazione degli script applicativi; in un progetto finanziario possono confrontare nodi e JSON autoritativi. Il metodo fornisce lo scheletro, i progetti aggiungono le fonti di verità.
-
-Dal punto di vista dell'osservatorio metodo, gli strumenti hanno anche una funzione comparativa: rendono possibile misurare periodicamente lo stato dei progetti adottanti con una superficie comune e distinguere ciò che è salute strutturale della KB da ciò che è fedeltà specifica al dominio.
-
-## Esposizione degli strumenti
-
-Per rendere l'LLM consapevole degli strumenti a disposizione senza creare
-duplicazione, ogni progetto dovrebbe esporli su tre livelli:
-
-- README.md: elenco brevissimo degli strumenti e link ai nodi, per discovery e
-  orientamento iniziale
-- CLAUDE.md: istruzioni operative, cioè quale strumento usare per quale intento,
-  comandi minimi e condizioni di escalation
-- nodi KB: reference stabile del workflow, varianti, limiti, troubleshooting e
-  dettagli che non devono appesantire i file root
-
-La regola pratica è: README orienta, CLAUDE istruisce, KB approfondisce. Quando
-un comando o una procedura compare in più livelli con lo stesso dettaglio, il
-progetto sta creando una futura fonte di drift. Quando invece uno strumento è
-documentato solo in un nodo ma non compare nel README o in CLAUDE, l'agente può
-non scoprirlo o scegliere un workflow peggiore.
-
-Comandi principali:
-
-- `python3 o3/kb_tools.py audit --format markdown`: genera il report completo con segnali a tre livelli (errore / avviso / info) su stdout — diagnosi i1 rigenerabile, da leggere, non da archiviare
-- `python3 o3/kb_tools.py audit --format json`: genera lo stesso audit in formato strutturato per altri strumenti
-- `python3 o3/kb_tools.py backlinks node.md`: mostra link in uscita e backlink di un nodo
-- `python3 o3/kb_tools.py orphans`: elenca i nodi senza backlink
-- `python3 o3/kb_tools.py readme`: verifica copertura e link del catalogo `kb/kb.md`
-- `python3 o3/kb_tools.py migration`: verifica frontmatter, footer Connessioni e link inline residui
-- `python3 o3/kb_tools.py facets`: verifica gli attributi intrinseci di dominio dichiarati (vedi sotto); l'audit integra le violazioni come problemi `[FACET]`
-- `python3 o3/kb_tools.py terms --limit 20`: propone candidati grezzi a nuovi nodi da termini ricorrenti
-- `python3 o3/kb_tools.py inventory`: nella versione portabile inventario generico dei file codice; nelle versioni locali può diventare inventario delle entità principali del progetto
-- `python3 o3/kb_tools.py coverage`: nella versione portabile copertura generica codice → nodi KB; nelle versioni locali può diventare copertura documentale specifica. Con `--check` esce con codice non-zero se uno script non ha nodo `kb/<nome>.md`, così la copertura diventa un gate riusabile da `/commit` e da git pre-commit hook
-- `python3 o3/kb_tools.py facts`: comando locale opzionale per confrontare fatti documentati ad alta fiducia e fonti tecniche o documentali del progetto
-- `python3 o3/kb_tools.py fidelity`: comando locale opzionale anti-drift che combina fatti verificabili, warning di copertura e checklist semantica
-
-Attributi di dominio (faceted): il backend espone un meccanismo per verificare le proprietà intrinseche di dominio che un adottante dichiara nel frontmatter dei nodi oltre `stato` (il criterio dei quattro requisiti vive in `node`). La dichiarazione è la costante `EXTENDED_FACETS` in cima allo script: una mappa `nome → Facet(values, required)`, dove `values` è il dominio chiuso ammesso e `required` decide se la facet è obbligatoria su ogni nodo (es. `mondo` in `nixos`, che partiziona l'intera KB) o solo verificata nel dominio quando presente (es. `tipo` in `economia`, sui soli nodi-entità). In `metodo` la costante è vuota — dominio astratto, nessuna facet — e l'adottante la parametrizza nel proprio fork, esattamente come fa con `DOC_DIRS` o `CATALOG_NAME`. Così il quarto requisito («dichiarata e verificabile») diventa eseguibile senza cablare nomi di campo nel backend portabile.
-
-Limite di scope: `kb_tools.py` audita la salute strutturale di `kb/` e il frontmatter dei task in `o2/`. Non copre tutto lo strato output: la valutazione delle viste e delle prescrizioni resta qualitativa, usando la checklist di Norman (visibilità, feedback, mapping, constraint) in una sessione di revisione. Questo è intenzionale — la domanda chiave è se l'utente agisce, non se il file ha link validi.
+La documentazione segue una sola gerarchia: README rende lo strumento
+rintracciabile, CLAUDE indica quando usarlo, questo nodo ne definisce capacità e
+limiti. Ripetere ovunque procedure e opzioni crea drift.
 
 Regole d'uso:
 
-- gli script producono dati strutturali; le decisioni restano interpretative
-- i candidati terminologici non sono automaticamente nuovi nodi: vanno filtrati semanticamente
-- i controlli anti-drift devono partire da pochi fatti affidabili e crescere solo
-  quando una fonte di verità è chiara
-- `audit` misura la salute strutturale della rete; `fidelity` misura segnali di
-  aderenza al dominio e non sostituisce la checklist semantica
-- l'audit completo non va appendito integralmente ai fili `i3/` (memoria interpretativa, non archivio di output): quando un audit produce un'osservazione significativa, registrarne solo una sintesi nel filo pertinente; l'output esteso resta ricostruibile su qualunque commit storico via `git checkout <hash> && python3 o3/kb_tools.py audit`. Le correzioni emerse dall'audit vanno trattate come passaggio separato.
-- quando una skill può usare uno script versionato, deve preferirlo a regex improvvisate nella sessione
-- gli script devono restare senza dipendenze esterne quando possibile, così funzionano su qualunque host con Python 3
-- le estensioni locali devono preservare i comandi base, così skill e agenti possono contare su una superficie comune tra repository
-- i controlli di frontmatter devono distinguere i tipi documentali: obbligatorio nei nodi `kb/`, obbligatorio nei task `o2/`, facet `ciclo:` negli item delle collezioni-stadio, non richiesto in README/CLAUDE/AGENTS, register e indici
+- preferire lo script versionato a parser improvvisati in sessione;
+- mantenere separati audit strutturale e revisione semantica;
+- confrontare i fatti con fonti primarie, mai con altra documentazione;
+- conservare nei fili solo il cambiamento di giudizio prodotto dall'audit, non
+  il report rigenerabile;
+- tenere le estensioni locali e, quando possibile, prive di dipendenze esterne.
 
-Skill:
-
-- kb: usa kb_tools.py, interpreta il report e non corregge automaticamente senza richiesta
-- commit: applica formatter, controlla diff e crea commit secondo convenzioni locali
-- skill locali: descrivono workflow specifici del dominio, ma riusano strumenti versionati quando possibile
-- vecchi comandi: da evitare se la stessa funzione può essere espressa come skill o regola di bootstrap
-
-Wrapper Codex:
-
-- .codex/skills contiene wrapper leggeri, non copie delle skill
-- ogni wrapper rimanda alla skill canonica in .claude/skills
-- i wrapper servono solo per discovery da parte di Codex
-- se una skill viene rimossa o fusa, va rimosso anche il wrapper corrispondente
-
-Requisiti per un nuovo progetto:
-
-- copiare o creare `o3/kb_tools.py` se serve audit strutturale
-- creare .claude/skills/kb con istruzioni locali e backend script
-- creare .claude/skills/commit se il progetto ha convenzioni di commit
-- creare wrapper .codex/skills solo se il progetto deve supportare Codex
-- aggiungere formatter disponibili in CLAUDE.md, senza inventare strumenti non installati
-
-## Applicazione nei progetti adottanti
-
-- **`nixos`** — situazione attuale: `kb_tools.py` espone comandi base più `inventory`, `facts`, `coverage`, `fidelity`; `scripts/check.sh` aggrega formatter, audit, fact check e fidelity. Confronto con il metodo: è il laboratorio più avanzato per anti-drift code-based — la fonte dichiarativa Nix rende verificabili host, profili, moduli e copertura.
-- **`bi`** — situazione attuale: `kb_tools.py` espone comandi base e aggiunge copertura documentale degli script (`script_missing_docs`, `script_docs_count`), con il comando `coverage --check` che la rende un gate bloccante per `/commit`. Graphify è strumento locale separato. Confronto con il metodo: buona superficie strutturale; la fedeltà BI deve ancora fondarsi su fonti primarie applicative, non su documentazione interna.
-- **`economia`** — situazione attuale: `kb_tools.py` espone comandi base più `facts` sulla mappa; l'audit produce segnali a livelli errore/avviso/info. Confronto con il metodo: adattamento utile a un dominio documentale — i facts verificano presenza e coerenza delle entità, ma non sostituiscono controllo umano su importi e scadenze.
-- **`salute`** — situazione attuale: `kb_tools.py` espone la superficie base (`audit`, `backlinks`, `orphans`, `readme`, `migration`, `terms`). Confronto con il metodo: adeguato a una KB concettuale — per ora la priorità è salute strutturale e filing back, non inventario tecnico.
-
-La fotografia strutturale quantitativa per repo (nodi, link, esiti audit, file segnalati) vive nel nodo `adopter-comparison`, fonte unica per i dati cross-repo: qui resta solo il confronto qualitativo sulla superficie degli strumenti, che cambia di rado.
-
-Il confronto chiarisce il confine dello strumento portabile. La superficie base deve restare comune; i controlli `facts` e `fidelity` devono essere locali finché il dominio decide quali fatti sono verificabili e quali fonti sono primarie. Il repo metodo può però produrre un report cross-repo che invoca gli strumenti locali e normalizza gli esiti.
+Lo scope intenzionale è la struttura della KB e dei documenti supportati. La
+qualità delle decisioni, dei router e delle prescrizioni resta una valutazione
+qualitativa (`cognitive-fidelity`).
 
 Connessioni:
 
-- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [knowledge-base](knowledge-base.md)
-- [karpathy-pattern](karpathy-pattern.md)
-- [project-structure](project-structure.md)
-- [method-observatory](method-observatory.md)
-- [connection](connection.md)
 - [node](node.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
+- [source-of-truth](source-of-truth.md)
+- [method-observatory](method-observatory.md)
 - [adopter-comparison](adopter-comparison.md)
-- [output](output.md)
-- [action-cycle](action-cycle.md)

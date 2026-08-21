@@ -7,13 +7,13 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 - [cognitive-artifact-design](cognitive-artifact-design.md) — Hub del metodo: design dell'artefatto cognitivo completo per la cognizione condivisa umano-LLM
 - [node](node.md) — Unità atomica della KB: struttura, naming, frontmatter, footer Connessioni
-- [knowledge-base](knowledge-base.md) — KB basata su LLM: artefatto cumulativo, divisione del lavoro umano/LLM
+- [knowledge-base](knowledge-base.md) — Memoria stabile del progetto e interfaccia cognitiva per umano e agente
 - [kb-content-typology](kb-content-typology.md) — Di cosa parla la KB (≠ a cosa serve): quattro regioni — ought/is/macchina/norma della macchina — e il baricentro per repo come diagnosi
 - [project-structure](project-structure.md) — Struttura della root: componenti, collocazione, convenzioni e bootstrap
-- [kb-tools](kb-tools.md) — Strumenti versionati portabili e profili avanzati per audit, backlink, copertura e candidati terminologici
+- [kb-tools](kb-tools.md) — Controlli deterministici portabili e confine con il giudizio interpretativo
 - [method-observatory](method-observatory.md) — Meta-analisi periodica dei progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
 - [adopter-comparison](adopter-comparison.md) — Sintesi periodica degli adottanti; fotografia storica dei primi quattro e baseline dei nuovi ingressi CRM e danea-auto
-- [cognitive-fidelity](cognitive-fidelity.md) — Verifica della KB oltre il lint: anti-drift, checklist semantica, adattamento al dominio
+- [cognitive-fidelity](cognitive-fidelity.md) — Verifica strutturale, fattuale e semantica dell'aderenza al progetto reale
 - [design-principles](design-principles.md) — Principi guida: universali, code-based e specifici di progetto
 - [augmentation-system](augmentation-system.md) — La cornice di sistema di Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il bootstrap come antenato di dogfooding e meta-ciclo di sviluppo
 - [zettelkasten](zettelkasten.md) — Metodo Zettelkasten: nodi atomici interconnessi, struttura emergente; le schede edge-notched di Engelbart come precursore
