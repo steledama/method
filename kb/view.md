@@ -124,15 +124,14 @@ funziona senza aprire porte; da un altro dispositivo la porta TCP scelta deve es
 ammessa dal firewall per la sola subnet o interfaccia privata necessaria. Terminata
 la condivisione, si chiude il processo e si rimuove l'eventuale regola temporanea.
 
-## Provenienza bottom-up
+## Vincolo conservato
 
-Il pattern è emerso in `bi`. Una prima soluzione serviva la vista a slide permanentemente da
-due server e lo copiava con hook Git locali non versionati. Il rename
-`presentazione/` → `presentations/` (poi → `interpretations/`) ha rotto gli hook in
-silenzio. La soluzione finale non è stata rendere più complesso il deploy, ma
-eliminare un servizio senza consumatori reali: l'HTML era già autonomo e apribile
-dal checkout. Il commit `bi/ab8c6b5b` ha fissato apertura locale + `http.server`
-on-demand; `nixos/d8da967` ha rimosso servizio e porta 8085.
+Una vista autonoma non giustifica un servizio permanente senza consumatori
+reali. Hook host-local e copie servite separatamente dal checkout possono
+rompersi in silenzio dopo un rename; apertura locale e condivisione on-demand
+mantengono invece sorgente e resa nello stesso artefatto. La condizione di
+revisione è un bisogno reale di disponibilità continua o accesso remoto, non la
+sola possibilità tecnica di mantenere un servizio.
 
 Connessioni:
 

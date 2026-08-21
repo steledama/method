@@ -8,7 +8,7 @@ Il repo metodo non è solo una libreria di nodi portabili: è il punto di osserv
 
 Il metodo nasce e si verifica nei progetti concreti. Gli adottanti non sono solo consumatori del metodo: sono casi sperimentali con vincoli diversi, ed è la diversità dei vincoli a farne materiale di analisi. Un progetto code-based espone problemi di fedeltà tecnica e copertura del codice; un progetto ad alta responsabilità espone problemi di fonti autoritative e dati sensibili; un progetto riflessivo espone problemi di hub semantici, accessi cognitivi e filing back; un progetto che pilota software di terzi espone i limiti di un Mondo che non si lascia interrogare a piacere. L'osservatorio serve a rendere queste differenze comparabili senza appiattirle; chi sia in territorio in un dato momento vive nel register `world.md`.
 
-La direzione che l'osservatorio governa è il movimento dal basso (uno dei due di `method-development`, e quello che protegge dal generalizzare per esigenze immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri repo adottanti non ricevono ordini da `metodo`: leggono i commit del metodo e applicano localmente ciò che è pertinente. Il movimento dall'alto — importare una cornice teorica e verificarla contro i domini reali — non passa da questo flusso: non genera task negli adottanti, ma rilegge l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
+La direzione che l'osservatorio governa è il movimento dal basso (uno dei due di `method-development`, e quello che protegge dal generalizzare per esigenze immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve lì nel merito, poi si chiede se la soluzione locale contiene una regola generale. Solo a quel punto il repo adottante modifica `metodo` o produce un commit nel metodo con la generalizzazione. Gli altri adottanti recepiscono il canone e le sue eventuali prescrizioni applicando localmente ciò che è pertinente; `metodo` non apre né ordina i task delle loro code. Il movimento dall'alto — importare una cornice teorica e verificarla contro i domini reali — non passa da questo flusso: non genera task negli adottanti, ma rilegge l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
 
 L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti della ricetta metodologica:
 
@@ -21,7 +21,7 @@ L'unità di analisi non è solo il nodo KB. Vanno confrontati tutti i componenti
 - skill: workflow ricorrenti, differenze locali, duplicazioni, possibilità di template o wrapper comuni
 - fonti di verità: codice, JSON, documenti autoritativi, mappe, output strutturati e dati locali
 
-Il confronto deve produrre tre tipi di esito:
+Il confronto deve produrre quattro tipi di esito:
 
 - generalizzazione metodologica: una differenza locale rivela una regola portabile e viene integrata nei nodi di metodo
 - estensione strumentale: una duplicazione stabile diventa script, comando, skill base o template riusabile
@@ -43,9 +43,8 @@ Analisi periodiche:
 
 Ammettere un progetto nel territorio è un'operazione dell'osservatorio, non
 soltanto l'aggiunta di una voce a `world.md`. Il protocollo resta una checklist
-qui, senza skill autonoma: due ingressi nello stesso giorno (`crm` e
-`danea-auto`, 2026-08-12) giustificano una forma ripetibile, non ancora una
-nuova automazione.
+qui, senza skill autonoma: ingressi ripetuti hanno giustificato una forma
+stabile, non ancora una nuova automazione.
 
 ### 1. Verifica l'adozione locale
 

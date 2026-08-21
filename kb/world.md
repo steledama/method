@@ -51,8 +51,7 @@ e confronta quei fatti con un Goal.
 
 I tre confini lasciano aperto un caso: il contenuto non versionato che
 l'artefatto tocca è membrana `world` o substrato interno di uno stadio? Il
-discriminante operativo, emerso in `bi` migrando il substrato runtime fuori
-dalla root (2026-07-09), è il **test del significato senza artefatto**:
+discriminante operativo è il **test del significato senza artefatto**:
 
 > se l'artefatto sparisse domani, questo contenuto avrebbe ancora significato
 > operativo per il dominio?
@@ -72,13 +71,12 @@ criterio — l'artefatto stesso scrive legittimamente contenuto-mondo, perché o
 scrive effetti nel mondo (un payload pubblicato è Mondo pur essendo scritto
 dall'artefatto) — ma nella direzione «scritto dal mondo → membrana» è forte.
 
-Il secondo segnale è arrivato da `salute` il 2026-08-16: chiuso un task, un PDF
-operativo prodotto per l'atto era rimasto nella superficie `gdrive/` pur avendo
-perso significato autonomo. L'estensione per-stadio è quindi disciplina: quando
-una collezione si chiede «questo contenuto è mio o del mondo?» — incluso
-`exec plan` alla chiusura di un task — applica lo stesso test. Il test classifica,
-non autorizza: riconoscere una copia operativa consumata non conferisce il
-permesso di cancellarla dal Mondo (cfr. `tasks`, `consent`).
+Il test vale anche alla chiusura di un task: una copia operativa prodotta per
+l'atto può restare su una superficie del Mondo pur avendo perso significato
+autonomo. Quando una collezione si chiede «questo contenuto è mio o del mondo?»
+applica lo stesso criterio. Il test classifica, non autorizza: riconoscere una
+copia consumata non conferisce il permesso di cancellarla dal Mondo (cfr.
+`tasks`, `consent`).
 
 ## Materializzazione fisica
 

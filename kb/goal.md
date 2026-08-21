@@ -72,14 +72,12 @@ Lo stesso lavoro può nascere anche dall'altro polo: al Mondo un i1 esogeno apre
 
 ## Il register `goal.md`
 
-Il polo Goal ha un register versionato nella root: **`goal.md`**,
-gemello di `world.md` (il goal è il nord, il world è il territorio). Nato in
-`bi` (2026-07-09) progettando i primi loop delegati: i fili i3 dicevano «perché
-conta» ma non «rispetto a quale obiettivo», il plan ordinava per urgenza e non
-per obiettivo servito, e i guardrail di un loop di runtime chiedevano un
-ancoraggio senza avere un posto a cui agganciarsi. Il register è quella casa: la
-cerniera superiore resa indirizzabile — lo stesso gap che i runbook chiudono per
-l'azione, chiuso sulla direzione.
+Il polo Goal ha un register versionato nella root: **`goal.md`**, gemello di
+`world.md` (il goal è il nord, il world è il territorio). Colma il vuoto tra
+fili che spiegano perché qualcosa conta e plan che ordinano il lavoro: rende
+indirizzabile l'obiettivo rispetto al quale un segnale viene giudicato e un
+task viene giustificato. È la cerniera superiore resa esplicita, lo stesso tipo
+di ancoraggio che un runbook offre all'azione.
 
 La forma segue il **contratto machine-readable** condiviso con `world.md`:
 l'**intro** (dall'H1 al primo H2) è il polo in sintesi — il motivo che muove
@@ -97,10 +95,8 @@ soli aggetti, i due versi della cerniera:
 Il **verso o1 non si trascrive**. La direzione task→obiettivo vive nella colonna
 `Ob.` del plan, dove il task esiste (`plan`); il register la legge, non la
 duplica. Un elenco di titoli qui sarebbe una seconda rappresentazione dello
-stesso fatto — e quella che si legge di rado, quindi quella che deriva in
-silenzio: è successo in `economia` (2026-07-30), dove mancava un task in
-posizione 2, sbloccato, con file `o2/` e voce d'indice. Ciò che il register dice
-del lavoro è quindi lo **stato**, non l'inventario: quale obiettivo è a regime,
+stesso fatto e potrebbe derivare in silenzio. Ciò che il register dice del
+lavoro è quindi lo **stato**, non l'inventario: quale obiettivo è a regime,
 quale ha un fronte aperto, quale è un buco di misura.
 
 Una sezione **Goal di sviluppo** fotografa la posizione auspicata lungo le

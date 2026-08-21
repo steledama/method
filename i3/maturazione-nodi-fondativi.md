@@ -32,36 +32,30 @@ verdetti che **attendono l'uso reale**:
   (nessuna facet finché non ne emerge una reale: l'opt-in regge); resta da osservare
   `economia` con `tipo:` opzionale.
 
-## La coerenza del canone regge; il drift che resta è di propagazione
+## La coerenza del canone regge; il debito residuo è sperimentale
 
-La review semantica ha letto l'intero corpus contro le fonti e la struttura è
-risultata integra: nessun nodo da fondere, dividere o eliminare, e il test di
-potatura superato da tutti. Il drift trovato non era nel contenuto dei nodi ma
-nella **propagazione**: un cambio di cornice (Engelbart che contiene i giganti,
-col pattern Karpathy declassato a istanza) e un cambio di territorio (l'ingresso
-di `crm` e `danea-auto`) avevano raggiunto il nodo che li decideva senza
-raggiungere tutte le superfici che li ripetevano — `zettelkasten` si diceva
-ancora «primo dei tre pilastri», il README annunciava «i tre giganti» a una riga
-e la cornice nuova a un'altra, e sei nodi enumeravano quattro o cinque adottanti
-come inventario corrente.
+La review semantica completa conferma l'integrità strutturale della KB: tutti i
+45 nodi sono indicizzati e collegati, nessun nodo va fuso o eliminato e gli
+atomi brevi del ciclo conservano funzioni autonome. Il difetto semantico
+principale era la concentrazione nell'hub `cognitive-artifact-design`, che oltre
+al modello replicava ricetta, bootstrap, reference e regole di revisione già
+custodite da nodi specialistici. L'hub è ora un router concettuale: le
+responsabilità rimandano a superfici esistenti e non è nato alcun nodo nuovo.
 
-La lezione portabile è che **un roster di adottanti dentro un nodo è una seconda
-rappresentazione del territorio**, che vive nel register `world.md`: deriva in
-silenzio a ogni nuovo ingresso, ed è la stessa patologia già incisa altrove come
-«un fatto, una rappresentazione». La correzione non è stata far crescere gli
-elenchi da quattro a sei — sarebbe scaduta al settimo — ma riportare al nodo la
-generalizzazione portabile e gli esempi vivi, lasciando l'inventario al register.
-`development-goal` era il caso più netto: teneva le fotografie dei cinque mentre
-la sua stessa regola dice che la fotografia è dell'adottante.
+La stessa review ha corretto due incoerenze normative: `consent` riconosce ora
+l'autorità già dichiarata dalla richiesta e da `CLAUDE.md`, mentre
+`method-observatory` distingue la prescrizione legittima del canone dal
+micromanagement delle code locali. La cronaca incorporata in `goal`, `world` e
+`view` è stata compressa in vincoli e condizioni di revisione dopo aver
+verificato che Git conservi le destinazioni disponibili; la lezione di `salute`,
+non accessibile in questo checkout, è rimasta nel canone senza dettagli datati.
 
-Il presidio è duplice e vive nello strumento, non nella memoria: `kb_tools`
-verifica ora i link ripetuti nei footer `Connessioni:` e i link rotti **fuori
-dall'inventario dei nodi**. Il secondo controllo nasce da un caso reale — un
-segnale di `goal.md` puntava a un filo chiuso nel commit `8c07d1d` — invisibile
-prima perché il checker copriva solo `kb/`, mentre register, bussola e indici
-delle collezioni restavano scoperti. È la terza incarnazione del vincolo di
-`constraint`: installato tardi, al primo giro ha **rivelato** il drift già
-maturato invece di prevenirlo.
+Il presidio deterministico continua a vivere nello strumento: `kb_tools`
+verifica footer, catalogo e link anche fuori dall'inventario dei nodi. Audit,
+inventory, coverage e facets sono verdi; i sei esecutori restano interamente
+coperti. La review non apre nuovi task: il debito residuo di questo filo resta
+quello sperimentale già dichiarato — maturazione dei nodi in bozza, secondo
+specimen esterno per la tipologia e osservazione delle facet negli adottanti.
 
 I verdetti elencati sopra non si spostano: bozza→maturo, tipologia e facet
 continuano ad attendere l'uso reale e un secondo specimen esterno.

@@ -4,9 +4,16 @@ stato: maturo
 
 # Zettelkasten
 
-Metodo di gestione della conoscenza basato su nodi atomici interconnessi, ideato dal sociologo tedesco Niklas Luhmann (1927-1998). Il nome significa letteralmente "scatola di appunti" (Zettel = appunto, Kasten = scatola). Luhmann ha usato questo sistema per produrre oltre settanta libri e quattrocento articoli accademici, descrivendolo come un "partner di comunicazione" nel processo di pensiero. Ogni nodo contiene una singola idea, collegata ad altre attraverso riferimenti, creando una rete di connessioni che genera nuova conoscenza emergente. Nessun nodo ha significato pienamente isolato: il significato emerge dalle relazioni.
+Metodo di gestione della conoscenza basato su unità interconnesse, associato al
+lavoro del sociologo Niklas Luhmann. Il nome significa letteralmente "scatola
+di appunti". Luhmann descrive lo schedario come un partner di comunicazione:
+ogni unità acquista valore attraverso riferimenti e percorsi che permettono
+combinazioni non previste in anticipo. Nel metodo questa idea viene tradotta
+nella disciplina dei nodi atomici e della struttura emergente.
 
-Robert Pirsig ha descritto nei suoi libri, in particolare in "Lila", una versione personale dello stesso metodo: un sistema di schede (slip) su cui annotava e riorganizzava le proprie idee, usato per scrivere i libri stessi. La descrizione di Pirsig è tra le più vivide dell'esperienza di lavorare con un sistema di note interconnesse.
+Robert Pirsig descrive in _Lila_ una pratica affine di schede riorganizzabili.
+È un esempio letterario della manipolazione materiale delle idee, non la fonte
+del modello né la prova di una discendenza diretta da Luhmann.
 
 Un precursore meno noto vive nella cornice di sistema di Douglas Engelbart: il sistema di schede _edge-notched_ descritto in _Augmenting Human Intellect_ (1962, §III-A-3) è uno **Zettelkasten ante litteram** — nodi atomici con link tipizzati e provenienza, manipolabili meccanicamente con ferri da calza che selezionano le carte tagliate sul bordo. Engelbart lo accompagna alla mossa di ingest che il metodo riconosce come propria — «type the article in, tear it apart... it sits in the archives like an orange rind», l'articolo grezzo digerito in note collegate — segno che la disciplina dell'unità atomica era già parte di un sistema di augmentation co-evolvente (cfr. `augmentation-system`).
 
@@ -41,6 +48,16 @@ Regola pratica:
 - se è una sintesi, una vista d'insieme o un dashboard, va nello strato output del progetto, non in kb/
 
 Nel metodo, lo Zettelkasten sta dentro la cornice di augmentation di Engelbart, dove occupa il means _Language_ (cfr. `augmentation-system`): fornisce la disciplina che regola la forma dei nodi — ogni nodo è atomico, le sintesi non stanno nel nodo. Lo strato output è il corollario diretto di questa disciplina: ospita le sintesi karpathiane, le viste e i dashboard che non possono entrare in kb/ senza violare l'atomicità. Senza lo strato output, la pressione di sintesi finisce dentro i nodi e corrompe il principio fondante.
+
+## Riferimenti
+
+- Niklas Luhmann, «Kommunikation mit Zettelkästen» (1981), fonte della
+  descrizione dello schedario come partner di comunicazione.
+- Robert M. Pirsig, _Lila: An Inquiry into Morals_ (1991), descrizione della
+  pratica delle schede.
+- Douglas C. Engelbart, _Augmenting Human Intellect_ (1962), §III-A-3, per il
+  sistema edge-notched e l'ingest in unità collegate; provenienza nel register
+  `world.md`.
 
 Connessioni:
 

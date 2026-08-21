@@ -14,7 +14,9 @@ Da qui si scioglie lo split lasciato provvisorio dal gate. Il **Goal-runtime** r
 
 ## Le dimensioni comuni
 
-Tre dimensioni candidate, emerse dalla riflessione sui cinque artefatti allora in territorio e da raffinare con l'uso — non un'ontologia chiusa:
+Tre dimensioni candidate emerse dal confronto tra adottanti — non un'ontologia
+chiusa. Lo stato `bozza` del nodo segnala precisamente che l'uso deve ancora
+confermare se siano sufficienti e se le due famiglie proposte sotto reggano:
 
 - **attrito / fluidità** — quanto il ciclo scorre senza gulf of execution o di evaluation; quanto poco l'artefatto frappone tra intenzione e atto, e tra esito e significato.
 - **autonomia dell'umano** — umano _in-the-loop_ (dentro ogni iterazione) contro _on-the-loop_ (a supervisione); è lo stesso spettro di delegabilità di `goal` (motivo codificabile contro motivo non esternalizzabile).
