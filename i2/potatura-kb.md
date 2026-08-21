@@ -70,10 +70,27 @@ Quantità **misurate** prima/dopo lo scaglione: cluster da 3.675 a 796 parole;
 KB da 50.014 a 47.129 parole; nodi invariati a 46. Dal punto di partenza della
 potatura la KB è scesa da 55.861 a 47.129 parole.
 
+## Quarto scaglione
+
+I quattro nodi sul lavoro e sugli agenti conservano responsabilità autonome:
+
+- `plan`: ordine, obiettivi e dipendenze della coda;
+- `tasks`: specifica temporanea del lavoro sostanziale;
+- `verdict`: giudizio corrente sulle tensioni rispetto ai goal;
+- `skill`: capacità ricorrente e invocabile, distinta dal task consumabile.
+
+Sono state eliminate genealogie delle forme, cronache degli adottanti, esempi
+estesi e procedure già prescritte nelle `SKILL.md`. Restano lo schema canonico
+del plan, il frontmatter dei task, i vincoli epistemici del verdetto e i criteri
+che distinguono skill autonome, scope e cadenze.
+
+Quantità **misurate** prima/dopo lo scaglione: cluster da 7.840 a 1.116 parole;
+KB da 47.129 a 40.371 parole; nodi invariati a 46. Dal punto di partenza della
+potatura la KB è scesa da 55.861 a 40.371 parole.
+
 ## Scaglioni successivi
 
-1. lavoro e agenti: `plan`, `tasks`, `verdict` e `skill`;
-2. impianto teorico: `action-cycle`, `action-cycle-matrix`,
+1. impianto teorico: `action-cycle`, `action-cycle-matrix`,
    `processing-layers`, `input`, `output`, sei nodi-stadio e
    `development-meta-cycle`.
 

@@ -4,75 +4,42 @@ stato: maturo
 
 # Tasks
 
-`o2/` è la directory dei dettagli operativi e di contesto dei singoli task aperti. Risponde alla domanda: quali sono i dettagli operativi e di contesto dei singoli task aperti? Contiene lavoro futuro, non conoscenza permanente. È lo stadio Specify: il file in `o2/` spiega cosa, perché, con quali vincoli e dipendenze, mentre `o1/plan.md` ne tiene solo la riga di supervisione.
+`o2/` contiene la specifica dei task aperti che richiedono più contesto della
+riga in `o1/plan.md`. Il plan decide cosa viene prima; il file del task rende
+visibili risultato atteso, risorse reali, vincoli e verifica di riuscita. È
+memoria operativa temporanea, non conoscenza permanente.
 
-La separazione tra `o1/plan.md` e `o2/` serve a mantenere il cruscotto leggero senza perdere contesto. `plan` supervisiona cosa fare; il file in `o2/` spiega perché, con quali vincoli, con quali dipendenze e con quale stato operativo.
-
-Regole:
-
-- contiene solo task futuri o in corso
-- non conserva storico dei task completati
-- ogni file deve corrispondere a una riga in `o1/plan.md`
-- ogni file ha la sua voce nell'indice interno `o2/tasks.md` (titolo-link e
-  chiosa breve): è l'**unico** indice dei dettagli — `o1/plan.md` tiene la riga
-  di supervisione e il rimando all'indice, non un secondo elenco di link
-  (cfr. `plan`)
-- ogni riga sostanziale di `o1/plan.md` deve avere un file quando serve contesto
-- il legame plan × `o2/` è un **contratto verificato**, non una convenzione: il
-  generatore delle viste rompe la build su un file scollegato, non indicizzato o
-  con `ciclo` divergente dal plan (cfr. `view`, «Derivata implica verificata»)
-- può linkare nodi KB per contesto stabile
-- va ripulita quando il task viene completato
-- nel repo `metodo`, contiene solo task propri del metodo, non verifiche operative
-  sui repo adottanti
-
-Nel repo `metodo`, `o2/` non è una coda di governance cross-repo. È una coda di manutenzione del metodo: ristrutturazioni, semplificazioni, coerenza dei nodi, formalizzazioni già maturate e strumenti comuni già giustificati dall'uso reale.
-
-Le verifiche operative su un repo adottante vanno nello stadio Specify (`o2/`) di quel repo, anche quando possono produrre una generalizzazione metodologica. Il filing back verso `metodo` avviene dopo, quando il caso locale ha prodotto un criterio portabile. Questo evita che `metodo/o2/` diventi backlog dei progetti adottanti.
-
-## Frontmatter dei task
+Ogni file ha una riga nel plan e una voce nell'unico indice `o2/tasks.md`. Il
+generatore verifica questa corrispondenza. Il frontmatter minimo è:
 
 ```yaml
 ---
-sintesi: "Risultato atteso del task in una frase breve."
+sintesi: "Risultato atteso in una frase."
 ciclo: dev
 ---
 ```
 
-Il frontmatter dei task è obbligatorio perché permette agli strumenti cross-repo di distinguere i task operativi dai nodi stabili e di costruire report comparativi senza interpretare testo libero.
+`ciclo` vale `dev` o `runtime`. Non esiste `stato`: l'esistenza del file indica
+che il task è aperto; priorità e dipendenza vivono nel plan. Il corpo descrive lo
+stato corrente del lavoro, non accumula diari di sessione.
 
-Non c'è una proprietà `stato`: in `o2/` un task o è aperto o non è — lo stato coinciderebbe con l'esistenza del file, e un valore tautologico è un signifier che suggerisce un ciclo di vita che nel frontmatter non esiste. Le sfumature vivono dove già vivono: «trattenuto» è il significante `pause` in `o1/plan.md`, «spec non pronta» una chiosa nel footer o nel corpo, la data di apertura in git. (Soppressa 2026-07-04; non confondere con lo `stato: bozza|maturo` dei nodi `kb/`, che porta informazione reale di maturità e resta.) `sintesi` è una frase autoriale e autosufficiente sul risultato atteso: non replica il titolo, non registra priorità, non contiene dipendenze e non sostituisce il corpo del task. `ciclo: dev|runtime` è la facet del Mondo su cui il task insiste (cfr. `development-meta-cycle`). Priorità e dipendenze vivono in `o1/plan.md`, perché `plan` è il punto di supervisione corrente.
+Alla chiusura, contenuti stabili e decisioni risalgono nella KB o nei fili; riga,
+indice e file vengono rimossi insieme. Prima di eliminare copie operative nel
+Mondo si verifica che abbiano perso significato autonomo e che esistano target e
+autorità espliciti.
 
-Quando un task viene completato, il file viene eliminato insieme alla riga in
-`o1/plan.md`. Non serve uno stato `chiuso`: lo storico resta in git, nei fili di
-`i3/` e nei nodi aggiornati.
+Nel repository `metodo` entrano solo task di custodia del metodo. Le verifiche
+puntuali di un adottante nascono nel suo `o2/` e tornano qui soltanto quando
+producono una regola portabile.
 
-La chiusura non termina al confine del repository. Prima di potare il task,
-enumera le sue **materializzazioni note sulle superfici dichiarate in
-`world.md`**, usando la specifica e l'eventuale prescrizione `o3/` come mappa
-primaria: non è una scansione indiscriminata del Mondo. Per ciascuna applica il
-test del significato senza artefatto (`world`): effetti, evidenze e fonti con
-significato autonomo restano nel Mondo; copie operative consumate sono
-candidate alla pulizia. Potare resta fondere, non cancellare: prima si verifica
-che il contenuto utile sia risalito nell'artefatto o resti in una fonte
-durevole. Una rimozione esterna richiede sempre target esatto e autorità
-esplicita; altrimenti la chiusura propone l'atto e si ferma alla membrana.
-
-## Applicazione nei progetti adottanti
-
-- **`nixos`** — situazione attuale: `o2/` piccolo, con task tecnici puntuali. Confronto con il metodo: buon uso come spazio temporaneo — il contesto stabile resta nei nodi e nel codice.
-- **`bi`** — situazione attuale: `o2/` più ampio, con task legati a refactor, dati, fornitori e metodo. Confronto con il metodo: utile per non trasformare README e CLAUDE in backlog; richiede disciplina nel chiudere o spostare le decisioni in `kb/`/`i3/`.
-- **`economia`** — situazione attuale: `o2/` molto operativo, legato a scadenze, pratiche, immobili, tasse e investimenti. Confronto con il metodo: caso che chiarisce l'adattamento — `o2/` può contenere pratiche reali e non solo refactor, ma deve restare lavoro futuro.
-- **`salute`** — situazione attuale: `o2/` contiene task concettuali e operativi sostanziali, mentre ingest semplici possono restare solo righe in `plan`. Confronto con il metodo: conferma la soglia — ingest semplice può stare in `plan`, ma serie di nodi, loop pratica-verifica o interventi strutturali richiedono file dedicato finché non diventano nodi stabili.
-
-La pratica conferma che `o2/` è parte del metodo ma non della KB stabile. Quando un file contiene principi riusabili, il contenuto va promosso a nodo; quando contiene solo stato storico, va chiuso e lasciato a git/fili `i3/`. Nel repo `metodo`, la condizione di apertura di un task è ancora più stretta: deve riguardare la custodia del metodo, non l'applicazione puntuale del metodo altrove.
+La skill `exec specify` valuta la qualità interna dei task; `exec plan` ne
+controlla presenza, ordine e dipendenze.
 
 Connessioni:
 
-- [cognitive-artifact-design](cognitive-artifact-design.md)
 - [plan](plan.md)
-- [readme](readme.md)
-- [verdict](verdict.md)
-- [connection](connection.md)
-- [world](world.md)
+- [specify](specify.md)
 - [perform](perform.md)
+- [verdict](verdict.md)
+- [world](world.md)
+- [knowledge-base](knowledge-base.md)

@@ -18,10 +18,10 @@ Per ogni scaglione:
 6. misurare parole e nodi prima/dopo;
 7. eseguire build, audit e controlli specifici.
 
-Prossimo scaglione: lavoro e agenti (`plan`, `tasks`, `verdict`, `skill`). Il
-confronto deve distinguere supervisione, specifica operativa, memoria del
-giudizio e capacità invocabile, eliminando istruzioni replicate nei nodi e nelle
-skill reali.
+Prossimo scaglione: impianto teorico (`action-cycle`, `action-cycle-matrix`,
+`processing-layers`, `input`, `output`, i sei nodi-stadio e
+`development-meta-cycle`). Il confronto deve cercare una spiegazione minima del
+ciclo, separando il modello dalle sue viste e dalle istruzioni operative.
 
 ## Criterio di chiusura
 

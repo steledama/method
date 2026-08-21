@@ -28,6 +28,13 @@ fotografie degli adottanti, esempi storici e istruzioni d'installazione non
 servivano a quel confine. Il cluster scende da 3.675 a 796 parole; la KB è ora a
 47.129 parole e resta a 46 nodi.
 
+Il quarto scaglione conserva quattro oggetti perché non sono sinonimi: il plan
+ordina, il task specifica, il verdetto valuta e la skill rende permanente una
+capacità. La ridondanza era nelle loro genealogie, nelle fotografie dei repo e
+nella duplicazione delle procedure eseguibili, non nel confine concettuale. Il
+cluster scende da 7.840 a 1.116 parole; la KB è ora a 40.371 parole e resta a 46
+nodi.
+
 Il filo resta aperto per gli scaglioni elencati in `i2/potatura-kb.md`. La
 potatura non insegue una soglia numerica e non premia automaticamente il nodo
 più corto: protegge guardrail, distinzioni e fonti che cambiano davvero il modo

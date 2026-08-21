@@ -48,9 +48,9 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 - [claude](claude.md) — Costituzione operativa per agenti: regole d'azione, vincoli e bootstrap
 - [readme](readme.md) — La bussola dell'artefatto: orienta e punta, non immagazzina; ingresso per umano e LLM
-- [plan](plan.md) — Supervisione corrente del lavoro futuro: lo stadio Plan del ciclo di sviluppo; istanza `o1/plan.md`
-- [tasks](tasks.md) — Dettagli operativi e contesto dei singoli task aperti: la cartella `o2/`, stadio Specify
-- [verdict](verdict.md) — Il verdetto attuale del progetto, per filo/area aperta: lo stadio Compare (i3) del ciclo di sviluppo; fili in `i3/`, aggiornati in place; il verdetto non può essere più sicuro del materiale (provenienza delle quantità, materiale di casa prima)
+- [plan](plan.md) — Coda supervisionabile del lavoro futuro: ordine, obiettivi e dipendenze
+- [tasks](tasks.md) — Specifiche operative temporanee dei task sostanziali aperti
+- [verdict](verdict.md) — Giudizio corrente sulle tensioni aperte rispetto ai goal
 - [git-history](git-history.md) — Storia verificabile dei cambiamenti e dei diff
-- [skill](skill.md) — Workflow ricorrenti codificati per agenti
+- [skill](skill.md) — Capacità ricorrenti invocabili e loro confini rispetto a task, nodi e cadenze
 - [source-of-truth](source-of-truth.md) — Fonti contro cui verificare ciò che la KB dice
