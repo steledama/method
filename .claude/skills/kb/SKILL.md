@@ -45,6 +45,40 @@ campionare: una revisione profonda deve vedere sovrapposizioni e contraddizioni
 tra nodi lontani. Usa dimensione, titoli e ultima modifica Git soltanto per
 orientare l'attenzione; una data recente non prova freschezza semantica.
 
+### Profilo preliminare e copertura della lettura
+
+Prima del giudizio costruisci un profilo leggero del corpus: numero di nodi,
+righe totali, distribuzione delle dimensioni (almeno mediana ed estremi), stati
+di maturità, cluster del catalogo, hub, presenza di fatti datati e disponibilità
+di fonti primarie verificabili. I conteggi orientano l'ordine di lettura, non
+sono soglie di qualità: molti nodi brevi possono essere una rete concettuale
+ben atomizzata; pochi nodi lunghi possono custodire conoscenza forense non
+separabile senza perdita; una KB giovane può essere correttamente piccola.
+
+Mantieni durante la review un ledger di copertura, anche solo di lavoro, con una
+riga per ogni nodo e quattro giudizi: funzione dominante, regione di contenuto,
+volatilità/fonte primaria e disposizione proposta. Il ledger serve a provare
+che tutti i nodi sono stati letti e a rendere confrontabili decisioni prese su
+parti lontane; non va archiviato nel repository.
+
+Calibra poi la review sul baricentro osservato, senza cambiare i criteri:
+
+- in una KB tecnica o code-based verifica modello della macchina, reference e
+  runbook contro codice, configurazione e runtime; non pretendere un nodo per
+  ogni modulo interno se un indice operativo è la superficie documentale
+  canonica;
+- in una KB di entità, salute, finanza o altro dominio ad alta responsabilità
+  privilegia provenienza, temporalità e costo dell'errore: una data può essere
+  evidenza longitudinale, non cronaca da potare;
+- in una KB concettuale o riflessiva verifica soprattutto distinzioni,
+  provenienza delle fonti, sovrapposizioni semantiche e capacità dei router;
+  molti backlink non rendono automaticamente un hub sovraccarico;
+- in una KB forense conserva gotcha e catene causali non deducibili dallo stato
+  corrente; separa una timeline soltanto quando Git, log o segnali ne
+  ricostruiscono davvero la lezione;
+- in una KB piccola o iniziale distingue una lacuna reale dal perimetro ancora
+  giovane: l'assenza di nodi non è di per sé drift.
+
 Nel repository `method` verifica anche che ogni nodo resti metodologico e
 portabile, applicabile ad almeno due progetti, invece di trattenere dettagli di
 un singolo adottante.
@@ -124,17 +158,38 @@ Non fissare una percentuale di riduzione: le righe eliminate sono un esito, non
 un obiettivo. Una KB breve ma priva di fatti decisionali è peggiore di una KB
 più lunga e fedele.
 
+Prima di proporre `fondi` o `elimina`, esegui il **test di destinazione**:
+
+- identifica dove vivrà ogni fatto che resta corrente;
+- verifica che quella superficie esista davvero e sia la fonte appropriata,
+  invece di limitarti a nominarla;
+- distingui un link vivo da una menzione storica in i2, i3 o Git: la seconda
+  non va riscritta solo perché il nodo corrente scompare;
+- se il contenuto non è ricostruibile e non ha ancora una destinazione fedele,
+  la potatura è bloccata anche quando il nodo è mal collocato.
+
+La mappa di default è: invarianti e modelli stabili in KB; provenienza delle
+fonti nel register `world.md`; sintesi datate in i2; verdetti correnti in i3;
+lavoro futuro in o1/o2; esecutori e procedure vive nell'indice della
+collezione pertinente; fatti della macchina nel codice o nella configurazione
+che li rende veri.
+
 ## Output della diagnosi
 
 Concludi con:
 
-1. verdetto complessivo separando salute strutturale e semantica;
-2. contraddizioni o fatti stale con file e riga;
-3. candidati prioritizzati a potatura, fusione, divisione o riscrittura;
-4. valutazione del catalogo e dei punti d'ingresso;
-5. nodi già ben riusciti da non destabilizzare;
-6. ordine d'intervento proposto e rischi di perdita informativa;
-7. domanda esplicita al custode se vuole applicare le correzioni.
+1. profilo del corpus e limiti delle fonti disponibili;
+2. verdetto complessivo separando salute strutturale e semantica;
+3. contraddizioni o fatti stale con file e riga, distinguendo evidenza e
+   inferenza;
+4. ledger completo raggruppato per `mantieni`, `rifinisci`, `fondi`, `dividi`
+   o `elimina`, senza omettere i nodi mantenuti;
+5. candidati prioritizzati e destinazione verificata del contenuto rimosso;
+6. valutazione del catalogo e dei punti d'ingresso;
+7. nodi già ben riusciti da non destabilizzare;
+8. ordine d'intervento, rischi di perdita informativa e decisioni che
+   richiedono il custode del dominio;
+9. domanda esplicita al custode se vuole applicare le correzioni.
 
 ## Intervento autorizzato
 
@@ -144,8 +199,14 @@ Se il custode autorizza una fase successiva:
 2. riduci storia e stato transitorio conservando invarianti e lezioni;
 3. semplifica nodi sovraccarichi e sovrapposizioni;
 4. aggiorna il catalogo dopo che i confini si sono stabilizzati;
-5. formatta i file e riesegui tutti i comandi di `audit` più i check locali;
-6. riporta conteggi prima/dopo senza presentarli come misura della qualità.
+5. quando un controllo segnala documentazione mancante, correggi il confine del
+   controllo se la fonte canonica esiste già: non duplicare documentazione nel
+   posto sbagliato per rendere verde il report;
+6. dopo fusioni o eliminazioni cerca ogni riferimento residuo e classificalo
+   come link vivo da aggiornare o menzione storica da preservare;
+7. formatta i file, rigenera le viste e riesegui tutti i comandi di `audit` più
+   i check locali dichiarati dal fork;
+8. riporta conteggi prima/dopo senza presentarli come misura della qualità.
 
 Non archiviare il report: è una diagnosi i1 rigenerabile. Se cambia un verdetto
 aperto, il gate `/commit` valuta l'aggiornamento in place del filo `i3/`.

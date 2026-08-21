@@ -65,6 +65,19 @@ fotografia deterministica rapida, e `review`, revisione semantica profonda
 sempre preceduta dall'audit; entrambe diagnosticano e separano l'intervento
 successivo. Il conteggio non cresce, cresce la copertura.
 
+Il confronto sui sei adottanti conferma che `kb` deve restare trasversale ma
+non uniforme nel giudizio. Le KB osservate vanno da 4 a 201 nodi e da una
+mediana di 50 righe (`salute`, rete concettuale atomizzata) a quasi 198
+(`danea-auto`, quattro nodi forensi); `bi` è il corpus più pesante con 100 nodi
+e oltre 20.000 righe, mentre `nixos` ne ha 39, tutti tecnici e maturi. I quattro
+audit disponibili sono strutturalmente puliti nonostante baricentri e rischi
+opposti: la salute formale non predice quella semantica. La review canonica è
+quindi stata irrobustita con profilo preliminare, ledger completo di lettura,
+calibrazione per baricentro e rischio, test di destinazione prima della
+potatura e correzione dei falsi positivi alla fonte. È evidenza a favore della
+capacità unica con fork locali, non di skill diverse per tipo di KB: i criteri
+restano comuni, cambia ciò contro cui vengono verificati.
+
 **Cambia la natura, e va detto.** Il canone dichiara oggi che il quartetto
 distingue diagnosi, supervisione e prevenzione. Le due skill nuove sono **verbi
 dell'atto**, non review: `eval perceive` raccoglie i marker, la posta e i
