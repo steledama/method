@@ -11,13 +11,13 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.      |
-| ----- | --- | ----------------------------------------------- | --------- |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | pause [a] |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 
-`[a]` = risveglio anticipato al battito `/adottanti` del **2026-09-01**:
+`p1` = risveglio anticipato al battito `/adottanti` del **2026-09-01**:
 decisione sulla base del primo mese d'uso e del confronto sui sei adottanti;
 il 2026-11-01 resta solo fallback motivato se il materiale non fosse ancora
 discriminante. Vedi `o2/rivalutazione-skill-per-arco.md`.
