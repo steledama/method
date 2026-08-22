@@ -16,4 +16,4 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
   fondere concetti che non cambiano decisioni, distinzioni, compressione delle
   regole o fondamento teorico usato; revisione conclusa in cinque scaglioni,
   con misure prima/dopo.
-- `../presentation/interpretations.html` — vista Reveal.js generata dalla sorgente markdown con `../o3/build-presentation.sh`, apribile direttamente dal checkout; gli asset stanno in `../presentation/assets/`. Il PDF per stampa/distribuzione esce dall'export della vista e non è versionato (cfr. [view](../kb/view.md) per build e condivisione).
+- `../presentation/interpretations.html` — vista Reveal.js generata dalla sorgente markdown con `../o3/build-presentation.sh`, apribile direttamente dal checkout; gli asset stanno in `../presentation/assets/`. Il PDF per stampa/distribuzione esce dall'export della vista e non è versionato (cfr. [presentation](../kb/presentation.md) per build e condivisione).

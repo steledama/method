@@ -62,11 +62,14 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 ### Fonti presenti
 
 - **The Design of Everyday Things** — Revised and Expanded, 2013, EPUB, ISBN 978-0465050659.
-  Fonte canonica per `action-cycle`. L'ed. 2013 è quella che **aggiunge** affordance e
-  signifier rispetto all'orig. 1988. Scelto l'EPUB (testo nativo riflowabile) come miglior
+  Fonte canonica per `action-cycle` (Cap. 2, il ciclo a sette stadi), `system-image` e
+  `affordance-signifier` (entrambi Cap. 1) e `goal` (Cap. 2). L'ed. 2013 è quella che
+  **aggiunge** affordance e signifier rispetto all'orig. 1988. Scelto l'EPUB (testo nativo riflowabile) come miglior
   i1 per la distillazione.
 - **Emotional Design — Why We Love (or Hate) Everyday Things** — 2004, PDF, ISBN
-  978-0465051366. Citata in `action-cycle`; copia unica, strato testo verificato.
+  978-0465051366. Fonte di `processing-layers` (i tre livelli visceral/behavioral/
+  reflective, modello sviluppato con Ortony e Revelle); copia unica, strato testo
+  verificato.
 - **Things That Make Us Smart: Defending Human Attributes in the Age of the Machine** — Don
   Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). **Volume integrale ora
   reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),

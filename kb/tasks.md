@@ -20,13 +20,13 @@ ciclo: dev
 ```
 
 `ciclo` vale `dev` o `runtime`. Non esiste `stato`: l'esistenza del file indica
-che il task è aperto; priorità e dipendenza vivono nel plan. Il corpo descrive lo
-stato corrente del lavoro, non accumula diari di sessione.
+che il task è aperto; priorità e dipendenza vivono nel plan. Il corpo descrive
+lo stato corrente del lavoro, non accumula diari di sessione.
 
-Alla chiusura, contenuti stabili e decisioni risalgono nella KB o nei fili; riga,
-indice e file vengono rimossi insieme. Prima di eliminare copie operative nel
-Mondo si verifica che abbiano perso significato autonomo e che esistano target e
-autorità espliciti.
+Alla chiusura, contenuti stabili e decisioni risalgono nella KB o nei fili;
+riga, indice e file vengono rimossi insieme. Prima di eliminare copie operative
+nel Mondo si verifica che abbiano perso significato autonomo e che esistano
+target e autorità espliciti.
 
 Nel repository `metodo` entrano solo task di custodia del metodo. Le verifiche
 puntuali di un adottante nascono nel suo `o2/` e tornano qui soltanto quando

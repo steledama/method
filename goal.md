@@ -14,10 +14,11 @@ le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
   (`/kb`) e filo
-  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro:
-  potatura progressiva della KB e task `pause` di rivalutazione della clausola
-  di uscita (`Ob. 1` nel plan); dei verdetti pendenti, bozza→maturo e facet
-  attendono l'uso reale;
+  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro: la
+  campagna di potatura è **conclusa** (rete a 46 nodi, audit, copertura, facet
+  e tasks verdi alla review del 2026-08-22); resta aperto il solo task `pause`
+  di rivalutazione della clausola di uscita (`Ob. 1` nel plan); dei verdetti
+  pendenti, bozza→maturo e facet attendono l'uso reale;
   tipologia e matrice hanno avuto il loro **test esterno**
   (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
   la forzatura emersa è risolta nel canone con la quarta regione `N` (norma
@@ -34,12 +35,17 @@ proprio `method`, senza che `metodo` gestisca le loro code.
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
   lavoro: `crm` e `danea-auto` sono entrati come quinto e sesto adottante il
-  2026-08-12, entrambi allineati al canone corrente; obiettivo **a regime** —
-  il giro vive nei `method` degli
-  adottanti, il battito è la riga mensile `/adottanti` in `## Scadenze`
-  e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
-  (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
-  quattro adottanti allora presenti e potate in giornata; watchpoint: il
+  2026-08-12; obiettivo con **un fronte aperto** — il giro vive nei `method`
+  degli adottanti e il battito è la riga mensile `/adottanti` in `## Scadenze`,
+  ma **tre prescrizioni restano aperte** in `o3/` (`chiusura-task-controlla-world`,
+  `revisione-bootstrap-adottante`, `semplificazione-lessico-struttura`), tutte
+  anteriori al commit `ab7003b` a cui i marker si dichiarano `aligned`.
+  Recepimento verificato il 2026-08-22 sui quattro checkout locali di `svezia`:
+  `chiusura-task-controlla-world` recepita da tutti e quattro,
+  `semplificazione-lessico-struttura` non ancora da `bi` e `crm`. `economia` e
+  `salute` stanno su `deck` e non sono stati letti in questo giro: limite del
+  checkout, non certificazione negativa. La verifica sui sei è materia del
+  battito del 2026-09-01; watchpoint: il
   collaudo d'uso delle skill per arco negli adottanti: `bi` ha iniziato a
   girarle ripetutamente su eventi reali dal 2026-08-05; restano da misurare gli
   altri profili e la clausola di uscita, anticipata dal custode al battito del

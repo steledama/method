@@ -26,7 +26,9 @@ discriminante. Vedi `o2/rivalutazione-skill-per-arco.md`.
 
 - 2026-09-01 → `/adottanti`, audit runtime-o1 dei sei adottanti
   (mensile; secondo battito anticipato al 2026-08-01) → esiti nel filo
-  [i3/audit-adottanti.md](../i3/audit-adottanti.md)
+  [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro verifica anche il
+  recepimento delle tre prescrizioni aperte in `o3/` e le baseline dei due
+  ingressi del 2026-08-12.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

@@ -32,36 +32,58 @@ verdetti che **attendono l'uso reale**:
   (nessuna facet finché non ne emerge una reale: l'opt-in regge); resta da osservare
   `economia` con `tipo:` opzionale.
 
-## La coerenza del canone regge; il drift che resta è di propagazione
+## La coerenza del canone regge; il debito residuo è sperimentale
 
-La review semantica ha letto l'intero corpus contro le fonti e la struttura è
-risultata integra: nessun nodo da fondere, dividere o eliminare, e il test di
-potatura superato da tutti. Il drift trovato non era nel contenuto dei nodi ma
-nella **propagazione**: un cambio di cornice (Engelbart che contiene i giganti,
-col pattern Karpathy declassato a istanza) e un cambio di territorio (l'ingresso
-di `crm` e `danea-auto`) avevano raggiunto il nodo che li decideva senza
-raggiungere tutte le superfici che li ripetevano — `zettelkasten` si diceva
-ancora «primo dei tre pilastri», il README annunciava «i tre giganti» a una riga
-e la cornice nuova a un'altra, e sei nodi enumeravano quattro o cinque adottanti
-come inventario corrente.
+La review semantica completa conferma l'integrità strutturale della KB e non ha
+trovato nodi da fondere o eliminare: gli atomi brevi del ciclo conservano
+funzioni autonome. Il giro corrente porta la rete da 45 a **46 nodi** con l'unica
+divisione emersa dal test di potatura — `view` conteneva concetto, norma,
+runbook e l'inventario delle viste di `metodo`, quattro funzioni a ritmo di
+cambiamento diverso. La disciplina della derivazione resta in `view`, la
+materializzazione della superficie presentativa passa al nodo nuovo
+`presentation`, e la fotografia vista→sorgente scende dove è vera, nell'indice
+`o3/prescriptions.md`. Gli heading citati dalle skill (`commit`, `adottanti`)
+sono rimasti in `view`.
 
-La lezione portabile è che **un roster di adottanti dentro un nodo è una seconda
-rappresentazione del territorio**, che vive nel register `world.md`: deriva in
-silenzio a ogni nuovo ingresso, ed è la stessa patologia già incisa altrove come
-«un fatto, una rappresentazione». La correzione non è stata far crescere gli
-elenchi da quattro a sei — sarebbe scaduta al settimo — ma riportare al nodo la
-generalizzazione portabile e gli esempi vivi, lasciando l'inventario al register.
-`development-goal` era il caso più netto: teneva le fotografie dei cinque mentre
-la sua stessa regola dice che la fotografia è dell'adottante.
+La concentrazione dell'hub era stata corretta solo a metà: `cognitive-artifact-design`
+aveva guadagnato la sezione router ma continuava a rinarrare per intero
+`method-development`, terza copia della stessa spiegazione insieme al README. Ora
+instrada e non racconta.
 
-Il presidio è duplice e vive nello strumento, non nella memoria: `kb_tools`
-verifica ora i link ripetuti nei footer `Connessioni:` e i link rotti **fuori
-dall'inventario dei nodi**. Il secondo controllo nasce da un caso reale — un
-segnale di `goal.md` puntava a un filo chiuso nel commit `8c07d1d` — invisibile
-prima perché il checker copriva solo `kb/`, mentre register, bussola e indici
-delle collezioni restavano scoperti. È la terza incarnazione del vincolo di
-`constraint`: installato tardi, al primo giro ha **rivelato** il drift già
-maturato invece di prevenirlo.
+Il difetto ricorrente di questo giro è stato di **collocazione**, non di verità.
+Quattro superfici canoniche trattenevano una fotografia di chi le incarna oggi:
+l'inventario dei sei adottanti in `world` (ora tre configurazioni ricorrenti,
+sulla forma già usata da `source-of-truth`), l'inventario delle viste in `view`,
+un'asserzione host-local su `gdrive/` e un fatto al futuro su un adottante. Il
+criterio è ora inciso in `node`: illustrare con la configurazione ricorrente, non
+con l'inventario del register.
+
+Il secondo difetto era una classe di **riferimenti che non atterravano**, tutti
+invisibili al link checker perché espressi in backtick o come titolo di sezione:
+`affordance-signifier` attribuiva a `kb/skill.md` un giudizio che vive in `i3/`;
+due file citavano in `perceive` e `perform` una sezione dissolta in prosa; il
+register attribuiva _Emotional Design_ ad `action-cycle` invece che a
+`processing-layers`; e una skill citava in `plan` la «terza specie» di scadenza,
+che il nodo descriveva senza nominare. Tutti chiusi. `action-cycle` ha ora i
+propri `## Riferimenti` — **con un limite dichiarato**: il capitolo non è stato
+riverificato sul binario, perché `gdrive/` non è montato in questo checkout.
+
+Una contraddizione normativa è stata sciolta: `CLAUDE.md` prescriveva ancora di
+bonificare gli inventari di path del metodo nei `CLAUDE.md` e `README.md` degli
+adottanti a ogni rinomina — esattamente il coupling che «dichiara e taci»
+(`method-development`) aveva abolito e che il README vieta. Ora la regola rimanda
+alle sole connessioni intenzionali.
+
+Il presidio deterministico continua a vivere nello strumento: `kb_tools`
+verifica footer, catalogo e link anche fuori dall'inventario dei nodi, e il nodo
+`kb-tools` copre ora anche il sottocomando `tasks`, che la documentazione aveva
+perso. Audit, inventory, coverage, facets e tasks sono verdi; i sei esecutori
+restano interamente coperti. Il corpo dei nodi è stato riportato a ~80 colonne
+con verifica word-level che nessun contenuto sia cambiato, e la convenzione è
+dichiarata in `node`. La review non apre nuovi task: il debito residuo di questo
+filo resta quello sperimentale già dichiarato — maturazione dei nodi in bozza,
+secondo specimen esterno per la tipologia e osservazione delle facet negli
+adottanti.
 
 I verdetti elencati sopra non si spostano: bozza→maturo, tipologia e facet
 continuano ad attendere l'uso reale e un secondo specimen esterno.

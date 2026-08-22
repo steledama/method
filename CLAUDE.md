@@ -69,7 +69,7 @@ Aggiornare quando una modifica del metodo in un progetto è generalizzabile. Ver
 
 ## Come propagare modifiche ai progetti collegati
 
-I progetti leggono i nodi via symlink — vedono automaticamente le modifiche. Non serve aggiornamento manuale salvo che cambi nome o path di un nodo: in quel caso aggiornare i link nei `CLAUDE.md` e `README.md` di tutti i progetti collegati.
+I progetti leggono i nodi via symlink — vedono automaticamente le modifiche. Non serve aggiornamento manuale. Se cambia nome o path di un nodo, l'adottante aggiorna solo le **connessioni intenzionali** che ha dichiarato: la sezione README canonica (che aggancia il solo hub `cognitive-artifact-design.md`) e i punti in cui una regola o uno strumento locale dipende davvero da quella specifica. Non esiste un inventario dei path del metodo da bonificare a ogni rinomina: replicarlo è coupling alla struttura interna del canone invece che alla sua interfaccia (cfr. `kb/method-development.md`, «Il confine canone↔adottante: dichiara e taci»).
 
 ## Push remoto
 

@@ -45,3 +45,10 @@ operativa consumata, mentre diario, storia clinica, quadro e scadenze sono il
 contenuto durevole già risalito. La propagazione ai fork locali della skill è
 predisposta in `o3/chiusura-task-controlla-world.md`; il filo resta aperto fino
 al recepimento degli adottanti.
+
+Stato del recepimento, verificato il 2026-08-22 leggendo lo scope `plan` di
+`exec` nei fork: **quattro su sei** l'hanno cablato — `nixos`, `bi`, `crm` e
+`danea-auto`, i checkout locali su `svezia`. `economia` e `salute` stanno su
+`deck` e non sono stati letti in questo giro: è un limite del checkout, non una
+certificazione negativa. La verifica sui sei è materia del battito
+`/adottanti` del 2026-09-01.

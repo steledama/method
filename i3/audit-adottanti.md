@@ -88,6 +88,29 @@ desktop, Danea, LibreOffice e sito e-commerce restano non certificati. Il
 cursore mensile resta al 2026-08-01: questi sono segnali per la baseline di
 settembre, non un terzo battito anticipato.
 
+Terza nota fuori giro, verificata il **2026-08-22** durante un `eval compare`,
+non un battito: le **tre prescrizioni aperte** in `o3/` sono tutte anteriori a
+`ab7003b`, il commit a cui i quattro marker raggiungibili si dichiarano
+`aligned` il 2026-08-21 — quindi il loro mancato recepimento non è ritardo
+event-driven fra un battito e l'altro. `chiusura-task-controlla-world` risulta
+recepita da tutti e quattro; `semplificazione-lessico-struttura` **no**: `bi`
+porta ancora `ali` e `atrio` in `README.md` e `ali` in `CLAUDE.md`, `crm` porta
+`atrio` in `README.md` e intitola `## Bootstrap e atrio` la sezione del proprio
+marker, mentre dichiara «nessuna eccezione oltre alla toolchain». Non è una
+divergenza motivata: è un vuoto non visto. `economia` e `salute` stanno su
+`deck`, non letti in questo giro. Il cursore mensile resta al 2026-08-01:
+questo è materiale pre-raccolto per il battito di settembre, che parte dalla
+verifica invece che dalla scoperta.
+
+Ne segue un **watchpoint** sul valore probatorio del marker: `aligned` ha qui
+certificato più di quanto avesse verificato, e su un gap **documentale** —
+esattamente ciò che `aligned` copre, non il runtime esterno che
+`method-observatory` già esclude. Resta watchpoint e non filo autonomo: è una
+istanza sola, e la guardia dal-basso di `method-development` chiede il secondo
+segnale prima di generalizzare. Se il battito di settembre ne trova un secondo,
+la domanda diventa se `/method` debba verificare il recepimento delle
+prescrizioni aperte invece di dichiararlo.
+
 Classificazione degli scostamenti: **nessuna prescrizione nuova** (le due in
 canna — quinta domanda attiva, rifilatura pianificata — coprono tutto il
 drift osservato), **nessun segnale i1 nuovo** (la maturazione della terza
