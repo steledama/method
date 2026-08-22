@@ -18,13 +18,16 @@ interpretano e modificano la conoscenza.
 - `backlinks NODE`, `orphans`: topologia della rete;
 - `readme`, `migration`: catalogo e convenzioni documentali;
 - `facets`: attributi di dominio dichiarati nel frontmatter;
+- `tasks`: frontmatter dei task aperti, per il contratto tra plan, indice e file
+  della collezione;
 - `terms`: candidati terminologici da valutare, non nuovi nodi automatici;
 - `inventory`, `coverage`: inventario e copertura per progetti con codice.
 
 Il nucleo comune resta indipendente dal dominio. Un adottante può aggiungere
 controlli `facts` o `fidelity` quando dispone di fonti primarie leggibili, e può
 dichiarare facet locali tramite `EXTENDED_FACETS`. Le estensioni preservano i
-comandi base, così skill e audit comparativi possono usare la stessa interfaccia.
+comandi base, così skill e audit comparativi possono usare la stessa
+interfaccia.
 
 La documentazione segue una sola gerarchia: README rende lo strumento
 rintracciabile, CLAUDE indica quando usarlo, i nodi ne definiscono capacità e

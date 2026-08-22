@@ -4,37 +4,39 @@ stato: bozza
 
 # View
 
-La view è una rappresentazione navigabile e derivata: rende leggibile una sorgente
-del progetto senza diventare una seconda fonte di verità. È la cerniera o2/i2 del
-metodo (cfr. `action-cycle`): o2 quando orienta una decisione, i2 quando viene
-letta per attribuire significato a ciò che sintetizza.
+La view è una rappresentazione navigabile e derivata: rende leggibile una
+sorgente del progetto senza diventare una seconda fonte di verità. È la cerniera
+o2/i2 del metodo (cfr. `action-cycle`): o2 quando orienta una decisione, i2
+quando viene letta per attribuire significato a ciò che sintetizza.
 
-La vista Reveal a slide è una forma concreta di view, adatta a una sintesi che si scorre.
-Non è l'unica forma possibile. La forma segue la domanda (Karpathy): pagina
-markdown, tabella di confronto, presentazione a slide, grafico, canvas e home statica sono
-forme alternative, scelte secondo cosa devono far capire o decidere.
+La forma segue la domanda (Karpathy): pagina markdown, tabella di confronto,
+presentazione a slide, grafico, canvas e home statica sono forme alternative,
+scelte secondo cosa devono far capire o decidere. La vista a slide è adatta a
+una sintesi che si scorre, non è l'unica forma possibile. Questo nodo tiene la
+**disciplina della derivazione** — a quali obblighi una vista risponde; il
+formato che si apre, la build che lo produce e il modo in cui raggiunge un
+lettore vivono in `presentation`.
 
 ## Vista derivata, mai seconda fonte
 
-Una view versionata deve poter essere aperta direttamente dal checkout, ma il suo
-contenuto non si mantiene a mano se esiste una sorgente canonica. La sorgente resta
-nel file-ciclo o nella collezione-stadio; la view cambia la forma di lettura.
+Una view versionata deve poter essere aperta direttamente dal checkout, ma il
+suo contenuto non si mantiene a mano se esiste una sorgente canonica. La
+sorgente resta nel file-ciclo o nella collezione-stadio; la view cambia la forma
+di lettura.
 
-Nel repo `metodo` le viste generate vivono in `presentation/`:
-
-- `presentation/interpretations.html` deriva da `i2/metodo-in-sintesi.md`;
-- `presentation/tasks.html` deriva da `o1/plan.md` e dai file in `o2/`;
-- `presentation/verdict.html` deriva dai fili in `i3/`;
-- `presentation/index.html` deriva dal titolo di `README.md`, dagli intro dei due register `goal.md`/`world.md` e dalla configurazione degli slot; le collezioni-stadio le _collega_, non le rende (una sorgente per sezione: nessuna divergenza possibile).
-
-Le sorgenti rimangono pure: `i2/`, `o2/`, `o1/plan.md` e `i3/` non incorporano HTML generato.
+Le sorgenti restano pure: le collezioni non incorporano l'HTML generato, e ogni
+sezione della vista deriva da una sorgente sola — così nessuna divergenza è
+rappresentabile. Quali viste esistano in un repo e da cosa derivino è una
+fotografia della sua macchina: vive nell'indice della collezione che le genera,
+non qui.
 
 Una vista mantenuta a mano è una seconda fonte di verità travestita, anche
 quando si dichiara derivata. Non degrada in modo uniforme: diverge dove la
 sorgente si muove, cioè sul fatto più fresco — quello per cui la si apre. Il
-danno non è l'incompletezza ma l'**inversione**: continua a proporre l'azione che
-la sorgente ha appena ritirato. Ne segue che il test giusto non è un campione sul
-contenuto vecchio, ma il confronto con l'ultima modifica della fonte.
+danno non è l'incompletezza ma l'**inversione**: continua a proporre l'azione
+che la sorgente ha appena ritirato. Ne segue che il test giusto non è un
+campione sul contenuto vecchio, ma il confronto con l'ultima modifica della
+fonte.
 
 ## Derivata implica verificata
 
@@ -42,16 +44,16 @@ Generare non basta quando le sorgenti sono più d'una e possono contraddirsi: il
 generatore le legge come un **contratto** ed esce con errore invece di produrre
 un output plausibile — un valore dichiarato due volte che diverge, una sorgente
 non indicizzata dove l'indice è la chiave, una riga che non risolve al proprio
-dettaglio. È una forcing function (`constraint`), e prende il posto del controllo
-periodico: gli audit strutturali non attraversano il confine tra una vista e ciò
-da cui deriva, quindi la domanda utile non è chi controlla le viste ma quali
-viste non sono ancora generate — e, tra quelle generate, quali derivano da più
-fonti senza verificarle.
+dettaglio. È una forcing function (`constraint`), e prende il posto del
+controllo periodico: gli audit strutturali non attraversano il confine tra una
+vista e ciò da cui deriva, quindi la domanda utile non è chi controlla le viste
+ma quali viste non sono ancora generate — e, tra quelle generate, quali derivano
+da più fonti senza verificarle.
 
 Quando il generatore incontra una sorgente difforme dallo schema maggioritario,
-la difformità si legge prima di normalizzarla: può essere un secondo significato,
-e allora è il contratto ad ammettere entrambe le forme. Appiattire la fonte sulla
-forma prevista dal parser distrugge informazione in silenzio.
+la difformità si legge prima di normalizzarla: può essere un secondo
+significato, e allora è il contratto ad ammettere entrambe le forme. Appiattire
+la fonte sulla forma prevista dal parser distrugge informazione in silenzio.
 
 ## Freschezza: la vista non è più vecchia delle sue fonti
 
@@ -73,72 +75,18 @@ la sua rigenerazione entra nel commit. Non è più una domanda di giudizio.
 
 Una vista versionata è dunque un artefatto con un debito: la si versiona perché
 deve aprirsi dal checkout senza build, e si paga l'obbligo di rigenerarla
-nell'atto stesso che tocca le sue fonti. Un hook che lo faccia da sé resta fuori:
-richiede installazione host-locale, cioè stato non versionato dentro un artefatto
-che si vuole portabile — la stessa via che qui si era già rotta in silenzio dopo
-un rename.
-
-## HTML apribile direttamente
-
-Il formato operativo minimo è un HTML versionato con path relativi, apribile con
-doppio click o `xdg-open presentation/interpretations.html`. Non deve richiedere build,
-deploy, servizi permanenti o `fetch` di file locali, che i browser bloccano sotto
-`file://`.
-
-Reveal può essere caricato da CDN senza introdurre dipendenze installate. L'HTML si
-apre via `file://`; la connessione Internet serve solo a caricare il framework, non
-a servire i file locali. Se serve uso offline, Reveal va vendorizzato in `presentation/assets/`.
-La home statica non usa Reveal. Ha un CSS proprio (`system-image.css`) condiviso
-tra i fork adottanti, ma il contratto è minimale: token, base e sole classi
-emesse dal builder della home. Le classi delle viste Reveal restano nel loro CSS.
-
-## Grafica nativa e build minima
-
-Le view usano HTML e CSS nativi per layout, diagrammi e componenti visivi; SVG
-inline è disponibile quando serve controllo geometrico più preciso. Motori di
-diagrammi come Mermaid introducono parser, vincoli di layout e dipendenze runtime
-sproporzionati rispetto al vantaggio in presentazioni curate: non fanno parte del
-pattern di default.
-
-La build è versionata in due entrypoint: `o3/build-presentation.sh` usa
-Pandoc/Reveal per le viste a slide e `o3/build-system-image.sh` genera la home
-statica. Gli script Python in `o3/` restano stdlib-only; gli asset comuni vivono
-in `presentation/assets/`. Due generazioni consecutive devono produrre lo stesso output.
-
-## Apertura locale e condivisione on-demand
-
-Il default è aprire il file localmente:
-
-```bash
-xdg-open presentation/interpretations.html
-```
-
-Solo per condividerlo temporaneamente con un altro dispositivo sulla stessa LAN/VPN:
-
-```bash
-python3 -m http.server 8000 --bind 0.0.0.0 --directory presentation
-```
-
-`http.server` non modifica il firewall. Sullo stesso host `localhost:8000`
-funziona senza aprire porte; da un altro dispositivo la porta TCP scelta deve essere
-ammessa dal firewall per la sola subnet o interfaccia privata necessaria. Terminata
-la condivisione, si chiude il processo e si rimuove l'eventuale regola temporanea.
-
-## Vincolo conservato
-
-Una vista autonoma non giustifica un servizio permanente senza consumatori
-reali. Hook host-local e copie servite separatamente dal checkout possono
-rompersi in silenzio dopo un rename; apertura locale e condivisione on-demand
-mantengono invece sorgente e resa nello stesso artefatto. La condizione di
-revisione è un bisogno reale di disponibilità continua o accesso remoto, non la
-sola possibilità tecnica di mantenere un servizio.
+nell'atto stesso che tocca le sue fonti. Un hook che lo faccia da sé resta
+fuori: richiede installazione host-locale, cioè stato non versionato dentro un
+artefatto che si vuole portabile — la stessa via che qui si era già rotta in
+silenzio dopo un rename.
 
 Connessioni:
 
+- [presentation](presentation.md)
 - [output](output.md)
 - [action-cycle](action-cycle.md)
+- [constraint](constraint.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [processing-layers](processing-layers.md)
 - [karpathy-pattern](karpathy-pattern.md)
-- [project-structure](project-structure.md)
 - [verdict](verdict.md)

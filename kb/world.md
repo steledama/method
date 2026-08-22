@@ -26,26 +26,35 @@ solo se scritta (cfr. `action-cycle`).
 ## I tre confini
 
 - **`world` vs i1** — il grezzo non versionato sta nel Mondo; la cattura
-  versionata e filtrata per rilevanza sta in `i1/`. Le fonti
-  autorevoli (libri, documenti) vivono su una superficie non versionata, spesso
-  Drive, fuori dall'artefatto: sono Mondo — fonte di verità, non i1; ne
-  diventano i1 solo quando un'elaborazione le cattura. Di esse l'artefatto
-  versiona solo la **provenienza**, nella sezione fonti del register
-  `world.md`: un register che indicizza il Mondo è legittimo, mentre la
-  superficie fisica non ha manifest (cfr. «Il register `world.md`»).
+  versionata e filtrata per rilevanza sta in `i1/`. Le fonti autorevoli (libri,
+  documenti) vivono su una superficie non versionata, spesso Drive, fuori
+  dall'artefatto: sono Mondo — fonte di verità, non i1; ne diventano i1 solo
+  quando un'elaborazione le cattura. Di esse l'artefatto versiona solo la
+  **provenienza**, nella sezione fonti del register `world.md`: un register che
+  indicizza il Mondo è legittimo, mentre la superficie fisica non ha manifest
+  (cfr. «Il register `world.md`»).
 - **i1 vs i2** — il confine è l'ingresso della valenza e dell'interpretazione,
   non la fedeltà della copia. Estrazione lossless e distillazione lossy ma
   valenza-neutra possono essere entrambe i1.
 - **o2 vs o3** — o2 è una superficie di decisione; o3 è una prescrizione
   versionata dell'atto. L'atto realizzato sta in `world`.
 
-In Norman il Mondo è la scatola nera che risponde all'azione: il ciclo descrive come l'utente agisce sull'artefatto e ne valuta la risposta, ma il Mondo resta dato, non aperto. Il metodo estende Norman proprio su questo punto. La relazione tra runtime cycle e development meta-cycle sdoppia il Mondo: il _Mondo runtime_ è la realtà su cui l'artefatto agisce (un'email inviata, una transazione, un payload pubblicato, un gesto corporeo); il _Mondo di sviluppo_ è l'artefatto stesso, su cui si agisce con un commit e di cui si percepisce la risposta come lint, audit, test, errore. Ogni sistema runtime è il Mondo di un meta-ciclo di sviluppo che lo precede: non l'o3, ma l'artefatto risultante dall'o3. Il metodo apre così la scatola nera che Norman lasciava chiusa.
+In Norman il Mondo è la scatola nera che risponde all'azione: il ciclo descrive
+come l'utente agisce sull'artefatto e ne valuta la risposta, ma il Mondo resta
+dato, non aperto. Il metodo estende Norman proprio su questo punto. La relazione
+tra runtime cycle e development meta-cycle sdoppia il Mondo: il _Mondo runtime_
+è la realtà su cui l'artefatto agisce (un'email inviata, una transazione, un
+payload pubblicato, un gesto corporeo); il _Mondo di sviluppo_ è l'artefatto
+stesso, su cui si agisce con un commit e di cui si percepisce la risposta come
+lint, audit, test, errore. Ogni sistema runtime è il Mondo di un meta-ciclo di
+sviluppo che lo precede: non l'o3, ma l'artefatto risultante dall'o3. Il metodo
+apre così la scatola nera che Norman lasciava chiusa.
 
-Il Mondo è l'elemento più specifico al dominio dell'intero ciclo. La meccanica
-è invariante; ciò che cambia è di che cosa è fatto `world` e quali atti e
-segnali lo attraversano. Il Mondo porta fatti favorevoli o sfavorevoli, ma non
-è la sorgente della loro valenza: la valenza entra quando l'artefatto interpreta
-e confronta quei fatti con un Goal.
+Il Mondo è l'elemento più specifico al dominio dell'intero ciclo. La meccanica è
+invariante; ciò che cambia è di che cosa è fatto `world` e quali atti e segnali
+lo attraversano. Il Mondo porta fatti favorevoli o sfavorevoli, ma non è la
+sorgente della loro valenza: la valenza entra quando l'artefatto interpreta e
+confronta quei fatti con un Goal.
 
 ## Il criterio del significato senza artefatto
 
@@ -92,39 +101,38 @@ La membrana può avere **più superfici fisiche** per lo stesso adottante — la
 cartella sincronizzata, un mount Drive per gli asset, un sistema esterno in
 esercizio — purché **dichiarate** nel register `world.md`: è la dichiarazione a
 tenere onesta la system image, non l'unicità del supporto. Il medium resta una
-decisione tecnica reversibile; se una superficie degrada, il fallback è un
-altro supporto world, non il ritorno a substrato.
+decisione tecnica reversibile; se una superficie degrada, il fallback è un altro
+supporto world, non il ritorno a substrato.
 
 ## Il register `world.md`
 
 Il polo World ha un register versionato nella root: **`world.md`**, gemello di
-`goal.md` (il goal è il nord, il world è il
-territorio — cfr. `goal`). È l'indice del Mondo che l'artefatto, con i suoi
-goal, ritiene rilevante: non versiona il mondo (che persiste da sé), ne
-versiona la _vista_.
+`goal.md` (il goal è il nord, il world è il territorio — cfr. `goal`). È
+l'indice del Mondo che l'artefatto, con i suoi goal, ritiene rilevante: non
+versiona il mondo (che persiste da sé), ne versiona la _vista_.
 
 Il register **assorbe due file che il canone teneva separati**:
 
 - `map.md` — l'indice-di-dominio (entità, sistemi, flussi, attori legati ai
-  nodi) _era già_ un indice del territorio, cioè del Mondo; la struttura
-  interna del repository è già visibile nella root. Ciò che resta di
-  insostituibile è il territorio: vive qui.
+  nodi) _era già_ un indice del territorio, cioè del Mondo; la struttura interna
+  del repository è già visibile nella root. Ciò che resta di insostituibile è il
+  territorio: vive qui.
 - `sources.md` — il registro di provenienza delle fonti-mondo autorevoli
   (`source-of-truth`) era «sibling di `map.md`»: i sibling si fondono nella
-  sezione fonti del register del polo, che continua ad alimentare i
-  `## Riferimenti` dei nodi (i3).
+  sezione fonti del register del polo, che continua ad alimentare i `##
+Riferimenti` dei nodi (i3).
 
 La forma segue un **contratto machine-readable** condiviso con `goal.md`:
 l'**intro** (dall'H1 al primo H2) è il polo in sintesi — di che cosa è fatto il
-Mondo di questo artefatto — ed è ciò che la home rende come polo World,
-markdown fedele senza euristiche (cfr. `readme`); le sezioni successive sono la
+Mondo di questo artefatto — ed è ciò che la home rende come polo World, markdown
+fedele senza euristiche (cfr. `readme`); le sezioni successive sono la
 profondità on-demand, tipicamente:
 
-- **superfici della membrana** — quali superfici fisiche esistono e dove
-  puntano (`gdrive/`, mount, sync, sistemi esterni), dichiarate una volta;
-- **territorio** — entità, sistemi, fonti di verità e attori, legati ai nodi
-  che li spiegano (l'eredità di `map.md`: nei repo tecnici host e flussi, in
-  `economia` conti ed entità, in `salute` assi e pratica);
+- **superfici della membrana** — quali superfici fisiche esistono e dove puntano
+  (`gdrive/`, mount, sync, sistemi esterni), dichiarate una volta;
+- **territorio** — entità, sistemi, fonti di verità e attori, legati ai nodi che
+  li spiegano (l'eredità di `map.md`: in un repo tecnico host e flussi, in un
+  dominio finanziario conti ed entità, in uno riflessivo assi e pratica);
 - **fonti** — la provenienza delle fonti-mondo autorevoli: quale edizione regge
   quale nodo (l'eredità di `sources.md`).
 
@@ -135,46 +143,46 @@ esisteva solo «dove il dominio ha un territorio da indicizzare», `world.md` c'
 in ogni repo: ogni artefatto ha un Mondo — varia la taglia del territorio, non
 l'esistenza del polo.
 
-## Il Mondo nei progetti adottanti
+## Configurazioni ricorrenti della cerniera bassa
 
-L'elenco separa ciò che accade nel Mondo dai riflessi versionati.
+Alcune forme ricorrenti di come la cerniera si distribuisce tra `world`, o3 e
+i1, non l'inventario del territorio (che vive nel register `world.md`):
 
-- **`salute`** — `world`: corpo, mente, visite, pratiche, conversazioni e
-  referti originali; o3: promemoria e canovacci; i1: percezioni, referti o
-  trascrizioni catturati quando serve durata.
-- **`economia`** — `world`: conti, interlocutori, email, telefonate, incontri e
-  transazioni; o3: canovacci e messaggi predisposti; i1: export e
-  corrispondenza ripulita per analisi.
-- **`nixos`** — `world`: host, reti, dischi e sistema in esecuzione; o3:
-  configurazione o procedura pronta al deploy; i1: log, errori e stato
-  catturati quando il grezzo non è già persistente.
-- **`bi`** — `world`: relazione con fornitori e Danea, siti e plugin in
-  esercizio; o3: payload o runbook predisposti; i1: cataloghi, export e
-  risposte catturati per l'elaborazione.
-- **`crm`** — `world`: aziende, proposte, operatori, richiami e destinatari
-  HTTP; o3: consegna idempotente e runbook operativi; i1: esiti e anomalie
-  catturati quando il runtime entrerà in esercizio.
-- **`danea-auto`** — `world`: postazione Windows `danea2`, Danea Easyfatt,
-  LibreOffice, Task Scheduler, BI, e-commerce e backup; o3: automazioni AHK e
-  PowerShell predisposte; i1: log, screenshot, incidenti ed esiti dei task.
+- **dominio riflessivo o personale** — nel Mondo stanno il corpo, le pratiche,
+  gli incontri e i documenti originali; o3 predispone promemoria e canovacci; i1
+  cattura percezioni e trascrizioni solo quando serve durata. Il grezzo è
+  abbondante e quasi mai va versionato.
+- **configurazione dichiarativa** — nel Mondo stanno host, reti, dischi e
+  sistema in esecuzione; o3 è la configurazione o la procedura pronta al deploy;
+  i1 raccoglie log ed errori quando il grezzo non è già persistente altrove. Qui
+  il riflesso i1 è raro proprio perché il Mondo trattiene lo stato da sé.
+- **integrazione di sistemi esterni** — nel Mondo stanno controparti, gestionali
+  e servizi in esercizio, che rispondono con i propri tempi e non si lasciano
+  interrogare a piacere; o3 è il payload o il runbook predisposto; i1 cattura
+  export, risposte ed esiti per l'elaborazione. È la configurazione in cui la
+  cattura i1 pesa di più, perché la fonte può non restare accessibile.
+
+Le tre non esauriscono lo spettro e un adottante può starne a cavallo. Ciò che
+resta invariante è la meccanica: l'atto e il grezzo nel Mondo, i due riflessi
+versionati on-demand.
 
 ## Il Mondo del metodo
 
 `metodo` è un meta-artefatto e ha due Mondi distinti. Il _Mondo runtime_ è
-composto da due superfici: i sei progetti adottanti e le fonti teoriche su
-`gdrive/`. Dagli adottanti entrano esigenze, drift e convergenze; lì tornano il
-filing back e la propagazione. Dalle fonti entra il pavimento concettuale che
-regge il canone, e il register `world.md` ne conserva la provenienza. In questo
-checkout `gdrive/` è il symlink gitignorato alle fonti Drive, mentre i
-repository adottanti sono checkout locali o remoti dichiarati nel territorio,
-non raccolti in un symlink root `world/`. Nei repository mantenuti dal custode,
-un agente da lui incaricato può modificare direttamente il canone attraverso
-il symlink `method/`: ownership e autorizzazione, non il percorso tecnico,
-determinano il confine. Un adottante mantenuto da terzi propone invece le
-modifiche con una pull request; diff e razionale della PR sono il segnale
-persistente valutato da `metodo`. Il _Mondo di sviluppo_ sono i nodi `kb/` e la
-loro coerenza: un commit agisce sui nodi, lint e audit ne percepiscono la
-risposta.
+composto da due superfici: i progetti adottanti e le fonti teoriche su Drive.
+Dagli adottanti entrano esigenze, drift e convergenze; lì tornano il filing back
+e la propagazione. Dalle fonti entra il pavimento concettuale che regge il
+canone, e il register `world.md` ne conserva la provenienza. Entrambe le
+superfici sono **dichiarate nel register, non versionate**: `gdrive/` è un
+symlink host-local gitignorato e i repository adottanti sono checkout locali o
+remoti elencati nel territorio, non raccolti in un symlink root `world/`. Nei
+repository mantenuti dal custode, un agente da lui incaricato può modificare
+direttamente il canone attraverso il symlink `method/`: ownership e
+autorizzazione, non il percorso tecnico, determinano il confine. Un adottante
+mantenuto da terzi propone invece le modifiche con una pull request; diff e
+razionale della PR sono il segnale persistente valutato da `metodo`. Il _Mondo
+di sviluppo_ sono i nodi `kb/` e la loro coerenza: un commit agisce sui nodi,
+lint e audit ne percepiscono la risposta.
 
 Connessioni:
 

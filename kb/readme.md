@@ -19,14 +19,14 @@ comprensibili:
 - lo stato e il cruscotto corrente;
 - le porte verso conoscenza, regole operative, fonti e viste.
 
-Il README sintetizza e rimanda. Modello e principi estesi vivono nei nodi,
-Goal e World nei register di root, il catalogo in `kb/kb.md`, il lavoro in
+Il README sintetizza e rimanda. Modello e principi estesi vivono nei nodi, Goal
+e World nei register di root, il catalogo in `kb/kb.md`, il lavoro in
 `o1/plan.md` e `o2/`, le istruzioni in `CLAUDE.md`. Procedure, flag,
 troubleshooting e inventari completi non appartengono alla bussola.
 
 Una sequenza utile, non obbligatoria, è: identità; dominio; percorsi; stato;
-Metodo; struttura essenziale; cautele di dominio. La lunghezza non è un
-criterio autonomo: conta il rapporto fra orientamento e dettaglio accumulato.
+Metodo; struttura essenziale; cautele di dominio. La lunghezza non è un criterio
+autonomo: conta il rapporto fra orientamento e dettaglio accumulato.
 
 ## Sezione Metodo negli adottanti
 

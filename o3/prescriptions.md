@@ -69,7 +69,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 
 - `kb_tools.py` — backend portabile per l'audit della KB. Comandi: `audit`,
   `backlinks <nodo>`, `orphans`, `readme`, `migration`, `terms`, `facets`,
-  `inventory` / `coverage`. Il report di `audit` è una diagnosi i1 su stdout.
+  `tasks`, `inventory` / `coverage`. Il report di `audit` è una diagnosi i1 su
+  stdout.
 - `presentation.py` — libreria di parsing condivisa (frontmatter, plan, task);
   importata dai due generatori, non si invoca direttamente.
 - `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.
@@ -79,6 +80,15 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   un collegamento primario per slot; il CSS condiviso della home resta potato
   alle classi che il builder emette.
 - `build-system-image.sh` — wrapper: genera e formatta la home.
+
+Ogni vista generata deriva da una sorgente sola ([view](../kb/view.md)):
+
+- `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`;
+- `../presentation/tasks.html` ← `../o1/plan.md` e i file in `../o2/`;
+- `../presentation/verdict.html` ← i fili in `../i3/`;
+- `../presentation/index.html` ← titolo di `../README.md`, intro dei register
+  `../goal.md` e `../world.md`, configurazione degli slot; le collezioni-stadio
+  le _collega_, non le rende.
 
 I path interni sono riallineati alla struttura `o3/` + `presentation/` +
 `o1/plan.md`; `build-presentation.sh`, `build-system-image.sh` e

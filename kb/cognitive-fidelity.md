@@ -6,8 +6,8 @@ stato: maturo
 
 La fedeltà cognitiva è la capacità della KB di rappresentare il progetto reale
 in una forma che umano e agente possano ricostruire. Una rete può avere link e
-frontmatter perfetti ma restare infedele perché conserva storia superata,
-esempi morti o punti di ingresso fuorvianti.
+frontmatter perfetti ma restare infedele perché conserva storia superata, esempi
+morti o punti di ingresso fuorvianti.
 
 La verifica ha tre livelli:
 
@@ -39,8 +39,8 @@ come testo mantenuto a mano, manca una fonte verificabile.
 
 Il limite è intenzionale. Gli script intercettano regressioni note e indirizzano
 l'attenzione; non simulano oggettività dove la fonte è interpretativa. L'esito
-utile della review non è un punteggio, ma un giudizio motivato su cosa aggiornare,
-fondere, dividere o eliminare.
+utile della review non è un punteggio, ma un giudizio motivato su cosa
+aggiornare, fondere, dividere o eliminare.
 
 Connessioni:
 

@@ -30,15 +30,16 @@ Le sei collezioni del ciclo hanno un indice interno:
 - `o2/tasks.md`;
 - `o3/prescriptions.md`.
 
-`goal.md` e `world.md` sono register, non collezioni: sintetizzano i due
-confini del ciclo e forniscono alla home le rispettive intro. `method/` espone
-negli adottanti i nodi canonici tramite symlink. Le superfici esterne concrete
+`goal.md` e `world.md` sono register, non collezioni: sintetizzano i due confini
+del ciclo e forniscono alla home le rispettive intro. `method/` espone negli
+adottanti i nodi canonici tramite symlink. Le superfici esterne concrete
 (`gdrive/`, mount, sync, servizi) sono dichiarate in `world.md`, gitignorate
 quando locali e chiamate per ciò che sono.
 
 ## Criterio di collocazione
 
-La collocazione segue la funzione:
+La collocazione segue la funzione, e la funzione si riconosce dalla frequenza di
+cambiamento del contenuto invece che dalla sua importanza (`pace-layering`):
 
 - conoscenza durevole → `kb/`;
 - segnale catturato → `i1/`;
@@ -51,8 +52,8 @@ La collocazione segue la funzione:
 - contenuto che conserva significato senza l'artefatto → superficie dichiarata
   in `world.md`.
 
-Il corpo applicativo o dichiarativo di un progetto può vivere in `o3/` quando
-è ciò con cui l'artefatto agisce sul proprio Mondo. Le sottocartelle restano una
+Il corpo applicativo o dichiarativo di un progetto può vivere in `o3/` quando è
+ciò con cui l'artefatto agisce sul proprio Mondo. Le sottocartelle restano una
 scelta del dominio.
 
 I file che una toolchain richiede in root (`flake.nix`, `package.json`, lock e
@@ -73,8 +74,8 @@ README, CLAUDE, un register, un indice o un nodo, va rimossa o ricollocata.
 - `o1/plan.md` fa eccezione perché è insieme indice e item corrente del Plan.
 
 La forma dettagliata dei singoli componenti vive nei nodi dedicati (`readme`,
-`claude`, `goal`, `world`, `plan`, `tasks`, `verdict`). Questo nodo
-non la replica.
+`claude`, `goal`, `world`, `plan`, `tasks`, `verdict`). Questo nodo non la
+replica.
 
 ## Bootstrap
 
@@ -94,4 +95,6 @@ Connessioni:
 - [plan](plan.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
+- [pace-layering](pace-layering.md)
+- [presentation](presentation.md)
 - [system-image](system-image.md)

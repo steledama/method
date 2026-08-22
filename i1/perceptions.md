@@ -6,7 +6,7 @@ Il Mondo runtime di `method` sono i progetti adottanti ([world](../kb/world.md))
 
 La collezione tiene solo i **segnali aperti**: una cattura consumata dal
 verdetto si elimina insieme alla sua riga qui — la storia resta in git
-([perceive](../kb/perceive.md), «Chiusura del ciclo di vita»).
+([perceive](../kb/perceive.md)).
 
 ## Contenuti
 

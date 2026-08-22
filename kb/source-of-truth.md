@@ -4,9 +4,15 @@ stato: bozza
 
 # Source of truth
 
-Una fonte di verità è ciò contro cui si verifica ciò che la KB dice. Risponde alla domanda: contro che cosa verifico ciò che la KB dice? Può essere codice, configurazione, JSON, documento autoritativo, database, output strutturato o mappa mantenuta manualmente.
+Una fonte di verità è ciò contro cui si verifica ciò che la KB dice. Risponde
+alla domanda: contro che cosa verifico ciò che la KB dice? Può essere codice,
+configurazione, JSON, documento autoritativo, database, output strutturato o
+mappa mantenuta manualmente.
 
-La fonte di verità impedisce alla KB di diventare una descrizione plausibile ma disancorata. Nei progetti code-based può coincidere con file tecnici; nei progetti finanziari con documenti e JSON compilati; nei progetti riflessivi con fonti testuali, corpus elaborati o scelte interpretative dichiarate.
+La fonte di verità impedisce alla KB di diventare una descrizione plausibile ma
+disancorata. Nei progetti code-based può coincidere con file tecnici; nei
+progetti finanziari con documenti e JSON compilati; nei progetti riflessivi con
+fonti testuali, corpus elaborati o scelte interpretative dichiarate.
 
 Regole:
 
@@ -42,7 +48,11 @@ register `world.md`):
   personale: la fonte è meno meccanica e conta la tracciabilità interpretativa
   più del fact check automatico.
 
-Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità" non significa sempre codice: può essere un JSON prodotto da parser, una tabella esterna, un documento legale, una fonte testuale o una scelta interpretativa dichiarata. La regola comune è esplicitare il livello di fiducia e non verificare documentazione contro altra documentazione.
+Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità"
+non significa sempre codice: può essere un JSON prodotto da parser, una tabella
+esterna, un documento legale, una fonte testuale o una scelta interpretativa
+dichiarata. La regola comune è esplicitare il livello di fiducia e non
+verificare documentazione contro altra documentazione.
 
 Connessioni:
 

@@ -165,7 +165,7 @@ Due piani, secondo autorizzazione:
 - **La supervisione della collezione `o3/`**: tiene solo il vivo — le
   prescrizioni consumate (atto compiuto, o recepite da tutti gli adottanti)
   si potano insieme alla loro voce in `o3/prescriptions.md` (cfr.
-  `kb/perform.md`, «Chiusura del ciclo di vita»); gli strumenti registrati
+  `kb/perform.md`); gli strumenti registrati
   sono ancora eseguibili (gli entrypoint girano); i runbook di propagazione
   riflettono il canone corrente, non uno stadio superato.
 - **L'atto stesso**: quando è locale, reversibile e già autorizzato, si
