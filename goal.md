@@ -34,12 +34,17 @@ proprio `method`, senza che `metodo` gestisca le loro code.
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
   dell'audit mensile);
   lavoro: `crm` e `danea-auto` sono entrati come quinto e sesto adottante il
-  2026-08-12, entrambi allineati al canone corrente; obiettivo **a regime** —
-  il giro vive nei `method` degli
-  adottanti, il battito è la riga mensile `/adottanti` in `## Scadenze`
-  e nessuna prescrizione è aperta in `o3/`: le due del 2026-08-01
-  (`skill-per-arco` e `quinta-domanda-verdetti`) sono nate, recepite dai
-  quattro adottanti allora presenti e potate in giornata; watchpoint: il
+  2026-08-12; obiettivo con **un fronte aperto** — il giro vive nei `method`
+  degli adottanti e il battito è la riga mensile `/adottanti` in `## Scadenze`,
+  ma **tre prescrizioni restano aperte** in `o3/` (`chiusura-task-controlla-world`,
+  `revisione-bootstrap-adottante`, `semplificazione-lessico-struttura`), tutte
+  anteriori al commit `ab7003b` a cui i marker si dichiarano `aligned`.
+  Recepimento verificato il 2026-08-22 sui quattro checkout locali di `svezia`:
+  `chiusura-task-controlla-world` recepita da tutti e quattro,
+  `semplificazione-lessico-struttura` non ancora da `bi` e `crm`. `economia` e
+  `salute` stanno su `deck` e non sono stati letti in questo giro: limite del
+  checkout, non certificazione negativa. La verifica sui sei è materia del
+  battito del 2026-09-01; watchpoint: il
   collaudo d'uso delle skill per arco negli adottanti: `bi` ha iniziato a
   girarle ripetutamente su eventi reali dal 2026-08-05; restano da misurare gli
   altri profili e la clausola di uscita, anticipata dal custode al battito del
