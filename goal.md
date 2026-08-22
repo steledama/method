@@ -14,10 +14,11 @@ le fonti-mondo.
 
 - **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
   (`/kb`) e filo
-  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro:
-  potatura progressiva della KB e task `pause` di rivalutazione della clausola
-  di uscita (`Ob. 1` nel plan); dei verdetti pendenti, bozza→maturo e facet
-  attendono l'uso reale;
+  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro: la
+  campagna di potatura è **conclusa** (rete a 46 nodi, audit, copertura, facet
+  e tasks verdi alla review del 2026-08-22); resta aperto il solo task `pause`
+  di rivalutazione della clausola di uscita (`Ob. 1` nel plan); dei verdetti
+  pendenti, bozza→maturo e facet attendono l'uso reale;
   tipologia e matrice hanno avuto il loro **test esterno**
   (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
   la forzatura emersa è risolta nel canone con la quarta regione `N` (norma
