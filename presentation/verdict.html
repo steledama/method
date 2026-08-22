@@ -72,6 +72,56 @@
     <div class="reveal">
       <div class="slides">
         <section
+          id="il-marcatore-delle-attese-a-finestra-nel-plan"
+          class="slide level2"
+        >
+          <h2>Il marcatore delle attese a finestra nel plan</h2>
+          <p>
+            Inciso in <code>kb/plan.md</code> (2026-08-22):
+            <code>Dip.</code> descrive da cosa dipende un task, non come si
+            comporta il costo del ritardo, e i comportamenti sono tre. L’attesa
+            <strong>piatta</strong> non costa, l’attesa
+            <strong>onerosa</strong> costa in modo crescente ma resta
+            recuperabile, l’attesa <strong>a finestra</strong> non incarisce —
+            può chiudere l’opzione. Le prime due erano già governate da
+            <code>## Scadenze</code>; la terza era invisibile per costruzione,
+            perché la sua caratteristica è di non avere una data calcolabile su
+            cui un controllo per distanza temporale possa allertare.
+          </p>
+          <p>
+            Il canone aggiunge un <code>!</code> appeso all’indice
+            (<code>w2!</code>): <strong>deperibile, non urgente</strong> —
+            distinzione che inverte la lettura normale della coda, perché una
+            finestra con mesi davanti può meritare presidio più di una scadenza
+            già passata. Si marca solo ciò la cui chiusura non ha ancora una
+            data e su cui non c’è ancora una mossa in agenda; appena l’azione
+            entra in agenda, la data sostituisce il marcatore, che si toglie —
+            un plan senza <code>!</code> perché ogni finestra è presidiata è
+            sano, non smemorato. La chiosa dichiara causa, risveglio, cosa
+            chiude la finestra e <strong>cosa resta se si chiude</strong>: è il
+            secondo campo a trasformare l’ansia in una decisione dichiarata.
+          </p>
+          <p>
+            Contestualmente rinominati gli indici di dipendenza esterna:
+            <code>world</code>/<code>pause</code> diventano
+            <code>w&lt;n&gt;</code>/<code>p&lt;n&gt;</code> (lettera = chi tiene
+            il tempo, numero = indirizzo della legenda, riassegnato a ogni
+            revisione). <code>o1/plan.md</code> è stato migrato nello stesso
+            commit (<code>pause [a]</code> → <code>p1</code>).
+          </p>
+          <p>
+            Verdetto corrente: canone inciso, nessuna istanza reale ha ancora
+            prodotto un <code>!</code> (l’unica attesa aperta in
+            <code>o1/plan.md</code>, la rivalutazione skill-per-arco, ha una
+            data nota ed è quindi un <code>pause</code> semplice, non una
+            finestra). Il filo resta aperto fino al primo caso reale che
+            eserciti il marcatore — verifica se la distinzione
+            deperibile/urgente regge sotto pressione e se il controllo scadenze
+            dell’adottante (che deve stampare le righe marcate senza condizione
+            di distanza) è stato recepito.
+          </p>
+        </section>
+        <section
           id="audit-runtime-o1-la-distanza-degli-adottanti-dal-telos"
           class="slide level2"
         >
