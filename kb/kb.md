@@ -5,6 +5,8 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 ## Metodo generale
 
+### Artefatto, conoscenza e manutenzione
+
 - [cognitive-artifact-design](cognitive-artifact-design.md) — Hub del metodo:
   design dell'artefatto cognitivo completo per la cognizione condivisa umano-LLM
 - [node](node.md) — Unità atomica della KB: struttura, naming, frontmatter,
@@ -24,6 +26,9 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   semantica dell'aderenza al progetto reale
 - [design-principles](design-principles.md) — Principi guida: universali,
   code-based e specifici di progetto
+
+### Fondamenti teorici
+
 - [augmentation-system](augmentation-system.md) — La cornice di sistema di
   Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il
   bootstrap come antenato di dogfooding e meta-ciclo di sviluppo
@@ -52,13 +57,16 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [cognitive-system](cognitive-system.md) — Accoppiamento dinamico (Hutchins)
   tra artefatto, umano e LLM; tripartizione artefatto/sistema/metodo; asimmetria
   degli agenti
+
+### Poli, archi e rappresentazioni
+
 - [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come
   confine aperto di Norman e la KB che lo informa senza generarlo
 - [goal-register](goal-register.md) — Contratto del polo Goal in root: obiettivi,
   segnali, stato del lavoro, custodia umana e direzione task→obiettivo
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo:
-  dimensioni comuni (attrito, autonomia, temporalità) e posizione auspicata; il
-  dominio sceglie la gradualità, non le dimensioni
+  dimensioni candidate comuni (attrito, autonomia, temporalità) e posizione
+  auspicata; il dominio sceglie la gradualità, l'uso verifica le dimensioni
 - [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3
   sono i suoi riflessi versionati on-demand e il significato senza artefatto ne
   discrimina il contenuto
@@ -85,6 +93,9 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   footer, motivazioni della scelta
 - [pace-layering](pace-layering.md) — Strati a frequenza di cambiamento diversa
   (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione
+
+### Sviluppo e governo
+
 - [method-development](method-development.md) — I due movimenti (bottom-up e
   top-down) in alternanza e contraddittorio
 - [consent](consent.md) — Proporre, attendere consenso esplicito, non scambiare

@@ -60,13 +60,13 @@ il caso locale.
 
 ## Riferimenti
 
-- Frank Duffy, architetto, origine dell'idea che un edificio sia una
-  sovrapposizione di strati a diversa longevità ("shearing layers")
 - Stewart Brand, _How Buildings Learn: What Happens After They're Built_ (1994),
-  cap. 2 "Shearing Layers": espande Duffy nei sei strati Site, Structure, Skin,
+  cap. 2 "Shearing Layers": fonte disponibile per la mediazione del lavoro di
+  Frank Duffy e per l'espansione nei sei strati Site, Structure, Skin,
   Services, Space plan, Stuff; formula il vincolo dei lenti sui veloci, la
   risalita dei veloci nei lenti e l'imperativo progettuale di lasciare
-  slittamento tra sistemi a passo diverso
+  slittamento tra sistemi a passo diverso. Il testo primario di Duffy non è
+  registrato e non sostiene direttamente questo nodo
 - Stewart Brand, _The Clock of the Long Now_ (1999), cap. "The Order of
   Civilization": generalizza il concetto alla civiltà come scala Fashion/art,
   Commerce, Infrastructure, Governance, Culture, Nature e condensa la dinamica

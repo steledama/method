@@ -78,9 +78,11 @@ finisce dentro i nodi e corrompe il principio fondante.
 ## Riferimenti
 
 - Niklas Luhmann, «Kommunikation mit Zettelkästen» (1981), fonte della
-  descrizione dello schedario come partner di comunicazione.
+  descrizione dello schedario come partner di comunicazione; provenienza
+  bibliografica registrata, testo primario non disponibile localmente.
 - Robert M. Pirsig, _Lila: An Inquiry into Morals_ (1991), descrizione della
-  pratica delle schede.
+  pratica delle schede; provenienza bibliografica registrata, testo primario
+  non disponibile localmente.
 - Douglas C. Engelbart, _Augmenting Human Intellect_ (1962), §III-A-3, per il
   sistema edge-notched e l'ingest in unità collegate; provenienza nel register
   `world.md`.

@@ -12,6 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
+  verificare l'adozione locale, fissare una baseline con provenienza,
+  aggiornare le rappresentazioni correnti e predisporre il primo giro senza
+  governare la coda del nuovo repository.
 - [Semplificare il lessico della
   struttura](semplificazione-lessico-struttura.md) — rimuovere dagli adottanti
   `atrio`, `ali` e `stanze`, usando nomi diretti senza introdurre nuove

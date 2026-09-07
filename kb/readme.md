@@ -50,9 +50,9 @@ quando esprime una dipendenza semantica o operativa reale.
 
 La revisione riguarda questo quartetto nel suo insieme: alleggerire il README
 non serve se il contenuto si riversa in CLAUDE o se le intro dei register
-contraddicono la bussola. La comparazione corrente vive in
-`i2/bootstrap-adottanti.md`; la procedura in
-`o3/revisione-bootstrap-adottante.md`.
+contraddicono la bussola. Le comparazioni correnti e le procedure vive si
+scoprono nei rispettivi indici `i2/interpretations.md` e
+`o3/prescriptions.md`, senza fissarne qui i nomi.
 
 Connessioni:
 

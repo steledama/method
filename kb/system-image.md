@@ -1,5 +1,5 @@
 ---
-stato: bozza
+stato: maturo
 ---
 
 # System image
@@ -88,11 +88,14 @@ che porta il peso della comunicazione a ogni altezza.
 Da qui un'asimmetria che il metodo deve tenere esplicita, e che
 `cognitive-system` tratta per esteso: Norman dice che persone diverse formano
 mental model diversi dallo stesso oggetto, e i due agenti lo fanno in modo
-radicalmente diverso — per l'LLM il system image e lo user's model coincidono,
-per l'umano no. Qui conta la conseguenza sul medium: la resa per la macchina e
+radicalmente diverso — per l'LLM il system image è la sorgente persistente
+principale dello user's model, mentre per l'umano si innesta su un modello
+mentale che esiste già. In nessuno dei due casi i due referenti coincidono:
+richiesta corrente, strumenti, esperienza e segnali del Mondo concorrono alla
+comprensione. Qui conta la conseguenza sul medium: la resa per la macchina e
 quella per l'umano sono lo stesso system image mostrato ai due agenti, ma la
-prima deve essere completa perché è l'unica mente che il suo lettore avrà,
-mentre la seconda può appoggiarsi a ciò che l'umano già sa. Il system image si
+prima deve essere autosufficiente, mentre la seconda può appoggiarsi a ciò che
+l'umano già sa. Il system image si
 costruisce dai signifier, dalle affordance, dai constraint e dai mapping: lo
 strato output è il lavoro di rendere quel system image leggibile a entrambi.
 

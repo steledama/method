@@ -2,223 +2,38 @@
 ciclo: dev
 ---
 
-# Maturazione dei nodi fondativi e falsificatori in attesa di uso reale
+# La KB è coerente; la maturazione residua richiede uso reale
 
-La rifondazione ontologica (artefatto/sistema/metodo) e l'arco di input hanno dato al
-metodo il vocabolario che gli mancava e **nessun debito di fonte resta aperto**:
-Leontiev (per `goal`), Hutchins e il filone mente-estesa (Clark) per
-`cognitive-system`, e _Things That Make Us Smart_ (Norman 1993) sono reperiti, sorzati
-e distillati nelle destinazioni i3 — chirurgia del 2026-06-21, incluso il nodo nuovo
-`augmentation-system` (la cornice H-LAM/T che li contiene). Restano aperti solo i
-verdetti che **attendono l'uso reale**:
+La review semantica completa sui 48 nodi conferma una rete strutturalmente
+integra e semanticamente sana. Non ci sono nodi da fondere o eliminare. La sola
+divisione necessaria separa il modello dell'osservatorio dal protocollo
+eseguibile di ingresso di un adottante: il primo resta in
+`kb/method-observatory.md`, il secondo vive in `o3/ingresso-adottante.md`.
 
-- la maturazione `bozza→maturo` dei nodi fondativi: `cognitive-artifact`,
-  `cognitive-system`, `goal`, `output`, `agent`, `affordance-signifier`,
-  `system-image`, `processing-layers`;
-- `kb-content-typology` (`bozza`): ha retto contro lo stato reale di `salute`
-  (validazione parziale — gli adottanti sono plasmati dal metodo, e `crm` è il
-  caso più plasmato di tutti: fondato sulla struttura prima del codice, zero
-  adattamenti dichiarati, quindi il quinto ingresso **aggrava** il caveat invece
-  di allargare il campione); il test esterno è ora **eseguito** (sotto):
-  corroborazione debole sul baricentro, **una forzatura vera** sull'insieme delle
-  celle;
-- l'esito «zero forzati» della matrice del ciclo (`action-cycle-matrix`): il test
-  esterno ha prodotto un forzato, ma sul cell-set della **tipologia**, non sulle
-  celle della matrice — quest'ultima resta provvisoria e non smentita (sotto);
-- il check `[FACET]`/`EXTENDED_FACETS` in `kb_tools` (meccanismo di estensione del
-  frontmatter col criterio dei quattro requisiti, inciso in `kb/node.md`): chiuso sul
-  lato `method`; il primo giro reale è avvenuto — `nixos` tiene la facet `mondo` in
-  `EXTENDED_FACETS` nel suo fork (marker 2026-07-10) e `bi` corrobora il lato opposto
-  (nessuna facet finché non ne emerge una reale: l'opt-in regge); resta da osservare
-  `economia` con `tipo:` opzionale.
+La review corregge la contraddizione fra `system-image` e `cognitive-system`:
+lo user's model dell'LLM deriva principalmente dal system image ma non coincide
+con esso, perché richiesta corrente, strumenti e segnali del Mondo concorrono
+alla comprensione. La provenienza delle fonti in `world.md` conserva edizione,
+disponibilità, qualità e destinazione concettuale senza trattenere la cronaca
+della loro lavorazione.
 
-## La coerenza del canone regge; il debito residuo è sperimentale
+Sei nodi hanno superato il test di maturità: `action-cycle`,
+`cognitive-artifact`, `constraint`, `processing-layers`, `source-of-truth` e
+`system-image`. La distribuzione corrente è 27 `maturo` e 21 `bozza`.
+`agent` e `development-goal` restano deliberatamente in bozza perché dichiarano
+ipotesi che l'uso deve ancora stabilizzare; lo stesso criterio vale per gli
+altri nodi non promossi.
 
-La review semantica completa conferma l'integrità strutturale della KB e non ha
-trovato nodi da fondere o eliminare: gli atomi brevi del ciclo conservano
-funzioni autonome. Il giro corrente porta la rete da 45 a **46 nodi** con l'unica
-divisione emersa dal test di potatura — `view` conteneva concetto, norma,
-runbook e l'inventario delle viste di `metodo`, quattro funzioni a ritmo di
-cambiamento diverso. La disciplina della derivazione resta in `view`, la
-materializzazione della superficie presentativa passa al nodo nuovo
-`presentation`, e la fotografia vista→sorgente scende dove è vera, nell'indice
-`o3/prescriptions.md`. Gli heading citati dalle skill (`commit`, `adottanti`)
-sono rimasti in `view`.
+Restano tre tensioni sperimentali:
 
-La concentrazione dell'hub era stata corretta solo a metà: `cognitive-artifact-design`
-aveva guadagnato la sezione router ma continuava a rinarrare per intero
-`method-development`, terza copia della stessa spiegazione insieme al README. Ora
-instrada e non racconta.
+- `kb-content-typology` include la quarta regione «norma della macchina», ma
+  attende un secondo specimen esterno indipendente;
+- `action-cycle-matrix` resta provvisoria finché altri casi reali non
+  falsificano o corroborano le sue celle;
+- il meccanismo `EXTENDED_FACETS` ha retto in `nixos` e nell'assenza motivata di
+  facet in `bi`, ma resta da osservare il caso `tipo:` di `economia`.
 
-Il difetto ricorrente di questo giro è stato di **collocazione**, non di verità.
-Quattro superfici canoniche trattenevano una fotografia di chi le incarna oggi:
-l'inventario dei sei adottanti in `world` (ora tre configurazioni ricorrenti,
-sulla forma già usata da `source-of-truth`), l'inventario delle viste in `view`,
-un'asserzione host-local su `gdrive/` e un fatto al futuro su un adottante. Il
-criterio è ora inciso in `node`: illustrare con la configurazione ricorrente, non
-con l'inventario del register.
-
-Il secondo difetto era una classe di **riferimenti che non atterravano**, tutti
-invisibili al link checker perché espressi in backtick o come titolo di sezione:
-`affordance-signifier` attribuiva a `kb/skill.md` un giudizio che vive in `i3/`;
-due file citavano in `perceive` e `perform` una sezione dissolta in prosa; il
-register attribuiva _Emotional Design_ ad `action-cycle` invece che a
-`processing-layers`; e una skill citava in `plan` la «terza specie» di scadenza,
-che il nodo descriveva senza nominare. Tutti chiusi. `action-cycle` ha ora i
-propri `## Riferimenti` — **con un limite dichiarato**: il capitolo non è stato
-riverificato sul binario, perché `gdrive/` non è montato in questo checkout.
-
-Una contraddizione normativa è stata sciolta: `CLAUDE.md` prescriveva ancora di
-bonificare gli inventari di path del metodo nei `CLAUDE.md` e `README.md` degli
-adottanti a ogni rinomina — esattamente il coupling che «dichiara e taci»
-(`method-development`) aveva abolito e che il README vieta. Ora la regola rimanda
-alle sole connessioni intenzionali.
-
-## Il giro successivo: i register dei poli diventano nodi
-
-Un secondo test di potatura, sullo stesso principio del primo (funzioni a ritmo
-di cambiamento diverso vanno separate), porta la rete da 46 a **48 nodi**. `goal.md`
-e `world.md` (nodi) trattenevano ciascuno due funzioni: il modello del polo e il
-contratto machine-readable del register root omonimo. La seconda si stacca in
-`goal-register` e `world-register`; il nodo-modello resta, con un rimando invece
-della sezione intera. Il README, che ancora narrava per esteso funzioni del repo,
-esempi per artefatto e protocollo di collegamento — tre copie della stessa
-spiegazione insieme al catalogo e ai nodi — si riduce a router puro verso
-`kb/kb.md`, `method-observatory`, `kb-tools`/`skill`, `view` e i due register
-nuovi; l'inventario degli esempi per artefatto (già in `world-register`'s
-territorio) esce da `goal.md`. Il register root `world.md` guadagna una sezione
-sulle fonti citate senza superficie primaria locale osservabile in questo
-checkout (2026-09-06): la provenienza resta dichiarata, la verifica verbatim è
-sospesa finché `gdrive/` non le rende leggibili di nuovo — stessa disciplina già
-applicata al capitolo di `action-cycle` nel giro precedente.
-
-Audit, inventory, coverage e facets restano verdi (48/48 nodi con frontmatter e
-footer, 0 link rotti, 0 nodi isolati). Non si apre un debito nuovo: è lo stesso
-tipo di lavoro del giro precedente, non un cambiamento di verdetto.
-
-Il presidio deterministico continua a vivere nello strumento: `kb_tools`
-verifica footer, catalogo e link anche fuori dall'inventario dei nodi, e il nodo
-`kb-tools` copre ora anche il sottocomando `tasks`, che la documentazione aveva
-perso. Audit, inventory, coverage, facets e tasks sono verdi; i sei esecutori
-restano interamente coperti. Il corpo dei nodi è stato riportato a ~80 colonne
-con verifica word-level che nessun contenuto sia cambiato, e la convenzione è
-dichiarata in `node`. La review non apre nuovi task: il debito residuo di questo
-filo resta quello sperimentale già dichiarato — maturazione dei nodi in bozza,
-secondo specimen esterno per la tipologia e osservazione delle facet negli
-adottanti.
-
-I verdetti elencati sopra non si spostano: bozza→maturo, tipologia e facet
-continuano ad attendere l'uso reale e un secondo specimen esterno.
-
-## Il test esterno, eseguito il 2026-08-12
-
-**Esito: corroborazione debole sul baricentro, una forzatura sull'insieme delle
-celle — e il buco che scopre non veniva dallo specimen, c'era da sempre.**
-
-Unità di classificazione dichiarata prima di guardare i dati: le 8 sezioni `##` di
-`fb83c0d:CLAUDE.md`, il preambolo, `TODO.md` e `danea-backup.md` come unità intere
-(11 in tutto). È una **sostituzione**: i quattro adottanti furono misurati sui
-cataloghi `kb/`, qui non esiste KB, quindi al posto del nodo sta «la superficie del
-sapere durevole». Esclusi gli script `.ahk`/`.ps1` (sono l'artefatto, non sapere
-sull'artefatto) e il `README` (orientamento).
-
-Classificazione: **is** 5 (realtà GUI di Danea — menu, `ClassNN`, ambiguità dei
-filtri, contenuto dei CSV; il dialog «Sessione scaduta»; la geometria reale e il
-DPI 150%; il comportamento vero del Task Scheduler; `danea-backup.md`);
-**macchina-struttura** 5 (staging+FileMove, `PremiFinche`, foreground-lock;
-diagnostica e logging; `controlp`; preambolo; configurazione dello scheduling);
-**atto** 0 come primaria ma seconda faccia in 4 unità; **ought** 1.
-
-**Baricentro: macchina↔is** — lo stesso profilo che il nodo attribuisce a `bi`
-(«lo span più largo, e l'artefatto che esegue meglio»), e regge: `danea-auto` gira
-non presidiato in produzione da due mesi. Il polo ought è quasi vuoto e la
-tipologia fa qui una chiamata **discriminante** invece di segnalare un difetto —
-«un dominio a goal codificabile può vivere senza nodi-ought», e il goal è
-codificabile (sei CSV corretti, in orario). Anomalie segnalate e reali: `TODO.md`
-(lavoro nella superficie del sapere), il primo terzo del preambolo (bootstrap/meta,
-senza polo), le sezioni «Evoluzione» in tre unità (cronologia nel corpo, che il
-metodo assegna a git).
-
-### La forzatura, e perché il test a quattro non poteva trovarla
-
-L'unità «Pattern AHK validati» è contenuto **normativo sulla macchina** — «fa
-così, non così», con la motivazione dell'alternativa scartata. L'ought della
-tipologia è definito come il polo Goal: «concetti, valori, obiettivi; il
-riferimento valoriale». Norme d'ingegneria non sono quello, e la cella è stata
-stirata per ospitarle: **è un forzato**, il primo.
-
-Il punto grave non è lo specimen: **`kb/design-principles.md` è `stato: maturo` ed
-è esattamente quella specie** («principi che governano l'architettura e lo
-sviluppo»). La tipologia non lo ospita. Non era mai emerso per una ragione
-strutturale: il baricentro classificò i cataloghi **dei quattro adottanti** e
-`metodo` si escluse, mentre i principi di dominio degli adottanti vivono nei loro
-README per prescrizione, non come nodi. La validazione a quattro **non poteva
-incontrare questa specie**. Lo specimen esterno non ha aperto un buco: ha reso
-visibile un buco che il disegno del test teneva fuori inquadratura.
-
-**Trattamento ratificato dal custode il 2026-08-16:** nasce la quarta regione
-**N — norma della macchina**. G resta il polo Goal (motivi, valori, obiettivi),
-A la descrizione della macchina; N prescrive come l'artefatto deve essere
-costruito o mantenuto. La tipologia resta `bozza` non per una decisione aperta,
-ma perché manca un secondo specimen esterno indipendente. La prima verifica
-interna è eseguita (dettaglio in
-`i2/baricentro-kb-adottanti.md`): sui **48 nodi indicizzati**, quantità misurata
-manualmente sul catalogo a `6c17107`, risultano G 15, M 1, A 12, O 5 e **15
-N**; 8 nodi hanno una seconda faccia sostanziale. Quei 15 casi erano forzati
-contro il vecchio insieme di celle e formano una
-specie coerente di norme sulla macchina (`node`, `project-structure`,
-`design-principles`, i componenti `agents`–`skill` e gli invarianti collegati),
-non casi assorbibili uno per uno. N rende esplicito il confine; allargare
-tacitamente A o G sarebbe rimasta precisamente la forzatura resa visibile dalla
-verifica.
-
-### Limiti del risultato
-
-- La sostituzione dell'unità pesa verso macchina/atto e non è separabile
-  dall'esito: la superficie classificata è un documento d'**ingresso operativo**,
-  macchina-pesante per costruzione, non un catalogo di nodi. «Lo specimen è
-  macchina-pesante» e «la superficie lo è» restano indistinguibili.
-- 4 unità su 11 cadono a **due facce**, non pulite: la pretesa dei quattro era
-  «ogni baricentro cade pulito», e su materiale esterno non si ripete.
-- Il caveat anti-complicità resta, spostato dall'artefatto al custode (sotto).
-
-## Lo specimen e il suo limite
-
-Lo specimen è `danea-auto`
-([tt-sviluppo/danea-auto](https://github.com/tt-sviluppo/danea-auto), copia locale
-`~/danea-auto`, esercizio su Windows): artefatto di produzione cresciuto **senza**
-il canone — 50 commit dal 2026-06-05, nessuno stadio `i1`–`o3`, nessun register dei
-poli — ed è poi entrato come sesto adottante col commit `57ef8a6`. Al commit
-letto (`fb83c0d`) **non esiste
-nessuna `kb/`**: il sapere durevole sta in un `CLAUDE.md` da 1046 righe più
-`TODO.md` e `danea-backup.md`, ed è ciò che rende il test più severo di quanto
-previsto (i quattro hanno una `kb/` perché il metodo gliel'ha prescritta). Due cose
-restano separate, e la seconda è la ragione per cui il risultato non è conclusivo:
-
-- **la convergenza indipendente è una sola, e ha una data**: «validato dal vivo»
-  nasce il 2026-07-29 (`b276c76`, `3a4a760`) su fix reali di GUI automation, due
-  settimane prima che il repo avesse una `kb/` — è la sostanza della facet
-  `stato` arrivata dalla pressione del dominio, non dal canone;
-- **il resto non è indipendente**: la `kb/`, lo split d'altitudine (`CLAUDE.md`
-  = non fare danni oggi / `kb/` = perché il codice è così) e la regola di
-  non-derivabilità nascono il 2026-08-12 (`d45d4cb`), lo stesso giorno del
-  lavoro sul canone e per la stessa mano. Plausibile trasferimento, non
-  invenzione parallela: il caveat anti-complicità non si solleva, si **sposta
-  dall'artefatto al custode**.
-
-Il **repo** si contamina a ogni sessione in cui il custode lo tocca col metodo in
-testa — oggi è già costato l'articolazione delle regole — ma lo **specimen no**:
-lo stato pre-adozione è **`fb83c0d`** (l'ultimo prima dell'estrazione della
-`kb/`), immutabile in git, ed è lì che il test va eseguito, non sullo stato
-corrente — e così è stato fatto. Il test non aveva scadenza e non ha preceduto
-l'adozione: la prima stesura di questo filo lo aveva presentato come una finestra
-che si chiude, e incidere lo SHA è precisamente ciò che ha disinnescato l'urgenza —
-il rischio era perdere di vista _quale_ stato fosse pulito, non perdere lo stato.
-Ciò che deperisce davvero è più tenue e non versionabile: il ricordo, nel custode,
-di cosa ha inventato in quel repo e cosa ha trasferito dal canone — e anche di
-quello la parte databile è salva.
-
-Lo specimen resta **riusabile**: `fb83c0d` è immutabile, quindi una tipologia
-rivista con N si può riprovare sullo
-stesso materiale senza cercare un artefatto nuovo. Un secondo specimen esterno,
-indipendente da questo custode, resta il test che nessuno ha ancora.
+Audit, inventory, coverage e facets sono verdi: 48/48 nodi indicizzati, 374
+link interni, nessun link rotto o nodo isolato, sei esecutori interamente
+coperti. Il verdetto complessivo non apre lavoro correttivo: ciò che resta si
+chiude solo con nuovi segnali d'uso, non con ulteriore rifinitura interna.

@@ -69,9 +69,9 @@ sistema non sono la stessa cosa.
 ## L'asimmetria umano / LLM
 
 Il sistema cognitivo del metodo ha un'asimmetria strutturale tra gli agenti che
-leggono l'artefatto. Il caso saliente — quello su cui il metodo si è formato — è
-il binomio umano + LLM, che resta vero come caso di una popolazione di agenti
-più ampia (cfr. `agent`). Per l'umano l'artefatto è impalcatura esterna a un
+leggono l'artefatto. Questo nodo tratta l'effetto dell'asimmetria sul sistema;
+la popolazione di agenti, i suoi livelli e la divisione del lavoro vivono in
+`agent`. Per l'umano l'artefatto è impalcatura esterna a un
 modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM
 l'artefatto è il principale modello persistente: non porta memoria affidabile
 tra sessioni e integra il repo con richiesta corrente, strumenti e segnali del
@@ -79,7 +79,7 @@ Mondo. Lo user's model di Norman deriva quindi soprattutto dal system image —
 l'intero artefatto, di cui la KB è il nucleo formalizzato — ma non coincide
 letteralmente con esso.
 
-Questa asimmetria ha conseguenze di progetto: l'artefatto deve essere
+L'asimmetria ha conseguenze di progetto: l'artefatto deve essere
 autosufficiente per l'agente che non porta nulla, senza per questo essere
 ridondante per l'agente che porta già molto. Non è un equilibrio facile — è la
 tensione che motiva lo sdoppiamento dello strato output nelle due rese per

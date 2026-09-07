@@ -29,6 +29,10 @@ lavoro per un agente basso. Questo nodo resta in bozza di proposito: apre la
 stanza senza fissarne gli arredi, perché la struttura multi-agente va
 stabilizzata quando emerge dall'uso reale, non anticipata.
 
+Questo nodo descrive attori, livelli e divisione del lavoro. L'effetto del loro
+accoppiamento sulla cognizione della sessione e l'asimmetria fra modello umano
+e modello ricostruito dall'LLM appartengono invece a `cognitive-system`.
+
 Connessioni:
 
 - [cognitive-artifact-design](cognitive-artifact-design.md)

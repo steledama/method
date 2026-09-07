@@ -75,8 +75,8 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   2026-09-06; fino al ripristino, il nodo conserva una provenienza dichiarata ma
   non una verifica locale ripetibile.
 - **Things That Make Us Smart: Defending Human Attributes in the Age of the Machine** — Don
-  Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). **Volume integrale ora
-  reperito** nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
+  Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). Volume integrale disponibile
+  nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
   EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`.
   Fonte di `cognitive-artifact` (Cap. 3 «The Power of Representation»),
   `processing-layers` (Cap. 2) e `cognitive-system` (Cap. 6 «Distributed
@@ -90,8 +90,8 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   Frank Duffy e li espande nei sei "S" general-purpose (Site, Structure, Skin, Services,
   Space plan, Stuff), poi collega la gerarchia degli strati al rapporto slow/fast: gli strati
   lenti vincolano quelli veloci, mentre i cambiamenti veloci possono risalire e farsi assorbire
-  dagli strati lenti quando diventano ricorrenti. **Cap. 2 «Shearing Layers» distillato in
-  `kb/pace-layering.md`**; Brand basta come fonte operativa per l'uso metodologico, mentre Duffy
+  dagli strati lenti quando diventano ricorrenti. Il Cap. 2 «Shearing Layers» sostiene
+  `kb/pace-layering.md`; Brand basta come fonte operativa per l'uso metodologico, mentre Duffy
   primario resta un approfondimento filologico non bloccante. Citare per **capitolo/sezione**,
   non per pagina, perché la superficie di lavoro deriva dall'EPUB.
 - **The Clock of the Long Now: Time and Responsibility** — Stewart Brand, **1999**, Basic Books,
@@ -99,70 +99,62 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
   di lavoro `ClockLongNow.txt` generata con `pandoc`. Fonte di `pace-layering` per la
   generalizzazione civilizzazionale: nel capitolo **«The Order of Civilization»** Brand formula
   la scala Fashion/art, Commerce, Infrastructure, Governance, Culture, Nature e la dinamica
-  "fast learns, slow remembers / fast proposes, slow disposes". Distillato in
+  "fast learns, slow remembers / fast proposes, slow disposes". Sostiene
   `kb/pace-layering.md`; citare per **capitolo/sezione**, non per pagina.
 - **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19, 1998,
-  DOI 10.1111/1467-8284.00096. Fonte primaria del task «mente estesa». Testo d'autore
+  DOI 10.1111/1467-8284.00096. Fonte primaria per `kb/cognitive-system.md`. Testo d'autore
   completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
-  repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.) — quest'ultimo è l'i1
-  scelto. Copia legale ma sotto copyright Oxford/Wiley e persistente: solo provenienza
-  qui, niente cattura in `i1/` (come i libri di Norman). **i3 scritto** nella
-  chirurgia coordinata dei nodi (2026-06-21): pavimento ontologico in `kb/cognitive-system.md`
-  (active externalism, parity, scaffolding, 007, mente-come-controllore, criterio scaffold
-  action-oriented). Nota di fedeltà: la pagina d'autore riporta una
+  repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.), superficie
+  primaria scelta. Copia legale ma sotto copyright Oxford/Wiley e persistente:
+  solo provenienza qui, niente cattura in `i1/` (come i libri di Norman). Sostiene
+  in `kb/cognitive-system.md` active externalism e parity. Nota di fedeltà: la pagina d'autore riporta una
   paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
 - **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A Bradford
   Book / The MIT Press, **1997** (second printing 1997), ISBN 0-262-03240-6, LCCN 96-11817.
-  Companion di _The Extended Mind_ per il task «mente estesa»: il paper copre belief/memoria
+  Companion di _The Extended Mind_: il paper copre belief/memoria
   (Otto), questo libro copre embodiment e **scaffolding** — è la fonte del claim «artefatto
   come corpo/ambiente ingegnerizzato» che da sola _The Extended Mind_ non regge. Procurato in
   PDF con **strato di testo nativo** (pulito), superficie di lavoro `BeingThere.txt`; niente
   OCR né cattura in `i1/`, solo provenienza qui. Nota di fedeltà: il nome del file
-  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997. **i1 letto e
-  i3 scritto**: lo scaffolding e il «007 principle» sono distillati nel pavimento ontologico
-  di `kb/cognitive-system.md`.
+  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997.
+  Sostiene scaffolding e «007 principle» in `kb/cognitive-system.md`.
 - **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart, Summary
   Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024, preparato per il
   Director of Information Sciences, Air Force Office of Scientific Research; Stanford Research
   Institute, Menlo Park, **ottobre 1962**. Ripubblicato in forma ridotta come «A Conceptual
   Framework for the Augmentation of Man's Intellect» in _Vistas in Information Handling_
-  (Howerton & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria del task Engelbart e
-  della ristrutturazione dei giganti, distillata nel nodo `kb/augmentation-system.md`.
-  Report governativo/SRI, pubblicato liberamente dal Doug Engelbart Institute; procurato da
+  (Howerton & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria di
+  `kb/augmentation-system.md`. Report governativo/SRI, pubblicato liberamente
+  dal Doug Engelbart Institute; disponibile da
   Internet Archive (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
   pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext` (sia `-layout`
   sia raw) è mangiato (spaziatura spezzata, passi mancanti); l'OCR dell'EPUB estratto dai `<p>`
-  è prosa pulita ed è la **superficie di lavoro** scelta (`1962-engelbart-AHI-framework.txt`),
-  GLM-OCR non necessario. Il **PDF è stato rimosso** perché scadente: restano EPUB + txt. Cita
-  per **sezione**, non per pagina, vista la qualità OCR. Solo provenienza versionata qui, niente
-  cattura in `i1/`. **i1 letto integralmente (Sez. I-IV)**: cornice H-LAM/T, synergism,
-  ipotesi Neo-Whorfiana, bootstrap «Tools Developed vs Tools Used»; la Sez. III (memex di Bush,
-  il sistema di schede edge-notched di Engelbart, il dialogo «Joe», team cooperation) conferma
-  sul testo primario che la cornice contiene già nodi atomici con link tipizzati e provenienza,
-  la mossa di ingest/distillazione i1→i2, un loop di valutazione e la cooperazione collaborativa.
-- **Cognition in the Wild** — Edwin Hutchins, A Bradford Book / The MIT Press, **1995**. Fonte
-  del **pavimento ontologico** (cognizione distribuita) che `cognitive-system` già cita;
-  procurata per saldare il debito «citato-non-sourced» prima della chirurgia dei giganti. PDF
+  è prosa pulita ed è la **superficie di lavoro** scelta
+  (`1962-engelbart-AHI-framework.txt`); l'EPUB e il testo estratto sono le copie
+  disponibili. Citare per **sezione**, non per pagina, vista la qualità OCR.
+  Solo provenienza versionata qui, niente cattura in `i1/`. Le Sez. I-IV
+  sostengono cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap,
+  schede edge-notched, ingest e cooperazione collaborativa.
+- **Cognition in the Wild** — Edwin Hutchins, A Bradford Book / The MIT Press,
+  **1995**. Fonte del pavimento ontologico della cognizione distribuita in
+  `kb/cognitive-system.md`. PDF
   con strato OCR (scansione), superficie `Hutchins.txt`; qualità **media** (artefatti tipo
   «suong»→strong, «Corn~ute»→compute, parole fuse) — usabile per sourcing per concetto/capitolo,
   GLM-OCR non necessario, ma ogni citazione verbatim va verificata sulla scansione. Pagina-titolo
-  OCR-garbled: ISBN/printing non verificati dall'OCR (citare 1995, MIT Press). **i1 di sourcing
-  fatto**: la tesi (cognizione come processo culturale/sociale; unità di analisi oltre la pelle;
-  il team di navigazione come sistema cognitivo e computazionale), la definizione di «cognition
-  in the wild» (habitat naturale vs laboratorio «in captivity», un'ecologia del pensiero), la
-  propagazione dello stato rappresentazionale tra media, e la sintesi del cap. 9 (non scambiare
-  le proprietà del sistema socioculturale per quelle della mente individuale) — esattamente il
-  punto che Clark cita (Hutchins 1995 cap. 9). Solo provenienza qui, niente cattura in
-  `i1/`.
+  OCR-garbled: ISBN/printing non verificati dall'OCR (citare 1995, MIT Press).
+  Sostiene l'unità di analisi oltre l'individuo, la propagazione dello stato
+  rappresentazionale e la sintesi del cap. 9. Solo provenienza qui, niente
+  cattura in `i1/`.
 - **Activity, Consciousness, and Personality** — A. N. Leont'ev, traduzione inglese **1978**
   (orig. russo _Деятельность. Сознание. Личность_, 1975). Fonte di `goal` per la **gerarchia
   attività / azione / operazione** (azione ↔ goal, attività ↔ motivo, operazione ↔ condizioni).
   Procurato da **marxists.org** (libero e legale), EPUB **testo nativo pulito** (parse `pandoc`,
   niente OCR), superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è **§3.5
   «The General Structure of Activity»**. Citare per **sezione** (la traduzione marxists.org può
-  differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo provenienza qui, niente
-  cattura in `i1/`. **§3.5 sorzata in `kb/goal.md`**: confermata la distinzione
-  attività/motivo, azione/goal o scopo cosciente, operazione/condizioni.
+  differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo
+  provenienza qui, niente cattura in `i1/`. La §3.5 sostiene in `kb/goal.md` la
+  distinzione attività/motivo, azione/goal o scopo cosciente e
+  operazione/condizioni.
 
 ### Fonti citate senza superficie primaria locale
 

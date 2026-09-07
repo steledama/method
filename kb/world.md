@@ -89,7 +89,7 @@ copia consumata non conferisce il permesso di cancellarla dal Mondo (cfr.
 
 ## Materializzazione fisica
 
-La membrana fisica non ha più un nome di path canonico. Il nome canonico resta
+La membrana fisica non ha un nome di path canonico. Il nome canonico identifica
 il **polo** (`world.md`); le superfici concrete si chiamano per ciò che sono
 (`gdrive/`, `client/`, mount, sync, sistema esterno) e sono dichiarate nel
 register. Questo evita la collisione tra il register `world.md` e un symlink

@@ -18,9 +18,9 @@ euristiche. Le sezioni successive offrono profondità on-demand:
 - fonti — provenienza, disponibilità e qualità delle fonti-mondo autorevoli che
   reggono i riferimenti dei nodi.
 
-Il register assorbe le funzioni che vecchi file separati chiamavano `map.md` e
-`sources.md`: entrambi indicizzavano aspetti dello stesso Mondo. Non sostituisce
-il catalogo `kb/kb.md`, non accumula storia o task e non richiede che la
+Territorio e provenienza delle fonti condividono questo register perché sono
+due aspetti dello stesso Mondo. Il register non sostituisce il catalogo
+`kb/kb.md`, non accumula storia o task e non richiede che la
 superficie fisica sia versionata. Una fonte può essere autorevole e persistente
 senza essere nel repository; il register deve dichiararne onestamente
 provenienza, disponibilità e limiti di verifica.
