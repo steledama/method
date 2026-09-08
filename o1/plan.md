@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
+| dev   | 2   | Vista sinottica del plan in tasks.html          | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
