@@ -21,12 +21,13 @@ funzionare, senza confondere ciò che persiste con agenti e infrastrutture che
 cambiano.
 
 Il ciclo completo comprende tre altitudini. In alto, la KB accumula concetti,
-assunzioni e verdetti nello strato riflessivo. In mezzo, o2/i2 rende la sintesi
-leggibile per specificare e interpretare. In basso, o3 e i1 sono i riflessi
-versionati on-demand della membrana `world`: prescrizione dell'atto e cattura
-del segnale. L'atto e il grezzo restano nel Mondo non versionato. Progettare
-l'artefatto significa rendere attraversabili entrambi i gulf, non soltanto
-organizzare bene i nodi.
+assunzioni e conoscenza maturata dai verdetti; le tensioni aperte restano in
+`i3/`. In mezzo, o2/i2 rende la sintesi leggibile per specificare e
+interpretare. In basso, o3 e i1 sono i riflessi versionati on-demand della
+membrana `world`: prescrizione dell'atto e cattura del segnale. L'effetto e la
+fonte appartengono al Mondo del ciclo considerato, che può avere un proprio
+versionamento. Progettare l'artefatto significa rendere attraversabili entrambi
+i gulf, non soltanto organizzare bene i nodi.
 
 Il grado di automazione non è uniforme. Le operazioni note e verificabili
 possono essere delegate; formazione del Goal, triage dei segnali esogeni e
@@ -34,15 +35,12 @@ decisioni ad alta posta richiedono supervisione umana. Il gradiente di autonomia
 si progetta per stadio, dominio e rischio, mantenendo espliciti feedback,
 vincoli e punti di controllo.
 
-Il metodo si inscrive nella cornice di augmentation di Engelbart (H-LAM/T), che
-contiene i suoi riferimenti: lo Zettelkasten definisce la forma dei nodi atomici
-e interconnessi (il means _Language_); Norman fornisce il modello che collega
-conoscenza, rappresentazione e azione attraverso il ciclo completo
-(l'interfaccia col Mondo); la gamba di manutenzione dell'insieme con l'LLM è il
-_Methodology/ Training_ engelbartiano, di cui il pattern Karpathy è l'istanza
-contemporanea. Il pavimento ontologico — perché il sistema accoppiato sia
-cognizione — è Hutchins/Clark. La trattazione vive in `augmentation-system` e
-`cognitive-system`.
+Il metodo legge insieme la cornice di augmentation di Engelbart, le unità
+collegate dello Zettelkasten, il ciclo di Norman e le prospettive di Hutchins e
+Clark sulla cognizione distribuita ed estesa. La manutenzione assistita
+conosciuta qui come `karpathy-pattern` ne è una pratica locale contemporanea. Le
+distinzioni fra fonte, analogia e scelta metodologica vivono in
+`augmentation-system` e `cognitive-system`.
 
 Il principio centrale è che l'artefatto non è una cartella di appunti né un
 archivio da interrogare occasionalmente. È cumulativo: ogni ingest, query, lint

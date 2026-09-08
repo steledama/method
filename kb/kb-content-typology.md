@@ -27,12 +27,16 @@ sviluppo e insieme la macchina che esegue il runtime — ma descriverla e
 prescriverne la forma restano atti denotativi distinti.
 
 La distribuzione del contenuto di una KB tra queste regioni è il suo
-**baricentro**, e il baricentro è una diagnosi. Un ciclo d'azione calcola uno
-scarto solo se possiede entrambi i poli: un is contro cui misurare un ought. Una
-KB tutta-ought ha il polo alto gonfio e il polo basso vuoto, quindi non ha su
-cosa mordere e non genera azione; una KB tutta-is descrive la realtà ma non sa
-verso cosa orientarla. Leggere il baricentro mostra quale arco del ciclo
-l'artefatto affama, prima e meglio di qualunque lint formale.
+**baricentro**: un indizio per orientare la diagnosi. Per valutare un esito
+servono un riferimento desiderato e uno stato osservato, ma entrambi possono
+vivere fuori dalla KB: nei register, nei dati, nelle sintesi i2 o nelle fonti
+interrogate dal ciclo. Una regione poco rappresentata nei nodi è una domanda di
+copertura, non la prova che un polo manchi all'artefatto.
+
+La verifica attraversa quindi l'intero ciclo: dove si legge il riferimento, dove
+si osserva lo stato, chi li confronta e quale decisione ne segue. La
+composizione della KB da sola non misura efficacia, autonomia o qualità delle
+azioni.
 
 Le quattro regioni:
 
@@ -73,28 +77,23 @@ dominio a goal codificabile può vivere senza nodi-ought, e un dominio la cui
 macchina è il tooling condiviso senza nodi-macchina; ma nessun dominio che debba
 generare azione può vivere senza il polo is contro cui l'ought si misura.
 
-Esempi per artefatto, come baricentri distinti sullo stesso ciclo:
+Configurazioni possibili:
 
-- baricentro **is**: una KB di gestione patrimoniale fatta quasi solo di
-  persone, conti, immobili e successioni — la realtà vista con gli occhiali del
-  dominio, più un solo nodo-obiettivi.
-- baricentro **macchina, norma e atto**: una KB di configurazione di sistemi
-  fatta di architetture, principi di configurazione e procedure di ripristino,
-  con una fetta di Mondo (rete, host) e nessun nodo-valore, perché il goal è
-  codificabile.
-- baricentro **macchina↔is**: una KB di business intelligence che attraversa
-  script e architettura da un lato e fornitori e cataloghi reali dall'altro — lo
-  span più largo, e l'artefatto che esegue meglio.
-- baricentro **ought**: una KB di benessere personale fatta quasi solo di
-  concetti filosofici e maestri, con l'is del corpo ridotto a margine — il polo
-  basso affamato, e l'artefatto che non genera azione. È il segnale che il
-  baricentro va corretto, non il sintomo di un utente pigro.
+- una KB patrimoniale può avere baricentro **is**, mentre gli obiettivi sono
+  articolati nel register Goal;
+- una KB di sistemi può concentrarsi su **macchina e norma**, con procedure vive
+  in o3 e stato osservato nel runtime;
+- una KB di integrazione può attraversare **macchina e is**, senza che questa
+  ampiezza provi da sola una maggiore efficacia;
+- una KB personale può avere baricentro **ought**: occorre verificare che
+  pratica e condizioni reali siano leggibili nelle superfici del ciclo prima di
+  proporre nuovi nodi.
 
-L'ultimo caso mostra il modo più insidioso in cui il baricentro mente: un
-segnale del Mondo può essere catturato e mai interpretato in un nodo, restando
-una riga sepolta in una cronologia invece di diventare la casa su cui il ciclo
-agisce. Il polo is allora esiste sulla carta ma non nel ciclo, e l'artefatto
-resta cieco proprio sull'allerta più importante.
+Un segnale catturato ma mai interpretato può lasciare il ciclo privo di
+informazione utilizzabile. Il rimedio può essere una sintesi i2, un confronto i3
+o conoscenza durevole nella KB: dipende dalla funzione e dalla durata, non
+esiste un obbligo di trasformare ogni segnale in nodo. Le fotografie datate e i
+confronti degli adottanti vivono in `i2/`, i loro giudizi correnti in `i3/`.
 
 Connessioni:
 

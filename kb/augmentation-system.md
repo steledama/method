@@ -13,33 +13,25 @@ non un motore più potente. È la lettura che tiene insieme l'anatomia del metod
 umano + LLM + artefatto sono _un_ sistema di augmentation, non tre componenti
 giustapposti.
 
-I quattro _augmentation means_ mappano sull'anatomia del metodo. Gli
+Il metodo propone questa mappatura dei quattro _augmentation means_. Gli
 **Artifacts** sono il repository e la KB — la rappresentazione esterna
 persistente. Il **Language** sono i nodi e la terminologia, lo
 _symbol-structuring_ che dà forma a ciò che si può pensare (l'ipotesi
 Neo-Whorfiana di Engelbart: il modo di simbolizzare condiziona il pensabile). La
 **Methodology** è il metodo stesso, la pratica con cui si coltiva l'artefatto.
-Il **Training** è il bootstrap — `CLAUDE.md`, l'ordine di lettura, ciò che
-introduce un agente dentro il sistema. Il synergism è la conseguenza:
-l'augmentation viene dall'accoppiamento dei quattro means, non dal potenziare
-una parte sola.
+Il **Training** comprende l'apprendimento della pratica nell'uso; il bootstrap —
+`CLAUDE.md` e l'ordine di lettura — ne sostiene l'ingresso senza esaurirlo. Il
+synergism è la conseguenza: l'augmentation viene dall'accoppiamento dei quattro
+means, non dal potenziare una parte sola.
 
-## La cornice contiene i giganti, non li affianca
+## La lettura del metodo
 
-Engelbart è troppo unificante per essere una gamba accanto alle altre: è la
-_cornice_ che le contiene. Dentro H-LAM/T, **Luhmann / Zettelkasten** dà il
-means _Language_ e l'unità atomica (cfr. `zettelkasten`); **Norman / ciclo
-d'azione** dà l'interfaccia col Mondo, come il sistema rende visibile l'azione e
-chiude il ciclo (cfr. `action-cycle`); la gamba di **manutenzione e
-rigenerazione** della KB è il _Methodology/Training_ engelbartiano, di cui il
-**pattern Karpathy è l'istanza contemporanea per l'era LLM** — il _come si tiene
-aggiornato_ il sistema oggi, un pattern influente del presente, non una
-tradizione di pensiero al pari degli altri (cfr. `karpathy-pattern`). Sotto la
-cornice, il pavimento _ontologico_ — perché un sistema accoppiato sia
-genuinamente cognizione — è Hutchins/Clark, non Karpathy (cfr.
-`cognitive-system`). La cornice dà il _perché un sistema aumentato co-evolve_;
-il pavimento il _perché è genuinamente cognizione_; la gamba di manutenzione il
-_come si tiene aggiornato_.
+Il metodo usa H-LAM/T come cornice per mettere in relazione contributi diversi:
+lo Zettelkasten sostiene l'organizzazione delle unità di conoscenza; il ciclo di
+Norman collega intenzione, azione e valutazione; la manutenzione assistita
+dall'LLM aggiorna l'artefatto. Hutchins e Clark offrono prospettive sulla
+cognizione distribuita ed estesa (`cognitive-system`). Questa mappatura è una
+scelta interpretativa del metodo, non una tassonomia formulata da Engelbart.
 
 ## Il bootstrap: l'antenato del 1962
 
@@ -53,18 +45,20 @@ stessa distinzione e lo stesso avvertimento sulla confusione terminologica
 «Developed vs Used» riecheggiano nell'avvertimento di `development-meta-cycle`
 contro l'affiancamento tra runtime e dev.
 
-## La cornice conteneva già il metodo, nel 1962
+## Pratiche descritte e possibilità progettate
 
-La lettura della Sez. III conferma sul testo primario, non per analogia, che la
-cornice H-LAM/T conteneva già le strutture del metodo. Vi si trovano, nel 1962:
-**nodi atomici con link tipizzati e provenienza** — il sistema di schede
-edge-notched di Engelbart, uno Zettelkasten ante litteram (cfr. `zettelkasten`);
-la **mossa di ingest/distillazione i1→i2** — «type the article in, tear it
-apart... it sits in the archives like an orange rind», l'articolo grezzo
-digerito in note collegate; un **loop di valutazione** periodico (la review
-man-computer); e la **cooperazione collaborativa con tracciamento delle
-contese**, l'antenato del `verdict`. La cornice non è un'etichetta importata a
-posteriori: descrive una pratica che il metodo ha riscoperto sessant'anni dopo.
+Nella §III-A-3 Engelbart descrive un sistema di schede edge-notched già usato:
+unità piccole, descrittori per selezionarle e riferimenti alla provenienza.
+Distingue poi, nella sottosezione «Associative-Linking Possibilities», i
+collegamenti associativi che il sistema esistente non offriva comodamente e che
+un'estensione avrebbe potuto rendere possibili.
+
+La dimostrazione immaginata della Sez. III descrive anche lettura, scomposizione
+e integrazione delle fonti in strutture condivise, insieme a processi di
+revisione e collaborazione. Il metodo vi riconosce affinità con ingest,
+valutazione e memoria delle tensioni. Queste corrispondenze aiutano a
+progettare, ma non provano che i suoi sei stadi o i link tipizzati fossero già
+realizzati nel sistema di schede.
 
 ## Riferimenti
 

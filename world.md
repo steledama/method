@@ -1,18 +1,30 @@
 # World
 
-Il Mondo runtime di `metodo` ha due facce: i **sei progetti adottanti**,
-da cui emerge l'esigenza dal basso e a cui torna la propagazione, e le
-**fonti teoriche su `gdrive/`**, da cui il canone trae il proprio pavimento. Il
-Mondo di sviluppo sono invece i nodi `kb/` e la loro coerenza.
+Il Mondo runtime di `metodo` ha due facce: i **sei progetti adottanti**, da cui
+emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
+su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
+è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
+centro. Questi ruoli dipendono dal ciclo osservato, non dal versionamento: gli
+adottanti e l'artefatto del metodo hanno una storia Git.
 
-Adottanti (con la superficie da cui si leggono i marker `i3/allineamento-metodo.md`):
+Adottanti (con la superficie da cui si leggono i marker
+`i3/allineamento-metodo.md`):
 
-- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa NixOS multi-host — checkout `~/nixos` su `svezia`
-- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e sincronizzazione dati — checkout `~/bi` su `svezia`
-- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria, patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
-- **[salute](https://github.com/steledama/salute)** — Benessere, pratica, filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto: `ssh norvegia`, poi `ssh deck`)
-- **[crm](https://github.com/tt-sviluppo/crm)** — CRM commerciale custom minimale per proposte e richiami affidabili — checkout `~/crm` su `svezia`
-- **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva — checkout `~/danea-auto` su `svezia`, runtime su `danea2`
+- **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
+  NixOS multi-host — checkout `~/nixos` su `svezia`
+- **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
+  sincronizzazione dati — checkout `~/bi` su `svezia`
+- **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,
+  patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio
+  salto: `ssh norvegia`, poi `ssh deck`)
+- **[salute](https://github.com/steledama/salute)** — Benessere, pratica,
+  filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto:
+  `ssh norvegia`, poi `ssh deck`)
+- **[crm](https://github.com/tt-sviluppo/crm)** — CRM commerciale custom
+  minimale per proposte e richiami affidabili — checkout `~/crm` su `svezia`
+- **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
+  AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
+  checkout `~/danea-auto` su `svezia`, runtime su `danea2`
 
 ## Superfici della membrana
 
@@ -27,9 +39,9 @@ in [world](kb/world.md).
 - Repository adottanti — checkout locali o remoti dichiarati nel territorio
   sotto, non raccolti in un symlink root chiamato `world/`: il canale runtime è
   concettuale e operativo, non dipende da quel nome di path.
-- Il Mondo di **sviluppo** non ha superficie propria: sono i nodi `kb/` e la
-  loro coerenza — un commit agisce sui nodi, lint e audit ne percepiscono la
-  risposta ([world](kb/world.md), «Il Mondo del metodo»).
+- Il Mondo di **sviluppo** è il checkout del metodo: nodi, strumenti e superfici
+  che li rendono utilizzabili. Edit e commit lo modificano; lint, audit e build
+  ne verificano proprietà osservabili ([world](kb/world.md)).
 
 Il territorio degli adottanti è indicizzato qui e letto dall'osservatorio
 ([method-observatory](kb/method-observatory.md)); il canale i1/o3 con gli
@@ -38,21 +50,21 @@ fotografie periodiche vivono in `i2/` e il loro verdetto corrente in `i3/`.
 
 ## Fonti
 
-La provenienza delle fonti-mondo autorevoli: quale edizione esatta ha
-alimentato quale concetto ([source-of-truth](kb/source-of-truth.md)). I binari
-vivono in `gdrive/` (su Drive, gitignorati): grezzo esterno persistente, fuori
+La provenienza delle fonti-mondo autorevoli: quale edizione esatta ha alimentato
+quale concetto ([source-of-truth](kb/source-of-truth.md)). I binari vivono in
+`gdrive/` (su Drive, gitignorati): grezzo esterno persistente, fuori
 dall'artefatto — non per questo diventano i1. Si versiona una cattura del
 Perceive (in `i1/`) solo quando il grezzo è effimero o quando precisione,
 revisione e durata richiedono un riflesso stabile; i libri, già persistenti e
 sotto copyright, no — di loro resta versionata solo la provenienza, qui sotto,
-che è la base dei `## Riferimenti` nei nodi (fedeltà alle fonti: quale libro
-per quale idea).
+che è la base dei `## Riferimenti` nei nodi (fedeltà alle fonti: quale libro per
+quale idea).
 
 Accanto a ogni binario può vivere una sua estrazione testuale `.txt` (resa
-leggibile con `pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest,
-ciò su cui si grep-pa e si verificano le citazioni. Non è i2, perché non
-contiene interpretazione; non è neppure i1, perché resta ignorata insieme al
-grezzo persistente. I `.txt` si rigenerano dai binari:
+leggibile con `pandoc`/`pdftotext`): è la superficie di lavoro per l'ingest, ciò
+su cui si grep-pa e si verificano le citazioni. Non è i2, perché non contiene
+interpretazione; non è neppure i1, perché resta ignorata insieme al grezzo
+persistente. I `.txt` si rigenerano dai binari:
 
 ```
 pandoc -f epub -t plain "<file>.epub" -o "<file>.txt"   # per gli EPUB
@@ -61,100 +73,142 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 
 ### Fonti registrate
 
-- **The Design of Everyday Things** — Revised and Expanded, 2013, ISBN 978-0465050659.
-  Fonte canonica per `action-cycle` (Cap. 2, il ciclo a sette stadi), `system-image` e
-  `affordance-signifier` (entrambi Cap. 1) e `goal` (Cap. 2). L'ed. 2013 è quella che
-  **aggiunge** affordance e signifier rispetto all'orig. 1988. L'EPUB usato per
-  la distillazione non è osservabile nella superficie `gdrive/` corrente al
-  2026-09-06: la provenienza resta valida, la verifica verbatim è sospesa finché
-  la copia non viene ripristinata o sostituita con una fonte primaria leggibile.
+- **The Design of Everyday Things** — Revised and Expanded, 2013, ISBN
+  978-0465050659. Fonte canonica per `action-cycle` (Cap. 2, il ciclo a sette
+  stadi), `system-image` e `affordance-signifier` (entrambi Cap. 1), `goal`
+  (Cap. 2) e `constraint` (Cap. 4). La revisione 2013 aggiunge al libro la
+  trattazione dei signifier; affordance era già presente nel 1988. Il concetto
+  di signifier è documentato anche dal testo d'autore del 2008 registrato sotto.
+  L'EPUB usato per la distillazione non è osservabile nella superficie `gdrive/`
+  corrente al 2026-09-06: la provenienza resta valida, la verifica verbatim è
+  sospesa finché la copia non viene ripristinata o sostituita con una fonte
+  primaria leggibile.
 - **Emotional Design — Why We Love (or Hate) Everyday Things** — 2004, PDF, ISBN
-  978-0465051366. Fonte di `processing-layers` (i tre livelli visceral/behavioral/
-  reflective, modello sviluppato con Ortony e Revelle). La copia usata per la
-  distillazione non è osservabile nella superficie `gdrive/` corrente al
-  2026-09-06; fino al ripristino, il nodo conserva una provenienza dichiarata ma
-  non una verifica locale ripetibile.
-- **Things That Make Us Smart: Defending Human Attributes in the Age of the Machine** — Don
-  Norman, originale **1993** (Addison-Wesley, ISBN 978-0201626957). Volume integrale disponibile
-  nella riedizione **Diversion Books, dicembre 2014** (ISBN 978-1-62681-537-7),
-  EPUB **testo nativo pulito** (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`.
-  Fonte di `cognitive-artifact` (Cap. 3 «The Power of Representation»),
-  `processing-layers` (Cap. 2) e `cognitive-system` (Cap. 6 «Distributed
-  Cognition», accanto a Hutchins/Clark). Citare per **capitolo**, non
-  per pagina (la paginazione della riedizione 2014 differisce dall'originale 1993). Solo
+  978-0465051366. Fonte di `processing-layers` (i tre livelli
+  visceral/behavioral/ reflective, modello sviluppato con Ortony e Revelle). La
+  copia usata per la distillazione non è osservabile nella superficie `gdrive/`
+  corrente al 2026-09-06; fino al ripristino, il nodo conserva una provenienza
+  dichiarata ma non una verifica locale ripetibile.
+- **Things That Make Us Smart: Defending Human Attributes in the Age of the
+  Machine** — Don Norman, originale **1993** (Addison-Wesley, ISBN
+  978-0201626957). Volume integrale disponibile nella riedizione **Diversion
+  Books, dicembre 2014** (ISBN 978-1-62681-537-7), EPUB **testo nativo pulito**
+  (parse `pandoc`, niente OCR), superficie di lavoro `TTMUS.txt`. Fonte di
+  `cognitive-artifact` (Cap. 3 «The Power of Representation»), il confronto con
+  `processing-layers` (i due modi del Cap. 2, senza assumere equivalenza con il
+  modello del 2004) e `cognitive-system` (Cap. 6 «Distributed Cognition»,
+  accanto a Hutchins/Clark). Citare per **capitolo**, non per pagina (la
+  paginazione della riedizione 2014 differisce dall'originale 1993). Solo
   provenienza qui, niente cattura in `i1/`.
-- **How Buildings Learn: What Happens After They're Built** — Stewart Brand, originale **1994**
-  (Viking Penguin), Penguin Books **1995**, EPUB con testo nativo, ISBN 978-1-101-56264-2,
-  superficie di lavoro `HowBuildingsLearn.txt` generata con `pandoc`. Fonte di
-  `pace-layering` per la traduzione operativa di Duffy: Brand riprende i quattro strati di
-  Frank Duffy e li espande nei sei "S" general-purpose (Site, Structure, Skin, Services,
-  Space plan, Stuff), poi collega la gerarchia degli strati al rapporto slow/fast: gli strati
-  lenti vincolano quelli veloci, mentre i cambiamenti veloci possono risalire e farsi assorbire
-  dagli strati lenti quando diventano ricorrenti. Il Cap. 2 «Shearing Layers» sostiene
-  `kb/pace-layering.md`; Brand basta come fonte operativa per l'uso metodologico, mentre Duffy
-  primario resta un approfondimento filologico non bloccante. Citare per **capitolo/sezione**,
-  non per pagina, perché la superficie di lavoro deriva dall'EPUB.
-- **The Clock of the Long Now: Time and Responsibility** — Stewart Brand, **1999**, Basic Books,
-  A Member of the Perseus Books Group, eISBN 978-0-786-72292-1, EPUB con testo nativo, superficie
-  di lavoro `ClockLongNow.txt` generata con `pandoc`. Fonte di `pace-layering` per la
-  generalizzazione civilizzazionale: nel capitolo **«The Order of Civilization»** Brand formula
-  la scala Fashion/art, Commerce, Infrastructure, Governance, Culture, Nature e la dinamica
-  "fast learns, slow remembers / fast proposes, slow disposes". Sostiene
-  `kb/pace-layering.md`; citare per **capitolo/sezione**, non per pagina.
-- **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19, 1998,
-  DOI 10.1111/1467-8284.00096. Fonte primaria per `kb/cognitive-system.md`. Testo d'autore
-  completo: pagina HTML di Chalmers (`consc.net/papers/extended.html`) e PDF nel
-  repository istituzionale di Edinburgh (ERA, `1842/1312`, 22 pp.), superficie
-  primaria scelta. Copia legale ma sotto copyright Oxford/Wiley e persistente:
-  solo provenienza qui, niente cattura in `i1/` (come i libri di Norman). Sostiene
-  in `kb/cognitive-system.md` active externalism e parity. Nota di fedeltà: la pagina d'autore riporta una
-  paginazione diversa (58:10-23, da reprint); la citazione canonica del journal è 7-19.
-- **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A Bradford
-  Book / The MIT Press, **1997** (second printing 1997), ISBN 0-262-03240-6, LCCN 96-11817.
-  Companion di _The Extended Mind_: il paper copre belief/memoria
-  (Otto), questo libro copre embodiment e **scaffolding** — è la fonte del claim «artefatto
-  come corpo/ambiente ingegnerizzato» che da sola _The Extended Mind_ non regge. Procurato in
-  PDF con **strato di testo nativo** (pulito), superficie di lavoro `BeingThere.txt`; niente
-  OCR né cattura in `i1/`, solo provenienza qui. Nota di fedeltà: il nome del file
-  riporta «1998» (probabile paperback), ma l'edizione è la 1997 — citare 1997.
-  Sostiene scaffolding e «007 principle» in `kb/cognitive-system.md`.
-- **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart, Summary
-  Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024, preparato per il
-  Director of Information Sciences, Air Force Office of Scientific Research; Stanford Research
-  Institute, Menlo Park, **ottobre 1962**. Ripubblicato in forma ridotta come «A Conceptual
-  Framework for the Augmentation of Man's Intellect» in _Vistas in Information Handling_
-  (Howerton & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria di
+- **How Buildings Learn: What Happens After They're Built** — Stewart Brand,
+  originale **1994** (Viking Penguin), Penguin Books **1995**, EPUB con testo
+  nativo, ISBN 978-1-101-56264-2, superficie di lavoro `HowBuildingsLearn.txt`
+  generata con `pandoc`. Fonte di `pace-layering` per la traduzione operativa di
+  Duffy: Brand riprende i quattro strati di Frank Duffy e li espande nei sei "S"
+  general-purpose (Site, Structure, Skin, Services, Space plan, Stuff), poi
+  collega la gerarchia degli strati al rapporto slow/fast: gli strati lenti
+  vincolano quelli veloci, mentre i cambiamenti veloci possono risalire e farsi
+  assorbire dagli strati lenti quando diventano ricorrenti. Il Cap. 2 «Shearing
+  Layers» sostiene `kb/pace-layering.md`; Brand basta come fonte operativa per
+  l'uso metodologico, mentre Duffy primario resta un approfondimento filologico
+  non bloccante. Citare per **capitolo/sezione**, non per pagina, perché la
+  superficie di lavoro deriva dall'EPUB.
+- **The Clock of the Long Now: Time and Responsibility** — Stewart Brand,
+  **1999**, Basic Books, A Member of the Perseus Books Group, eISBN
+  978-0-786-72292-1, EPUB con testo nativo, superficie di lavoro
+  `ClockLongNow.txt` generata con `pandoc`. Fonte di `pace-layering` per la
+  generalizzazione civilizzazionale: nel capitolo **«The Order of
+  Civilization»** Brand formula la scala Fashion/art, Commerce, Infrastructure,
+  Governance, Culture, Nature e la dinamica "fast learns, slow remembers / fast
+  proposes, slow disposes". Sostiene `kb/pace-layering.md`; citare per
+  **capitolo/sezione**, non per pagina.
+- **The Extended Mind** — Andy Clark & David J. Chalmers, _Analysis_ 58(1):7-19,
+  1998, DOI 10.1111/1467-8284.00096. Fonte primaria per
+  `kb/cognitive-system.md`. Testo d'autore completo: pagina HTML di Chalmers
+  (`consc.net/papers/extended.html`) e PDF nel repository istituzionale di
+  Edinburgh (ERA, `1842/1312`, 22 pp.), superficie primaria scelta. Copia legale
+  ma sotto copyright Oxford/Wiley e persistente: solo provenienza qui, niente
+  cattura in `i1/` (come i libri di Norman). Sostiene in
+  `kb/cognitive-system.md` active externalism e parity. Nota di fedeltà: la
+  pagina d'autore riporta una paginazione diversa (58:10-23, da reprint); la
+  citazione canonica del journal è 7-19.
+- **Being There: Putting Brain, Body, and World Together Again** — Andy Clark, A
+  Bradford Book / The MIT Press, **1997** (second printing 1997), ISBN
+  0-262-03240-6, LCCN 96-11817. Companion di _The Extended Mind_: il paper copre
+  belief/memoria (Otto), questo libro copre embodiment e **scaffolding** — è la
+  fonte del claim «artefatto come corpo/ambiente ingegnerizzato» che da sola
+  _The Extended Mind_ non regge. Procurato in PDF con **strato di testo nativo**
+  (pulito), superficie di lavoro `BeingThere.txt`; niente OCR né cattura in
+  `i1/`, solo provenienza qui. Nota di fedeltà: il nome del file riporta «1998»
+  (probabile paperback), ma l'edizione è la 1997 — citare 1997. Sostiene
+  scaffolding e «007 principle» in `kb/cognitive-system.md`.
+- **Augmenting Human Intellect: A Conceptual Framework** — Douglas C. Engelbart,
+  Summary Report **AFOSR-3223**, SRI Project No. 3578, Contract AF 49(638)-1024,
+  preparato per il Director of Information Sciences, Air Force Office of
+  Scientific Research; Stanford Research Institute, Menlo Park, **ottobre
+  1962**. Ripubblicato in forma ridotta come «A Conceptual Framework for the
+  Augmentation of Man's Intellect» in _Vistas in Information Handling_ (Howerton
+  & Weeks eds., Spartan Books, 1963, pp. 1-29). Fonte primaria di
   `kb/augmentation-system.md`. Report governativo/SRI, pubblicato liberamente
-  dal Doug Engelbart Institute; disponibile da
-  Internet Archive (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
-  pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext` (sia `-layout`
-  sia raw) è mangiato (spaziatura spezzata, passi mancanti); l'OCR dell'EPUB estratto dai `<p>`
-  è prosa pulita ed è la **superficie di lavoro** scelta
-  (`1962-engelbart-AHI-framework.txt`); l'EPUB e il testo estratto sono le copie
-  disponibili. Citare per **sezione**, non per pagina, vista la qualità OCR.
-  Solo provenienza versionata qui, niente cattura in `i1/`. Le Sez. I-IV
-  sostengono cornice H-LAM/T, synergism, ipotesi Neo-Whorfiana, bootstrap,
-  schede edge-notched, ingest e cooperazione collaborativa.
+  dal Doug Engelbart Institute; disponibile da Internet Archive
+  (`1962-engelbart-AHI-framework`) in EPUB a scansione (166 MB, immagini di
+  pagina con strato OCR) e PDF (9 MB). Confronto fatto: il PDF via `pdftotext`
+  (sia `-layout` sia raw) è mangiato (spaziatura spezzata, passi mancanti);
+  l'OCR dell'EPUB estratto dai `<p>` è prosa pulita ed è la **superficie di
+  lavoro** scelta (`1962-engelbart-AHI-framework.txt`); l'EPUB e il testo
+  estratto sono le copie disponibili. Citare per **sezione**, non per pagina,
+  vista la qualità OCR. Solo provenienza versionata qui, niente cattura in
+  `i1/`. Le Sez. I-IV sostengono H-LAM/T, synergism, ipotesi Neo-Whorfiana e
+  bootstrap. La §III-A-3 distingue le schede edge-notched già usate dalle
+  possibilità di collegamento associativo; la dimostrazione immaginata illustra
+  integrazione delle fonti e collaborazione. Le corrispondenze con gli stadi del
+  metodo sono interpretative.
 - **Cognition in the Wild** — Edwin Hutchins, A Bradford Book / The MIT Press,
   **1995**. Fonte del pavimento ontologico della cognizione distribuita in
-  `kb/cognitive-system.md`. PDF
-  con strato OCR (scansione), superficie `Hutchins.txt`; qualità **media** (artefatti tipo
-  «suong»→strong, «Corn~ute»→compute, parole fuse) — usabile per sourcing per concetto/capitolo,
-  GLM-OCR non necessario, ma ogni citazione verbatim va verificata sulla scansione. Pagina-titolo
-  OCR-garbled: ISBN/printing non verificati dall'OCR (citare 1995, MIT Press).
-  Sostiene l'unità di analisi oltre l'individuo, la propagazione dello stato
-  rappresentazionale e la sintesi del cap. 9. Solo provenienza qui, niente
-  cattura in `i1/`.
-- **Activity, Consciousness, and Personality** — A. N. Leont'ev, traduzione inglese **1978**
-  (orig. russo _Деятельность. Сознание. Личность_, 1975). Fonte di `goal` per la **gerarchia
-  attività / azione / operazione** (azione ↔ goal, attività ↔ motivo, operazione ↔ condizioni).
-  Procurato da **marxists.org** (libero e legale), EPUB **testo nativo pulito** (parse `pandoc`,
-  niente OCR), superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è **§3.5
-  «The General Structure of Activity»**. Citare per **sezione** (la traduzione marxists.org può
-  differire dall'edizione a stampa Prentice-Hall/Progress 1978). Solo
-  provenienza qui, niente cattura in `i1/`. La §3.5 sostiene in `kb/goal.md` la
-  distinzione attività/motivo, azione/goal o scopo cosciente e
-  operazione/condizioni.
+  `kb/cognitive-system.md`. PDF con strato OCR (scansione), superficie
+  `Hutchins.txt`; qualità **media** (artefatti tipo «suong»→strong,
+  «Corn~ute»→compute, parole fuse) — usabile per sourcing per concetto/capitolo,
+  GLM-OCR non necessario, ma ogni citazione verbatim va verificata sulla
+  scansione. Pagina-titolo OCR-garbled: ISBN/printing non verificati dall'OCR
+  (citare 1995, MIT Press). Sostiene l'unità di analisi oltre l'individuo, la
+  propagazione dello stato rappresentazionale e la sintesi del cap. 9. Solo
+  provenienza qui, niente cattura in `i1/`.
+- **Activity, Consciousness, and Personality** — A. N. Leont'ev, traduzione
+  inglese **1978** (orig. russo _Деятельность. Сознание. Личность_, 1975). Fonte
+  di `goal` per la **gerarchia attività / azione / operazione** (azione ↔ goal,
+  attività ↔ motivo, operazione ↔ condizioni). Procurato da **marxists.org**
+  (libero e legale), EPUB **testo nativo pulito** (parse `pandoc`, niente OCR),
+  superficie di lavoro `Leontiev-ACP.txt`, ToC integrale. La sezione-chiave è
+  **§3.5 «The General Structure of Activity»**. Citare per **sezione** (la
+  traduzione marxists.org può differire dall'edizione a stampa
+  Prentice-Hall/Progress 1978). Solo provenienza qui, niente cattura in `i1/`.
+  La §3.5 sostiene in `kb/goal.md` la distinzione attività/motivo, azione/goal o
+  scopo cosciente e operazione/condizioni.
+
+### Fonti primarie consultabili sul web
+
+- **Signifiers, not affordances** — Donald Norman, _Interactions_ 15(6),
+  novembre 2008, DOI 10.1145/1409040.1409044. Il
+  [testo d'autore su JND.org](https://jnd.org/signifiers-not-affordances/)
+  documenta il concetto prima del libro del 2013 e ricorda l'ingresso di
+  affordance nel design nel 1988. Verificato il 2026-09-08 per la cronologia di
+  `affordance-signifier`; non sostituisce l'intero capitolo del libro.
+- **Affordance, Conventions and Design (Part 2)** — Donald Norman, JND.org,
+  pagina datata 17 novembre 2008.
+  [Testo d'autore](https://jnd.org/affordance-conventions-and-design-part-2/)
+  verificato il 2026-09-08 per `constraint`: distingue vincoli fisici, logici e
+  culturali e chiarisce che gli ultimi possono essere violati o ignorati.
+  L'[indice del libro 2013 pubblicato dall'autore](https://jnd.org/books/the-design-of-everyday-things-revised-and-expanded-edition/)
+  conferma il Cap. 4 e la sua classificazione in quattro tipi; questo controllo
+  non equivale alla lettura integrale del capitolo.
+- **The Computer for the 21st Century** — Mark Weiser, 1991. La
+  [copia ospitata da UC Irvine](https://www.ics.uci.edu/~corps/phaseii/Weiser-Computer21stCentury-SciAm.pdf)
+  riproduce una bozza d'autore dopo l'editing di _Scientific American_, con
+  indicazione di un'ultima revisione ancora da fare. Apertura verificata il
+  2026-09-08 per `development-goal`: tecnologie integrate nella pratica fino a
+  sottrarsi all'attenzione. Citare per apertura della bozza, senza attribuirle
+  la paginazione dell'edizione pubblicata. L'uso come telos del metodo e la
+  metrica delle code sono interpretazioni locali, non tesi di Weiser.
 
 ### Fonti citate senza superficie primaria locale
 
@@ -165,7 +219,10 @@ pdftotext "<file>.pdf" "<file>.txt"                      # per i PDF
 - Niklas Luhmann, «Kommunikation mit Zettelkästen» (1981), e Robert M. Pirsig,
   _Lila_ (1991), citati da `kb/zettelkasten.md`: provenienza bibliografica
   registrata, testi primari non presenti in `gdrive/`.
-- Il post pubblico da cui deriva il nome `karpathy-pattern` non ha ancora una
+- Herbert A. Simon (1981), formulazione sulla rappresentazione del problema
+  riportata da Norman in _Things That Make Us Smart_, Cap. 3: citazione mediata
+  per `kb/cognitive-artifact.md`, non verificata su un originale di Simon.
+- La fonte pubblica da cui deriva il nome `karpathy-pattern` non ha ancora una
   superficie primaria identificata nel register. Il nodo va quindi letto come
   formalizzazione metodologica locale, non come citazione verificata di una
   fonte disponibile.

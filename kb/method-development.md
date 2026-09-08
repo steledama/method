@@ -31,15 +31,15 @@ questo l'enfasi esclusiva sul dal-basso, pur giusta come guardia contro la
 sovra-ingegnerizzazione, contraddice il gigante che il metodo ha adottato: va
 tenuta come uno dei due poli, non come la regola.
 
-Il **modo del ritrovamento tara il costo del rimedio**. Un segnale che arriva da
-un danno subito — qualcuno ha agito su ciò che l'artefatto diceva, e l'artefatto
-sbagliava — licenzia una risposta strutturale, anche costosa. Un segnale che
-arriva da un'ispezione, cioè da un guardare deliberato dove nessuno si era
-ancora fatto male, licenzia il rimedio **più economico che l'avrebbe
-intercettato**, e nient'altro. È la stessa guardia contro la
-sovra-ingegnerizzazione applicata non a _se_ rispondere ma a _quanto_:
-l'ispezione trova per definizione ciò che nessuno ha ancora pagato, e chi cerca
-è già persuaso di trovare.
+Il **rimedio va proporzionato al rischio e all'evidenza**. Un danno osservato
+rende concreta una modalità di guasto; un'ispezione può scoprirla prima che
+produca conseguenze. In entrambi i casi si sceglie il rimedio meno costoso che
+presidia adeguatamente probabilità, gravità, ricorrenza e rilevabilità
+dell'errore, includendo il costo di manutenerlo. La provenienza del segnale tara
+la fiducia nella diagnosi, non impone un tetto al rimedio: una vulnerabilità ad
+alta conseguenza può richiedere un vincolo strutturale anche prima del primo
+danno. Un sospetto debole richiede invece verifica prima di aggiungere
+struttura.
 
 Una precisazione contro un equivoco: il «dall'alto» di questo nodo è il top-down
 del **ciclo di sviluppo** del metodo — la cornice teorica importata che dà forma
@@ -66,10 +66,10 @@ proprio contenuto dipende davvero. Tre gradi di dipendenza, da non confondere:
 
 - **dipendenza generale** — l'adozione del metodo come tale. Si dichiara una
   sola volta, nella sezione README canonica (`readme`): riferimento + breve
-  descrizione, il symlink `method/`, e i due poli del ciclo del dominio (Goal e
-  World) sotto heading fissi. Il solo nome di nodo assunto stabile come punto
-  d'aggancio è l'hub `cognitive-artifact-design.md`. Questa è l'**interfaccia**:
-  cambia di rado, è il contratto.
+  descrizione, il symlink `method/` e i rimandi ai register locali `goal.md` e
+  `world.md`. Il solo nome di nodo assunto stabile come punto d'aggancio è l'hub
+  `cognitive-artifact-design.md`. Questa è l'**interfaccia**: cambia di rado, è
+  il contratto.
 - **connessione intenzionale** — un link diretto a un nodo interno che esprime
   una dipendenza **semantica** o **operativa** reale: un nodo locale che àncora
   il proprio concetto a un concetto del metodo, una regola o uno strumento

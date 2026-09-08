@@ -38,8 +38,9 @@ quando locali e chiamate per ciò che sono.
 
 ## Criterio di collocazione
 
-La collocazione segue la funzione, e la funzione si riconosce dalla frequenza di
-cambiamento del contenuto invece che dalla sua importanza (`pace-layering`):
+La collocazione segue funzione e denotazione del contenuto. La frequenza di
+cambiamento aiuta a riconoscere responsabilità da disaccoppiare, ma non decide
+da sola la destinazione (`pace-layering`):
 
 - conoscenza durevole → `kb/`;
 - segnale catturato → `i1/`;
@@ -49,8 +50,8 @@ cambiamento del contenuto invece che dalla sua importanza (`pace-layering`):
 - dettaglio di un task aperto → `o2/`;
 - prescrizione, runbook o esecutore → `o3/`;
 - rappresentazione derivata → `presentation/`;
-- contenuto che conserva significato senza l'artefatto → superficie dichiarata
-  in `world.md`.
+- asset con significato autonomo nel dominio runtime → superficie dichiarata in
+  `world.md`; nel ciclo di sviluppo il Mondo è invece l'artefatto stesso.
 
 Il corpo applicativo o dichiarativo di un progetto può vivere in `o3/` quando è
 ciò con cui l'artefatto agisce sul proprio Mondo. Le sottocartelle restano una

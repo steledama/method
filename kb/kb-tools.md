@@ -41,7 +41,8 @@ Regole d'uso:
 
 - preferire lo script versionato a parser improvvisati in sessione;
 - mantenere separati audit strutturale e revisione semantica;
-- confrontare i fatti con fonti primarie, mai con altra documentazione;
+- confrontare i fatti con fonti primarie, anche documentali, senza usare copie
+  della sintesi come conferma indipendente;
 - conservare nei fili solo il cambiamento di giudizio prodotto dall'audit, non
   il report rigenerabile;
 - tenere le estensioni locali e, quando possibile, prive di dipendenze esterne.

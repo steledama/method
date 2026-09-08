@@ -24,14 +24,12 @@ costo è la perdita del contesto immediato: il lettore deve spostarsi in fondo
 per sapere verso dove può navigare. Questo costo è basso per un LLM (che legge
 l'intero nodo in una passata) ma più sentito per un umano che legge scorrendo.
 
-La scelta dei footer, in questo progetto, poggia su tre ragioni convergenti.
-Prima: il testo è più godibile da scrivere e da leggere senza il rumore
-sintattico dei link inline. Seconda: la manutenzione dei footer — deduplica,
-ordinamento per occorrenza, aggiornamento dopo rinominamenti — è esattamente il
-tipo di lavoro in cui un LLM eccelle e un umano è lento; spostare questo peso
-sull'LLM rende il sistema più sostenibile. Terza: la forma footer rispecchia
-meglio il modo in cui sia la mente umana che un LLM navigano una rete semantica
-— prima si comprende il nodo, poi si valutano i vicini.
+La scelta dei footer è una convenzione editoriale del progetto: separa la
+lettura del contenuto dalla scelta dei vicini e rende visibile l'insieme delle
+connessioni. Deduplica e rinominazioni hanno controlli deterministici;
+l'ordinamento per rilevanza richiede giudizio. Il percorso «comprendi, poi
+naviga» è una scelta d'interfaccia, non una descrizione universale di come
+pensano umani e LLM.
 
 Inline:
 

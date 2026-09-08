@@ -15,10 +15,10 @@ rendono il dominio ricostruibile senza leggere tutto. La validità dei link non
 basta: la rete deve restare aderente al progetto reale (`cognitive-fidelity`).
 
 La KB orienta il ciclo ma non lo sostituisce. Non contiene task aperti, segnali
-grezzi o prescrizioni: conserva concetti, decisioni e conoscenza che devono
-sopravvivere al singolo giro. Le collezioni `i*` e `o*` trattano invece il
-lavoro in transito; README orienta, CLAUDE istruisce l'agente, Git conserva la
-storia.
+grezzi o prescrizioni operative da eseguire: conserva concetti, norme, decisioni
+stabilizzate e conoscenza riusabile oltre il singolo giro. Le collezioni `i*` e
+`o*` trattano invece il lavoro in transito; README orienta, CLAUDE istruisce
+l'agente, Git conserva la storia.
 
 La manutenzione divide responsabilità diverse. L'umano resta autore e decide
 cosa è vero o rilevante; l'LLM integra, collega e segnala incoerenze; gli script

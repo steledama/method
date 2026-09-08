@@ -4,10 +4,9 @@ stato: maturo
 
 # Source of truth
 
-Una fonte di verità è ciò contro cui si verifica ciò che la KB dice. Risponde
-alla domanda: contro che cosa verifico ciò che la KB dice? Può essere codice,
-configurazione, JSON, documento autoritativo, database, output strutturato o
-mappa mantenuta manualmente.
+Una fonte di verità è ciò contro cui si verifica un'affermazione della KB. Può
+essere codice, configurazione, JSON, documento autoritativo, database, output
+strutturato o mappa mantenuta manualmente.
 
 La fonte di verità impedisce alla KB di diventare una descrizione plausibile ma
 disancorata. Nei progetti code-based può coincidere con file tecnici; nei
@@ -22,8 +21,8 @@ Regole:
 - non deve essere versionata per forza: autorevolezza, persistenza, backup e
   controllo versione sono proprietà distinte
 - la **provenienza** delle fonti-mondo autorevoli (quale edizione regge quale
-  nodo) si versiona nella sezione fonti del register `world.md` (che assorbe il
-  vecchio `sources.md`) e alimenta i `## Riferimenti` dei nodi
+  nodo) si versiona nella sezione fonti del register `world.md` e alimenta i
+  `## Riferimenti` dei nodi
 - va collegata dal register `world.md` e dai nodi ad alta responsabilità
 - alimenta i controlli di fedeltà cognitiva
 - non tutti i nodi richiedono la stessa intensità di verifica
@@ -51,8 +50,10 @@ register `world.md`):
 Il confronto impedisce una generalizzazione troppo tecnica. "Fonte di verità"
 non significa sempre codice: può essere un JSON prodotto da parser, una tabella
 esterna, un documento legale, una fonte testuale o una scelta interpretativa
-dichiarata. La regola comune è esplicitare il livello di fiducia e non
-verificare documentazione contro altra documentazione.
+dichiarata. Una decisione del custode è primaria per ciò che ha deciso, non
+prova da sola un fatto esterno; una sintesi non si verifica contro una sua
+copia. Il formato documentale non riduce l'autorità di un contratto o di un
+originale: contano provenienza, indipendenza e pertinenza all'affermazione.
 
 Connessioni:
 

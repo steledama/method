@@ -8,9 +8,8 @@ Unità di analisi proposta da Edwin Hutchins per studiare la cognizione dove
 accade davvero: non dentro la testa di un singolo individuo, ma
 nell'accoppiamento tra persone, artefatti e ambiente. Un sistema cognitivo
 comprende individui, artefatti e le relazioni che li legano in una pratica di
-lavoro. La tesi di Hutchins è che la cognizione è
-_distribuita_ — non solo tra le persone di un gruppo, ma tra persone e
-strumenti, tra mente e mondo.
+lavoro. La tesi di Hutchins è che la cognizione è _distribuita_ — non solo tra
+le persone di un gruppo, ma tra persone e strumenti, tra mente e mondo.
 
 Cosa si distribuisce non è solo l'informazione ma anche i processi:
 rappresentazioni e trasformazioni si propagano attraverso agenti e artefatti in
@@ -22,37 +21,29 @@ persone, strumenti e contesto.
 
 Norman converge sulla stessa conclusione, ed è una convergenza interna alla
 stessa famiglia UCSD: persona e artefatto formano un sistema le cui capacità
-superano quelle dell'individuo isolato. L'artefatto non è un'estensione della
-mente — è un
-componente del sistema cognitivo che trasforma ciò che il sistema è capace di
-fare. In _Things That Make Us Smart_ (Cap. 6) Norman tratta la cognizione
-distribuita _citando Hutchins_: il mondo ricorda per noi trattenendo lo stato —
-eco diretta della membrana
-`world` — e gli errori condivisi nel sistema diventano occasione di
+possono superare quelle dell'individuo isolato. In questa lettura l'artefatto è
+un componente che trasforma i compiti e le capacità del sistema. In _Things That
+Make Us Smart_ (Cap. 6) Norman tratta la cognizione distribuita _citando
+Hutchins_: il mondo ricorda per noi trattenendo lo stato — eco diretta della
+membrana `world` — e gli errori condivisi nel sistema diventano occasione di
 apprendimento rigenerativo.
 
-## Distribuita ed estesa: il pavimento completo
+## Cognizione distribuita e mente estesa
 
-Sotto Hutchins e Norman, la **mente estesa** di Andy Clark (con Chalmers) dà la
-versione forte del pavimento: l'_active externalism_ — porzioni del mondo
-funzionano come parti del processo cognitivo (il taccuino di Otto al pari della
-memoria biologica, per il _parity principle_) — e lo _scaffolding_ di _Being
-There_, l'artefatto come corpo o ambiente ingegnerizzato. Il «007 principle» —
-lascia l'informazione nel mondo e recuperala quando serve, invece di
-immagazzinarla tutta dentro — e la mente come _controllore_ più che contenitore
-sono la ragione per cui un artefatto esterno conta come cognizione, non come
-semplice deposito.
+La **mente estesa** di Clark e Chalmers sostiene che, in determinate condizioni
+di accoppiamento, processi esterni possano essere parte della cognizione: il
+taccuino di Otto illustra il _parity principle_ e l'_active externalism_. Questa
+tesi è distinta dall'analisi di Hutchins della propagazione delle
+rappresentazioni; il metodo usa entrambe senza trattarle come una dimostrazione
+unica o attribuire capacità cognitive a ogni deposito.
 
-Da qui un esito scomodo e prezioso, che è un **criterio di progetto della KB**,
-non solo una tesi filosofica. Clark apre _Being There_ attaccando il modello
-«filing cabinet» della mente (il progetto CYC): una mente non è un archivio
-passivo da riempire. La KB è quindi legittima solo come **scaffold orientato
-all'azione** — descrittivo _e_ prescrittivo insieme, nel senso del segnale
-«pushmi-pullyu» — non come brain-dump passivo. È lo stesso criterio che Norman
-porta col ciclo d'azione (se l'utente non agisce, la KB è mal progettata), letto
-dal lato ontologico: l'artefatto cognitivo conta come cognizione nella misura in
-cui orienta l'atto, e va portato in `system-image` e `cognitive-artifact-design`
-come vincolo di progetto.
+In _Being There_, Clark analizza corpo, ambiente e _scaffolding_. Il «007
+principle» invita a sfruttare l'informazione disponibile nel mondo invece di
+ricostruirla tutta internamente. La critica del modello mentale come archivio
+passivo suggerisce al metodo un criterio di progetto: la KB deve sostenere
+comprensione e decisioni nella pratica, compresa una scelta motivata di
+attendere. La semplice presenza di file o l'assenza di un'azione immediata non
+bastano a giudicare l'accoppiamento cognitivo.
 
 ## Il sistema cognitivo del metodo
 
@@ -71,21 +62,21 @@ sistema non sono la stessa cosa.
 Il sistema cognitivo del metodo ha un'asimmetria strutturale tra gli agenti che
 leggono l'artefatto. Questo nodo tratta l'effetto dell'asimmetria sul sistema;
 la popolazione di agenti, i suoi livelli e la divisione del lavoro vivono in
-`agent`. Per l'umano l'artefatto è impalcatura esterna a un
-modello mentale che possiede già — un promemoria, un ancoraggio. Per l'LLM
-l'artefatto è il principale modello persistente: non porta memoria affidabile
-tra sessioni e integra il repo con richiesta corrente, strumenti e segnali del
-Mondo. Lo user's model di Norman deriva quindi soprattutto dal system image —
-l'intero artefatto, di cui la KB è il nucleo formalizzato — ma non coincide
-letteralmente con esso.
+`agent`. Per l'umano l'artefatto è impalcatura esterna a un modello mentale che
+possiede già — un promemoria, un ancoraggio. Per l'LLM l'artefatto è il
+principale modello persistente: non porta memoria affidabile tra sessioni e
+integra il repo con richiesta corrente, strumenti e segnali del Mondo. Lo user's
+model di Norman deriva quindi soprattutto dal system image — l'intero artefatto,
+di cui la KB è il nucleo formalizzato — ma non coincide letteralmente con esso.
 
 L'asimmetria ha conseguenze di progetto: l'artefatto deve essere
-autosufficiente per l'agente che non porta nulla, senza per questo essere
-ridondante per l'agente che porta già molto. Non è un equilibrio facile — è la
-tensione che motiva lo sdoppiamento dello strato output nelle due rese per
-l'agente macchina e per l'agente umano (cfr. `affordance-signifier`), e che
-richiede che certe cose (assunzioni, contesto, ragioni di una decisione) siano
-esplicite nell'artefatto anche quando l'umano le ricorderebbe.
+sufficientemente esplicito per ricostruire il contesto di progetto, senza
+richiedere la memoria di sessioni precedenti né ripetere ogni conoscenza
+generale già disponibile. Non è un equilibrio facile — è la tensione che motiva
+lo sdoppiamento dello strato output nelle due rese per l'agente macchina e per
+l'agente umano (cfr. `affordance-signifier`), e che richiede che certe cose
+(assunzioni, contesto, ragioni di una decisione) siano esplicite nell'artefatto
+anche quando l'umano le ricorderebbe.
 
 ## Genus e species
 
@@ -132,11 +123,10 @@ sopravvivenza al cambio di modello si regge su questa distinzione.
 ## Riferimenti
 
 - Edwin Hutchins, _Cognition in the Wild_ (MIT Press, 1995) — fonte primaria sul
-  sistema cognitivo come unità di analisi (cfr. la
-  sezione fonti di `world.md`, qualità OCR media: verificare le citazioni
-  verbatim sulla scansione). Citare per capitolo; cap. 9 per la sintesi (non
-  scambiare le proprietà del sistema socioculturale per quelle della mente
-  individuale).
+  sistema cognitivo come unità di analisi (cfr. la sezione fonti di `world.md`,
+  qualità OCR media: verificare le citazioni verbatim sulla scansione). Citare
+  per capitolo; cap. 9 per la sintesi (non scambiare le proprietà del sistema
+  socioculturale per quelle della mente individuale).
 - Andy Clark & David J. Chalmers, «The Extended Mind», _Analysis_ 58(1):7-19,
   1998; Andy Clark, _Being There_ (MIT Press, 1997) — pavimento ontologico della
   mente estesa: active externalism, parity, scaffolding, 007 principle,

@@ -2,27 +2,34 @@
 ciclo: dev
 ---
 
-# La KB è coerente; la maturazione residua richiede uso reale
+# Coerenza interna e maturazione empirica richiedono verifiche distinte
 
-La review semantica completa sui 48 nodi conferma una rete strutturalmente
-integra e semanticamente sana. Non ci sono nodi da fondere o eliminare. La sola
-divisione necessaria separa il modello dell'osservatorio dal protocollo
-eseguibile di ingresso di un adottante: il primo resta in
-`kb/method-observatory.md`, il secondo vive in `o3/ingresso-adottante.md`.
+La rete dei 48 nodi conserva responsabilità autonome: non richiede fusioni o
+eliminazioni. La review completa ha però mostrato che audit strutturali verdi e
+precedenti promozioni di maturità non bastano a garantire coerenza semantica. Le
+correzioni approvate dal custode riguardano sia contraddizioni testuali sia il
+livello di certezza delle attribuzioni e delle metriche.
 
-La review corregge la contraddizione fra `system-image` e `cognitive-system`:
-lo user's model dell'LLM deriva principalmente dal system image ma non coincide
-con esso, perché richiesta corrente, strumenti e segnali del Mondo concorrono
-alla comprensione. La provenienza delle fonti in `world.md` conserva edizione,
-disponibilità, qualità e destinazione concettuale senza trattenere la cronaca
-della loro lavorazione.
+Il canone distingue ora cattura, interpretazione e giudizio; la valenza rispetto
+al Goal entra in i3, anche nelle istruzioni di `eval`. Le sintesi si collocano
+per funzione fra i2, o2 e viste derivate. Il Mondo è relativo al ciclo e può
+essere versionato. Il modello dell'agente integra l'artefatto con richiesta,
+strumenti e segnali, senza coincidere con la sola KB.
 
-Sei nodi hanno superato il test di maturità: `action-cycle`,
-`cognitive-artifact`, `constraint`, `processing-layers`, `source-of-truth` e
-`system-image`. La distribuzione corrente è 27 `maturo` e 21 `bozza`.
-`agent` e `development-goal` restano deliberatamente in bozza perché dichiarano
-ipotesi che l'uso deve ancora stabilizzare; lo stesso criterio vale per gli
-altri nodi non promossi.
+Le attribuzioni separano fonte primaria e trasposizione: task e operazione in
+Leontiev, schede usate e collegamenti proposti in Engelbart, cronologia del
+signifier in Norman. Il pattern Karpathy resta una formalizzazione locale; la
+provenienza e i limiti delle fonti vivono nel register `world.md`.
+
+La maturità non si deduce da coda vuota, distribuzione dei nodi o assenza di
+azione. Questi indizi richiedono confronto con obiettivi, segnali ed esiti.
+Funzione e denotazione guidano la collocazione; il ritmo di cambiamento aiuta a
+disaccoppiare le responsabilità. Il rimedio a un difetto è proporzionato al
+rischio e all'evidenza, anche quando il difetto emerge prima di un danno.
+
+La rifinitura non promuove automaticamente gli stati dei nodi. Il limite residuo
+è empirico e di provenienza: la correttezza delle distinzioni deve reggere
+nell'uso, e le fonti mancanti non diventano verificate per consenso fra nodi.
 
 Restano tre tensioni sperimentali:
 
@@ -33,7 +40,7 @@ Restano tre tensioni sperimentali:
 - il meccanismo `EXTENDED_FACETS` ha retto in `nixos` e nell'assenza motivata di
   facet in `bi`, ma resta da osservare il caso `tipo:` di `economia`.
 
-Audit, inventory, coverage e facets sono verdi: 48/48 nodi indicizzati, 374
-link interni, nessun link rotto o nodo isolato, sei esecutori interamente
-coperti. Il verdetto complessivo non apre lavoro correttivo: ciò che resta si
-chiude solo con nuovi segnali d'uso, non con ulteriore rifinitura interna.
+Il filo resta aperto per queste verifiche e per i limiti delle fonti dichiarati
+nel register. La nuova condizione di revisione è esplicita: una contraddizione
+interna o una fonte che smentisce il testo apre lavoro correttivo subito;
+l'attesa di uso reale vale per le ipotesi, non per gli errori già osservabili.

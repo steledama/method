@@ -15,15 +15,14 @@ Robert Pirsig descrive in _Lila_ una pratica affine di schede riorganizzabili. �
 un esempio letterario della manipolazione materiale delle idee, non la fonte del
 modello né la prova di una discendenza diretta da Luhmann.
 
-Un precursore meno noto vive nella cornice di sistema di Douglas Engelbart: il
-sistema di schede _edge-notched_ descritto in _Augmenting Human Intellect_
-(1962, §III-A-3) è uno **Zettelkasten ante litteram** — nodi atomici con link
-tipizzati e provenienza, manipolabili meccanicamente con ferri da calza che
-selezionano le carte tagliate sul bordo. Engelbart lo accompagna alla mossa di
-ingest che il metodo riconosce come propria — «type the article in, tear it
-apart... it sits in the archives like an orange rind», l'articolo grezzo
-digerito in note collegate — segno che la disciplina dell'unità atomica era già
-parte di un sistema di augmentation co-evolvente (cfr. `augmentation-system`).
+Una pratica affine è descritta da Douglas Engelbart in _Augmenting Human
+Intellect_ (1962, §III-A-3): le schede edge-notched raccolgono piccole unità di
+pensiero, descrittori e provenienza, selezionabili con aghi attraverso le tacche
+sul bordo. I collegamenti associativi sono invece discussi come possibilità di
+estensione, distinguendoli dal sistema già usato. Il metodo riconosce qui una
+parentela funzionale con i nodi; non ne ricava una genealogia dello Zettelkasten
+né attribuisce alle schede tutte le proprietà della rete contemporanea
+(`augmentation-system`).
 
 Caratteristiche:
 
@@ -41,7 +40,7 @@ Caratteristiche:
 - strumento di creatività: la giustapposizione di idee diverse genera nuove
   possibilità
 - supporto al pensiero critico: riformulare le idee con parole proprie obbliga a
-  comprenderle in profondita
+  comprenderle in profondità
 - apprendimento attivo: scrivere e collegare è un modo di pensare, non solo di
   archiviare
 
@@ -64,16 +63,14 @@ Regola pratica:
   KB
 - se istruisce un agente, va in CLAUDE.md o in una skill
 - se orienta il lettore, va in README.md
-- se è una sintesi, una vista d'insieme o un dashboard, va nello strato output
-  del progetto, non in kb/
+- se è una sintesi interpretativa multi-nodo, va in `i2/`; se prepara una
+  decisione o un'azione, svolge la funzione o2; una vista derivata vive in
+  `presentation/`
 
-Nel metodo, lo Zettelkasten sta dentro la cornice di augmentation di Engelbart,
-dove occupa il means _Language_ (cfr. `augmentation-system`): fornisce la
-disciplina che regola la forma dei nodi — ogni nodo è atomico, le sintesi non
-stanno nel nodo. Lo strato output è il corollario diretto di questa disciplina:
-ospita le sintesi karpathiane, le viste e i dashboard che non possono entrare in
-kb/ senza violare l'atomicità. Senza lo strato output, la pressione di sintesi
-finisce dentro i nodi e corrompe il principio fondante.
+La distinzione è operativa: un nodo può sintetizzare più fonti mantenendo una
+responsabilità autonoma. Dashboard, backlog e panoramiche trasversali hanno
+altre funzioni e superfici proprie. Questa è la disciplina adottata dal metodo,
+non un divieto attribuito a Luhmann su ogni forma di sintesi.
 
 ## Riferimenti
 
@@ -81,11 +78,11 @@ finisce dentro i nodi e corrompe il principio fondante.
   descrizione dello schedario come partner di comunicazione; provenienza
   bibliografica registrata, testo primario non disponibile localmente.
 - Robert M. Pirsig, _Lila: An Inquiry into Morals_ (1991), descrizione della
-  pratica delle schede; provenienza bibliografica registrata, testo primario
-  non disponibile localmente.
+  pratica delle schede; provenienza bibliografica registrata, testo primario non
+  disponibile localmente.
 - Douglas C. Engelbart, _Augmenting Human Intellect_ (1962), §III-A-3, per il
-  sistema edge-notched e l'ingest in unità collegate; provenienza nel register
-  `world.md`.
+  sistema edge-notched e le possibilità di collegamento distinte dall'uso
+  esistente; provenienza nel register `world.md`.
 
 Connessioni:
 

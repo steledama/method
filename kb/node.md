@@ -4,33 +4,27 @@ stato: maturo
 
 # Node
 
-Un nodo è l'unità atomica di una knowledge base basata su testo: un pezzo di
-conoscenza che si definisce in relazione con gli altri nodi, mai in isolamento.
-Il significato di un nodo emerge dalla rete di connessioni in cui partecipa, non
-dal suo contenuto intrinseco.
+Un nodo è l'unità atomica di una knowledge base basata su testo: conoscenza con
+una responsabilità autonoma, resa più comprensibile e utilizzabile dalle
+connessioni. Il corpo deve potersi leggere da solo; la rete ne esplicita
+contesto, dipendenze e possibili percorsi.
 
-Il termine "nodo" è preferito a "nota" per tre ragioni. Prima: relazionalità —
-un nodo senza connessioni è incompleto, perché la sua funzione nasce dal posto
-che occupa nella rete. Seconda: generalizzabilità — "nodo" è un termine neutro
-applicabile a qualsiasi dominio (salute, finanza, configurazione sistemi,
-business intelligence) senza implicare un contesto specifico; lo stesso schema
-concettuale si trasferisce tra progetti con minima personalizzazione. Terza:
-interfaccia cognitiva condivisa — un LLM naviga una knowledge base di nodi
-esattamente come la mente umana, seguendo connessioni in una rete semantica; il
-termine rende esplicito questo protocollo condiviso e massimizza l'osmosi tra
-cognizione autonoma e cognizione aumentata dagli LLM.
+Il termine "nodo" sottolinea questa relazionalità ed è applicabile a domini
+diversi. Umani e agenti possono usare gli stessi collegamenti per orientarsi: è
+un'interfaccia condivisa, senza assumere che i loro processi cognitivi siano
+identici.
 
 Ogni nodo ha una struttura minimalista: frontmatter con lo stato di maturità,
 corpo in prosa pura senza link inline, sezioni opzionali (Caratteristiche,
 Esempi, altri label custom), sezione finale Connessioni con tutti i link
-deduplicate e ordinati per rilevanza. Il corpo è pensato per essere letto — la
+deduplicati e ordinati per rilevanza. Il corpo è pensato per essere letto — la
 sezione Connessioni è pensata per essere navigata. L'atomicità non riguarda solo
 l'argomento, ma anche la funzione documentale: un nodo dovrebbe sapere se sta
 facendo da mappa, concetto, reference o runbook.
 
 Template:
 
-- frontmatter iniziale con solo lo stato
+- frontmatter iniziale con `stato`, salvo estensioni di dominio dichiarate
 - H1 con titolo del nodo
 - definizione in uno o tre paragrafi di prosa pura
 - sezioni opzionali con label testuale e bullet piatti
@@ -47,8 +41,8 @@ Caratteristiche:
   interruzioni sintattiche
 - interfaccia esplicita: la sezione Connessioni è l'unico punto di uscita verso
   la rete
-- frontmatter minimalista obbligatorio: solo stato (`bozza`, `iniziale`,
-  `maturo`); le date — creazione e modifica — vivono in git, non nel frontmatter
+- frontmatter minimo obbligatorio: `stato` (`bozza`, `iniziale`, `maturo`), con
+  il meccanismo di estensione descritto sotto; le date vivono in Git
 - nome file inglese, tutto minuscolo con trattini, singolare come forma canonica
 - prosa italiana per i concetti del dominio
 - H1 inglese obbligatorio, coerente con il filename e leggibile anche fuori da
@@ -59,8 +53,8 @@ Caratteristiche:
 - stato maturo: nodo stabile, collegato e sufficientemente autonomo
 - niente storico operativo: task, checklist temporanee e piani di lavoro vivono
   in `o2/`
-- presente permanente: la KB stabile descrive lo stato corrente; la storia resta
-  in git e nei fili `i3/`
+- presente permanente: la KB descrive la conoscenza corrente; Git conserva la
+  storia, `i3/` i giudizi sulle tensioni ancora aperte
 - funzione documentale esplicita: separare quando mappa, concetto, reference e
   runbook iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a
@@ -79,9 +73,9 @@ stato: bozza | iniziale | maturo
 ---
 ```
 
-Il frontmatter dei nodi è obbligatorio e volutamente minimale: un solo campo,
-`stato`. Serve agli strumenti per distinguere presenza e maturità del nodo senza
-trasformare la KB in un database manuale.
+Il frontmatter base dei nodi è obbligatorio e minimale: il campo `stato`. Serve
+agli strumenti per distinguere presenza e maturità del nodo senza trasformare la
+KB in un database manuale.
 
 `stato` è l'unico campo che guadagna l'obbligo perché è un **giudizio non
 ricostruibile** da nessun'altra fonte. Le **date** — creazione e modifica —
@@ -116,9 +110,10 @@ verifica presenza e dominio, come già fa per `stato`.
 
 La proprietà estesa è **locale all'adottante** — vive nella sua `kb/` e non nel
 canone, salvo che emerga come generalizzazione portabile: ciò che il metodo
-sanziona è il meccanismo, non la singola proprietà. Esempio: `nixos` marca ogni
-nodo con `mondo: lavoro | casa | trasversale`, attributo intrinseco a valori
-chiusi che rende meccanico un futuro split dei repository.
+sanziona è il meccanismo, non la singola proprietà. Un esempio è la facet
+`mondo: lavoro | casa | trasversale`, usata per distinguere ambiti di una KB di
+configurazione. Valori e copertura effettivi si verificano nel fork che la
+dichiara, senza mantenerne qui una fotografia corrente.
 
 Il frontmatter appartiene ai nodi, ai task operativi e agli item delle
 collezioni-stadio, non a bussola, regole, register o indici ordinari.

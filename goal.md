@@ -12,45 +12,38 @@ capaci di autocorrezione e rigorosi sulle fonti.
 I nodi `kb/` reggono il peso del metodo: atomici, connessi, verificabili contro
 le fonti-mondo.
 
-- **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py`
-  (`/kb`) e filo
-  [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro: la
-  campagna di potatura è **conclusa** (rete a 46 nodi, audit, copertura, facet
-  e tasks verdi alla review del 2026-08-22); resta aperto il solo task `pause`
-  di rivalutazione della clausola di uscita (`Ob. 1` nel plan); dei verdetti
-  pendenti, bozza→maturo e facet attendono l'uso reale;
-  tipologia e matrice hanno avuto il loro **test esterno**
-  (`danea-auto` a `fb83c0d`, 2026-08-12): baricentro corroborato debolmente, e
-  la forzatura emersa è risolta nel canone con la quarta regione `N` (norma
-  della macchina), distinta da Goal e descrizione della macchina; la tipologia
-  resta `bozza` in attesa di un secondo specimen esterno indipendente (filo).
+- **Rete dei nodi sana e verificata** — segnali: audit `o3/kb_tools.py` (`/kb`)
+  e filo [maturazione-nodi-fondativi](i3/maturazione-nodi-fondativi.md); lavoro:
+  rifinitura semantica applicata, con distinzioni e attribuzioni corrette. Il
+  mantenimento è event-driven sui segnali di incoerenza; il lavoro aperto si
+  legge nel plan. Le ipotesi su tipologia, matrice e facet attendono nuove
+  evidenze d'uso, mentre le fonti mancanti restano dichiarate nel register
+  World. Un audit verde non sostituisce queste verifiche.
 
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
-Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col
-proprio `method`, senza che `metodo` gestisca le loro code.
+Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
+`method`, senza che `metodo` gestisca le loro code.
 
 - **Canone recepito dagli adottanti** — struttura, register e quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
-  dell'audit mensile);
-  lavoro: `crm` e `danea-auto` sono entrati come quinto e sesto adottante il
-  2026-08-12; obiettivo con **un fronte aperto** — il giro vive nei `method`
-  degli adottanti e il battito è la riga mensile `/adottanti` in `## Scadenze`,
-  ma **tre prescrizioni restano aperte** in `o3/` (`chiusura-task-controlla-world`,
-  `revisione-bootstrap-adottante`, `semplificazione-lessico-struttura`), tutte
-  anteriori al commit `ab7003b` a cui i marker si dichiarano `aligned`.
-  Recepimento verificato il 2026-08-22 sui quattro checkout locali di `svezia`:
-  `chiusura-task-controlla-world` recepita da tutti e quattro,
-  `semplificazione-lessico-struttura` non ancora da `bi` e `crm`. `economia` e
-  `salute` stanno su `deck` e non sono stati letti in questo giro: limite del
-  checkout, non certificazione negativa. La verifica sui sei è materia del
-  battito del 2026-09-01; watchpoint: il
-  collaudo d'uso delle skill per arco negli adottanti: `bi` ha iniziato a
-  girarle ripetutamente su eventi reali dal 2026-08-05; restano da misurare gli
-  altri profili e la clausola di uscita, anticipata dal custode al battito del
-  2026-09-01; il 2026-11-01 resta solo fallback se a settembre manca evidenza
-  discriminante.
+  dell'audit mensile); lavoro: `crm` e `danea-auto` sono entrati come quinto e
+  sesto adottante il 2026-08-12; obiettivo con **un fronte aperto** — il giro
+  vive nei `method` degli adottanti e il battito è la riga mensile `/adottanti`
+  in `## Scadenze`, ma **tre prescrizioni restano aperte** in `o3/`
+  (`chiusura-task-controlla-world`, `revisione-bootstrap-adottante`,
+  `semplificazione-lessico-struttura`), tutte anteriori al commit `ab7003b` a
+  cui i marker si dichiarano `aligned`. Recepimento verificato il 2026-08-22 sui
+  quattro checkout locali di `svezia`: `chiusura-task-controlla-world` recepita
+  da tutti e quattro, `semplificazione-lessico-struttura` non ancora da `bi` e
+  `crm`. `economia` e `salute` stanno su `deck` e non sono stati letti in questo
+  giro: limite del checkout, non certificazione negativa. La verifica sui sei è
+  materia del battito del 2026-09-01; watchpoint: il collaudo d'uso delle skill
+  per arco negli adottanti: `bi` ha iniziato a girarle ripetutamente su eventi
+  reali dal 2026-08-05; restano da misurare gli altri profili e la clausola di
+  uscita, anticipata dal custode al battito del 2026-09-01; il 2026-11-01 resta
+  solo fallback se a settembre manca evidenza discriminante.
 
 ### 3. Ascoltare il basso
 
@@ -65,13 +58,13 @@ i2/i3 invece di incidere il canone di straforo.
 
 ## Goal di sviluppo
 
-Posizione auspicata lungo le dimensioni comuni
-([development-goal](kb/development-goal.md)): ciclo **event-driven** sul
-segnale dell'adottante, umano **in-the-loop**, **basso attrito di lettura**
-(bussola snella, viste che si aprono dal checkout), KB riflessiva coerente,
-loop di propagazione che si chiude. Il lavoro che la serve porta `Ob. S` in
-[`o1/plan.md`](o1/plan.md); il battito mensile `/adottanti` — l'audit
-runtime-o1 che chiude il giro dall'alto — vive in `## Scadenze`.
+Posizione auspicata lungo le dimensioni candidate comuni
+([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
+dell'adottante, umano **in-the-loop**, **basso attrito di lettura** (bussola
+snella, viste che si aprono dal checkout), KB riflessiva coerente, loop di
+propagazione che si chiude. Il lavoro che la serve porta `Ob. S` in
+[`o1/plan.md`](o1/plan.md); il battito mensile `/adottanti` — l'audit runtime-o1
+che chiude il giro dall'alto — vive in `## Scadenze`.
 
 ## Disciplina
 
@@ -79,7 +72,8 @@ runtime-o1 che chiude il giro dall'alto — vive in `## Scadenze`.
   il world è il territorio. Forma e contratto (l'intro è il polo che la home
   rende) in [goal](kb/goal.md).
 - Fotografia aggiornata in place, non documento di aspirazioni; il razionale
-  vive nei nodi ([goal](kb/goal.md), [development-goal](kb/development-goal.md)).
+  vive nei nodi ([goal](kb/goal.md),
+  [development-goal](kb/development-goal.md)).
 - Custode umano: Stefano. Gli agenti propongono scostamenti, non riscrivono il
   nord.
 - Ogni obiettivo ha almeno un segnale vivo; ogni task di `o1/plan.md` serve un

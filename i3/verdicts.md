@@ -1,33 +1,102 @@
 # Verdicts
 
-Indice della collezione `i3/`: lo **stadio i3** (Compare) del ciclo — il verdetto
-attuale del progetto, un file per filo/area aperta, non un log. Il git log dice
-_cosa_ è cambiato; ogni filo dice _come stanno le cose ora_ e _perché conta_.
-Specchio di `o1/plan.md` sul lato valutazione: `plan.md` fotografa i task aperti
-(o1), i fili qui i verdetti aperti (i3). Forma e disciplina canoniche in
-[`kb/verdict.md`](../kb/verdict.md).
+Indice della collezione `i3/`: lo **stadio i3** (Compare) del ciclo — il
+verdetto attuale del progetto, un file per filo/area aperta, non un log. Il git
+log dice _cosa_ è cambiato; ogni filo dice _come stanno le cose ora_ e _perché
+conta_. Specchio di `o1/plan.md` sul lato valutazione: `plan.md` fotografa i
+task aperti (o1), i fili qui i verdetti aperti (i3). Forma e disciplina
+canoniche in [`kb/verdict.md`](../kb/verdict.md).
 
 Ogni filo è lo **stato attuale**, aggiornato in place, non una sequenza di entry
-datate (la cronologia di un filo è il git history del suo file). Quando un filo si
-chiude — verdetto stabile, nessuna tensione aperta — il file si rimuove: la storia
-resta in git. Il commit citato inline è il puntatore alla storia verificabile.
+datate (la cronologia di un filo è il git history del suo file). Quando un filo
+si chiude — verdetto stabile, nessuna tensione aperta — il file si rimuove: la
+storia resta in git. Il commit citato inline è il puntatore alla storia
+verificabile.
 
 ## Contenuti
 
-- [attese-a-finestra.md](attese-a-finestra.md) — canone inciso in `kb/plan.md` per le attese che non incarisce ma possono chiudere l'opzione (marcatore `!`, deperibile non urgente); `o1/plan.md` migrato al nuovo formato `w<n>/p<n>` nello stesso commit; resta aperto fino al primo caso reale che eserciti il marcatore — misura: «Canale-perception funzionante»
-- [ingresso-adottante.md](ingresso-adottante.md) — il modello dell'ammissione resta nell'osservatorio e la prescrizione eseguibile vive in `o3/ingresso-adottante.md`; i due casi retrospettivi reggono, resta il collaudo prospettico al prossimo ingresso — misura: «Propagare il canone e chiudere il loop con gli adottanti»
-- [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la prima metà della correzione è fatta e additiva; la seconda resta deliberatamente non scritta, attende l'uso reale — misura: «Custodire un canone coerente»
-- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — la review completa conferma 48 nodi senza fusioni o eliminazioni, promuove sei fondativi e separa modello e runbook dell'osservatorio; audit e copertura sono verdi, restano solo validazioni da uso reale per bozze, tipologia, matrice e facet — misura: «Custodire un canone coerente»
-- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata minimalista; la lente dev/runtime resta rimandata a filtri nelle viste; il redraw pendente delle tavole è chiuso, resta il watchpoint durevole sugli asset raster non derivati — misura: goal di sviluppo «basso attrito di lettura»
-- [bootstrap-adottanti.md](bootstrap-adottanti.md) — la revisione coordinata
-  dei quattro file di bootstrap vive su due livelli: confronto e prescrizione
-  nel canone, giudizio e ultimo miglio nel dominio — misura: «Propagare il
-  canone e chiudere il loop con gli adottanti»
-- [criterio-world-substrato.md](criterio-world-substrato.md) — il test «significato senza artefatto» è esteso alla chiusura dei task e inciso in `world`, `tasks`, `perform` ed `exec plan`: effetti ed evidenze durevoli restano, copie operative consumate sono proposte alla pulizia senza inferire autorità; prescrizione ai fork recepita da quattro adottanti su sei, i due su `deck` non letti — misura: «Custodire un canone coerente»
-- [igiene-stadi-output.md](igiene-stadi-output.md) — una rappresentazione per fatto (indice unico `o2/tasks.md`, chiosa di legenda ancorata alla chiave, colonna `Ob.` nel plan invece dell'elenco a mano nel register: quarta incarnazione dell'invariante, con presidio nel generatore) e potatura di ciò che è consumato, fondendo e non cancellando; canone inciso, presidio leggero in `exec plan`, review dedicata attende ricorrenza — misura: «Canale-perception funzionante»
-- [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit mensile `/adottanti` (secondo battito 2026-08-01, anticipato): i quattro allora in territorio `aligned`; fuori giro `bi` ha iniziato l'uso reale di `eval`/`exec` e `danea-auto` ha esercitato i quattro task e verificato il backup, mentre il primo audit di settembre deve ancora fissare le baseline dei due nuovi ingressi e verificare tre prescrizioni aperte anteriori al cursore `aligned` dei marker, con `bi` e `crm` già trovati scoperti sul lessico — watchpoint sul valore probatorio del marker — misura: «Propagare il canone e chiudere il loop»
-- [ricorrenza-per-battito.md](ricorrenza-per-battito.md) — la riga di `## Scadenze` ha per soggetto il battito (invocazione + porzione di mondo), non la skill: canone rafforzato in `skill`/`plan` da `update` (nixos), corroborato da `economia` e `bi`; watchpoint su `ordini` e timer systemd — misura: «Canale-perception funzionante»
-- [vista-derivata-e-verificata.md](vista-derivata-e-verificata.md) — derivata senza verificata è mezza garanzia: dove le fonti sono più d'una il generatore le legge come contratto e rompe la build; canone in `view`, seconda incarnazione del vincolo di `constraint`; `metodo`, `bi` e `nixos` avevano la stessa patologia (viste dei task vuote, riparate) e il contratto ha pagato al primo contatto in entrambi i recepimenti — da cui il corollario in `constraint`: un vincolo che arriva tardi rivela il drift già maturato invece di prevenirlo; la freschezza è il secondo obbligo, pagato rigenerando (gate `/commit` meccanico) invece che con un manifesto di fonti — misura: «Canale-perception funzionante»
-- [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — le skill si tagliano per arco e non per indice: montaggio chiuso sui quattro piloti con bilancio 2-2 e criterio a canone; il confronto di sei KB da 4 a 201 nodi conferma `kb` come capacità trasversale unica, con criteri comuni e giudizio calibrato per baricentro, volatilità e rischio. La clausola di uscita sugli archi è anticipata al battito del 2026-09-01; il 2026-11-01 resta solo fallback motivato se ripetizione, esiti nulli e costo sugli altri profili non discriminano ancora — misura: «Custodire un canone coerente»
-- [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md) — la deriva dell'i3 ha una direzione (verso la storia raccontabile) e il materiale che smentisce è già in casa: provenienza obbligatoria delle quantità e materiale di casa prima, incisi in `verdict`; passo 2 di `verdicts-review` da quattro a cinque domande, col confronto filo↔`o2/` che non era di nessuna review; ritrattazione e punto di controllo umano/agente restano watchpoint — misura: «Canale-perception funzionante»
-- [protocollo-post-evento.md](protocollo-post-evento.md) — i due archi restano compartimenti e comunicano per handoff: ordine `eval`→`exec` (la verità prima delle priorità), ritorno eccezionale da giustificare, goal solo in proposta; collaudato dal pilota `economia` (skill `email`), watchpoint sul secondo segnale email (`acquisti@` di bi) — misura: «Canale-perception funzionante»
+- [attese-a-finestra.md](attese-a-finestra.md) — canone inciso in `kb/plan.md`
+  per le attese che non incarisce ma possono chiudere l'opzione (marcatore `!`,
+  deperibile non urgente); `o1/plan.md` migrato al nuovo formato `w<n>/p<n>`
+  nello stesso commit; resta aperto fino al primo caso reale che eserciti il
+  marcatore — misura: «Canale-perception funzionante»
+- [ingresso-adottante.md](ingresso-adottante.md) — il modello dell'ammissione
+  resta nell'osservatorio e la prescrizione eseguibile vive in
+  `o3/ingresso-adottante.md`; i due casi retrospettivi reggono, resta il
+  collaudo prospettico al prossimo ingresso — misura: «Propagare il canone e
+  chiudere il loop con gli adottanti»
+- [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la
+  prima metà della correzione è fatta e additiva; la seconda resta
+  deliberatamente non scritta, attende l'uso reale — misura: «Custodire un
+  canone coerente»
+- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — 48 nodi con
+  responsabilità autonome; corrette contraddizioni fra stadi, Mondo e modello
+  dell'agente, attribuzioni e metriche troppo forti; le ipotesi attendono uso
+  reale, gli errori documentali osservabili richiedono correzione — misura:
+  «Custodire un canone coerente»
+- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata
+  minimalista; la lente dev/runtime resta rimandata a filtri nelle viste; il
+  redraw pendente delle tavole è chiuso, resta il watchpoint durevole sugli
+  asset raster non derivati — misura: goal di sviluppo «basso attrito di
+  lettura»
+- [bootstrap-adottanti.md](bootstrap-adottanti.md) — la revisione coordinata dei
+  quattro file di bootstrap vive su due livelli: confronto e prescrizione nel
+  canone, giudizio e ultimo miglio nel dominio — misura: «Propagare il canone e
+  chiudere il loop con gli adottanti»
+- [criterio-world-substrato.md](criterio-world-substrato.md) — il test
+  «significato senza artefatto» è esteso alla chiusura dei task e inciso in
+  `world`, `tasks`, `perform` ed `exec plan`: effetti ed evidenze durevoli
+  restano, copie operative consumate sono proposte alla pulizia senza inferire
+  autorità; prescrizione ai fork recepita da quattro adottanti su sei, i due su
+  `deck` non letti — misura: «Custodire un canone coerente»
+- [igiene-stadi-output.md](igiene-stadi-output.md) — una rappresentazione per
+  fatto (indice unico `o2/tasks.md`, chiosa di legenda ancorata alla chiave,
+  colonna `Ob.` nel plan invece dell'elenco a mano nel register: quarta
+  incarnazione dell'invariante, con presidio nel generatore) e potatura di ciò
+  che è consumato, fondendo e non cancellando; canone inciso, presidio leggero
+  in `exec plan`, review dedicata attende ricorrenza — misura:
+  «Canale-perception funzionante»
+- [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
+  mensile `/adottanti` (secondo battito 2026-08-01, anticipato): i quattro
+  allora in territorio `aligned`; fuori giro `bi` ha iniziato l'uso reale di
+  `eval`/`exec` e `danea-auto` ha esercitato i quattro task e verificato il
+  backup, mentre il primo audit di settembre deve ancora fissare le baseline dei
+  due nuovi ingressi e verificare tre prescrizioni aperte anteriori al cursore
+  `aligned` dei marker, con `bi` e `crm` già trovati scoperti sul lessico —
+  watchpoint sul valore probatorio del marker — misura: «Propagare il canone e
+  chiudere il loop»
+- [ricorrenza-per-battito.md](ricorrenza-per-battito.md) — la riga di
+  `## Scadenze` ha per soggetto il battito (invocazione + porzione di mondo),
+  non la skill: canone rafforzato in `skill`/`plan` da `update` (nixos),
+  corroborato da `economia` e `bi`; watchpoint su `ordini` e timer systemd —
+  misura: «Canale-perception funzionante»
+- [vista-derivata-e-verificata.md](vista-derivata-e-verificata.md) — derivata
+  senza verificata è mezza garanzia: dove le fonti sono più d'una il generatore
+  le legge come contratto e rompe la build; canone in `view`, seconda
+  incarnazione del vincolo di `constraint`; `metodo`, `bi` e `nixos` avevano la
+  stessa patologia (viste dei task vuote, riparate) e il contratto ha pagato al
+  primo contatto in entrambi i recepimenti — da cui il corollario in
+  `constraint`: un vincolo che arriva tardi rivela il drift già maturato invece
+  di prevenirlo; la freschezza è il secondo obbligo, pagato rigenerando (gate
+  `/commit` meccanico) invece che con un manifesto di fonti — misura:
+  «Canale-perception funzionante»
+- [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — le skill si
+  tagliano per arco e non per indice: montaggio chiuso sui quattro piloti con
+  bilancio 2-2 e criterio a canone; il confronto di sei KB da 4 a 201 nodi
+  conferma `kb` come capacità trasversale unica, con criteri comuni e giudizio
+  calibrato per baricentro, volatilità e rischio. La clausola di uscita sugli
+  archi è anticipata al battito del 2026-09-01; il 2026-11-01 resta solo
+  fallback motivato se ripetizione, esiti nulli e costo sugli altri profili non
+  discriminano ancora — misura: «Custodire un canone coerente»
+- [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md) —
+  la deriva dell'i3 ha una direzione (verso la storia raccontabile) e il
+  materiale che smentisce è già in casa: provenienza obbligatoria delle quantità
+  e materiale di casa prima, incisi in `verdict`; passo 2 di `verdicts-review`
+  da quattro a cinque domande, col confronto filo↔`o2/` che non era di nessuna
+  review; ritrattazione e punto di controllo umano/agente restano watchpoint —
+  misura: «Canale-perception funzionante»
+- [protocollo-post-evento.md](protocollo-post-evento.md) — i due archi restano
+  compartimenti e comunicano per handoff: ordine `eval`→`exec` (la verità prima
+  delle priorità), ritorno eccezionale da giustificare, goal solo in proposta;
+  collaudato dal pilota `economia` (skill `email`), watchpoint sul secondo
+  segnale email (`acquisti@` di bi) — misura: «Canale-perception funzionante»

@@ -37,8 +37,9 @@ numeri romani vs arabi per operazioni diverse.
 
 Norman chiama questo il principio di naturalezza: «Experiential cognition is
 aided when the properties of the representation match the properties of the
-thing being represented». Simon (1981) lo condensa: «Solving a problem simply
-means representing it so as to make the solution transparent».
+thing being represented». Norman cita Simon (1981) per condensare il punto:
+«Solving a problem simply means representing it so as to make the solution
+transparent».
 
 La scelta della rappresentazione non è neutra: può trasformare un compito
 riflessivo in esperienziale o viceversa. Rappresentazioni _additive_ (in cui la
@@ -47,24 +48,23 @@ leggono senza calcolo. Rappresentazioni _sostitutive_ (simboli arbitrari —
 numeri romani per percentuali, hue cromatica per scale additive) costringono a
 tradurre ogni confronto in riflessione.
 
-Questi **due modi** del 1993 — esperienziale e riflessivo — sono la radice dei
-**tre livelli** di elaborazione che Norman formulerà in _Emotional Design_
-(2004): il riflessivo resta, l'esperienziale si articola in viscerale e
-behavioral. È la genealogia che `processing-layers` raccoglie; qui conta che la
-KB è lo scaffold del modo _riflessivo_ — concetti e generalizzazioni — e che il
-lavoro dello strato output è far scendere quel sapere fino al modo
-esperienziale, dove la risposta giusta emerge per ispezione.
+Il metodo accosta i **due modi** del 1993 ai **tre livelli** descritti in
+_Emotional Design_ (2004), trattati in `processing-layers`. È una lente
+progettuale: qui non si assume che l'esperienziale si divida semplicemente in
+viscerale e behavioral, né che i due modelli siano equivalenti. La KB sostiene
+la riflessione; una rappresentazione operativa può rendere percepibili relazioni
+che altrimenti richiederebbero calcolo.
 
 ## La KB come artefatto cognitivo
 
 Nel metodo la KB è un artefatto cognitivo in senso normano. I nodi non sono
 corretti solo se fattualmente accurati — sono ben progettati se la forma della
 rappresentazione corrisponde al compito di chi li usa. Un nodo-quadro ben
-costruito fa vedere a colpo d'occhio cosa è fuori soglia (cognizione
-esperienziale); un nodo mal strutturato costringe a calcolare confronti tra
-valori (cognizione riflessiva). È il criterio che governa lo strato output:
-aggiungere signifier e ridisegnare la rappresentazione finché la risposta giusta
-emerge per ispezione.
+costruito o una vista derivata fa vedere a colpo d'occhio cosa è fuori soglia
+(cognizione esperienziale); un nodo mal strutturato costringe a calcolare
+confronti tra valori (cognizione riflessiva). È il criterio che governa lo
+strato output: aggiungere signifier e ridisegnare la rappresentazione finché la
+risposta giusta emerge per ispezione.
 
 L'artefatto cognitivo si distingue dal _sistema cognitivo_ in cui opera.
 L'artefatto è la rappresentazione esterna: progettata, persistente, portabile —
@@ -76,7 +76,7 @@ sessione.
 ## Riferimenti
 
 - Donald Norman, _Things That Make Us Smart_ (Addison-Wesley, 1993): Cap. 2
-  «Experiential and Reflective Cognition» (i due modi, radice dei tre livelli di
+  «Experiential and Reflective Cognition» (i due modi, accostati dal metodo a
   `processing-layers`) e Cap. 3 «The Power of Representation». Volume integrale
   disponibile; citare per **capitolo**, non per pagina (la riedizione 2014
   ripagina l'originale 1993).

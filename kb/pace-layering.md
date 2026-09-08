@@ -13,26 +13,18 @@ apprendimento. Un sistema sano lascia che gli strati veloci sperimentino e che
 gli strati lenti assorbano solo ciò che ha retto la prova, mantenendo i due
 accoppiati ma disaccoppiati nel ritmo.
 
-Il principio chiarisce un criterio che il metodo usava in forma debole sotto il
-nome di "conoscenza stabile". "Stabile" non è una proprietà assoluta: niente in
-una KB viva è immutabile, perché il metodo stesso è in evoluzione continua.
-Stabile è un grado, non uno stato — una frequenza di cambiamento più bassa
-rispetto ad altri componenti. Una knowledge base non ha uno strato eterno e uno
-volatile: ha un gradiente. La mappa del dominio e la struttura del progetto
-cambiano lentamente; i nodi cambiano a frequenza media; il plan, i dettagli
-operativi e il verdict cambiano a ogni sessione. Collocare bene un artefatto
-significa riconoscerne la velocità, non la sua importanza: un componente lento e
-uno veloce vanno tenuti in posti diversi anche quando parlano della stessa cosa.
+Nel metodo, "conoscenza stabile" indica conoscenza riusabile oltre il singolo
+giro, non immutabile. I contenuti hanno ritmi diversi, ma la collocazione si
+decide prima per funzione e denotazione: un runbook longevo resta operativo; un
+concetto aggiornato spesso può restare un nodo; un catalogo resta un indice
+anche se cambia più rapidamente dei file che elenca.
 
-Da qui il criterio operativo che mancava per decidere dove vive una cosa.
-Mettere un artefatto veloce dentro uno strato lento, o un artefatto lento dentro
-uno strato veloce, genera attrito: un catalogo che cambia a ogni sessione non
-appartiene allo stesso luogo di un nodo concettuale che cambia una volta al
-mese. Lo sviluppo bottom-up del metodo è pace layering in azione: gli strati
-veloci propongono il cambiamento mentre si risolve un problema concreto in un
-repo adottante, gli strati lenti lo dispongono attraverso il filing back solo
-quando è diventato una generalizzazione portabile. Gli strati veloci imparano,
-gli strati lenti ricordano.
+La frequenza è un controllo dell'accoppiamento. Quando una stessa superficie
+mescola un modello durevole con stato transitorio, ogni aggiornamento dello
+stato costringe a riaprire il modello e aumenta il rischio di drift. Separare le
+responsabilità consente a ciascuna di cambiare al proprio ritmo. Il filing back
+porta negli strati più lenti ciò che è diventato riusabile, conservando nelle
+collezioni del ciclo il lavoro e le osservazioni che lo hanno prodotto.
 
 Brand fonda il caso architettonico sul lavoro di Frank Duffy: un edificio non è
 una cosa unica, ma una sovrapposizione di componenti con longevità diversa.
@@ -62,11 +54,11 @@ il caso locale.
 
 - Stewart Brand, _How Buildings Learn: What Happens After They're Built_ (1994),
   cap. 2 "Shearing Layers": fonte disponibile per la mediazione del lavoro di
-  Frank Duffy e per l'espansione nei sei strati Site, Structure, Skin,
-  Services, Space plan, Stuff; formula il vincolo dei lenti sui veloci, la
-  risalita dei veloci nei lenti e l'imperativo progettuale di lasciare
-  slittamento tra sistemi a passo diverso. Il testo primario di Duffy non è
-  registrato e non sostiene direttamente questo nodo
+  Frank Duffy e per l'espansione nei sei strati Site, Structure, Skin, Services,
+  Space plan, Stuff; formula il vincolo dei lenti sui veloci, la risalita dei
+  veloci nei lenti e l'imperativo progettuale di lasciare slittamento tra
+  sistemi a passo diverso. Il testo primario di Duffy non è registrato e non
+  sostiene direttamente questo nodo
 - Stewart Brand, _The Clock of the Long Now_ (1999), cap. "The Order of
   Civilization": generalizza il concetto alla civiltà come scala Fashion/art,
   Commerce, Infrastructure, Governance, Culture, Nature e condensa la dinamica

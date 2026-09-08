@@ -4,11 +4,15 @@ stato: bozza
 
 # World
 
-Il fondo del ciclo d'azione: il polo opposto al Goal e la **membrana fisica non
-versionata** tra artefatto e realtà. Se il Goal è l'apice da cui scende
-l'esecuzione e a cui risale la valutazione, `world` è il luogo in basso dove
-l'atto accade e da cui ritorna il segnale grezzo. È sempre presente, anche
-quando il repository non ne conserva alcuna copia.
+Il Mondo è il polo del ciclo su cui l'azione produce effetti e da cui arriva il
+segnale. Il suo confine dipende dal ciclo considerato: nel runtime è il dominio
+servito; nello sviluppo è l'artefatto che si modifica. La **membrana** è
+l'interfaccia attraverso cui il ciclo lo raggiunge e ne osserva gli esiti.
+
+Essere Mondo non implica essere non versionato. Un repository adottante è Mondo
+per l'osservatorio di `method`, pur avendo una propria storia Git; i nodi del
+metodo sono il suo Mondo-dev. Versionamento, persistenza e collocazione fisica
+descrivono il supporto, non decidono il ruolo nel ciclo.
 
 La cerniera bassa ha tre elementi distinti. L'atto e il grezzo stanno in
 `world`; o3 e i1 sono i due riflessi versionati che baciano la membrana dal lato
@@ -19,23 +23,23 @@ incontro ad alta posta è o3; l'incontro è `world`; una trascrizione ripulita p
 un confronto scrupoloso è i1.
 
 La cerniera resta scrivi-poi-leggi attraverso un medium: l'atto modifica il
-mondo e il segnale ne rende percepibile lo stato successivo. La differenza con
-la cerniera KB non sta nella forma ma nel medium: il mondo persiste da sé, la KB
-solo se scritta (cfr. `action-cycle`).
+Mondo e il segnale ne rende percepibile lo stato successivo. La cerniera
+superiore conserva invece il verdetto nell'artefatto perché possa informare il
+Goal successivo. In entrambi i casi va verificata la durata del medium: alcuni
+effetti restano osservabili, altri segnali sono effimeri e richiedono una
+cattura (cfr. `action-cycle`).
 
 ## I tre confini
 
-- **`world` vs i1** — il grezzo non versionato sta nel Mondo; la cattura
-  versionata e filtrata per rilevanza sta in `i1/`. Le fonti autorevoli (libri,
-  documenti) vivono su una superficie non versionata, spesso Drive, fuori
-  dall'artefatto: sono Mondo — fonte di verità, non i1; ne diventano i1 solo
-  quando un'elaborazione le cattura. Di esse l'artefatto versiona solo la
-  **provenienza**, nella sezione fonti del register `world.md`: un register che
-  indicizza il Mondo è legittimo, mentre la superficie fisica non ha manifest
-  (cfr. «Il register `world.md`»).
-- **i1 vs i2** — il confine è l'ingresso della valenza e dell'interpretazione,
-  non la fedeltà della copia. Estrazione lossless e distillazione lossy ma
-  valenza-neutra possono essere entrambe i1.
+- **`world` vs i1** — la fonte e il segnale appartengono al Mondo; la cattura
+  filtrata per rilevanza appartiene a `i1/`. Una fonte già persistente e
+  accessibile non va duplicata: se ne registra la provenienza in `world.md`. Le
+  fonti possono vivere su Drive, in un altro repository o in un sistema esterno;
+  il loro versionamento non le trasforma in i1 del ciclo osservante.
+- **i1 vs i2** — il confine è l'attribuzione di significato. Una selezione o
+  trascrizione può restare i1 anche se non riproduce ogni dettaglio; spiegare
+  relazioni, cause o implicazioni è i2. Entrambi sospendono la valenza rispetto
+  al Goal: il giudizio favorevole o sfavorevole appartiene a Compare (i3).
 - **o2 vs o3** — o2 è una superficie di decisione; o3 è una prescrizione
   versionata dell'atto. L'atto realizzato sta in `world`.
 
@@ -53,14 +57,15 @@ apre così la scatola nera che Norman lasciava chiusa.
 Il Mondo è l'elemento più specifico al dominio dell'intero ciclo. La meccanica è
 invariante; ciò che cambia è di che cosa è fatto `world` e quali atti e segnali
 lo attraversano. Il Mondo porta fatti favorevoli o sfavorevoli, ma non è la
-sorgente della loro valenza: la valenza entra quando l'artefatto interpreta e
-confronta quei fatti con un Goal.
+sorgente della loro valenza: questa entra in Compare, quando l'artefatto
+confronta i fatti interpretati con un Goal.
 
 ## Il criterio del significato senza artefatto
 
-I tre confini lasciano aperto un caso: il contenuto non versionato che
-l'artefatto tocca è membrana `world` o substrato interno di uno stadio? Il
-discriminante operativo è il **test del significato senza artefatto**:
+Per distinguere asset del Mondo runtime e substrato interno di uno stadio si usa
+il **test del significato senza artefatto**. Prima si dichiara il ciclo: nel
+meta-ciclo l'artefatto è per definizione il Mondo su cui si interviene, quindi
+questo test non esclude il Mondo-dev.
 
 > se l'artefatto sparisse domani, questo contenuto avrebbe ancora significato
 > operativo per il dominio?
@@ -94,8 +99,9 @@ il **polo** (`world.md`); le superfici concrete si chiamano per ciò che sono
 (`gdrive/`, `client/`, mount, sync, sistema esterno) e sono dichiarate nel
 register. Questo evita la collisione tra il register `world.md` e un symlink
 root `world/`, che in sessione sembra un pezzo del canone invece di una
-superficie host-local. La superficie resta gitignorata e senza manifest: il
-contenuto è Mondo, non collezione dell'artefatto.
+superficie host-local. Mount e copie locali restano gitignorati; un repository
+esterno conserva il proprio versionamento. Il register descrive come accedere
+alle fonti senza replicarne un inventario granulare.
 
 La membrana può avere **più superfici fisiche** per lo stesso adottante — la
 cartella sincronizzata, un mount Drive per gli asset, un sistema esterno in

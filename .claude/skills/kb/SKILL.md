@@ -1,13 +1,15 @@
 ---
-description: Audit strutturale o revisione semantica qualitativa della knowledge base.
+name: kb
+description:
+  Audit strutturale o revisione semantica qualitativa della knowledge base.
 user-invocable: true
 ---
 
 # kb
 
-Usa `/kb [audit|review]` dalla root del repository. Il default è `audit`.
-Questa è la copia canonica: gli adottanti la forkano e adattano strumenti e
-fonti primarie al proprio dominio.
+Usa `/kb [audit|review]` dalla root del repository. Il default è `audit`. Questa
+è la copia canonica: gli adottanti la forkano e adattano strumenti e fonti
+primarie al proprio dominio.
 
 - `audit` fotografa integrità strutturale e drift deterministico senza
   correggere;
@@ -51,15 +53,15 @@ Prima del giudizio costruisci un profilo leggero del corpus: numero di nodi,
 righe totali, distribuzione delle dimensioni (almeno mediana ed estremi), stati
 di maturità, cluster del catalogo, hub, presenza di fatti datati e disponibilità
 di fonti primarie verificabili. I conteggi orientano l'ordine di lettura, non
-sono soglie di qualità: molti nodi brevi possono essere una rete concettuale
-ben atomizzata; pochi nodi lunghi possono custodire conoscenza forense non
+sono soglie di qualità: molti nodi brevi possono essere una rete concettuale ben
+atomizzata; pochi nodi lunghi possono custodire conoscenza forense non
 separabile senza perdita; una KB giovane può essere correttamente piccola.
 
 Mantieni durante la review un ledger di copertura, anche solo di lavoro, con una
 riga per ogni nodo e quattro giudizi: funzione dominante, regione di contenuto,
-volatilità/fonte primaria e disposizione proposta. Il ledger serve a provare
-che tutti i nodi sono stati letti e a rendere confrontabili decisioni prese su
-parti lontane; non va archiviato nel repository.
+volatilità/fonte primaria e disposizione proposta. Il ledger serve a provare che
+tutti i nodi sono stati letti e a rendere confrontabili decisioni prese su parti
+lontane; non va archiviato nel repository.
 
 Calibra poi la review sul baricentro osservato, senza cambiare i criteri:
 
@@ -105,16 +107,17 @@ Per ogni passaggio chiedi se cambia una decisione o un comportamento corrente.
 - lascia a Git cronologia, date, vecchi nomi, commit, migrazioni concluse ed
   esempi superati;
 - lascia a `i3/` i verdetti correnti e a `o1/`/`o2/` il lavoro futuro;
-- non eliminare misure runtime o conoscenza empirica non ricostruibile da Git
-  se continua a influenzare diagnosi o decisioni.
+- non eliminare misure runtime o conoscenza empirica non ricostruibile da Git se
+  continua a influenzare diagnosi o decisioni.
 
 Una alternativa scartata merita spazio solo se impedisce di ripetere un errore;
 conservala come vincolo e condizione di revisione, non come cronaca.
 
 ### 3. Verità e volatilità
 
-Individua i fatti che possono cambiare e la loro fonte primaria. La
-documentazione non valida altra documentazione.
+Individua i fatti che possono cambiare e la loro fonte primaria. Una sintesi non
+si verifica contro una sua copia; un documento autoritativo può invece essere
+fonte primaria.
 
 - codice, filesystem, dati strutturati e runtime precedono le copie narrative;
 - un fatto volatile ha una sola fonte documentale e gli altri punti vi
@@ -145,8 +148,8 @@ inventari che aumentano manutenzione senza comprimere davvero informazione.
 
 ### 6. Test di potatura
 
-Classifica ogni nodo `mantieni`, `rifinisci`, `fondi`, `dividi` o `elimina`.
-Un contenuto giustifica il proprio peso se almeno una condizione è vera:
+Classifica ogni nodo `mantieni`, `rifinisci`, `fondi`, `dividi` o `elimina`. Un
+contenuto giustifica il proprio peso se almeno una condizione è vera:
 
 - cambia una decisione o un comportamento;
 - distingue casi altrimenti confondibili;
@@ -163,16 +166,16 @@ Prima di proporre `fondi` o `elimina`, esegui il **test di destinazione**:
 - identifica dove vivrà ogni fatto che resta corrente;
 - verifica che quella superficie esista davvero e sia la fonte appropriata,
   invece di limitarti a nominarla;
-- distingui un link vivo da una menzione storica in i2, i3 o Git: la seconda
-  non va riscritta solo perché il nodo corrente scompare;
+- distingui un link vivo da una menzione storica in i2, i3 o Git: la seconda non
+  va riscritta solo perché il nodo corrente scompare;
 - se il contenuto non è ricostruibile e non ha ancora una destinazione fedele,
   la potatura è bloccata anche quando il nodo è mal collocato.
 
 La mappa di default è: invarianti e modelli stabili in KB; provenienza delle
 fonti nel register `world.md`; sintesi datate in i2; verdetti correnti in i3;
-lavoro futuro in o1/o2; esecutori e procedure vive nell'indice della
-collezione pertinente; fatti della macchina nel codice o nella configurazione
-che li rende veri.
+lavoro futuro in o1/o2; esecutori e procedure vive nell'indice della collezione
+pertinente; fatti della macchina nel codice o nella configurazione che li rende
+veri.
 
 ## Output della diagnosi
 
@@ -182,13 +185,13 @@ Concludi con:
 2. verdetto complessivo separando salute strutturale e semantica;
 3. contraddizioni o fatti stale con file e riga, distinguendo evidenza e
    inferenza;
-4. ledger completo raggruppato per `mantieni`, `rifinisci`, `fondi`, `dividi`
-   o `elimina`, senza omettere i nodi mantenuti;
+4. ledger completo raggruppato per `mantieni`, `rifinisci`, `fondi`, `dividi` o
+   `elimina`, senza omettere i nodi mantenuti;
 5. candidati prioritizzati e destinazione verificata del contenuto rimosso;
 6. valutazione del catalogo e dei punti d'ingresso;
 7. nodi già ben riusciti da non destabilizzare;
-8. ordine d'intervento, rischi di perdita informativa e decisioni che
-   richiedono il custode del dominio;
+8. ordine d'intervento, rischi di perdita informativa e decisioni che richiedono
+   il custode del dominio;
 9. domanda esplicita al custode se vuole applicare le correzioni.
 
 ## Intervento autorizzato

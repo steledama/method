@@ -47,8 +47,8 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   impossibile o rumoroso
 - [agent](agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM
   alla popolazione di agenti
-- [system-image](system-image.md) — Triangolo di Norman: la KB è il system image
-  che porta il peso della comunicazione tra agenti che non si parlano
+- [system-image](system-image.md) — Triangolo di Norman: l'intero artefatto
+  sostiene la comprensione degli agenti; la KB ne è il nucleo formalizzato
 - [processing-layers](processing-layers.md) — Livelli visceral, behavioral e
   reflective come lente sul ciclo
 - [cognitive-artifact](cognitive-artifact.md) — Strumento cognitivo esterno
@@ -62,14 +62,14 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 - [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come
   confine aperto di Norman e la KB che lo informa senza generarlo
-- [goal-register](goal-register.md) — Contratto del polo Goal in root: obiettivi,
-  segnali, stato del lavoro, custodia umana e direzione task→obiettivo
+- [goal-register](goal-register.md) — Contratto del polo Goal in root:
+  obiettivi, segnali, stato del lavoro, custodia umana e direzione
+  task→obiettivo
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo:
   dimensioni candidate comuni (attrito, autonomia, temporalità) e posizione
   auspicata; il dominio sceglie la gradualità, l'uso verifica le dimensioni
-- [world](world.md) — Membrana fisica non versionata al fondo del ciclo; i1 e o3
-  sono i suoi riflessi versionati on-demand e il significato senza artefatto ne
-  discrimina il contenuto
+- [world](world.md) — Polo su cui il ciclo agisce, distinto dal versionamento
+  del supporto; membrana, riflessi i1/o3 e confine fra asset runtime e substrato
 - [world-register](world-register.md) — Contratto del polo World in root:
   territorio, superfici, provenienza, disponibilità e limiti delle fonti
 - [development-meta-cycle](development-meta-cycle.md) — Il meta-ciclo che
@@ -92,14 +92,14 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [connection](connection.md) — Strategie di collegamento tra nodi: inline vs
   footer, motivazioni della scelta
 - [pace-layering](pace-layering.md) — Strati a frequenza di cambiamento diversa
-  (Duffy, Brand): sostituisce «conoscenza stabile» come criterio di collocazione
+  (Duffy, Brand): disaccoppiare ritmi senza confonderli con la funzione
 
 ### Sviluppo e governo
 
 - [method-development](method-development.md) — I due movimenti (bottom-up e
   top-down) in alternanza e contraddittorio
-- [consent](consent.md) — Proporre, attendere consenso esplicito, non scambiare
-  un sì parziale per un sì totale; gemello sul lato verifica
+- [consent](consent.md) — Riconoscere l'autorità già concessa, chiedere consenso
+  quando manca e rispettarne lo scope; gemello sul lato verifica
 
 ## Componenti della ricetta
 

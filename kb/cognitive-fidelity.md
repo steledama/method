@@ -32,10 +32,13 @@ La revisione semantica pone poche domande:
 - nuove distinzioni operative richiedono di dividere un nodo, oppure la
   separazione aggiungerebbe solo lessico?
 
-I controlli fattuali vanno attivati solo dopo aver identificato una fonte
-primaria e un fatto utile che cambia abbastanza spesso da meritare il costo. La
-documentazione non valida altra documentazione: se un fatto è disponibile solo
-come testo mantenuto a mano, manca una fonte verificabile.
+I controlli fattuali partono da una fonte primaria e da un'affermazione il cui
+costo d'errore, incertezza o volatilità giustifica la verifica. Anche un fatto
+stabile può richiederla se regge una distinzione fondamentale. Una sintesi non
+si verifica contro una sua copia narrativa; un contratto, un atto o una
+decisione documentata possono invece essere fonti primarie. Va esplicitato chi
+ha autorità sul fatto e quale evidenza è indipendente dalla sintesi. Se manca
+una fonte, si dichiara il limite senza promuovere il consenso fra testi a prova.
 
 Il limite è intenzionale. Gli script intercettano regressioni note e indirizzano
 l'attenzione; non simulano oggettività dove la fonte è interpretativa. L'esito

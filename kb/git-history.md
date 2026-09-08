@@ -19,7 +19,9 @@ Regole:
 - è la fonte di verità per il cosa è cambiato
 - non sostituisce i fili `i3/` come memoria del perché
 - permette di rimuovere task completati senza perdere storia
-- rende ricostruibili audit e report su commit passati
+- rende ricostruibili audit sul contenuto versionato quando sono disponibili
+  anche strumenti e ambiente necessari; per report su fonti esterne servono
+  catture o versioni di quelle fonti, che Git da solo non conserva
 - sostiene commit piccoli, leggibili e tematici
 - non va usata come discarica per decisioni non documentate
 
@@ -32,8 +34,9 @@ rinomine e maturazione — ma non la divisione dei compiti.
 
 Il confronto conferma la regola del metodo: i task completati possono sparire da
 `o2/` perché git conserva il dettaglio, ma le decisioni che cambiano il modo di
-lavorare devono essere registrate nei fili `i3/` o nei nodi. La sola git history
-non basta a ricostruire il perché.
+lavorare vivono nei fili `i3/` finché aperte, nei nodi quando stabilizzate. Git
+può conservare anche il perché, ma le ragioni che cambiano il lavoro corrente
+devono essere accessibili senza ricostruire la sequenza dei commit.
 
 Connessioni:
 

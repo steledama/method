@@ -4,65 +4,32 @@ stato: maturo
 
 # Karpathy pattern
 
-Il pattern Karpathy per le knowledge base con LLM descrive un modo di usare
-l'LLM non come motore di recupero occasionale, ma come manutentore di un
-artefatto persistente. La differenza rispetto al RAG classico è decisiva: nel
-RAG la conoscenza viene recuperata e ricomposta a ogni domanda; nel pattern
-Karpathy viene compilata una volta in una rete di file markdown, poi mantenuta,
-corretta e arricchita nel tempo.
+Il pattern Karpathy è il nome operativo con cui il metodo indica la manutenzione
+di una KB persistente assistita dall'LLM: le fonti vengono interpretate e
+integrate in nodi che si correggono e si collegano nel tempo. La provenienza
+originaria del nome non ha ancora una fonte primaria identificata nel register
+`world.md`. Questo nodo descrive quindi una formalizzazione locale, non
+attribuisce a Karpathy le singole regole.
 
-Il nome è una scorciatoia operativa adottata dal metodo. La fonte pubblica
-originaria non ha ancora una superficie primaria identificata nel register
-`world.md`: le formulazioni di questo nodo descrivono quindi l'adattamento
-locale stabilizzato, non pretendono di essere una ricostruzione filologica del
-post.
+La funzione del pattern è mantenere il sistema di conoscenza. Il metodo la legge
+nella cornice di augmentation di Engelbart (`augmentation-system`), come
+applicazione contemporanea di metodologia e apprendimento nell'uso. La cornice
+teorica e questa pratica locale hanno responsabilità distinte.
 
-**Istanza, non pilastro.** Lo _slot funzionale_ che questo pattern occupa è
-reale — il _chi mantiene_ la KB, la gamba di manutenzione e rigenerazione — ma
-non è un gigante al pari di Luhmann e Norman: accostarlo a loro era
-un'asimmetria di pedigree, perché il suo contributo sulla questione è un post,
-un pattern influente del presente, non una tradizione di pensiero. Quello slot
-ha un gigante che precede Karpathy di sessant'anni: è il _Methodology/Training_
-della cornice H-LAM/T di Engelbart, la gamba di manutenzione di un sistema di
-augmentation co-evolvente (cfr. `augmentation-system`). Il pattern Karpathy ne è
-l'**istanza contemporanea per l'era LLM** — il _come si tiene aggiornato_ il
-sistema oggi — non il pilastro. Il pavimento _ontologico_ della stessa gamba —
-perché un artefatto esterno conti come cognizione — è invece di Hutchins/Clark
-(cfr. `cognitive-system`), un peso teorico altrui di cui Karpathy era stato
-sovraccaricato.
+Quando entra una fonte, l'LLM ne estrae i concetti, aggiorna i nodi pertinenti,
+segnala tensioni e propone nuove unità soltanto quando hanno una funzione
+autonoma. L'umano custodisce senso, direzione e stile; l'agente opera entro
+l'autorità concessa. La conoscenza utile non resta dispersa nella chat.
 
-La knowledge base diventa così uno strato intermedio tra le fonti grezze e le
-domande future. Quando entra una nuova fonte, l'LLM non si limita a
-indicizzarla: la legge, ne estrae i concetti, aggiorna i nodi esistenti, crea
-quelli mancanti, segnala tensioni o contraddizioni, rafforza le connessioni. La
-conoscenza non resta dispersa nella chat o nei documenti originali, ma si
-accumula in un corpo navigabile e versionato.
+La collocazione segue la funzione: le sintesi interpretative vivono in `i2/`, le
+specifiche che preparano una decisione in `o2/`, le rappresentazioni derivate in
+`presentation/`. Nella KB risale la conoscenza riusabile, anche quando nasce da
+una sintesi. L'atomicità limita le responsabilità del nodo, non vieta di
+integrare più fonti sullo stesso concetto.
 
-In questa KB il pattern Karpathy è adattato in forma più autoriale: l'LLM non
-scrive tutto in autonomia, ma assiste l'utente nella manutenzione. L'umano
-mantiene la responsabilità del senso, della direzione e dello stile; l'LLM
-prende in carico il lavoro ripetitivo e strutturale: cross-reference, footer
-Connessioni, audit, aggiornamento dell'indice, filing back delle sintesi utili.
-
-Il pattern originale di Karpathy include summary pages e viste d'insieme dentro
-il wiki, mantenute dall'LLM. Nel metodo questa scelta diverge deliberatamente:
-le sintesi escono da `kb/` e vanno nello strato output, così i nodi restano
-atomici secondo la disciplina zettelkastiana. La risoluzione di questa tensione
-tra Zettelkasten (sintesi fuori dai nodi) e Karpathy (sintesi dentro il wiki) è
-strutturale — lo strato output è il corollario diretto dell'atomicità, e senza
-di esso la pressione di sintesi rientrerebbe nei nodi (cfr. `zettelkasten`,
-`output`). Dentro la stessa cornice di sistema, Norman descrive come l'utente
-attraversa il ciclo di azione dal Goal al mondo e ritorno come nuova fonte (cfr.
-`action-cycle`).
-
-Karpathy aggiunge un secondo principio sull'output, che il metodo adotta: la
-forma della risposta segue la domanda. Le risposte possono prendere forme
-diverse secondo la domanda: pagina markdown, tabella di confronto, presentazione
-a slide, grafico, canvas. L'output non è monolitico: pagina, tabella, vista a
-slide, grafico, canvas sono forme alternative, scelte secondo cosa la risposta
-deve far capire o decidere. Nel metodo questo dà il repertorio dello strato o2 —
-la vista a slide ne è la forma-default per la sintesi che si scorre, non l'unica
-(cfr. `output`, `view`).
+La forma segue la domanda: testo, tabella, grafico, slide o canvas si scelgono
+per ciò che devono rendere comprensibile. Una vista a slide è adatta a una
+sintesi da scorrere, senza essere il default di ogni specifica (`view`).
 
 Operazioni:
 
@@ -75,16 +42,14 @@ Operazioni:
 - filing back: le sintesi nate in chat non restano effimere ma vengono riportate
   nella KB quando hanno valore durevole
 
-Differenze rispetto al RAG:
+Rapporto con il recupero delle fonti:
 
-- il RAG recupera frammenti al momento della domanda; il pattern Karpathy
-  consolida conoscenza prima della domanda futura
-- il RAG non accumula necessariamente comprensione; la KB cresce e si modifica a
-  ogni ingest, query e lint
-- il RAG tratta le fonti come deposito; la KB le trasforma in una rete di
-  concetti già collegati
-- il RAG privilegia la risposta; il pattern Karpathy privilegia la costruzione
-  progressiva dell'artefatto
+- il recupero al momento della domanda e la manutenzione di conoscenza
+  persistente sono funzioni complementari;
+- una KB interpretata non sostituisce le fonti: le affermazioni ad alta deriva
+  devono restare verificabili;
+- la risposta di sessione diventa conoscenza condivisa solo dopo averne valutato
+  durata, collocazione e affidabilità.
 
 Rischi:
 
