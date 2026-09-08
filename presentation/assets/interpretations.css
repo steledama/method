@@ -142,3 +142,48 @@
   max-width: 24em;
   text-align: center;
 }
+
+/* La coda mantiene tutte le righe, con scorrimento verticale nelle code lunghe.
+   Le dipendenze composte vanno a capo senza dilatare la tabella. */
+.reveal .plan-overview {
+  max-height: 510px;
+  overflow: auto;
+  font-size: 0.65em;
+  line-height: 1.25;
+}
+
+.reveal .plan-overview table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.reveal .plan-overview caption {
+  text-align: left;
+  color: var(--muted);
+  margin-bottom: 0.5em;
+}
+
+.reveal .plan-cycle {
+  width: 12%;
+}
+.reveal .plan-goal {
+  width: 7%;
+}
+.reveal .plan-task {
+  width: 49%;
+}
+.reveal .plan-dependency {
+  width: 32%;
+}
+
+.reveal .plan-overview th,
+.reveal .plan-overview td {
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+.reveal .plan-overview thead {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+}

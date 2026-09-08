@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import re
+from html import escape
 from pathlib import Path
 
 from presentation import check_plan_contract, parse_plan, parse_task
@@ -16,13 +17,38 @@ def repo_root() -> Path:
 def task_view(root: Path) -> str:
     lines: list[str] = []
     rows = parse_plan(root)
+    check_plan_contract(root, rows)
     if not rows:
         lines += ["## Nessun task aperto", "", "La coda operativa è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
 
-    check_plan_contract(root, rows)
+    # Gli indirizzi sono locali alla vista: tabella e dettagli li condividono,
+    # senza imitare gli auto-identifier di Pandoc (accenti, markup, collisioni).
+    lines += [
+        "## Plan {#plan}",
+        "",
+        '<div class="plan-overview" tabindex="0" role="region" aria-label="Coda dei task">',
+        "<table><caption>Task in ordine di esecuzione</caption>",
+        '<colgroup><col class="plan-cycle"><col class="plan-goal">'
+        '<col class="plan-task"><col class="plan-dependency"></colgroup>',
+        '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
+        '<th scope="col">Task</th><th scope="col">Dip.</th></tr></thead><tbody>',
+    ]
+    for index, row in enumerate(rows, 1):
+        lines.append(
+            f"<tr><td>{escape(row.ciclo or '—')}</td>"
+            f"<td>{escape(row.obiettivo or '—')}</td>"
+            f'<td><a href="#/task-{index}">{escape(row.task)}</a></td>'
+            f"<td>{escape(row.dependency)}</td></tr>"
+        )
+    lines += [
+        "</tbody></table></div>",
+        "",
+        "Dipendenze e condizioni di risveglio: [plan sorgente](../o1/plan.md).",
+        "",
+    ]
 
-    for row in rows:
+    for index, row in enumerate(rows, 1):
         # Una riga senza dettaglio `o2/` è legittima (`kb/tasks.md`: il file
         # serve quando serve contesto) e si rende con i soli dati del plan;
         # ciò che non è legittimo — e che il contratto ha già intercettato — è
@@ -33,7 +59,7 @@ def task_view(root: Path) -> str:
             meta.append(f"obiettivo: `{row.obiettivo}`")
         meta.append(f"dipendenza: `{row.dependency}`")
         lines += [
-            f"## {task.title if task else row.task}",
+            f"## {task.title if task else row.task} {{#task-{index}}}",
             "",
             " · ".join(meta),
             "",
@@ -42,6 +68,7 @@ def task_view(root: Path) -> str:
         ]
         if row.source:
             lines += [f"Sorgente: [`{row.source}`](../{row.source})", ""]
+        lines += ["[Torna al plan](#plan)", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 

@@ -71,32 +71,52 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section
-          id="vista-sinottica-del-plan-in-tasks.html"
-          class="slide level2"
-        >
-          <h2>Vista sinottica del plan in tasks.html</h2>
+        <section id="plan" class="slide level2">
+          <h2>Plan</h2>
+          <div
+            class="plan-overview"
+            tabindex="0"
+            role="region"
+            aria-label="Coda dei task"
+          >
+            <table>
+              <caption>
+                Task in ordine di esecuzione
+              </caption>
+              <colgroup>
+                <col class="plan-cycle" />
+                <col class="plan-goal" />
+                <col class="plan-task" />
+                <col class="plan-dependency" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Ciclo</th>
+                  <th scope="col">Ob.</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Dip.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>dev</td>
+                  <td>1</td>
+                  <td>
+                    <a href="#/task-1"
+                      >Rivalutazione clausola di uscita skill per arco</a
+                    >
+                  </td>
+                  <td>p1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p>
-            ciclo: <code>dev</code> · obiettivo: <code>2</code> · dipendenza:
-            <code>—</code>
-          </p>
-          <p>
-            Aggiungere a tasks.html una tabella di apertura — ordine, ciclo,
-            obiettivo, dipendenza — con link agli slide dei singoli task, così
-            la vista di o2 copre anche la supervisione d’insieme del plan senza
-            sdoppiare la materializzazione di o1.
-          </p>
-          <p>
-            Sorgente:
-            <a href="../o2/vista-sinottica-plan-tasks-html.md"
-              ><code>o2/vista-sinottica-plan-tasks-html.md</code></a
-            >
+            Dipendenze e condizioni di risveglio:
+            <a href="../o1/plan.md">plan sorgente</a>.
           </p>
         </section>
-        <section
-          id="rivalutazione-clausola-di-uscita-skill-per-arco"
-          class="slide level2"
-        >
+        <section id="task-1" class="slide level2">
           <h2>Rivalutazione clausola di uscita skill per arco</h2>
           <p>
             ciclo: <code>dev</code> · obiettivo: <code>1</code> · dipendenza:
@@ -117,6 +137,7 @@
               ><code>o2/rivalutazione-skill-per-arco.md</code></a
             >
           </p>
+          <p><a href="#/plan">Torna al plan</a></p>
         </section>
       </div>
     </div>
