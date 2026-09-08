@@ -19,7 +19,7 @@ def task_view(root: Path) -> str:
     rows = parse_plan(root)
     check_plan_contract(root, rows)
     if not rows:
-        lines += ["## Nessun task aperto", "", "La coda operativa è vuota.", ""]
+        lines += ["## Nessun task aperto {#plan}", "", "La coda operativa è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
 
     # Gli indirizzi sono locali alla vista: tabella e dettagli li condividono,

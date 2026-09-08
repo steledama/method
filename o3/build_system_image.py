@@ -36,7 +36,7 @@ TITLES = {
 
 # Per ciascuno slot: (href, descrizione).
 SLOTS = {
-    "o1": ("../o1/plan.md", "Task aperti, prioritizzati, con dipendenze."),
+    "o1": ("tasks.html#/plan", "Task aperti, prioritizzati, con dipendenze."),
     "o2": ("tasks.html", "La specifica concreta dei task del piano."),
     "o3": (
         "../o3/prescriptions.md",
