@@ -78,8 +78,12 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `presentation.py` — libreria di parsing condivisa (frontmatter, plan, task);
   importata dai due generatori, non si invoca direttamente.
 - `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.
-- `build-presentation.sh` — orchestra Pandoc + `build_views.py`: produce le
-  viste in `../presentation/`.
+- `build_lists.py` — genera le due viste a elenco puntato semplice (non
+  slide): `prescriptions.html` e `perceptions.html`, dal blocco puntato
+  aperto sotto `## Contenuti` dei rispettivi indici.
+- `build-presentation.sh` — orchestra Pandoc + `build_views.py` per le viste
+  Reveal e `build_lists.py` per le due viste a elenco: produce tutte le viste
+  in `../presentation/`.
 - `build_system_image.py` — genera la home statica minimalista: ciclo singolo,
   un collegamento primario per slot; il CSS condiviso della home resta potato
   alle classi che il builder emette.
@@ -90,6 +94,10 @@ Ogni vista generata deriva da una sorgente sola ([view](../kb/view.md)):
 - `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`;
 - `../presentation/tasks.html` ← `../o1/plan.md` e i file in `../o2/`;
 - `../presentation/verdict.html` ← i fili in `../i3/`;
+- `../presentation/prescriptions.html` ← blocco `## Contenuti` di
+  `prescriptions.md` (questo file);
+- `../presentation/perceptions.html` ← blocco `## Contenuti` di
+  `../i1/perceptions.md`;
 - `../presentation/index.html` ← titolo di `../README.md`, intro dei register
   `../goal.md` e `../world.md`, configurazione degli slot; le collezioni-stadio
   le _collega_, non le rende.

@@ -40,4 +40,9 @@ for name in tasks verdict; do
     -o "$root/presentation/$name.html"
 done
 
-prettier --write "$root/presentation/interpretations.html" "$root/presentation/tasks.html" "$root/presentation/verdict.html"
+python3 -B "$root/o3/build_lists.py" prescriptions "$root/presentation/prescriptions.html"
+python3 -B "$root/o3/build_lists.py" perceptions "$root/presentation/perceptions.html"
+
+prettier --write "$root/presentation/interpretations.html" "$root/presentation/tasks.html" \
+  "$root/presentation/verdict.html" "$root/presentation/prescriptions.html" \
+  "$root/presentation/perceptions.html"

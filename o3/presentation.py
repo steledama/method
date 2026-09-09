@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -293,6 +294,27 @@ def parse_task(root: Path, relative: str) -> TaskDetail:
         ciclo=meta.get("ciclo", "—"),
         sintesi=meta["sintesi"],
     )
+
+
+def inline_markdown(text: str, link_prefix: str = "") -> str:
+    """Rende inline markdown (code, bold, link) fedele, con prefisso sui link relativi.
+
+    Condiviso dai generatori HTML: una vista che vive in `presentation/` legge
+    un file di collezione i cui link relativi puntano a fianco della fonte, non
+    a fianco della vista — `link_prefix` corregge la base.
+    """
+    escaped = html.escape(text)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
+
+    def link(match: re.Match[str]) -> str:
+        label = match.group(1)
+        href = match.group(2)
+        if not re.match(r"[a-z]+:|[#/]", href):
+            href = link_prefix + href
+        return f'<a href="{html.escape(href, quote=True)}">{label}</a>'
+
+    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, escaped)
 
 
 def register_intro(root: Path, name: str) -> str:

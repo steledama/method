@@ -13,7 +13,7 @@ import html
 import re
 from pathlib import Path
 
-from presentation import register_intro
+from presentation import inline_markdown, register_intro
 
 # --- CONFIG specifico del repo ------------------------------------------------
 
@@ -39,13 +39,13 @@ SLOTS = {
     "o1": ("tasks.html#/plan", "Task aperti, prioritizzati, con dipendenze."),
     "o2": ("tasks.html", "La specifica concreta dei task del piano."),
     "o3": (
-        "../o3/prescriptions.md",
+        "prescriptions.html",
         "Prescrizioni ed esecutori deterministici del metodo.",
     ),
     "i3": ("verdict.html", "I verdetti correnti per filo aperto."),
     "i2": ("interpretations.html", "La sintesi illustrata del metodo e dei nodi."),
     "i1": (
-        "../i1/perceptions.md",
+        "perceptions.html",
         "I segnali catturati dallo stadio Perceive.",
     ),
 }
@@ -62,21 +62,6 @@ def readme_title(root: Path) -> str:
         if line.startswith("# "):
             return line[2:].strip()
     raise SystemExit("README.md: H1 mancante")
-
-
-def inline_markdown(text: str, link_prefix: str = "") -> str:
-    escaped = html.escape(text)
-    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
-    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
-
-    def link(match: re.Match[str]) -> str:
-        label = match.group(1)
-        href = match.group(2)
-        if not re.match(r"[a-z]+:|[#/]", href):
-            href = link_prefix + href
-        return f'<a href="{html.escape(href, quote=True)}">{label}</a>'
-
-    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, escaped)
 
 
 def render_block(block: str, link_prefix: str = "") -> str:
