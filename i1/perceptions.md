@@ -10,6 +10,18 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [La presentazione eredita la domanda di i1 per analogia strutturale, ma
+  nessuno ha mai dichiarato a quale domanda e a quale pubblico ogni pagina
+  deve rispondere](presentazione-domanda-e-pubblico-non-dichiarati.md) — da
+  nixos: la card o3 della home promette «Dichiarazione runtime e strumenti»
+  ma l'elenco generato da `## Contenuti` mostra solo la coda aperta (oggi
+  vuota); lo stesso scarto esiste, mascherato, nella card o3 di `metodo`
+  stesso («esecutori deterministici» mai resi in `prescriptions.html`).
+  Tenuto separato dal segnale di bi qui sotto: quello opera sul nome della
+  sezione, questo su domanda/pubblico dichiarati per pagina — un fix
+  dell'uno non risolve l'altro. Un solo caso ad averlo scritto, ma la sua
+  seconda istanza è già visibile nel canone stesso: resta aperta, verdetto
+  del custode.
 - [`build_lists.py` assume `## Contenuti` come nome fisso della coda, ma
   un'intestazione fissa non regge in un repo dove lo stesso nome ha già un
   altro significato](intestazione-coda-build-lists-non-uniforme.md) — da bi:
