@@ -55,6 +55,25 @@ la difformità si legge prima di normalizzarla: può essere un secondo
 significato, e allora è il contratto ad ammettere entrambe le forme. Appiattire
 la fonte sulla forma prevista dal parser distrugge informazione in silenzio.
 
+## Il contratto è strutturale, non nominale
+
+Una collezione-stadio è vicina al Mondo (Perceive e Perform, il livello
+istintuale nella lettura di Norman): è normale che repo diversi la
+organizzino in modo diverso — nomi di sezione propri, gerarchie proprie,
+adatte al proprio modo di ascoltare e agire sul proprio Mondo. Un generatore
+condiviso non deve imporre il lessico di chi lo scrive a chi lo usa
+(`method-development`, «il confine canone↔adottante: dichiara e taci»): il
+contratto verifica la **forma** (markdown, gerarchico, deterministico — per
+questo traducibile in un altro linguaggio deterministico come HTML), mai un
+nome specifico di intestazione. Un generatore che cerca `## Contenuti` per
+nome e si ferma al primo blocco che trova non è agnostico alla forma: è
+cablato sul lessico di chi l'ha scritto, e produce una vista parziale non
+quando la fonte è malformata ma quando è semplicemente organizzata altrimenti
+— la stessa distruzione silenziosa d'informazione di una fonte appiattita.
+Fedele vuol dire renderizzare l'intera struttura dichiarata dalla fonte,
+sezione per sezione nell'ordine in cui compare, qualunque nome le sia stato
+dato.
+
 ## Freschezza: la vista non è più vecchia delle sue fonti
 
 Il contratto verifica la coerenza fra le fonti **quando il generatore gira**, e
@@ -90,3 +109,4 @@ Connessioni:
 - [processing-layers](processing-layers.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [verdict](verdict.md)
+- [method-development](method-development.md)

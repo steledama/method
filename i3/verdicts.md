@@ -100,3 +100,10 @@ verificabile.
   delle priorità), ritorno eccezionale da giustificare, goal solo in proposta;
   collaudato dal pilota `economia` (skill `email`), watchpoint sul secondo
   segnale email (`acquisti@` di bi) — misura: «Canale-perception funzionante»
+- [liste-o3-i1-fedeli-alla-fonte.md](liste-o3-i1-fedeli-alla-fonte.md) — il
+  contratto delle viste a elenco o3/i1 è ora strutturale (ogni sezione `##`
+  della fonte, per intero) e non un nome di intestazione cablato; consuma i
+  segnali gemelli di `bi` e `nixos` del 2026-09-09, principio inciso in
+  `kb/view.md`, propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`;
+  watchpoint aperto sulla prosa storica ora renderizzata insieme alla coda —
+  misura: «Custodire un canone coerente e fedele alle fonti»

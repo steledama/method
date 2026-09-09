@@ -866,6 +866,101 @@
           </p>
         </section>
         <section
+          id="le-viste-a-elenco-o3i1-sono-fedeli-alla-struttura-della-fonte-non-a-un-nome-di-intestazione"
+          class="slide level2"
+        >
+          <h2>
+            Le viste a elenco o3/i1 sono fedeli alla struttura della fonte, non
+            a un nome di intestazione
+          </h2>
+          <p>
+            Aperto il 2026-09-09 dalla valutazione i2→i3 di due percezioni
+            consumate qui: <code>bi</code> («<code>build_lists.py</code> assume
+            <code>## Contenuti</code> come nome fisso della coda, ma
+            un’intestazione fissa non regge in un repo dove lo stesso nome ha
+            già un altro significato») e <code>nixos</code> («la presentazione
+            eredita la domanda di i1 per analogia strutturale, ma nessuno ha mai
+            dichiarato a quale domanda e a quale pubblico ogni pagina deve
+            rispondere»). Stesso giorno, stesso generatore, stesso commit
+            d’origine (<code>2891892</code>): due repo indipendenti su due assi
+            diversi della stessa rottura — il contratto della vista era un nome
+            di intestazione (<code>## Contenuti</code>), non la struttura
+            markdown della fonte. In <code>bi</code> il nome ha due significati
+            diversi fra collezioni dello stesso repo; in <code>nixos</code>, e
+            mascherato nel canone stesso, la card o3 promette «strumenti» che il
+            generatore non ha mai reso, perché guardava solo il primo blocco
+            puntato sotto quel nome — <code>## Strumenti</code> restava fuori da
+            <code>prescriptions.html</code> anche in <code>metodo</code>.
+          </p>
+        </section>
+        <section id="il-contratto-nuovo" class="slide level2">
+          <h2>Il contratto nuovo</h2>
+          <p>
+            <code>o3/build_lists.py</code> renderizza ora, nell’ordine della
+            fonte, l’intro (il corpo prima della prima <code>##</code>) e ogni
+            sezione <code>##</code> per intero — paragrafi e liste, senza
+            selezionare quale sezione conti e quale no. La parametrizzazione per
+            pagina (<code>PAGES</code>) resta solo su
+            sorgente/prefisso-link/titolo, mai su quali intestazioni includere:
+            una sezione conta per la sua forma (intestazione + blocco), non per
+            il suo nome. Verificato sui due casi reali:
+            <code>prescriptions.html</code> rende ora anche
+            <code>## Strumenti</code> (chiude lo scarto nixos, mascherato anche
+            nel canone); una fonte con nomi di sezione propri come quella di
+            <code>bi</code> renderizza comunque per intero, senza bisogno di
+            whitelist locale. <code>presentation.py</code> normalizza i link
+            relativi (<code>posixpath.normpath</code>) — necessario perché
+            l’intro, a differenza dei soli item della coda, porta link scritti
+            relativi alla fonte in punti diversi del file.
+          </p>
+          <p>
+            <code>kb/view.md</code> guadagna il principio in prosa («Il
+            contratto è strutturale, non nominale»): una collezione-stadio è
+            vicina al Mondo (Perceive/Perform, livello istintuale di Norman) ed
+            è normale che ogni repo la strutturi a modo proprio; il generatore
+            condiviso non deve imporre il proprio lessico a chi lo usa
+            (<code>method-development</code>, «il confine canone↔︎adottante:
+            dichiara e taci»).
+          </p>
+          <p>
+            Verificato: audit strutturale verde (48 nodi), viste rigenerate
+            deterministicamente (<code>git status</code> stabile a doppia
+            rigenerazione di <code>build-presentation.sh</code>), link relativi
+            corretti.
+          </p>
+        </section>
+        <section
+          id="watchpoint-aperto-fedeltà-completa-vs.-lente-del-lettore-abitante"
+          class="slide level2"
+        >
+          <h2>
+            Watchpoint aperto: fedeltà completa vs. lente del lettore-abitante
+          </h2>
+          <p>
+            Renderizzare per intero include anche la prosa storica che oggi
+            vive, senza intestazione propria, subito dopo il blocco puntato di
+            <code>## Contenuti</code> in <code>i1/perceptions.md</code> e
+            <code>o3/prescriptions.md</code> — il generatore non decide più cosa
+            sia «storia», quindi non la esclude più. Le due pagine sono oggi più
+            lunghe e mescolano il registro «coda aperta» (lettore-abitante, cfr.
+            il segnale nixos su domanda/pubblico) con quello narrativo
+            (lettore-ospite, cronaca dei fili chiusi). La causa è a monte, non
+            nel generatore: <code>i1</code> e <code>o3</code> dichiarano già che
+            «la storia resta in git» ma la tengono comunque in prosa nel corpo
+            del file. Non prunata qui — è una decisione editoriale sul contenuto
+            delle collezioni, non sullo strumento, e resta al custode: se
+            <code>i1</code> e <code>o3</code> smettessero di portare la cronaca
+            inline (coerenti con la propria regola già scritta), il problema si
+            scioglie da sé, senza altro codice — ma è materiale nuovo, non lo
+            stesso filo, e non blocca la chiusura del verdetto sopra.
+          </p>
+          <p>
+            Misura: obiettivo 1 del goal («Custodire un canone coerente e fedele
+            alle fonti»). Propagazione agli adottanti in
+            <code>o3/liste-o3-i1-fedeli-alla-fonte.md</code>.
+          </p>
+        </section>
+        <section
           id="coerenza-interna-e-maturazione-empirica-richiedono-verifiche-distinte"
           class="slide level2"
         >

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import html
+import posixpath
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -311,7 +312,7 @@ def inline_markdown(text: str, link_prefix: str = "") -> str:
         label = match.group(1)
         href = match.group(2)
         if not re.match(r"[a-z]+:|[#/]", href):
-            href = link_prefix + href
+            href = posixpath.normpath(link_prefix + href)
         return f'<a href="{html.escape(href, quote=True)}">{label}</a>'
 
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, escaped)

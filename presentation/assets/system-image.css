@@ -26,6 +26,15 @@
   max-width: 760px;
 }
 
+.pole h2 {
+  font-size: 1.4rem;
+  margin: 1.8rem 0 0.5rem;
+}
+
+.pole h2:first-child {
+  margin-top: 0;
+}
+
 .pole ul {
   color: var(--muted);
   margin: 0.4rem 0;

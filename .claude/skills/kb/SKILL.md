@@ -1,7 +1,6 @@
 ---
 name: kb
-description:
-  Audit strutturale o revisione semantica qualitativa della knowledge base.
+description: Audit strutturale o revisione semantica qualitativa della knowledge base.
 user-invocable: true
 ---
 

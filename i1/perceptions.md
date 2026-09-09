@@ -10,29 +10,6 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
-- [La presentazione eredita la domanda di i1 per analogia strutturale, ma
-  nessuno ha mai dichiarato a quale domanda e a quale pubblico ogni pagina
-  deve rispondere](presentazione-domanda-e-pubblico-non-dichiarati.md) — da
-  nixos: la card o3 della home promette «Dichiarazione runtime e strumenti»
-  ma l'elenco generato da `## Contenuti` mostra solo la coda aperta (oggi
-  vuota); lo stesso scarto esiste, mascherato, nella card o3 di `metodo`
-  stesso («esecutori deterministici» mai resi in `prescriptions.html`).
-  Tenuto separato dal segnale di bi qui sotto: quello opera sul nome della
-  sezione, questo su domanda/pubblico dichiarati per pagina — un fix
-  dell'uno non risolve l'altro. Un solo caso ad averlo scritto, ma la sua
-  seconda istanza è già visibile nel canone stesso: resta aperta, verdetto
-  del custode.
-- [`build_lists.py` assume `## Contenuti` come nome fisso della coda, ma
-  un'intestazione fissa non regge in un repo dove lo stesso nome ha già un
-  altro significato](intestazione-coda-build-lists-non-uniforme.md) — da bi:
-  `## Contenuti` è coda in `o2/tasks.md` ma panoramica strutturale in
-  `o3/prescriptions.md`/`i2/interpretations.md`; la coda vera di
-  `i1/perceptions.md` vive sotto `## Catture versionate`. Aggiornamento
-  stesso giorno: bi ha esteso `PAGES` da un'intestazione singola a una
-  lista di sezioni per pagina (struttura stabile + coda, non solo l'una o
-  l'altra) — dato empirico per il segnale gemello `nixos` sotto, non un
-  verdetto. Un solo caso: resta aperta, attende un secondo segnale prima di
-  generalizzare.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
@@ -42,8 +19,19 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   secondo segnale prima di generalizzare (cfr. `de-cablaggio`,
   `criterio-world-substrato` per lo stesso pattern di attesa).
 
-La cattura «la chiusura di un task può lasciare documenti operativi nel
-Mondo», da `salute` il 2026-08-16, è stata consumata nello stesso giro da
+Le catture gemelle «`build_lists.py` assume `## Contenuti` come nome fisso
+della coda» (da `bi`) e «la presentazione eredita la domanda di i1 per
+analogia strutturale, ma nessuno ha mai dichiarato a quale domanda e a quale
+pubblico ogni pagina deve rispondere» (da `nixos`), entrambe del 2026-09-09,
+sono state consumate lo stesso giorno da
+[i3/liste-o3-i1-fedeli-alla-fonte.md](../i3/liste-o3-i1-fedeli-alla-fonte.md):
+non erano lo stesso attrito (una sul nome di intestazione, l'altra su
+domanda/pubblico) ma due prove indipendenti della stessa rottura — il
+contratto della vista era un nome, non la struttura della fonte; risolte
+insieme dalla stessa generalizzazione, principio inciso in `kb/view.md`,
+propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`. La cattura «la
+chiusura di un task può lasciare documenti operativi nel Mondo», da `salute`
+il 2026-08-16, è stata consumata nello stesso giro da
 [i3/criterio-world-substrato.md](../i3/criterio-world-substrato.md): il secondo
 segnale scioglie l'attesa sull'estensione per-stadio del criterio e passa a
 `exec plan` l'incisione del controllo. La cattura precedente, «l'ingresso di
