@@ -40,6 +40,22 @@ fuori, senza vista generata (nessun contenuto versionato "prescrizione
 ancora da eseguire" distinto dagli strumenti stabili che il suo
 `## Contenuti` già elenca).
 
+**Aggiornamento, stesso giorno.** Il primo giro sopra trattava ancora "coda di
+item aperti" come l'unica domanda legittima per queste pagine — la stessa
+lente che il segnale gemello `presentazione-domanda-e-pubblico-non-dichiarati.md`
+(`nixos`) nomina esplicitamente. Applicata quella lente fino in fondo, `bi` ha
+poi esteso `PAGES` da un'intestazione singola a una **lista di sezioni per
+pagina**: `prescriptions.html` ora rende `## Contenuti` di
+`o3/prescriptions.md` (la panoramica strutturale, non una coda — coerente con
+la card home «prescrizioni, strumenti e gli esecutori del runtime di
+dominio»); `perceptions.html` rende sia `## Substrato runtime i1` sia
+`## Catture versionate`, struttura stabile e coda aperta nella stessa pagina,
+nell'ordine della fonte. Riportato qui perché è dato empirico utile al
+giudizio del custode su entrambi i segnali — non una generalizzazione: resta
+un solo adottante che ha implementato questa via, una delle più elencate in
+`presentazione-domanda-e-pubblico-non-dichiarati.md`, non necessariamente la
+giusta per `metodo` o per `nixos`.
+
 Resta aperta la domanda più ampia: `## Contenuti` come nome fisso per "la
 coda di item aperti di uno stadio" è un'assunzione valida perché finora
 `method` stesso è l'unico adottante che l'ha esercitata con questo
