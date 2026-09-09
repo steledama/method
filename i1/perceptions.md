@@ -10,6 +10,15 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [`build_lists.py` assume `## Contenuti` come nome fisso della coda, ma
+  un'intestazione fissa non regge in un repo dove lo stesso nome ha già un
+  altro significato](intestazione-coda-build-lists-non-uniforme.md) — da bi:
+  `## Contenuti` è coda in `o2/tasks.md` ma panoramica strutturale in
+  `o3/prescriptions.md`/`i2/interpretations.md`; la coda vera di
+  `i1/perceptions.md` vive sotto `## Catture versionate`. bi ha
+  parametrizzato l'intestazione nel proprio fork; resta aperto se il
+  canonico dovrebbe fare lo stesso o se è un'eccezione locale. Un solo caso:
+  resta aperta, attende un secondo segnale prima di generalizzare.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro
