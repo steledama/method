@@ -31,8 +31,9 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   pulizia soltanto con target e autorità espliciti.
 - [Le viste a elenco derivano dall'intera struttura della fonte, non da un
   nome di intestazione](liste-o3-i1-fedeli-alla-fonte.md) — portare la
-  riscrittura di `build_lists.py` (render generico delle sezioni `##`,
-  normalizzazione dei link) nei fork che generano una vista equivalente;
+  riscrittura di `build_lists.py` (render Markdown con Pandoc,
+  gerarchie conservate e link ribasati sull'AST) nei fork che generano una
+  vista equivalente;
   touchpoint per `bi` sulla propria estensione locale di `PAGES`.
 
 L'ultima chiusa, `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
@@ -89,8 +90,10 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.
 - `build_lists.py` — genera le due viste a elenco puntato semplice (non
   slide): `prescriptions.html` e `perceptions.html`, rendendo per intero e
-  senza tagli i rispettivi indici — intro e ogni sezione `##`, in ordine, a
-  prescindere dal nome che l'indice dà alle proprie sezioni.
+  senza tagli i rispettivi indici tramite Pandoc, già richiesto dalla build:
+  sezioni, sottotitoli e liste annidate nell'ordine della fonte; link e immagini
+  Markdown ribasati sull'AST. HTML grezzo e suoi URL restano della fonte.
+  Regressioni: `python3 -m unittest discover -s tests -p 'test_build_lists.py'`.
 - `build-presentation.sh` — orchestra Pandoc + `build_views.py` per le viste
   Reveal e `build_lists.py` per le due viste a elenco: produce tutte le viste
   in `../presentation/`.
@@ -99,7 +102,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   alle classi che il builder emette.
 - `build-system-image.sh` — wrapper: genera e formatta la home.
 
-Ogni vista generata deriva da una sorgente sola ([view](../kb/view.md)):
+Ogni sezione delle viste generate ha una sorgente canonica; i generatori
+verificano i contratti fra sorgenti ([view](../kb/view.md)):
 
 - `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`;
 - `../presentation/tasks.html` ← `../o1/plan.md` e i file in `../o2/`;

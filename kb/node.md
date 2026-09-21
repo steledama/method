@@ -20,7 +20,9 @@ Esempi, altri label custom), sezione finale Connessioni con tutti i link
 deduplicati e ordinati per rilevanza. Il corpo è pensato per essere letto — la
 sezione Connessioni è pensata per essere navigata. L'atomicità non riguarda solo
 l'argomento, ma anche la funzione documentale: un nodo dovrebbe sapere se sta
-facendo da mappa, concetto, reference o runbook.
+facendo da mappa, concetto, reference o conoscenza procedurale. Quest'ultima
+spiega criteri e meccanismi riusabili; il runbook predisposto per eseguire un
+atto vive in `o3/`, anche quando è riusabile e longevo.
 
 Template:
 
@@ -56,7 +58,7 @@ Caratteristiche:
 - presente permanente: la KB descrive la conoscenza corrente; Git conserva la
   storia, `i3/` i giudizi sulle tensioni ancora aperte
 - funzione documentale esplicita: separare quando mappa, concetto, reference e
-  runbook iniziano a convivere nello stesso file
+  conoscenza procedurale iniziano a convivere nello stesso file
 - esempi vivi: privilegiare pattern realmente incarnati nel dominio rispetto a
   esempi didattici plausibili ma non canonici
 - esempi portabili: illustrare con la configurazione ricorrente, non con
@@ -101,10 +103,11 @@ di dominio oltre `stato` solo se soddisfa **tutti e quattro** i requisiti di
 demarcazione. È **intrinseca**: descrive il nodo in sé, non una relazione verso
 altri nodi (quella è un link), non storia (git), non lavoro (`o2/`), non
 priorità (`o1/plan.md`). È a **valori chiusi e singola**: classificazione
-faceted, un insieme finito e dichiarato di valori con uno solo per nodo — un
-attributo aperto o multi-valore è una relazione e va espresso come link, non
-come campo. È **non derivabile**: non ricostruibile da una fonte di verità
-esistente, per non aprire una seconda storia fragile. È **dichiarata e
+faceted, un insieme finito e dichiarato di valori con uno solo per nodo. È una
+scelta dello schema del metodo, non una proprietà universale degli attributi:
+un valore aperto o multiplo non implica di per sé una relazione. Le relazioni
+verso altri nodi si esprimono invece come link. È **non derivabile**: non
+ricostruibile da una fonte di verità esistente, per non aprire una seconda storia fragile. È **dichiarata e
 verificabile**: l'insieme dei valori ammessi è dichiarato e `kb_tools` ne
 verifica presenza e dominio, come già fa per `stato`.
 

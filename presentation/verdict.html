@@ -896,37 +896,32 @@
         <section id="il-contratto-nuovo" class="slide level2">
           <h2>Il contratto nuovo</h2>
           <p>
-            <code>o3/build_lists.py</code> renderizza ora, nell’ordine della
-            fonte, l’intro (il corpo prima della prima <code>##</code>) e ogni
-            sezione <code>##</code> per intero — paragrafi e liste, senza
-            selezionare quale sezione conti e quale no. La parametrizzazione per
-            pagina (<code>PAGES</code>) resta solo su
-            sorgente/prefisso-link/titolo, mai su quali intestazioni includere:
-            una sezione conta per la sua forma (intestazione + blocco), non per
-            il suo nome. Verificato sui due casi reali:
-            <code>prescriptions.html</code> rende ora anche
-            <code>## Strumenti</code> (chiude lo scarto nixos, mascherato anche
-            nel canone); una fonte con nomi di sezione propri come quella di
-            <code>bi</code> renderizza comunque per intero, senza bisogno di
-            whitelist locale. <code>presentation.py</code> normalizza i link
-            relativi (<code>posixpath.normpath</code>) — necessario perché
-            l’intro, a differenza dei soli item della coda, porta link scritti
-            relativi alla fonte in punti diversi del file.
+            <code>o3/build_lists.py</code> rende l’intero corpo Markdown tramite
+            Pandoc, già richiesto dalla build Reveal. La parametrizzazione
+            <code>PAGES</code> conserva sorgente, prefisso dei link e titolo; il
+            titolo iniziale della fonte è sostituito da quello di pagina. Le
+            intestazioni editoriali non sono una whitelist. Sottotitoli, liste
+            annidate e numerate e codice conservano la propria struttura: la
+            lettura di tutte le sezioni H2 da sola non bastava, perché il parser
+            di blocchi piatti appiattiva padri e figli e rendeva i sottotitoli
+            come prosa.
           </p>
           <p>
-            <code>kb/view.md</code> guadagna il principio in prosa («Il
-            contratto è strutturale, non nominale»): una collezione-stadio è
-            vicina al Mondo (Perceive/Perform, livello istintuale di Norman) ed
-            è normale che ogni repo la strutturi a modo proprio; il generatore
-            condiviso non deve imporre il proprio lessico a chi lo usa
-            (<code>method-development</code>, «il confine canone↔︎adottante:
-            dichiara e taci»).
+            Il ribasamento dei link e delle immagini Markdown avviene sull’AST
+            prima della resa HTML, preservando query, frammenti e URL assoluti.
+            Il codice letterale non è riscritto. L’HTML grezzo incorporato,
+            inclusi i suoi URL, resta responsabilità della fonte. Il formato è
+            il Markdown di Pandoc usato dalla build Reveal.
           </p>
           <p>
-            Verificato: audit strutturale verde (48 nodi), viste rigenerate
-            deterministicamente (<code>git status</code> stabile a doppia
-            rigenerazione di <code>build-presentation.sh</code>), link relativi
-            corretti.
+            Il contratto di <code>kb/view.md</code> distingue intestazioni
+            editoriali libere e chiavi nominali esplicitamente dichiarate da uno
+            schema. La fedeltà richiede di preservare le relazioni nella fonte,
+            non soltanto tutte le parole. Le prove in
+            <code>tests/test_build_lists.py</code> presidiano annidamenti,
+            ordine delle sezioni, sottotitoli, liste numerate, codice e
+            destinazioni dei link; il doppio giro di build verifica il
+            determinismo sulle fonti reali.
           </p>
         </section>
         <section
@@ -998,6 +993,25 @@
             ritmo di cambiamento aiuta a disaccoppiare le responsabilità. Il
             rimedio a un difetto è proporzionato al rischio e all’evidenza,
             anche quando il difetto emerge prima di un danno.
+          </p>
+          <p>
+            I contratti sono coerenti anche nei consumatori: un cursore di
+            allineamento resta vivo senza tensioni aperte; i rename coinvolgono
+            le sole connessioni intenzionali e il recepimento resta locale. Il
+            canale di contribuzione dipende dall’ownership. La conoscenza
+            procedurale si distingue dal runbook eseguibile, e una riga semplice
+            del plan non richiede un dettaglio o2.
+          </p>
+          <p>
+            La fedeltà delle viste include gerarchie e destinazioni dei link:
+            conservare il testo appiattendo un annidamento perde comunque
+            informazione. Il generatore di liste usa il renderer Markdown già
+            disponibile nella build; contratto e prove vivono nelle rispettive
+            superfici. Il catalogo conserva la cautela dei nodi sulle
+            attribuzioni; l’esempio additivo/sostitutivo segue il compito
+            descritto da Norman. Facet chiuse e sede canonica dei dati restano
+            convenzioni esplicite, senza dedurne che ogni attributo multiplo sia
+            una relazione o cancellare osservazioni primarie indipendenti.
           </p>
           <p>
             La rifinitura non promuove automaticamente gli stati dei nodi. Il

@@ -68,6 +68,10 @@ Valori ammessi per `status`:
 - `action-required`: report intermedio; il marker `method_commit` deve restare
   fermo al precedente commit revisionato.
 
+Il marker resta anche quando lo stato è `aligned` e non ci sono tensioni:
+il cursore e il contratto servono alla prossima revisione. La chiusura dei fili
+ordinari non ne autorizza la rimozione (`kb/verdict.md` nel canone).
+
 Gli adattamenti intenzionali devono dire quale superficie diverge, perché e, se
 utile, da quale commit del metodo deriva la decisione. Non usare il ledger come
 changelog: la storia delle revisioni resta in Git. Il file non ha una sezione

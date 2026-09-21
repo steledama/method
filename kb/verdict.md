@@ -10,8 +10,12 @@ il plan indicizza il lavoro futuro.
 
 Un filo descrive come stanno le cose ora e perché conta. Si aggiorna in place;
 non accumula cronache, report rigenerabili o task. Quando il giudizio è stabile
-e non resta tensione, file e voce d'indice vengono rimossi: la storia resta in
-Git. Ogni voce dell'indice dichiara con `misura:` quale obiettivo osserva.
+e non resta tensione, file e voce d'indice vengono rimossi solo se non hanno
+altre funzioni vive: la storia resta in Git. Un file che custodisce anche un
+cursore o un contratto corrente, come `i3/allineamento-metodo.md` negli
+adottanti, resta necessario anche con stato `aligned`: si aggiorna il verdetto
+senza eliminare il cursore che servirà alla prossima revisione. Ogni voce
+dell'indice dichiara con `misura:` quale obiettivo osserva.
 
 Il verdetto non può essere più sicuro del materiale:
 

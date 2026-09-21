@@ -93,8 +93,10 @@ ancora valutate.
   prodotto **di suo** (posta in uscita, valutazione della fonte già in KB) è
   stato guardato? Una tesi che cade se cade una cifra derivata non è un
   verdetto: è una congettura da retrocedere.
-- **È ancora aperto?** Verdetto stabile e nessuna tensione → il filo si chiude:
-  file rimosso, voce tolta da `i3/verdicts.md`, storia in git.
+- **È ancora aperto?** Verdetto stabile, nessuna tensione e nessuna altra
+  funzione viva → il filo si chiude: file rimosso, voce tolta da
+  `i3/verdicts.md`, storia in git. I file che custodiscono cursori o contratti
+  correnti restano; i marker di allineamento sono governati da `method`.
 - **È ancora _un_ filo?** Se è cresciuto multi-tema, proponi lo split; ogni filo
   tiene una tensione sola.
 - **È stato, non log?** Pota paragrafi storici e sequenze datate: la cronologia

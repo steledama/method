@@ -53,10 +53,11 @@ dipendenza che resta `world` anche se l'attesa puntuale è sciolta).
 
 Il contratto plan×`o2/` lo verifica il generatore: esegui
 `o3/build-presentation.sh` e interpretane l'esito — a contratto violato esce
-con l'elenco degli errori (riga del plan senza file `o2/`, voce di
+con l'elenco degli errori (file `o2/` senza riga del plan, voce di
 `o2/tasks.md` senza file, file non indicizzato, colonna `Ob.` vuota,
-frontmatter senza `sintesi`). Non reimplementare il matching a mano. Resta al
-giudizio ciò che il generatore non copre:
+frontmatter senza `sintesi`). Una riga semplice del plan può non avere un
+dettaglio `o2/`: il file serve quando occorre contesto. Non reimplementare il
+matching a mano. Resta al giudizio ciò che il generatore non copre:
 
 - le prescrizioni `o3/` collegate a lavoro chiuso non restano in collezione —
   il dettaglio è giurisdizione di `perform`, qui basta il rimando
@@ -86,8 +87,9 @@ che nel `metodo` hanno natura propria:
 
 - una generalizzazione si è stabilizzata in un repo adottante -> può diventare
   nodo, skill base, strumento comune o criterio di revisione qui
-- rinomina o spostamento di un nodo -> richiede aggiornare i link nei
-  `CLAUDE.md` e `README.md` di tutti gli adottanti collegati
+- rinomina o spostamento di un nodo -> verificare le connessioni intenzionali
+  effettivamente coinvolte; il `/method` di ciascun adottante governa il
+  recepimento locale, senza bonifiche centrali di inventari dei path
 - nuova fonte (`i1`) ingerita o cornice teorica importata -> può aprire nodi
   bozza o ristrutturazioni
 - drift tra `i2/` e i nodi -> può aprire un task di riallineamento o2

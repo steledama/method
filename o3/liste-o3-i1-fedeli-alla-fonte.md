@@ -18,25 +18,28 @@ indipendenti — `bi` (lo stesso nome ha significati diversi fra collezioni) e
 hanno mostrato che il contratto era sul lessico di `metodo`, non sulla
 struttura markdown della fonte, e che questo produce viste incomplete non
 quando la fonte è malformata ma quando è semplicemente organizzata altrimenti.
-Il generatore ora rende, nell'ordine della fonte, l'intro prima della prima
-`##` e ogni sezione `##` per intero — paragrafi e liste, qualunque nome
-la collezione dia alle proprie sezioni. Dettaglio e razionale completo in
-`i3/liste-o3-i1-fedeli-alla-fonte.md`; principio canonico in `kb/view.md`,
-«Il contratto è strutturale, non nominale».
+Il generatore rende l'intero corpo Markdown tramite Pandoc, già usato dalla
+build Reveal: conserva sezioni, sottotitoli, liste annidate e numerate, codice e
+link. Il titolo H1 iniziale è sostituito dal titolo di pagina configurato.
+La normalizzazione dei target Markdown avviene sull'AST, anche per immagini e
+link a riferimento, senza modificare testo letterale o codice. L'HTML grezzo
+incorporato conserva i propri URL e resta responsabilità della fonte.
+Il formato letto è `markdown-native_divs`, come nelle viste Reveal.
+Dettaglio e razionale in `i3/liste-o3-i1-fedeli-alla-fonte.md`; principio
+canonico in `kb/view.md`, «Il contratto è strutturale, non nominale».
 
 ## Ricetta di recepimento
 
-1. Porta la riscrittura di `o3/build_lists.py` (canone: il commit successivo
-   a `2891892` che chiude `i3/liste-o3-i1-fedeli-alla-fonte.md`): il render
-   diventa un walker generico sulle sezioni `##` del file sorgente
-   (`sections()`), non più un estrattore di un blocco sotto un nome fisso
-   (`contenuti_items()`). Preserva la tua eventuale parametrizzazione locale
-   di `PAGES` (sorgente/prefisso-link/titolo per pagina) — quel livello non
-   cambia.
-2. Porta la normalizzazione dei link relativi in `presentation.py:inline_markdown`
-   (`posixpath.normpath` sul link_prefix combinato): necessaria perché ora si
-   renderizzano anche i link nell'intro della collezione, scritti relativi
-   alla fonte in punti diversi del file, non solo quelli della coda.
+1. Confronta `o3/build_lists.py` con il fork: il rendering usa Pandoc invece
+   del parser di paragrafi e liste piatte, che perdeva gerarchie e sottotitoli.
+   Preserva la parametrizzazione locale di `PAGES`
+   (sorgente/prefisso-link/titolo per pagina). Verifica che Pandoc sia disponibile
+   nella build locale, come già richiesto dalle viste Reveal del canone.
+2. Porta anche il ribasamento dei target Markdown sull'AST (`rebase_links` e
+   `rebase_target`): preserva query, frammenti, URL assoluti e testo letterale.
+   Non dipende più da `presentation.py:inline_markdown`; quel renderer resta
+   usato dalla home e non va rimosso. Porta le prove pertinenti di
+   `tests/test_build_lists.py` o il loro equivalente locale.
 3. **Touchpoint per `bi`** — come indizio da verificare in loco, non ordine
    alla lettera: il tuo fork ha esteso `PAGES` a una lista di sezioni per
    pagina (struttura stabile + coda, nominate esplicitamente) per ottenere lo

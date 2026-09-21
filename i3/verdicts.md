@@ -9,8 +9,9 @@ canoniche in [`kb/verdict.md`](../kb/verdict.md).
 
 Ogni filo è lo **stato attuale**, aggiornato in place, non una sequenza di entry
 datate (la cronologia di un filo è il git history del suo file). Quando un filo
-si chiude — verdetto stabile, nessuna tensione aperta — il file si rimuove: la
-storia resta in git. Il commit citato inline è il puntatore alla storia
+si chiude — verdetto stabile, nessuna tensione aperta e nessuna altra funzione
+viva — il file si rimuove: la storia resta in git. Cursori e contratti correnti
+restano, come previsto da `kb/verdict.md`. Il commit citato inline è il puntatore alla storia
 verificabile.
 
 ## Contenuti
@@ -101,8 +102,8 @@ verificabile.
   collaudato dal pilota `economia` (skill `email`), watchpoint sul secondo
   segnale email (`acquisti@` di bi) — misura: «Canale-perception funzionante»
 - [liste-o3-i1-fedeli-alla-fonte.md](liste-o3-i1-fedeli-alla-fonte.md) — il
-  contratto delle viste a elenco o3/i1 è ora strutturale (ogni sezione `##`
-  della fonte, per intero) e non un nome di intestazione cablato; consuma i
+  contratto delle viste a elenco o3/i1 è strutturale: Pandoc conserva
+  gerarchie, codice e link dell'intera fonte, senza intestazioni cablate; consuma i
   segnali gemelli di `bi` e `nixos` del 2026-09-09, principio inciso in
   `kb/view.md`, propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`;
   watchpoint aperto sulla prosa storica ora renderizzata insieme alla coda —

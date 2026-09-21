@@ -21,28 +21,25 @@ in `metodo`.
 
 ## Il contratto nuovo
 
-`o3/build_lists.py` renderizza ora, nell'ordine della fonte, l'intro (il
-corpo prima della prima `##`) e ogni sezione `##` per intero — paragrafi e
-liste, senza selezionare quale sezione conti e quale no. La parametrizzazione
-per pagina (`PAGES`) resta solo su sorgente/prefisso-link/titolo, mai su quali
-intestazioni includere: una sezione conta per la sua forma (intestazione +
-blocco), non per il suo nome. Verificato sui due casi reali: `prescriptions.html`
-rende ora anche `## Strumenti` (chiude lo scarto nixos, mascherato anche nel
-canone); una fonte con nomi di sezione propri come quella di `bi` renderizza
-comunque per intero, senza bisogno di whitelist locale. `presentation.py`
-normalizza i link relativi (`posixpath.normpath`) — necessario perché
-l'intro, a differenza dei soli item della coda, porta link scritti relativi
-alla fonte in punti diversi del file.
+`o3/build_lists.py` rende l'intero corpo Markdown tramite Pandoc, già richiesto
+dalla build Reveal. La parametrizzazione `PAGES` conserva sorgente, prefisso dei
+link e titolo; il titolo iniziale della fonte è sostituito da quello di pagina.
+Le intestazioni editoriali non sono una whitelist. Sottotitoli, liste annidate
+e numerate e codice conservano la propria struttura: la lettura di tutte le
+sezioni H2 da sola non bastava, perché il parser di blocchi piatti appiattiva
+padri e figli e rendeva i sottotitoli come prosa.
 
-`kb/view.md` guadagna il principio in prosa («Il contratto è strutturale, non
-nominale»): una collezione-stadio è vicina al Mondo (Perceive/Perform, livello
-istintuale di Norman) ed è normale che ogni repo la strutturi a modo proprio;
-il generatore condiviso non deve imporre il proprio lessico a chi lo usa
-(`method-development`, «il confine canone↔adottante: dichiara e taci»).
+Il ribasamento dei link e delle immagini Markdown avviene sull'AST prima della
+resa HTML, preservando query, frammenti e URL assoluti. Il codice letterale non
+è riscritto. L'HTML grezzo incorporato, inclusi i suoi URL, resta responsabilità
+della fonte. Il formato è il Markdown di Pandoc usato dalla build Reveal.
 
-Verificato: audit strutturale verde (48 nodi), viste rigenerate
-deterministicamente (`git status` stabile a doppia rigenerazione di
-`build-presentation.sh`), link relativi corretti.
+Il contratto di `kb/view.md` distingue intestazioni editoriali libere e chiavi
+nominali esplicitamente dichiarate da uno schema. La fedeltà richiede di
+preservare le relazioni nella fonte, non soltanto tutte le parole. Le prove in
+`tests/test_build_lists.py` presidiano annidamenti, ordine delle sezioni,
+sottotitoli, liste numerate, codice e destinazioni dei link; il doppio giro di
+build verifica il determinismo sulle fonti reali.
 
 ## Watchpoint aperto: fedeltà completa vs. lente del lettore-abitante
 

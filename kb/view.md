@@ -9,7 +9,7 @@ sorgente del progetto senza diventare una seconda fonte di verità. È la cernie
 o2/i2 del metodo (cfr. `action-cycle`): o2 quando orienta una decisione, i2
 quando viene letta per attribuire significato a ciò che sintetizza.
 
-La forma segue la domanda (Karpathy): pagina markdown, tabella di confronto,
+Nel metodo la forma segue la domanda: pagina markdown, tabella di confronto,
 presentazione a slide, grafico, canvas e home statica sono forme alternative,
 scelte secondo cosa devono far capire o decidere. La vista a slide è adatta a
 una sintesi che si scorre, non è l'unica forma possibile. Questo nodo tiene la
@@ -57,22 +57,21 @@ la fonte sulla forma prevista dal parser distrugge informazione in silenzio.
 
 ## Il contratto è strutturale, non nominale
 
-Una collezione-stadio è vicina al Mondo (Perceive e Perform, il livello
-istintuale nella lettura di Norman): è normale che repo diversi la
-organizzino in modo diverso — nomi di sezione propri, gerarchie proprie,
-adatte al proprio modo di ascoltare e agire sul proprio Mondo. Un generatore
-condiviso non deve imporre il lessico di chi lo scrive a chi lo usa
-(`method-development`, «il confine canone↔adottante: dichiara e taci»): il
-contratto verifica la **forma** (markdown, gerarchico, deterministico — per
-questo traducibile in un altro linguaggio deterministico come HTML), mai un
-nome specifico di intestazione. Un generatore che cerca `## Contenuti` per
-nome e si ferma al primo blocco che trova non è agnostico alla forma: è
-cablato sul lessico di chi l'ha scritto, e produce una vista parziale non
-quando la fonte è malformata ma quando è semplicemente organizzata altrimenti
-— la stessa distruzione silenziosa d'informazione di una fonte appiattita.
-Fedele vuol dire renderizzare l'intera struttura dichiarata dalla fonte,
-sezione per sezione nell'ordine in cui compare, qualunque nome le sia stato
-dato.
+Gli indici di Perceive e Perform possono avere intestazioni e gerarchie
+editoriali diverse secondo il dominio. Un generatore condiviso non deve
+selezionare il contenuto in base al lessico del proprio repository: rende
+l'intera struttura della fonte nell'ordine dichiarato, conservando anche
+sottosezioni e annidamenti. Il contratto distingue queste intestazioni libere
+dalle chiavi nominali esplicitamente concordate con un parser, come le colonne
+del plan o le sezioni di un register.
+
+Il linguaggio supportato e i suoi limiti devono essere espliciti. Un generatore
+può usare un renderer Markdown esistente oppure un sottoinsieme dichiarato;
+in quest'ultimo caso rifiuta i costrutti che non sa rendere, invece di
+appiattirli in silenzio. Conservare tutte le parole non basta se si perde la
+relazione fra un elemento e i suoi sottoelementi. Un'estensione del formato si
+verifica su questi rapporti e sui link relativi, senza normalizzare le fonti
+per adattarle a un parser incompleto.
 
 ## Freschezza: la vista non è più vecchia delle sue fonti
 

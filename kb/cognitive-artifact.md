@@ -42,11 +42,15 @@ thing being represented». Norman cita Simon (1981) per condensare il punto:
 transparent».
 
 La scelta della rappresentazione non è neutra: può trasformare un compito
-riflessivo in esperienziale o viceversa. Rappresentazioni _additive_ (in cui la
-grandezza visiva è proporzionale al valore — tally marks, grafici a barre) si
-leggono senza calcolo. Rappresentazioni _sostitutive_ (simboli arbitrari —
-numeri romani per percentuali, hue cromatica per scale additive) costringono a
-tradurre ogni confronto in riflessione.
+riflessivo in esperienziale o viceversa. Nelle notazioni _additive_, come i
+tally marks, si aumenta il valore aggiungendo segni; nei tally marks anche
+l'estensione visiva è proporzionale al valore e facilita il confronto
+percettivo. Nelle notazioni _sostitutive_, come le cifre arabe, si sostituiscono
+i simboli: la loro lunghezza non rende direttamente il rapporto fra valori.
+Norman riconosce anche ai numeri romani un carattere additivo, senza attribuire
+alle loro lunghezze proporzionalità esatta. Il vantaggio dipende dal compito:
+i tally marks aiutano a contare e confrontare piccole quantità, le cifre arabe
+facilitano i calcoli. Non esiste una rappresentazione migliore per ogni uso.
 
 Il metodo accosta i **due modi** del 1993 ai **tre livelli** descritti in
 _Emotional Design_ (2004), trattati in `processing-layers`. È una lente

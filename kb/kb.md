@@ -33,15 +33,15 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   Engelbart (H-LAM/T) che contiene i giganti: synergism, i quattro means, il
   bootstrap come antenato di dogfooding e meta-ciclo di sviluppo
 - [zettelkasten](zettelkasten.md) — Metodo Zettelkasten: nodi atomici
-  interconnessi, struttura emergente; le schede edge-notched di Engelbart come
-  precursore
+  interconnessi, struttura emergente; affinità funzionale con le schede
+  edge-notched di Engelbart, senza inferirne una genealogia
 - [karpathy-pattern](karpathy-pattern.md) — Istanza contemporanea (era LLM)
   della gamba di manutenzione, non pilastro: ingest, query, lint e filing back
 - [action-cycle](action-cycle.md) — Sei atti tra Goal e Mondo: esecuzione,
   valutazione e prodotti versionati
 - [affordance-signifier](affordance-signifier.md) — Distinzione di Norman tra
-  azione possibile e segnale di dove agire; l'agente «person, animal, or
-  machine» fonda i due strati output
+  azione possibile e segnale di dove agire; il metodo applica la distinzione
+  alle rese per il lettore umano e per l'agente macchina
 - [constraint](constraint.md) — La limitazione progettata (guardrail): tipi di
   Norman, presidio strutturale sotto il check riflessivo, l'errore reso
   impossibile o rumoroso

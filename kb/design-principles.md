@@ -25,10 +25,12 @@ eliminato o aggiornato.
 
 ### Fonte unica di verità
 
-Ogni dato, regola o configurazione vive in un posto solo. I duplicati sono fonte
-di drift: quando lo stesso fatto è scritto in due posti, uno divergerà
-inevitabilmente. Se una duplicazione è necessaria per ragioni tecniche, il nodo
-secondario deve indicare esplicitamente quale sia la fonte canonica.
+Ogni dato, regola o configurazione mantenuti dal progetto hanno una sede
+canonica riconoscibile. Copie aggiornate indipendentemente rischiano di divergere:
+le rappresentazioni secondarie dichiarano la fonte e il modo in cui restano
+allineate. Questo non impone di eliminare osservazioni primarie indipendenti,
+anche discordanti: ciascuna conserva provenienza, tempo e condizioni. La sintesi
+le confronta senza cancellarle per ottenere un'unicità apparente.
 
 ### Tracciabilità
 

@@ -26,9 +26,11 @@ La direzione che l'osservatorio governa è il movimento dal basso (uno dei due d
 `method-development`, e quello che protegge dal generalizzare per esigenze
 immaginate). Si parte da un'esigenza concreta in un repo adottante, si risolve
 lì nel merito, poi si chiede se la soluzione locale contiene una regola
-generale. Solo a quel punto il repo adottante modifica `metodo` o produce un
-commit nel metodo con la generalizzazione. Gli altri adottanti recepiscono il
-canone e le sue eventuali prescrizioni applicando localmente ciò che è
+generale. La contribuzione segue l'ownership definita in `method-development`: un
+agente incaricato dal custode può modificare il canone nei repository mantenuti
+direttamente da lui; un adottante di terzi propone una pull request, il cui diff
+e razionale costituiscono il segnale da valutare. Gli altri adottanti
+recepiscono il canone e le sue eventuali prescrizioni applicando localmente ciò che è
 pertinente; `metodo` non apre né ordina i task delle loro code. Il movimento
 dall'alto — importare una cornice teorica e verificarla contro i domini reali —
 non passa da questo flusso: non genera task negli adottanti, ma rilegge

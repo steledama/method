@@ -1,31 +1,21 @@
-"""Genera le due viste a elenco: o3 e i1, fedeli all'intera struttura markdown
-della collezione sorgente.
+"""Rende gli indici i1/o3 con Pandoc, già richiesto dalla build delle viste.
 
-A differenza di `build_views.py` (viste Reveal), queste due pagine sono HTML
-statico minimale (cfr. `kb/view.md` — la forma segue la domanda). Il contratto
-non è un nome di intestazione: è **strutturale**, agnostico a come ogni repo
-organizza la propria collezione (`kb/method-development.md`, «il confine
-canone↔adottante: dichiara e taci» — lo strumento canonico non impone il
-proprio lessico interno a ciò che legge).
-
-Ogni pagina deriva da una sorgente sola: l'intero indice di collezione.
-Renderizza, nell'ordine della fonte, l'intro prima della prima `##` e ogni
-sezione `##` per intero (paragrafi e liste puntate, senza tagli su un nome o
-un blocco specifico) — nessuna parte del file è esclusa per assunzione del
-generatore. Se una fonte non vuole che una porzione compaia nella vista (per
-esempio la prosa storica di un filo consumato), la esclude alla fonte, non
-qui: il generatore mostra, non indovina cosa sia "storia" (`kb/view.md` —
-«derivata implica verificata»).
+L'intero corpo Markdown conserva gerarchie, liste, codice e riferimenti;
+solo l'H1 iniziale è sostituito dal titolo configurato della pagina. Il formato
+letto è il Markdown di Pandoc, come nelle viste Reveal. I target Markdown di
+link e immagini sono ribasati sull'AST, senza alterare codice o testo letterale.
+HTML grezzo incorporato resta responsabilità della fonte, inclusi i suoi URL.
 """
 
 from __future__ import annotations
 
 import argparse
 import html
-import re
+import json
+import posixpath
+import subprocess
 from pathlib import Path
-
-from presentation import inline_markdown
+from urllib.parse import urlsplit, urlunsplit
 
 # kind -> (sorgente relativa alla root, prefisso per i link relativi, titolo pagina)
 PAGES: dict[str, tuple[str, str, str]] = {
@@ -33,84 +23,58 @@ PAGES: dict[str, tuple[str, str, str]] = {
     "perceptions": ("i1/perceptions.md", "../i1/", "Percezioni"),
 }
 
-_H2 = re.compile(r"^## (.+?)\s*$", re.MULTILINE)
-
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
-def sections(text: str) -> list[tuple[str | None, str]]:
-    """(titolo, corpo) per l'intro (titolo `None`) e ogni sezione `##`, in ordine.
-
-    L'H1 iniziale non entra nel corpo dell'intro (la pagina rende il proprio
-    `<h1>` dal titolo configurato); il resto del file, compresa ogni sezione
-    `##`, è tutto corpo della collezione.
-    """
-    lines = text.splitlines()
-    if lines and lines[0].startswith("# "):
-        lines = lines[1:]
-    result: list[tuple[str | None, list[str]]] = [(None, [])]
-    for line in lines:
-        match = re.match(r"^## (.+?)\s*$", line)
-        if match:
-            result.append((match.group(1).strip(), []))
-        else:
-            result[-1][1].append(line)
-    return [(title, "\n".join(body)) for title, body in result]
+def rebase_target(target: str, prefix: str) -> str:
+    """Mantiene schema, ancore e URL assoluti; normalizza solo il path relativo."""
+    parts = urlsplit(target)
+    if parts.scheme or parts.netloc or not parts.path or parts.path.startswith("/"):
+        return target
+    return urlunsplit(parts._replace(path=posixpath.normpath(prefix + parts.path)))
 
 
-def _blocks(body: str) -> list[str]:
-    """Blocchi separati da una riga vuota."""
-    return [b.strip() for b in re.split(r"\n\s*\n", body.strip()) if b.strip()]
+def rebase_links(value: object, prefix: str) -> None:
+    """Visita l'AST Pandoc: Link e Image hanno il target nell'ultimo campo."""
+    if isinstance(value, list):
+        for child in value:
+            rebase_links(child, prefix)
+    elif isinstance(value, dict):
+        if value.get("t") in {"Link", "Image"}:
+            target = value["c"][-1]
+            target[0] = rebase_target(target[0], prefix)
+        for child in value.values():
+            rebase_links(child, prefix)
 
 
-def _render_block(block: str, link_prefix: str) -> str:
-    """Un blocco è una lista puntata (righe di continuazione indentate incluse
-    nell'ultimo item) o un paragrafo — mai un taglio a metà blocco."""
-    lines = block.splitlines()
-    if lines[0].strip().startswith(("- ", "* ")):
-        items: list[str] = []
-        current: list[str] = []
-        for raw in lines:
-            line = raw.strip()
-            if line.startswith(("- ", "* ")):
-                if current:
-                    items.append(" ".join(current))
-                current = [line[2:].strip()]
-            elif current:
-                current.append(line)
-        if current:
-            items.append(" ".join(current))
-        return (
-            "<ul>\n"
-            + "".join(f"          <li>{inline_markdown(it, link_prefix)}</li>\n" for it in items)
-            + "        </ul>"
-        )
-    paragraph = " ".join(line.strip() for line in lines)
-    return f"<p>{inline_markdown(paragraph, link_prefix)}</p>"
-
-
-def render_section(title: str | None, body: str, link_prefix: str) -> str:
-    blocks = _blocks(body)
-    if not blocks:
-        return (
-            ""
-            if title is None
-            else f"<h2>{html.escape(title)}</h2>\n        <p><em>(sezione vuota)</em></p>"
-        )
-    content = "\n        ".join(_render_block(b, link_prefix) for b in blocks)
-    if title is None:
-        return content
-    return f"<h2>{html.escape(title)}</h2>\n        {content}"
+def render_markdown(text: str, prefix: str) -> str:
+    parsed = subprocess.run(
+        ["pandoc", "--from=markdown-native_divs", "--to=json"],
+        input=text,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    document = json.loads(parsed.stdout)
+    blocks = document["blocks"]
+    if blocks and blocks[0]["t"] == "Header" and blocks[0]["c"][0] == 1:
+        blocks.pop(0)
+    rebase_links(document, prefix)
+    return subprocess.run(
+        ["pandoc", "--from=json", "--to=html5", "--wrap=none"],
+        input=json.dumps(document),
+        text=True,
+        capture_output=True,
+        check=True,
+    ).stdout.rstrip()
 
 
 def render(root: Path, kind: str) -> str:
     source_rel, link_prefix, title = PAGES[kind]
     text = (root / source_rel).read_text(encoding="utf-8")
-    body = "\n\n        ".join(
-        rendered for t, s in sections(text) if (rendered := render_section(t, s, link_prefix))
-    )
+    body = render_markdown(text, link_prefix)
     return f"""<!doctype html>
 <html lang="it">
   <head>

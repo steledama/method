@@ -27,6 +27,21 @@ Funzione e denotazione guidano la collocazione; il ritmo di cambiamento aiuta a
 disaccoppiare le responsabilità. Il rimedio a un difetto è proporzionato al
 rischio e all'evidenza, anche quando il difetto emerge prima di un danno.
 
+I contratti sono coerenti anche nei consumatori: un cursore di allineamento
+resta vivo senza tensioni aperte; i rename coinvolgono le sole connessioni
+intenzionali e il recepimento resta locale. Il canale di contribuzione dipende
+dall'ownership. La conoscenza procedurale si distingue dal runbook eseguibile,
+e una riga semplice del plan non richiede un dettaglio o2.
+
+La fedeltà delle viste include gerarchie e destinazioni dei link: conservare il
+testo appiattendo un annidamento perde comunque informazione. Il generatore di
+liste usa il renderer Markdown già disponibile nella build; contratto e prove
+vivono nelle rispettive superfici. Il catalogo conserva la cautela dei nodi
+sulle attribuzioni; l'esempio additivo/sostitutivo segue il compito descritto da
+Norman. Facet chiuse e sede canonica dei dati restano convenzioni esplicite,
+senza dedurne che ogni attributo multiplo sia una relazione o cancellare
+osservazioni primarie indipendenti.
+
 La rifinitura non promuove automaticamente gli stati dei nodi. Il limite residuo
 è empirico e di provenienza: la correttezza delle distinzioni deve reggere
 nell'uso, e le fonti mancanti non diventano verificate per consenso fra nodi.
