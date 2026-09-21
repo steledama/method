@@ -80,6 +80,10 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `backlinks <nodo>`, `orphans`, `readme`, `migration`, `terms`, `facets`,
   `tasks`, `inventory` / `coverage`. Il report di `audit` è una diagnosi i1 su
   stdout.
+- `kb_profile.py --root .` — profilo quantitativo comune e manifest di
+  `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
+  1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
+  fatti o fonti. Test: `python3 -m unittest discover -s tests -p 'test_kb_profile.py'`.
 - `presentation.py` — libreria di parsing condivisa (frontmatter, plan, task);
   importata dai due generatori, non si invoca direttamente.
 - `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.

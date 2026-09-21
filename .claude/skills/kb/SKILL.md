@@ -1,214 +1,198 @@
 ---
 name: kb
-description: Audit strutturale o revisione semantica qualitativa della knowledge base.
+description: Audit strutturale e quantitativo o revisione semantica della knowledge base.
 user-invocable: true
 ---
 
 # kb
 
-Usa `/kb [audit|review]` dalla root del repository. Il default è `audit`. Questa
-è la copia canonica: gli adottanti la forkano e adattano strumenti e fonti
-primarie al proprio dominio.
+Usa `/kb [audit|review]` dalla root del repository; default `audit`.
 
-- `audit` fotografa integrità strutturale e drift deterministico senza
-  correggere;
-- `review` esegue prima `audit`, poi valuta funzione, verità, attualità,
-  atomicità, ridondanza, fonti di verità e qualità del catalogo.
+- `audit`: profilo quantitativo e controlli deterministici, senza correzioni;
+- `review`: audit seguito da lettura integrale, verifica delle affermazioni
+  selezionate per rilevanza e giudizio sull'utilità della conoscenza.
 
-La diagnosi e l'intervento restano atti separati. Non modificare la KB durante
-la review salvo autorizzazione esplicita successiva del custode.
+Leggi prima [domain.md](domain.md), il profilo del repository: dichiara fonti,
+comandi, convenzioni e prove di dominio. I path operativi sono relativi alla
+root del repository; questo collegamento è relativo alla directory della skill.
+
+Questo file è il protocollo comune, mantenuto in `method` e distribuito come
+fork versionato. `domain.md` resta locale, anche in `method`. Nel recepire
+aggiornamenti con `/method`, confronta separatamente protocollo, profilo e
+strumenti; conserva gli adattamenti motivati. Il wrapper Codex rinvia a questa
+skill senza duplicarne le istruzioni.
+
+La richiesta di diagnosi non autorizza correzioni. Se il custode ha già chiesto
+anche l'intervento, applicalo dopo aver formulato il giudizio, entro quello
+scope; non richiedere di nuovo un consenso già disponibile. La review di una
+procedura non ne autorizza l'esecuzione sul Mondo.
 
 ## Audit
 
-Esegui:
+Esegui i comandi dichiarati nel profilo. Registra checkout e modifiche locali
+pertinenti; controlla gli esiti effettivi, non soltanto gli exit code. Se un
+comando o una fonte non è disponibile, dichiara il controllo non eseguito e
+continua quelli indipendenti.
 
-```bash
-python3 o3/kb_tools.py audit
-python3 o3/kb_tools.py inventory
-python3 o3/kb_tools.py coverage
-python3 o3/kb_tools.py facets
-```
+Il profilo quantitativo identifica il corpus, le esclusioni, le dimensioni e
+gli stati di maturità. L'audit locale aggiunge catalogo, rete, riferimenti e
+facet. Per ogni misura riporta oggetto, numeratore/denominatore quando
+applicabile, esclusioni e limite: `coverage` del codice non è copertura delle
+fonti né della conoscenza. Non confrontare percentuali con perimetri diversi.
 
-Classifica errori deterministici, warning utili e falsi positivi. I candidati
-terminologici non autorizzano nuovi nodi: richiedono giudizio sulla funzione.
+Classifica errori, warning e falsi positivi con il loro motivo. Una menzione
+testuale non dimostra documentazione sufficiente; un path esistente non prova
+che il suo contratto sia descritto correttamente. Cluster, backlink, dimensioni,
+maturità dichiarata e termini frequenti orientano l'attenzione, senza soglie di
+qualità o obblighi di creare nodi.
 
-## Review semantica
+Concludi l'audit con corpus, controlli eseguiti/non eseguiti, anomalie e limiti.
+Non avviare implicitamente la review. I controlli leggeri degli ingressi
+eventualmente richiesti dal profilo restano distinti dalla lettura integrale.
 
-Leggi integralmente:
+## Review
 
-- `kb/cognitive-fidelity.md`;
-- `kb/kb-content-typology.md`;
-- `kb/node.md`;
-- `kb/source-of-truth.md`.
+### Riferimento e copertura
 
-Leggi README, CLAUDE, `world.md`, catalogo e tutti i nodi della KB. Non
-campionare: una revisione profonda deve vedere sovrapposizioni e contraddizioni
-tra nodi lontani. Usa dimensione, titoli e ultima modifica Git soltanto per
-orientare l'attenzione; una data recente non prova freschezza semantica.
+Leggi integralmente, nella KB canonica risolta dal profilo:
 
-### Profilo preliminare e copertura della lettura
+- `cognitive-fidelity.md`;
+- `kb-content-typology.md`;
+- `node.md`;
+- `source-of-truth.md`.
 
-Prima del giudizio costruisci un profilo leggero del corpus: numero di nodi,
-righe totali, distribuzione delle dimensioni (almeno mediana ed estremi), stati
-di maturità, cluster del catalogo, hub, presenza di fatti datati e disponibilità
-di fonti primarie verificabili. I conteggi orientano l'ordine di lettura, non
-sono soglie di qualità: molti nodi brevi possono essere una rete concettuale ben
-atomizzata; pochi nodi lunghi possono custodire conoscenza forense non
-separabile senza perdita; una KB giovane può essere correttamente piccola.
+Leggi README, CLAUDE, `goal.md`, `world.md`, catalogo e tutti i nodi locali.
+L'inventario viene dal filesystem, non dal solo catalogo: includi i nodi non
+indicizzati. Non campionare una review dichiarata integrale. Puoi leggere per
+gruppi, ma torna sulle relazioni tra gruppi prima del giudizio finale.
 
-Mantieni durante la review un ledger di copertura, anche solo di lavoro, con una
-riga per ogni nodo e quattro giudizi: funzione dominante, regione di contenuto,
-volatilità/fonte primaria e disposizione proposta. Il ledger serve a provare che
-tutti i nodi sono stati letti e a rendere confrontabili decisioni prese su parti
-lontane; non va archiviato nel repository.
+Usa il manifest del profilo per un ledger temporaneo, una voce per nodo:
 
-Calibra poi la review sul baricentro osservato, senza cambiare i criteri:
+- path e impronta del contenuto letto; lettura completa oppure ancora parziale;
+- funzione dominante e regione di contenuto, ammettendo contenuti misti;
+- affermazioni rilevanti: tipo, fonte, riscontro e limite della verifica;
+- disposizione proposta e motivazione.
 
-- in una KB tecnica o code-based verifica modello della macchina, reference e
-  runbook contro codice, configurazione e runtime; non pretendere un nodo per
-  ogni modulo interno se un indice operativo è la superficie documentale
-  canonica;
-- in una KB di entità, salute, finanza o altro dominio ad alta responsabilità
-  privilegia provenienza, temporalità e costo dell'errore: una data può essere
-  evidenza longitudinale, non cronaca da potare;
-- in una KB concettuale o riflessiva verifica soprattutto distinzioni,
-  provenienza delle fonti, sovrapposizioni semantiche e capacità dei router;
-  molti backlink non rendono automaticamente un hub sovraccarico;
-- in una KB forense conserva gotcha e catene causali non deducibili dallo stato
-  corrente; separa una timeline soltanto quando Git, log o segnali ne
-  ricostruiscono davvero la lezione;
-- in una KB piccola o iniziale distingue una lacuna reale dal perimetro ancora
-  giovane: l'assenza di nodi non è di per sé drift.
+La copertura si dimostra riconciliando ledger e manifest, non compilando
+automaticamente giudizi sui file. Rileggi le parti cambiate se il corpus muta
+durante il lavoro. Una review interrotta è parziale: esplicita file non letti e
+verifiche mancanti, senza estendere il verdetto all'intero corpus.
 
-Nel repository `method` verifica anche che ogni nodo resti metodologico e
-portabile, applicabile ad almeno due progetti, invece di trattenere dettagli di
-un singolo adottante.
+Leggere tutti i nodi non significa verificare tutte le loro affermazioni.
+Seleziona quelle da riscontrare per costo dell'errore, incertezza, volatilità
+e importanza fondativa; rendi visibile la selezione. Se una fonte decisiva manca,
+sospendi quel giudizio, continuando le verifiche indipendenti.
 
-### 1. Funzione documentale
+### Affermazioni e fonti
 
-Assegna a ogni nodo una funzione dominante: orientamento, modello del dominio,
-modello della macchina, norma, runbook, reference o router. Verifica che:
+Per le affermazioni selezionate distingui:
 
-- README orienti senza diventare catalogo o manuale;
-- CLAUDE contenga regole d'azione, non conoscenza di dominio;
-- il catalogo descriva la funzione dei nodi e non replichi il README;
-- ogni nodo giustifichi il proprio peso e non svolga più funzioni incompatibili.
+- fatto osservato: oggetto, periodo, condizioni e fonte dell'osservazione;
+- interpretazione o ipotesi: evidenza, passaggio inferenziale e condizioni che
+  potrebbero smentirla;
+- decisione o norma locale: autorità che la stabilisce e campo di applicazione;
+- attribuzione a un autore o tradizione: testo e contesto che la sostengono,
+  distinti dall'uso interpretativo che ne fa il progetto.
 
-La tipologia descrive ciò che il contenuto denota; la funzione documentale
-descrive come viene usato. Non confondere i due assi.
+Registra riscontri come `confermato`, `contraddetto` o `non verificato`,
+con fonte e limite; il mancato riscontro non è una confutazione. Non trattare
+una sintesi, la sua vista e un testo che la ripete come prove indipendenti.
+Per le fonti esterne distingui disponibilità, effettiva consultazione e
+pertinenza; una citazione bibliografica non equivale a una verifica.
 
-### 2. Presente, storia e lavoro futuro
+Prima di segnalare una contraddizione confronta oggetto, tempo, condizioni,
+significato dei termini e autorità delle affermazioni. Conserva osservazioni
+discordanti quando non hai evidenza per risolverle. Distingui configurazione,
+assetto di riferimento e stato realmente osservato.
 
-Per ogni passaggio chiedi se cambia una decisione o un comportamento corrente.
+Cerca anche riferimenti in backtick o testo semplice: il link checker non
+garantisce di coprirli. Un fatto volatile ha una sede documentale di riferimento,
+ma può avere più osservazioni primarie: non cancellarle per imporre unicità.
 
-- conserva fatti attuali, invarianti, lezioni operative e assunzioni che
-  imporrebbero una revisione;
-- lascia a Git cronologia, date, vecchi nomi, commit, migrazioni concluse ed
-  esempi superati;
-- lascia a `i3/` i verdetti correnti e a `o1/`/`o2/` il lavoro futuro;
-- non eliminare misure runtime o conoscenza empirica non ricostruibile da Git se
-  continua a influenzare diagnosi o decisioni.
+### Funzione, accessibilità e lacune
 
-Una alternativa scartata merita spazio solo se impedisce di ripetere un errore;
-conservala come vincolo e condizione di revisione, non come cronaca.
+Assegna una funzione dominante: modello del dominio o della macchina, norma,
+reference, router, orientamento o conoscenza procedurale. La funzione non è la
+regione di contenuto. Valuta il baricentro sul dominio osservato, non su una
+distribuzione ideale uguale per tutti.
 
-### 3. Verità e volatilità
+Verifica la distinzione tra README, CLAUDE, register, catalogo e nodi.
+Controlla anche che le descrizioni del catalogo concordino col contenuto.
+Una KB giovane può essere piccola; una rete di concetti brevi può essere ben
+atomizzata; un hub molto collegato può essere un buon ingresso.
 
-Individua i fatti che possono cambiare e la loro fonte primaria. Una sintesi non
-si verifica contro una sua copia; un documento autoritativo può invece essere
-fonte primaria.
+Scegli domande concrete dai goal, dagli attriti osservati e dal profilo locale.
+Per ciascuna percorri ingresso → nodo → fonte/limite → decisione informata.
+Riporta il percorso effettivo e l'eventuale punto in cui manca conoscenza,
+orientamento o evidenza. La lettura di un runbook non richiede eseguirlo.
 
-- codice, filesystem, dati strutturati e runtime precedono le copie narrative;
-- un fatto volatile ha una sola fonte documentale e gli altri punti vi
-  rimandano;
-- distingui default dichiarato, assetto operativo di riferimento e stato
-  realmente osservato;
-- cerca anche path in backtick o testo semplice: possono sfuggire al link
-  checker Markdown.
+Cerca anche conoscenza necessaria ma assente. Prima di proporre un nodo nuovo,
+verifica se basta arricchire un nodo, collegare una fonte o migliorare il router.
+Non convertire una domanda senza risposta in una serie di nodi per copertura
+tematica; stato, segnali e lavoro futuro possono appartenere ad altre collezioni.
 
-### 4. Atomicità e ridondanza
+### Storia, confini e potatura
 
-Valuta la responsabilità, non la sola somiglianza lessicale.
+Separa cronaca redazionale superata e storia del dominio ancora necessaria:
+Git conserva la prima; date cliniche, titoli, riconciliazioni e catene causali
+possono costituire conoscenza corrente. La ricostruibilità in Git non basta
+a giustificare la perdita di una spiegazione usata nelle decisioni.
 
-- fondi nodi quando uno non conserva una funzione autonoma;
-- dividi soltanto quando emergono responsabilità usate separatamente;
-- trasforma i panoramici in router se duplicano comandi e troubleshooting dei
-  nodi specialistici;
-- separa modello e runbook quando hanno ritmi di cambiamento diversi;
-- non creare un nodo per un termine frequente già coperto dal lessico del
-  dominio.
+Conserva invarianti, lezioni, assunzioni e alternative scartate che impediscono
+errori ricorrenti. Distingui conoscenza procedurale riusabile da prescrizioni
+predisposte per un atto specifico; applica il confine locale dichiarato.
+Verdetti correnti stanno in i3, lavoro futuro in o1/o2.
 
-### 5. Chiarezza e accessibilità
+Valuta responsabilità e uso, non la sola somiglianza lessicale:
 
-Controlla titolo, apertura, ordine delle sezioni, esempi, lessico e sintesi.
-Verifica che una persona possa scegliere il nodo giusto dal catalogo e che il
-nodo esponga presto scopo, confine e fonte di verità. Segnala tabelle o
-inventari che aumentano manutenzione senza comprimere davvero informazione.
+- fondi nodi privi di funzione autonoma;
+- dividi responsabilità consultate separatamente o con ritmi diversi;
+- rendi router i panoramici che duplicano reference e troubleshooting;
+- rifinisci titolo, apertura, lessico ed esempi dove ostacolano l'accesso.
 
-### 6. Test di potatura
+Classifica i nodi `mantieni`, `rifinisci`, `fondi`, `dividi`, `elimina`;
+aggiungi `giudizio sospeso` quando mancano elementi decisivi. Tieni separati
+disposizione editoriale e riscontri fattuali: `mantieni` non certifica tutti i
+fatti. Elenca a parte le lacune, con domanda d'uso e rimedio minimo.
 
-Classifica ogni nodo `mantieni`, `rifinisci`, `fondi`, `dividi` o `elimina`. Un
-contenuto giustifica il proprio peso se almeno una condizione è vera:
+Un contenuto giustifica il proprio peso se informa decisioni, distingue casi,
+comprime regole, conserva evidenza o sostiene un uso reale. Non fissare quote
+di riduzione né usare le righe eliminate come misura della qualità.
 
-- cambia una decisione o un comportamento;
-- distingue casi altrimenti confondibili;
-- comprime più regole in una spiegazione più semplice;
-- conserva una fonte o evidenza non ricostruibile altrove;
-- è necessario a una parte effettivamente usata del metodo o dominio.
+Prima di proporre fusione o eliminazione, verifica la destinazione di ogni
+contenuto ancora utile e i percorsi che vi conducono. Se occorre una nuova
+superficie, proponine la creazione prima della rimozione. Nessuna potatura finché
+la destinazione non esiste ed è fedele. Distingui riferimenti vivi da menzioni
+storiche in i2, i3 o Git: queste ultime non si riscrivono automaticamente.
 
-Non fissare una percentuale di riduzione: le righe eliminate sono un esito, non
-un obiettivo. Una KB breve ma priva di fatti decisionali è peggiore di una KB
-più lunga e fedele.
+## Esito e intervento
 
-Prima di proporre `fondi` o `elimina`, esegui il **test di destinazione**:
+La review restituisce:
 
-- identifica dove vivrà ogni fatto che resta corrente;
-- verifica che quella superficie esista davvero e sia la fonte appropriata,
-  invece di limitarti a nominarla;
-- distingui un link vivo da una menzione storica in i2, i3 o Git: la seconda non
-  va riscritta solo perché il nodo corrente scompare;
-- se il contenuto non è ricostruibile e non ha ancora una destinazione fedele,
-  la potatura è bloccata anche quando il nodo è mal collocato.
+- corpus e copertura della lettura, fonti consultate e limiti;
+- verdetti distinti su struttura, fatti verificati e utilità semantica;
+- rilievi prioritizzati per conseguenze, con file/riga, evidenza, inferenza
+  e correzione proposta;
+- ledger completo, anche in appendice temporanea, inclusi nodi mantenuti e
+  giudizi sospesi; nessuna certificazione per omissione;
+- prove di navigazione, lacune e nodi ben riusciti da preservare;
+- ordine d'intervento, destinazioni e rischi di perdita informativa.
 
-La mappa di default è: invarianti e modelli stabili in KB; provenienza delle
-fonti nel register `world.md`; sintesi datate in i2; verdetti correnti in i3;
-lavoro futuro in o1/o2; esecutori e procedure vive nell'indice della collezione
-pertinente; fatti della macchina nel codice o nella configurazione che li rende
-veri.
+Se è richiesta soltanto diagnosi, presenta le correzioni per la decisione del
+custode. Se l'intervento è già autorizzato, correggi prima contraddizioni e
+riferimenti morti, poi lacune e sovrapposizioni; aggiorna il catalogo a confini
+stabilizzati. Non cambiare il goal per rendere coerente la KB.
 
-## Output della diagnosi
+Non duplicare documentazione per soddisfare un controllo mal delimitato:
+correggi il controllo quando la fonte appropriata esiste già. Dopo fusioni o
+eliminazioni classifica i riferimenti residui; formatta, rigenera le viste
+pertinenti e ripeti audit e check locali. Confronta conteggi con lo stesso
+perimetro, rendendo esplicite eventuali variazioni.
 
-Concludi con:
-
-1. profilo del corpus e limiti delle fonti disponibili;
-2. verdetto complessivo separando salute strutturale e semantica;
-3. contraddizioni o fatti stale con file e riga, distinguendo evidenza e
-   inferenza;
-4. ledger completo raggruppato per `mantieni`, `rifinisci`, `fondi`, `dividi` o
-   `elimina`, senza omettere i nodi mantenuti;
-5. candidati prioritizzati e destinazione verificata del contenuto rimosso;
-6. valutazione del catalogo e dei punti d'ingresso;
-7. nodi già ben riusciti da non destabilizzare;
-8. ordine d'intervento, rischi di perdita informativa e decisioni che richiedono
-   il custode del dominio;
-9. domanda esplicita al custode se vuole applicare le correzioni.
-
-## Intervento autorizzato
-
-Se il custode autorizza una fase successiva:
-
-1. correggi prima contraddizioni, riferimenti morti e fonti duplicate;
-2. riduci storia e stato transitorio conservando invarianti e lezioni;
-3. semplifica nodi sovraccarichi e sovrapposizioni;
-4. aggiorna il catalogo dopo che i confini si sono stabilizzati;
-5. quando un controllo segnala documentazione mancante, correggi il confine del
-   controllo se la fonte canonica esiste già: non duplicare documentazione nel
-   posto sbagliato per rendere verde il report;
-6. dopo fusioni o eliminazioni cerca ogni riferimento residuo e classificalo
-   come link vivo da aggiornare o menzione storica da preservare;
-7. formatta i file, rigenera le viste e riesegui tutti i comandi di `audit` più
-   i check locali dichiarati dal fork;
-8. riporta conteggi prima/dopo senza presentarli come misura della qualità.
-
-Non archiviare il report: è una diagnosi i1 rigenerabile. Se cambia un verdetto
-aperto, il gate `/commit` valuta l'aggiornamento in place del filo `i3/`.
+L'output deterministico resta rigenerabile; il ledger è materiale di lavoro
+temporaneo, non un nuovo registro della KB. Non archiviare automaticamente il
+report completo. Durante l'intervento autorizzato conserva invece ciò che
+cambia: conoscenza durevole nei nodi, sintesi interpretative necessarie in i2,
+giudizio corrente nel filo i3, lavoro futuro in o1/o2. Una conclusione semantica
+non è riproducibile come un conteggio; preservane il razionale nella superficie
+pertinente. Il gate `/commit` verifica questo filing back quando richiesto.

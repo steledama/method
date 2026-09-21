@@ -44,6 +44,14 @@ duplicare la procedura canonica. Ogni skill dichiara scope, limiti,
 autorizzazioni ed esito atteso, e preferisce script versionati a logica fragile
 riscritta nel prompt.
 
+Una skill portabile può separare protocollo comune e profilo locale. Il primo
+definisce procedura, evidenza richiesta e forma dell'esito; il secondo dichiara
+fonti, controlli, convenzioni e prove proprie del dominio. Anche il repository
+canonico ha un dominio: il suo profilo non diventa implicitamente universale.
+I fork restano versionati e si allineano con `method`, confrontando il
+protocollo senza sovrascrivere il profilo locale. I criteri concettuali restano
+nei nodi, senza essere trasformati in una seconda procedura.
+
 Connessioni:
 
 - [perceive](perceive.md)

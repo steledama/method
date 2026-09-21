@@ -29,6 +29,20 @@ dichiarare facet locali tramite `EXTENDED_FACETS`. Le estensioni preservano i
 comandi base, così skill e audit comparativi possono usare la stessa
 interfaccia.
 
+`o3/kb_profile.py --root <repo>` produce il profilo quantitativo comune:
+manifest dei nodi locali con impronte, righe, distribuzione delle dimensioni e
+maturità dichiarata. Esclude catalogo, file nascosti e symlink; enumera anche
+nodi non catalogati. Il parametro `--states` adatta il dominio chiuso degli
+stati ammessi. Segnala frontmatter assente, stato duplicato o non valido; non è
+un validatore YAML generale. Il manifest identifica ciò che va letto, senza
+attestare che la lettura sia avvenuta.
+
+Ogni misura dichiara oggetto, denominatore ed esclusioni. Il profilo del corpus,
+la copertura del codice e la verifica delle fonti sono oggetti diversi; i
+conteggi dei fork si confrontano solo a perimetro equivalente. I controlli di
+rete e catalogo restano nel backend locale, con i suoi limiti di parsing; una
+menzione trovata non dimostra sufficienza documentale.
+
 La documentazione segue una sola gerarchia: README rende lo strumento
 rintracciabile, CLAUDE indica quando usarlo, i nodi ne definiscono capacità e
 limiti, mentre gli indici delle collezioni registrano prescrizioni ed esecutori

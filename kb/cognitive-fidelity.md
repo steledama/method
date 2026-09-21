@@ -25,8 +25,8 @@ La revisione semantica pone poche domande:
   coerenti con gli intenti reali?
 - ogni nodo ha una funzione dominante, descrive il presente e giustifica il
   proprio peso?
-- storia, workaround e lavoro aperto sono rimasti fuori dalla conoscenza
-  permanente?
+- cronaca redazionale superata e lavoro aperto sono distinti dalla storia del
+  dominio e dalle lezioni ancora necessarie?
 - decisioni importanti registrano l'assunzione che ne imporrebbe la revisione?
 - esempi, entità e confini descritti esistono ancora nel dominio?
 - nuove distinzioni operative richiedono di dividere un nodo, oppure la
@@ -43,7 +43,31 @@ una fonte, si dichiara il limite senza promuovere il consenso fra testi a prova.
 Il limite è intenzionale. Gli script intercettano regressioni note e indirizzano
 l'attenzione; non simulano oggettività dove la fonte è interpretativa. L'esito
 utile della review non è un punteggio, ma un giudizio motivato su cosa
-aggiornare, fondere, dividere o eliminare.
+conservare, arricchire, aggiornare, fondere, dividere o eliminare.
+
+La copertura ha tre significati distinti: quali nodi sono stati letti, quali
+affermazioni sono state riscontrate e quali domande reali trovano una risposta
+utilizzabile. Una lettura integrale non certifica tutti i fatti; la disposizione
+editoriale di un nodo non sostituisce il giudizio sulle sue affermazioni.
+Quando manca una fonte decisiva, quel giudizio resta sospeso. Per ogni metrica
+quantitativa contano corpus, denominatore ed esclusioni: la copertura del codice
+non misura la copertura delle fonti o dei bisogni conoscitivi.
+
+Il riferimento dell'utilità viene dal Goal e dall'uso. Una prova di accesso
+parte da una domanda del dominio e segue ingresso, nodo, fonte e limite fino
+alla decisione che la conoscenza può informare. Può rivelare un nodo mancante,
+ma anche un router debole, una fonte inaccessibile o conoscenza già presente
+altrove. La lacuna non impone una nuova voce nel catalogo.
+
+Fatti, ipotesi, interpretazioni, norme e attribuzioni non hanno la stessa
+autorità. Prima di dichiarare contraddittorie due affermazioni si confrontano
+oggetto, tempo, condizioni e significato; osservazioni discordanti possono
+essere entrambe da conservare. Git custodisce la storia dei documenti, ma non
+sostituisce una ricostruzione clinica, documentale o causale ancora necessaria.
+
+L'output macchina è rigenerabile; il razionale di un giudizio semantico non lo
+è nello stesso senso. Non serve archiviare ogni report: serve conservare la
+conoscenza, la sintesi o il verdetto che cambia nella superficie pertinente.
 
 Connessioni:
 

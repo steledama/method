@@ -182,6 +182,16 @@
             diagnosi i1 su stdout.
           </li>
           <li>
+            <code>kb_profile.py --root .</code> — profilo quantitativo comune e
+            manifest di <code>kb/</code>: dimensioni, maturità, esclusioni e
+            impronte dei nodi; esce con codice 1 per stati/frontmatter invalidi,
+            2 per corpus non leggibile. Non verifica fatti o fonti. Test:
+            <code
+              >python3 -m unittest discover -s tests -p
+              &#x27;test_kb_profile.py&#x27;</code
+            >.
+          </li>
+          <li>
             <code>presentation.py</code> — libreria di parsing condivisa
             (frontmatter, plan, task); importata dai due generatori, non si
             invoca direttamente.
