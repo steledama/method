@@ -133,251 +133,287 @@
           <p>
             Verdetto aggregato dell’audit mensile <code>/adottanti</code>,
             aggiornato in place a ogni giro. Ultimo giro:
-            <strong>2026-08-01</strong> (secondo battito, anticipato dall’11;
-            HEAD <code>dbed337</code>, letture via le superfici per host
-            dichiarate in <code>world.md</code>). Il verdetto sotto fotografa i
-            <strong>quattro</strong> allora in territorio. <code>crm</code> e
-            <code>danea-auto</code> sono entrati il 2026-08-12, dopo il giro, e
-            sono materia del prossimo.
+            <strong>2026-09-24</strong>, terzo battito, eseguito con 23 giorni
+            di ritardo sulla scadenza del 2026-09-01 (HEAD
+            <code>435a1e2</code>). È il primo giro sui
+            <strong>sei</strong> adottanti. Le letture sono fatte sulle
+            superfici per host: <code>deck</code> per <code>economia</code> e
+            <code>salute</code>, <code>ssh svezia</code> per <code>nixos</code>,
+            <code>bi</code>, <code>crm</code> e <code>danea-auto</code>. Le
+            copie su <code>deck</code> dei repo di <code>svezia</code> possono
+            essere stantie: quella di <code>crm</code> era ferma al 2026-08-21,
+            mentre <code>svezia</code> è al 2026-09-08.
           </p>
         </section>
         <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
-            Il canale del canone ha fatto il giro completo in un giorno:
-            <strong>tutti e quattro hanno recepito</strong> la rifilatura
-            <code>eval</code>/<code>exec</code> e la quinta domanda, con i
-            rispettivi piloti del montaggio decisi — <code>nixos</code> e
-            <code>salute</code> (marker a <code>0128891</code>;
-            <code>salute</code> col commit <code>e6d6f28</code>),
-            <code>economia</code> (marker a <code>d2607f6</code>, commit
-            <code>1844978</code>) e <code>bi</code> per ultimo (marker a
-            <code>3940c8b</code>, commit <code>20cf5b7d</code>). Le due
-            prescrizioni sono consumate e potate dalla collezione. Tutti
-            <code>aligned</code>, nessun <code>action-required</code>.
+            <strong
+              >Canale del canone: quattro repo a un commit dalla HEAD, due a 21
+              e 8.</strong
+            >
+            <code>nixos</code>, <code>bi</code>, <code>economia</code> e
+            <code>salute</code> hanno il marker a
+            <code>8150997</code> (2026-09-21). Resta fuori solo
+            <code>435a1e2</code>, che porta Pandoc e il ribasamento dei link in
+            <code>build_lists.py</code>: un ritardo fisiologico di tre giorni,
+            non drift. <code>crm</code> è a <code>5b5e344</code> (2026-09-08, 8
+            commit di ritardo); <code>danea-auto</code> è a
+            <code>ab7003b</code> (2026-08-21, 21 commit di ritardo, fra cui
+            strutturali come la separazione del protocollo comune
+            <code>kb</code> e le viste a elenco). Nessuno ha però lavorato su
+            <code>danea-auto</code> dal 2026-08-22, quindi il ritardo segue il
+            ritmo del repo, non un rifiuto. Tutti <code>aligned</code>, nessun
+            <code>action-required</code>.
           </p>
           <p>
-            Fotografia delle code — la metrica del telos, pesata sulla
-            gradualità di ciascun dominio (<code>development-goal</code>,
-            fotografie per artefatto):
+            <strong
+              >Prescrizioni aperte, verificate nei file invece che dichiarate
+              dai marker:</strong
+            >
           </p>
           <ul>
             <li>
-              <strong>nixos</strong> — coda dev vuota, 5 task runtime (2 in
-              <code>world</code> su upstream): composizione da telos, come a
-              luglio. Ma <strong>due date stantie</strong> in
-              <code>## Scadenze</code>: quotidiano e settimanale fermi al
-              2026-07-19 (il mensile scade oggi) — orologio fermo o riga non
-              avanzata, il segnale che la lente scadenze esiste per cogliere.
-              Coda di dominio (materia del suo <code>exec plan</code>, dal
-              recepimento), da verificare sciolta al prossimo giro.
-              <code>nix-overlay-update</code> confermata skill autonoma dal
-              pilota del montaggio (signifier onesto, catalogata nel suo o3).
+              <code>chiusura-task-controlla-world</code> —
+              <strong>recepita da tutti e sei</strong>: l’<code>exec</code> di
+              ognuno enumera le materializzazioni nel Mondo. È consumata e può
+              essere potata da <code>exec perform</code>;
             </li>
             <li>
-              <strong>bi</strong> — fase di cantiere: 13 task di cui 8 dev
-              (tassonomia, motore riordini, modello sito), da 1 su 7 a luglio —
-              legittimo per un progetto in costruzione. La
-              <strong>terza specie è maturata in timetable canonico</strong>:
-              cinque run automatizzati con gli orari che vivono solo nel plan e
-              le config scheduler che li implementano e rimandano — la tensione
-              del primo giro («va vista reggere alla lettura») è sciolta. Due
-              orologi manuali sforati di un giorno: fisiologico. Rifilatura
-              recepita per ultima (<code>20cf5b7d</code>): tre skill di dominio
-              autonome per esito del pilota, colonna <code>Ob.</code> portata
-              nel generatore e provata su entrambi i modi di rottura — che ha
-              subito rilevato una voce del register non corrispondente a nessuna
-              riga del plan (quarta incarnazione del «vincolo che arriva tardi
-              rivela»).
+              <code>liste-o3-i1-fedeli-alla-fonte</code> — la versione del
+              2026-09-09 (walker strutturale) è recepita dove esiste un
+              generatore: <code>bi</code> e <code>nixos</code> col fork,
+              <code>salute</code> che la soddisfaceva già col proprio. La
+              versione Pandoc del 2026-09-21 non è in nessun fork, ma è proprio
+              il commit non ancora recepito. <code>crm</code> e
+              <code>danea-auto</code> non hanno <code>build_lists.py</code>,
+              quindi la prescrizione non si applica;
             </li>
             <li>
-              <strong>economia</strong> — 17 task runtime, 0 dev, in-the-loop
-              come da costituzione; colonna <code>Ob.</code> viva (ne è
-              l’origine, e la divergenza è rientrata a canone in quattro
-              giorni), ordinamento dichiarato «per imminenza della prossima
-              mossa», chiose per titolo (divergenza registrata). Rifilatura
-              recepita in serata (<code>1844978</code>, marker a
-              <code>d2607f6</code>): tre skill assorbite come scope di
-              <code>eval</code>, entrambe le prescrizioni chiuse.
+              <code>semplificazione-lessico-struttura</code> —
+              <strong>non recepita</strong> in <code>bi</code>,
+              <code>crm</code> ed <code>economia</code>, che la dichiarano
+              comunque <code>aligned</code> (dettaglio sotto);
             </li>
             <li>
-              <strong>salute</strong> — 7 task attivi (2 dev) più 7 sospesi
-              ought in holding, <code>## Scadenze</code> di soli appuntamenti
-              sanitari datati (imminente il 7/8): coerente col riequilibrio
-              prescritto. Il suo gap contiene il
-              <strong>ritorno della sua stessa percezione</strong>: «vista a
-              mano inverte l’effetto» (f8e8a73) è diventata il contratto
-              derivata-implica-verificata (a7fa93e) e il canone della freschezza
-              — il loop dal basso ha inciso, e la gamba di ritorno è arrivata in
-              giornata col recepimento (<code>e6d6f28</code>): il giro
-              percezione→canone→ritorno chiuso in quattro giorni.
+              <code>revisione-bootstrap-adottante</code> e
+              <code>ingresso-adottante</code> — non verificate in questo giro:
+              richiedono una lettura qualitativa del quartetto
+              README/CLAUDE/Goal/World che l’audit d’insieme non ha fatto (cfr.
+              Limiti).
             </li>
           </ul>
           <p>
-            Superfici e viste: <code>nixos</code>, <code>bi</code> e
-            <code>salute</code> hanno il contratto plan×<code>o2/</code> cablato
-            ed esercitato — ciascuno ha rotto la build al primo contatto su una
-            divergenza reale (<code>salute</code> col recepimento di oggi);
-            <code>economia</code> ha il canone ma il cablaggio nel suo fork non
-            è ancora stato esercitato, mentre la freschezza sì (tre entrypoint
-            nel gate, viste già fresche). Nessun segnale rosso rilevato, col
-            limite dichiarato sotto.
+            <strong
+              >Il watchpoint sul valore del marker ha il suo secondo
+              segnale.</strong
+            >
+            Il 2026-08-22 <code>aligned</code> aveva certificato un gap
+            documentale una volta sola, in <code>bi</code> e <code>crm</code>.
+            Oggi lo stesso gap è vivo in tre repo: <code>bi</code> lo porta dopo
+            due <code>/method</code> successivi alla segnalazione,
+            <code>economia</code> è un repo nuovo nel conto, e
+            <code>crm</code> lo mette nel titolo di una sezione del marker. La
+            guardia dal-basso è soddisfatta: la domanda passa a
+            <code>i1/</code> come segnale
+            (<code>marker-aligned-non-verifica-prescrizioni.md</code>). Chiede
+            se <code>/method</code> debba verificare le prescrizioni aperte
+            anteriori al proprio cursore.
           </p>
           <p>
-            Nota fuori giro — spazzata dei marker del
-            <strong>2026-08-12</strong> durante un <code>eval</code>, non un
-            battito, quindi il cursore del filo resta al 2026-08-01:
-            <code>nixos</code>, <code>bi</code> ed <code>economia</code> sono a
-            <code>2bc3cd4</code>, <code>salute</code> a <code>9e9e3be</code>,
-            <code>crm</code> e <code>danea-auto</code> a <code>c6939d6</code>,
-            tutti <code>aligned</code>. <code>bi</code> ed
-            <code>economia</code> portano ancora <code>ciclo: runtime</code> nel
-            marker, che <code>b39c8a7</code> ha corretto in <code>dev</code>:
-            <strong>non è drift</strong> — la correzione è successiva al loro
-            cursore e il loro prossimo <code>method</code> la recepisce.
-            <code>nixos</code> ha già <code>dev</code> come adattamento
-            dichiarato, che <code>b39c8a7</code> ha canonizzato: al suo prossimo
-            giro la dichiarazione di divergenza si cancella
-            (<code>method/SKILL.md</code>, «una divergenza riassorbita si
-            cancella dal ledger»). Questo è lo stato da cui parte il battito di
-            settembre.
+            Fotografia delle code (<code>development-goal</code>, pesata sulla
+            gradualità di dominio):
+          </p>
+          <ul>
+            <li>
+              <strong>nixos</strong> — coda dev vuota, 7 task runtime (3 in
+              <code>world</code>), da 5 ad agosto: composizione da telos. Le due
+              skill di manutenzione autonome si sono <strong>fuse</strong> in
+              <code>/manutenzione</code> (<code>4236918</code>, 2026-08-02), che
+              è diventata il battito unico e ha girato in 35 giorni distinti dal
+              1° agosto, di fatto ogni giorno. La riga
+              <code>(quotidiano)</code> in <code>## Scadenze</code> porta però
+              ancora la data <strong>2026-08-01</strong>. Non è un orologio
+              fermo: le cadenze sono passate alla config per entità di
+              <code>i1/manutenzione.json</code> e la data aggregata ha smesso di
+              significare qualcosa. La lente delle scadenze ne fa un falso
+              rosso. È coda di dominio, ma tocca il segnale i1 aperto
+              <code>registro-perpetuo-vs-cattura-singola</code>: dove l’orologio
+              vive nel registro perpetuo, il plan non sa più che data scrivere.
+            </li>
+            <li>
+              <strong>bi</strong> — fase di cantiere: 12 task, 9 dev e 3 runtime
+              (13 con 8 dev ad agosto). È l’adottante con l’uso più intenso
+              delle skill nuove: circa 15 giri <code>eval</code>/<code
+                >exec</code
+              >
+              fra il 14/8 e il 23/9, su segnali di produzione veri, come la
+              regressione del retry OAuth intercettata il 2026-09-08
+              (<code>1f9b1a0a</code>). Timetable dei cinque run automatizzati
+              intatto; la semestrale concorrenza del 2026-07-31 è annotata come
+              attesa, non stantia. Tre skill di dominio sempre autonome.
+            </li>
+            <li>
+              <strong>economia</strong> — 17 task runtime, 0 dev, in-the-loop
+              per costituzione come ad agosto. Tre date passate in
+              <code>## Scadenze</code> (24/8, 1/9, 8–10/9) sono tutte annotate
+              con l’esito da riconciliare: orologio manuale seguito, non fermo.
+              Coda di dominio.
+            </li>
+            <li>
+              <strong>salute</strong> — 4 task runtime, 0 dev; ad agosto erano 7
+              attivi (2 dev) più 7 sospesi in holding. La sezione holding non
+              c’è più: la coda si è <strong>svuotata</strong>, non spostata.
+              <code>## Scadenze</code> porta solo appuntamenti datati, tutti
+              futuri tranne quello di oggi.
+            </li>
+            <li>
+              <strong>crm</strong> — prima baseline, contata a mano (niente
+              <code>kb_tools.py</code>, per scelta dichiarata) su
+              <code>fae4824</code>: 6 nodi KB, 2 sintesi i2, 2 fili i3, 9 task
+              tutti dev, nessuna <code>## Scadenze</code>. La struttura ha retto
+              al primo lavoro vero: contratto <code>policies.v1</code>,
+              semantica dei movimenti Danea e 4 viste generate e fresche. Il
+              plan però è fermo dal 2026-08-21: da allora solo allineamento e
+              manutenzione Docker. <code>/kb</code> non è ancora forkata
+              (divergenza dichiarata: arriverà coi primi strumenti
+              deterministici).
+            </li>
+            <li>
+              <strong>danea-auto</strong> — controprofilo in produzione, fermo
+              dal 2026-08-22: 4 nodi KB, 2 sintesi i2, 1 filo i3, 3 task runtime
+              (1 <code>world</code>), invariato dalla baseline di agosto. Niente
+              <code>presentation/</code> e niente <code>/commit</code>,
+              divergenza dichiarata («finché non hanno una funzione locale»).
+              Qui l’audit non certifica Danea, Task Scheduler né il backup: il
+              marker lo esclude.
+            </li>
+          </ul>
+          <p>
+            Superfici e viste: <code>nixos</code>, <code>bi</code>,
+            <code>economia</code>, <code>salute</code> e <code>crm</code> hanno
+            le viste alla stessa data dell’ultima modifica delle fonti.
+            <code>crm</code> è l’unico con la vista del plan (2026-09-08) più
+            recente del plan stesso (2026-08-21): è una rigenerazione, non un
+            drift. Nessuna vista a mano trovata. Il segnale del 2026-08-01 su
+            <code>economia</code> («cablaggio plan×<code>o2/</code> non
+            esercitato») non si rilegge qui: resta una tensione, cfr. Limiti.
           </p>
           <p>
-            Seconda nota fuori giro, verificata il <strong>2026-08-16</strong>:
-            <code>bi</code> ha ormai usato <code>eval</code> e
-            <code>exec</code> ripetutamente su eventi reali dal 5 al 14 agosto,
-            quindi il collaudo d’uso non è più vuoto. Il marker di
-            <code>danea-auto</code>, rivisto il 14 agosto, registra inoltre
-            quattro task passati dal vivo sui nuovi entrypoint e il backup Drive
-            verificato; resta non esercitato il percorso diagnostico, mentre
-            sessione desktop, Danea, LibreOffice e sito e-commerce restano non
-            certificati. Il cursore mensile resta al 2026-08-01: questi sono
-            segnali per la baseline di settembre, non un terzo battito
-            anticipato.
+            <strong
+              >Materiale per la clausola di uscita delle skill per arco</strong
+            >
+            (<code>o2/rivalutazione-skill-per-arco.md</code>). Il conteggio è
+            per commit, quindi un proxy, non il contenuto delle sessioni:
           </p>
-          <p>
-            Terza nota fuori giro, verificata il
-            <strong>2026-08-22</strong> durante un <code>eval compare</code>,
-            non un battito: le <strong>tre prescrizioni aperte</strong> in
-            <code>o3/</code> sono tutte anteriori a <code>ab7003b</code>, il
-            commit a cui i quattro marker raggiungibili si dichiarano
-            <code>aligned</code> il 2026-08-21 — quindi il loro mancato
-            recepimento non è ritardo event-driven fra un battito e l’altro.
-            <code>chiusura-task-controlla-world</code> risulta recepita da tutti
-            e quattro; <code>semplificazione-lessico-struttura</code>
-            <strong>no</strong>: <code>bi</code> porta ancora <code>ali</code> e
-            <code>atrio</code> in <code>README.md</code> e <code>ali</code> in
-            <code>CLAUDE.md</code>, <code>crm</code> porta <code>atrio</code> in
-            <code>README.md</code> e intitola
-            <code>## Bootstrap e atrio</code> la sezione del proprio marker,
-            mentre dichiara «nessuna eccezione oltre alla toolchain». Non è una
-            divergenza motivata: è un vuoto non visto. <code>economia</code> e
-            <code>salute</code> stanno su <code>deck</code>, non letti in questo
-            giro. Il cursore mensile resta al 2026-08-01: questo è materiale
-            pre-raccolto per il battito di settembre, che parte dalla verifica
-            invece che dalla scoperta.
-          </p>
-          <p>
-            Ne segue un <strong>watchpoint</strong> sul valore probatorio del
-            marker: <code>aligned</code> ha qui certificato più di quanto avesse
-            verificato, e su un gap <strong>documentale</strong> — esattamente
-            ciò che <code>aligned</code> copre, non il runtime esterno che
-            <code>method-observatory</code> già esclude. Resta watchpoint e non
-            filo autonomo: è una istanza sola, e la guardia dal-basso di
-            <code>method-development</code> chiede il secondo segnale prima di
-            generalizzare. Se il battito di settembre ne trova un secondo, la
-            domanda diventa se <code>/method</code> debba verificare il
-            recepimento delle prescrizioni aperte invece di dichiararlo.
-          </p>
-          <p>
-            Classificazione degli scostamenti:
-            <strong>nessuna prescrizione nuova</strong> (le due in canna —
-            quinta domanda attiva, rifilatura pianificata — coprono tutto il
-            drift osservato), <strong>nessun segnale i1 nuovo</strong> (la
-            maturazione della terza specie in <code>bi</code> corrobora
-            <code>ricorrenza-per-battito</code>, non apre un filo), date stantie
-            e orologi sforati = <strong>code di dominio</strong>.
-          </p>
+          <ul>
+            <li>
+              dal 2026-08-01 nessuno stadio è vuoto ovunque: tutti e sei gli
+              adottanti, più <code>metodo</code>, hanno commit che toccano
+              <code>i2/</code> (da 2 a 32) e <code>o3/</code>;
+            </li>
+            <li>
+              in <code>bi</code> i giri <code>eval</code> scrivono quasi solo
+              <code>i3/</code> e <code>o2/</code> (i1 = 2 commit, i2 = 5, i3 =
+              64). La sua <code>interpret</code> è delegata agli script, col
+              registry <code>o3/lib/perception.js</code>: lo stadio esiste ma
+              vive nel codice. È l’accorpamento degli scope previsto dalla
+              clausola, fatto spontaneamente;
+            </li>
+            <li>
+              il costo dell’assorbimento non risulta sentito in
+              <code>salute</code> né in <code>economia</code>: nessuna traccia
+              nei fili o nei marker. <code>bi</code> lo cita solo in anticipo,
+              come motivo per non assorbire. Nel controfattuale, le skill
+              autonome di <code>nixos</code> si sono ridotte da sole;
+            </li>
+            <li>
+              gli <strong>esiti nulli</strong> per stadio, il criterio
+              principale del «troppo», non lasciano traccia versionata in nessun
+              repo: con la misura attuale non si possono contare.
+            </li>
+          </ul>
+          <p>Classificazione degli scostamenti:</p>
+          <ul>
+            <li>
+              <strong>segnale i1</strong>: marker <code>aligned</code> che non
+              verifica le prescrizioni aperte (nuovo);
+            </li>
+            <li>
+              <strong>nessuna prescrizione nuova</strong>: il lessico ha già la
+              sua prescrizione aperta, manca il recepimento;
+            </li>
+            <li>
+              <strong>coda di dominio</strong>: la data aggregata di
+              <code>nixos</code>, le date annotate di <code>economia</code>, il
+              plan fermo di <code>crm</code>, <code>danea-auto</code> fermo;
+            </li>
+            <li>
+              <strong>per <code>exec perform</code></strong
+              >: potare <code>chiusura-task-controlla-world</code>. Inoltre in
+              <code>o3/prescriptions.md</code> la nota
+              «<code>aggiorna-overlay</code>→<code>overlay</code> non applicata»
+              è stantia: <code>nixos</code> ha fuso la skill in
+              <code>/manutenzione</code>.
+            </li>
+          </ul>
         </section>
         <section id="tensioni-aperte" class="slide level2">
           <h2>Tensioni aperte</h2>
           <ul>
             <li>
-              ripetibilità: due battiti eseguiti (il secondo anticipato di dieci
-              giorni): la cella runtime-o1 della matrice resta D finché il ritmo
-              non è dimostrato su più giri regolari;
+              ripetibilità: tre battiti eseguiti, ma il terzo è arrivato con 23
+              giorni di ritardo sulla scadenza. La cella runtime-o1 della
+              matrice resta D: il ritmo è dimostrato solo quando il battito
+              arriva senza essere ricordato a mano;
             </li>
             <li>
-              <strong><code>crm</code> quinto adottante</strong> (entrato il
-              2026-08-12, allineato al canone corrente): il territorio passa da
-              quattro a cinque e il battito del 2026-09-01 è il suo primo audit.
-              Non ha storia da confrontare — la lente da usare è la
-              <strong>baseline fondativa</strong>, non la distanza dal giro
-              precedente: un codebase ancora vuoto rende la composizione della
-              coda un dato debole, e il segnale utile è se la struttura adottata
-              regge al primo lavoro reale invece di restare scaffolding. Vincolo
-              concreto da non ignorare: <code>crm</code> non ha
-              <code>o3/kb_tools.py</code> (scelta dichiarata — struttura prima
-              delle automazioni), quindi i numeri strutturali che le altre righe
-              portano <strong>per lui non esistono</strong> e la lente non deve
-              andarli a cercare: il suo dato si conta a mano. Da qui esce anche
-              il primo dato per <code>adopter-comparison</code>, che oggi lo
-              tiene fuori dai conteggi comparativi;
+              <code>crm</code>: il plan è fermo dal 2026-08-21 con 9 task dev.
+              Al prossimo giro va visto se riprende, o se la struttura adottata
+              è rimasta scaffolding intorno a un lavoro spostato altrove;
             </li>
             <li>
-              <strong><code>danea-auto</code> sesto adottante</strong> (entrato
-              il 2026-08-12, marker a <code>c6939d6</code>, commit locale
-              <code>57ef8a6</code>): è il controprofilo di <code>crm</code>, un
-              artefatto già in produzione che conserva intenzionalmente
-              entrypoint AHK/PowerShell in root e segnali runtime nei path
-              correnti finché le migrazioni i1/o3 non saranno validate dal vivo.
-              Il primo audit deve leggere questa gradualità e non scambiare i
-              limiti documentali dell’adozione per certificazione di Danea, Task
-              Scheduler, backup o sessione Windows. Baseline contata a mano: 4
-              nodi KB, 1 sintesi i2, 1 filo i3, 5 task e 3 skill locali;
-              quantità misurate sul checkout <code>57ef8a6</code>, non
-              confrontabili con la fotografia del 2026-06-03;
+              <code>danea-auto</code>: 21 commit di ritardo e nessun lavoro
+              locale da un mese. Se riprende, il primo <code>/method</code> deve
+              assorbire molto canone strutturale in una volta sola;
             </li>
             <li>
-              il collaudo d’<strong>uso</strong> delle skill nuove:
-              <code>bi</code> ha iniziato i giri reali di
-              <code>eval</code>/<code>exec</code>; restano da osservare gli
-              altri profili, gli esiti nulli per stadio e il costo
-              dell’assorbimento fino alla clausola di uscita (risveglio
-              anticipato al 2026-09-01; 2026-11-01 solo fallback motivato);
+              il lessico <code>atrio</code>/<code>ali</code> in <code>bi</code>,
+              <code>crm</code> ed <code>economia</code>: da verificare recepito
+              al prossimo giro, indipendentemente da cosa dichiara il marker;
             </li>
             <li>
-              <code>nixos</code>: le due date stantie del quotidiano/settimanale
-              — verificare sciolte al giro di settembre;
+              <code>nixos</code>: la data aggregata della riga
+              <code>(quotidiano)</code>, da leggere insieme al segnale i1 sul
+              registro perpetuo;
             </li>
             <li>
-              <code>salute</code>: la gamba di ritorno della sua percezione è
-              arrivata col recepimento (<code>e6d6f28</code>: contratto
-              plan×<code>o2/</code> cablato nel generatore della home, che ha
-              subito rotto su una divergenza reale) — resta nella sua coda la
-              domanda se la home basti a esercitare il contratto;
+              <code>salute</code>: resta nella sua coda la domanda se la home
+              basti a esercitare il contratto plan×<code>o2/</code>;
             </li>
             <li>
-              <code>economia</code>: il cablaggio del contratto plan×<code
-                >o2/</code
-              >
-              nel suo fork non è ancora stato esercitato — unico dei quattro,
-              materia della lente 5 a settembre;
-            </li>
-            <li>
-              il <strong>costo dell’assorbimento</strong> sollevato da
-              <code>economia</code>: con gli scope di dominio montati sulle
-              canoniche, l’<code>ls</code> di <code>.claude/skills/</code> non è
-              più l’inventario completo delle capacità — da misurare all’uso nei
-              due repo che hanno assorbito (<code>salute</code>,
-              <code>economia</code>), mentre <code>nixos</code> e
-              <code>bi</code> restano il controfattuale a inventario intatto.
+              la clausola di uscita delle skill per arco: decisa il 2026-09-24
+              sul materiale di questo giro (la tripartizione resta, gli esiti
+              per stadio vanno nel trailer <code>Esiti:</code>). Il battito del
+              2026-11-01 verifica il recepimento di
+              <code>esiti-per-stadio-nel-commit</code> e conta i trailer.
             </li>
           </ul>
         </section>
         <section id="limiti" class="slide level2">
           <h2>Limiti</h2>
           <ul>
+            <li>
+              <code>revisione-bootstrap-adottante</code> e
+              <code>ingresso-adottante</code> non verificate: richiedono una
+              lettura qualitativa dei quartetti di bootstrap, fuori dalla
+              portata di un giro d’insieme su sei repo;
+            </li>
+            <li>
+              l’uso delle skill per arco è misurato per commit e messaggi, non
+              per sessioni: un giro concluso vuoto non lascia commit e resta
+              invisibile;
+            </li>
             <li>
               Superfici remote verificate per struttura e marker, non col test
               di freschezza sul contenuto (ultima modifica fonte vs vista):
@@ -519,8 +555,10 @@
             <code>danea-auto</code>, i checkout locali su <code>svezia</code>.
             <code>economia</code> e <code>salute</code> stanno su
             <code>deck</code> e non sono stati letti in questo giro: è un limite
-            del checkout, non una certificazione negativa. La verifica sui sei è
-            materia del battito <code>/adottanti</code> del 2026-09-01.
+            del checkout, non una certificazione negativa. Il battito
+            <code>/adottanti</code> del 2026-09-24 ha verificato tutti e sei nei
+            file: il controllo è cablato ovunque, e la prescrizione
+            <code>chiusura-task-controlla-world</code> è consumata.
           </p>
         </section>
         <section
@@ -1494,16 +1532,12 @@
             <code>eval</code> su segnali runtime e drift di sviluppo e più giri
             di <code>exec</code>, fino al riallineamento di priorità e task del
             2026-08-14 (<code>bf9a2751</code>). È il primo adottante che supera
-            il solo recepimento. Il custode ha anticipato la clausola di uscita
-            al battito del <strong>2026-09-01</strong>: il primo mese e il
-            confronto sui sei adottanti bastano per tentare una decisione; il
-            2026-11-01 resta solo fallback motivato se ripetizione, esiti nulli
-            e costo sugli altri profili non fossero ancora discriminanti.
-            <code>salute</code> solleva che il suo contratto plan×<code
-              >o2/</code
-            >
-            non ha una vista che lo eserciti pienamente oltre la home (resta
-            nella sua coda); ed <code>economia</code> solleva il
+            il solo recepimento. La clausola di uscita, anticipata dal custode
+            al battito di settembre, è stata giudicata il 2026-09-24 (sezione
+            «Verdetto della rivalutazione»). <code>salute</code> solleva che il
+            suo contratto plan×<code>o2/</code> non ha una vista che lo eserciti
+            pienamente oltre la home (resta nella sua coda); ed
+            <code>economia</code> solleva il
             <strong>costo dell’assorbimento</strong>: l’<code>ls</code> di
             <code>.claude/skills/</code> non è più l’inventario completo delle
             capacità di dominio — l’inventario delle capacità si indebolisce sul
@@ -1530,6 +1564,85 @@
           </p>
         </section>
         <section
+          id="verdetto-della-rivalutazione-custode-2026-09-24"
+          class="slide level2"
+        >
+          <h2>Verdetto della rivalutazione (custode, 2026-09-24)</h2>
+          <p>
+            <strong
+              >La tripartizione resta com’è. Si corregge la clausola, non il
+              taglio.</strong
+            >
+            Il materiale viene dal terzo battito
+            <code>/adottanti</code> (eseguito il 2026-09-24, arretrato dal 1°
+            settembre; dettaglio in <code>i3/audit-adottanti.md</code>),
+            misurato per commit sui sette repository dal 2026-08-01:
+          </p>
+          <ul>
+            <li>
+              <strong>nessun sintomo del «troppo».</strong> Nessuno stadio è
+              vuoto ovunque: tutti i repository hanno commit su
+              <code>i2/</code> (da 2 a 32) e su <code>o3/</code>. Il repository
+              che usa di più l’arco, <code>bi</code> (circa 15 giri
+              <code>eval</code>/<code>exec</code> fra il 14/8 e il 23/9), non
+              l’ha abbandonato: l’ha adattato. I suoi giri scrivono quasi solo
+              <code>i3/</code> e <code>o2/</code> (i1 = 2 commit, i2 = 5, i3 =
+              64) perché <code>interpret</code> vive negli script, col registry
+              <code>o3/lib/perception.js</code>. È l’accorpamento degli scope
+              che la clausola prevedeva come primo snellimento, fatto
+              spontaneamente e senza smettere di distinguere i passi;
+            </li>
+            <li>
+              <strong
+                >il «ha pagato» è documentato solo in
+                <code>metodo</code>.</strong
+              >
+              Resta il caso del primo giro (<code>eval compare</code> che
+              intercetta due fotografie stale di <code>goal.md</code>). Negli
+              adottanti i giri intercettano problemi reali, come la regressione
+              del retry OAuth in <code>bi</code>, ma un
+              <code>eval</code> monolitico li avrebbe trovati lo stesso: sono
+              compatibili con la tripartizione, non la dimostrano;
+            </li>
+            <li>
+              <strong>il costo dell’assorbimento non è stato sentito.</strong>
+              Nessuna traccia in <code>salute</code> ed <code>economia</code>;
+              <code>bi</code> lo aveva citato solo in anticipo. Nel
+              controfattuale le skill autonome di <code>nixos</code> si sono
+              ridotte da sole (<code>nix-overlay-update</code> fusa in
+              <code>/manutenzione</code>);
+            </li>
+            <li>
+              <strong>la misura principale non esisteva.</strong> Gli esiti
+              nulli per stadio, e con loro l’invocazione fatta «solo per
+              disciplina», venivano restituiti in conversazione e non lasciavano
+              traccia. Nessuna attesa li avrebbe resi contabili: la clausola,
+              così com’era scritta, non poteva scattare in nessuna delle due
+              direzioni.
+            </li>
+          </ul>
+          <p>
+            Da qui la correzione: ogni giro si chiude con un commit che porta
+            l’esito per stadio (trailer <code>Esiti:</code>,
+            <code>materia</code> o <code>vuoto</code>,
+            <code>--allow-empty</code> se il giro non ha cambiato file), inciso
+            in <code>kb/skill.md</code>, nelle canoniche <code>eval</code>,
+            <code>exec</code> e <code>/commit</code>, e propagato coi sei
+            adottanti come prescrizione
+            <code>o3/esiti-per-stadio-nel-commit.md</code>. Il posto è il commit
+            e non il filo o il marker perché un file aggiornato a ogni giro
+            sarebbe un log, e il log è git.
+          </p>
+          <p>
+            <strong>Il fallback del 2026-11-01 si riattiva</strong>, con
+            l’evidenza mancante dichiarata: il conteggio degli esiti per stadio
+            sui giri registrati dopo il recepimento, e una lettura dei due
+            profili ancora muti (<code>crm</code>, col plan fermo dal
+            2026-08-21, e <code>danea-auto</code>, fermo dal 2026-08-22). A
+            novembre il verdetto si prende su numeri, non su proxy.
+          </p>
+        </section>
+        <section
           id="la-clausola-di-uscita-dichiarata-prima-di-partire"
           class="slide level2"
         >
@@ -1547,18 +1660,26 @@
             <li>
               <strong>quando</strong>: il task di rivalutazione
               <code>pause</code> esiste
-              (<code>o2/rivalutazione-skill-per-arco.md</code>); la data
-              originaria del terzo battito (<strong>2026-11-01</strong>) è stata
-              anticipata dal custode al <strong>2026-09-01</strong>, perché il
-              presupposto di zero uso reale è già caduto. Settembre porta una
-              decisione; novembre si riattiva soltanto dichiarando quale
-              evidenza manca;
+              (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
+              originaria (<strong>2026-11-01</strong>) era stata anticipata dal
+              custode al <strong>2026-09-01</strong>; il giudizio di settembre,
+              preso il 2026-09-24, ha mantenuto la tripartizione e riattivato
+              novembre con l’evidenza mancante dichiarata (sezione sopra);
+            </li>
+            <li>
+              <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
+              commit che chiudono i giri, contato per stadio e per repository
+              con
+              <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
+              Un sintomo che non si legge in questa misura va dichiarato insieme
+              alla fonte che lo rende contabile;
             </li>
             <li>
               <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
-              chiude vuoto in <em>tutti</em> i repo per tre giri; un’invocazione
-              che nessuno fa se non per disciplina; il tempo dell’arco che
-              cresce senza che cambi nulla nel verdetto o nella coda;
+              chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
+              giri tutti <code>vuoto</code> (commit <code>--allow-empty</code>)
+              che si ripetono senza che cambi nulla nel verdetto o nella coda: è
+              l’invocazione fatta solo per disciplina;
             </li>
             <li>
               <strong>sintomi che direbbero «ha pagato»</strong>: un errore

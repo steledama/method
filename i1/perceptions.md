@@ -10,6 +10,13 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [`aligned` nel marker certifica il recepimento di prescrizioni aperte che
+  nessuno ha verificato](marker-aligned-non-verifica-prescrizioni.md) — dal
+  battito `/adottanti` del 2026-09-24: il lessico `atrio`/`ali` è ancora vivo
+  in `bi`, `crm` ed `economia`, tutti `aligned` dopo la nascita di
+  `semplificazione-lessico-struttura`. È il secondo segnale che il watchpoint
+  del 2026-08-22 aspettava. Domanda: `/method` deve verificare le prescrizioni
+  aperte anteriori al proprio cursore?
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro

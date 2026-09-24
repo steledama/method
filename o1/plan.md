@@ -17,18 +17,19 @@ pianificazione.
 
 Legenda dipendenze esterne:
 
-`p1` = risveglio anticipato al battito `/adottanti` del **2026-09-01**:
-decisione sulla base del primo mese d'uso e del confronto sui sei adottanti;
-il 2026-11-01 resta solo fallback motivato se il materiale non fosse ancora
-discriminante. Vedi `o2/rivalutazione-skill-per-arco.md`.
+`p1` = battito `/adottanti` del **2026-11-01**. Il giudizio di settembre
+(2026-09-24) ha mantenuto la tripartizione e corretto la clausola: il
+risveglio conta gli esiti per stadio registrati nei trailer `Esiti:` dopo il
+recepimento di `o3/esiti-per-stadio-nel-commit.md`. Vedi
+`o2/rivalutazione-skill-per-arco.md`.
 
 ## Scadenze
 
-- 2026-09-01 → `/adottanti`, audit runtime-o1 dei sei adottanti
-  (mensile; secondo battito anticipato al 2026-08-01) → esiti nel filo
-  [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro verifica anche il
-  recepimento delle tre prescrizioni aperte in `o3/` e le baseline dei due
-  ingressi del 2026-08-12.
+- 2026-10-01 → `/adottanti`, audit runtime-o1 dei sei adottanti (mensile;
+  il terzo battito è arrivato con 23 giorni di ritardo, il 2026-09-24) →
+  esiti nel filo [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro
+  verifica nei file, non nei marker, il recepimento del lessico in `bi`,
+  `crm` ed `economia`.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

@@ -31,19 +31,17 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   dell'audit mensile); lavoro: `crm` e `danea-auto` sono entrati come quinto e
   sesto adottante il 2026-08-12; obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile `/adottanti`
-  in `## Scadenze`, ma **tre prescrizioni restano aperte** in `o3/`
-  (`chiusura-task-controlla-world`, `revisione-bootstrap-adottante`,
-  `semplificazione-lessico-struttura`), tutte anteriori al commit `ab7003b` a
-  cui i marker si dichiarano `aligned`. Recepimento verificato il 2026-08-22 sui
-  quattro checkout locali di `svezia`: `chiusura-task-controlla-world` recepita
-  da tutti e quattro, `semplificazione-lessico-struttura` non ancora da `bi` e
-  `crm`. `economia` e `salute` stanno su `deck` e non sono stati letti in questo
-  giro: limite del checkout, non certificazione negativa. La verifica sui sei è
-  materia del battito del 2026-09-01; watchpoint: il collaudo d'uso delle skill
-  per arco negli adottanti: `bi` ha iniziato a girarle ripetutamente su eventi
-  reali dal 2026-08-05; restano da misurare gli altri profili e la clausola di
-  uscita, anticipata dal custode al battito del 2026-09-01; il 2026-11-01 resta
-  solo fallback se a settembre manca evidenza discriminante.
+  in `## Scadenze`. Verifica sui sei al battito del 2026-09-24, nei file e non
+  nei marker: `chiusura-task-controlla-world` recepita da tutti e sei (da
+  potare); `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
+  salvo la versione Pandoc del 2026-09-21; `semplificazione-lessico-struttura`
+  **non recepita** in `bi`, `crm` ed `economia`, nonostante marker `aligned`
+  (segnale i1 `marker-aligned-non-verifica-prescrizioni`);
+  `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate. Nuova
+  prescrizione `esiti-per-stadio-nel-commit` (2026-09-24). Watchpoint: il
+  collaudo d'uso delle skill per arco. Il giudizio di settembre (2026-09-24) ha
+  mantenuto la tripartizione e reso contabili gli esiti per stadio (trailer
+  `Esiti:`); la clausola si riapre il 2026-11-01 sui numeri registrati.
 
 ### 3. Ascoltare il basso
 

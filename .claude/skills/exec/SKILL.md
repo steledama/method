@@ -10,6 +10,18 @@ esplicito e può **chiudere in una riga** quando non ha materia («coda
 coerente, nessun intervento»): la chiusura vuota è esito legittimo, non un
 passo saltato.
 
+L'esito di ogni stadio invocato si registra nel commit che chiude il giro, con
+un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
+`vuoto` se ha chiuso in una riga; gli stadi non invocati non compaiono):
+
+```
+Esiti: plan=materia specify=vuoto perform=vuoto
+```
+
+Un giro senza file cambiati si chiude con `git commit --allow-empty` e lo
+stesso trailer. Il conteggio è
+`git log --format='%(trailers:key=Esiti,valueonly)'`.
+
 È la skill simmetrica di `eval`: questa tiene onesta l'esecuzione, quella la
 valutazione; il register `goal.md` è la cerniera che entrambe controllano da
 versanti opposti. Usala a inizio sessione quando bisogna scegliere cosa

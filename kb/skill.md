@@ -24,6 +24,12 @@ Dopo un evento del Mondo l'ordine è `eval` → `exec`: prima si aggiorna ciò c
 vero, poi ciò che va fatto. Le supervisioni propongono modifiche a collezioni e
 register e attendono conferma del custode.
 
+Ogni stadio di un arco chiude con un esito esplicito, e la chiusura vuota è
+legittima. L'esito resta però nella storia: il giro si chiude con un commit che
+porta una parola per stadio, `materia` o `vuoto`, anche quando non ha cambiato
+file. Senza questa traccia una chiusura vuota non si distingue da uno stadio mai
+invocato, e il giudizio sulla divisione in stadi perde la sua sola misura.
+
 ## Skill di dominio
 
 Una capacità dipendente dal dominio vive nel repository che la usa. Può restare

@@ -13,6 +13,19 @@ sequenza intera). Ogni stadio invocato restituisce un esito esplicito e può
 **chiudere in una riga** quando non ha materia («nessun segnale nuovo»): la
 chiusura vuota è esito legittimo, non un passo saltato.
 
+L'esito di ogni stadio invocato si registra nel commit che chiude il giro, con
+un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
+`vuoto` se ha chiuso in una riga; gli stadi non invocati non compaiono):
+
+```
+Esiti: perceive=vuoto interpret=materia compare=materia
+```
+
+Un giro senza file cambiati si chiude con `git commit --allow-empty` e lo
+stesso trailer: il giro tutto vuoto è proprio quello che la misura deve
+contare. Il conteggio è
+`git log --format='%(trailers:key=Esiti,valueonly)'`.
+
 È la skill simmetrica di `exec`: questa tiene onesta la valutazione, quella
 l'esecuzione; il register `goal.md` è la cerniera che entrambe controllano da
 versanti opposti. Usala quando un giro del ciclo produce esiti (una propagazione

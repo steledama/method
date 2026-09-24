@@ -47,10 +47,16 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    - Una riga, sotto i 72 caratteri
    - Focalizzato sul perché operativo della modifica
 
+   Eccezione: se il commit chiude un giro di `eval` o `exec`, aggiungi dopo
+   la riga il trailer `Esiti:` con una parola per stadio invocato (`materia` o
+   `vuoto`). Un giro senza file cambiati si committa comunque, con
+   `--allow-empty` (cfr. `kb/skill.md`).
+
 5. Crea il commit con il messaggio preparato:
 
    ```
    git commit -m "descrizione del commit"
+   git commit -m "descrizione del giro" -m "Esiti: perceive=vuoto interpret=materia compare=materia"
    ```
 
 6. Esegui `git status` per confermare che il commit sia andato a buon fine.

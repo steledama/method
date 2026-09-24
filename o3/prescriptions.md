@@ -35,6 +35,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   gerarchie conservate e link ribasati sull'AST) nei fork che generano una
   vista equivalente;
   touchpoint per `bi` sulla propria estensione locale di `PAGES`.
+- [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
+  commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
+  `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
+  la misura che la clausola di uscita della tripartizione non aveva. Da
+  recepire prima del battito del 2026-11-01.
 
 L'ultima chiusa, `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti

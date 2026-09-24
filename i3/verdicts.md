@@ -58,13 +58,13 @@ verificabile.
   in `exec plan`, review dedicata attende ricorrenza — misura:
   «Canale-perception funzionante»
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti` (secondo battito 2026-08-01, anticipato): i quattro
-  allora in territorio `aligned`; fuori giro `bi` ha iniziato l'uso reale di
-  `eval`/`exec` e `danea-auto` ha esercitato i quattro task e verificato il
-  backup, mentre il primo audit di settembre deve ancora fissare le baseline dei
-  due nuovi ingressi e verificare tre prescrizioni aperte anteriori al cursore
-  `aligned` dei marker, con `bi` e `crm` già trovati scoperti sul lessico —
-  watchpoint sul valore probatorio del marker — misura: «Propagare il canone e
+  mensile `/adottanti` (terzo battito 2026-09-24, arretrato dal 1° settembre;
+  primo sui sei): tutti `aligned`, quattro a un commit dalla HEAD. Baseline
+  di `crm` e `danea-auto` fissate a mano. `chiusura-task-controlla-world` è
+  recepita da tutti e sei; il lessico `atrio`/`ali` è invece ancora vivo in
+  `bi`, `crm` ed `economia` sotto un marker `aligned`. È il secondo segnale
+  del watchpoint e passa a `i1/`. Il filo porta anche il materiale per la
+  clausola di uscita delle skill per arco — misura: «Propagare il canone e
   chiudere il loop»
 - [ricorrenza-per-battito.md](ricorrenza-per-battito.md) — la riga di
   `## Scadenze` ha per soggetto il battito (invocazione + porzione di mondo),
@@ -85,10 +85,11 @@ verificabile.
   tagliano per arco e non per indice: montaggio chiuso sui quattro piloti con
   bilancio 2-2 e criterio a canone; il confronto di sei KB da 4 a 201 nodi
   conferma `kb` come capacità trasversale unica, con criteri comuni e giudizio
-  calibrato per baricentro, volatilità e rischio. La clausola di uscita sugli
-  archi è anticipata al battito del 2026-09-01; il 2026-11-01 resta solo
-  fallback motivato se ripetizione, esiti nulli e costo sugli altri profili non
-  discriminano ancora — misura: «Custodire un canone coerente»
+  calibrato per baricentro, volatilità e rischio. Rivalutazione del
+  2026-09-24: la tripartizione resta, nessun sintomo del «troppo»; la clausola
+  si corregge perché gli esiti nulli non lasciavano traccia, e ora ogni giro li
+  registra nel trailer `Esiti:` del commit. Si riapre il 2026-11-01 sui
+  numeri — misura: «Custodire un canone coerente»
 - [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md) —
   la deriva dell'i3 ha una direzione (verso la storia raccontabile) e il
   materiale che smentisce è già in casa: provenienza obbligatoria delle quantità
