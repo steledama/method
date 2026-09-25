@@ -15,18 +15,21 @@ per `economia` e `salute`, `ssh svezia` per `nixos`, `bi`, `crm` e
 `danea-auto`. Le copie su `deck` dei repo di `svezia` possono essere stantie:
 quella di `crm` era ferma al 2026-08-21, mentre `svezia` è al 2026-09-08.
 
+Il **2026-09-25** una rilettura parziale, non un battito, ha riaperto due
+sole lenti: il canale del canone (marker su entrambi gli host) e il lessico
+della struttura cercato nei file, fuori dai nodi in symlink. Il resto del
+verdetto resta quello del 2026-09-24.
+
 ## Verdetto
 
-**Canale del canone: quattro repo a un commit dalla HEAD, due a 21 e 8.**
-`nixos`, `bi`, `economia` e `salute` hanno il marker a `8150997`
-(2026-09-21). Resta fuori solo `435a1e2`, che porta Pandoc e il
-ribasamento dei link in `build_lists.py`: un ritardo fisiologico di tre
-giorni, non drift. `crm` è a `5b5e344` (2026-09-08, 8 commit di ritardo);
-`danea-auto` è a `ab7003b` (2026-08-21, 21 commit di ritardo, fra cui
-strutturali come la separazione del protocollo comune `kb` e le viste a
-elenco). Nessuno ha però lavorato su `danea-auto` dal 2026-08-22, quindi il
-ritardo segue il ritmo del repo, non un rifiuto. Tutti `aligned`, nessun
-`action-required`.
+**Canale del canone: tutti e sei alla HEAD.** Il 2026-09-25 ogni adottante
+ha girato `/method` e porta il marker a `eb3f400`, `aligned`. Si chiudono
+così anche i due ritardi del 2026-09-24: `crm` era a `5b5e344`, 8 commit
+indietro, e `danea-auto` ad `ab7003b`, 21 commit indietro con canone
+strutturale in mezzo. Il salto di `danea-auto` è stato assorbito in un
+solo giro (`4cea53b`). La copia di `danea-auto` su `svezia` è un commit
+indietro rispetto a origin e mostra ancora il marker vecchio: è stantia,
+non in drift.
 
 **Prescrizioni aperte, verificate nei file invece che dichiarate dai marker:**
 
@@ -39,8 +42,18 @@ ritardo segue il ritmo del repo, non un rifiuto. Tutti `aligned`, nessun
   2026-09-21 non è in nessun fork, ma è proprio il commit non ancora
   recepito. `crm` e `danea-auto` non hanno `build_lists.py`, quindi la
   prescrizione non si applica;
-- `semplificazione-lessico-struttura` — **non recepita** in `bi`, `crm` ed
-  `economia`, che la dichiarano comunque `aligned` (dettaglio sotto);
+- `semplificazione-lessico-struttura` — il 2026-09-24 era **non recepita**
+  in `bi`, `crm` ed `economia`, tutti `aligned`. Il 2026-09-25 `crm`
+  (`2034b26`) ed `economia` (`d9ecd89`) la recepiscono e lo dicono nel
+  soggetto del commit. `salute` dichiara nel marker di aver riletto le
+  prescrizioni aperte nei file e non solo nel delta. **`bi` no**: il lessico
+  è ancora vivo in `README.md` («La legenda dell'atrio», «ali
+  trasversali»), in `CLAUDE.md` («bootstrap (atrio)») e in
+  `i2/bi-in-sintesi.md`, che dice «la root è l'atrio». Il suo marker è
+  passato `aligned` a `eb3f400` (`afa4702d`) senza nominare la prescrizione
+  né una divergenza: è il terzo `/method` che non la vede. Restano residui
+  di una frase negli indici `o3/prescriptions.md` di `nixos` («questa
+  stanza») e di `crm` («inventario dell'atrio»);
 - `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate in
   questo giro: richiedono una lettura qualitativa del quartetto
   README/CLAUDE/Goal/World che l'audit d'insieme non ha fatto (cfr. Limiti).
@@ -142,11 +155,13 @@ Classificazione degli scostamenti:
 - `crm`: il plan è fermo dal 2026-08-21 con 9 task dev. Al prossimo giro va
   visto se riprende, o se la struttura adottata è rimasta scaffolding
   intorno a un lavoro spostato altrove;
-- `danea-auto`: 21 commit di ritardo e nessun lavoro locale da un mese. Se
-  riprende, il primo `/method` deve assorbire molto canone strutturale in una
-  volta sola;
-- il lessico `atrio`/`ali` in `bi`, `crm` ed `economia`: da verificare
-  recepito al prossimo giro, indipendentemente da cosa dichiara il marker;
+- `danea-auto`: il ritardo di canone è chiuso (2026-09-25) e il repo è
+  ripartito anche nel dominio (`75b8685`, diagnostica dei run fatali). Il
+  prossimo giro verifica che il salto di 21 commit assorbito in una volta
+  abbia retto nei file e non solo nel marker;
+- il lessico `atrio`/`ali` in `bi`: da verificare nei file al prossimo giro,
+  qualunque cosa dichiari il marker. È il caso che tiene aperto il segnale
+  `marker-aligned-non-verifica-prescrizioni`;
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
 - `salute`: resta nella sua coda la domanda se la home basti a esercitare il

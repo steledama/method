@@ -144,27 +144,28 @@
             essere stantie: quella di <code>crm</code> era ferma al 2026-08-21,
             mentre <code>svezia</code> è al 2026-09-08.
           </p>
+          <p>
+            Il <strong>2026-09-25</strong> una rilettura parziale, non un
+            battito, ha riaperto due sole lenti: il canale del canone (marker su
+            entrambi gli host) e il lessico della struttura cercato nei file,
+            fuori dai nodi in symlink. Il resto del verdetto resta quello del
+            2026-09-24.
+          </p>
         </section>
         <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
-            <strong
-              >Canale del canone: quattro repo a un commit dalla HEAD, due a 21
-              e 8.</strong
-            >
-            <code>nixos</code>, <code>bi</code>, <code>economia</code> e
-            <code>salute</code> hanno il marker a
-            <code>8150997</code> (2026-09-21). Resta fuori solo
-            <code>435a1e2</code>, che porta Pandoc e il ribasamento dei link in
-            <code>build_lists.py</code>: un ritardo fisiologico di tre giorni,
-            non drift. <code>crm</code> è a <code>5b5e344</code> (2026-09-08, 8
-            commit di ritardo); <code>danea-auto</code> è a
-            <code>ab7003b</code> (2026-08-21, 21 commit di ritardo, fra cui
-            strutturali come la separazione del protocollo comune
-            <code>kb</code> e le viste a elenco). Nessuno ha però lavorato su
-            <code>danea-auto</code> dal 2026-08-22, quindi il ritardo segue il
-            ritmo del repo, non un rifiuto. Tutti <code>aligned</code>, nessun
-            <code>action-required</code>.
+            <strong>Canale del canone: tutti e sei alla HEAD.</strong> Il
+            2026-09-25 ogni adottante ha girato <code>/method</code> e porta il
+            marker a <code>eb3f400</code>, <code>aligned</code>. Si chiudono
+            così anche i due ritardi del 2026-09-24: <code>crm</code> era a
+            <code>5b5e344</code>, 8 commit indietro, e
+            <code>danea-auto</code> ad <code>ab7003b</code>, 21 commit indietro
+            con canone strutturale in mezzo. Il salto di
+            <code>danea-auto</code> è stato assorbito in un solo giro
+            (<code>4cea53b</code>). La copia di <code>danea-auto</code> su
+            <code>svezia</code> è un commit indietro rispetto a origin e mostra
+            ancora il marker vecchio: è stantia, non in drift.
           </p>
           <p>
             <strong
@@ -190,10 +191,25 @@
               quindi la prescrizione non si applica;
             </li>
             <li>
-              <code>semplificazione-lessico-struttura</code> —
+              <code>semplificazione-lessico-struttura</code> — il 2026-09-24 era
               <strong>non recepita</strong> in <code>bi</code>,
-              <code>crm</code> ed <code>economia</code>, che la dichiarano
-              comunque <code>aligned</code> (dettaglio sotto);
+              <code>crm</code> ed <code>economia</code>, tutti
+              <code>aligned</code>. Il 2026-09-25
+              <code>crm</code> (<code>2034b26</code>) ed
+              <code>economia</code> (<code>d9ecd89</code>) la recepiscono e lo
+              dicono nel soggetto del commit. <code>salute</code> dichiara nel
+              marker di aver riletto le prescrizioni aperte nei file e non solo
+              nel delta. <strong><code>bi</code> no</strong>: il lessico è
+              ancora vivo in <code>README.md</code> («La legenda dell’atrio»,
+              «ali trasversali»), in <code>CLAUDE.md</code> («bootstrap
+              (atrio)») e in <code>i2/bi-in-sintesi.md</code>, che dice «la root
+              è l’atrio». Il suo marker è passato <code>aligned</code> a
+              <code>eb3f400</code> (<code>afa4702d</code>) senza nominare la
+              prescrizione né una divergenza: è il terzo
+              <code>/method</code> che non la vede. Restano residui di una frase
+              negli indici <code>o3/prescriptions.md</code> di
+              <code>nixos</code> («questa stanza») e di
+              <code>crm</code> («inventario dell’atrio»);
             </li>
             <li>
               <code>revisione-bootstrap-adottante</code> e
@@ -372,14 +388,17 @@
               è rimasta scaffolding intorno a un lavoro spostato altrove;
             </li>
             <li>
-              <code>danea-auto</code>: 21 commit di ritardo e nessun lavoro
-              locale da un mese. Se riprende, il primo <code>/method</code> deve
-              assorbire molto canone strutturale in una volta sola;
+              <code>danea-auto</code>: il ritardo di canone è chiuso
+              (2026-09-25) e il repo è ripartito anche nel dominio
+              (<code>75b8685</code>, diagnostica dei run fatali). Il prossimo
+              giro verifica che il salto di 21 commit assorbito in una volta
+              abbia retto nei file e non solo nel marker;
             </li>
             <li>
-              il lessico <code>atrio</code>/<code>ali</code> in <code>bi</code>,
-              <code>crm</code> ed <code>economia</code>: da verificare recepito
-              al prossimo giro, indipendentemente da cosa dichiara il marker;
+              il lessico <code>atrio</code>/<code>ali</code> in <code>bi</code>:
+              da verificare nei file al prossimo giro, qualunque cosa dichiari
+              il marker. È il caso che tiene aperto il segnale
+              <code>marker-aligned-non-verifica-prescrizioni</code>;
             </li>
             <li>
               <code>nixos</code>: la data aggregata della riga

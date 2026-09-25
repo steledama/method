@@ -4,8 +4,9 @@ ciclo: runtime
 
 # Segnale: `aligned` nel marker certifica il recepimento di prescrizioni aperte che nessuno ha verificato
 
-Data: 2026-09-24 · Fonte: battito `/adottanti` (terzo, arretrato dal
-2026-09-01) — marker `i3/allineamento-metodo.md` di `bi`, `economia`, `crm`
+Data: 2026-09-24, integrato il 2026-09-25 · Fonte: battito `/adottanti`
+(terzo, arretrato dal 2026-09-01) — marker `i3/allineamento-metodo.md` di
+`bi`, `economia`, `crm`; rilettura dei sei dopo i `/method` del 2026-09-25
 
 ## Il segnale
 
@@ -38,6 +39,30 @@ un terzo repository; `crm` lo porta addirittura nel titolo di una sezione del
 marker che dichiara `aligned`. Il gap è documentale, cioè proprio ciò che
 `aligned` pretende di coprire, non il runtime esterno che
 `method-observatory` esclude già.
+
+## Il giro del 2026-09-25
+
+Il giorno dopo la cattura tutti e sei gli adottanti hanno girato `/method`
+fino a `eb3f400`, tutti `aligned`. Letti nei file, fuori dai nodi in
+symlink, i tre repository del segnale si separano:
+
+- `crm` (`2034b26`) ed `economia` (`d9ecd89`) recepiscono la prescrizione
+  e lo nominano nel soggetto del commit («lessico semplificato», «e
+  lessico»);
+- `salute`, che il lessico non l'aveva, scrive nel marker che le
+  prescrizioni aperte del canone «sono state rilette nei file, non solo nel
+  delta»;
+- `bi` (`afa4702d`) passa `aligned` a `eb3f400` col lessico ancora vivo in
+  `README.md`, `CLAUDE.md` e `i2/bi-in-sintesi.md` («la root è l'atrio»). Il
+  marker non nomina né la prescrizione né una divergenza: è il terzo
+  `/method` che la attraversa senza vederla.
+
+La differenza non sta nel canone ricevuto, che è lo stesso commit per
+tutti, ma in cosa ha letto il giro: chi ha riletto le prescrizioni aperte
+le ha chiuse, e chi ha letto solo il delta dei commit no. Nessuna skill
+chiede la rilettura. `salute` la dichiara come scelta del giro, non come
+passo del proprio fork. Restano residui di una frase negli indici
+`o3/prescriptions.md` di `nixos` e `crm`, invisibili per lo stesso motivo.
 
 ## La domanda da valutare
 
