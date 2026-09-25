@@ -137,14 +137,53 @@
             per ciascuna.
           </p>
         </section>
+        <section id="primo-collaudo-bi-2026-09-25" class="slide level2">
+          <h2>Primo collaudo: <code>bi</code>, 2026-09-25</h2>
+          <p>
+            <code>bi</code> ha recepito il passo nel proprio fork e lo ha
+            applicato nello stesso giro (<code>51ec6bce</code>, marker a
+            <code>6408f55</code>). Letto nei file e non nel marker, il giro ha
+            retto:
+          </p>
+          <ul>
+            <li>
+              il lessico sopravvissuto a tre <code>/method</code> è sparito da
+              <code>README.md</code>, <code>CLAUDE.md</code>,
+              <code>i2/bi-in-sintesi.md</code> e dal fork <code>eval</code>.
+              Restano solo tre menzioni del «recepimento dell’atrio» in
+              <code>goal.md</code>, <code>i2/interpretations.md</code> e
+              <code>kb/convenzioni-script.md</code>, dichiarate nel marker come
+              cronaca di un task chiuso: la distinzione fra cronaca e lessico
+              vivo è stata fatta, non saltata;
+            </li>
+            <li>
+              la rilettura ha preso anche una prescrizione che nessuno aveva
+              segnalato: <code>revisione-bootstrap-adottante</code>, applicata
+              riducendo l’inventario duplicato «Strumenti» del README a un
+              rimando alla sezione omonima di <code>CLAUDE.md</code>, che esiste
+              e porta skill, comandi e formatter;
+            </li>
+            <li>
+              il marker nomina ogni prescrizione aperta con il suo esito,
+              comprese quelle già soddisfatte e quella non pertinente
+              (<code>ingresso-adottante</code>).
+            </li>
+          </ul>
+          <p>
+            È un caso solo, e condotto con un prompt che indicava il bersaglio:
+            prova che il passo funziona quando si esegue, non ancora che si
+            esegua senza essere ricordato.
+          </p>
+        </section>
         <section id="tensioni-aperte" class="slide level2">
           <h2>Tensioni aperte</h2>
           <ul>
             <li>
-              collaudo: il passo arriva agli adottanti nel delta del prossimo
-              <code>/method</code>, quindi si esercita a partire dal giro
-              successivo al suo recepimento. Il primo caso utile è
-              <code>bi</code>, che ha ancora aperta la prescrizione sul lessico;
+              collaudo senza guida: gli altri cinque ricevono il passo nel delta
+              del prossimo <code>/method</code>. Il giro utile è quello che
+              trova da solo i residui di una frase negli indici
+              <code>o3/prescriptions.md</code> di <code>nixos</code> («questa
+              stanza») e <code>crm</code> («inventario dell’atrio»);
             </li>
             <li>
               il battito <code>/adottanti</code> continua a verificare nei file
@@ -282,17 +321,17 @@
               <code>economia</code> (<code>d9ecd89</code>) la recepiscono e lo
               dicono nel soggetto del commit. <code>salute</code> dichiara nel
               marker di aver riletto le prescrizioni aperte nei file e non solo
-              nel delta. <strong><code>bi</code> no</strong>: il lessico è
-              ancora vivo in <code>README.md</code> («La legenda dell’atrio»,
-              «ali trasversali»), in <code>CLAUDE.md</code> («bootstrap
-              (atrio)») e in <code>i2/bi-in-sintesi.md</code>, che dice «la root
-              è l’atrio». Il suo marker è passato <code>aligned</code> a
-              <code>eb3f400</code> (<code>afa4702d</code>) senza nominare la
-              prescrizione né una divergenza: è il terzo
-              <code>/method</code> che non la vede. Restano residui di una frase
-              negli indici <code>o3/prescriptions.md</code> di
-              <code>nixos</code> («questa stanza») e di
-              <code>crm</code> («inventario dell’atrio»);
+              nel delta. <code>bi</code> era passato <code>aligned</code> a
+              <code>eb3f400</code>
+              (<code>afa4702d</code>) col lessico ancora vivo, al terzo
+              <code>/method</code> che non lo vedeva. Lo stesso giorno, col
+              passo nuovo di <code>/method</code>, lo ha tolto
+              (<code>51ec6bce</code>, marker a <code>6408f55</code>): verificato
+              nei file, restano solo menzioni di cronaca. Nei file che la
+              prescrizione nomina il lessico è ora assente in tutti e sei;
+              restano residui di una frase negli indici
+              <code>o3/prescriptions.md</code> di <code>nixos</code> («questa
+              stanza») e di <code>crm</code> («inventario dell’atrio»);
             </li>
             <li>
               <code>revisione-bootstrap-adottante</code> e
@@ -479,10 +518,10 @@
               abbia retto nei file e non solo nel marker;
             </li>
             <li>
-              il lessico <code>atrio</code>/<code>ali</code> in <code>bi</code>:
-              da verificare nei file al prossimo giro, qualunque cosa dichiari
-              il marker. È il primo collaudo del passo «Rileggi le prescrizioni
-              aperte» di <code>/method</code> (filo
+              il passo «Rileggi le prescrizioni aperte» di <code>/method</code>:
+              collaudato su <code>bi</code> con un prompt che indicava il
+              bersaglio; il prossimo giro verifica negli altri cinque se trova
+              da solo i residui di <code>nixos</code> e <code>crm</code> (filo
               <code>aligned-copre-prescrizioni-aperte</code>);
             </li>
             <li>

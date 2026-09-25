@@ -105,6 +105,7 @@ verificabile.
   misura: «Custodire un canone coerente e fedele alle fonti»
 - [aligned-copre-prescrizioni-aperte.md](aligned-copre-prescrizioni-aperte.md)
   — `/method` rilegge a ogni giro le prescrizioni aperte in `o3/` e `aligned`
-  le copre; consuma il segnale del 2026-09-24; collaudo aperto sul primo giro
-  di `bi` dopo il recepimento — misura: «Propagare il canone e chiudere il
+  le copre; consuma il segnale del 2026-09-24; collaudato su `bi` con un
+  prompt guidato, resta aperto il collaudo senza guida sugli altri cinque —
+  misura: «Propagare il canone e chiudere il
   loop con gli adottanti»

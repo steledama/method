@@ -46,14 +46,14 @@ non in drift.
   in `bi`, `crm` ed `economia`, tutti `aligned`. Il 2026-09-25 `crm`
   (`2034b26`) ed `economia` (`d9ecd89`) la recepiscono e lo dicono nel
   soggetto del commit. `salute` dichiara nel marker di aver riletto le
-  prescrizioni aperte nei file e non solo nel delta. **`bi` no**: il lessico
-  è ancora vivo in `README.md` («La legenda dell'atrio», «ali
-  trasversali»), in `CLAUDE.md` («bootstrap (atrio)») e in
-  `i2/bi-in-sintesi.md`, che dice «la root è l'atrio». Il suo marker è
-  passato `aligned` a `eb3f400` (`afa4702d`) senza nominare la prescrizione
-  né una divergenza: è il terzo `/method` che non la vede. Restano residui
-  di una frase negli indici `o3/prescriptions.md` di `nixos` («questa
-  stanza») e di `crm` («inventario dell'atrio»);
+  prescrizioni aperte nei file e non solo nel delta. `bi` era passato
+  `aligned` a `eb3f400` (`afa4702d`) col lessico ancora vivo, al terzo
+  `/method` che non lo vedeva. Lo stesso giorno, col passo nuovo di
+  `/method`, lo ha tolto (`51ec6bce`, marker a `6408f55`): verificato nei
+  file, restano solo menzioni di cronaca. Nei file che la prescrizione
+  nomina il lessico è ora assente in tutti e sei; restano residui di una
+  frase negli indici `o3/prescriptions.md` di `nixos` («questa stanza») e di
+  `crm` («inventario dell'atrio»);
 - `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate in
   questo giro: richiedono una lettura qualitativa del quartetto
   README/CLAUDE/Goal/World che l'audit d'insieme non ha fatto (cfr. Limiti).
@@ -159,9 +159,9 @@ Classificazione degli scostamenti:
   ripartito anche nel dominio (`75b8685`, diagnostica dei run fatali). Il
   prossimo giro verifica che il salto di 21 commit assorbito in una volta
   abbia retto nei file e non solo nel marker;
-- il lessico `atrio`/`ali` in `bi`: da verificare nei file al prossimo giro,
-  qualunque cosa dichiari il marker. È il primo collaudo del passo «Rileggi
-  le prescrizioni aperte» di `/method` (filo
+- il passo «Rileggi le prescrizioni aperte» di `/method`: collaudato su `bi`
+  con un prompt che indicava il bersaglio; il prossimo giro verifica negli
+  altri cinque se trova da solo i residui di `nixos` e `crm` (filo
   `aligned-copre-prescrizioni-aperte`);
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;

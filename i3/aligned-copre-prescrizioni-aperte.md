@@ -40,11 +40,35 @@ battito mensile `/adottanti`, che è d'insieme e in sola lettura.
 Il costo è contenuto: le prescrizioni sono poche e si potano quando tutti le
 hanno recepite, quindi la rilettura è una ricerca mirata per ciascuna.
 
+## Primo collaudo: `bi`, 2026-09-25
+
+`bi` ha recepito il passo nel proprio fork e lo ha applicato nello stesso
+giro (`51ec6bce`, marker a `6408f55`). Letto nei file e non nel marker, il
+giro ha retto:
+
+- il lessico sopravvissuto a tre `/method` è sparito da `README.md`,
+  `CLAUDE.md`, `i2/bi-in-sintesi.md` e dal fork `eval`. Restano solo tre
+  menzioni del «recepimento dell'atrio» in `goal.md`, `i2/interpretations.md`
+  e `kb/convenzioni-script.md`, dichiarate nel marker come cronaca di un task
+  chiuso: la distinzione fra cronaca e lessico vivo è stata fatta, non
+  saltata;
+- la rilettura ha preso anche una prescrizione che nessuno aveva segnalato:
+  `revisione-bootstrap-adottante`, applicata riducendo l'inventario
+  duplicato «Strumenti» del README a un rimando alla sezione omonima di
+  `CLAUDE.md`, che esiste e porta skill, comandi e formatter;
+- il marker nomina ogni prescrizione aperta con il suo esito, comprese
+  quelle già soddisfatte e quella non pertinente (`ingresso-adottante`).
+
+È un caso solo, e condotto con un prompt che indicava il bersaglio: prova che
+il passo funziona quando si esegue, non ancora che si esegua senza essere
+ricordato.
+
 ## Tensioni aperte
 
-- collaudo: il passo arriva agli adottanti nel delta del prossimo `/method`,
-  quindi si esercita a partire dal giro successivo al suo recepimento. Il
-  primo caso utile è `bi`, che ha ancora aperta la prescrizione sul lessico;
+- collaudo senza guida: gli altri cinque ricevono il passo nel delta del
+  prossimo `/method`. Il giro utile è quello che trova da solo i residui di
+  una frase negli indici `o3/prescriptions.md` di `nixos` («questa stanza»)
+  e `crm` («inventario dell'atrio»);
 - il battito `/adottanti` continua a verificare nei file e non nei marker,
   finché i giri non mostrano che `aligned` e i file coincidono. Se coincidono,
   la verifica d'insieme delle prescrizioni si può alleggerire.

@@ -36,7 +36,7 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   potata il 2026-09-25; `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
   salvo la versione Pandoc del 2026-09-21; `semplificazione-lessico-struttura`
   non recepita in `bi`, `crm` ed `economia` nonostante marker `aligned`, poi
-  recepita il 2026-09-25 da `crm` ed `economia` e ancora aperta in `bi`; da
+  recepita il 2026-09-25 da tutti, `bi` per ultimo col passo nuovo; da
   qui `/method` rilegge a ogni giro le prescrizioni aperte (filo
   [aligned-copre-prescrizioni-aperte](i3/aligned-copre-prescrizioni-aperte.md));
   `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate. Nuova
