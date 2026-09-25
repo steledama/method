@@ -32,8 +32,8 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   sesto adottante il 2026-08-12; obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile `/adottanti`
   in `## Scadenze`. Verifica sui sei al battito del 2026-09-24, nei file e non
-  nei marker: `chiusura-task-controlla-world` recepita da tutti e sei (da
-  potare); `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
+  nei marker: `chiusura-task-controlla-world` recepita da tutti e sei e
+  potata il 2026-09-25; `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
   salvo la versione Pandoc del 2026-09-21; `semplificazione-lessico-struttura`
   **non recepita** in `bi`, `crm` ed `economia`, nonostante marker `aligned`
   (segnale i1 `marker-aligned-non-verifica-prescrizioni`);

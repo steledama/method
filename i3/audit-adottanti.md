@@ -31,8 +31,8 @@ ritardo segue il ritmo del repo, non un rifiuto. Tutti `aligned`, nessun
 **Prescrizioni aperte, verificate nei file invece che dichiarate dai marker:**
 
 - `chiusura-task-controlla-world` — **recepita da tutti e sei**: l'`exec`
-  di ognuno enumera le materializzazioni nel Mondo. È consumata e può essere
-  potata da `exec perform`;
+  di ognuno enumera le materializzazioni nel Mondo. Consumata e potata il
+  2026-09-25;
 - `liste-o3-i1-fedeli-alla-fonte` — la versione del 2026-09-09 (walker
   strutturale) è recepita dove esiste un generatore: `bi` e `nixos` col fork,
   `salute` che la soddisfaceva già col proprio. La versione Pandoc del
@@ -129,9 +129,9 @@ Classificazione degli scostamenti:
   aperta, manca il recepimento;
 - **coda di dominio**: la data aggregata di `nixos`, le date annotate di
   `economia`, il plan fermo di `crm`, `danea-auto` fermo;
-- **per `exec perform`**: potare `chiusura-task-controlla-world`. Inoltre
-  in `o3/prescriptions.md` la nota «`aggiorna-overlay`→`overlay` non
-  applicata» è stantia: `nixos` ha fuso la skill in `/manutenzione`.
+- **per `exec perform`**: fatto il 2026-09-25. `chiusura-task-controlla-world`
+  è potata, e la nota stantia su `aggiorna-overlay`→`overlay` in
+  `o3/prescriptions.md` è corretta.
 
 ## Tensioni aperte
 

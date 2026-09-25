@@ -45,13 +45,13 @@ disciplina è incisa in `world`, `tasks`, `perform` e nello scope `plan` di
 `exec`; il caso `salute` la verifica retrospettivamente: il PDF è copia
 operativa consumata, mentre diario, storia clinica, quadro e scadenze sono il
 contenuto durevole già risalito. La propagazione ai fork locali della skill è
-predisposta in `o3/chiusura-task-controlla-world.md`; il filo resta aperto fino
-al recepimento degli adottanti.
+passata per la prescrizione `chiusura-task-controlla-world`; il filo restava
+aperto fino al recepimento degli adottanti.
 
 Stato del recepimento, verificato il 2026-08-22 leggendo lo scope `plan` di
 `exec` nei fork: **quattro su sei** l'hanno cablato — `nixos`, `bi`, `crm` e
 `danea-auto`, i checkout locali su `svezia`. `economia` e `salute` stanno su
 `deck` e non sono stati letti in questo giro: è un limite del checkout, non una
 certificazione negativa. Il battito `/adottanti` del 2026-09-24 ha verificato
-tutti e sei nei file: il controllo è cablato ovunque, e la prescrizione
-`chiusura-task-controlla-world` è consumata.
+tutti e sei nei file: il controllo è cablato ovunque. La prescrizione
+`chiusura-task-controlla-world` è stata potata il 2026-09-25.

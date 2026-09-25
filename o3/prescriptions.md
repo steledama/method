@@ -24,11 +24,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
   CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
   locale applica o motiva l'ultimo miglio di dominio.
-- [La chiusura dei task controlla anche i documenti nel
-  Mondo](chiusura-task-controlla-world.md) — estendere `exec plan` nei sei
-  adottanti: enumerare le materializzazioni note del task sulle superfici
-  dichiarate, distinguere evidenze durevoli e copie consumate, proporre la
-  pulizia soltanto con target e autorità espliciti.
 - [Le viste a elenco derivano dall'intera struttura della fonte, non da un
   nome di intestazione](liste-o3-i1-fedeli-alla-fonte.md) — portare la
   riscrittura di `build_lists.py` (render Markdown con Pandoc,
@@ -41,7 +36,13 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
 
-L'ultima chiusa, `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
+L'ultima chiusa, `chiusura-task-controlla-world` (nata 2026-08-16, potata il
+2026-09-25): `exec plan`, prima di chiudere un task, controlla anche le sue
+materializzazioni nel Mondo. Il battito `/adottanti` del 2026-09-24 l'ha
+verificata nei fork di tutti e sei, leggendo i file invece dei marker (filo
+`i3/criterio-world-substrato.md`).
+
+Prima di lei `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti
 canonici in `-review`, `kb-review`→`kb` e `method-review`→`method` (ratifica
 in `i3/nome-skill-dominio-verbo-o-sostantivo.md`, filo chiuso). A metà corsa
@@ -52,9 +53,10 @@ risolto generalizzando il principio «il nome eredita il produttore, salvo
 collisione» (`kb/affordance-signifier.md`). Raccomandazione di dominio
 `categorizza`→`categorizzazione` a `bi`: applicata (la fotografia di
 `metodo` la classificava già conforme, ma era stale). `aggiorna-overlay`→`overlay`
-a `nixos`: non bloccante, non risulta ancora applicata.
+a `nixos`: superata. Il 2026-08-02 `nixos` ha fuso la skill in `/manutenzione`
+(`4236918`).
 
-Le due chiuse prima di questa sono nate e si sono consumate **nello stesso
+Le due chiuse prima di queste sono nate e si sono consumate **nello stesso
 giorno** (2026-08-01, recepite da tutti e quattro): `skill-per-arco` — la
 rifilatura
 `plan-review`/`verdicts-review` → `eval`/`exec` tripartite sui sei
