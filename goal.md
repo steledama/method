@@ -32,11 +32,13 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   sesto adottante il 2026-08-12; obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile `/adottanti`
   in `## Scadenze`. Verifica sui sei al battito del 2026-09-24, nei file e non
-  nei marker: `chiusura-task-controlla-world` recepita da tutti e sei e
+  nei marker, e canale di tutti e sei a `eb3f400` il 2026-09-25: `chiusura-task-controlla-world` recepita da tutti e sei e
   potata il 2026-09-25; `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
   salvo la versione Pandoc del 2026-09-21; `semplificazione-lessico-struttura`
-  **non recepita** in `bi`, `crm` ed `economia`, nonostante marker `aligned`
-  (segnale i1 `marker-aligned-non-verifica-prescrizioni`);
+  non recepita in `bi`, `crm` ed `economia` nonostante marker `aligned`, poi
+  recepita il 2026-09-25 da `crm` ed `economia` e ancora aperta in `bi`; da
+  qui `/method` rilegge a ogni giro le prescrizioni aperte (filo
+  [aligned-copre-prescrizioni-aperte](i3/aligned-copre-prescrizioni-aperte.md));
   `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate. Nuova
   prescrizione `esiti-per-stadio-nel-commit` (2026-09-24). Watchpoint: il
   collaudo d'uso delle skill per arco. Il giudizio di settembre (2026-09-24) ha

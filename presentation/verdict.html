@@ -72,6 +72,89 @@
     <div class="reveal">
       <div class="slides">
         <section
+          id="aligned-copre-anche-le-prescrizioni-aperte"
+          class="slide level2"
+        >
+          <h2><code>aligned</code> copre anche le prescrizioni aperte</h2>
+          <p>
+            <strong>Misura</strong>: «Propagare il canone e chiudere il loop con
+            gli adottanti» (<code>goal.md</code>, obiettivo 2).
+          </p>
+        </section>
+        <section id="verdetto" class="slide level2">
+          <h2>Verdetto</h2>
+          <p>
+            Il marker <code>aligned</code> dell’adottante non certificava ciò
+            che dichiarava. Il <code>/method</code> leggeva solo i commit di
+            <code>method</code> successivi al proprio cursore: una prescrizione
+            nata prima del cursore e rimasta aperta usciva dal suo orizzonte, e
+            il marker che avanzava la copriva senza che nessuno l’avesse
+            riletta. Il caso è <code>semplificazione-lessico-struttura</code>,
+            nata il 2026-08-21:
+          </p>
+          <ul>
+            <li>
+              il 2026-08-22 il gap è visto in <code>bi</code> e
+              <code>crm</code> e tenuto come watchpoint;
+            </li>
+            <li>
+              il 2026-09-24 è vivo in <code>bi</code>, <code>crm</code> ed
+              <code>economia</code>, tutti <code>aligned</code>. È il secondo
+              segnale che la guardia dal-basso aspettava;
+            </li>
+            <li>
+              il 2026-09-25 tutti e sei girano <code>/method</code> fino a
+              <code>eb3f400</code>. <code>crm</code> ed
+              <code>economia</code> recepiscono la prescrizione;
+              <code>salute</code> dichiara nel marker di aver riletto le
+              prescrizioni aperte nei file. <code>bi</code> passa
+              <code>aligned</code> col lessico ancora vivo, al terzo
+              <code>/method</code> dopo la segnalazione.
+            </li>
+          </ul>
+          <p>
+            Il canone ricevuto era lo stesso commit per tutti. La differenza
+            stava in cosa leggeva il giro: chi rileggeva le prescrizioni aperte
+            le chiudeva, chi leggeva solo il delta no. La rilettura dipendeva
+            dalla memoria di chi conduceva il giro, non da un passo della skill.
+          </p>
+          <p>
+            Delle due risposte possibili si è scelta la prima.
+            <code>/method</code> ha un passo proprio, «Rileggi le prescrizioni
+            aperte»: a ogni giro legge <code>## Contenuti</code> di
+            <code>o3/prescriptions.md</code> e verifica ciascuna prescrizione
+            nei file dell’adottante. <code>aligned</code> ora copre anche
+            queste, e il marker non avanza finché una prescrizione pertinente
+            resta senza esito. L’alternativa, restringere <code>aligned</code> a
+            «delta dei commit recepito», avrebbe reso il marker onesto ma
+            avrebbe lasciato le prescrizioni senza un giro che le verifica:
+            toccava al battito mensile <code>/adottanti</code>, che è d’insieme
+            e in sola lettura.
+          </p>
+          <p>
+            Il costo è contenuto: le prescrizioni sono poche e si potano quando
+            tutti le hanno recepite, quindi la rilettura è una ricerca mirata
+            per ciascuna.
+          </p>
+        </section>
+        <section id="tensioni-aperte" class="slide level2">
+          <h2>Tensioni aperte</h2>
+          <ul>
+            <li>
+              collaudo: il passo arriva agli adottanti nel delta del prossimo
+              <code>/method</code>, quindi si esercita a partire dal giro
+              successivo al suo recepimento. Il primo caso utile è
+              <code>bi</code>, che ha ancora aperta la prescrizione sul lessico;
+            </li>
+            <li>
+              il battito <code>/adottanti</code> continua a verificare nei file
+              e non nei marker, finché i giri non mostrano che
+              <code>aligned</code> e i file coincidono. Se coincidono, la
+              verifica d’insieme delle prescrizioni si può alleggerire.
+            </li>
+          </ul>
+        </section>
+        <section
           id="il-marcatore-delle-attese-a-finestra-nel-plan"
           class="slide level2"
         >
@@ -152,7 +235,7 @@
             2026-09-24.
           </p>
         </section>
-        <section id="verdetto" class="slide level2">
+        <section id="verdetto-1" class="slide level2">
           <h2>Verdetto</h2>
           <p>
             <strong>Canale del canone: tutti e sei alla HEAD.</strong> Il
@@ -230,10 +313,10 @@
             due <code>/method</code> successivi alla segnalazione,
             <code>economia</code> è un repo nuovo nel conto, e
             <code>crm</code> lo mette nel titolo di una sezione del marker. La
-            guardia dal-basso è soddisfatta: la domanda passa a
-            <code>i1/</code> come segnale
-            (<code>marker-aligned-non-verifica-prescrizioni.md</code>). Chiede
-            se <code>/method</code> debba verificare le prescrizioni aperte
+            guardia dal-basso è soddisfatta: la domanda è passata a
+            <code>i1/</code> come segnale, consumato il 2026-09-25 dal filo
+            <code>aligned-copre-prescrizioni-aperte</code>. Da allora
+            <code>/method</code> rilegge a ogni giro le prescrizioni aperte
             anteriori al proprio cursore.
           </p>
           <p>
@@ -353,7 +436,8 @@
           <ul>
             <li>
               <strong>segnale i1</strong>: marker <code>aligned</code> che non
-              verifica le prescrizioni aperte (nuovo);
+              verifica le prescrizioni aperte, consumato il 2026-09-25 da un
+              passo nuovo di <code>/method</code>;
             </li>
             <li>
               <strong>nessuna prescrizione nuova</strong>: il lessico ha già la
@@ -373,7 +457,7 @@
             </li>
           </ul>
         </section>
-        <section id="tensioni-aperte" class="slide level2">
+        <section id="tensioni-aperte-1" class="slide level2">
           <h2>Tensioni aperte</h2>
           <ul>
             <li>
@@ -397,8 +481,9 @@
             <li>
               il lessico <code>atrio</code>/<code>ali</code> in <code>bi</code>:
               da verificare nei file al prossimo giro, qualunque cosa dichiari
-              il marker. È il caso che tiene aperto il segnale
-              <code>marker-aligned-non-verifica-prescrizioni</code>;
+              il marker. È il primo collaudo del passo «Rileggi le prescrizioni
+              aperte» di <code>/method</code> (filo
+              <code>aligned-copre-prescrizioni-aperte</code>);
             </li>
             <li>
               <code>nixos</code>: la data aggregata della riga

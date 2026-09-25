@@ -63,9 +63,9 @@ non in drift.
 `bi` e `crm`. Oggi lo stesso gap è vivo in tre repo: `bi` lo porta dopo due
 `/method` successivi alla segnalazione, `economia` è un repo nuovo nel conto,
 e `crm` lo mette nel titolo di una sezione del marker. La guardia dal-basso è
-soddisfatta: la domanda passa a `i1/` come segnale
-(`marker-aligned-non-verifica-prescrizioni.md`). Chiede se `/method` debba
-verificare le prescrizioni aperte anteriori al proprio cursore.
+soddisfatta: la domanda è passata a `i1/` come segnale, consumato il
+2026-09-25 dal filo `aligned-copre-prescrizioni-aperte`. Da allora `/method`
+rilegge a ogni giro le prescrizioni aperte anteriori al proprio cursore.
 
 Fotografia delle code (`development-goal`, pesata sulla gradualità di
 dominio):
@@ -136,8 +136,8 @@ proxy, non il contenuto delle sessioni:
 
 Classificazione degli scostamenti:
 
-- **segnale i1**: marker `aligned` che non verifica le prescrizioni aperte
-  (nuovo);
+- **segnale i1**: marker `aligned` che non verifica le prescrizioni aperte,
+  consumato il 2026-09-25 da un passo nuovo di `/method`;
 - **nessuna prescrizione nuova**: il lessico ha già la sua prescrizione
   aperta, manca il recepimento;
 - **coda di dominio**: la data aggregata di `nixos`, le date annotate di
@@ -160,8 +160,9 @@ Classificazione degli scostamenti:
   prossimo giro verifica che il salto di 21 commit assorbito in una volta
   abbia retto nei file e non solo nel marker;
 - il lessico `atrio`/`ali` in `bi`: da verificare nei file al prossimo giro,
-  qualunque cosa dichiari il marker. È il caso che tiene aperto il segnale
-  `marker-aligned-non-verifica-prescrizioni`;
+  qualunque cosa dichiari il marker. È il primo collaudo del passo «Rileggi
+  le prescrizioni aperte» di `/method` (filo
+  `aligned-copre-prescrizioni-aperte`);
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
 - `salute`: resta nella sua coda la domanda se la home basti a esercitare il

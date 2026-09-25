@@ -62,9 +62,9 @@ storia git di questo file.
 
 Valori ammessi per `status`:
 
-- `aligned`: ogni cambiamento pertinente nell'intervallo è già soddisfatto,
-  applicato, preservato come divergenza intenzionale o tracciato in un task
-  locale;
+- `aligned`: ogni cambiamento pertinente nell'intervallo **e ogni
+  prescrizione aperta in `o3/` di `method`** è già soddisfatto, applicato,
+  preservato come divergenza intenzionale o tracciato in un task locale;
 - `action-required`: report intermedio; il marker `method_commit` deve restare
   fermo al precedente commit revisionato.
 
@@ -75,7 +75,7 @@ ordinari non ne autorizza la rimozione (`kb/verdict.md` nel canone).
 Gli adattamenti intenzionali devono dire quale superficie diverge, perché e, se
 utile, da quale commit del metodo deriva la decisione. Non usare il ledger come
 changelog: la storia delle revisioni resta in Git. Il file non ha una sezione
-«Esiti»: la tabella per commit è output di sessione (passo 5) e non entra mai
+«Esiti»: la tabella per commit è output di sessione (passo 6) e non entra mai
 nel file; il verdetto sull'allineamento vive in un filo `i3/` dell'adottante,
 aggiornato in place. Una divergenza riassorbita si cancella dal ledger, non si
 annota come evento: la sua storia è il diff.
@@ -119,7 +119,27 @@ di `method`, proponi lo SHA iniziale all'utente e crea il marker solo dopo
 conferma. Un commit locale con stesso soggetto o timestamp è un indizio, non una
 prova sufficiente da solo.
 
-### 3. Controlla le superfici
+### 3. Rileggi le prescrizioni aperte
+
+Il delta dei commit non basta: una prescrizione nata prima del cursore e
+rimasta aperta esce dall'intervallo, e il marker che avanza la coprirebbe
+senza che nessuno l'abbia riletta. A ogni giro, quindi, leggi l'elenco in
+`## Contenuti` di `o3/prescriptions.md` nel repo `method` e apri ogni
+prescrizione elencata:
+
+```bash
+sed -n '/^## Contenuti/,$p' "$method_repo/o3/prescriptions.md"
+```
+
+Per ciascuna verifica **nei file** dell'adottante, non nel marker né nella
+storia dei giri precedenti, se è pertinente e se è recepita. La prescrizione
+dice cosa cercare e dove; un `rg` mirato sulle superfici che nomina di solito
+basta. Una prescrizione già soddisfatta costa una ricerca; una registrata come
+divergenza intenzionale nel ledger non si ri-segnala. Le prescrizioni entrano
+nella tabella del passo 6 con la colonna `Commit` sostituita dal nome del
+file (`o3/<nome>.md`) e si classificano con gli stessi esiti del passo 5.
+
+### 4. Controlla le superfici
 
 Confronta i commit dell'intervallo con lo stato locale attuale:
 
@@ -136,9 +156,10 @@ Usa ricerche mirate (`rg`) e diff dei singoli file. Non copiare alla cieca le
 skill canoniche: conserva formatter, comandi, fonti di verità e checklist di
 dominio locali.
 
-### 4. Classifica ogni cambiamento
+### 5. Classifica ogni cambiamento
 
-Assegna uno dei seguenti esiti:
+Assegna a ogni cambiamento e a ogni prescrizione aperta uno dei seguenti
+esiti:
 
 - `gia-soddisfatto`: lo stato locale implementa già il cambiamento;
 - `diretto`: va applicato senza reinterpretazione di dominio;
@@ -150,7 +171,7 @@ Assegna uno dei seguenti esiti:
 Un commit può produrre più righe se tocca superfici con esiti diversi. I nodi
 condivisi via symlink sono `gia-soddisfatto` salvo riferimenti locali stantii.
 
-### 5. Presenta e applica
+### 6. Presenta e applica
 
 Prima delle modifiche presenta una tabella sintetica:
 
@@ -165,9 +186,10 @@ Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o
 aggiorna un task nel repo adottante e usa `/exec plan` per inserirlo nel plan.
 
-### 6. Chiudi la revisione
+### 7. Chiudi la revisione
 
-Il marker può avanzare a `HEAD` di `method` solo quando ogni voce pertinente è:
+Il marker può avanzare a `HEAD` di `method` solo quando ogni voce pertinente,
+commit dell'intervallo o prescrizione aperta, è:
 
 - applicata;
 - già soddisfatta;
@@ -184,6 +206,7 @@ separata.
 Concludi riportando:
 
 - intervallo revisionato;
+- prescrizioni aperte rilette e loro esito;
 - conteggio per esito;
 - file modificati;
 - task locali creati o aggiornati;
