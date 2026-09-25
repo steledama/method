@@ -44,12 +44,6 @@ verificabile.
   quattro file di bootstrap vive su due livelli: confronto e prescrizione nel
   canone, giudizio e ultimo miglio nel dominio — misura: «Propagare il canone e
   chiudere il loop con gli adottanti»
-- [criterio-world-substrato.md](criterio-world-substrato.md) — il test
-  «significato senza artefatto» è esteso alla chiusura dei task e inciso in
-  `world`, `tasks`, `perform` ed `exec plan`: effetti ed evidenze durevoli
-  restano, copie operative consumate sono proposte alla pulizia senza inferire
-  autorità; prescrizione ai fork recepita da quattro adottanti su sei, i due su
-  `deck` non letti — misura: «Custodire un canone coerente»
 - [igiene-stadi-output.md](igiene-stadi-output.md) — una rappresentazione per
   fatto (indice unico `o2/tasks.md`, chiosa di legenda ancorata alla chiave,
   colonna `Ob.` nel plan invece dell'elenco a mano nel register: quarta

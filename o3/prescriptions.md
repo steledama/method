@@ -40,7 +40,7 @@ L'ultima chiusa, `chiusura-task-controlla-world` (nata 2026-08-16, potata il
 2026-09-25): `exec plan`, prima di chiudere un task, controlla anche le sue
 materializzazioni nel Mondo. Il battito `/adottanti` del 2026-09-24 l'ha
 verificata nei fork di tutti e sei, leggendo i file invece dei marker (filo
-`i3/criterio-world-substrato.md`).
+`criterio-world-substrato`, chiuso lo stesso giorno).
 
 Prima di lei `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti

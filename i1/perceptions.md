@@ -23,8 +23,9 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   skill-owned sempre attuale, sync tra host via git); domanda più ampia se
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
-  secondo segnale prima di generalizzare (cfr. `de-cablaggio`,
-  `criterio-world-substrato` per lo stesso pattern di attesa).
+  secondo segnale prima di generalizzare (cfr. `de-cablaggio` e
+  `criterio-world-substrato`, quest'ultimo chiuso, per lo stesso pattern di
+  attesa).
 
 Le catture gemelle «`build_lists.py` assume `## Contenuti` come nome fisso
 della coda» (da `bi`) e «la presentazione eredita la domanda di i1 per
@@ -39,7 +40,8 @@ insieme dalla stessa generalizzazione, principio inciso in `kb/view.md`,
 propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`. La cattura «la
 chiusura di un task può lasciare documenti operativi nel Mondo», da `salute`
 il 2026-08-16, è stata consumata nello stesso giro da
-[i3/criterio-world-substrato.md](../i3/criterio-world-substrato.md): il secondo
+`i3/criterio-world-substrato.md` (filo chiuso il 2026-09-25, a recepimento
+verificato nei sei adottanti; storia in git): il secondo
 segnale scioglie l'attesa sull'estensione per-stadio del criterio e passa a
 `exec plan` l'incisione del controllo. La cattura precedente, «l'ingresso di
 un adottante nel territorio non ha protocollo», nata
