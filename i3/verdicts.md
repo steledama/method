@@ -105,7 +105,8 @@ verificabile.
   misura: «Custodire un canone coerente e fedele alle fonti»
 - [aligned-copre-prescrizioni-aperte.md](aligned-copre-prescrizioni-aperte.md)
   — `/method` rilegge a ogni giro le prescrizioni aperte in `o3/` e `aligned`
-  le copre; consuma il segnale del 2026-09-24; collaudato su `bi` con un
-  prompt guidato, resta aperto il collaudo senza guida sugli altri cinque —
+  le copre; consuma il segnale del 2026-09-24; collaudato su `bi` (guidato),
+  `nixos` e `crm` (residui non nominati dalla prescrizione), prescrizione sul lessico potata; restano i
+  primi giri di `economia`, `salute` e `danea-auto` —
   misura: «Propagare il canone e chiudere il
   loop con gli adottanti»

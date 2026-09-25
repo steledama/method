@@ -50,10 +50,9 @@ non in drift.
   `aligned` a `eb3f400` (`afa4702d`) col lessico ancora vivo, al terzo
   `/method` che non lo vedeva. Lo stesso giorno, col passo nuovo di
   `/method`, lo ha tolto (`51ec6bce`, marker a `6408f55`): verificato nei
-  file, restano solo menzioni di cronaca. Nei file che la prescrizione
-  nomina il lessico è ora assente in tutti e sei; restano residui di una
-  frase negli indici `o3/prescriptions.md` di `nixos` («questa stanza») e di
-  `crm` («inventario dell'atrio»);
+  file, restano solo menzioni di cronaca. `nixos` e `crm` hanno poi tolto,
+  da soli, gli ultimi residui nei propri indici `o3/`. Nei sei resta
+  solo cronaca: la prescrizione è **potata** il 2026-09-25;
 - `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate in
   questo giro: richiedono una lettura qualitativa del quartetto
   README/CLAUDE/Goal/World che l'audit d'insieme non ha fatto (cfr. Limiti).
@@ -160,8 +159,8 @@ Classificazione degli scostamenti:
   prossimo giro verifica che il salto di 21 commit assorbito in una volta
   abbia retto nei file e non solo nel marker;
 - il passo «Rileggi le prescrizioni aperte» di `/method`: collaudato su `bi`
-  con un prompt che indicava il bersaglio; il prossimo giro verifica negli
-  altri cinque se trova da solo i residui di `nixos` e `crm` (filo
+  (guidato), `nixos` e `crm` (residui non nominati dalla prescrizione); mancano i primi giri di
+  `economia`, `salute` e `danea-auto` (filo
   `aligned-copre-prescrizioni-aperte`);
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;

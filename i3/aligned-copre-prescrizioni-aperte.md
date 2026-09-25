@@ -63,12 +63,29 @@ giro ha retto:
 il passo funziona quando si esegue, non ancora che si esegua senza essere
 ricordato.
 
+## Secondo collaudo: `nixos` e `crm`, 2026-09-25
+
+Lo stesso giorno `nixos` (`33714d0`) e `crm` (`a13da6b`) hanno girato
+`/method` fino a `a8ab92e`. Nessuna prescrizione nominava i loro residui,
+e ciascuno ha trovato il proprio: «questa stanza» nell'indice `o3/` di `nixos`,
+«inventario dell'atrio» nell'indice `o3/` di `crm`, più un commento in
+`pyproject.toml` che la ricerca d'insieme sul solo Markdown non vedeva. I due
+marker riportano l'esito di ogni prescrizione aperta. Il fork di `crm`
+rimanda alla skill canonica invece di copiarla: il passo gli è arrivato
+senza recepimento.
+
+Letti nei file su origin, i sei non hanno più il lessico vivo: restano
+cronaca («recepimento dell'atrio», commenti di codice sulla «Fase B» in
+`bi`) e italiano comune. `semplificazione-lessico-struttura` è potata da
+`o3/`.
+
 ## Tensioni aperte
 
-- collaudo senza guida: gli altri cinque ricevono il passo nel delta del
-  prossimo `/method`. Il giro utile è quello che trova da solo i residui di
-  una frase negli indici `o3/prescriptions.md` di `nixos` («questa stanza»)
-  e `crm` («inventario dell'atrio»);
+- `economia`, `salute` e `danea-auto` non hanno ancora girato col passo: il
+  loro primo giro dirà se regge anche senza una prescrizione che li
+  riguardi, cioè se la rilettura resta una verifica o scivola in rito;
 - il battito `/adottanti` continua a verificare nei file e non nei marker,
-  finché i giri non mostrano che `aligned` e i file coincidono. Se coincidono,
-  la verifica d'insieme delle prescrizioni si può alleggerire.
+  finché i giri non mostrano che `aligned` e i file coincidono. Due giri in cui
+  coincidevano sono il primo dato; se il battito del
+  2026-11-01 lo conferma, la verifica d'insieme delle prescrizioni si può
+  alleggerire.

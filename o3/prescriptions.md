@@ -16,10 +16,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   verificare l'adozione locale, fissare una baseline con provenienza,
   aggiornare le rappresentazioni correnti e predisporre il primo giro senza
   governare la coda del nuovo repository.
-- [Semplificare il lessico della
-  struttura](semplificazione-lessico-struttura.md) — rimuovere dagli adottanti
-  `atrio`, `ali` e `stanze`, usando nomi diretti senza introdurre nuove
-  metafore; cogliere l'occasione per potare inventari duplicati.
 - [Revisione coordinata del bootstrap di un
   adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
   CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
@@ -36,13 +32,21 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
 
-L'ultima chiusa, `chiusura-task-controlla-world` (nata 2026-08-16, potata il
+L'ultima chiusa, `semplificazione-lessico-struttura` (nata 2026-08-21, potata
+il 2026-09-25): via `atrio`, `ali` e `stanze`, sostituiti dai nomi diretti.
+Tre `/method` di `bi` l'avevano attraversata `aligned` senza vederla. Si è
+chiusa quando `/method` ha cominciato a rileggere a ogni giro le prescrizioni
+aperte: `bi` ha tolto il lessico vivo, `nixos` e `crm` gli ultimi residui
+negli indici `o3/`, e nei sei restano solo cronaca e italiano comune (filo
+`i3/aligned-copre-prescrizioni-aperte.md`).
+
+Prima di lei `chiusura-task-controlla-world` (nata 2026-08-16, potata il
 2026-09-25): `exec plan`, prima di chiudere un task, controlla anche le sue
 materializzazioni nel Mondo. Il battito `/adottanti` del 2026-09-24 l'ha
 verificata nei fork di tutti e sei, leggendo i file invece dei marker (filo
 `criterio-world-substrato`, chiuso lo stesso giorno).
 
-Prima di lei `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
+Prima ancora `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti
 canonici in `-review`, `kb-review`→`kb` e `method-review`→`method` (ratifica
 in `i3/nome-skill-dominio-verbo-o-sostantivo.md`, filo chiuso). A metà corsa
