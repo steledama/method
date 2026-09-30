@@ -31,6 +31,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
+- [La chiave `Ob.` della vista del plan porta al suo
+  obiettivo](obiettivo-del-plan-collegato-al-goal.md) — nella vista `tasks`
+  ogni chiave diventa un link all'intestazione di `goal.md`; l'ancora viene
+  dalla libreria condivisa (`goal_anchors`, `heading_slug` spostato dalla
+  home).
 
 L'ultima chiusa, `semplificazione-lessico-struttura` (nata 2026-08-21, potata
 il 2026-09-25): via `atrio`, `ali` e `stanze`, sostituiti dai nomi diretti.

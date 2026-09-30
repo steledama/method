@@ -13,7 +13,7 @@ import html
 import re
 from pathlib import Path
 
-from presentation import inline_markdown, register_intro
+from presentation import heading_slug, inline_markdown, register_intro
 
 # --- CONFIG specifico del repo ------------------------------------------------
 
@@ -99,14 +99,6 @@ def render_block(block: str, link_prefix: str = "") -> str:
 def render_markdown(markdown: str, link_prefix: str = "") -> str:
     blocks = (block.strip() for block in markdown.split("\n\n"))
     return "\n".join(render_block(block, link_prefix) for block in blocks if block)
-
-
-def heading_slug(title: str) -> str:
-    text = re.sub(r"`([^`]+)`", r"\1", title)
-    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
-    text = text.lower()
-    text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)
-    return re.sub(r"[-\s]+", "-", text).strip("-")
 
 
 def section_body(markdown: str, title: str, level: int) -> str:

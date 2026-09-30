@@ -7,17 +7,36 @@ import re
 from html import escape
 from pathlib import Path
 
-from presentation import check_plan_contract, parse_plan, parse_task
+from presentation import check_plan_contract, goal_anchors, parse_plan, parse_task
 
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def goal_links(obiettivo: str | None, anchors: dict[str, str], markdown: bool) -> str:
+    """Ogni chiave della colonna `Ob.` punta al suo obiettivo in `goal.md`.
+
+    Il contratto del plan ha già verificato che ogni chiave esista nel
+    register: qui l'ancora si legge, non si indovina.
+    """
+    if not obiettivo:
+        return "—"
+    links = []
+    for key in (part.strip() for part in obiettivo.split(",")):
+        href = f"../goal.md#{anchors[key]}"
+        if markdown:
+            links.append(f"[`{key}`]({href})")
+        else:
+            links.append(f'<a href="{escape(href, quote=True)}">{escape(key)}</a>')
+    return ", ".join(links)
+
+
 def task_view(root: Path) -> str:
     lines: list[str] = []
     rows = parse_plan(root)
     check_plan_contract(root, rows)
+    anchors = goal_anchors(root)
     if not rows:
         lines += ["## Nessun task aperto {#plan}", "", "La coda operativa è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
@@ -37,7 +56,7 @@ def task_view(root: Path) -> str:
     for index, row in enumerate(rows, 1):
         lines.append(
             f"<tr><td>{escape(row.ciclo or '—')}</td>"
-            f"<td>{escape(row.obiettivo or '—')}</td>"
+            f"<td>{goal_links(row.obiettivo, anchors, markdown=False)}</td>"
             f'<td><a href="#/task-{index}">{escape(row.task)}</a></td>'
             f"<td>{escape(row.dependency)}</td></tr>"
         )
@@ -56,7 +75,7 @@ def task_view(root: Path) -> str:
         task = parse_task(root, row.source) if row.source else None
         meta = [f"ciclo: `{task.ciclo if task else row.ciclo or '—'}`"]
         if row.obiettivo:
-            meta.append(f"obiettivo: `{row.obiettivo}`")
+            meta.append(f"obiettivo: {goal_links(row.obiettivo, anchors, markdown=True)}")
         meta.append(f"dipendenza: `{row.dependency}`")
         lines += [
             f"## {task.title if task else row.task} {{#task-{index}}}",

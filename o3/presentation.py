@@ -183,23 +183,40 @@ def parse_plan(root: Path) -> list[PlanRow]:
     return rows
 
 
-_GOAL_HEADING = re.compile(r"^#{2,4}\s+(\d+)[.)]\s", re.MULTILINE)
+_GOAL_HEADING = re.compile(r"^#{2,4}\s+((\d+)[.)]\s.*?)\s*$", re.MULTILINE)
+_DEV_GOAL_HEADING = re.compile(r"^##\s+(Goal di sviluppo)\s*$", re.MULTILINE)
 
 
-def goal_keys(root: Path) -> set[str]:
-    """Le chiavi che la colonna `Ob.` del plan può assumere, lette da `goal.md`.
+def heading_slug(title: str) -> str:
+    """L'ancora che il renderer Markdown della forge assegna a un'intestazione."""
+    text = re.sub(r"`([^`]+)`", r"\1", title)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)
+    return re.sub(r"[-\s]+", "-", text).strip("-")
+
+
+def goal_anchors(root: Path) -> dict[str, str]:
+    """Le chiavi che la colonna `Ob.` del plan può assumere, con la loro ancora.
 
     Il numero dell'obiettivo runtime, più `S` per il Goal di sviluppo: sono le
     chiavi del register, non una lista da tenere in sincronia (`kb/goal.md`).
+    L'ancora è quella dell'intestazione in `goal.md`, così la vista può
+    collegare la chiave all'obiettivo invece di ripeterne il numero.
     """
     goal = root / "goal.md"
     if not goal.exists():
-        return set()
+        return {}
     text = goal.read_text(encoding="utf-8")
-    keys = set(_GOAL_HEADING.findall(text))
-    if re.search(r"^##\s+Goal di sviluppo\s*$", text, re.MULTILINE):
-        keys.add("S")
-    return keys
+    anchors = {key: heading_slug(title) for title, key in _GOAL_HEADING.findall(text)}
+    dev = _DEV_GOAL_HEADING.search(text)
+    if dev:
+        anchors["S"] = heading_slug(dev.group(1))
+    return anchors
+
+
+def goal_keys(root: Path) -> set[str]:
+    return set(goal_anchors(root))
 
 
 def _check_obiettivi(root: Path, rows: list[PlanRow]) -> list[str]:
