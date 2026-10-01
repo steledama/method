@@ -28,22 +28,19 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
 - **Canone recepito dagli adottanti** — struttura, register e quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
-  dell'audit mensile); lavoro: `crm` e `danea-auto` sono entrati come quinto e
-  sesto adottante il 2026-08-12; obiettivo con **un fronte aperto** — il giro
-  vive nei `method` degli adottanti e il battito è la riga mensile `/adottanti`
-  in `## Scadenze`. Verifica sui sei al battito del 2026-09-24, nei file e non
-  nei marker, e canale di tutti e sei a `eb3f400` il 2026-09-25: `chiusura-task-controlla-world` recepita da tutti e sei e
-  potata il 2026-09-25; `liste-o3-i1-fedeli-alla-fonte` recepita dove c'è un generatore,
-  salvo la versione Pandoc del 2026-09-21; `semplificazione-lessico-struttura`
-  non recepita in `bi`, `crm` ed `economia` nonostante marker `aligned`, poi
-  recepita il 2026-09-25 da tutti e potata, `bi` per ultimo col passo nuovo; da
-  qui `/method` rilegge a ogni giro le prescrizioni aperte (filo
-  [aligned-copre-prescrizioni-aperte](i3/aligned-copre-prescrizioni-aperte.md));
-  `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate. Nuova
-  prescrizione `esiti-per-stadio-nel-commit` (2026-09-24). Watchpoint: il
-  collaudo d'uso delle skill per arco. Il giudizio di settembre (2026-09-24) ha
-  mantenuto la tripartizione e reso contabili gli esiti per stadio (trailer
-  `Esiti:`); la clausola si riapre il 2026-11-01 sui numeri registrati.
+  dell'audit mensile); lavoro: sei adottanti dal 2026-08-12 (`crm` e
+  `danea-auto` quinto e sesto); obiettivo con **un fronte aperto** — il giro
+  vive nei `method` degli adottanti e il battito è la riga mensile
+  `/adottanti` in `## Scadenze`. Al battito del 2026-10-01 tutti e sei sono a
+  `47d8204`, `aligned`, e i marker coincidono coi file; le viste sono fresche
+  in tutti e sei, verificate rigenerando. `/method` rilegge a ogni giro le
+  prescrizioni aperte (filo
+  [aligned-copre-prescrizioni-aperte](i3/aligned-copre-prescrizioni-aperte.md)).
+  Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
+  su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
+  per arco; `toolchain-builder-presentazione`, nata il 2026-10-01 dal primo
+  fork su Windows; `revisione-bootstrap-adottante` e `ingresso-adottante`,
+  non verificate nel merito.
 
 ### 3. Ascoltare il basso
 

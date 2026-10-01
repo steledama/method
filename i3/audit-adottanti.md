@@ -31,10 +31,13 @@ sei le `tasks.html` le ancore corrispondono alle intestazioni del rispettivo
   `nixos` 2, `salute` 2. `crm` non ha fatto giri, quindi non ha righe:
   il `git log` lo conferma, non è un buco di registrazione. La prescrizione
   resta attiva fino al conteggio del 2026-11-01;
-- `liste-o3-i1-fedeli-alla-fonte` — recepita dove esiste un generatore a
-  elenco: `bi`, `nixos`, `economia` e ora `danea-auto`, che ha forkato i
-  builder per la prima volta. `salute` registra nel marker una divergenza
-  motivata. `crm` non ha viste a elenco: non si applica;
+- `liste-o3-i1-fedeli-alla-fonte` — ha un esito in tutti e sei, ma non
+  sempre è un recepimento. La riscrittura Pandoc è nei file di `nixos`,
+  `bi` e `danea-auto`, che ha forkato i builder per la prima volta.
+  `economia` e `salute` tengono il proprio renderer Python con una
+  divergenza motivata nel marker: i loro indici non hanno gerarchie che il
+  renderer appiattisce, e in `economia` Pandoc non è nel `flake.nix`. `crm`
+  non ha viste a elenco: non si applica. Potata il 2026-10-01;
 - `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate
   nel merito (cfr. Limiti); `salute` le dichiara una soddisfatta e una non
   pertinente.
@@ -99,14 +102,16 @@ Classificazione degli scostamenti:
 
 - **segnale i1**: i builder della presentazione assumono il toolchain degli
   host Linux. È la codifica delle chiamate a pandoc, più il pin di reveal.js
-  accoppiato a una versione di pandoc non fissata. Viene da `danea-auto` ed è
-  verificato nel canone (`i1/builder-presentazione-toolchain-host.md`);
+  accoppiato a una versione di pandoc non fissata. Viene da `danea-auto`, è
+  verificato nel canone ed è valutato nel filo
+  `toolchain-builder-presentazione`;
 - **nessuna prescrizione nuova**: le aperte sono recepite o in attesa del
   loro battito;
 - **coda di dominio**: la data aggregata di `nixos`, l'attesa semestrale di
   `bi`, il plan fermo di `crm`;
-- **per `exec perform`**: niente. `obiettivo-del-plan-collegato-al-goal` è
-  potata il 2026-10-01 (`ff064c1`).
+- **per `exec perform`**: `obiettivo-del-plan-collegato-al-goal` è potata il
+  2026-10-01 (`ff064c1`), `liste-o3-i1-fedeli-alla-fonte` lo stesso giorno,
+  dopo la verifica nei file.
 
 ## Tensioni aperte
 
@@ -116,9 +121,6 @@ Classificazione degli scostamenti:
 - `crm`: 41 giorni di plan fermo con 9 task dev. Al prossimo giro: riprende
   il dominio, o la struttura adottata è scaffolding intorno a un lavoro che
   vive altrove? La domanda è per `crm`, non per il canone;
-- il toolchain della presentazione: il segnale i1 aspetta la valutazione.
-  Fissare la versione di pandoc nella build, o derivare l'URL di reveal.js
-  dalla versione di pandoc, cambia il contratto di tutti i fork;
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
 - la clausola di uscita delle skill per arco: il battito del 2026-11-01

@@ -99,7 +99,7 @@ verificabile.
   contratto delle viste a elenco o3/i1 è strutturale: Pandoc conserva
   gerarchie, codice e link dell'intera fonte, senza intestazioni cablate; consuma i
   segnali gemelli di `bi` e `nixos` del 2026-09-09, principio inciso in
-  `kb/view.md`, propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`;
+  `kb/view.md`, propagazione chiusa il 2026-10-01 con un esito in tutti e sei;
   watchpoint aperto sulla prosa storica ora renderizzata insieme alla coda —
   misura: «Custodire un canone coerente e fedele alle fonti»
 - [aligned-copre-prescrizioni-aperte.md](aligned-copre-prescrizioni-aperte.md)
@@ -108,3 +108,10 @@ verificabile.
   marker e file coincidenti in tre giri; si chiude se il battito del
   2026-11-01 lo conferma — misura: «Propagare il canone e chiudere il loop
   con gli adottanti»
+- [toolchain-builder-presentazione.md](toolchain-builder-presentazione.md) —
+  i builder della presentazione assumono un toolchain che non dichiarano:
+  consuma il segnale di `danea-auto` del 2026-10-01; codifica UTF-8 nelle
+  chiamate a pandoc e reveal.js scelto dalla versione di pandoc (soglia 3.12,
+  verificata), nel canone e in `o3/toolchain-builder-presentazione.md`;
+  tensione aperta sul gate di freschezza tra host con pandoc
+  diversi — misura: «Custodire un canone coerente e fedele alle fonti»

@@ -19,12 +19,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   secondo segnale prima di generalizzare (cfr. `de-cablaggio` e
   `criterio-world-substrato`, quest'ultimo chiuso, per lo stesso pattern di
   attesa).
-- [I builder della presentazione assumono il toolchain degli host
-  Linux](builder-presentazione-toolchain-host.md) — da danea-auto, primo fork
-  su Windows: le chiamate a pandoc in `build_lists.py` non fissano la codifica
-  (cp1252 rompe la build), e il pin `reveal.js@5.1.0` dipende dalla versione
-  di pandoc, che non è fissata (con la 3.12 le slide restano bianche).
-  Verificato nel canone; gli host Linux oggi non lo vedono.
+
+La cattura «i builder della presentazione assumono il toolchain degli host
+Linux», da `danea-auto` il 2026-10-01, è stata consumata lo stesso giorno da
+[i3/toolchain-builder-presentazione.md](../i3/toolchain-builder-presentazione.md):
+la codifica entra nel canone e reveal.js si sceglie dalla versione di pandoc,
+con un errore esplicito invece di slide bianche.
 
 Le catture gemelle «`build_lists.py` assume `## Contenuti` come nome fisso
 della coda» (da `bi`) e «la presentazione eredita la domanda di i1 per
@@ -36,7 +36,7 @@ non erano lo stesso attrito (una sul nome di intestazione, l'altra su
 domanda/pubblico) ma due prove indipendenti della stessa rottura — il
 contratto della vista era un nome, non la struttura della fonte; risolte
 insieme dalla stessa generalizzazione, principio inciso in `kb/view.md`,
-propagazione in `o3/liste-o3-i1-fedeli-alla-fonte.md`. La cattura «la
+propagazione chiusa il 2026-10-01. La cattura «la
 chiusura di un task può lasciare documenti operativi nel Mondo», da `salute`
 il 2026-08-16, è stata consumata nello stesso giro da
 `i3/criterio-world-substrato.md` (filo chiuso il 2026-09-25, a recepimento

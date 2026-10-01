@@ -28,9 +28,10 @@ la condizione, la data e il materiale.
   `git log --format='%(trailers:key=Esiti,valueonly)'`. Il dato vale solo per
   i repository che l'hanno recepita: gli altri si dichiarano, non si
   stimano;
-- i **due profili muti**: `crm` (plan fermo dal 2026-08-21) e `danea-auto`
-  (fermo dal 2026-08-22). Se restano senza giri, lo si dice: assenza di uso,
-  non evidenza per l'una o l'altra direzione;
+- il **profilo muto**: `crm` (plan fermo dal 2026-08-21, nessun giro con
+  `Esiti:`). Se resta senza giri, lo si dice: assenza di uso, non evidenza
+  per l'una o l'altra direzione. `danea-auto`, muto fino a settembre, dal
+  2026-09-26 è il repository con più giri registrati;
 - nuovi casi di **«ha pagato»**: un errore intercettato da uno stadio che il
   giro monolitico non avrebbe visto. Ad oggi l'unico documentato è in
   `metodo`;

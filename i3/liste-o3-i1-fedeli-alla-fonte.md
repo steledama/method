@@ -59,4 +59,6 @@ regola già scritta), il problema si scioglie da sé, senza altro codice — ma
 sopra.
 
 Misura: obiettivo 1 del goal («Custodire un canone coerente e fedele alle
-fonti»). Propagazione agli adottanti in `o3/liste-o3-i1-fedeli-alla-fonte.md`.
+fonti»). Propagazione agli adottanti chiusa il 2026-10-01: recepita da `nixos`, `bi` e
+`danea-auto`, divergenza motivata in `economia` e `salute`, non applicabile in
+`crm`; prescrizione potata.

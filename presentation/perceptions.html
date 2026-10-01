@@ -60,18 +60,16 @@
             <code>de-cablaggio</code> e <code>criterio-world-substrato</code>,
             quest’ultimo chiuso, per lo stesso pattern di attesa).
           </li>
-          <li>
-            <a href="../i1/builder-presentazione-toolchain-host.md"
-              >I builder della presentazione assumono il toolchain degli host
-              Linux</a
-            >
-            — da danea-auto, primo fork su Windows: le chiamate a pandoc in
-            <code>build_lists.py</code> non fissano la codifica (cp1252 rompe la
-            build), e il pin <code>reveal.js@5.1.0</code> dipende dalla versione
-            di pandoc, che non è fissata (con la 3.12 le slide restano bianche).
-            Verificato nel canone; gli host Linux oggi non lo vedono.
-          </li>
         </ul>
+        <p>
+          La cattura «i builder della presentazione assumono il toolchain degli
+          host Linux», da <code>danea-auto</code> il 2026-10-01, è stata
+          consumata lo stesso giorno da
+          <a href="../i3/toolchain-builder-presentazione.md"
+            >i3/toolchain-builder-presentazione.md</a
+          >: la codifica entra nel canone e reveal.js si sceglie dalla versione
+          di pandoc, con un errore esplicito invece di slide bianche.
+        </p>
         <p>
           Le catture gemelle «<code>build_lists.py</code> assume
           <code>## Contenuti</code> come nome fisso della coda» (da
@@ -85,11 +83,10 @@
           su domanda/pubblico) ma due prove indipendenti della stessa rottura —
           il contratto della vista era un nome, non la struttura della fonte;
           risolte insieme dalla stessa generalizzazione, principio inciso in
-          <code>kb/view.md</code>, propagazione in
-          <code>o3/liste-o3-i1-fedeli-alla-fonte.md</code>. La cattura «la
-          chiusura di un task può lasciare documenti operativi nel Mondo», da
-          <code>salute</code> il 2026-08-16, è stata consumata nello stesso giro
-          da <code>i3/criterio-world-substrato.md</code> (filo chiuso il
+          <code>kb/view.md</code>, propagazione chiusa il 2026-10-01. La cattura
+          «la chiusura di un task può lasciare documenti operativi nel Mondo»,
+          da <code>salute</code> il 2026-08-16, è stata consumata nello stesso
+          giro da <code>i3/criterio-world-substrato.md</code> (filo chiuso il
           2026-09-25, a recepimento verificato nei sei adottanti; storia in
           git): il secondo segnale scioglie l’attesa sull’estensione per-stadio
           del criterio e passa a <code>exec plan</code> l’incisione del

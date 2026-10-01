@@ -79,17 +79,6 @@
             l’ultimo miglio di dominio.
           </li>
           <li>
-            <a href="../o3/liste-o3-i1-fedeli-alla-fonte.md"
-              >Le viste a elenco derivano dall’intera struttura della fonte, non
-              da un nome di intestazione</a
-            >
-            — portare la riscrittura di <code>build_lists.py</code> (render
-            Markdown con Pandoc, gerarchie conservate e link ribasati sull’AST)
-            nei fork che generano una vista equivalente; touchpoint per
-            <code>bi</code> sulla propria estensione locale di
-            <code>PAGES</code>.
-          </li>
-          <li>
             <a href="../o3/esiti-per-stadio-nel-commit.md"
               >Ogni giro di <code>eval</code> ed <code>exec</code> lascia
               l’esito per stadio nel commit</a
@@ -100,9 +89,28 @@
             la clausola di uscita della tripartizione non aveva. Da recepire
             prima del battito del 2026-11-01.
           </li>
+          <li>
+            <a href="../o3/toolchain-builder-presentazione.md"
+              >I builder della presentazione dichiarano il toolchain che
+              assumono</a
+            >
+            — <code>encoding="utf-8"</code> nelle chiamate a pandoc e URL di
+            reveal.js derivato dalla versione di pandoc (6.0.2 da 3.12 in su,
+            5.1.0 sotto), con errore esplicito se non si legge; da
+            <code>danea-auto</code>, che può tornare dal pin fisso alla regola.
+          </li>
         </ul>
         <p>
-          L’ultima chiusa,
+          L’ultima chiusa, <code>liste-o3-i1-fedeli-alla-fonte</code> (nata
+          2026-09-09, versione Pandoc del 2026-09-21, potata il 2026-10-01): le
+          viste a elenco rendono l’intera struttura della fonte invece di
+          un’intestazione fissa. Ha un esito in tutti e sei: recepita da
+          <code>nixos</code>, <code>bi</code> e <code>danea-auto</code>,
+          divergenza motivata in <code>economia</code> e <code>salute</code>,
+          che tengono il proprio renderer, non applicabile in <code>crm</code>.
+        </p>
+        <p>
+          Lo stesso giorno
           <code>obiettivo-del-plan-collegato-al-goal</code> (nata 2026-09-30,
           potata il 2026-10-01): nella vista <code>tasks</code> ogni chiave
           <code>Ob.</code> porta all’intestazione di <code>goal.md</code>, con

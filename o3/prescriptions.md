@@ -20,19 +20,25 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
   CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
   locale applica o motiva l'ultimo miglio di dominio.
-- [Le viste a elenco derivano dall'intera struttura della fonte, non da un
-  nome di intestazione](liste-o3-i1-fedeli-alla-fonte.md) — portare la
-  riscrittura di `build_lists.py` (render Markdown con Pandoc,
-  gerarchie conservate e link ribasati sull'AST) nei fork che generano una
-  vista equivalente;
-  touchpoint per `bi` sulla propria estensione locale di `PAGES`.
 - [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
+- [I builder della presentazione dichiarano il toolchain che
+  assumono](toolchain-builder-presentazione.md) — `encoding="utf-8"` nelle
+  chiamate a pandoc e URL di reveal.js derivato dalla versione di pandoc
+  (6.0.2 da 3.12 in su, 5.1.0 sotto), con errore esplicito se non si legge;
+  da `danea-auto`, che può tornare dal pin fisso alla regola.
 
-L'ultima chiusa, `obiettivo-del-plan-collegato-al-goal` (nata 2026-09-30,
+L'ultima chiusa, `liste-o3-i1-fedeli-alla-fonte` (nata 2026-09-09, versione
+Pandoc del 2026-09-21, potata il 2026-10-01): le viste a elenco rendono
+l'intera struttura della fonte invece di un'intestazione fissa. Ha un esito
+in tutti e sei: recepita da `nixos`, `bi` e `danea-auto`, divergenza
+motivata in `economia` e `salute`, che tengono il proprio renderer, non
+applicabile in `crm`.
+
+Lo stesso giorno `obiettivo-del-plan-collegato-al-goal` (nata 2026-09-30,
 potata il 2026-10-01): nella vista `tasks` ogni chiave `Ob.` porta
 all'intestazione di `goal.md`, con l'ancora letta dalla libreria condivisa.
 Recepita nei file da tutti e sei, link verificati contro le intestazioni del

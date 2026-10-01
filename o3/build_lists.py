@@ -54,6 +54,7 @@ def render_markdown(text: str, prefix: str) -> str:
         ["pandoc", "--from=markdown-native_divs", "--to=json"],
         input=text,
         text=True,
+        encoding="utf-8",
         capture_output=True,
         check=True,
     )
@@ -66,6 +67,7 @@ def render_markdown(text: str, prefix: str) -> str:
         ["pandoc", "--from=json", "--to=html5", "--wrap=none"],
         input=json.dumps(document),
         text=True,
+        encoding="utf-8",
         capture_output=True,
         check=True,
     ).stdout.rstrip()
