@@ -31,13 +31,15 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
-- [La chiave `Ob.` della vista del plan porta al suo
-  obiettivo](obiettivo-del-plan-collegato-al-goal.md) — nella vista `tasks`
-  ogni chiave diventa un link all'intestazione di `goal.md`; l'ancora viene
-  dalla libreria condivisa (`goal_anchors`, `heading_slug` spostato dalla
-  home).
 
-L'ultima chiusa, `semplificazione-lessico-struttura` (nata 2026-08-21, potata
+L'ultima chiusa, `obiettivo-del-plan-collegato-al-goal` (nata 2026-09-30,
+potata il 2026-10-01): nella vista `tasks` ogni chiave `Ob.` porta
+all'intestazione di `goal.md`, con l'ancora letta dalla libreria condivisa.
+Recepita nei file da tutti e sei, link verificati contro le intestazioni del
+register. `danea-auto`, che non aveva viste, l'ha recepita forkando per la
+prima volta i builder di `presentation/`.
+
+Prima di lei `semplificazione-lessico-struttura` (nata 2026-08-21, potata
 il 2026-09-25): via `atrio`, `ali` e `stanze`, sostituiti dai nomi diretti.
 Tre `/method` di `bi` l'avevano attraversata `aligned` senza vederla. Si è
 chiusa quando `/method` ha cominciato a rileggere a ogni giro le prescrizioni
@@ -45,13 +47,13 @@ aperte: `bi` ha tolto il lessico vivo, `nixos` e `crm` gli ultimi residui
 negli indici `o3/`, e nei sei restano solo cronaca e italiano comune (filo
 `i3/aligned-copre-prescrizioni-aperte.md`).
 
-Prima di lei `chiusura-task-controlla-world` (nata 2026-08-16, potata il
+Prima ancora `chiusura-task-controlla-world` (nata 2026-08-16, potata il
 2026-09-25): `exec plan`, prima di chiudere un task, controlla anche le sue
 materializzazioni nel Mondo. Il battito `/adottanti` del 2026-09-24 l'ha
 verificata nei fork di tutti e sei, leggendo i file invece dei marker (filo
 `criterio-world-substrato`, chiuso lo stesso giorno).
 
-Prima ancora `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
+Più indietro `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
 tutti e quattro il 2026-08-02): il rename sostantivo dei due composti
 canonici in `-review`, `kb-review`→`kb` e `method-review`→`method` (ratifica
 in `i3/nome-skill-dominio-verbo-o-sostantivo.md`, filo chiuso). A metà corsa
