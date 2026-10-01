@@ -8,176 +8,129 @@ ciclo: runtime
 (`goal.md`, obiettivo 2).
 
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
-ogni giro. Ultimo giro: **2026-09-24**, terzo battito, eseguito con 23 giorni
-di ritardo sulla scadenza del 2026-09-01 (HEAD `435a1e2`). È il primo giro
-sui **sei** adottanti. Le letture sono fatte sulle superfici per host: `deck`
-per `economia` e `salute`, `ssh svezia` per `nixos`, `bi`, `crm` e
-`danea-auto`. Le copie su `deck` dei repo di `svezia` possono essere stantie:
-quella di `crm` era ferma al 2026-08-21, mentre `svezia` è al 2026-09-08.
-
-Il **2026-09-25** una rilettura parziale, non un battito, ha riaperto due
-sole lenti: il canale del canone (marker su entrambi gli host) e il lessico
-della struttura cercato nei file, fuori dai nodi in symlink. Il resto del
-verdetto resta quello del 2026-09-24.
+ogni giro. Ultimo giro: **2026-10-01**, quarto battito, puntuale sulla
+scadenza (HEAD `ff064c1`). Le letture sono fatte su `origin` dopo un
+`git fetch`: `economia` e `salute` su `deck`, `nixos`, `bi`, `crm` e
+`danea-auto` su `svezia`. La copia locale di `danea-auto` su `svezia` è 17
+commit dietro origin: è stantia, non in drift.
 
 ## Verdetto
 
-**Canale del canone: tutti e sei alla HEAD.** Il 2026-09-25 ogni adottante
-ha girato `/method` e porta il marker a `eb3f400`, `aligned`. Si chiudono
-così anche i due ritardi del 2026-09-24: `crm` era a `5b5e344`, 8 commit
-indietro, e `danea-auto` ad `ab7003b`, 21 commit indietro con canone
-strutturale in mezzo. Il salto di `danea-auto` è stato assorbito in un
-solo giro (`4cea53b`). La copia di `danea-auto` su `svezia` è un commit
-indietro rispetto a origin e mostra ancora il marker vecchio: è stantia,
-non in drift.
+**Canale del canone: tutti e sei alla HEAD del canone recepibile.** Ogni
+marker è a `47d8204`, `aligned`: l'unico commit successivo, `ff064c1`, è la
+potatura della prescrizione che quei marker hanno recepito. Il recepimento
+del link `Ob.`→`goal.md` è verificato nei file, non nei marker: in tutte e
+sei le `tasks.html` le ancore corrispondono alle intestazioni del rispettivo
+`goal.md`.
 
-**Prescrizioni aperte, verificate nei file invece che dichiarate dai marker:**
+**Prescrizioni aperte, verificate nei file:**
 
-- `chiusura-task-controlla-world` — **recepita da tutti e sei**: l'`exec`
-  di ognuno enumera le materializzazioni nel Mondo. Consumata e potata il
-  2026-09-25;
-- `liste-o3-i1-fedeli-alla-fonte` — la versione del 2026-09-09 (walker
-  strutturale) è recepita dove esiste un generatore: `bi` e `nixos` col fork,
-  `salute` che la soddisfaceva già col proprio. La versione Pandoc del
-  2026-09-21 non è in nessun fork, ma è proprio il commit non ancora
-  recepito. `crm` e `danea-auto` non hanno `build_lists.py`, quindi la
-  prescrizione non si applica;
-- `semplificazione-lessico-struttura` — il 2026-09-24 era **non recepita**
-  in `bi`, `crm` ed `economia`, tutti `aligned`. Il 2026-09-25 `crm`
-  (`2034b26`) ed `economia` (`d9ecd89`) la recepiscono e lo dicono nel
-  soggetto del commit. `salute` dichiara nel marker di aver riletto le
-  prescrizioni aperte nei file e non solo nel delta. `bi` era passato
-  `aligned` a `eb3f400` (`afa4702d`) col lessico ancora vivo, al terzo
-  `/method` che non lo vedeva. Lo stesso giorno, col passo nuovo di
-  `/method`, lo ha tolto (`51ec6bce`, marker a `6408f55`): verificato nei
-  file, restano solo menzioni di cronaca. `nixos` e `crm` hanno poi tolto,
-  da soli, gli ultimi residui nei propri indici `o3/`. Nei sei resta
-  solo cronaca: la prescrizione è **potata** il 2026-09-25;
-- `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate in
-  questo giro: richiedono una lettura qualitativa del quartetto
-  README/CLAUDE/Goal/World che l'audit d'insieme non ha fatto (cfr. Limiti).
+- `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
+  `eval`/`exec` di tutti e sei, e cinque lo scrivono davvero dal
+  recepimento del 2026-09-25: `danea-auto` 21 giri, `economia` 9, `bi` 8,
+  `nixos` 2, `salute` 2. `crm` non ha fatto giri, quindi non ha righe:
+  il `git log` lo conferma, non è un buco di registrazione. La prescrizione
+  resta attiva fino al conteggio del 2026-11-01;
+- `liste-o3-i1-fedeli-alla-fonte` — recepita dove esiste un generatore a
+  elenco: `bi`, `nixos`, `economia` e ora `danea-auto`, che ha forkato i
+  builder per la prima volta. `salute` registra nel marker una divergenza
+  motivata. `crm` non ha viste a elenco: non si applica;
+- `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate
+  nel merito (cfr. Limiti); `salute` le dichiara una soddisfatta e una non
+  pertinente.
 
-**Il watchpoint sul valore del marker ha il suo secondo segnale.** Il
-2026-08-22 `aligned` aveva certificato un gap documentale una volta sola, in
-`bi` e `crm`. Oggi lo stesso gap è vivo in tre repo: `bi` lo porta dopo due
-`/method` successivi alla segnalazione, `economia` è un repo nuovo nel conto,
-e `crm` lo mette nel titolo di una sezione del marker. La guardia dal-basso è
-soddisfatta: la domanda è passata a `i1/` come segnale, consumato il
-2026-09-25 dal filo `aligned-copre-prescrizioni-aperte`. Da allora `/method`
-rilegge a ogni giro le prescrizioni aperte anteriori al proprio cursore.
+**Il passo «Rileggi le prescrizioni aperte» di `/method` ha girato in tutti
+e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto
+col giro fino a `47d8204`. `salute` elenca nel marker l'esito di ognuna
+delle cinque prescrizioni aperte. Gli altri due le riportano nei soli
+adattamenti dove le hanno toccate. È il terzo giro in cui `aligned` e i
+file coincidono (cfr. `aligned-copre-prescrizioni-aperte`).
+
+**Superfici e viste: fresche in tutti e sei, verificate per rigenerazione.**
+Ogni repo è stato estratto da `origin` in una cartella temporanea e
+ricostruito coi propri builder. In cinque la rigenerazione è identica alle
+viste versionate. In `danea-auto` cambia solo il CSS di default di pandoc:
+le viste sono state costruite su Windows con pandoc 3.12, `svezia` ha la
+3.7.0.2. È toolchain, non contenuto. Il confronto per date, la lente del
+giro precedente, segnalava invece viste più vecchie della fonte in
+`economia`, `salute`, `bi` e `crm`. Erano tutti falsi rossi: la fonte era
+cambiata fuori dalla parte che la vista rende, per esempio `world.md` sotto
+la sua intro. Nessuna vista a mano.
 
 Fotografia delle code (`development-goal`, pesata sulla gradualità di
 dominio):
 
-- **nixos** — coda dev vuota, 7 task runtime (3 in `world`), da 5 ad
-  agosto: composizione da telos. Le due skill di manutenzione autonome si
-  sono **fuse** in `/manutenzione` (`4236918`, 2026-08-02), che è diventata
-  il battito unico e ha girato in 35 giorni distinti dal 1° agosto, di fatto
-  ogni giorno. La riga `(quotidiano)` in `## Scadenze` porta però ancora la
-  data **2026-08-01**. Non è un orologio fermo: le cadenze sono passate alla
-  config per entità di `i1/manutenzione.json` e la data aggregata ha smesso
-  di significare qualcosa. La lente delle scadenze ne fa un falso rosso. È
-  coda di dominio, ma tocca il segnale i1 aperto
-  `registro-perpetuo-vs-cattura-singola`: dove l'orologio vive nel registro
-  perpetuo, il plan non sa più che data scrivere.
-- **bi** — fase di cantiere: 12 task, 9 dev e 3 runtime (13 con 8 dev ad
-  agosto). È l'adottante con l'uso più intenso delle skill nuove: circa 15
-  giri `eval`/`exec` fra il 14/8 e il 23/9, su segnali di produzione veri,
-  come la regressione del retry OAuth intercettata il 2026-09-08
-  (`1f9b1a0a`). Timetable dei cinque run automatizzati intatto; la
-  semestrale concorrenza del 2026-07-31 è annotata come attesa, non stantia.
-  Tre skill di dominio sempre autonome.
-- **economia** — 17 task runtime, 0 dev, in-the-loop per costituzione come
-  ad agosto. Tre date passate in `## Scadenze` (24/8, 1/9, 8–10/9) sono tutte
-  annotate con l'esito da riconciliare: orologio manuale seguito, non fermo.
-  Coda di dominio.
-- **salute** — 4 task runtime, 0 dev; ad agosto erano 7 attivi (2 dev) più
-  7 sospesi in holding. La sezione holding non c'è più: la coda si è
-  **svuotata**, non spostata. `## Scadenze` porta solo appuntamenti datati,
-  tutti futuri tranne quello di oggi.
-- **crm** — prima baseline, contata a mano (niente `kb_tools.py`, per scelta
-  dichiarata) su `fae4824`: 6 nodi KB, 2 sintesi i2, 2 fili i3, 9 task tutti
-  dev, nessuna `## Scadenze`. La struttura ha retto al primo lavoro vero:
-  contratto `policies.v1`, semantica dei movimenti Danea e 4 viste generate
-  e fresche. Il plan però è fermo dal 2026-08-21: da allora solo
-  allineamento e manutenzione Docker. `/kb` non è ancora forkata
-  (divergenza dichiarata: arriverà coi primi strumenti deterministici).
-- **danea-auto** — controprofilo in produzione, fermo dal 2026-08-22: 4 nodi
-  KB, 2 sintesi i2, 1 filo i3, 3 task runtime (1 `world`), invariato dalla
-  baseline di agosto. Niente `presentation/` e niente `/commit`, divergenza
-  dichiarata («finché non hanno una funzione locale»). Qui l'audit non
-  certifica Danea, Task Scheduler né il backup: il marker lo esclude.
-
-Superfici e viste: `nixos`, `bi`, `economia`, `salute` e `crm` hanno le viste
-alla stessa data dell'ultima modifica delle fonti. `crm` è l'unico con la
-vista del plan (2026-09-08) più recente del plan stesso (2026-08-21): è una
-rigenerazione, non un drift. Nessuna vista a mano trovata. Il segnale del
-2026-08-01 su `economia` («cablaggio plan×`o2/` non esercitato») non si
-rilegge qui: resta una tensione, cfr. Limiti.
+- **nixos** — coda dev vuota, 8 task runtime (7 a settembre). Il
+  `goal.md` ha un obiettivo nuovo (3, inferenza locale, 2026-09-27) con i
+  suoi task. `/manutenzione` ha guadagnato il ramo `home-manager` e gira
+  ogni giorno su più host. La riga `(quotidiano)` porta ancora la data
+  2026-08-01: è lo stesso falso rosso di settembre, legato al segnale i1
+  `registro-perpetuo-vs-cattura-singola`.
+- **bi** — 11 task, 7 dev e 4 runtime (9 dev a settembre): la coda dev
+  scende mentre il lavoro è intenso (65 commit in una settimana, un giro
+  `eval`/`exec` quasi ogni giorno sul cantiere OEM). Timetable dei cinque
+  run automatizzati intatto. La semestrale concorrenza del 2026-07-31 è
+  ancora annotata come attesa, ora da due mesi.
+- **economia** — 16 task runtime, 0 dev, in-the-loop per costituzione.
+  `## Scadenze` densa e tutta futura, salvo un termine di oggi. Il link
+  `Ob.` è recepito nella sua vista generata.
+- **salute** — 4 task runtime, 0 dev, coda stabile dal 2026-09-27. Le
+  scadenze sono appuntamenti datati, tutti futuri.
+- **crm** — 9 task dev, plan fermo dal **2026-08-21**: 41 giorni. Dopo
+  il 24/9 i suoi soli commit sono allineamenti al canone. La tensione di
+  settembre si conferma: il canale col canone funziona, il dominio no.
+  È coda di dominio, non drift.
+- **danea-auto** — il controprofilo di settembre si è ribaltato: dal più
+  fermo al più attivo. 32 commit dal 24/9, 21 giri con `Esiti:`, coda
+  da 3 a 6 task runtime su guasti veri (Controlp, dialog Danea, run
+  fatali). Ha sciolto da solo le due divergenze dichiarate «finché non hanno
+  una funzione locale»: ha adottato `/commit` (con `valida_ahk.ps1` come
+  controllo sostanziale) e ha generato `presentation/`. Qui l'audit
+  continua a non certificare Danea, Task Scheduler né il backup.
 
 **Materiale per la clausola di uscita delle skill per arco**
-(`o2/rivalutazione-skill-per-arco.md`). Il conteggio è per commit, quindi un
-proxy, non il contenuto delle sessioni:
-
-- dal 2026-08-01 nessuno stadio è vuoto ovunque: tutti e sei gli adottanti,
-  più `metodo`, hanno commit che toccano `i2/` (da 2 a 32) e `o3/`;
-- in `bi` i giri `eval` scrivono quasi solo `i3/` e `o2/` (i1 = 2 commit,
-  i2 = 5, i3 = 64). La sua `interpret` è delegata agli script, col registry
-  `o3/lib/perception.js`: lo stadio esiste ma vive nel codice. È
-  l'accorpamento degli scope previsto dalla clausola, fatto spontaneamente;
-- il costo dell'assorbimento non risulta sentito in `salute` né in
-  `economia`: nessuna traccia nei fili o nei marker. `bi` lo cita solo in
-  anticipo, come motivo per non assorbire. Nel controfattuale, le skill
-  autonome di `nixos` si sono ridotte da sole;
-- gli **esiti nulli** per stadio, il criterio principale del «troppo», non
-  lasciano traccia versionata in nessun repo: con la misura attuale non si
-  possono contare.
+(`o2/rivalutazione-skill-per-arco.md`). Primo dato con la misura nuova,
+da non giudicare prima del 2026-11-01. Gli esiti `vuoto` adesso esistono e
+si contano. Il più frequente è `interpret=vuoto` in `bi`, in tutti e cinque
+i suoi giri `eval`. Conferma la lettura di settembre: la sua `interpret`
+vive negli script, lo stadio esiste ma la skill non lo esercita.
 
 Classificazione degli scostamenti:
 
-- **segnale i1**: marker `aligned` che non verifica le prescrizioni aperte,
-  consumato il 2026-09-25 da un passo nuovo di `/method`;
-- **nessuna prescrizione nuova**: il lessico ha già la sua prescrizione
-  aperta, manca il recepimento;
-- **coda di dominio**: la data aggregata di `nixos`, le date annotate di
-  `economia`, il plan fermo di `crm`, `danea-auto` fermo;
-- **per `exec perform`**: fatto il 2026-09-25. `chiusura-task-controlla-world`
-  è potata, e la nota stantia su `aggiorna-overlay`→`overlay` in
-  `o3/prescriptions.md` è corretta.
+- **segnale i1**: i builder della presentazione assumono il toolchain degli
+  host Linux. È la codifica delle chiamate a pandoc, più il pin di reveal.js
+  accoppiato a una versione di pandoc non fissata. Viene da `danea-auto` ed è
+  verificato nel canone (`i1/builder-presentazione-toolchain-host.md`);
+- **nessuna prescrizione nuova**: le aperte sono recepite o in attesa del
+  loro battito;
+- **coda di dominio**: la data aggregata di `nixos`, l'attesa semestrale di
+  `bi`, il plan fermo di `crm`;
+- **per `exec perform`**: niente. `obiettivo-del-plan-collegato-al-goal` è
+  potata il 2026-10-01 (`ff064c1`).
 
 ## Tensioni aperte
 
-- ripetibilità: tre battiti eseguiti, ma il terzo è arrivato con 23 giorni
-  di ritardo sulla scadenza. La cella runtime-o1 della matrice resta D: il
-  ritmo è dimostrato solo quando il battito arriva senza essere ricordato a
-  mano;
-- `crm`: il plan è fermo dal 2026-08-21 con 9 task dev. Al prossimo giro va
-  visto se riprende, o se la struttura adottata è rimasta scaffolding
-  intorno a un lavoro spostato altrove;
-- `danea-auto`: il ritardo di canone è chiuso (2026-09-25) e il repo è
-  ripartito anche nel dominio (`75b8685`, diagnostica dei run fatali). Il
-  prossimo giro verifica che il salto di 21 commit assorbito in una volta
-  abbia retto nei file e non solo nel marker;
-- il passo «Rileggi le prescrizioni aperte» di `/method`: collaudato su `bi`
-  (guidato), `nixos` e `crm` (residui non nominati dalla prescrizione); mancano i primi giri di
-  `economia`, `salute` e `danea-auto` (filo
-  `aligned-copre-prescrizioni-aperte`);
+- ripetibilità: il quarto battito è arrivato in tempo, ma lo ha ricordato
+  l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
+  cella runtime-o1 resta D finché il battito non parte da un innesco;
+- `crm`: 41 giorni di plan fermo con 9 task dev. Al prossimo giro: riprende
+  il dominio, o la struttura adottata è scaffolding intorno a un lavoro che
+  vive altrove? La domanda è per `crm`, non per il canone;
+- il toolchain della presentazione: il segnale i1 aspetta la valutazione.
+  Fissare la versione di pandoc nella build, o derivare l'URL di reveal.js
+  dalla versione di pandoc, cambia il contratto di tutti i fork;
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
-- `salute`: resta nella sua coda la domanda se la home basti a esercitare il
-  contratto plan×`o2/`;
-- la clausola di uscita delle skill per arco: decisa il 2026-09-24 sul
-  materiale di questo giro (la tripartizione resta, gli esiti per stadio vanno
-  nel trailer `Esiti:`). Il battito del 2026-11-01 verifica il recepimento
-  di `esiti-per-stadio-nel-commit` e conta i trailer.
+- la clausola di uscita delle skill per arco: il battito del 2026-11-01
+  conta gli esiti per stadio e per repository.
 
 ## Limiti
 
-- `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate:
-  richiedono una lettura qualitativa dei quartetti di bootstrap, fuori
-  dalla portata di un giro d'insieme su sei repo;
-- l'uso delle skill per arco è misurato per commit e messaggi, non per
-  sessioni: un giro concluso vuoto non lascia commit e resta invisibile;
-- Superfici remote verificate per struttura e marker, non col test di
-  freschezza sul contenuto (ultima modifica fonte vs vista): resta per un
-  giro con accesso pieno o per i `method-review` locali.
+- `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate nel
+  merito: richiedono una lettura qualitativa dei quartetti di bootstrap,
+  fuori dalla portata di un giro d'insieme su sei repo;
+- la rigenerazione dimostra che le viste sono fedeli ai builder del repo,
+  non che i builder siano fedeli al canone: quella è materia dei
+  `/method` locali;
+- un giro `eval`/`exec` vuoto ora lascia un commit con `Esiti:`, ma solo se
+  si è chiuso: una sessione interrotta resta invisibile.

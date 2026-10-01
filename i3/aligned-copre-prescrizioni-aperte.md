@@ -79,13 +79,21 @@ cronaca («recepimento dell'atrio», commenti di codice sulla «Fase B» in
 `bi`) e italiano comune. `semplificazione-lessico-struttura` è potata da
 `o3/`.
 
+## Terzo collaudo: `economia`, `salute` e `danea-auto`, 2026-09-30/10-01
+
+I tre che mancavano hanno girato `/method` fino a `47d8204` senza una
+prescrizione costruita su di loro. `salute` elenca nel marker l'esito di
+tutte e cinque le prescrizioni aperte: una non pertinente, una già
+soddisfatta, una già presente nei fork, una divergenza motivata, una
+recepita. `economia` e `danea-auto` riportano le prescrizioni dove le hanno
+toccate. Il battito `/adottanti` del 2026-10-01 le ha verificate nei file e
+ha trovato marker e file coincidenti in tutti e sei: la rilettura è rimasta
+una verifica, non un rito.
+
 ## Tensioni aperte
 
-- `economia`, `salute` e `danea-auto` non hanno ancora girato col passo: il
-  loro primo giro dirà se regge anche senza una prescrizione che li
-  riguardi, cioè se la rilettura resta una verifica o scivola in rito;
 - il battito `/adottanti` continua a verificare nei file e non nei marker,
-  finché i giri non mostrano che `aligned` e i file coincidono. Due giri in cui
-  coincidevano sono il primo dato; se il battito del
+  finché i giri non mostrano che `aligned` e i file coincidono. Tre giri in
+  cui coincidevano (2026-09-25, 2026-09-30, 2026-10-01): se il battito del
   2026-11-01 lo conferma, la verifica d'insieme delle prescrizioni si può
-  alleggerire.
+  alleggerire e il filo si chiude.

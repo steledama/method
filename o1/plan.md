@@ -25,11 +25,11 @@ recepimento di `o3/esiti-per-stadio-nel-commit.md`. Vedi
 
 ## Scadenze
 
-- 2026-10-01 → `/adottanti`, audit runtime-o1 dei sei adottanti (mensile;
-  il terzo battito è arrivato con 23 giorni di ritardo, il 2026-09-24) →
-  esiti nel filo [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro
-  verifica nei file, non nei marker, il recepimento del lessico in `bi`,
-  `crm` ed `economia`.
+- 2026-11-01 → `/adottanti`, audit runtime-o1 dei sei adottanti (mensile;
+  il quarto battito è arrivato puntuale, il 2026-10-01) → esiti nel filo
+  [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
+  trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
+  conferma o meno che `aligned` e i file coincidono.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

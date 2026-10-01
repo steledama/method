@@ -19,6 +19,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   secondo segnale prima di generalizzare (cfr. `de-cablaggio` e
   `criterio-world-substrato`, quest'ultimo chiuso, per lo stesso pattern di
   attesa).
+- [I builder della presentazione assumono il toolchain degli host
+  Linux](builder-presentazione-toolchain-host.md) — da danea-auto, primo fork
+  su Windows: le chiamate a pandoc in `build_lists.py` non fissano la codifica
+  (cp1252 rompe la build), e il pin `reveal.js@5.1.0` dipende dalla versione
+  di pandoc, che non è fissata (con la 3.12 le slide restano bianche).
+  Verificato nel canone; gli host Linux oggi non lo vedono.
 
 Le catture gemelle «`build_lists.py` assume `## Contenuti` come nome fisso
 della coda» (da `bi`) e «la presentazione eredita la domanda di i1 per

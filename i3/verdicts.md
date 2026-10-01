@@ -52,14 +52,13 @@ verificabile.
   in `exec plan`, review dedicata attende ricorrenza — misura:
   «Canale-perception funzionante»
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti` (terzo battito 2026-09-24, arretrato dal 1° settembre;
-  primo sui sei): tutti `aligned`, quattro a un commit dalla HEAD. Baseline
-  di `crm` e `danea-auto` fissate a mano. `chiusura-task-controlla-world` è
-  recepita da tutti e sei; il lessico `atrio`/`ali` è invece ancora vivo in
-  `bi`, `crm` ed `economia` sotto un marker `aligned`. È il secondo segnale
-  del watchpoint e passa a `i1/`. Il filo porta anche il materiale per la
-  clausola di uscita delle skill per arco — misura: «Propagare il canone e
-  chiudere il loop»
+  mensile `/adottanti` (quarto battito 2026-10-01, puntuale): tutti e sei a
+  `47d8204`, `aligned`, coincidente coi file; viste fresche in tutti e sei,
+  verificate per rigenerazione e non per date; `danea-auto` passa da fermo
+  al più attivo e genera `presentation/`, da cui risale un segnale i1 sul
+  toolchain dei builder; `crm` ha il plan fermo da 41 giorni. Primo
+  conteggio dei trailer `Esiti:` in cinque repo, da giudicare il 2026-11-01
+  — misura: «Propagare il canone e chiudere il loop»
 - [ricorrenza-per-battito.md](ricorrenza-per-battito.md) — la riga di
   `## Scadenze` ha per soggetto il battito (invocazione + porzione di mondo),
   non la skill: canone rafforzato in `skill`/`plan` da `update` (nixos),
@@ -105,8 +104,7 @@ verificabile.
   misura: «Custodire un canone coerente e fedele alle fonti»
 - [aligned-copre-prescrizioni-aperte.md](aligned-copre-prescrizioni-aperte.md)
   — `/method` rilegge a ogni giro le prescrizioni aperte in `o3/` e `aligned`
-  le copre; consuma il segnale del 2026-09-24; collaudato su `bi` (guidato),
-  `nixos` e `crm` (residui non nominati dalla prescrizione), prescrizione sul lessico potata; restano i
-  primi giri di `economia`, `salute` e `danea-auto` —
-  misura: «Propagare il canone e chiudere il
-  loop con gli adottanti»
+  le copre; consuma il segnale del 2026-09-24; ha girato in tutti e sei, con
+  marker e file coincidenti in tre giri; si chiude se il battito del
+  2026-11-01 lo conferma — misura: «Propagare il canone e chiudere il loop
+  con gli adottanti»
