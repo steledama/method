@@ -348,6 +348,89 @@ def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
         raise SystemExit("contratto plan × o2 violato:\n- " + "\n- ".join(errors))
 
 
+@dataclass(frozen=True)
+class Thread:
+    name: str
+    title: str
+    ciclo: str
+    obiettivo: str
+    body: str
+
+
+def i3_index(root: Path) -> list[str]:
+    """I file di `i3/` nell'ordine curato dell'indice `i3/verdicts.md`."""
+    index = root / "i3" / "verdicts.md"
+    if not index.exists():
+        return []
+    names: list[str] = []
+    for match in _INDEX_ENTRY.finditer(index.read_text(encoding="utf-8")):
+        href = match.group(1)
+        if "/" not in href and href != "verdicts.md" and href not in names:
+            names.append(href)
+    return names
+
+
+def parse_thread(root: Path, name: str) -> Thread:
+    meta, body = split_frontmatter((root / "i3" / name).read_text(encoding="utf-8"))
+    title = first_h1(body, name.removesuffix(".md"))
+    body = re.sub(r"^# .*\n?", "", body, count=1, flags=re.MULTILINE).strip()
+    return Thread(
+        name=name,
+        title=title,
+        ciclo=meta.get("ciclo", ""),
+        obiettivo=meta.get("obiettivo", ""),
+        body=body,
+    )
+
+
+def check_verdict_contract(root: Path) -> list[Thread]:
+    """Legge `i3/` come contratto: indice, file e obiettivi devono coincidere.
+
+    Un filo misura un obiettivo di `goal.md` o non è un filo (`kb/verdict.md`,
+    «Che cosa è un filo»): una chiave vuota o assente dal register rompe la
+    build, come la colonna `Ob.` del plan. Un file fuori indice o una voce
+    senza file sono due fonti dello stesso fatto che divergono.
+    """
+    errors: list[str] = []
+    indexed = i3_index(root)
+    on_disk = sorted(path.name for path in (root / "i3").glob("*.md") if path.name != "verdicts.md")
+    for name in indexed:
+        if name not in on_disk:
+            errors.append(f"i3/{name}: voce di i3/verdicts.md senza file")
+    for name in on_disk:
+        if name not in indexed:
+            errors.append(f"i3/{name}: file non indicizzato in i3/verdicts.md")
+    keys = goal_keys(root)
+    threads: list[Thread] = []
+    for name in (name for name in indexed if name in on_disk):
+        thread = parse_thread(root, name)
+        if thread.ciclo not in {"dev", "runtime"}:
+            errors.append(f"i3/{name}: frontmatter ciclo «{thread.ciclo}» non è dev|runtime")
+        if not thread.obiettivo:
+            errors.append(f"i3/{name}: nessun obiettivo nel frontmatter (obiettivo:)")
+        else:
+            unknown = [k.strip() for k in thread.obiettivo.split(",") if k.strip() not in keys]
+            if unknown:
+                errors.append(f"i3/{name}: obiettivi assenti dal register ({', '.join(unknown)})")
+        threads.append(thread)
+    if errors:
+        raise SystemExit("contratto i3 × goal violato:\n- " + "\n- ".join(errors))
+    return threads
+
+
+def demote_headings(markdown: str) -> str:
+    """Scende ogni intestazione di un livello, fuori dai blocchi di codice."""
+    lines: list[str] = []
+    fenced = False
+    for line in markdown.splitlines():
+        if line.startswith(("```", "~~~")):
+            fenced = not fenced
+        if not fenced and re.match(r"^#{1,5}\s", line):
+            line = "#" + line
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def parse_task(root: Path, relative: str) -> TaskDetail:
     path = root / relative
     meta, body = split_frontmatter(path.read_text(encoding="utf-8"))

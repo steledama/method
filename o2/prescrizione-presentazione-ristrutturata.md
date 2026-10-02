@@ -9,7 +9,7 @@ Ultimo task della ristrutturazione della presentazione (2026-10-02). Si
 scrive dopo che gli altri task si sono chiusi in `metodo`:
 `presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`),
 `revisione-verdetti-contro-obiettivi` (chiuso),
-[indice-dei-confronti](indice-dei-confronti.md),
+`indice-dei-confronti` (chiuso),
 `condizioni-di-risveglio-nella-vista` (chiuso)
 e `server-lan-della-presentazione` (chiuso).
 
@@ -49,7 +49,14 @@ l'indice dei Confronti rende quello che decide.
   col criterio inciso in `kb/verdict.md` (confronto vero, motivazione da
   spostare, cursore). Ne esce `obiettivo:` nel frontmatter. Il giudizio
   spetta al `/method` dell'adottante, non a `metodo`. Le skill locali che
-  citano i path dei builder si riallineano su `o3/presentation/build.sh`.
+  citano i path dei builder si riallineano su `o3/presentation/build.py`.
+- **Il contratto i3 × goal sui sei, oggi** (prova a secco in sola lettura,
+  2026-10-02): nessun adottante ha ancora `obiettivo:` nei fili, quindi la
+  build li fermerebbe tutti. Le violazioni sono 7 in `nixos`, `bi` ed
+  `economia`, 8 in `salute`, 3 in `crm` e 5 in `danea-auto`. In `bi` il
+  cursore `i3/allineamento-metodo.md` è anche fuori indice. Il cursore
+  dichiara un obiettivo come ogni altro file di `i3/`: negli adottanti la
+  sua `misura:` era già il Goal di sviluppo.
 
 ## Criterio di chiusura
 

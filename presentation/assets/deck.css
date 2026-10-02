@@ -178,6 +178,10 @@
   width: 32%;
 }
 
+.reveal .verdict-thread {
+  width: 81%;
+}
+
 .reveal .plan-overview th,
 .reveal .plan-overview td {
   overflow-wrap: anywhere;
@@ -204,4 +208,26 @@
   font-size: 1.15em;
   margin: 0.8em 0 0.3em;
   text-transform: none;
+}
+
+/* Un filo i3 per slide: il corpo scorre se lungo, le sue sezioni sono h3. */
+.reveal .thread {
+  font-size: 0.62em;
+  line-height: 1.35;
+  max-height: 470px;
+  overflow: auto;
+}
+
+.reveal .thread h3,
+.reveal .thread h4 {
+  color: var(--ink);
+  font-size: 1.15em;
+  margin: 0.8em 0 0.3em;
+  text-transform: none;
+}
+
+/* I titoli dei fili sono frasi lunghe: più piccoli dei titoli di vista. */
+.reveal section[id^="filo-"] h2 {
+  font-size: 1.05em;
+  line-height: 1.2;
 }

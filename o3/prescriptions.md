@@ -65,7 +65,9 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     la legenda interna degli obiettivi e, in una slide, tutto ciò che nel plan
     segue la tabella: legenda delle dipendenze, risvegli, scadenze; le chiavi
     `p<n>`/`w<n>` della colonna Dip. vi puntano e senza voce rompono) e
-    `verdict`;
+    `verdict` (indice Ciclo · Ob. · Filo nell'ordine di `../i3/verdicts.md`,
+    poi un filo per slide; contratto i3 × goal: ogni file indicizzato, ogni
+    voce col suo file, `obiettivo:` verificato contro `../goal.md`);
   - `build_lists.py` — le due viste a elenco `prescriptions.html` e
     `perceptions.html`: l'intero indice reso con Pandoc, nell'ordine e con la
     struttura della fonte; i link alle fonti restano etichetta. Regressioni:

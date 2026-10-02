@@ -5,5 +5,4 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 ## Contenuti
 
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al battito del 2026-11-01 sui numeri registrati.
-- [indice-dei-confronti.md](indice-dei-confronti.md) — indice Ciclo · Ob. · Filo in apertura di `verdict.html`, ordine e contratto da `i3/verdicts.md`, `obiettivo:` nel frontmatter dei fili verificato contro `goal.md` al posto della `misura:` testuale; rende quello che la revisione dei verdetti decide.
 - [prescrizione-presentazione-ristrutturata.md](prescrizione-presentazione-ristrutturata.md) — un solo runbook `o3/` che porta ai sei i cambi insieme, revisione dei verdetti per prima, con indizi per repo.

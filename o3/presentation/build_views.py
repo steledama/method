@@ -7,7 +7,15 @@ import re
 from html import escape
 from pathlib import Path
 
-from sources import check_plan_contract, goal_titles, label, parse_plan, parse_task
+from sources import (
+    check_plan_contract,
+    check_verdict_contract,
+    demote_headings,
+    goal_titles,
+    label,
+    parse_plan,
+    parse_task,
+)
 
 
 def repo_root() -> Path:
@@ -32,11 +40,11 @@ def goal_links(obiettivo: str | None, markdown: bool) -> str:
     return ", ".join(links)
 
 
-def goals_slide(root: Path) -> list[str]:
+def goals_slide(root: Path, back: str, anchor: str) -> list[str]:
     lines = [f"## {label('goals')} {{#obiettivi}}", ""]
     for key, title in goal_titles(root).items():
         lines.append(f"- **{key}** — {title}")
-    return lines + ["", f"[↩ {label('plan')}](#/plan)", ""]
+    return lines + ["", f"[↩ {label(back)}](#/{anchor})", ""]
 
 
 _WAKE_KEY = re.compile(r"\b[pw]\d+\b")
@@ -117,7 +125,7 @@ def task_view(root: Path) -> str:
             f"[↩ {label('plan')}](#/plan)",
             "",
         ]
-    lines += goals_slide(root)
+    lines += goals_slide(root, "plan", "plan")
 
     for index, row in enumerate(rows, 1):
         # Una riga senza dettaglio `o2/` è legittima (`kb/tasks.md`: il file
@@ -142,16 +150,48 @@ def task_view(root: Path) -> str:
 
 
 def verdict_view(root: Path) -> str:
-    parts: list[str] = []
-    for path in sorted((root / "i3").glob("*.md")):
-        if path.name == "verdicts.md":
-            continue
-        text = path.read_text(encoding="utf-8")
-        if text.startswith("---\n"):
-            text = text.split("---\n", 2)[2].lstrip()
-        text = re.sub(r"^# ", "## ", text, count=1, flags=re.MULTILINE)
-        parts += [text.rstrip(), ""]
-    return "\n".join(parts).rstrip() + "\n"
+    """Indice dei fili nell'ordine di `i3/verdicts.md`, poi un filo per slide.
+
+    Stessa forma della coda del plan (Ciclo · Ob. · Filo): ogni filo dichiara
+    l'obiettivo che misura, e il contratto l'ha già verificato contro il
+    register. Le intestazioni interne del filo scendono di un livello, così
+    il filo resta una slide che scorre invece di spezzarsi in slide sciolte.
+    """
+    threads = check_verdict_contract(root)
+    lines = [f"## {label('verdict')} {{#verdetti}}", ""]
+    if not threads:
+        return "\n".join(lines + ["Nessun filo aperto.", ""])
+    lines += [
+        '<div class="plan-overview" tabindex="0" role="region" aria-label="Indice dei fili">',
+        "<table><caption>Fili aperti, misurati contro gli obiettivi</caption>",
+        '<colgroup><col class="plan-cycle"><col class="plan-goal">'
+        '<col class="verdict-thread"></colgroup>',
+        '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
+        '<th scope="col">Filo</th></tr></thead><tbody>',
+    ]
+    for index, thread in enumerate(threads, 1):
+        lines.append(
+            f"<tr><td>{escape(thread.ciclo)}</td>"
+            f"<td>{goal_links(thread.obiettivo, markdown=False)}</td>"
+            f'<td><a href="#/filo-{index}">{escape(re.sub(r"`", "", thread.title))}</a></td></tr>'
+        )
+    lines += ["</tbody></table></div>", ""]
+    lines += goals_slide(root, "verdict", "verdetti")
+    for index, thread in enumerate(threads, 1):
+        meta = f"ciclo: `{thread.ciclo}` · obiettivo: {goal_links(thread.obiettivo, markdown=True)}"
+        lines += [
+            f"## {thread.title} {{#filo-{index}}}",
+            "",
+            "::: thread",
+            meta,
+            "",
+            demote_headings(thread.body),
+            ":::",
+            "",
+            f"[↩ {label('verdict')}](#/verdetti)",
+            "",
+        ]
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def main() -> None:

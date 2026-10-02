@@ -72,646 +72,761 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section
-          id="audit-runtime-o1-la-distanza-degli-adottanti-dal-telos"
-          class="slide level2"
-        >
+        <section id="verdetti" class="slide level2">
+          <h2>Method Verdicts</h2>
+          <div
+            class="plan-overview"
+            tabindex="0"
+            role="region"
+            aria-label="Indice dei fili"
+          >
+            <table>
+              <caption>
+                Fili aperti, misurati contro gli obiettivi
+              </caption>
+              <colgroup>
+                <col class="plan-cycle" />
+                <col class="plan-goal" />
+                <col class="verdict-thread" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Ciclo</th>
+                  <th scope="col">Ob.</th>
+                  <th scope="col">Filo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>runtime</td>
+                  <td>
+                    <a href="#/obiettivi">2</a>
+                  </td>
+                  <td>
+                    <a href="#/filo-1"
+                      >Audit runtime-o1: la distanza degli adottanti dal
+                      telos</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>dev</td>
+                  <td>
+                    <a href="#/obiettivi">1</a>
+                  </td>
+                  <td>
+                    <a href="#/filo-2"
+                      >Le skill si tagliano per arco: la tripartizione eval/exec
+                      regge?</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>dev</td>
+                  <td>
+                    <a href="#/obiettivi">1</a>
+                  </td>
+                  <td>
+                    <a href="#/filo-3"
+                      >Le ipotesi del canone attendono una verifica empirica
+                      distinta dalla coerenza interna</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>dev</td>
+                  <td>
+                    <a href="#/obiettivi">S</a>
+                  </td>
+                  <td>
+                    <a href="#/filo-4"
+                      >I builder della presentazione assumono un toolchain che
+                      non dichiarano</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>runtime</td>
+                  <td>
+                    <a href="#/obiettivi">S</a>
+                  </td>
+                  <td>
+                    <a href="#/filo-5"
+                      >Il verdetto deriva verso la storia migliore: dove passa
+                      il confine della ricostruzione delegabile?</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="obiettivi" class="slide level2">
+          <h2>Method Goals</h2>
+          <ul>
+            <li>
+              <strong>1</strong> — Custodire un canone coerente e fedele alle
+              fonti
+            </li>
+            <li>
+              <strong>2</strong> — Propagare il canone e chiudere il loop con
+              gli adottanti
+            </li>
+            <li><strong>3</strong> — Ascoltare il basso</li>
+            <li><strong>S</strong> — Goal di sviluppo</li>
+          </ul>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
+        </section>
+        <section id="filo-1" class="slide level2">
           <h2>Audit runtime-o1: la distanza degli adottanti dal telos</h2>
-          <p>
-            Verdetto aggregato dell’audit mensile <code>/adottanti</code>,
-            aggiornato in place a ogni giro. Ultimo giro:
-            <strong>2026-10-01</strong>, quarto battito, puntuale sulla scadenza
-            (HEAD <code>ff064c1</code>). Le letture sono fatte su
-            <code>origin</code> dopo un <code>git fetch</code>:
-            <code>economia</code> e <code>salute</code> su <code>deck</code>,
-            <code>nixos</code>, <code>bi</code>, <code>crm</code> e
-            <code>danea-auto</code> su <code>svezia</code>. La copia locale di
-            <code>danea-auto</code> su <code>svezia</code> è 17 commit dietro
-            origin: è stantia, non in drift.
-          </p>
-        </section>
-        <section id="verdetto" class="slide level2">
-          <h2>Verdetto</h2>
-          <p>
-            <strong
-              >Canale del canone: tutti e sei alla HEAD del canone
-              recepibile.</strong
-            >
-            Ogni marker è a <code>47d8204</code>, <code>aligned</code>: l’unico
-            commit successivo, <code>ff064c1</code>, è la potatura della
-            prescrizione che quei marker hanno recepito. Il recepimento del link
-            <code>Ob.</code>→<code>goal.md</code> è verificato nei file, non nei
-            marker: in tutte e sei le <code>tasks.html</code> le ancore
-            corrispondono alle intestazioni del rispettivo <code>goal.md</code>.
-          </p>
-          <p><strong>Prescrizioni aperte, verificate nei file:</strong></p>
-          <ul>
-            <li>
-              <code>esiti-per-stadio-nel-commit</code> — il trailer
-              <code>Esiti:</code> è nei fork di <code>eval</code>/<code
-                >exec</code
+          <div class="thread">
+            <p>
+              ciclo: <code>runtime</code> · obiettivo:
+              <a href="#//obiettivi"><code>2</code></a>
+            </p>
+            <p>
+              Verdetto aggregato dell’audit mensile <code>/adottanti</code>,
+              aggiornato in place a ogni giro. Ultimo giro:
+              <strong>2026-10-01</strong>, quarto battito, puntuale sulla
+              scadenza (HEAD <code>ff064c1</code>). Le letture sono fatte su
+              <code>origin</code> dopo un <code>git fetch</code>:
+              <code>economia</code> e <code>salute</code> su <code>deck</code>,
+              <code>nixos</code>, <code>bi</code>, <code>crm</code> e
+              <code>danea-auto</code> su <code>svezia</code>. La copia locale di
+              <code>danea-auto</code> su <code>svezia</code> è 17 commit dietro
+              origin: è stantia, non in drift.
+            </p>
+            <h3 id="verdetto">Verdetto</h3>
+            <p>
+              <strong
+                >Canale del canone: tutti e sei alla HEAD del canone
+                recepibile.</strong
               >
-              di tutti e sei, e cinque lo scrivono davvero dal recepimento del
-              2026-09-25: <code>danea-auto</code> 21 giri,
-              <code>economia</code> 9, <code>bi</code> 8, <code>nixos</code> 2,
-              <code>salute</code> 2. <code>crm</code> non ha fatto giri, quindi
-              non ha righe: il <code>git log</code> lo conferma, non è un buco
-              di registrazione. La prescrizione resta attiva fino al conteggio
-              del 2026-11-01;
-            </li>
-            <li>
-              <code>liste-o3-i1-fedeli-alla-fonte</code> — ha un esito in tutti
-              e sei, ma non sempre è un recepimento. La riscrittura Pandoc è nei
-              file di <code>nixos</code>, <code>bi</code> e
-              <code>danea-auto</code>, che ha forkato i builder per la prima
-              volta. <code>economia</code> e <code>salute</code> tengono il
-              proprio renderer Python con una divergenza motivata nel marker: i
-              loro indici non hanno gerarchie che il renderer appiattisce, e in
-              <code>economia</code> Pandoc non è nel <code>flake.nix</code>.
-              <code>crm</code> non ha viste a elenco: non si applica. Potata il
-              2026-10-01;
-            </li>
-            <li>
-              <code>revisione-bootstrap-adottante</code> e
-              <code>ingresso-adottante</code> — non verificate nel merito (cfr.
-              Limiti); <code>salute</code> le dichiara una soddisfatta e una non
-              pertinente.
-            </li>
-          </ul>
-          <p>
-            <strong
-              >Il passo «Rileggi le prescrizioni aperte» di
-              <code>/method</code> ha girato in tutti e sei.</strong
-            >
-            <code>economia</code>, <code>salute</code> e
-            <code>danea-auto</code>, che mancavano, l’hanno fatto col giro fino
-            a <code>47d8204</code>. <code>salute</code> elenca nel marker
-            l’esito di ognuna delle cinque prescrizioni aperte. Gli altri due le
-            riportano nei soli adattamenti dove le hanno toccate. È il terzo
-            giro in cui <code>aligned</code> e i file coincidono:
-            <code>aligned</code> copre ora anche le prescrizioni aperte, e il
-            marker non avanza finché una pertinente resta senza esito.
-          </p>
-          <p>
-            <strong
-              >Superfici e viste: fresche in tutti e sei, verificate per
-              rigenerazione.</strong
-            >
-            Ogni repo è stato estratto da <code>origin</code> in una cartella
-            temporanea e ricostruito coi propri builder. In cinque la
-            rigenerazione è identica alle viste versionate. In
-            <code>danea-auto</code> cambia solo il CSS di default di pandoc: le
-            viste sono state costruite su Windows con pandoc 3.12,
-            <code>svezia</code> ha la 3.7.0.2. È toolchain, non contenuto. Il
-            confronto per date, la lente del giro precedente, segnalava invece
-            viste più vecchie della fonte in <code>economia</code>,
-            <code>salute</code>, <code>bi</code> e <code>crm</code>. Erano tutti
-            falsi rossi: la fonte era cambiata fuori dalla parte che la vista
-            rende, per esempio <code>world.md</code> sotto la sua intro. Nessuna
-            vista a mano.
-          </p>
-          <p>
-            Fotografia delle code (<code>development-goal</code>, pesata sulla
-            gradualità di dominio):
-          </p>
-          <ul>
-            <li>
-              <strong>nixos</strong> — coda dev vuota, 8 task runtime (7 a
-              settembre). Il <code>goal.md</code> ha un obiettivo nuovo (3,
-              inferenza locale, 2026-09-27) con i suoi task.
-              <code>/manutenzione</code> ha guadagnato il ramo
-              <code>home-manager</code> e gira ogni giorno su più host. La riga
-              <code>(quotidiano)</code> porta ancora la data 2026-08-01: è lo
-              stesso falso rosso di settembre, legato al segnale i1
-              <code>registro-perpetuo-vs-cattura-singola</code>.
-            </li>
-            <li>
-              <strong>bi</strong> — 11 task, 7 dev e 4 runtime (9 dev a
-              settembre): la coda dev scende mentre il lavoro è intenso (65
-              commit in una settimana, un giro <code>eval</code>/<code
-                >exec</code
+              Ogni marker è a <code>47d8204</code>, <code>aligned</code>:
+              l’unico commit successivo, <code>ff064c1</code>, è la potatura
+              della prescrizione che quei marker hanno recepito. Il recepimento
+              del link <code>Ob.</code>→<code>goal.md</code> è verificato nei
+              file, non nei marker: in tutte e sei le <code>tasks.html</code> le
+              ancore corrispondono alle intestazioni del rispettivo
+              <code>goal.md</code>.
+            </p>
+            <p><strong>Prescrizioni aperte, verificate nei file:</strong></p>
+            <ul>
+              <li>
+                <code>esiti-per-stadio-nel-commit</code> — il trailer
+                <code>Esiti:</code> è nei fork di <code>eval</code>/<code
+                  >exec</code
+                >
+                di tutti e sei, e cinque lo scrivono davvero dal recepimento del
+                2026-09-25: <code>danea-auto</code> 21 giri,
+                <code>economia</code> 9, <code>bi</code> 8,
+                <code>nixos</code> 2, <code>salute</code> 2.
+                <code>crm</code> non ha fatto giri, quindi non ha righe: il
+                <code>git log</code> lo conferma, non è un buco di
+                registrazione. La prescrizione resta attiva fino al conteggio
+                del 2026-11-01;
+              </li>
+              <li>
+                <code>liste-o3-i1-fedeli-alla-fonte</code> — ha un esito in
+                tutti e sei, ma non sempre è un recepimento. La riscrittura
+                Pandoc è nei file di <code>nixos</code>, <code>bi</code> e
+                <code>danea-auto</code>, che ha forkato i builder per la prima
+                volta. <code>economia</code> e <code>salute</code> tengono il
+                proprio renderer Python con una divergenza motivata nel marker:
+                i loro indici non hanno gerarchie che il renderer appiattisce, e
+                in <code>economia</code> Pandoc non è nel
+                <code>flake.nix</code>. <code>crm</code> non ha viste a elenco:
+                non si applica. Potata il 2026-10-01;
+              </li>
+              <li>
+                <code>revisione-bootstrap-adottante</code> e
+                <code>ingresso-adottante</code> — non verificate nel merito
+                (cfr. Limiti); <code>salute</code> le dichiara una soddisfatta e
+                una non pertinente.
+              </li>
+            </ul>
+            <p>
+              <strong
+                >Il passo «Rileggi le prescrizioni aperte» di
+                <code>/method</code> ha girato in tutti e sei.</strong
               >
-              quasi ogni giorno sul cantiere OEM). Timetable dei cinque run
-              automatizzati intatto. La semestrale concorrenza del 2026-07-31 è
-              ancora annotata come attesa, ora da due mesi.
-            </li>
-            <li>
-              <strong>economia</strong> — 16 task runtime, 0 dev, in-the-loop
-              per costituzione. <code>## Scadenze</code> densa e tutta futura,
-              salvo un termine di oggi. Il link <code>Ob.</code> è recepito
-              nella sua vista generata.
-            </li>
-            <li>
-              <strong>salute</strong> — 4 task runtime, 0 dev, coda stabile dal
-              2026-09-27. Le scadenze sono appuntamenti datati, tutti futuri.
-            </li>
-            <li>
-              <strong>crm</strong> — 9 task dev, plan fermo dal
-              <strong>2026-08-21</strong>: 41 giorni. Dopo il 24/9 i suoi soli
-              commit sono allineamenti al canone. La tensione di settembre si
-              conferma: il canale col canone funziona, il dominio no. È coda di
-              dominio, non drift.
-            </li>
-            <li>
-              <strong>danea-auto</strong> — il controprofilo di settembre si è
-              ribaltato: dal più fermo al più attivo. 32 commit dal 24/9, 21
-              giri con <code>Esiti:</code>, coda da 3 a 6 task runtime su guasti
-              veri (Controlp, dialog Danea, run fatali). Ha sciolto da solo le
-              due divergenze dichiarate «finché non hanno una funzione locale»:
-              ha adottato <code>/commit</code> (con
-              <code>valida_ahk.ps1</code> come controllo sostanziale) e ha
-              generato <code>presentation/</code>. Qui l’audit continua a non
-              certificare Danea, Task Scheduler né il backup.
-            </li>
-          </ul>
-          <p>
-            <strong
-              >Materiale per la clausola di uscita delle skill per arco</strong
-            >
-            (<code>o2/rivalutazione-skill-per-arco.md</code>). Primo dato con la
-            misura nuova, da non giudicare prima del 2026-11-01. Gli esiti
-            <code>vuoto</code> adesso esistono e si contano. Il più frequente è
-            <code>interpret=vuoto</code> in <code>bi</code>, in tutti e cinque i
-            suoi giri <code>eval</code>. Conferma la lettura di settembre: la
-            sua <code>interpret</code> vive negli script, lo stadio esiste ma la
-            skill non lo esercita.
-          </p>
-          <p>Classificazione degli scostamenti:</p>
-          <ul>
-            <li>
-              <strong>segnale i1</strong>: i builder della presentazione
-              assumono il toolchain degli host Linux. È la codifica delle
-              chiamate a pandoc, più il pin di reveal.js accoppiato a una
-              versione di pandoc non fissata. Viene da <code>danea-auto</code>,
-              è verificato nel canone ed è valutato nel filo
-              <code>toolchain-builder-presentazione</code>;
-            </li>
-            <li>
-              <strong>nessuna prescrizione nuova</strong>: le aperte sono
-              recepite o in attesa del loro battito;
-            </li>
-            <li>
-              <strong>coda di dominio</strong>: la data aggregata di
-              <code>nixos</code>, l’attesa semestrale di <code>bi</code>, il
-              plan fermo di <code>crm</code>;
-            </li>
-            <li>
-              <strong>per <code>exec perform</code></strong
-              >: <code>obiettivo-del-plan-collegato-al-goal</code> è potata il
-              2026-10-01 (<code>ff064c1</code>),
-              <code>liste-o3-i1-fedeli-alla-fonte</code> lo stesso giorno, dopo
-              la verifica nei file.
-            </li>
-          </ul>
+              <code>economia</code>, <code>salute</code> e
+              <code>danea-auto</code>, che mancavano, l’hanno fatto col giro
+              fino a <code>47d8204</code>. <code>salute</code> elenca nel marker
+              l’esito di ognuna delle cinque prescrizioni aperte. Gli altri due
+              le riportano nei soli adattamenti dove le hanno toccate. È il
+              terzo giro in cui <code>aligned</code> e i file coincidono:
+              <code>aligned</code> copre ora anche le prescrizioni aperte, e il
+              marker non avanza finché una pertinente resta senza esito.
+            </p>
+            <p>
+              <strong
+                >Superfici e viste: fresche in tutti e sei, verificate per
+                rigenerazione.</strong
+              >
+              Ogni repo è stato estratto da <code>origin</code> in una cartella
+              temporanea e ricostruito coi propri builder. In cinque la
+              rigenerazione è identica alle viste versionate. In
+              <code>danea-auto</code> cambia solo il CSS di default di pandoc:
+              le viste sono state costruite su Windows con pandoc 3.12,
+              <code>svezia</code> ha la 3.7.0.2. È toolchain, non contenuto. Il
+              confronto per date, la lente del giro precedente, segnalava invece
+              viste più vecchie della fonte in <code>economia</code>,
+              <code>salute</code>, <code>bi</code> e <code>crm</code>. Erano
+              tutti falsi rossi: la fonte era cambiata fuori dalla parte che la
+              vista rende, per esempio <code>world.md</code> sotto la sua intro.
+              Nessuna vista a mano.
+            </p>
+            <p>
+              Fotografia delle code (<code>development-goal</code>, pesata sulla
+              gradualità di dominio):
+            </p>
+            <ul>
+              <li>
+                <strong>nixos</strong> — coda dev vuota, 8 task runtime (7 a
+                settembre). Il <code>goal.md</code> ha un obiettivo nuovo (3,
+                inferenza locale, 2026-09-27) con i suoi task.
+                <code>/manutenzione</code> ha guadagnato il ramo
+                <code>home-manager</code> e gira ogni giorno su più host. La
+                riga <code>(quotidiano)</code> porta ancora la data 2026-08-01:
+                è lo stesso falso rosso di settembre, legato al segnale i1
+                <code>registro-perpetuo-vs-cattura-singola</code>.
+              </li>
+              <li>
+                <strong>bi</strong> — 11 task, 7 dev e 4 runtime (9 dev a
+                settembre): la coda dev scende mentre il lavoro è intenso (65
+                commit in una settimana, un giro <code>eval</code>/<code
+                  >exec</code
+                >
+                quasi ogni giorno sul cantiere OEM). Timetable dei cinque run
+                automatizzati intatto. La semestrale concorrenza del 2026-07-31
+                è ancora annotata come attesa, ora da due mesi.
+              </li>
+              <li>
+                <strong>economia</strong> — 16 task runtime, 0 dev, in-the-loop
+                per costituzione. <code>## Scadenze</code> densa e tutta futura,
+                salvo un termine di oggi. Il link <code>Ob.</code> è recepito
+                nella sua vista generata.
+              </li>
+              <li>
+                <strong>salute</strong> — 4 task runtime, 0 dev, coda stabile
+                dal 2026-09-27. Le scadenze sono appuntamenti datati, tutti
+                futuri.
+              </li>
+              <li>
+                <strong>crm</strong> — 9 task dev, plan fermo dal
+                <strong>2026-08-21</strong>: 41 giorni. Dopo il 24/9 i suoi soli
+                commit sono allineamenti al canone. La tensione di settembre si
+                conferma: il canale col canone funziona, il dominio no. È coda
+                di dominio, non drift.
+              </li>
+              <li>
+                <strong>danea-auto</strong> — il controprofilo di settembre si è
+                ribaltato: dal più fermo al più attivo. 32 commit dal 24/9, 21
+                giri con <code>Esiti:</code>, coda da 3 a 6 task runtime su
+                guasti veri (Controlp, dialog Danea, run fatali). Ha sciolto da
+                solo le due divergenze dichiarate «finché non hanno una funzione
+                locale»: ha adottato <code>/commit</code> (con
+                <code>valida_ahk.ps1</code> come controllo sostanziale) e ha
+                generato <code>presentation/</code>. Qui l’audit continua a non
+                certificare Danea, Task Scheduler né il backup.
+              </li>
+            </ul>
+            <p>
+              <strong
+                >Materiale per la clausola di uscita delle skill per
+                arco</strong
+              >
+              (<code>o2/rivalutazione-skill-per-arco.md</code>). Primo dato con
+              la misura nuova, da non giudicare prima del 2026-11-01. Gli esiti
+              <code>vuoto</code> adesso esistono e si contano. Il più frequente
+              è <code>interpret=vuoto</code> in <code>bi</code>, in tutti e
+              cinque i suoi giri <code>eval</code>. Conferma la lettura di
+              settembre: la sua <code>interpret</code> vive negli script, lo
+              stadio esiste ma la skill non lo esercita.
+            </p>
+            <p>Classificazione degli scostamenti:</p>
+            <ul>
+              <li>
+                <strong>segnale i1</strong>: i builder della presentazione
+                assumono il toolchain degli host Linux. È la codifica delle
+                chiamate a pandoc, più il pin di reveal.js accoppiato a una
+                versione di pandoc non fissata. Viene da
+                <code>danea-auto</code>, è verificato nel canone ed è valutato
+                nel filo <code>toolchain-builder-presentazione</code>;
+              </li>
+              <li>
+                <strong>nessuna prescrizione nuova</strong>: le aperte sono
+                recepite o in attesa del loro battito;
+              </li>
+              <li>
+                <strong>coda di dominio</strong>: la data aggregata di
+                <code>nixos</code>, l’attesa semestrale di <code>bi</code>, il
+                plan fermo di <code>crm</code>;
+              </li>
+              <li>
+                <strong>per <code>exec perform</code></strong
+                >: <code>obiettivo-del-plan-collegato-al-goal</code> è potata il
+                2026-10-01 (<code>ff064c1</code>),
+                <code>liste-o3-i1-fedeli-alla-fonte</code> lo stesso giorno,
+                dopo la verifica nei file.
+              </li>
+            </ul>
+            <h3 id="tensioni-aperte">Tensioni aperte</h3>
+            <ul>
+              <li>
+                <code>aligned</code> e file: coincidono da tre giri (2026-09-25,
+                2026-09-30, 2026-10-01). Finché non è confermato, il battito
+                verifica le prescrizioni nei file e non nei marker; se il
+                2026-11-01 coincidono ancora, la verifica d’insieme si
+                alleggerisce;
+              </li>
+              <li>
+                <code>revisione-bootstrap-adottante</code>: la prescrizione
+                resta aperta finché i sei registrano nel marker un esito sulla
+                revisione coordinata di README, CLAUDE, Goal e World, divergenze
+                motivate incluse. Il merito non si verifica in un giro d’insieme
+                (cfr. Limiti);
+              </li>
+              <li>
+                ripetibilità: il quarto battito è arrivato in tempo, ma lo ha
+                ricordato l’agente leggendo <code>## Scadenze</code> dentro una
+                sessione aperta per altro. La cella runtime-o1 resta D finché il
+                battito non parte da un innesco;
+              </li>
+              <li>
+                <code>crm</code>: 41 giorni di plan fermo con 9 task dev. Al
+                prossimo giro: riprende il dominio, o la struttura adottata è
+                scaffolding intorno a un lavoro che vive altrove? La domanda è
+                per <code>crm</code>, non per il canone;
+              </li>
+              <li>
+                <code>nixos</code>: la data aggregata della riga
+                <code>(quotidiano)</code>, da leggere insieme al segnale i1 sul
+                registro perpetuo;
+              </li>
+              <li>
+                la clausola di uscita delle skill per arco: il battito del
+                2026-11-01 conta gli esiti per stadio e per repository.
+              </li>
+            </ul>
+            <h3 id="limiti">Limiti</h3>
+            <ul>
+              <li>
+                <code>revisione-bootstrap-adottante</code> e
+                <code>ingresso-adottante</code> non verificate nel merito:
+                richiedono una lettura qualitativa dei quartetti di bootstrap,
+                fuori dalla portata di un giro d’insieme su sei repo;
+              </li>
+              <li>
+                la rigenerazione dimostra che le viste sono fedeli ai builder
+                del repo, non che i builder siano fedeli al canone: quella è
+                materia dei <code>/method</code> locali;
+              </li>
+              <li>
+                un giro <code>eval</code>/<code>exec</code> vuoto ora lascia un
+                commit con <code>Esiti:</code>, ma solo se si è chiuso: una
+                sessione interrotta resta invisibile.
+              </li>
+            </ul>
+          </div>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
         </section>
-        <section id="tensioni-aperte" class="slide level2">
-          <h2>Tensioni aperte</h2>
-          <ul>
-            <li>
-              <code>aligned</code> e file: coincidono da tre giri (2026-09-25,
-              2026-09-30, 2026-10-01). Finché non è confermato, il battito
-              verifica le prescrizioni nei file e non nei marker; se il
-              2026-11-01 coincidono ancora, la verifica d’insieme si
-              alleggerisce;
-            </li>
-            <li>
-              <code>revisione-bootstrap-adottante</code>: la prescrizione resta
-              aperta finché i sei registrano nel marker un esito sulla revisione
-              coordinata di README, CLAUDE, Goal e World, divergenze motivate
-              incluse. Il merito non si verifica in un giro d’insieme (cfr.
-              Limiti);
-            </li>
-            <li>
-              ripetibilità: il quarto battito è arrivato in tempo, ma lo ha
-              ricordato l’agente leggendo <code>## Scadenze</code> dentro una
-              sessione aperta per altro. La cella runtime-o1 resta D finché il
-              battito non parte da un innesco;
-            </li>
-            <li>
-              <code>crm</code>: 41 giorni di plan fermo con 9 task dev. Al
-              prossimo giro: riprende il dominio, o la struttura adottata è
-              scaffolding intorno a un lavoro che vive altrove? La domanda è per
-              <code>crm</code>, non per il canone;
-            </li>
-            <li>
-              <code>nixos</code>: la data aggregata della riga
-              <code>(quotidiano)</code>, da leggere insieme al segnale i1 sul
-              registro perpetuo;
-            </li>
-            <li>
-              la clausola di uscita delle skill per arco: il battito del
-              2026-11-01 conta gli esiti per stadio e per repository.
-            </li>
-          </ul>
-        </section>
-        <section id="limiti" class="slide level2">
-          <h2>Limiti</h2>
-          <ul>
-            <li>
-              <code>revisione-bootstrap-adottante</code> e
-              <code>ingresso-adottante</code> non verificate nel merito:
-              richiedono una lettura qualitativa dei quartetti di bootstrap,
-              fuori dalla portata di un giro d’insieme su sei repo;
-            </li>
-            <li>
-              la rigenerazione dimostra che le viste sono fedeli ai builder del
-              repo, non che i builder siano fedeli al canone: quella è materia
-              dei <code>/method</code> locali;
-            </li>
-            <li>
-              un giro <code>eval</code>/<code>exec</code> vuoto ora lascia un
-              commit con <code>Esiti:</code>, ma solo se si è chiuso: una
-              sessione interrotta resta invisibile.
-            </li>
-          </ul>
-        </section>
-        <section
-          id="le-ipotesi-del-canone-attendono-una-verifica-empirica-distinta-dalla-coerenza-interna"
-          class="slide level2"
-        >
-          <h2>
-            Le ipotesi del canone attendono una verifica empirica distinta dalla
-            coerenza interna
-          </h2>
-          <p>
-            La review completa dei nodi ha mostrato che audit strutturali verdi
-            e promozioni di maturità non bastano a garantire coerenza semantica:
-            le correzioni approvate dal custode (contraddizioni fra stadi, Mondo
-            e modello dell’agente, attribuzioni e metriche troppo forti) sono
-            ora nei nodi e la loro storia in git. Il canone tiene la regola che
-            ne è uscita: una contraddizione interna o una fonte che smentisce il
-            testo apre lavoro correttivo subito; l’attesa di uso reale vale per
-            le ipotesi, non per gli errori già osservabili. La rifinitura non
-            promuove automaticamente gli stati dei nodi, e le fonti mancanti non
-            diventano verificate per consenso fra nodi.
-          </p>
-        </section>
-        <section id="tensioni-aperte-1" class="slide level2">
-          <h2>Tensioni aperte</h2>
-          <p>
-            Tre ipotesi sperimentali, ciascuna con il caso che la deciderebbe:
-          </p>
-          <ul>
-            <li>
-              <code>kb-content-typology</code>: la quarta regione «norma della
-              macchina» attende un secondo specimen esterno indipendente;
-            </li>
-            <li>
-              <code>action-cycle-matrix</code>: resta provvisoria finché altri
-              casi reali non falsificano o corroborano le sue celle;
-            </li>
-            <li>
-              <code>EXTENDED_FACETS</code>: ha retto in <code>nixos</code> e
-              nell’assenza motivata di facet in <code>bi</code>; resta da
-              osservare il caso <code>tipo:</code> di <code>economia</code>.
-            </li>
-          </ul>
-          <p>
-            I limiti delle fonti restano dichiarati nel register
-            <code>world.md</code>. Il filo si chiude quando le tre ipotesi sono
-            decise, o quando il custode le riporta allo <code>stato</code> dei
-            rispettivi nodi senza un caso atteso.
-          </p>
-        </section>
-        <section
-          id="le-skill-si-tagliano-per-arco-la-tripartizione-evalexec-regge"
-          class="slide level2"
-        >
+        <section id="filo-2" class="slide level2">
           <h2>
             Le skill si tagliano per arco: la tripartizione
             <code>eval</code>/<code>exec</code> regge?
           </h2>
-          <p>
-            Il taglio è canone dal 2026-08-01 (<code>kb/skill.md</code>,
-            <code>stato: maturo</code>): il quartetto operativo segue il ciclo
-            di Norman, con <code>eval</code> ed <code>exec</code> che portano
-            ciascuna i tre stadi del proprio arco come scope. Motivazione e
-            storia della decisione stanno nel nodo e in git. Qui resta la
-            tensione aperta: la scommessa che la rigidità paghi in qualità
-            autocorrettiva più di quanto costi in scritture e invocazioni, con
-            la sua clausola di uscita e il task
-            <code>p1</code> (<code>o2/rivalutazione-skill-per-arco.md</code>).
-          </p>
-        </section>
-        <section
-          id="verdetto-della-rivalutazione-custode-2026-09-24"
-          class="slide level2"
-        >
-          <h2>Verdetto della rivalutazione (custode, 2026-09-24)</h2>
-          <p>
-            <strong
-              >La tripartizione resta com’è. Si corregge la clausola, non il
-              taglio.</strong
-            >
-            Il materiale viene dal terzo battito
-            <code>/adottanti</code> (eseguito il 2026-09-24, arretrato dal 1°
-            settembre), misurato per commit sui sette repository dal 2026-08-01:
-          </p>
-          <ul>
-            <li>
-              <strong>nessun sintomo del «troppo».</strong> Nessuno stadio è
-              vuoto ovunque: tutti i repository hanno commit su
-              <code>i2/</code> (da 2 a 32) e su <code>o3/</code>. Il repository
-              che usa di più l’arco, <code>bi</code> (circa 15 giri
-              <code>eval</code>/<code>exec</code> fra il 14/8 e il 23/9), non
-              l’ha abbandonato: l’ha adattato. I suoi giri scrivono quasi solo
-              <code>i3/</code> e <code>o2/</code> (i1 = 2 commit, i2 = 5, i3 =
-              64) perché <code>interpret</code> vive negli script, col registry
-              <code>o3/lib/perception.js</code>. È l’accorpamento degli scope
-              che la clausola prevedeva come primo snellimento, fatto
-              spontaneamente e senza smettere di distinguere i passi;
-            </li>
-            <li>
+          <div class="thread">
+            <p>
+              ciclo: <code>dev</code> · obiettivo:
+              <a href="#//obiettivi"><code>1</code></a>
+            </p>
+            <p>
+              Il taglio è canone dal 2026-08-01 (<code>kb/skill.md</code>,
+              <code>stato: maturo</code>): il quartetto operativo segue il ciclo
+              di Norman, con <code>eval</code> ed <code>exec</code> che portano
+              ciascuna i tre stadi del proprio arco come scope. Motivazione e
+              storia della decisione stanno nel nodo e in git. Qui resta la
+              tensione aperta: la scommessa che la rigidità paghi in qualità
+              autocorrettiva più di quanto costi in scritture e invocazioni, con
+              la sua clausola di uscita e il task
+              <code>p1</code> (<code>o2/rivalutazione-skill-per-arco.md</code>).
+            </p>
+            <h3 id="verdetto-della-rivalutazione-custode-2026-09-24">
+              Verdetto della rivalutazione (custode, 2026-09-24)
+            </h3>
+            <p>
               <strong
-                >il «ha pagato» è documentato solo in
-                <code>metodo</code>.</strong
+                >La tripartizione resta com’è. Si corregge la clausola, non il
+                taglio.</strong
               >
-              Resta il caso del primo giro (<code>eval compare</code> che
-              intercetta due fotografie stale di <code>goal.md</code>). Negli
-              adottanti i giri intercettano problemi reali, come la regressione
-              del retry OAuth in <code>bi</code>, ma un
-              <code>eval</code> monolitico li avrebbe trovati lo stesso: sono
-              compatibili con la tripartizione, non la dimostrano;
-            </li>
-            <li>
-              <strong>il costo dell’assorbimento non è stato sentito.</strong>
-              Nessuna traccia in <code>salute</code> ed <code>economia</code>;
-              <code>bi</code> lo aveva citato solo in anticipo. Nel
-              controfattuale le skill autonome di <code>nixos</code> si sono
-              ridotte da sole (<code>nix-overlay-update</code> fusa in
-              <code>/manutenzione</code>);
-            </li>
-            <li>
-              <strong>la misura principale non esisteva.</strong> Gli esiti
-              nulli per stadio, e con loro l’invocazione fatta «solo per
-              disciplina», venivano restituiti in conversazione e non lasciavano
-              traccia. Nessuna attesa li avrebbe resi contabili: la clausola,
-              così com’era scritta, non poteva scattare in nessuna delle due
-              direzioni.
-            </li>
-          </ul>
-          <p>
-            Da qui la correzione: ogni giro si chiude con un commit che porta
-            l’esito per stadio (trailer <code>Esiti:</code>,
-            <code>materia</code> o <code>vuoto</code>,
-            <code>--allow-empty</code> se il giro non ha cambiato file), inciso
-            in <code>kb/skill.md</code>, nelle canoniche <code>eval</code>,
-            <code>exec</code> e <code>/commit</code>, e propagato coi sei
-            adottanti come prescrizione
-            <code>o3/esiti-per-stadio-nel-commit.md</code>. Il posto è il commit
-            e non il filo o il marker perché un file aggiornato a ogni giro
-            sarebbe un log, e il log è git.
-          </p>
-          <p>
-            <strong>Il fallback del 2026-11-01 si riattiva</strong>, con
-            l’evidenza mancante dichiarata: il conteggio degli esiti per stadio
-            sui giri registrati dopo il recepimento, e una lettura del profilo
-            ancora muto: <code>crm</code>, col plan fermo dal 2026-08-21.
-            <code>danea-auto</code>, muto fino a settembre, dal 2026-09-26 è il
-            repository con più giri registrati. A novembre il verdetto si prende
-            su numeri, non su proxy.
-          </p>
+              Il materiale viene dal terzo battito
+              <code>/adottanti</code> (eseguito il 2026-09-24, arretrato dal 1°
+              settembre), misurato per commit sui sette repository dal
+              2026-08-01:
+            </p>
+            <ul>
+              <li>
+                <strong>nessun sintomo del «troppo».</strong> Nessuno stadio è
+                vuoto ovunque: tutti i repository hanno commit su
+                <code>i2/</code> (da 2 a 32) e su <code>o3/</code>. Il
+                repository che usa di più l’arco, <code>bi</code> (circa 15 giri
+                <code>eval</code>/<code>exec</code> fra il 14/8 e il 23/9), non
+                l’ha abbandonato: l’ha adattato. I suoi giri scrivono quasi solo
+                <code>i3/</code> e <code>o2/</code> (i1 = 2 commit, i2 = 5, i3 =
+                64) perché <code>interpret</code> vive negli script, col
+                registry <code>o3/lib/perception.js</code>. È l’accorpamento
+                degli scope che la clausola prevedeva come primo snellimento,
+                fatto spontaneamente e senza smettere di distinguere i passi;
+              </li>
+              <li>
+                <strong
+                  >il «ha pagato» è documentato solo in
+                  <code>metodo</code>.</strong
+                >
+                Resta il caso del primo giro (<code>eval compare</code> che
+                intercetta due fotografie stale di <code>goal.md</code>). Negli
+                adottanti i giri intercettano problemi reali, come la
+                regressione del retry OAuth in <code>bi</code>, ma un
+                <code>eval</code> monolitico li avrebbe trovati lo stesso: sono
+                compatibili con la tripartizione, non la dimostrano;
+              </li>
+              <li>
+                <strong>il costo dell’assorbimento non è stato sentito.</strong>
+                Nessuna traccia in <code>salute</code> ed <code>economia</code>;
+                <code>bi</code> lo aveva citato solo in anticipo. Nel
+                controfattuale le skill autonome di <code>nixos</code> si sono
+                ridotte da sole (<code>nix-overlay-update</code> fusa in
+                <code>/manutenzione</code>);
+              </li>
+              <li>
+                <strong>la misura principale non esisteva.</strong> Gli esiti
+                nulli per stadio, e con loro l’invocazione fatta «solo per
+                disciplina», venivano restituiti in conversazione e non
+                lasciavano traccia. Nessuna attesa li avrebbe resi contabili: la
+                clausola, così com’era scritta, non poteva scattare in nessuna
+                delle due direzioni.
+              </li>
+            </ul>
+            <p>
+              Da qui la correzione: ogni giro si chiude con un commit che porta
+              l’esito per stadio (trailer <code>Esiti:</code>,
+              <code>materia</code> o <code>vuoto</code>,
+              <code>--allow-empty</code> se il giro non ha cambiato file),
+              inciso in <code>kb/skill.md</code>, nelle canoniche
+              <code>eval</code>, <code>exec</code> e <code>/commit</code>, e
+              propagato coi sei adottanti come prescrizione
+              <code>o3/esiti-per-stadio-nel-commit.md</code>. Il posto è il
+              commit e non il filo o il marker perché un file aggiornato a ogni
+              giro sarebbe un log, e il log è git.
+            </p>
+            <p>
+              <strong>Il fallback del 2026-11-01 si riattiva</strong>, con
+              l’evidenza mancante dichiarata: il conteggio degli esiti per
+              stadio sui giri registrati dopo il recepimento, e una lettura del
+              profilo ancora muto: <code>crm</code>, col plan fermo dal
+              2026-08-21. <code>danea-auto</code>, muto fino a settembre, dal
+              2026-09-26 è il repository con più giri registrati. A novembre il
+              verdetto si prende su numeri, non su proxy.
+            </p>
+            <h3 id="la-clausola-di-uscita-dichiarata-prima-di-partire">
+              La clausola di uscita, dichiarata prima di partire
+            </h3>
+            <p>
+              Il rischio dichiarato dal custode è il barocco: una divisione che
+              moltiplica scritture, token ed energie per azioni che verrebbero
+              naturali tutte insieme. La scommessa è che la rigidità paghi in
+              qualità autocorrettiva, e i tre episodi danno la misura del prezzo
+              dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
+              scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
+              si ricorda di averla promessa:
+            </p>
+            <ul>
+              <li>
+                <strong>quando</strong>: il task di rivalutazione
+                <code>pause</code> esiste
+                (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
+                originaria (<strong>2026-11-01</strong>) era stata anticipata
+                dal custode al <strong>2026-09-01</strong>; il giudizio di
+                settembre, preso il 2026-09-24, ha mantenuto la tripartizione e
+                riattivato novembre con l’evidenza mancante dichiarata (sezione
+                sopra);
+              </li>
+              <li>
+                <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
+                commit che chiudono i giri, contato per stadio e per repository
+                con
+                <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
+                Un sintomo che non si legge in questa misura va dichiarato
+                insieme alla fonte che lo rende contabile;
+              </li>
+              <li>
+                <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
+                chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
+                giri tutti <code>vuoto</code> (commit
+                <code>--allow-empty</code>) che si ripetono senza che cambi
+                nulla nel verdetto o nella coda: è l’invocazione fatta solo per
+                disciplina;
+              </li>
+              <li>
+                <strong>sintomi che direbbero «ha pagato»</strong>: un errore
+                intercettato dallo stadio che prima non esisteva (una sintesi i2
+                corretta perché il claim è caduto, un segnale i1 che sarebbe
+                rimasto orfano, una prescrizione o3 consumata potata);
+              </li>
+              <li>
+                <strong>cosa si snellisce per primo</strong>, se si snellisce:
+                gli scope, non gli stadi — si accorpa l’invocazione, non si
+                smette di distinguere i passi.
+              </li>
+            </ul>
+            <h3 id="la-clausola-di-uscita-dichiarata-prima-di-partire-1">
+              La clausola di uscita, dichiarata prima di partire
+            </h3>
+            <p>
+              Il rischio dichiarato dal custode è il barocco: una divisione che
+              moltiplica scritture, token ed energie per azioni che verrebbero
+              naturali tutte insieme. La scommessa è che la rigidità paghi in
+              qualità autocorrettiva, e i tre episodi danno la misura del prezzo
+              dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
+              scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
+              si ricorda di averla promessa:
+            </p>
+            <ul>
+              <li>
+                <strong>quando</strong>: il task di rivalutazione
+                <code>pause</code> esiste
+                (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
+                originaria (<strong>2026-11-01</strong>) era stata anticipata
+                dal custode al <strong>2026-09-01</strong>; il giudizio di
+                settembre, preso il 2026-09-24, ha mantenuto la tripartizione e
+                riattivato novembre con l’evidenza mancante dichiarata (sezione
+                sopra);
+              </li>
+              <li>
+                <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
+                commit che chiudono i giri, contato per stadio e per repository
+                con
+                <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
+                Un sintomo che non si legge in questa misura va dichiarato
+                insieme alla fonte che lo rende contabile;
+              </li>
+              <li>
+                <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
+                chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
+                giri tutti <code>vuoto</code> (commit
+                <code>--allow-empty</code>) che si ripetono senza che cambi
+                nulla nel verdetto o nella coda: è l’invocazione fatta solo per
+                disciplina;
+              </li>
+              <li>
+                <strong>sintomi che direbbero «ha pagato»</strong>: un errore
+                intercettato dallo stadio che prima non esisteva (una sintesi i2
+                corretta perché il claim è caduto, un segnale i1 che sarebbe
+                rimasto orfano, una prescrizione o3 consumata potata);
+              </li>
+              <li>
+                <strong>cosa si snellisce per primo</strong>, se si snellisce:
+                gli scope, non gli stadi — si accorpa l’invocazione, non si
+                smette di distinguere i passi.
+              </li>
+            </ul>
+          </div>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
         </section>
-        <section
-          id="la-clausola-di-uscita-dichiarata-prima-di-partire"
-          class="slide level2"
-        >
-          <h2>La clausola di uscita, dichiarata prima di partire</h2>
-          <p>
-            Il rischio dichiarato dal custode è il barocco: una divisione che
-            moltiplica scritture, token ed energie per azioni che verrebbero
-            naturali tutte insieme. La scommessa è che la rigidità paghi in
-            qualità autocorrettiva, e i tre episodi danno la misura del prezzo
-            dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
-            scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
-            si ricorda di averla promessa:
-          </p>
-          <ul>
-            <li>
-              <strong>quando</strong>: il task di rivalutazione
-              <code>pause</code> esiste
-              (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
-              originaria (<strong>2026-11-01</strong>) era stata anticipata dal
-              custode al <strong>2026-09-01</strong>; il giudizio di settembre,
-              preso il 2026-09-24, ha mantenuto la tripartizione e riattivato
-              novembre con l’evidenza mancante dichiarata (sezione sopra);
-            </li>
-            <li>
-              <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
-              commit che chiudono i giri, contato per stadio e per repository
-              con
-              <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
-              Un sintomo che non si legge in questa misura va dichiarato insieme
-              alla fonte che lo rende contabile;
-            </li>
-            <li>
-              <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
-              chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
-              giri tutti <code>vuoto</code> (commit <code>--allow-empty</code>)
-              che si ripetono senza che cambi nulla nel verdetto o nella coda: è
-              l’invocazione fatta solo per disciplina;
-            </li>
-            <li>
-              <strong>sintomi che direbbero «ha pagato»</strong>: un errore
-              intercettato dallo stadio che prima non esisteva (una sintesi i2
-              corretta perché il claim è caduto, un segnale i1 che sarebbe
-              rimasto orfano, una prescrizione o3 consumata potata);
-            </li>
-            <li>
-              <strong>cosa si snellisce per primo</strong>, se si snellisce: gli
-              scope, non gli stadi — si accorpa l’invocazione, non si smette di
-              distinguere i passi.
-            </li>
-          </ul>
+        <section id="filo-3" class="slide level2">
+          <h2>
+            Le ipotesi del canone attendono una verifica empirica distinta dalla
+            coerenza interna
+          </h2>
+          <div class="thread">
+            <p>
+              ciclo: <code>dev</code> · obiettivo:
+              <a href="#//obiettivi"><code>1</code></a>
+            </p>
+            <p>
+              La review completa dei nodi ha mostrato che audit strutturali
+              verdi e promozioni di maturità non bastano a garantire coerenza
+              semantica: le correzioni approvate dal custode (contraddizioni fra
+              stadi, Mondo e modello dell’agente, attribuzioni e metriche troppo
+              forti) sono ora nei nodi e la loro storia in git. Il canone tiene
+              la regola che ne è uscita: una contraddizione interna o una fonte
+              che smentisce il testo apre lavoro correttivo subito; l’attesa di
+              uso reale vale per le ipotesi, non per gli errori già osservabili.
+              La rifinitura non promuove automaticamente gli stati dei nodi, e
+              le fonti mancanti non diventano verificate per consenso fra nodi.
+            </p>
+            <h3 id="tensioni-aperte-1">Tensioni aperte</h3>
+            <p>
+              Tre ipotesi sperimentali, ciascuna con il caso che la deciderebbe:
+            </p>
+            <ul>
+              <li>
+                <code>kb-content-typology</code>: la quarta regione «norma della
+                macchina» attende un secondo specimen esterno indipendente;
+              </li>
+              <li>
+                <code>action-cycle-matrix</code>: resta provvisoria finché altri
+                casi reali non falsificano o corroborano le sue celle;
+              </li>
+              <li>
+                <code>EXTENDED_FACETS</code>: ha retto in <code>nixos</code> e
+                nell’assenza motivata di facet in <code>bi</code>; resta da
+                osservare il caso <code>tipo:</code> di <code>economia</code>.
+              </li>
+            </ul>
+            <p>
+              I limiti delle fonti restano dichiarati nel register
+              <code>world.md</code>. Il filo si chiude quando le tre ipotesi
+              sono decise, o quando il custode le riporta allo
+              <code>stato</code> dei rispettivi nodi senza un caso atteso.
+            </p>
+          </div>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
         </section>
-        <section
-          id="la-clausola-di-uscita-dichiarata-prima-di-partire-1"
-          class="slide level2"
-        >
-          <h2>La clausola di uscita, dichiarata prima di partire</h2>
-          <p>
-            Il rischio dichiarato dal custode è il barocco: una divisione che
-            moltiplica scritture, token ed energie per azioni che verrebbero
-            naturali tutte insieme. La scommessa è che la rigidità paghi in
-            qualità autocorrettiva, e i tre episodi danno la misura del prezzo
-            dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
-            scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
-            si ricorda di averla promessa:
-          </p>
-          <ul>
-            <li>
-              <strong>quando</strong>: il task di rivalutazione
-              <code>pause</code> esiste
-              (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
-              originaria (<strong>2026-11-01</strong>) era stata anticipata dal
-              custode al <strong>2026-09-01</strong>; il giudizio di settembre,
-              preso il 2026-09-24, ha mantenuto la tripartizione e riattivato
-              novembre con l’evidenza mancante dichiarata (sezione sopra);
-            </li>
-            <li>
-              <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
-              commit che chiudono i giri, contato per stadio e per repository
-              con
-              <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
-              Un sintomo che non si legge in questa misura va dichiarato insieme
-              alla fonte che lo rende contabile;
-            </li>
-            <li>
-              <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
-              chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
-              giri tutti <code>vuoto</code> (commit <code>--allow-empty</code>)
-              che si ripetono senza che cambi nulla nel verdetto o nella coda: è
-              l’invocazione fatta solo per disciplina;
-            </li>
-            <li>
-              <strong>sintomi che direbbero «ha pagato»</strong>: un errore
-              intercettato dallo stadio che prima non esisteva (una sintesi i2
-              corretta perché il claim è caduto, un segnale i1 che sarebbe
-              rimasto orfano, una prescrizione o3 consumata potata);
-            </li>
-            <li>
-              <strong>cosa si snellisce per primo</strong>, se si snellisce: gli
-              scope, non gli stadi — si accorpa l’invocazione, non si smette di
-              distinguere i passi.
-            </li>
-          </ul>
-        </section>
-        <section
-          id="i-builder-della-presentazione-assumono-un-toolchain-che-non-dichiarano"
-          class="slide level2"
-        >
+        <section id="filo-4" class="slide level2">
           <h2>
             I builder della presentazione assumono un toolchain che non
             dichiarano
           </h2>
+          <div class="thread">
+            <p>
+              ciclo: <code>dev</code> · obiettivo:
+              <a href="#//obiettivi"><code>S</code></a>
+            </p>
+            <h3 id="verdetto-1">Verdetto</h3>
+            <p>
+              Il segnale viene da <code>danea-auto</code> (2026-10-01), il primo
+              adottante che fa girare i builder di <code>presentation/</code> su
+              Windows. Per farli funzionare ha dovuto cambiare due punti del
+              canone. Tutti e due sono verificati nel codice di
+              <code>metodo</code>, e tutti e due vengono dalla stessa assunzione
+              taciuta: il toolchain è quello degli host Linux di chi li ha
+              scritti.
+            </p>
+            <p>
+              <strong>Codifica.</strong> <code>build_lists.py</code> chiama
+              pandoc con <code>text=True</code> e senza <code>encoding</code>:
+              Python usa la codifica di default della piattaforma, cp1252 su
+              Windows, e la build fallisce. Il fix di <code>danea-auto</code>,
+              <code>encoding="utf-8"</code> nelle due chiamate, entra nel canone
+              così com’è. Non cambia nulla sugli host Linux, dove la codifica di
+              default è già UTF-8.
+            </p>
+            <p>
+              <strong>reveal.js accoppiato a pandoc.</strong> Il wrapper della
+              build fissava <code>reveal.js@5.1.0</code>, ma i percorsi dei
+              plugin li scrive pandoc, secondo la propria versione. Pandoc 3.12
+              scrive quelli di reveal 6 (<code>dist/plugin/notes.js</code>); con
+              la 5.1.0 quei file non esistono e le slide restano bianche.
+              <code>deck</code> e <code>svezia</code> hanno pandoc 3.7.0.2, che
+              scrive ancora i percorsi della 5.x: oggi gli host Linux non vedono
+              il problema. Un aggiornamento di pandoc negli host basterebbe a
+              svuotare le slide di tutti i fork senza che cambi un file del
+              repo.
+            </p>
+            <p>
+              Spostare il pin alla 6.0.2, come ha fatto <code>danea-auto</code>,
+              avrebbe spostato il guasto sugli host con pandoc vecchio. Il
+              rimedio è quello di <code>kb/view.md</code> («Derivata implica
+              verificata»): la build <strong>rompe invece di degradare</strong>.
+              La soglia è verificata nel changelog di pandoc: la 3.12
+              (2026-09-27) corregge i percorsi del template per reveal 6
+              (#11907), la 3.11 scrive ancora quelli della 5. La build (oggi
+              <code>o3/presentation/build.py</code>) legge quindi la versione di
+              pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12 in su,
+              <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla si
+              ferma con un errore. Una slide bianca è una vista che inganna
+              senza che nessuno lo veda.
+            </p>
+            <p>
+              Entrambi i fix sono nel canone dal 2026-10-01. Con pandoc 3.7.0.2
+              l’output è identico; i rami 3.12 e versione illeggibile sono
+              provati con un pandoc simulato. La propagazione vive in
+              <code>o3/toolchain-builder-presentazione.md</code>.
+            </p>
+            <h3 id="tensioni-aperte-2">Tensioni aperte</h3>
+            <ul>
+              <li>
+                <strong
+                  >Il gate di freschezza assume lo stesso toolchain.</strong
+                >
+                Il check i2 di <code>/commit</code> legge come stale tutto ciò
+                che cambia rigenerando. Con pandoc diversi tra host, la stessa
+                fonte dà HTML diversi: le viste di
+                <code>danea-auto</code> rigenerate su
+                <code>svezia</code> cambiano nel CSS di default di pandoc, non
+                nel contenuto. Un commit fatto dall’host «sbagliato» porterebbe
+                rumore di toolchain presentato come freschezza. Per ora è un
+                solo adottante su un host diverso: si dichiara, non si risolve.
+                Se un secondo caso lo mostra, la domanda è se il canone debba
+                dichiarare una versione di pandoc;
+              </li>
+              <li>
+                la regola regge finché il template di pandoc non cambia di nuovo
+                i percorsi. Il controllo ferma solo una versione illeggibile: un
+                cambio futuro tornerebbe a dare slide bianche senza errori,
+                finché qualcuno non aggiorna la soglia in <code>build.py</code>.
+                Una verifica che i percorsi dei plugin esistano davvero
+                chiuderebbe il buco, ma chiede la rete durante la build: non si
+                fa finché il caso non si ripresenta.
+              </li>
+            </ul>
+          </div>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
         </section>
-        <section id="verdetto-1" class="slide level2">
-          <h2>Verdetto</h2>
-          <p>
-            Il segnale viene da <code>danea-auto</code> (2026-10-01), il primo
-            adottante che fa girare i builder di <code>presentation/</code> su
-            Windows. Per farli funzionare ha dovuto cambiare due punti del
-            canone. Tutti e due sono verificati nel codice di
-            <code>metodo</code>, e tutti e due vengono dalla stessa assunzione
-            taciuta: il toolchain è quello degli host Linux di chi li ha
-            scritti.
-          </p>
-          <p>
-            <strong>Codifica.</strong> <code>build_lists.py</code> chiama pandoc
-            con <code>text=True</code> e senza <code>encoding</code>: Python usa
-            la codifica di default della piattaforma, cp1252 su Windows, e la
-            build fallisce. Il fix di <code>danea-auto</code>,
-            <code>encoding="utf-8"</code> nelle due chiamate, entra nel canone
-            così com’è. Non cambia nulla sugli host Linux, dove la codifica di
-            default è già UTF-8.
-          </p>
-          <p>
-            <strong>reveal.js accoppiato a pandoc.</strong> Il wrapper della
-            build fissava <code>reveal.js@5.1.0</code>, ma i percorsi dei plugin
-            li scrive pandoc, secondo la propria versione. Pandoc 3.12 scrive
-            quelli di reveal 6 (<code>dist/plugin/notes.js</code>); con la 5.1.0
-            quei file non esistono e le slide restano bianche.
-            <code>deck</code> e <code>svezia</code> hanno pandoc 3.7.0.2, che
-            scrive ancora i percorsi della 5.x: oggi gli host Linux non vedono
-            il problema. Un aggiornamento di pandoc negli host basterebbe a
-            svuotare le slide di tutti i fork senza che cambi un file del repo.
-          </p>
-          <p>
-            Spostare il pin alla 6.0.2, come ha fatto <code>danea-auto</code>,
-            avrebbe spostato il guasto sugli host con pandoc vecchio. Il rimedio
-            è quello di <code>kb/view.md</code> («Derivata implica verificata»):
-            la build <strong>rompe invece di degradare</strong>. La soglia è
-            verificata nel changelog di pandoc: la 3.12 (2026-09-27) corregge i
-            percorsi del template per reveal 6 (#11907), la 3.11 scrive ancora
-            quelli della 5. La build (oggi
-            <code>o3/presentation/build.py</code>) legge quindi la versione di
-            pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12 in su,
-            <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla si
-            ferma con un errore. Una slide bianca è una vista che inganna senza
-            che nessuno lo veda.
-          </p>
-          <p>
-            Entrambi i fix sono nel canone dal 2026-10-01. Con pandoc 3.7.0.2
-            l’output è identico; i rami 3.12 e versione illeggibile sono provati
-            con un pandoc simulato. La propagazione vive in
-            <code>o3/toolchain-builder-presentazione.md</code>.
-          </p>
-        </section>
-        <section id="tensioni-aperte-2" class="slide level2">
-          <h2>Tensioni aperte</h2>
-          <ul>
-            <li>
-              <strong>Il gate di freschezza assume lo stesso toolchain.</strong>
-              Il check i2 di <code>/commit</code> legge come stale tutto ciò che
-              cambia rigenerando. Con pandoc diversi tra host, la stessa fonte
-              dà HTML diversi: le viste di <code>danea-auto</code> rigenerate su
-              <code>svezia</code> cambiano nel CSS di default di pandoc, non nel
-              contenuto. Un commit fatto dall’host «sbagliato» porterebbe rumore
-              di toolchain presentato come freschezza. Per ora è un solo
-              adottante su un host diverso: si dichiara, non si risolve. Se un
-              secondo caso lo mostra, la domanda è se il canone debba dichiarare
-              una versione di pandoc;
-            </li>
-            <li>
-              la regola regge finché il template di pandoc non cambia di nuovo i
-              percorsi. Il controllo ferma solo una versione illeggibile: un
-              cambio futuro tornerebbe a dare slide bianche senza errori, finché
-              qualcuno non aggiorna la soglia in <code>build.py</code>. Una
-              verifica che i percorsi dei plugin esistano davvero chiuderebbe il
-              buco, ma chiede la rete durante la build: non si fa finché il caso
-              non si ripresenta.
-            </li>
-          </ul>
-        </section>
-        <section
-          id="il-verdetto-deriva-verso-la-storia-migliore-dove-passa-il-confine-della-ricostruzione-delegabile"
-          class="slide level2"
-        >
+        <section id="filo-5" class="slide level2">
           <h2>
             Il verdetto deriva verso la storia migliore: dove passa il confine
             della ricostruzione delegabile?
           </h2>
-          <p>
-            La regola è canone dal 2026-07-31 (<code>kb/verdict.md</code>, «Il
-            verdetto non può essere più sicuro del materiale»): le quantità
-            portano la provenienza, una quantità derivata non regge da sola una
-            conclusione, il materiale di casa (il task <code>o2/</code>, la
-            corrispondenza in uscita, la valutazione delle fonti) si legge
-            prima. Il presidio operativo vive nello scope
-            <code>compare</code> di <code>eval</code>. La motivazione — tre
-            episodi di <code>economia</code> diversi per contenuto e identici
-            per direzione, verso la lettura più raccontabile — è nel nodo e in
-            git.
-          </p>
-        </section>
-        <section id="tensioni-aperte-3" class="slide level2">
-          <h2>Tensioni aperte</h2>
-          <ul>
-            <li>
-              <strong>Il punto di controllo.</strong> Il caso più costoso è
-              stato prodotto da un agente e intercettato da un umano, per caso:
-              il custode stava chiedendo altro. Il modello in-the-loop del Goal
-              di sviluppo copre la <em>decisione</em>; qui è servito a
-              intercettare una <em>ricostruzione</em>, che il metodo tratta come
-              lavoro delegabile. L’ipotesi è che sia delegabile la ricostruzione
-              che si appoggia a materiale già verificato, e non la sintesi che
-              ne ricava una tesi nuova. Un secondo episodio in un altro
-              adottante deciderebbe se è una qualificazione da incidere in
-              <code>goal</code>/<code>agent</code> o una proprietà locale dei
-              domini a bassa delegabilità.
-            </li>
-            <li>
-              <strong>Le ritrattazioni.</strong> In <code>economia</code> un
-              artefatto locale registra le previsioni sbagliate come antidoto
-              alla presunzione. È una sola istanza: sale a canone se un secondo
-              adottante la sviluppa da sé.
-            </li>
-          </ul>
-          <p>
-            Nessuna delle due ha una data: le porta in superficie lo scope
-            <code>compare</code> degli adottanti, e il battito
-            <code>/adottanti</code> le cerca nei loro fili <code>i3/</code>.
-          </p>
+          <div class="thread">
+            <p>
+              ciclo: <code>runtime</code> · obiettivo:
+              <a href="#//obiettivi"><code>S</code></a>
+            </p>
+            <p>
+              La regola è canone dal 2026-07-31 (<code>kb/verdict.md</code>, «Il
+              verdetto non può essere più sicuro del materiale»): le quantità
+              portano la provenienza, una quantità derivata non regge da sola
+              una conclusione, il materiale di casa (il task <code>o2/</code>,
+              la corrispondenza in uscita, la valutazione delle fonti) si legge
+              prima. Il presidio operativo vive nello scope
+              <code>compare</code> di <code>eval</code>. La motivazione — tre
+              episodi di <code>economia</code> diversi per contenuto e identici
+              per direzione, verso la lettura più raccontabile — è nel nodo e in
+              git.
+            </p>
+            <h3 id="tensioni-aperte-3">Tensioni aperte</h3>
+            <ul>
+              <li>
+                <strong>Il punto di controllo.</strong> Il caso più costoso è
+                stato prodotto da un agente e intercettato da un umano, per
+                caso: il custode stava chiedendo altro. Il modello in-the-loop
+                del Goal di sviluppo copre la <em>decisione</em>; qui è servito
+                a intercettare una <em>ricostruzione</em>, che il metodo tratta
+                come lavoro delegabile. L’ipotesi è che sia delegabile la
+                ricostruzione che si appoggia a materiale già verificato, e non
+                la sintesi che ne ricava una tesi nuova. Un secondo episodio in
+                un altro adottante deciderebbe se è una qualificazione da
+                incidere in <code>goal</code>/<code>agent</code> o una proprietà
+                locale dei domini a bassa delegabilità.
+              </li>
+              <li>
+                <strong>Le ritrattazioni.</strong> In <code>economia</code> un
+                artefatto locale registra le previsioni sbagliate come antidoto
+                alla presunzione. È una sola istanza: sale a canone se un
+                secondo adottante la sviluppa da sé.
+              </li>
+            </ul>
+            <p>
+              Nessuna delle due ha una data: le porta in superficie lo scope
+              <code>compare</code> degli adottanti, e il battito
+              <code>/adottanti</code> le cerca nei loro fili <code>i3/</code>.
+            </p>
+          </div>
+          <p><a href="#//verdetti">↩︎ Method Verdicts</a></p>
         </section>
       </div>
     </div>

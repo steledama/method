@@ -11,11 +11,10 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.                                            |
-| ----- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                              |
-| dev   | 1   | Indice dei Confronti con obiettivo verificato   | —                                               |
-| dev   | 2   | Prescrizione della presentazione ristrutturata  | ↳ Indice dei Confronti con obiettivo verificato |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| dev   | 2   | Prescrizione della presentazione ristrutturata  | —    |
 
 Legenda dipendenze esterne:
 
