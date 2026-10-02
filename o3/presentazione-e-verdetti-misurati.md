@@ -99,6 +99,10 @@ della home). Copia `presentation/assets/deck.css`. Poi:
   `../i2/<nome>`;
 - se hai `test_build_lists.py`, riallinealo a quello canonico in
   `$method_repo/tests/`;
+- aggiungi al tuo `.gitattributes` le righe di quello di method
+  (`o3/presentation/** text=auto eol=lf` e `presentation/** text=auto
+eol=lf`): su un checkout Windows con `core.autocrlf` i builder e le viste
+  restano in LF;
 - riallinea ogni riferimento ai vecchi path: skill `commit`, `exec`, `kb`,
   `CLAUDE.md`, `README.md`, indice `o3/`, runbook.
 

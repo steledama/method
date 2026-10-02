@@ -1,0 +1,4 @@
+# I builder e le viste si copiano negli adottanti, anche su Windows: il fine
+# riga è dichiarato, così un checkout con core.autocrlf non li porta in CRLF.
+o3/presentation/** text=auto eol=lf
+presentation/** text=auto eol=lf
