@@ -96,7 +96,9 @@ deve aprirsi dal checkout senza build, e si paga l'obbligo di rigenerarla
 nell'atto stesso che tocca le sue fonti. Un hook che lo faccia da sé resta
 fuori: richiede installazione host-locale, cioè stato non versionato dentro un
 artefatto che si vuole portabile — la stessa via che qui si era già rotta in
-silenzio dopo un rename.
+silenzio dopo un rename. La condizione di revisione è dichiarata: se una vista
+stale passa comunque un commit, il gesto meccanico non basta più, e il costo
+dell'hook va ridiscusso contro la portabilità invece di darlo per perso.
 
 Connessioni:
 

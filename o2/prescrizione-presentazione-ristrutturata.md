@@ -8,7 +8,7 @@ ciclo: dev
 Ultimo task della ristrutturazione della presentazione (2026-10-02). Si
 scrive dopo che gli altri task si sono chiusi in `metodo`:
 `presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`),
-[revisione-verdetti-contro-obiettivi](revisione-verdetti-contro-obiettivi.md),
+`revisione-verdetti-contro-obiettivi` (chiuso),
 [indice-dei-confronti](indice-dei-confronti.md),
 `condizioni-di-risveglio-nella-vista` (chiuso)
 e `server-lan-della-presentazione` (chiuso).

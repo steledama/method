@@ -69,8 +69,7 @@ skill di dominio; residui (nomi vecchi dopo una rinomina, doppioni).
 L'unica lente che attraversa il confine tra una vista e ciò da cui deriva: gli
 audit strutturali non lo attraversano, quindi una superficie può contraddire la
 propria fonte mentre ogni altro controllo dice che va tutto bene (cfr.
-`kb/view.md`, «Derivata implica verificata», e il filo
-[`i3/vista-derivata-e-verificata.md`](../../../i3/vista-derivata-e-verificata.md)).
+`kb/view.md`, «Derivata implica verificata»).
 
 Per adottante, in sola lettura:
 

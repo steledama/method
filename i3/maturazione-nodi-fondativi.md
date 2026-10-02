@@ -1,61 +1,31 @@
 ---
 ciclo: dev
+obiettivo: 1
 ---
 
-# Coerenza interna e maturazione empirica richiedono verifiche distinte
+# Le ipotesi del canone attendono una verifica empirica distinta dalla coerenza interna
 
-La rete dei 48 nodi conserva responsabilità autonome: non richiede fusioni o
-eliminazioni. La review completa ha però mostrato che audit strutturali verdi e
-precedenti promozioni di maturità non bastano a garantire coerenza semantica. Le
-correzioni approvate dal custode riguardano sia contraddizioni testuali sia il
-livello di certezza delle attribuzioni e delle metriche.
+La review completa dei nodi ha mostrato che audit strutturali verdi e
+promozioni di maturità non bastano a garantire coerenza semantica: le
+correzioni approvate dal custode (contraddizioni fra stadi, Mondo e modello
+dell'agente, attribuzioni e metriche troppo forti) sono ora nei nodi e la
+loro storia in git. Il canone tiene la regola che ne è uscita: una
+contraddizione interna o una fonte che smentisce il testo apre lavoro
+correttivo subito; l'attesa di uso reale vale per le ipotesi, non per gli
+errori già osservabili. La rifinitura non promuove automaticamente gli stati
+dei nodi, e le fonti mancanti non diventano verificate per consenso fra nodi.
 
-Il canone distingue ora cattura, interpretazione e giudizio; la valenza rispetto
-al Goal entra in i3, anche nelle istruzioni di `eval`. Le sintesi si collocano
-per funzione fra i2, o2 e viste derivate. Il Mondo è relativo al ciclo e può
-essere versionato. Il modello dell'agente integra l'artefatto con richiesta,
-strumenti e segnali, senza coincidere con la sola KB.
+## Tensioni aperte
 
-Le attribuzioni separano fonte primaria e trasposizione: task e operazione in
-Leontiev, schede usate e collegamenti proposti in Engelbart, cronologia del
-signifier in Norman. Il pattern Karpathy resta una formalizzazione locale; la
-provenienza e i limiti delle fonti vivono nel register `world.md`.
+Tre ipotesi sperimentali, ciascuna con il caso che la deciderebbe:
 
-La maturità non si deduce da coda vuota, distribuzione dei nodi o assenza di
-azione. Questi indizi richiedono confronto con obiettivi, segnali ed esiti.
-Funzione e denotazione guidano la collocazione; il ritmo di cambiamento aiuta a
-disaccoppiare le responsabilità. Il rimedio a un difetto è proporzionato al
-rischio e all'evidenza, anche quando il difetto emerge prima di un danno.
-
-I contratti sono coerenti anche nei consumatori: un cursore di allineamento
-resta vivo senza tensioni aperte; i rename coinvolgono le sole connessioni
-intenzionali e il recepimento resta locale. Il canale di contribuzione dipende
-dall'ownership. La conoscenza procedurale si distingue dal runbook eseguibile,
-e una riga semplice del plan non richiede un dettaglio o2.
-
-La fedeltà delle viste include gerarchie e destinazioni dei link: conservare il
-testo appiattendo un annidamento perde comunque informazione. Il generatore di
-liste usa il renderer Markdown già disponibile nella build; contratto e prove
-vivono nelle rispettive superfici. Il catalogo conserva la cautela dei nodi
-sulle attribuzioni; l'esempio additivo/sostitutivo segue il compito descritto da
-Norman. Facet chiuse e sede canonica dei dati restano convenzioni esplicite,
-senza dedurne che ogni attributo multiplo sia una relazione o cancellare
-osservazioni primarie indipendenti.
-
-La rifinitura non promuove automaticamente gli stati dei nodi. Il limite residuo
-è empirico e di provenienza: la correttezza delle distinzioni deve reggere
-nell'uso, e le fonti mancanti non diventano verificate per consenso fra nodi.
-
-Restano tre tensioni sperimentali:
-
-- `kb-content-typology` include la quarta regione «norma della macchina», ma
-  attende un secondo specimen esterno indipendente;
-- `action-cycle-matrix` resta provvisoria finché altri casi reali non
+- `kb-content-typology`: la quarta regione «norma della macchina» attende un
+  secondo specimen esterno indipendente;
+- `action-cycle-matrix`: resta provvisoria finché altri casi reali non
   falsificano o corroborano le sue celle;
-- il meccanismo `EXTENDED_FACETS` ha retto in `nixos` e nell'assenza motivata di
-  facet in `bi`, ma resta da osservare il caso `tipo:` di `economia`.
+- `EXTENDED_FACETS`: ha retto in `nixos` e nell'assenza motivata di facet in
+  `bi`; resta da osservare il caso `tipo:` di `economia`.
 
-Il filo resta aperto per queste verifiche e per i limiti delle fonti dichiarati
-nel register. La nuova condizione di revisione è esplicita: una contraddizione
-interna o una fonte che smentisce il testo apre lavoro correttivo subito;
-l'attesa di uso reale vale per le ipotesi, non per gli errori già osservabili.
+I limiti delle fonti restano dichiarati nel register `world.md`. Il filo si
+chiude quando le tre ipotesi sono decise, o quando il custode le riporta allo
+`stato` dei rispettivi nodi senza un caso atteso.

@@ -45,7 +45,7 @@ Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 Non usare il sistema di memoria dell'harness (`auto-memory`, store in
 `~/.claude/projects/.../memory/`): il contenuto è host-locale, opaco e non versionato
 — l'anti-pattern dell'artefatto portabile. La memoria del progetto vive versionata nel
-repo: i fili in `i3/` (perché una decisione conta), nodi `kb/` (conoscenza stabile), `o2/`
+repo: i fili in `i3/` (le tensioni aperte misurate contro un obiettivo), nodi `kb/` (conoscenza stabile e perché delle decisioni), `o2/`
 (lavoro futuro e contesto).
 
 L'enforcement (spegnere la feature) è invece versionabile: vive in `nixos` — env var

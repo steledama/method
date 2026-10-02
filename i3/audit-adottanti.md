@@ -1,11 +1,9 @@
 ---
 ciclo: runtime
+obiettivo: 2
 ---
 
 # Audit runtime-o1: la distanza degli adottanti dal telos
-
-**Misura**: «Propagare il canone e chiudere il loop con gli adottanti»
-(`goal.md`, obiettivo 2).
 
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
 ogni giro. Ultimo giro: **2026-10-01**, quarto battito, puntuale sulla
@@ -47,7 +45,8 @@ e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto
 col giro fino a `47d8204`. `salute` elenca nel marker l'esito di ognuna
 delle cinque prescrizioni aperte. Gli altri due le riportano nei soli
 adattamenti dove le hanno toccate. È il terzo giro in cui `aligned` e i
-file coincidono (cfr. `aligned-copre-prescrizioni-aperte`).
+file coincidono: `aligned` copre ora anche le prescrizioni aperte, e il
+marker non avanza finché una pertinente resta senza esito.
 
 **Superfici e viste: fresche in tutti e sei, verificate per rigenerazione.**
 Ogni repo è stato estratto da `origin` in una cartella temporanea e
@@ -115,6 +114,14 @@ Classificazione degli scostamenti:
 
 ## Tensioni aperte
 
+- `aligned` e file: coincidono da tre giri (2026-09-25, 2026-09-30,
+  2026-10-01). Finché non è confermato, il battito verifica le prescrizioni
+  nei file e non nei marker; se il 2026-11-01 coincidono ancora, la verifica
+  d'insieme si alleggerisce;
+- `revisione-bootstrap-adottante`: la prescrizione resta aperta finché i sei
+  registrano nel marker un esito sulla revisione coordinata di README,
+  CLAUDE, Goal e World, divergenze motivate incluse. Il merito non si
+  verifica in un giro d'insieme (cfr. Limiti);
 - ripetibilità: il quarto battito è arrivato in tempo, ma lo ha ricordato
   l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
   cella runtime-o1 resta D finché il battito non parte da un innesco;

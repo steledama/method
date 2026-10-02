@@ -56,6 +56,11 @@ accento e sorgente del deck si dichiarano in un solo file,
 `o3/presentation/project.py`; la build scrive l'accento in
 `presentation/assets/theme.css`.
 
+La home resta minimale, pura affordance di navigazione, senza modalità
+dev/runtime. Se la lente dev/runtime servirà, entrerà come filtro nelle singole
+viste, che già mostrano la colonna `Ciclo`; finché l'uso non la chiede, resta
+rimandata.
+
 ## Grafica nativa e build minima
 
 Le view usano HTML e CSS nativi per layout, diagrammi e componenti visivi; SVG

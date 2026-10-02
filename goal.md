@@ -34,8 +34,7 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   `/adottanti` in `## Scadenze`. Al battito del 2026-10-01 tutti e sei sono a
   `47d8204`, `aligned`, e i marker coincidono coi file; le viste sono fresche
   in tutti e sei, verificate rigenerando. `/method` rilegge a ogni giro le
-  prescrizioni aperte (filo
-  [aligned-copre-prescrizioni-aperte](i3/aligned-copre-prescrizioni-aperte.md)).
+  prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
   per arco; `toolchain-builder-presentazione`, nata il 2026-10-01 dal primo

@@ -73,231 +73,10 @@
     <div class="reveal">
       <div class="slides">
         <section
-          id="aligned-copre-anche-le-prescrizioni-aperte"
-          class="slide level2"
-        >
-          <h2><code>aligned</code> copre anche le prescrizioni aperte</h2>
-          <p>
-            <strong>Misura</strong>: «Propagare il canone e chiudere il loop con
-            gli adottanti» (<code>goal.md</code>, obiettivo 2).
-          </p>
-        </section>
-        <section id="verdetto" class="slide level2">
-          <h2>Verdetto</h2>
-          <p>
-            Il marker <code>aligned</code> dell’adottante non certificava ciò
-            che dichiarava. Il <code>/method</code> leggeva solo i commit di
-            <code>method</code> successivi al proprio cursore: una prescrizione
-            nata prima del cursore e rimasta aperta usciva dal suo orizzonte, e
-            il marker che avanzava la copriva senza che nessuno l’avesse
-            riletta. Il caso è <code>semplificazione-lessico-struttura</code>,
-            nata il 2026-08-21:
-          </p>
-          <ul>
-            <li>
-              il 2026-08-22 il gap è visto in <code>bi</code> e
-              <code>crm</code> e tenuto come watchpoint;
-            </li>
-            <li>
-              il 2026-09-24 è vivo in <code>bi</code>, <code>crm</code> ed
-              <code>economia</code>, tutti <code>aligned</code>. È il secondo
-              segnale che la guardia dal-basso aspettava;
-            </li>
-            <li>
-              il 2026-09-25 tutti e sei girano <code>/method</code> fino a
-              <code>eb3f400</code>. <code>crm</code> ed
-              <code>economia</code> recepiscono la prescrizione;
-              <code>salute</code> dichiara nel marker di aver riletto le
-              prescrizioni aperte nei file. <code>bi</code> passa
-              <code>aligned</code> col lessico ancora vivo, al terzo
-              <code>/method</code> dopo la segnalazione.
-            </li>
-          </ul>
-          <p>
-            Il canone ricevuto era lo stesso commit per tutti. La differenza
-            stava in cosa leggeva il giro: chi rileggeva le prescrizioni aperte
-            le chiudeva, chi leggeva solo il delta no. La rilettura dipendeva
-            dalla memoria di chi conduceva il giro, non da un passo della skill.
-          </p>
-          <p>
-            Delle due risposte possibili si è scelta la prima.
-            <code>/method</code> ha un passo proprio, «Rileggi le prescrizioni
-            aperte»: a ogni giro legge <code>## Contenuti</code> di
-            <code>o3/prescriptions.md</code> e verifica ciascuna prescrizione
-            nei file dell’adottante. <code>aligned</code> ora copre anche
-            queste, e il marker non avanza finché una prescrizione pertinente
-            resta senza esito. L’alternativa, restringere <code>aligned</code> a
-            «delta dei commit recepito», avrebbe reso il marker onesto ma
-            avrebbe lasciato le prescrizioni senza un giro che le verifica:
-            toccava al battito mensile <code>/adottanti</code>, che è d’insieme
-            e in sola lettura.
-          </p>
-          <p>
-            Il costo è contenuto: le prescrizioni sono poche e si potano quando
-            tutti le hanno recepite, quindi la rilettura è una ricerca mirata
-            per ciascuna.
-          </p>
-        </section>
-        <section id="primo-collaudo-bi-2026-09-25" class="slide level2">
-          <h2>Primo collaudo: <code>bi</code>, 2026-09-25</h2>
-          <p>
-            <code>bi</code> ha recepito il passo nel proprio fork e lo ha
-            applicato nello stesso giro (<code>51ec6bce</code>, marker a
-            <code>6408f55</code>). Letto nei file e non nel marker, il giro ha
-            retto:
-          </p>
-          <ul>
-            <li>
-              il lessico sopravvissuto a tre <code>/method</code> è sparito da
-              <code>README.md</code>, <code>CLAUDE.md</code>,
-              <code>i2/bi-in-sintesi.md</code> e dal fork <code>eval</code>.
-              Restano solo tre menzioni del «recepimento dell’atrio» in
-              <code>goal.md</code>, <code>i2/interpretations.md</code> e
-              <code>kb/convenzioni-script.md</code>, dichiarate nel marker come
-              cronaca di un task chiuso: la distinzione fra cronaca e lessico
-              vivo è stata fatta, non saltata;
-            </li>
-            <li>
-              la rilettura ha preso anche una prescrizione che nessuno aveva
-              segnalato: <code>revisione-bootstrap-adottante</code>, applicata
-              riducendo l’inventario duplicato «Strumenti» del README a un
-              rimando alla sezione omonima di <code>CLAUDE.md</code>, che esiste
-              e porta skill, comandi e formatter;
-            </li>
-            <li>
-              il marker nomina ogni prescrizione aperta con il suo esito,
-              comprese quelle già soddisfatte e quella non pertinente
-              (<code>ingresso-adottante</code>).
-            </li>
-          </ul>
-          <p>
-            È un caso solo, e condotto con un prompt che indicava il bersaglio:
-            prova che il passo funziona quando si esegue, non ancora che si
-            esegua senza essere ricordato.
-          </p>
-        </section>
-        <section
-          id="secondo-collaudo-nixos-e-crm-2026-09-25"
-          class="slide level2"
-        >
-          <h2>
-            Secondo collaudo: <code>nixos</code> e <code>crm</code>, 2026-09-25
-          </h2>
-          <p>
-            Lo stesso giorno <code>nixos</code> (<code>33714d0</code>) e
-            <code>crm</code> (<code>a13da6b</code>) hanno girato
-            <code>/method</code> fino a <code>a8ab92e</code>. Nessuna
-            prescrizione nominava i loro residui, e ciascuno ha trovato il
-            proprio: «questa stanza» nell’indice <code>o3/</code> di
-            <code>nixos</code>, «inventario dell’atrio» nell’indice
-            <code>o3/</code> di <code>crm</code>, più un commento in
-            <code>pyproject.toml</code> che la ricerca d’insieme sul solo
-            Markdown non vedeva. I due marker riportano l’esito di ogni
-            prescrizione aperta. Il fork di <code>crm</code> rimanda alla skill
-            canonica invece di copiarla: il passo gli è arrivato senza
-            recepimento.
-          </p>
-          <p>
-            Letti nei file su origin, i sei non hanno più il lessico vivo:
-            restano cronaca («recepimento dell’atrio», commenti di codice sulla
-            «Fase B» in <code>bi</code>) e italiano comune.
-            <code>semplificazione-lessico-struttura</code> è potata da
-            <code>o3/</code>.
-          </p>
-        </section>
-        <section
-          id="terzo-collaudo-economia-salute-e-danea-auto-2026-09-3010-01"
-          class="slide level2"
-        >
-          <h2>
-            Terzo collaudo: <code>economia</code>, <code>salute</code> e
-            <code>danea-auto</code>, 2026-09-30/10-01
-          </h2>
-          <p>
-            I tre che mancavano hanno girato <code>/method</code> fino a
-            <code>47d8204</code> senza una prescrizione costruita su di loro.
-            <code>salute</code> elenca nel marker l’esito di tutte e cinque le
-            prescrizioni aperte: una non pertinente, una già soddisfatta, una
-            già presente nei fork, una divergenza motivata, una recepita.
-            <code>economia</code> e <code>danea-auto</code> riportano le
-            prescrizioni dove le hanno toccate. Il battito
-            <code>/adottanti</code> del 2026-10-01 le ha verificate nei file e
-            ha trovato marker e file coincidenti in tutti e sei: la rilettura è
-            rimasta una verifica, non un rito.
-          </p>
-        </section>
-        <section id="tensioni-aperte" class="slide level2">
-          <h2>Tensioni aperte</h2>
-          <ul>
-            <li>
-              il battito <code>/adottanti</code> continua a verificare nei file
-              e non nei marker, finché i giri non mostrano che
-              <code>aligned</code> e i file coincidono. Tre giri in cui
-              coincidevano (2026-09-25, 2026-09-30, 2026-10-01): se il battito
-              del 2026-11-01 lo conferma, la verifica d’insieme delle
-              prescrizioni si può alleggerire e il filo si chiude.
-            </li>
-          </ul>
-        </section>
-        <section
-          id="il-marcatore-delle-attese-a-finestra-nel-plan"
-          class="slide level2"
-        >
-          <h2>Il marcatore delle attese a finestra nel plan</h2>
-          <p>
-            Inciso in <code>kb/plan.md</code> (2026-08-22):
-            <code>Dip.</code> descrive da cosa dipende un task, non come si
-            comporta il costo del ritardo, e i comportamenti sono tre. L’attesa
-            <strong>piatta</strong> non costa, l’attesa
-            <strong>onerosa</strong> costa in modo crescente ma resta
-            recuperabile, l’attesa <strong>a finestra</strong> non incarisce —
-            può chiudere l’opzione. Le prime due erano già governate da
-            <code>## Scadenze</code>; la terza era invisibile per costruzione,
-            perché la sua caratteristica è di non avere una data calcolabile su
-            cui un controllo per distanza temporale possa allertare.
-          </p>
-          <p>
-            Il canone aggiunge un <code>!</code> appeso all’indice
-            (<code>w2!</code>): <strong>deperibile, non urgente</strong> —
-            distinzione che inverte la lettura normale della coda, perché una
-            finestra con mesi davanti può meritare presidio più di una scadenza
-            già passata. Si marca solo ciò la cui chiusura non ha ancora una
-            data e su cui non c’è ancora una mossa in agenda; appena l’azione
-            entra in agenda, la data sostituisce il marcatore, che si toglie —
-            un plan senza <code>!</code> perché ogni finestra è presidiata è
-            sano, non smemorato. La chiosa dichiara causa, risveglio, cosa
-            chiude la finestra e <strong>cosa resta se si chiude</strong>: è il
-            secondo campo a trasformare l’ansia in una decisione dichiarata.
-          </p>
-          <p>
-            Contestualmente rinominati gli indici di dipendenza esterna:
-            <code>world</code>/<code>pause</code> diventano
-            <code>w&lt;n&gt;</code>/<code>p&lt;n&gt;</code> (lettera = chi tiene
-            il tempo, numero = indirizzo della legenda, riassegnato a ogni
-            revisione). <code>o1/plan.md</code> è stato migrato nello stesso
-            commit (<code>pause [a]</code> → <code>p1</code>).
-          </p>
-          <p>
-            Verdetto corrente: canone inciso, nessuna istanza reale ha ancora
-            prodotto un <code>!</code> (l’unica attesa aperta in
-            <code>o1/plan.md</code>, la rivalutazione skill-per-arco, ha una
-            data nota ed è quindi un <code>pause</code> semplice, non una
-            finestra). Il filo resta aperto fino al primo caso reale che
-            eserciti il marcatore — verifica se la distinzione
-            deperibile/urgente regge sotto pressione e se il controllo scadenze
-            dell’adottante (che deve stampare le righe marcate senza condizione
-            di distanza) è stato recepito.
-          </p>
-        </section>
-        <section
           id="audit-runtime-o1-la-distanza-degli-adottanti-dal-telos"
           class="slide level2"
         >
           <h2>Audit runtime-o1: la distanza degli adottanti dal telos</h2>
-          <p>
-            <strong>Misura</strong>: «Propagare il canone e chiudere il loop con
-            gli adottanti» (<code>goal.md</code>, obiettivo 2).
-          </p>
           <p>
             Verdetto aggregato dell’audit mensile <code>/adottanti</code>,
             aggiornato in place a ogni giro. Ultimo giro:
@@ -311,7 +90,7 @@
             origin: è stantia, non in drift.
           </p>
         </section>
-        <section id="verdetto-1" class="slide level2">
+        <section id="verdetto" class="slide level2">
           <h2>Verdetto</h2>
           <p>
             <strong
@@ -369,8 +148,9 @@
             a <code>47d8204</code>. <code>salute</code> elenca nel marker
             l’esito di ognuna delle cinque prescrizioni aperte. Gli altri due le
             riportano nei soli adattamenti dove le hanno toccate. È il terzo
-            giro in cui <code>aligned</code> e i file coincidono (cfr.
-            <code>aligned-copre-prescrizioni-aperte</code>).
+            giro in cui <code>aligned</code> e i file coincidono:
+            <code>aligned</code> copre ora anche le prescrizioni aperte, e il
+            marker non avanza finché una pertinente resta senza esito.
           </p>
           <p>
             <strong
@@ -484,9 +264,23 @@
             </li>
           </ul>
         </section>
-        <section id="tensioni-aperte-1" class="slide level2">
+        <section id="tensioni-aperte" class="slide level2">
           <h2>Tensioni aperte</h2>
           <ul>
+            <li>
+              <code>aligned</code> e file: coincidono da tre giri (2026-09-25,
+              2026-09-30, 2026-10-01). Finché non è confermato, il battito
+              verifica le prescrizioni nei file e non nei marker; se il
+              2026-11-01 coincidono ancora, la verifica d’insieme si
+              alleggerisce;
+            </li>
+            <li>
+              <code>revisione-bootstrap-adottante</code>: la prescrizione resta
+              aperta finché i sei registrano nel marker un esito sulla revisione
+              coordinata di README, CLAUDE, Goal e World, divergenze motivate
+              incluse. Il merito non si verifica in un giro d’insieme (cfr.
+              Limiti);
+            </li>
             <li>
               ripetibilità: il quarto battito è arrivato in tempo, ma lo ha
               ricordato l’agente leggendo <code>## Scadenze</code> dentro una
@@ -532,1062 +326,71 @@
           </ul>
         </section>
         <section
-          id="il-bootstrap-si-revisiona-come-sistema-su-due-livelli"
+          id="le-ipotesi-del-canone-attendono-una-verifica-empirica-distinta-dalla-coerenza-interna"
           class="slide level2"
         >
-          <h2>Il bootstrap si revisiona come sistema, su due livelli</h2>
+          <h2>
+            Le ipotesi del canone attendono una verifica empirica distinta dalla
+            coerenza interna
+          </h2>
           <p>
-            La lettura comparata dei sei adottanti
-            (<code>i2/bootstrap-adottanti.md</code>) ratifica la
-            generalizzazione nata dalla riscrittura di <code>salute</code>: nel
-            README il dominio ha priorità editoriale sulla mappa strutturale e
-            l’inventario completo deve restare verificabile senza essere
-            incorporato nella bussola. Non ratifica però una revisione isolata
-            del README né un template uniforme.
+            La review completa dei nodi ha mostrato che audit strutturali verdi
+            e promozioni di maturità non bastano a garantire coerenza semantica:
+            le correzioni approvate dal custode (contraddizioni fra stadi, Mondo
+            e modello dell’agente, attribuzioni e metriche troppo forti) sono
+            ora nei nodi e la loro storia in git. Il canone tiene la regola che
+            ne è uscita: una contraddizione interna o una fonte che smentisce il
+            testo apre lavoro correttivo subito; l’attesa di uso reale vale per
+            le ipotesi, non per gli errori già osservabili. La rifinitura non
+            promuove automaticamente gli stati dei nodi, e le fonti mancanti non
+            diventano verificate per consenso fra nodi.
           </p>
+        </section>
+        <section id="tensioni-aperte-1" class="slide level2">
+          <h2>Tensioni aperte</h2>
           <p>
-            Il bootstrap è il quartetto coordinato <code>README.md</code> /
-            <code>CLAUDE.md</code> / <code>goal.md</code> /
-            <code>world.md</code>. Il verdetto è a <strong>due livelli</strong>:
+            Tre ipotesi sperimentali, ciascuna con il caso che la deciderebbe:
           </p>
           <ul>
             <li>
-              <code>metodo</code> custodisce il contratto comune, confronta i
-              repo e pubblica una prescrizione con criteri e tensioni osservate;
+              <code>kb-content-typology</code>: la quarta regione «norma della
+              macchina» attende un secondo specimen esterno indipendente;
             </li>
             <li>
-              ogni adottante verifica quei criteri contro il proprio dominio e
-              applica o motiva le differenze mediante la propria skill
-              <code>/method</code>.
-            </li>
-          </ul>
-          <p>
-            La fotografia per repo non vive nel nodo canonico
-            <code>kb/readme.md</code>, perché diventerebbe rapidamente una
-            seconda fonte stale. Vive nella sintesi i2 e nell’audit periodico; i
-            nodi canonici conservano soltanto gli invarianti emersi.
-          </p>
-          <p>
-            La prescrizione <code>o3/revisione-bootstrap-adottante.md</code> è
-            aperta. Il filo si chiude quando i sei adottanti hanno registrato
-            nel proprio marker <code>/method</code> un esito sulla revisione
-            coordinata, incluse le divergenze motivate; non richiede che i file
-            abbiano uguale ordine o lunghezza.
-          </p>
-          <p>
-            La revisione è nata da una modifica diretta autorizzata dal custode
-            attraverso un repo che mantiene personalmente. Non è un errore di
-            canale: nei repo sotto la stessa ownership l’agente incaricato può
-            modificare il canone, che passa poi dal normale gate di review e
-            commit di <code>metodo</code>. Per adottanti mantenuti da terzi,
-            invece, il confine è una pull request: il suo diff e il suo
-            razionale sono il segnale persistente che entra nella valutazione
-            del canone.
-          </p>
-        </section>
-        <section
-          id="de-cablaggio-del-binomio-due-agenti-la-seconda-metà-resta-bottom-up"
-          class="slide level2"
-        >
-          <h2>
-            De-cablaggio del binomio «due agenti»: la seconda metà resta
-            bottom-up
-          </h2>
-          <p>
-            Il metodo era nato descrivendo due agenti — l’umano e un singolo LLM
-            — e su quel binomio aveva cablato la sua asimmetria come se fosse
-            <em>la</em> struttura. La prima metà della correzione è fatta, e
-            <strong>additiva</strong>: il nodo <code>agent</code> riconosce il
-            binomio come <strong>caso saliente</strong> di una popolazione più
-            ampia (Norman: «person, animal, or machine»; la categoria macchina è
-            un gradiente, non un punto), e <code>system-image</code>,
-            <code>cognitive-system</code>, <code>knowledge-base</code> sono
-            ammorbiditi senza cancellare il caso umano/LLM — resta vero
-            <em>come caso</em>, ed è l’unico in uso a valle. La seconda metà —
-            maturazione di <code>agent</code>, biforcazione di o1 per capacità
-            dell’agente, asse fiducia/privacy, divisione per stadio del ciclo —
-            resta <strong>deliberatamente non scritta</strong>: attende che un
-            secondo livello di agente entri nell’uso reale. Scriverla ora
-            sarebbe inventare struttura prima dell’evidenza, l’opposto di come
-            il metodo si sviluppa.
-          </p>
-          <p>
-            Il modello ricostruito dall’LLM non coincide con la KB: richiesta,
-            strumenti e segnali concorrono alla comprensione. La correzione è
-            applicata anche in <code>agent</code> e <code>node</code>, oltre che
-            in <code>system-image</code> e <code>cognitive-system</code>. Le
-            rese per macchina e umano sono scelte d’interfaccia per lettori
-            diversi, non prove di processi cognitivi identici. La parte ancora
-            da verificare è la divisione del lavoro fra più livelli di agenti
-            nell’uso reale.
-          </p>
-        </section>
-        <section
-          id="home-minimalista-la-lente-devruntime-rimandata-a-filtri-nelle-viste"
-          class="slide level2"
-        >
-          <h2>
-            Home minimalista: la lente dev/runtime rimandata a filtri nelle
-            viste
-          </h2>
-          <p>
-            La home è stata semplificata (74df440, 2026-07-05): ciclo singolo,
-            un solo collegamento primario per slot, niente switch dev/runtime.
-            Decisione ratificata: in questa fase la home resta
-            <strong>minimalista</strong>, pura affordance di navigazione; la
-            lente dev/runtime, quando servirà, entrerà
-            <strong>a valle come filtro nelle singole viste</strong> (es. tasks
-            o plan: mostra solo il ciclo filtrato oppure tutti) — non
-            pianificata, deliberatamente rimandata all’uso reale.
-          </p>
-          <p>Code chiuse dal giro di semplificazione:</p>
-          <ul>
-            <li>
-              <strong>Tensione con <code>action-cycle-matrix</code></strong
-              >: risolta nella prima delle due vie che questo filo poneva — la
-              home è solo affordance di navigazione; la matrice a 16 celle e la
-              scala a cinque valori restano lo strumento analitico del nodo (il
-              suo paragrafo presentativo è aggiornato di conseguenza).
-            </li>
-            <li>
-              <strong
-                >Sorte delle viste <code>tasks.html</code>/<code
-                  >verdict.html</code
-                ></strong
-              >
-              (ereditata dal filo ristrutturazione della root): tenute,
-              uniformate a deck (74df440); saranno la sede naturale del futuro
-              filtro dev/runtime.
-            </li>
-            <li>
-              <strong>Propagazione del motore della home</strong>: col motore
-              ridotto a ciclo singolo e CONFIG minimale il fork è banale; ha
-              viaggiato nella prescrizione strutturale, recepita dai quattro
-              adottanti (chiusa 2026-07-11).
-            </li>
-            <li>
-              <strong>CSS della home</strong>:
-              <code>presentation/assets/system-image.css</code> è parte dello
-              stesso contratto minimale. Tiene solo token, base e classi emesse
-              dalla home (<code>hero</code>, <code>kicker</code>,
-              <code>pole*</code>, <code>arc-dir</code>, <code>cycle*</code>,
-              <code>card-title</code>); non conserva componenti previsionali per
-              task list, card di viste o card del World.
-            </li>
-          </ul>
-          <p>
-            Watchpoint: le tavole della vista Interpretazioni sono
-            <strong>asset raster statici</strong>, non diagrammi derivati dalla
-            sorgente — se un nodo cambia il senso di una tavola, la
-            rigenerazione è un atto manuale/creativo, non di build; presidiato
-            solo dal check i2 di <code>/commit</code>. Il redraw pendente è
-            chiuso il 2026-08-16: ontologia uniformata in italiano,
-            <code>P1</code>→<code>Pi</code>, didascalia KB estesa e gradiente
-            rafforzato; la tavola runtime/dev era già conforme ed è rimasta
-            invariata.
-          </p>
-          <p>
-            Fili parcheggiati dello stesso fronte: dei due assi ortogonali di
-            <code>plan</code> — ciclo (sviluppo/runtime) × natura
-            (metodologico/merito) — la colonna <code>Ciclo</code> è incisa
-            (2026-07-04, con la facet <code>ciclo:</code> sugli item di
-            collezione); resta parcheggiata <code>natura</code>. L’omologia
-            tools=o3-sviluppo / scripts=o3-runtime / skill=prescrizioni
-            narrative è promulgata in
-            <code>o3/prescriptions.md</code> («Strumenti»); l’eventuale
-            uniformità totale degli indici col suo costo (rinomina del nodo
-            <code>index</code>, split del catalogo <code>tools</code>). Fuori
-            orizzonte, deliberatamente: i task come slide navigabili, la
-            finestra-terminale per dialogare col modello e il mini-server che
-            serva <code>presentation/index.html</code> (entrambi rompono
-            l’invariante <code>file://</code>, saranno classe e nodo a sé).
-          </p>
-        </section>
-        <section
-          id="una-rappresentazione-per-fatto-gli-stadi-output-tengono-solo-il-vivo-e-il-register-non-trascrive-il-plan"
-          class="slide level2"
-        >
-          <h2>
-            Una rappresentazione per fatto: gli stadi output tengono solo il
-            vivo, e il register non trascrive il plan
-          </h2>
-          <p>
-            Ratificato (2026-07-11), dalla valutazione i2→i3 di due percezioni
-            di <code>economia</code> (catturate il 2026-07-10: «indice
-            o2/tasks.md sottoutilizzato» e «potatura delle prescriptions o3
-            consumate», consumate da questo filo); esteso il 2026-07-28 dalla
-            terza percezione dello stesso adottante («la sezione cause del plan
-            diventa una seconda fonte di verità», 2026-07-28, anch’essa
-            consumata qui) e il 2026-07-31 dalla quarta («la mappatura
-            task→obiettivo vive solo nel register, a mano», 2026-07-30), che
-            porta l’invariante fuori dagli stadi output, sul confine col
-            register del Goal.
-          </p>
-          <p>
-            <strong>Un solo indice per collezione, anche per i task.</strong> Il
-            footer <code>## Dettagli task</code> di <code>o1/plan.md</code> era
-            un secondo indice dei file <code>o2/</code> — la stessa patologia
-            del <code>#</code> abolito: due rappresentazioni da tenere in
-            sincronia. E infatti in <code>metodo</code> l’indice vero
-            (<code>o2/tasks.md</code>) era rimasto indietro mentre il footer
-            faceva il suo lavoro: la duplicazione non era teorica. Ratificata la
-            forma di <code>economia</code>: <code>o2/tasks.md</code> è l’unico
-            indice dei dettagli (una voce per task aperto, ordinata per titolo),
-            il plan chiude col solo rimando. Canone in <code>kb/plan.md</code> e
-            <code>kb/tasks.md</code>; <code>metodo</code> materializzato.
-          </p>
-          <p>
-            <strong>Le prescrizioni consumate si potano.</strong> o3 tiene solo
-            il vivo — procedure, canovacci riusabili, artefatti pronti all’atto;
-            l’eseguito è archivio travestito, e l’archivio è git. Canone in
-            <code>kb/perform.md</code> («Chiusura del ciclo di vita», il
-            parallelo di <code>perceive</code> che mancava);
-            <code>metodo</code> la praticava già — la prescrizione strutturale è
-            stata rimossa al recepimento pieno (2026-07-11) — ora la regola è
-            incisa. Presidio leggero in <code>plan-review</code> (le
-            prescrizioni collegate a lavoro chiuso non restano in collezione);
-            una review dedicata dello stadio Perform resta deliberatamente fuori
-            finché l’accumulo non ricorre in più adottanti.
-          </p>
-          <p>
-            <strong>Non mancava una soglia, mancava una forma.</strong> La
-            sezione «cause delle attese e delle pause» di <code>economia</code>,
-            cresciuta al 44% del plan, non era una legenda troppo lunga: era una
-            legenda degenerata in <strong>sezione parallela</strong> alla
-            tabella. Tre dei cinque sintomi misurati (bullet su task
-            <code>—</code>, ordine divergente, <code>Dip.</code> che contraddice
-            il proprio bullet) erano già impossibili nella forma canonica, dove
-            la chiosa pende da una chiave letta dalla tabella. Ciò che davvero
-            mancava: delle tre parti del plan solo due avevano una forma sottile
-            — la tabella e <code>## Scadenze</code> (<code
-              >data → una riga → un rimando</code
-            >); la chiosa di legenda diceva <em>cosa</em> scrivere, mai
-            <em>quanto</em>. Incisa in <code>kb/plan.md</code>:
-            <code>chiave → causa → risveglio → rimando a o2/</code>, in ordine
-            di tabella, una voce per chiave e nessuna voce senza chiave. Il
-            numero di righe è la conseguenza degli slot, non il meccanismo: è la
-            forma che rende lo sforamento visibile senza leggere il contenuto
-            (<code>constraint</code>, il presidio strutturale sotto il check
-            riflessivo che era saltato per mesi).
-          </p>
-          <p>
-            <strong>Terza incarnazione, un solo vincolo.</strong>
-            <code>#</code> come secondo identificatore, footer
-            <code>## Dettagli task</code> come secondo indice, sezione cause
-            come seconda fonte sullo stato dei task: tre istanze bastano a
-            nominare l’invariante nel nodo invece di ri-diagnosticarlo caso per
-            caso — un fatto o vive in una sola rappresentazione, o la seconda è
-            derivata dalla prima e ancorata da una chiave. La coerenza tra
-            struttura e prosa non si controlla: si rende impossibile da rompere.
-          </p>
-          <p>
-            <strong
-              >Quarta incarnazione: la copia stava fuori dagli stadi output, nel
-              register.</strong
-            >
-            La direzione task→obiettivo viveva solo nell’elenco «Lavoro
-            corrente» di <code>goal.md</code>, trascritto a mano dai titoli del
-            plan (<code>economia</code>, 2026-07-30). Non era derivato da nulla,
-            e infatti mancava un task in <strong>posizione 2</strong>,
-            <code>—</code>, con file <code>o2/</code> e voce d’indice: lavoro
-            prioritario e sbloccato, invisibile al register. Ratificata la forma
-            di <code>economia</code> (2026-07-31): una colonna
-            <code>Ob.</code> in <code>o1/plan.md</code> con la chiave
-            dell’obiettivo — numero per gli obiettivi runtime,
-            <code>S</code> per il Goal di sviluppo — e il register che rimanda
-            alla colonna invece di elencare titoli. Canone in
-            <code>kb/plan.md</code> e <code>kb/goal.md</code>;
-            <code>metodo</code> materializzato, gli altri tre recepiscono col
-            normale <code>method-review</code>.
-          </p>
-          <p>
-            Tre reperti che l’istanza aggiunge all’invariante, e che le prime
-            tre non avevano:
-          </p>
-          <ul>
-            <li>
-              <strong
-                >la duplicazione era asimmetrica nei tempi di lettura</strong
-              >, ed è per questo che non si è fatta notare:
-              <code>o1/plan.md</code> si rilegge a ogni bootstrap,
-              <code>goal.md</code> on-demand. La copia che deriva era quella che
-              si guarda di rado. La tentazione è aggiungere un controllo alla
-              review che legge l’originale; la risposta giusta è togliere la
-              copia, ed è quella incisa nel nodo;
-            </li>
-            <li>
-              <strong>le due review si passavano il controllo a vuoto</strong>:
-              <code>plan-review</code> verificava task→obiettivo e
-              <code>verdicts-review</code> obiettivo→segnale, ma entrambe
-              leggevano lo stesso elenco scritto a mano — confermavano la copia,
-              non la realtà. Un controllo riflessivo che legge la
-              rappresentazione sbagliata non fallisce mai: è la stessa lezione
-              di <code>constraint</code>, dal versante della supervisione;
-            </li>
-            <li>
-              <strong
-                >gli indici di collezione non sono la stessa patologia</strong
-              >, e va detto perché la somiglianza inganna:
-              <code>o2/tasks.md</code>, <code>i3/verdicts.md</code>,
-              <code>o3/prescriptions.md</code> sono elenchi scritti a mano che
-              ripetono item esistenti altrove, ma sono l’<strong>unica</strong>
-              rappresentazione della collezione come collezione — non la seconda
-              di un fatto che vive già in tabella. Il difetto non è «un elenco a
-              mano», è «un elenco a mano di un fatto già rappresentato».
-            </li>
-          </ul>
-          <p>
-            La colonna è arrivata con un
-            <strong>presidio, non con una regola</strong>: il generatore delle
-            viste legge <code>Ob.</code> come contratto — chiave assente dal
-            register o cella vuota rompono la build
-            (<code>o3/presentation.py</code>), e una riga di tabella di forma
-            non riconosciuta non si salta più in silenzio. Senza quest’ultimo
-            tratto la quarta incarnazione avrebbe riprodotto il difetto di
-            <code>vista-derivata-e-verificata</code>: tabella a quattro colonne,
-            parser fermo a tre, vista dei task vuota senza che nulla rompesse.
-          </p>
-          <p>
-            <strong>Potare è fondere, non cancellare.</strong> Reperto emerso
-            <em>facendo</em> la potatura, e il più portabile perché indipendente
-            dal plan: ogni istruzione di consolidamento del metodo assume
-            implicitamente che la copia da rimuovere sia quella stale. In due
-            casi su otto era il plan a portare il fatto più recente. Riga
-            aggiunta al passo 4 di <code>verdicts-review</code> (dove l’atto
-            vive), non a un nodo: con una sola istanza resta operativa. Se
-            ricorre sui fili <code>i3/</code> o sulle prescrizioni
-            <code>o3/</code>, sale a canone.
-          </p>
-          <p>
-            Il ritardo di sedici giorni perché il protocollo post-evento — nato
-            in <code>economia</code> — rientrasse nel suo fork non è un segnale
-            a sé: sta sotto la cadenza dell’audit mensile, che già lo misura
-            (<code>audit-adottanti</code>), ed è strutturale per l’adottante che
-            è origine di buona parte del canone.
-          </p>
-          <p>
-            Watchpoint aperti sulla colonna <code>Ob.</code>: la chiave
-            <code>S</code> per il Goal di sviluppo è nata materializzando la
-            colonna in <code>metodo</code> — dove l’unico task non bloccato
-            serve il goal di sviluppo, che nel register non è numerato — e va
-            collaudata sui tre adottanti che devono ancora recepirla; il caso
-            «un task serve due obiettivi» (<code>1,4</code>) è ammesso ma deve
-            restare <strong>raro</strong> (in <code>economia</code> una riga su
-            diciassette), e se cresce il sospetto si sposta sui task da
-            scomporre o sugli obiettivi da riformulare. La distribuzione dei
-            task per obiettivo, ora leggibile a colpo d’occhio, resta una
-            proprietà della forma: non se ne fa un controllo di
-            <code>plan-review</code> finché la forma la mostra da sé.
-          </p>
-          <p>
-            Watchpoint: la forma nuova del plan viaggia col normale
-            <code>method-review</code> degli adottanti (nessuna prescrizione
-            dedicata: modifica puntuale, non strutturale); se un adottante
-            accumula o3 consumate nonostante il check di
-            <code>plan-review</code>, il filo si riapre verso la review
-            dedicata. Da sciogliere al prossimo <code>method-review</code> di
-            <code>economia</code>: la regola del budget copiata nel suo
-            <code>CLAUDE.md</code> contraddice <code>kb/plan.md</code> («la
-            forma si descrive una volta sola nel nodo») — la premessa era vera
-            (la skill gira solo se invocata), ma la risposta è che il plan si
-            legge a ogni bootstrap e la forma si auto-spiega, non che la regola
-            si duplichi. Se il ramo «potare fondendo» cresce oltre la riga di
-            skill, si splitta in filo proprio.
-          </p>
-        </section>
-        <section
-          id="lammissione-di-un-adottante-richiede-un-protocollo-leggero"
-          class="slide level2"
-        >
-          <h2>L’ammissione di un adottante richiede un protocollo leggero</h2>
-          <p>
-            Gli ingressi di <code>crm</code> e <code>danea-auto</code>, diversi
-            per origine e maturità, hanno confermato che l’ammissione appartiene
-            al confine del metodo. Deve rendere visibili adozione locale,
-            inventario corrente, fotografie storiche, baseline con provenienza,
-            limiti di verifica e predisposizione del primo audit, senza
-            governare la coda dell’adottante.
-          </p>
-          <p>
-            Il confine documentale è ora esplicito.
-            <code>kb/method-observatory.md</code> conserva il modello e la
-            funzione dell’ingresso;
-            <code>o3/ingresso-adottante.md</code> contiene la prescrizione
-            eseguibile e richiama la revisione coordinata del bootstrap. Non
-            nasce una skill autonoma né un’automazione: la classificazione fra
-            stato corrente e fotografia storica resta un giudizio, e una
-            capacità ulteriore richiede ricorrenza osservata.
-          </p>
-          <p>
-            La tensione resta aperta soltanto come collaudo prospettico. Il
-            prossimo ingresso deve mostrare se la prescrizione regge fuori dai
-            due casi che l’hanno generata; nel frattempo il battito periodico
-            deve trattare <code>crm</code> e <code>danea-auto</code> come
-            baseline diverse senza confonderle con la fotografia dei quattro
-            adottanti precedenti.
-          </p>
-        </section>
-        <section
-          id="le-viste-a-elenco-o3i1-sono-fedeli-alla-struttura-della-fonte-non-a-un-nome-di-intestazione"
-          class="slide level2"
-        >
-          <h2>
-            Le viste a elenco o3/i1 sono fedeli alla struttura della fonte, non
-            a un nome di intestazione
-          </h2>
-          <p>
-            Aperto il 2026-09-09 dalla valutazione i2→i3 di due percezioni
-            consumate qui: <code>bi</code> («<code>build_lists.py</code> assume
-            <code>## Contenuti</code> come nome fisso della coda, ma
-            un’intestazione fissa non regge in un repo dove lo stesso nome ha
-            già un altro significato») e <code>nixos</code> («la presentazione
-            eredita la domanda di i1 per analogia strutturale, ma nessuno ha mai
-            dichiarato a quale domanda e a quale pubblico ogni pagina deve
-            rispondere»). Stesso giorno, stesso generatore, stesso commit
-            d’origine (<code>2891892</code>): due repo indipendenti su due assi
-            diversi della stessa rottura — il contratto della vista era un nome
-            di intestazione (<code>## Contenuti</code>), non la struttura
-            markdown della fonte. In <code>bi</code> il nome ha due significati
-            diversi fra collezioni dello stesso repo; in <code>nixos</code>, e
-            mascherato nel canone stesso, la card o3 promette «strumenti» che il
-            generatore non ha mai reso, perché guardava solo il primo blocco
-            puntato sotto quel nome — <code>## Strumenti</code> restava fuori da
-            <code>prescriptions.html</code> anche in <code>metodo</code>.
-          </p>
-        </section>
-        <section id="il-contratto-nuovo" class="slide level2">
-          <h2>Il contratto nuovo</h2>
-          <p>
-            <code>o3/build_lists.py</code> rende l’intero corpo Markdown tramite
-            Pandoc, già richiesto dalla build Reveal. La parametrizzazione
-            <code>PAGES</code> conserva sorgente, prefisso dei link e titolo; il
-            titolo iniziale della fonte è sostituito da quello di pagina. Le
-            intestazioni editoriali non sono una whitelist. Sottotitoli, liste
-            annidate e numerate e codice conservano la propria struttura: la
-            lettura di tutte le sezioni H2 da sola non bastava, perché il parser
-            di blocchi piatti appiattiva padri e figli e rendeva i sottotitoli
-            come prosa.
-          </p>
-          <p>
-            Il ribasamento dei link e delle immagini Markdown avviene sull’AST
-            prima della resa HTML, preservando query, frammenti e URL assoluti.
-            Il codice letterale non è riscritto. L’HTML grezzo incorporato,
-            inclusi i suoi URL, resta responsabilità della fonte. Il formato è
-            il Markdown di Pandoc usato dalla build Reveal.
-          </p>
-          <p>
-            Il contratto di <code>kb/view.md</code> distingue intestazioni
-            editoriali libere e chiavi nominali esplicitamente dichiarate da uno
-            schema. La fedeltà richiede di preservare le relazioni nella fonte,
-            non soltanto tutte le parole. Le prove in
-            <code>tests/test_build_lists.py</code> presidiano annidamenti,
-            ordine delle sezioni, sottotitoli, liste numerate, codice e
-            destinazioni dei link; il doppio giro di build verifica il
-            determinismo sulle fonti reali.
-          </p>
-        </section>
-        <section
-          id="watchpoint-aperto-fedeltà-completa-vs.-lente-del-lettore-abitante"
-          class="slide level2"
-        >
-          <h2>
-            Watchpoint aperto: fedeltà completa vs. lente del lettore-abitante
-          </h2>
-          <p>
-            Renderizzare per intero include anche la prosa storica che oggi
-            vive, senza intestazione propria, subito dopo il blocco puntato di
-            <code>## Contenuti</code> in <code>i1/perceptions.md</code> e
-            <code>o3/prescriptions.md</code> — il generatore non decide più cosa
-            sia «storia», quindi non la esclude più. Le due pagine sono oggi più
-            lunghe e mescolano il registro «coda aperta» (lettore-abitante, cfr.
-            il segnale nixos su domanda/pubblico) con quello narrativo
-            (lettore-ospite, cronaca dei fili chiusi). La causa è a monte, non
-            nel generatore: <code>i1</code> e <code>o3</code> dichiarano già che
-            «la storia resta in git» ma la tengono comunque in prosa nel corpo
-            del file. Non prunata qui — è una decisione editoriale sul contenuto
-            delle collezioni, non sullo strumento, e resta al custode: se
-            <code>i1</code> e <code>o3</code> smettessero di portare la cronaca
-            inline (coerenti con la propria regola già scritta), il problema si
-            scioglie da sé, senza altro codice — ma è materiale nuovo, non lo
-            stesso filo, e non blocca la chiusura del verdetto sopra.
-          </p>
-          <p>
-            Misura: obiettivo 1 del goal («Custodire un canone coerente e fedele
-            alle fonti»). Propagazione agli adottanti chiusa il 2026-10-01:
-            recepita da <code>nixos</code>, <code>bi</code> e
-            <code>danea-auto</code>, divergenza motivata in
-            <code>economia</code> e <code>salute</code>, non applicabile in
-            <code>crm</code>; prescrizione potata.
-          </p>
-        </section>
-        <section
-          id="coerenza-interna-e-maturazione-empirica-richiedono-verifiche-distinte"
-          class="slide level2"
-        >
-          <h2>
-            Coerenza interna e maturazione empirica richiedono verifiche
-            distinte
-          </h2>
-          <p>
-            La rete dei 48 nodi conserva responsabilità autonome: non richiede
-            fusioni o eliminazioni. La review completa ha però mostrato che
-            audit strutturali verdi e precedenti promozioni di maturità non
-            bastano a garantire coerenza semantica. Le correzioni approvate dal
-            custode riguardano sia contraddizioni testuali sia il livello di
-            certezza delle attribuzioni e delle metriche.
-          </p>
-          <p>
-            Il canone distingue ora cattura, interpretazione e giudizio; la
-            valenza rispetto al Goal entra in i3, anche nelle istruzioni di
-            <code>eval</code>. Le sintesi si collocano per funzione fra i2, o2 e
-            viste derivate. Il Mondo è relativo al ciclo e può essere
-            versionato. Il modello dell’agente integra l’artefatto con
-            richiesta, strumenti e segnali, senza coincidere con la sola KB.
-          </p>
-          <p>
-            Le attribuzioni separano fonte primaria e trasposizione: task e
-            operazione in Leontiev, schede usate e collegamenti proposti in
-            Engelbart, cronologia del signifier in Norman. Il pattern Karpathy
-            resta una formalizzazione locale; la provenienza e i limiti delle
-            fonti vivono nel register <code>world.md</code>.
-          </p>
-          <p>
-            La maturità non si deduce da coda vuota, distribuzione dei nodi o
-            assenza di azione. Questi indizi richiedono confronto con obiettivi,
-            segnali ed esiti. Funzione e denotazione guidano la collocazione; il
-            ritmo di cambiamento aiuta a disaccoppiare le responsabilità. Il
-            rimedio a un difetto è proporzionato al rischio e all’evidenza,
-            anche quando il difetto emerge prima di un danno.
-          </p>
-          <p>
-            I contratti sono coerenti anche nei consumatori: un cursore di
-            allineamento resta vivo senza tensioni aperte; i rename coinvolgono
-            le sole connessioni intenzionali e il recepimento resta locale. Il
-            canale di contribuzione dipende dall’ownership. La conoscenza
-            procedurale si distingue dal runbook eseguibile, e una riga semplice
-            del plan non richiede un dettaglio o2.
-          </p>
-          <p>
-            La fedeltà delle viste include gerarchie e destinazioni dei link:
-            conservare il testo appiattendo un annidamento perde comunque
-            informazione. Il generatore di liste usa il renderer Markdown già
-            disponibile nella build; contratto e prove vivono nelle rispettive
-            superfici. Il catalogo conserva la cautela dei nodi sulle
-            attribuzioni; l’esempio additivo/sostitutivo segue il compito
-            descritto da Norman. Facet chiuse e sede canonica dei dati restano
-            convenzioni esplicite, senza dedurne che ogni attributo multiplo sia
-            una relazione o cancellare osservazioni primarie indipendenti.
-          </p>
-          <p>
-            La rifinitura non promuove automaticamente gli stati dei nodi. Il
-            limite residuo è empirico e di provenienza: la correttezza delle
-            distinzioni deve reggere nell’uso, e le fonti mancanti non diventano
-            verificate per consenso fra nodi.
-          </p>
-          <p>Restano tre tensioni sperimentali:</p>
-          <ul>
-            <li>
-              <code>kb-content-typology</code> include la quarta regione «norma
-              della macchina», ma attende un secondo specimen esterno
-              indipendente;
-            </li>
-            <li>
-              <code>action-cycle-matrix</code> resta provvisoria finché altri
+              <code>action-cycle-matrix</code>: resta provvisoria finché altri
               casi reali non falsificano o corroborano le sue celle;
             </li>
             <li>
-              il meccanismo <code>EXTENDED_FACETS</code> ha retto in
-              <code>nixos</code> e nell’assenza motivata di facet in
-              <code>bi</code>, ma resta da osservare il caso
-              <code>tipo:</code> di <code>economia</code>.
+              <code>EXTENDED_FACETS</code>: ha retto in <code>nixos</code> e
+              nell’assenza motivata di facet in <code>bi</code>; resta da
+              osservare il caso <code>tipo:</code> di <code>economia</code>.
             </li>
           </ul>
           <p>
-            Il filo resta aperto per queste verifiche e per i limiti delle fonti
-            dichiarati nel register. La nuova condizione di revisione è
-            esplicita: una contraddizione interna o una fonte che smentisce il
-            testo apre lavoro correttivo subito; l’attesa di uso reale vale per
-            le ipotesi, non per gli errori già osservabili.
+            I limiti delle fonti restano dichiarati nel register
+            <code>world.md</code>. Il filo si chiude quando le tre ipotesi sono
+            decise, o quando il custode le riporta allo <code>stato</code> dei
+            rispettivi nodi senza un caso atteso.
           </p>
         </section>
         <section
-          id="i-due-archi-comunicano-per-protocollo-post-evento-non-per-fusione"
+          id="le-skill-si-tagliano-per-arco-la-tripartizione-evalexec-regge"
           class="slide level2"
         >
           <h2>
-            I due archi comunicano per protocollo post-evento, non per fusione
+            Le skill si tagliano per arco: la tripartizione
+            <code>eval</code>/<code>exec</code> regge?
           </h2>
           <p>
-            Ratificato (2026-07-12), dalla valutazione i2→i3 della percezione
-            «le due review dei bracci sembrano compartimenti stagni» (sollevata
-            dal custode su <code>economia</code>, commit <code>994a9b5</code>,
-            consumata da questo filo) e dal pilota post-evento eseguito lo
-            stesso giorno in <code>economia</code>.
-          </p>
-          <p>
-            Il dubbio del custode: dopo eventi del mondo le due review girano
-            come audit separati; serviva un doppio movimento verdetti↔︎piano e un
-            canale che affili gli scopi (l’«alberello»: mission → goal → piano →
-            task → esecuzioni).
-          </p>
-          <p>
-            <strong
-              >Verdetto: i compartimenti erano il progetto, non il
-              difetto.</strong
-            >
-            La coppia simmetrica resta separata — fonderla ricreerebbe la
-            mega-review e il ragionamento motivato (il piano che giustifica i
-            verdetti e viceversa). Il difetto reale era duplice: mancava il
-            canale i1 per gli eventi (in <code>economia</code>: le email), e il
-            protocollo tra le review non era mai stato scritto. Il pilota (skill
-            <code>email</code> istituita → cattura →
-            <code>verdicts-review</code> → <code>plan-review</code>) ha
-            convalidato:
-          </p>
-          <ul>
-            <li>
-              l’<strong>ordine post-evento</strong>: percezione → verdetti →
-              piano, la verità prima delle priorità;
-            </li>
-            <li>
-              gli <strong>handoff</strong> come passo di chiusura: «impatti sul
-              piano» all’andata, «verdetti da rivalutare» al ritorno —
-              asimmetrici: l’andata è ordinaria, il ritorno è l’eccezione da
-              giustificare al custode (nel pilota è tornato vuoto proprio perché
-              l’ordine era giusto);
-            </li>
-            <li>
-              l’handoff è <strong>input, non comando</strong>: la review
-              ricevente conserva il giudizio (nel pilota: la dipendenza world
-              rimasta tale a dispetto dell’attesa puntuale sciolta);
-            </li>
-            <li>
-              il canale <strong>verso l’alto esisteva già</strong> e funziona:
-              il passo formazione-goal di <code>verdicts-review</code> ha
-              prodotto la proposta sull’obiettivo 4 di
-              <code>economia</code> senza scrivere sul register — l’alberello
-              comunica per misure verso il basso e proposte verso l’alto, mai
-              per scritture automatiche sugli scopi.
-            </li>
-          </ul>
-          <p>
-            Trattamento applicato: protocollo inciso nelle copie canoniche —
-            oggi la coppia per arco <code>eval</code>/<code>exec</code>
-            (rifilatura 2026-08-01: ordine nel cappello, handoff in chiusura di
-            <code>compare</code> e <code>plan</code>) — e in
-            <code>skill.md</code> («Protocollo post-evento e gate»); l’ordine si
-            scrive <code>eval</code> → <code>exec</code>, con gli stadi dentro
-            gli archi. Negli adottanti vige nella forma precedente
-            (<code>verdicts-review</code>/<code>plan-review</code>) finché la
-            prescrizione della rifilatura non arriva.
-          </p>
-          <p>
-            Watchpoint aperti: il pattern «email come superficie i1» ha una sola
-            istanza (<code>economia</code>); il secondo segnale atteso è la
-            casella <code>acquisti@</code> della skill <code>ordini</code> di
-            <code>bi</code> — allora si valuterà nodo o estensione del canone,
-            con in dote i raffinamenti già emersi nel pilota (un fatto per
-            segnale; flag «già consumato dal ciclo» quando il segnale è a valle
-            di un ingest già fatto; la ridondanza tra handoff consecutivi è ciò
-            che preserva il contesto a giri separati).
-          </p>
-        </section>
-        <section
-          id="la-ricorrenza-ha-per-soggetto-il-battito-non-la-skill"
-          class="slide level2"
-        >
-          <h2>La ricorrenza ha per soggetto il battito, non la skill</h2>
-          <p>
-            Ratificato (2026-07-12), dalla valutazione i2→i3 della percezione
-            «skill multi-cadenza via argomento-scope» (catturata da
-            <code>nixos</code>, commit <code>16dc294</code>, consumata da questo
-            filo), approfondita su <code>economia</code> e <code>bi</code>.
-          </p>
-          <p>
-            Il segnale: in <code>nixos</code> il refactor
-            <code>update-review</code> → <code>update</code> (argomento di scope
-            <code>home|system|docker|all</code>) porta tre cadenze dentro una
-            sola skill — quotidiana ed esecutiva sul parco AI, settimanale
-            diagnostica sugli host di casa, mensile diagnostica sui server — e
-            lo stesso argomento <code>system</code> aggiorna risorse diverse
-            (<code>nixpkgs</code> vs <code>nixpkgs-stable</code>) secondo il
-            ruolo dell’host. Il canone (<code
-              >skill.md § Skill di dominio e ricorrenza</code
-            >) separava già capacità e ricorrenza ma li riaccoppiava di
-            nascosto: «la ricorrenza → riga» al singolare, esempi tutti
-            mono-ritmo, <code>update-review</code> descritto come «diagnosi
-            settimanale».
-          </p>
-          <p>
-            <strong
-              >Verdetto: non nasce un nodo dedicato; il soggetto della riga di
-              <code>## Scadenze</code> è il battito</strong
-            >
-            — la coppia invocazione (con scope) + porzione di mondo su cui
-            insiste — non la skill. La generalizzazione forte è il raffinamento
-            di una regola che il canone già possedeva, «chi possiede l’orologio»
-            (<code>plan.md</code>): porzioni diverse di mondo possiedono orologi
-            diversi per la stessa capacità, e persino risorse diverse dietro lo
-            stesso argomento. Gli strumenti si adeguano al mondo, l’artefatto si
-            conforma. Corollari incisi:
-          </p>
-          <ul>
-            <li>
-              la skill multi-scope non si spezza per ritmo — solo se diverge la
-              capacità;
-            </li>
-            <li>
-              la stessa capacità può essere esecutiva su un ramo e diagnostica
-              su un altro: il confine di autorizzazione segue le risorse dello
-              scope;
-            </li>
-            <li>
-              a molte entità le cadenze migrano in config dichiarativa per
-              entità (fonte di verità, come la config scheduler della terza
-              specie), il plan tiene il polso aggregato;
-            </li>
-            <li>
-              righe di specie diverse coesistono per la stessa skill (il ramo
-              quotidiano di <code>update</code> è destinato a riga-macchina via
-              timer systemd, il settimanale resta riga-mondo);
-            </li>
-            <li>
-              la cadenza non entra mai nel nome della skill (corollario emerso
-              dalla propagazione su <code>economia</code>, 2026-07-12):
-              <code>monthly-review</code> hardcodava l’orologio nel signifier —
-              se il mondo cambia ritmo il nome mente, come già
-              <code>tasks-review</code> mentiva sull’oggetto. Attesa indicativa
-              nel corpo della skill: sì; ritmo nel nome: mai.
-            </li>
-          </ul>
-          <p>
-            Corroborazioni dall’approfondimento: <code>economia</code> mostra il
-            mono-battito come caso degenere (la porzione di mondo di
-            <code>finanze-review</code> ha un orologio solo, la busta paga);
-            <code>bi</code> estende su tre fronti — la specifica
-            <code>ordini</code> (fornitore come argomento, default
-            <code>all</code>) scala a molte entità con cadenze in config
-            dichiarativa modulate dalle vendite; la raccolta prezzi concorrenza
-            mette l’orologio sulla freschezza del dato d’input, non
-            sull’esecuzione (script idempotenti); lo stesso strumento porta
-            battiti di natura diversa (raccolta vs manutenzione, due righe
-            semestrali).
-          </p>
-          <p>
-            Trattamento applicato: rafforzati <code>skill.md</code> (ricorrenza
-            per battito, argomento di scope, corollari, esempi e fatti corretti)
-            e <code>plan.md § Scadenze</code> (raffinamento di «chi possiede
-            l’orologio», coesistenza di righe e specie). La tripla
-            nixos-specifica (skill + argomento + <code>mondo</code> dell’host)
-            resta istanza di dominio: l’invariante canonico parla di «porzione
-            di mondo», senza importare la facet locale.
-          </p>
-          <p>
-            Watchpoint aperti: la skill <code>ordini</code> di <code>bi</code> è
-            in specifica — quando atterra sarà la prima istanza reale della
-            config-per-entità e della cadenza modulata dal mondo; la migrazione
-            a timer systemd del ramo quotidiano di
-            <code>update</code> collauderà la coesistenza di specie per la
-            stessa skill. La rinomina in <code>economia</code> è atterrata
-            (2026-07-12, <code>3497881</code>): <code>monthly-review</code> →
-            <code>finanze-review</code> e <code>o3/ciclo-mensile.md</code> →
-            <code>o3/ciclo-finanze.md</code>, cadenza nel corpo come attesa col
-            rimando a <code>## Scadenze</code>; esempi di
-            <code>skill.md</code> aggiornati. Caso limite lasciato aperto da
-            <code>economia</code>: <code>o3/fotografia_mensile.py</code> nomina
-            l’artefatto che genera (la fotografia del mese), non una cadenza
-            della skill — il corollario per ora copre i nomi delle skill, non
-            degli esecutori.
-          </p>
-        </section>
-        <section
-          id="le-skill-si-tagliano-per-arco-non-per-indice-eval-ed-exec-tripartite-come-il-modello"
-          class="slide level2"
-        >
-          <h2>
-            Le skill si tagliano per arco, non per indice: <code>eval</code> ed
-            <code>exec</code> tripartite come il modello
-          </h2>
-          <p>
-            Deciso il 2026-07-31 (custode). Il quartetto operativo si ritaglia
-            lungo il modello di Norman invece che lungo la storia della sua
-            crescita: <code>plan-review</code> e
-            <code>verdicts-review</code> diventano
-            <strong><code>exec</code></strong> ed
-            <strong><code>eval</code></strong
-            >, ciascuna con i tre stadi del proprio arco dichiarati e invocabili
-            come scope. Il lavoro di ristrutturazione in <code>metodo</code> è
-            <strong>chiuso</strong> (2026-08-01: canone inciso, coppia rifilata,
-            prescrizione emessa; storia nel task
-            <code>skill-archi-tripartite</code>, in git); restano vivi il
-            recepimento e il pilotaggio del montaggio negli adottanti
-            (prescrizione <code>o3/skill-per-arco.md</code>) e il task
-            <code>pause</code> di rivalutazione
-            (<code>o2/rivalutazione-skill-per-arco.md</code>); qui resta il
-            verdetto e la clausola di uscita.
-          </p>
-          <p>
-            <strong>Il movimento è dall’alto, ed è legittimo.</strong> Non è il
-            caso «costruire per un futuro immaginato» che il dal-basso presidia:
-            <code>method-development</code> dichiara i due movimenti in
-            alternanza e dà al dall’alto pari dignità proprio nella funzione di
-            <strong
-              >importare la cornice che dà forma a un disagio che dal basso si
-              sente ma non si sa inquadrare</strong
-            >. Il disagio c’era, in due segnali indipendenti:
-            <code>verdicts-review</code> cresceva per accrescimento (quattro
-            domande, poi cinque, più la bonifica del plan e due handoff), e la
-            valutazione della percezione «il verdetto è più sicuro del
-            materiale» ha mostrato che le tesi sbagliate
-            <strong>propagano in <code>i2/</code> e nessuno le insegue</strong>
-            (<code>verdetto-piu-sicuro-del-materiale</code>). La cornice che
-            inquadra entrambi è il ciclo di Norman applicato alla lettera.
-          </p>
-          <p>
-            <strong
-              >La diagnosi: il nome nominava uno stadio, il corpo ne faceva
-              tre.</strong
-            >
-            La regola vigente — ogni review porta il nome dell’indice che tiene
-            onesto (<code>plan-review</code> : <code>o1/plan.md</code>,
-            <code>verdicts-review</code> : <code>i3/verdicts.md</code>) — era
-            vera quando la skill teneva onesto <em>un</em> indice. Non lo è più:
-            <code>plan-review</code> copre o1 e o2 (più un presidio leggero su
-            o3), <code>verdicts-review</code> copre i3 e già una parte di i1 (i
-            segnali orfani). E gli stadi che si sono degradati —
-            <strong>i1, i2, o3</strong>
-            — sono esattamente quelli che nessun nome nominava. Non è
-            coincidenza: ciò che il signifier non dichiara è ciò che nessuno
-            mantiene. È la stessa diagnosi della rinomina
-            <code>tasks-review</code>→<code>plan-review</code>, applicata un
-            livello più su.
-          </p>
-          <p>
-            <strong>Il taglio: due capacità, sei scope.</strong> Non sei skill
-            separate — l’arco vale come sequenza, e il protocollo post-evento
-            (percezione → verdetto → piano) è già canone: spezzarlo in sei
-            decisioni di invocazione lo dissolverebbe. Vale invece il pattern
-            multi-scope già collaudato (<code
-              >aggiorna ia|casa|lavoro|docker|all</code
-            >
-            in <code>nixos</code>, <code>ordini &lt;fornitore&gt;</code> in
-            <code>bi</code>), con la regola di fissione intatta — si spezza se
-            diverge la capacità, mai per ritmo:
-          </p>
-          <ul>
-            <li><code>eval [perceive|interpret|compare|all]</code></li>
-            <li><code>exec [plan|specify|perform|all]</code></li>
-          </ul>
-          <p>
-            Conferma che il taglio è quello vero:
-            <strong
-              >l’argomento di scope è il nome dell’atomo, che è il nome
-              dell’indice della collezione</strong
-            >
-            (<code>eval interpret</code> → <code>kb/interpret.md</code> →
-            <code>i2/interpretations.md</code>). Nessuna nomenclatura nuova da
-            inventare — modello, cartelle, nodi e skill si chiamano già allo
-            stesso modo.
-          </p>
-          <p>
-            <strong
-              >I nomi digitati sono <code>eval</code> ed
-              <code>exec</code></strong
-            >
-            (custode, 2026-08-01). Le canoniche portano l’arco del modello in
-            inglese — il telos è portare il metodo intero, KB compresa, in
-            inglese — nella forma abbreviata che la mano digita ogni giorno;
-            Evaluate/Execute sopravvivono solo come nomi degli archi nel canone,
-            mai come nome della skill. Gli scope-stadio restano per esteso (la
-            catena atomo→indice non si abbrevia); gli scope di dominio restano
-            nel vocabolario del loro Mondo (<code>exec aggiorna</code>,
-            <code>eval posta</code>).
-          </p>
-          <p>
-            <strong>Il quartetto resta un quartetto</strong>, ritagliato: due
-            archi (<code>eval</code>, <code>exec</code>), una capacità
-            trasversale (<code>kb</code>) e un gate (<code>commit</code>).
-            <code>kb</code> distingue <code>audit</code>, fotografia
-            deterministica rapida, e <code>review</code>, revisione semantica
-            profonda sempre preceduta dall’audit; entrambe diagnosticano e
-            separano l’intervento successivo. Il conteggio non cresce, cresce la
-            copertura.
-          </p>
-          <p>
-            Il confronto sui sei adottanti conferma che <code>kb</code> deve
-            restare trasversale ma non uniforme nel giudizio. Le KB osservate
-            vanno da 4 a 201 nodi e da una mediana di 50 righe
-            (<code>salute</code>, rete concettuale atomizzata) a quasi 198
-            (<code>danea-auto</code>, quattro nodi forensi); <code>bi</code> è
-            il corpus più pesante con 100 nodi e oltre 20.000 righe, mentre
-            <code>nixos</code> ne ha 39, tutti tecnici e maturi. I quattro audit
-            disponibili sono strutturalmente puliti nonostante baricentri e
-            rischi opposti: la salute formale non predice quella semantica. La
-            review canonica è quindi stata irrobustita con profilo preliminare,
-            ledger completo di lettura, calibrazione per baricentro e rischio,
-            test di destinazione prima della potatura e correzione dei falsi
-            positivi alla fonte. È evidenza a favore della capacità unica con
-            fork locali, non di skill diverse per tipo di KB: i criteri restano
-            comuni, cambia ciò contro cui vengono verificati.
-          </p>
-          <p>
-            <strong>Cambia la natura, e va detto.</strong> Il canone dichiara
-            oggi che il quartetto distingue diagnosi, supervisione e
-            prevenzione. Le due skill nuove sono
-            <strong>verbi dell’atto</strong>, non review:
-            <code>eval perceive</code> raccoglie i marker, la posta e i log, non
-            ispeziona <code>i1/</code>. Nulla della supervisione si perde però:
-            «è ancora vero rispetto al segnale?» <strong>è</strong> la domanda
-            di Compare, e l’igiene della coda <strong>è</strong> Plan. Le
-            procedure esistenti non si buttano, si rifilano sotto il loro
-            stadio, e si guadagna il posto per ciò che oggi non ha casa (i1, i2,
-            o3).
-          </p>
-          <p>
-            <strong>Perché la tripartizione non è pedanteria.</strong> I tre
-            episodi di <code>verdetto-piu-sicuro-del-materiale</code> non erano
-            errori di giudizio: erano <strong>passi non separati</strong>. Chi
-            ha scritto la tesi sulla coincidenza è andato dal materiale grezzo
-            alla conclusione in un movimento solo — non c’è stato un i2
-            esplicito, quindi non c’era niente da rivedere. Separare gli stadi
-            rende <strong>ispezionabile</strong> un passaggio che altrimenti
-            avviene dentro la testa (o dentro il contesto del modello) e non
-            lascia traccia. Il costo è scrivere di più; il ricavo è che
-            l’artefatto può correggersi da solo, ed è la differenza tra metodo e
-            improvvisazione.
-          </p>
-        </section>
-        <section id="le-due-gambe-deboli-dichiarate" class="slide level2">
-          <h2>Le due gambe deboli, dichiarate</h2>
-          <p>
-            <strong
-              ><code>exec perform</code> non è simmetrico a
-              <code>eval perceive</code>.</strong
-            >
-            Sul braccio di valutazione i tre stadi lavorano tutti su collezioni
-            dell’artefatto; sul braccio di esecuzione il terzo stadio tocca il
-            Mondo (<code>aggiorna</code> fa switch su host reali,
-            <code>categorizza</code> scrive su PROD). Il canone (ratifica del
-            custode, 2026-08-01) dà a <code>exec perform</code> due piani: la
-            <strong>supervisione della collezione o3</strong> — prescrizioni
-            consumate potate, strumenti dichiarati ancora eseguibili — e
-            <strong>l’atto stesso quando l’autorizzazione già lo copre</strong>:
-            l’atto locale, reversibile e autorizzato lo compie davvero; ciò che
-            tocca il Mondo senza autorità produce o valida la prescrizione e si
-            ferma al confine. Non è un’estensione teorica:
-            <code>aggiorna ia</code> in <code>nixos</code> già esegue, committa
-            e pusha in autonomia per regola del suo <code>CLAUDE.md</code> — il
-            confine di autorizzazione segue le risorse dello scope, non la
-            skill.
-          </p>
-          <p>
-            <strong
-              >Il montaggio degli scope di dominio è un’ipotesi direzionata, non
-              ancora canone.</strong
-            >
-            La ricognizione della flotta (2026-08-01, dettaglio nel task
-            <code>o2/</code>) mostra che le skill di dominio non sono atti da
-            appendere a <code>perform</code>: si distribuiscono sui sei stadi
-            (<code>aggiorna</code> è valutazione per tre rami su quattro,
-            <code>ordini</code> è l’intero arco exec a runtime,
-            <code>finanze-review</code> ed
-            <code>elabora-trascrizione</code> insistono sull’arco eval, e i
-            canali i1 di <code>economia</code> — <code>posta</code>,
-            <code>registrazioni</code> — sono <code>eval perceive</code> puro).
-            La ricognizione giustifica il pilota, non ancora l’incisione: il
-            primo canone porta soltanto i sei scope-stadio; ogni skill di
-            dominio viene poi provata come possibile argomento delle due
-            canoniche attraverso il <code>method-review</code>
-            dell’adottante. Il pilota può assorbirla, dividerla fra i due archi
-            o mantenerla autonoma. Ordine ratificato dal custode (2026-08-01):
-            <strong
-              ><code>nixos</code> → <code>salute</code> →
-              <code>economia</code> → <code>bi</code></strong
-            >, dal caso multi-scope già collaudato a quello più complesso e
-            delicato.
-          </p>
-          <p>
-            <strong>I primi due piloti hanno deciso</strong> (2026-08-01,
-            indipendentemente l’uno dall’altro nello stesso giorno —
-            <code>salute</code> ha deciso senza conoscere l’esito di
-            <code>nixos</code>, e il suo ledger si crede primo: cronaca innocua,
-            la convergenza indipendente rafforza il criterio invece di
-            indebolirlo). Gli esiti opposti stringono il criterio dai due lati:
-            <code>nixos</code> tiene <strong>autonome</strong> le sue skill —
-            nelle skill parametriche
-            <strong>è il ramo a determinare l’arco, non chi invoca</strong>, e
-            montarle come argomento costringerebbe il chiamante a dichiarare un
-            arco che il ramo ha già deciso (signifier che mente); la skill
-            mono-stadio dal signifier onesto (<code>nix-overlay-update</code>)
-            non retrocede a runbook, perché la retrocessione costerebbe
-            l’invocazione senza rendere nulla. <code>salute</code>
-            <strong>assorbe</strong> <code>elabora-trascrizione</code> come
-            scope <code>trascrizione</code> sotto <code>eval</code> — superficie
-            mono-arco e mono-stadio (<code>perceive</code>: la distillazione
-            seleziona senza giudicare, cattura i1 e non sintesi i2),
-            <strong>fuori da <code>all</code></strong> perché il canale
-            event-driven non diventi rituale. Con la doppia conferma
-            <strong
-              >il criterio e la regola dello sweep sono saliti a canone</strong
-            >
-            (<code>kb/skill.md</code>).
-            <strong>Il terzo pilota</strong> (<code>economia</code>,
-            <code>1844978</code>) conferma alla scala maggiore:
-            <strong>assorbite tutte e tre</strong> — <code>finanze</code> come
-            scope che attraversa l’intero arco con la mappa dichiarata
-            (parser/verifiche/riconciliazione sui tre stadi),
-            <code>posta</code> e <code>registrazioni</code> come canali
-            <code>perceive</code> — e nel recepimento la fedeltà ha corretto
-            anche il suo <code>world.md</code>, che citava ancora le skill
-            vecchie come superfici.
-            <strong>Il quarto chiude l’esperimento</strong> (<code>bi</code>,
-            <code>20cf5b7d</code>): tiene <strong>autonome</strong> le tre skill
-            di dominio, registrandolo come divergenza dichiarata nel proprio
-            ledger — ed è il repo che aveva inventato la coppia
-            <code>plan-review</code>/<code>verdicts-review</code> a mandarla in
-            pensione per ultimo. Il bilancio finale è
-            <strong>2-2 su quattro piloti</strong> e nessun caso ha smentito il
-            criterio, che perciò vale come regola e non più come ipotesi. Il
-            razionale puntuale di <code>bi</code> vive nel suo ledger: risalirà
-            col prossimo giro, e se pesa il costo di discoverability sollevato
-            da <code>economia</code> è la parte che interessa.
-          </p>
-          <p>
-            Watchpoint: i tre piloti avevano deciso sulla
-            <strong>forma</strong>, non sull’uso. Il collaudo reale è ora
-            iniziato: dal 2026-08-05 <code>bi</code> ha eseguito più giri di
-            <code>eval</code> su segnali runtime e drift di sviluppo e più giri
-            di <code>exec</code>, fino al riallineamento di priorità e task del
-            2026-08-14 (<code>bf9a2751</code>). È il primo adottante che supera
-            il solo recepimento. La clausola di uscita, anticipata dal custode
-            al battito di settembre, è stata giudicata il 2026-09-24 (sezione
-            «Verdetto della rivalutazione»). <code>salute</code> solleva che il
-            suo contratto plan×<code>o2/</code> non ha una vista che lo eserciti
-            pienamente oltre la home (resta nella sua coda); ed
-            <code>economia</code> solleva il
-            <strong>costo dell’assorbimento</strong>: l’<code>ls</code> di
-            <code>.claude/skills/</code> non è più l’inventario completo delle
-            capacità di dominio — l’inventario delle capacità si indebolisce sul
-            ramo assorbito, e va misurato all’uso se la discoverability persa si
-            sente o se il raggruppamento per arco la compensa.
-            <code>bi</code> lo pesa prima di assorbire; se il costo si conferma,
-            è materia della clausola di uscita, non un ritocco d’urgenza.
-          </p>
-          <p>
-            <strong
-              ><code>eval perceive</code> può essere il vuoto rituale.</strong
-            >
-            Dove la percezione è event-driven, una skill che chiede «è arrivata
-            posta?» quando la posta <em>è</em> il trigger è cerimonia. Due
-            rimedi, entrambi già canonici: uno stadio deve poter
-            <strong>chiudere in una riga</strong> («nessun segnale nuovo»), col
-            precedente dell’handoff vuoto che è segnale di buon funzionamento e
-            non fallimento; e in <code>metodo</code> lo scope ha un lavoro vero
-            — raccogliere i marker <code>method-review.md</code> dei quattro,
-            che sono letteralmente la posta in arrivo di questo repo. Deciso nel
-            task: <code>adopters-review</code> resta skill di dominio distinta e
-            produce materiale che <code>eval perceive</code> acquisisce;
-            l’assorbimento è una variante da rivalutare solo dopo l’uso.
+            Il taglio è canone dal 2026-08-01 (<code>kb/skill.md</code>,
+            <code>stato: maturo</code>): il quartetto operativo segue il ciclo
+            di Norman, con <code>eval</code> ed <code>exec</code> che portano
+            ciascuna i tre stadi del proprio arco come scope. Motivazione e
+            storia della decisione stanno nel nodo e in git. Qui resta la
+            tensione aperta: la scommessa che la rigidità paghi in qualità
+            autocorrettiva più di quanto costi in scritture e invocazioni, con
+            la sua clausola di uscita e il task
+            <code>p1</code> (<code>o2/rivalutazione-skill-per-arco.md</code>).
           </p>
         </section>
         <section
@@ -1602,8 +405,7 @@
             >
             Il materiale viene dal terzo battito
             <code>/adottanti</code> (eseguito il 2026-09-24, arretrato dal 1°
-            settembre; dettaglio in <code>i3/audit-adottanti.md</code>),
-            misurato per commit sui sette repository dal 2026-08-01:
+            settembre), misurato per commit sui sette repository dal 2026-08-01:
           </p>
           <ul>
             <li>
@@ -1663,10 +465,11 @@
           <p>
             <strong>Il fallback del 2026-11-01 si riattiva</strong>, con
             l’evidenza mancante dichiarata: il conteggio degli esiti per stadio
-            sui giri registrati dopo il recepimento, e una lettura dei due
-            profili ancora muti (<code>crm</code>, col plan fermo dal
-            2026-08-21, e <code>danea-auto</code>, fermo dal 2026-08-22). A
-            novembre il verdetto si prende su numeri, non su proxy.
+            sui giri registrati dopo il recepimento, e una lettura del profilo
+            ancora muto: <code>crm</code>, col plan fermo dal 2026-08-21.
+            <code>danea-auto</code>, muto fino a settembre, dal 2026-09-26 è il
+            repository con più giri registrati. A novembre il verdetto si prende
+            su numeri, non su proxy.
           </p>
         </section>
         <section
@@ -1720,50 +523,58 @@
               distinguere i passi.
             </li>
           </ul>
+        </section>
+        <section
+          id="la-clausola-di-uscita-dichiarata-prima-di-partire-1"
+          class="slide level2"
+        >
+          <h2>La clausola di uscita, dichiarata prima di partire</h2>
           <p>
-            Primo pilota: <strong><code>metodo</code> stesso</strong>, che ha
-            entrambi i cicli ed è il repo dove l’errore costa meno; prova i sei
-            scope canonici, non il montaggio di dominio.
-            <strong>Il primo giro end-to-end è compiuto</strong> (2026-08-01,
-            skill montate in <code>metodo</code> al posto della coppia): sei
-            esiti espliciti — due sostanziosi (<code>perceive</code>,
-            <code>compare</code>), quattro nulli o quasi, primo punto della
-            serie che la clausola di uscita osserva. L’attrito emerso: la
-            dicitura «via <code>world/</code>» ereditata verbatim da
-            <code>verdicts-review</code> era stale rispetto alla membrana reale
-            (il register dichiara checkout nel territorio, nessun symlink root —
-            corretta nella skill), e il territorio non dichiarava le superfici
-            per host: sanato nel register con i checkout e il doppio salto
-            <code>ssh norvegia</code> → <code>ssh deck</code> (custode,
-            2026-08-01), che ha permesso di completare la raccolta dei quattro
-            marker nello stesso giro. Le conferme: l’ordine ha pagato al primo
-            giro — <code>eval compare</code> ha intercettato due fotografie
-            stale di <code>goal.md</code> (prescrizione aperta non registrata,
-            «nessun fronte aperto» con un fronte vivo) prima che
-            <code>exec plan</code>
-            ripianificasse su un register falso; nessuna sovrapposizione dannosa
-            fra
-            <code>compare</code> e <code>plan</code>, che leggono le stesse
-            fonti da versanti opposti. Il secondo collaudo candidato è il
-            battito <code>/adottanti</code> del 2026-08-11, con la posta vera
-            degli adottanti, prima dell’incisione. Il canone è inciso
-            (2026-08-01: <code>kb/skill.md</code> a <code>stato: maturo</code>,
-            consumatori migrati) e
-            <strong>la propagazione si è chiusa lo stesso giorno</strong>: la
-            prescrizione <code>skill-per-arco</code> è nata, è stata recepita da
-            tutti e quattro gli adottanti ed è stata potata da
-            <code>o3/</code> in giornata, portandosi dietro anche l’arretrato
-            della quinta domanda. <code>plan-review</code> e
-            <code>verdicts-review</code> non esistono più in nessun repo della
-            flotta.
+            Il rischio dichiarato dal custode è il barocco: una divisione che
+            moltiplica scritture, token ed energie per azioni che verrebbero
+            naturali tutte insieme. La scommessa è che la rigidità paghi in
+            qualità autocorrettiva, e i tre episodi danno la misura del prezzo
+            dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
+            scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
+            si ricorda di averla promessa:
           </p>
-          <p>
-            Conseguenza già registrata: la «cascata verso i2» proposta come
-            toppa a una riga in
-            <code>verdetto-piu-sicuro-del-materiale</code> decade come mossa
-            autonoma — diventa il contenuto dello stadio
-            <code>eval interpret</code>.
-          </p>
+          <ul>
+            <li>
+              <strong>quando</strong>: il task di rivalutazione
+              <code>pause</code> esiste
+              (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
+              originaria (<strong>2026-11-01</strong>) era stata anticipata dal
+              custode al <strong>2026-09-01</strong>; il giudizio di settembre,
+              preso il 2026-09-24, ha mantenuto la tripartizione e riattivato
+              novembre con l’evidenza mancante dichiarata (sezione sopra);
+            </li>
+            <li>
+              <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
+              commit che chiudono i giri, contato per stadio e per repository
+              con
+              <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
+              Un sintomo che non si legge in questa misura va dichiarato insieme
+              alla fonte che lo rende contabile;
+            </li>
+            <li>
+              <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
+              chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
+              giri tutti <code>vuoto</code> (commit <code>--allow-empty</code>)
+              che si ripetono senza che cambi nulla nel verdetto o nella coda: è
+              l’invocazione fatta solo per disciplina;
+            </li>
+            <li>
+              <strong>sintomi che direbbero «ha pagato»</strong>: un errore
+              intercettato dallo stadio che prima non esisteva (una sintesi i2
+              corretta perché il claim è caduto, un segnale i1 che sarebbe
+              rimasto orfano, una prescrizione o3 consumata potata);
+            </li>
+            <li>
+              <strong>cosa si snellisce per primo</strong>, se si snellisce: gli
+              scope, non gli stadi — si accorpa l’invocazione, non si smette di
+              distinguere i passi.
+            </li>
+          </ul>
         </section>
         <section
           id="i-builder-della-presentazione-assumono-un-toolchain-che-non-dichiarano"
@@ -1773,12 +584,8 @@
             I builder della presentazione assumono un toolchain che non
             dichiarano
           </h2>
-          <p>
-            <strong>Misura</strong>: «Custodire un canone coerente e fedele alle
-            fonti» (<code>goal.md</code>, obiettivo 1).
-          </p>
         </section>
-        <section id="verdetto-2" class="slide level2">
+        <section id="verdetto-1" class="slide level2">
           <h2>Verdetto</h2>
           <p>
             Il segnale viene da <code>danea-auto</code> (2026-10-01), il primo
@@ -1790,36 +597,36 @@
             scritti.
           </p>
           <p>
-            <strong>Codifica.</strong> <code>o3/build_lists.py</code> chiama
-            pandoc con <code>text=True</code> e senza <code>encoding</code>:
-            Python usa la codifica di default della piattaforma, cp1252 su
-            Windows, e la build fallisce. Il fix di <code>danea-auto</code>,
+            <strong>Codifica.</strong> <code>build_lists.py</code> chiama pandoc
+            con <code>text=True</code> e senza <code>encoding</code>: Python usa
+            la codifica di default della piattaforma, cp1252 su Windows, e la
+            build fallisce. Il fix di <code>danea-auto</code>,
             <code>encoding="utf-8"</code> nelle due chiamate, entra nel canone
             così com’è. Non cambia nulla sugli host Linux, dove la codifica di
             default è già UTF-8.
           </p>
           <p>
-            <strong>reveal.js accoppiato a pandoc.</strong>
-            <code>o3/build-presentation.sh</code> fissa
-            <code>reveal.js@5.1.0</code>, ma i percorsi dei plugin li scrive
-            pandoc, secondo la propria versione. Pandoc 3.12 scrive quelli di
-            reveal 6 (<code>dist/plugin/notes.js</code>); con la 5.1.0 quei file
-            non esistono e le slide restano bianche. <code>deck</code> e
-            <code>svezia</code> hanno pandoc 3.7.0.2, che scrive ancora i
-            percorsi della 5.x: oggi gli host Linux non vedono il problema. Un
-            aggiornamento di pandoc negli host basterebbe a svuotare le slide di
-            tutti i fork senza che cambi un file del repo.
+            <strong>reveal.js accoppiato a pandoc.</strong> Il wrapper della
+            build fissava <code>reveal.js@5.1.0</code>, ma i percorsi dei plugin
+            li scrive pandoc, secondo la propria versione. Pandoc 3.12 scrive
+            quelli di reveal 6 (<code>dist/plugin/notes.js</code>); con la 5.1.0
+            quei file non esistono e le slide restano bianche.
+            <code>deck</code> e <code>svezia</code> hanno pandoc 3.7.0.2, che
+            scrive ancora i percorsi della 5.x: oggi gli host Linux non vedono
+            il problema. Un aggiornamento di pandoc negli host basterebbe a
+            svuotare le slide di tutti i fork senza che cambi un file del repo.
           </p>
           <p>
             Spostare il pin alla 6.0.2, come ha fatto <code>danea-auto</code>,
             avrebbe spostato il guasto sugli host con pandoc vecchio. Il rimedio
-            è quello di vista-derivata-e-verificata: la build
-            <strong>rompe invece di degradare</strong>. La soglia è verificata
-            nel changelog di pandoc: la 3.12 (2026-09-27) corregge i percorsi
-            del template per reveal 6 (#11907), la 3.11 scrive ancora quelli
-            della 5. <code>o3/build-presentation.sh</code> legge quindi la
-            versione di pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12 in
-            su, <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla si
+            è quello di <code>kb/view.md</code> («Derivata implica verificata»):
+            la build <strong>rompe invece di degradare</strong>. La soglia è
+            verificata nel changelog di pandoc: la 3.12 (2026-09-27) corregge i
+            percorsi del template per reveal 6 (#11907), la 3.11 scrive ancora
+            quelli della 5. La build (oggi
+            <code>o3/presentation/build.py</code>) legge quindi la versione di
+            pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12 in su,
+            <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla si
             ferma con un errore. Una slide bianca è una vista che inganna senza
             che nessuno lo veda.
           </p>
@@ -1849,459 +656,61 @@
               la regola regge finché il template di pandoc non cambia di nuovo i
               percorsi. Il controllo ferma solo una versione illeggibile: un
               cambio futuro tornerebbe a dare slide bianche senza errori, finché
-              qualcuno non aggiorna la soglia nel wrapper. Una verifica che i
-              percorsi dei plugin esistano davvero chiuderebbe il buco, ma
-              chiede la rete durante la build: non si fa finché il caso non si
-              ripresenta.
+              qualcuno non aggiorna la soglia in <code>build.py</code>. Una
+              verifica che i percorsi dei plugin esistano davvero chiuderebbe il
+              buco, ma chiede la rete durante la build: non si fa finché il caso
+              non si ripresenta.
             </li>
           </ul>
         </section>
         <section
-          id="il-verdetto-deriva-verso-la-storia-migliore-e-la-forma-è-lunico-presidio"
+          id="il-verdetto-deriva-verso-la-storia-migliore-dove-passa-il-confine-della-ricostruzione-delegabile"
           class="slide level2"
         >
           <h2>
-            Il verdetto deriva verso la storia migliore, e la forma è l’unico
-            presidio
+            Il verdetto deriva verso la storia migliore: dove passa il confine
+            della ricostruzione delegabile?
           </h2>
           <p>
-            Aperto il 2026-07-31 dalla valutazione i2→i3 della percezione «il
-            verdetto è più sicuro del materiale» (<code>economia</code>,
-            2026-07-30, consumata qui): tre episodi indipendenti in una sola
-            sessione, diversi per contenuto e identici per forma — un artefatto
-            i3 più sicuro, più elegante o più quantificato del materiale che gli
-            stava sotto.
-          </p>
-          <p>
-            <strong>La deriva ha una direzione, quindi non è un caso.</strong>
-            Un filo più ottimista del proprio file <code>o2/</code>, che portava
-            già la cautela decisiva; una tesi forte costruita su una coincidenza
-            di importi e propagata in due i2 e in un messaggio di commit,
-            smentibile con una ricerca sulla posta in uscita del progetto
-            stesso; una cifra usata come architrave dell’urgenza che era
-            l’interpolazione fra due sole dichiarazioni di una fonte valutata
-            nella KB come poco credibile, e il cui crollo ha ribaltato una
-            conclusione strategica. Tre contenuti, un solo vettore: verso la
-            lettura più raccontabile. Un rischio con una direzione non si
-            compensa con l’attenzione — si compensa con la forma, perché
-            l’attenzione è precisamente ciò che manca nel momento in cui la
-            storia convince (<code>constraint</code>).
-          </p>
-          <p>
-            <strong
-              >Il materiale che smentiva era già in casa in tutti e tre i
-              casi</strong
-            >
-            — il file <code>o2/</code>, la propria corrispondenza in uscita, la
-            valutazione della fonte nella KB. Non è un problema di accesso alle
-            fonti: è che nulla obbligava a guardarle. È il punto cieco della
-            regola «non verificare documentazione contro altra documentazione»
-            (<code>source-of-truth</code>), che pensa alle fonti esterne e tace
-            su ciò che il progetto ha prodotto di suo — la fonte più facile da
-            consultare e la più dimenticata.
-          </p>
-          <p>
-            <strong>Ratificato (2026-07-31).</strong> Due obblighi di forma
-            incisi in <code>kb/verdict.md</code> («Il verdetto non può essere
-            più sicuro del materiale»): una quantità che entra in un verdetto
-            porta la propria <strong>provenienza</strong> — misurata, dichiarata
-            da terzi, derivata da dichiarazioni — e una quantità derivata non fa
-            da architrave; il
-            <strong>materiale di casa si guarda prima</strong>, e il file
-            <code>o2/</code> che alimenta un filo è fonte primaria, non
-            contesto. Il presidio operativo sta dove vive l’atto: passo 2 di
-            <code>verdicts-review</code>, che passa da quattro a cinque domande
-            — il confronto filo↔︎<code>o2/</code> entra fra i segnali reali (non
-            era di nessuna review: <code>plan-review</code> guarda
-            plan↔︎<code>o2/</code>, questa guardava filo↔︎segnali) e la domanda «è
-            più sicuro del suo materiale?» chiede un passo in più proprio sul
-            filo che suona meglio.
-          </p>
-          <p>
-            <strong
-              >Perché la provenienza è canone e la ritrattazione no.</strong
-            >
-            La marcatura di una quantità è una proprietà della scrittura del
-            verdetto, verificabile rileggendo il filo, e i tre casi mostrano che
-            senza di essa la cifra derivata guadagna peso col tempo invece di
-            perderlo. La registrazione delle <strong>ritrattazioni</strong> — in
-            <code>economia</code> un artefatto locale tiene le previsioni
-            sbagliate «perché valgono doppio come antidoto alla presunzione» — è
-            per ora una sola istanza in un solo adottante: resta watchpoint,
-            sale a canone se un secondo adottante la sviluppa da sé.
-          </p>
-          <p>
-            <strong
-              >Il punto di controllo è un reperto sul modello di autonomia, non
-              ancora un verdetto.</strong
-            >
-            Il caso più costoso è stato prodotto da un <strong>agente</strong> e
-            intercettato da un <strong>umano</strong>, e per caso — il custode
-            stava chiedendo altro. Il modello «umano in-the-loop» copre la
-            <em>decisione</em>; qui è servito a intercettare una
-            <em>ricostruzione</em>, cioè un passo che il metodo tratta come
-            lavoro delegabile (<code>goal</code>, «si può delegare la chiusura
-            di loop noti»). Se il confine regge, la ricostruzione delegabile è
-            quella che si appoggia a materiale già verificato, e la sintesi che
-            ne ricava una tesi nuova non lo è. Un secondo episodio in un altro
-            adottante deciderebbe se è una qualificazione da incidere in
-            <code>goal</code>/<code>agent</code> o una proprietà locale dei
-            domini a bassa delegabilità.
-          </p>
-          <p>
-            Watchpoint: il collaudo delle cinque domande al prossimo
-            <code>eval compare</code> di <code>economia</code> e degli altri
-            adottanti — il backport ai fork viaggia nella prescrizione
-            <code>o3/quinta-domanda-verdetti.md</code> (2026-08-01,
-            <code>economia</code> per primo), sganciata dalla rinomina
-            <code>eval</code>/<code>exec</code> per non lasciare spenta la
-            guardia; la marcatura di provenienza sulle quantità già presenti nei
-            fili — non si ritratta all’indietro tutto lo storico, ma un numero
-            che regge una tesi e non porta provenienza va risolto quando il filo
-            si tocca.
+            La regola è canone dal 2026-07-31 (<code>kb/verdict.md</code>, «Il
+            verdetto non può essere più sicuro del materiale»): le quantità
+            portano la provenienza, una quantità derivata non regge da sola una
+            conclusione, il materiale di casa (il task <code>o2/</code>, la
+            corrispondenza in uscita, la valutazione delle fonti) si legge
+            prima. Il presidio operativo vive nello scope
+            <code>compare</code> di <code>eval</code>. La motivazione — tre
+            episodi di <code>economia</code> diversi per contenuto e identici
+            per direzione, verso la lettura più raccontabile — è nel nodo e in
+            git.
           </p>
         </section>
-        <section
-          id="una-vista-è-derivata-solo-se-verificata-il-generatore-legge-le-fonti-come-contratto"
-          class="slide level2"
-        >
-          <h2>
-            Una vista è derivata solo se verificata: il generatore legge le
-            fonti come contratto
-          </h2>
+        <section id="tensioni-aperte-3" class="slide level2">
+          <h2>Tensioni aperte</h2>
+          <ul>
+            <li>
+              <strong>Il punto di controllo.</strong> Il caso più costoso è
+              stato prodotto da un agente e intercettato da un umano, per caso:
+              il custode stava chiedendo altro. Il modello in-the-loop del Goal
+              di sviluppo copre la <em>decisione</em>; qui è servito a
+              intercettare una <em>ricostruzione</em>, che il metodo tratta come
+              lavoro delegabile. L’ipotesi è che sia delegabile la ricostruzione
+              che si appoggia a materiale già verificato, e non la sintesi che
+              ne ricava una tesi nuova. Un secondo episodio in un altro
+              adottante deciderebbe se è una qualificazione da incidere in
+              <code>goal</code>/<code>agent</code> o una proprietà locale dei
+              domini a bassa delegabilità.
+            </li>
+            <li>
+              <strong>Le ritrattazioni.</strong> In <code>economia</code> un
+              artefatto locale registra le previsioni sbagliate come antidoto
+              alla presunzione. È una sola istanza: sale a canone se un secondo
+              adottante la sviluppa da sé.
+            </li>
+          </ul>
           <p>
-            Aperto (2026-07-28) dalla valutazione i2→i3 della percezione di
-            <code>salute</code> («una vista derivata mantenuta a mano può
-            invertire l’effetto che cerca», catturata il 2026-07-28, consumata
-            da questo filo).
-          </p>
-          <p>
-            <strong>Il canone non mancava: mancava il vincolo.</strong>
-            <code>view</code> diceva già «vista derivata, mai seconda fonte» e
-            che il contenuto non si mantiene a mano se esiste una sorgente
-            canonica. Il deck di <code>salute</code> violava una regola già
-            scritta, e nessun controllo se ne accorgeva: la regola viveva al
-            livello riflessivo — ricordarsi di aggiornare — e non nella
-            struttura. È la seconda incarnazione della lezione già incisa in
-            <code>constraint</code> col deploy rotto dal rename in
-            <code>bi</code>: là nulla forzava «servito = repo», qui nulla forza
-            «vista = fonte». Ciò che si aggiunge al nodo non è la regola ma la
-            sua esigibilità:
-            <strong>derivata senza verificata è mezza garanzia</strong>. Un
-            generatore che trasforma una sola sorgente non può divergere; quando
-            le sorgenti sono più d’una e possono contraddirsi, o le legge come
-            un contratto e rompe la build, o produce comunque un output
-            plausibile e falso.
-          </p>
-          <p>
-            <strong
-              ><code>metodo</code> ha la stessa patologia, e se l’è inflitta
-              potando.</strong
-            >
-            <code>presentation/tasks.html</code> è un mazzo
-            <strong>vuoto</strong> dall’11 luglio (commit <code>25a92d1</code>):
-            tre slide → zero, con due task aperti nel plan. Il footer
-            <code>## Dettagli task</code> rimosso quel giorno era un secondo
-            indice per il lettore umano — potarlo era giusto — ma era anche
-            l’<strong>unica chiave</strong> con cui
-            <code>o3/presentation.py</code> legava una riga del plan al suo file
-            <code>o2/</code>. Rimossa la chiave, <code>build_views.py</code> fa
-            <code>if not row.source: continue</code> e la vista si svuota in
-            silenzio: diciassette giorni, mentre l’audit strutturale continuava
-            a riportare 0 problemi su 197 nodi.
-          </p>
-          <p>
-            Riparato lo stesso giorno, e la riparazione ha precisato il difetto.
-            Non era il <code>continue</code> in sé: il canone ammette una riga
-            di plan senza dettaglio <code>o2/</code> («il file serve
-            <em>quando serve contesto</em>», <code>tasks</code>), quindi la
-            vista ora la rende con i soli dati della tabella invece di saltarla.
-            Il difetto era che
-            <strong>nessuno guardava dall’altra parte</strong>: un file
-            <code>o2/</code> che nessuna riga risolve è la divergenza vera, e
-            ora rompe la build per nome. La risoluzione passa dall’indice unico
-            <code>o2/tasks.md</code> — la chiave che il canone aveva già eletto
-            quando ha abolito il footer — e il contratto verifica quattro cose:
-            ogni file indicizzato esiste, ogni file esistente è indicizzato,
-            ogni file è legato a una riga e a una sola, e il
-            <code>ciclo</code> dichiarato nel plan coincide col frontmatter del
-            dettaglio. Verificato iniettando le quattro violazioni, e sullo
-            stato reale dell’11 luglio: col generatore nuovo quel plan rende le
-            sue quattro slide invece di zero.
-          </p>
-          <p>
-            Il reperto corregge anche il verdetto precedente: «potare è fondere,
-            non cancellare» chiedeva quale copia portasse il fatto più fresco.
-            Qui il contenuto era fuso correttamente — il fatto viveva già in
-            <code>o2/tasks.md</code> — e la potatura ha rotto lo stesso, perché
-            la copia rimossa aveva un <strong>secondo lettore</strong>, una
-            macchina. Fondere guarda ai lettori, non solo al contenuto (riga
-            estesa al passo 4 di <code>verdicts-review</code>, dove l’atto
-            vive).
-          </p>
-          <p>
-            <strong
-              ><code>bi</code> è il terzo repo, e il contratto ha pagato al
-              primo contatto.</strong
-            >
-            Il <code>method-review</code> di <code>bi</code> (2026-07-29, marker
-            a <code>b42164c</code>) ha trovato nel proprio fork del generatore
-            lo stesso guasto silenzioso: dal 7 luglio, quando il suo plan è
-            passato all’indice unico, <strong>nessuna</strong> delle undici
-            righe risolveva più al proprio <code>o2/</code> e la vista dei task
-            era vuota da tre settimane. Tre repo su cinque, stessa dinamica,
-            sempre invisibile agli audit strutturali. Portato il contratto, ha
-            intercettato subito una divergenza reale che nessuno aveva visto —
-            un task intitolato «Completare la famiglia…» in
-            <code>o2/</code> contro «Completare famiglia…» nel plan e in due
-            fili <code>i3/</code> — poi allineata.
-          </p>
-          <p>
-            <strong
-              ><code>nixos</code> è il quarto, e ha pagato la stessa
-              moneta.</strong
-            >
-            Il suo <code>method-review</code> (2026-07-29, intervallo
-            <code>6133ace..b42164c</code>, marker a <code>b42164c</code>) ha
-            recepito il contratto e nell’atto ha scoperto la propria
-            incarnazione del guasto: anche lì la potatura del footer aveva tolto
-            l’unica chiave, il generatore locale faceva <code>continue</code> in
-            silenzio, e <code>presentation/tasks.html</code> era fermo al 10
-            luglio senza il task aperto il 20 —
-            <strong>diciannove giorni</strong> con audit, fidelity e
-            <code>check.sh</code> verdi per tutto il periodo. Quattro repo su
-            cinque, stessa dinamica. Il contratto ha poi intercettato tre righe
-            del plan col titolo divergente dal proprio file <code>o2/</code>,
-            per una delle quali l’indice portava una
-            <strong>terza</strong> variante: la stessa classe di divergenza
-            trovata in <code>bi</code>, e il secondo adottante su due a pagarla
-            al primo contatto.
-          </p>
-          <p>
-            <strong>Un vincolo che arriva tardi è anche un rilevatore.</strong>
-            Ratificato il 2026-07-29 dalla valutazione i2→i3 della percezione
-            «il recepimento di un vincolo fa emergere il drift che era già lì»
-            (2026-07-29, da <code>nixos</code>, consumata qui).
-            <code>constraint</code> diceva il vincolo solo in avanti — rende
-            l’azione sbagliata impossibile o rumorosa — e così si legge come
-            pura prevenzione, il cui valore si misura in errori che non
-            accadranno. Installarlo dove c’è già storia fa una seconda cosa: al
-            primo giro non previene, <strong>rivela</strong>, e ciò che rivela è
-            il drift maturato nel tempo in cui non c’era. Il tempo silenzioso ne
-            è la misura — tre settimane in <code>bi</code>, diciannove giorni in
-            <code>nixos</code>, diciassette in <code>metodo</code> — ed è anche
-            la risposta a chi legge il recepimento come costo: quel lavoro non
-            nasce col vincolo, diventa solo esigibile. Il canone si allunga di
-            una riga in <code>constraint</code>, dove la regola già vive;
-            <code>view</code> non cambia, perché il fatto non riguarda le viste
-            ma i vincoli in generale.
-          </p>
-          <p>
-            <strong>Il canale del canone ha battuto il battito.</strong>
-            L’inventario delle viste era stato affidato alla quinta lente di
-            <code>/adopters-review</code> dell’11 agosto, e
-            <code>nixos</code> era uno dei due repo che quella lente doveva
-            ancora guardare: ci è arrivato prima il
-            <code>method-review</code> dell’adottante, alla propria cadenza. Non
-            è un difetto del battito né una ragione per spostare la lente: le
-            due vie hanno soggetti diversi — il canone che scende, l’audit che
-            guarda — e la ridondanza è precisamente ciò che ha preso il caso.
-            Conseguenza sullo scope: alla lente 5 dell’11 agosto resta
-            <code>economia</code> sola su questo asse.
-          </p>
-          <p>
-            Il trigger del watchpoint è quindi scattato, ma la conseguenza
-            <strong>non</strong> è trascrivere in <code>view</code> la forma del
-            contratto. <code>bi</code> non è una terza invenzione convergente: è
-            un port, e la forma vive già in un’implementazione versionata che
-            gli adottanti forkano (<code>check_plan_contract</code> in
-            <code>o3/presentation.py</code>). Metterla anche in prosa sarebbe
-            una seconda rappresentazione dello stesso fatto — l’errore che
-            questo filo intero denuncia. Il nodo tiene il principio, il codice
-            tiene la forma (cfr. <code>skill</code>: le skill sono interfacce
-            sugli strumenti versionati, non documentazione).
-          </p>
-          <p>
-            <strong>Il drift colpisce il fatto più fresco.</strong> Una vista a
-            mano non degrada in modo uniforme: diverge dove la sorgente si
-            muove, cioè dove conta. In <code>salute</code> l’unico aggiornamento
-            sostanziale del mese — un esame ritirato su indicazione medica — è
-            esattamente ciò che il deck non aveva recepito, e per sedici giorni
-            ha continuato a invitare a chiederlo: il danno non è l’incompletezza
-            ma l’<strong>inversione</strong>. In <code>metodo</code> la vista si
-            è svuotata nell’atto stesso in cui il plan cambiava forma.
-            Conseguenza operativa: verificare una vista a campione sul contenuto
-            vecchio è il test sbagliato — si controlla contro l’ultima modifica
-            della fonte.
-          </p>
-          <p>
-            <strong>Non serve una classe di controllo nuova.</strong> Gli audit
-            strutturali non attraversano il confine tra una vista e ciò da cui
-            deriva, ed è giusto così: un generatore che rompe la build
-            <strong>è</strong> già quel controllo, e arriva prima
-            (<code>constraint</code>: il vincolo rende l’azione sbagliata
-            rumorosa, il check riflessivo può saltare). La domanda utile non è
-            chi controlla le viste, ma
-            <strong>quali viste non sono ancora generate</strong> e, tra quelle
-            generate, quali derivano da più fonti senza verificarle. In
-            <code>metodo</code> le quattro viste di
-            <code>presentation/</code> sono tutte generate;
-            <code>tasks.html</code> è l’unica a fonti multiple (tabella del plan
-            × file <code>o2/</code>) ed è appunto quella che ha ceduto. La home
-            è a sorgente-per-sezione — collega le collezioni, non le rende — e
-            sull’unico input che legge davvero, l’H1 del <code>README</code>,
-            rompeva già: non può divergere, e la riga di <code>view</code> che
-            la diceva derivata dal plan è stata corretta.
-          </p>
-          <p>
-            <strong>Il costo del drift ordina, non classifica.</strong> Su
-            <code>salute</code> una vista stale invitava a un esame che un
-            medico aveva ritirato; su altri domini sarebbe rumore. L’asimmetria
-            non produce due regole né una tassonomia di viste per danno: la
-            regola resta una — una vista si genera, e se ha più fonti le
-            verifica — mentre il costo di dominio decide l’<strong
-              >ordine</strong
-            >
-            in cui le viste ancora a mano vengono convertite.
-          </p>
-          <p>
-            <strong
-              >La difformità di una fonte può essere un secondo
-              significato.</strong
-            >
-            Il parser di <code>salute</code> è inciampato su un file-area su
-            otto che dichiarava una <code>Riapertura</code> invece della coppia
-            <code>Prossima azione</code>/<code>Entro</code>: normalizzarlo alla
-            forma maggioritaria avrebbe distrutto la distinzione tra area
-            <em>dormiente</em>, che aspetta un trigger, e <em>attiva</em>, che
-            aspetta una data — la stessa che <code>plan</code> fa tra una
-            scadenza e una pausa con condizione di risveglio. Il contratto
-            ammette entrambe le forme invece di imporne una. È «fondere, non
-            cancellare» su un secondo asse: là copia contro copia, qui schema
-            contro fonte. Due assi diversi, la stessa assunzione implicita — che
-            il difforme sia il difettoso. Resta nominato qui e nella forma
-            view-specifica in <code>view</code>; se compare un terzo asse, sale
-            a nodo proprio.
-          </p>
-          <p>
-            <strong>Il filo non ha bisogno di un campo nuovo.</strong> La
-            domanda era se un filo che valuta un artefatto composto — fonte più
-            superficie che la rende — debba dichiarare quale dei due sta
-            misurando. No: un verdetto è sulla fonte di verità, e una superficie
-            che può essere falsa della propria fonte è un difetto della
-            superficie, non una dimensione mancante del filo. Generata e
-            verificata la vista, la distinzione collassa. Si riaprirebbe solo
-            per una superficie che <strong>non si può</strong> generare — fuori
-            dal repo, mantenuta da altri: caso oggi non presente in nessuno dei
-            quattro.
-          </p>
-          <p>
-            Watchpoint chiuso sul contratto: le invenzioni indipendenti restano
-            due — <code>salute</code> (quadro corporeo) e
-            <code>metodo</code> (plan × <code>o2/</code>), convergenti su
-            indicizzazione, coerenza dei valori dichiarati due volte e varianti
-            ammesse invece che appiattite — e <code>bi</code>,
-            <code>nixos</code> e <code>salute</code> stessa ne sono i
-            recepimenti, arrivati col normale <code>method-review</code> senza
-            bisogno di una prescrizione <code>o3/</code>. <code>salute</code> è
-            la quinta istanza della stessa dinamica (2026-08-01,
-            <code>e6d6f28</code>): il suo <code>parse_plan</code> era codice
-            morto, importato da nessun generatore, quindi nulla legava una riga
-            del plan al suo file — il recepimento l’ha cablato nel generatore
-            della home e il contratto ha rotto la build al primo giro su una
-            divergenza reale di titolo (H1 di <code>o2/</code> contro riga del
-            plan), il terzo adottante su tre a pagarla al primo contatto. Resta
-            <code>economia</code>: il suo <code>method-review</code> del
-            2026-08-01 ha eseguito i tre entrypoint trovando le viste
-            <strong>fresche</strong> — l’obbligo di freschezza è a posto — ma
-            nessun giro ha ancora esercitato il
-            <strong>cablaggio del contratto</strong> nel suo fork, l’unico asse
-            su cui i tre adottanti hanno pagato al primo contatto. Resta alla
-            lente 5 del battito di settembre.
-          </p>
-          <p>
-            <strong>Due obblighi, non uno.</strong> Ratificato il 2026-07-29
-            dalla valutazione i2→i3 della percezione «una vista generata può
-            essere stale senza che nulla diverga» (2026-07-29, da
-            <code>economia</code> e <code>bi</code>, consumata qui). Una vista
-            derivata deve essere coerente con le fonti <strong>e</strong> non
-            più vecchia delle fonti. Il contratto copre il primo obbligo e non
-            può coprire il secondo per costruzione: gira quando gira il
-            generatore, e il difetto è che il generatore non è più stato
-            eseguito. La home di <code>economia</code> era ferma da cinque
-            giorni e tre commit del proprio register — le mancava il criterio
-            con cui quel register dice di giudicare ogni scelta — e
-            <code>verdict.html</code> di <code>bi</code> era stantia
-            <strong>mentre</strong> una sessione di manutenzione girava sul
-            repo: è l’argomento più duro contro il presidio riflessivo, perché
-            lì qualcuno stava attivamente guardando.
-          </p>
-          <p>
-            <strong>Rigenerare, non descrivere.</strong> La strada che sembrava
-            ovvia — dichiarare le fonti di ogni vista in un manifesto e
-            confrontare i timestamp — è stata scartata: il generatore le fonti
-            le conosce già, e un elenco parallelo sarebbe la seconda
-            rappresentazione che diverge, cioè l’errore che questo filo
-            denuncia. Scartarla scioglie anche la domanda sul glob: senza
-            manifesto, una vista a fonti nominate e una che le raccoglie con un
-            pattern si comportano allo stesso modo. Resta rigenerare, e la
-            determinismo già canonica rende il prezzo quasi nullo — misurato
-            qui: 1,1 secondi per le quattro viste, e
-            <code>git status</code> vuoto quando le fonti non si sono mosse. Il
-            check i2 del gate <code>/commit</code> smette perciò di essere un
-            giudizio («è cambiato il significato?») e diventa un gesto: esegui
-            la build, leggi <code>git status</code>, ciò che compare
-            <strong>era</strong> stale. Il giudizio resta solo dove la build non
-            arriva, cioè su una sintesi <code>i2/</code> il cui significato è
-            cambiato davvero.
-          </p>
-          <p>
-            Onestà sul livello raggiunto: è un check reso meccanico, non una
-            forcing function. Il vincolo vero sarebbe un hook, e resta fuori per
-            una ragione di principio e non di pigrizia — richiede installazione
-            host-locale, stato non versionato dentro un artefatto che si vuole
-            portabile, ed è la via che in <code>bi</code> si era già rotta in
-            silenzio dopo un rename. La vista versionata è quindi un artefatto
-            con un debito: si versiona perché deve aprirsi dal checkout, e si
-            paga rigenerandola nell’atto che tocca le fonti.
-          </p>
-          <p>
-            <strong>Il rimedio resta proporzionato al rischio.</strong> Le due
-            istanze emersero per ispezione, prima di un danno osservato. Il
-            comando nel gate resta il presidio scelto per costo e copertura, con
-            la lezione operativa e le misure conservate sopra. Il canone non
-            deduce più dal solo modo del ritrovamento il rimedio ammissibile:
-            gravità, probabilità, ricorrenza e rilevabilità possono richiedere
-            un vincolo più forte anche prima del primo danno
-            (<code>method-development</code>).
-          </p>
-          <p>
-            Watchpoint: se una vista stale passa comunque un commit dopo questa
-            modifica del gate, il check meccanico non basta e l’escalation è il
-            vincolo vero — a quel punto il costo dell’installazione host-locale
-            va ridiscusso contro la portabilità, non dato per perso in partenza.
-            Negli adottanti il debito è saldato: <code>bi</code> l’aveva già
-            pagato una volta, ed <code>economia</code> l’ha chiuso col
-            <code>method-review</code> del 2026-08-01 — i tre entrypoint
-            eseguiti nel gate, home e fotografia già fresche,
-            <code>git status</code> vuoto su di esse. Il check meccanico ha
-            retto al primo giro reale in tre repo su tre.
-          </p>
-          <p>
-            Il terzo caso non si va a cercare: un caso cercato dimostra che il
-            pattern esiste, non che la generalizzazione serve, e il dal-basso è
-            la guardia contro la sovra-ingegnerizzazione. Ma il non-cercare vale
-            per il canone, non per il runtime: quattro campioni su quattro
-            esaminati, e sul solo <code>economia</code> nessuno ha ancora
-            guardato l’asse del contratto (la freschezza sì, col giro del
-            2026-08-01) — il costo di una vista che inganna matura in silenzio
-            proprio dove nessuno guarda. L’inventario «quali viste non sono
-            generate» perciò non resta appeso a questa riga: è la quinta lente
-            di <code>/adottanti</code> (superfici e viste), dentro il battito
-            mensile che già esiste invece che in un atto nuovo. Se fosse restato
-            un rimando in prosa sarebbe stato lo stesso difetto che questo filo
-            denuncia — una regola al livello riflessivo invece che nella
-            struttura.
+            Nessuna delle due ha una data: le porta in superficie lo scope
+            <code>compare</code> degli adottanti, e il battito
+            <code>/adottanti</code> le cerca nei loro fili <code>i3/</code>.
           </p>
         </section>
       </div>

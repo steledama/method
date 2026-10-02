@@ -120,10 +120,13 @@ ancora valutate.
 - Ogni obiettivo del register ha un **segnale vivo** (filo, audit, marker) e —
   se c'è tensione aperta — un filo che la tiene. Un obiettivo senza segnale è un
   buco di misura da dichiarare nel register, non da nascondere.
-- Ogni filo dichiara **quale obiettivo misura** (annotazione `misura:` nella
-  voce di `i3/verdicts.md`). Un filo che non misura nessun obiettivo è materiale
-  da triage: o rivela un obiettivo mancante nel register (proponilo), o non è un
-  verdetto.
+- Ogni filo dichiara **quale obiettivo misura** (`obiettivo:` nel
+  frontmatter, verificato dalla build). Un filo che non misura nessun obiettivo
+  è materiale da triage: o rivela un obiettivo mancante nel register
+  (proponilo), o non è un verdetto — motivazione stabile da portare nel nodo,
+  ipotesi in attesa da lasciare allo `stato` del nodo, seguito di prescrizione
+  da lasciare all'audit (`kb/verdict.md`, «Che cosa è un filo»). Non
+  confondere la provenienza del segnale con l'obiettivo misurato.
 - Segnali orfani (percezioni `i1/` che nessun filo valuta, marker che nessuno
   legge) vanno fatti emergere.
 
@@ -147,7 +150,7 @@ legge la copia che stai rimuovendo, macchine incluse. In `metodo` il footer
 `## Dettagli task` era un secondo indice per l'umano ma l'unica chiave con cui
 il generatore risolveva una riga del plan al suo `o2/`: potato il footer, la
 vista dei task è rimasta vuota per diciassette giorni senza che nulla rompesse
-(`i3/vista-derivata-e-verificata.md`).
+(`kb/view.md`, «Derivata implica verificata»).
 
 **5. Formazione goal (modo due dell'i3)**
 
@@ -174,8 +177,8 @@ nulla da passare, dillo esplicitamente.
 ## Note operative
 
 - I fili chiusi si rimuovono, non si archiviano: la storia resta in git.
-- L'annotazione `misura:` vive nell'indice `i3/verdicts.md`, non nel frontmatter
-  dei fili (il frontmatter tiene solo la facet `ciclo`).
+- Il frontmatter dei fili tiene `ciclo` e `obiettivo`; l'indice
+  `i3/verdicts.md` non li ripete.
 - La valutazione non cambia mai un segnale (audit, marker): se il segnale è
   sbagliato, il fix è un task, non un ritocco al verdetto.
 - Aggiornamenti del register `goal.md` in questa sede sono fotografie (obiettivo

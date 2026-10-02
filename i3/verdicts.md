@@ -1,7 +1,7 @@
 # Verdicts
 
 Indice della collezione `i3/`: lo **stadio i3** (Compare) del ciclo — il
-verdetto attuale del progetto, un file per filo/area aperta, non un log. Il git
+verdetto attuale del progetto, un file per tensione aperta misurata contro un obiettivo, non un log. Il git
 log dice _cosa_ è cambiato; ogni filo dice _come stanno le cose ora_ e _perché
 conta_. Specchio di `o1/plan.md` sul lato valutazione: `plan.md` fotografa i
 task aperti (o1), i fili qui i verdetti aperti (i3). Forma e disciplina
@@ -16,102 +16,27 @@ verificabile.
 
 ## Contenuti
 
-- [attese-a-finestra.md](attese-a-finestra.md) — canone inciso in `kb/plan.md`
-  per le attese che non incarisce ma possono chiudere l'opzione (marcatore `!`,
-  deperibile non urgente); `o1/plan.md` migrato al nuovo formato `w<n>/p<n>`
-  nello stesso commit; resta aperto fino al primo caso reale che eserciti il
-  marcatore — misura: «Canale-perception funzionante»
-- [ingresso-adottante.md](ingresso-adottante.md) — il modello dell'ammissione
-  resta nell'osservatorio e la prescrizione eseguibile vive in
-  `o3/ingresso-adottante.md`; i due casi retrospettivi reggono, resta il
-  collaudo prospettico al prossimo ingresso — misura: «Propagare il canone e
-  chiudere il loop con gli adottanti»
-- [de-cablaggio-binomio-due-agenti.md](de-cablaggio-binomio-due-agenti.md) — la
-  prima metà della correzione è fatta e additiva; la seconda resta
-  deliberatamente non scritta, attende l'uso reale — misura: «Custodire un
-  canone coerente»
-- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — 48 nodi con
-  responsabilità autonome; corrette contraddizioni fra stadi, Mondo e modello
-  dell'agente, attribuzioni e metriche troppo forti; le ipotesi attendono uso
-  reale, gli errori documentali osservabili richiedono correzione — misura:
-  «Custodire un canone coerente»
-- [home-minimalista.md](home-minimalista.md) — home semplificata e ratificata
-  minimalista; la lente dev/runtime resta rimandata a filtri nelle viste; il
-  redraw pendente delle tavole è chiuso, resta il watchpoint durevole sugli
-  asset raster non derivati — misura: goal di sviluppo «basso attrito di
-  lettura»
-- [bootstrap-adottanti.md](bootstrap-adottanti.md) — la revisione coordinata dei
-  quattro file di bootstrap vive su due livelli: confronto e prescrizione nel
-  canone, giudizio e ultimo miglio nel dominio — misura: «Propagare il canone e
-  chiudere il loop con gli adottanti»
-- [igiene-stadi-output.md](igiene-stadi-output.md) — una rappresentazione per
-  fatto (indice unico `o2/tasks.md`, chiosa di legenda ancorata alla chiave,
-  colonna `Ob.` nel plan invece dell'elenco a mano nel register: quarta
-  incarnazione dell'invariante, con presidio nel generatore) e potatura di ciò
-  che è consumato, fondendo e non cancellando; canone inciso, presidio leggero
-  in `exec plan`, review dedicata attende ricorrenza — misura:
-  «Canale-perception funzionante»
+Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
+`goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
+
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
   mensile `/adottanti` (quarto battito 2026-10-01, puntuale): tutti e sei a
-  `47d8204`, `aligned`, coincidente coi file; viste fresche in tutti e sei,
-  verificate per rigenerazione e non per date; `danea-auto` passa da fermo
-  al più attivo e genera `presentation/`, da cui risale un segnale i1 sul
-  toolchain dei builder; `crm` ha il plan fermo da 41 giorni. Primo
-  conteggio dei trailer `Esiti:` in cinque repo, da giudicare il 2026-11-01
-  — misura: «Propagare il canone e chiudere il loop»
-- [ricorrenza-per-battito.md](ricorrenza-per-battito.md) — la riga di
-  `## Scadenze` ha per soggetto il battito (invocazione + porzione di mondo),
-  non la skill: canone rafforzato in `skill`/`plan` da `update` (nixos),
-  corroborato da `economia` e `bi`; watchpoint su `ordini` e timer systemd —
-  misura: «Canale-perception funzionante»
-- [vista-derivata-e-verificata.md](vista-derivata-e-verificata.md) — derivata
-  senza verificata è mezza garanzia: dove le fonti sono più d'una il generatore
-  le legge come contratto e rompe la build; canone in `view`, seconda
-  incarnazione del vincolo di `constraint`; `metodo`, `bi` e `nixos` avevano la
-  stessa patologia (viste dei task vuote, riparate) e il contratto ha pagato al
-  primo contatto in entrambi i recepimenti — da cui il corollario in
-  `constraint`: un vincolo che arriva tardi rivela il drift già maturato invece
-  di prevenirlo; la freschezza è il secondo obbligo, pagato rigenerando (gate
-  `/commit` meccanico) invece che con un manifesto di fonti — misura:
-  «Canale-perception funzionante»
-- [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — le skill si
-  tagliano per arco e non per indice: montaggio chiuso sui quattro piloti con
-  bilancio 2-2 e criterio a canone; il confronto di sei KB da 4 a 201 nodi
-  conferma `kb` come capacità trasversale unica, con criteri comuni e giudizio
-  calibrato per baricentro, volatilità e rischio. Rivalutazione del
-  2026-09-24: la tripartizione resta, nessun sintomo del «troppo»; la clausola
-  si corregge perché gli esiti nulli non lasciavano traccia, e ora ogni giro li
-  registra nel trailer `Esiti:` del commit. Si riapre il 2026-11-01 sui
-  numeri — misura: «Custodire un canone coerente»
-- [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md) —
-  la deriva dell'i3 ha una direzione (verso la storia raccontabile) e il
-  materiale che smentisce è già in casa: provenienza obbligatoria delle quantità
-  e materiale di casa prima, incisi in `verdict`; passo 2 di `verdicts-review`
-  da quattro a cinque domande, col confronto filo↔`o2/` che non era di nessuna
-  review; ritrattazione e punto di controllo umano/agente restano watchpoint —
-  misura: «Canale-perception funzionante»
-- [protocollo-post-evento.md](protocollo-post-evento.md) — i due archi restano
-  compartimenti e comunicano per handoff: ordine `eval`→`exec` (la verità prima
-  delle priorità), ritorno eccezionale da giustificare, goal solo in proposta;
-  collaudato dal pilota `economia` (skill `email`), watchpoint sul secondo
-  segnale email (`acquisti@` di bi) — misura: «Canale-perception funzionante»
-- [liste-o3-i1-fedeli-alla-fonte.md](liste-o3-i1-fedeli-alla-fonte.md) — il
-  contratto delle viste a elenco o3/i1 è strutturale: Pandoc conserva
-  gerarchie, codice e link dell'intera fonte, senza intestazioni cablate; consuma i
-  segnali gemelli di `bi` e `nixos` del 2026-09-09, principio inciso in
-  `kb/view.md`, propagazione chiusa il 2026-10-01 con un esito in tutti e sei;
-  watchpoint aperto sulla prosa storica ora renderizzata insieme alla coda —
-  misura: «Custodire un canone coerente e fedele alle fonti»
-- [aligned-copre-prescrizioni-aperte.md](aligned-copre-prescrizioni-aperte.md)
-  — `/method` rilegge a ogni giro le prescrizioni aperte in `o3/` e `aligned`
-  le copre; consuma il segnale del 2026-09-24; ha girato in tutti e sei, con
-  marker e file coincidenti in tre giri; si chiude se il battito del
-  2026-11-01 lo conferma — misura: «Propagare il canone e chiudere il loop
-  con gli adottanti»
+  `47d8204`, `aligned`, coincidenti coi file per il terzo giro; viste fresche
+  verificate per rigenerazione; `crm` col plan fermo da 41 giorni. Il
+  battito del 2026-11-01 conta i trailer `Esiti:` e decide se la verifica
+  delle prescrizioni nei file si alleggerisce.
+- [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
+  tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
+  clausola corretta perché gli esiti nulli non lasciavano traccia; si
+  riapre il 2026-11-01 sui numeri del trailer `Esiti:`.
+- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — tre
+  ipotesi del canone attendono il caso che le decide: quarta regione della
+  tipologia, matrice del ciclo, facet estese.
 - [toolchain-builder-presentazione.md](toolchain-builder-presentazione.md) —
-  i builder della presentazione assumono un toolchain che non dichiarano:
-  consuma il segnale di `danea-auto` del 2026-10-01; codifica UTF-8 nelle
-  chiamate a pandoc e reveal.js scelto dalla versione di pandoc (soglia 3.12,
-  verificata), nel canone e in `o3/toolchain-builder-presentazione.md`;
-  tensione aperta sul gate di freschezza tra host con pandoc
-  diversi — misura: «Custodire un canone coerente e fedele alle fonti»
+  i builder assumevano il toolchain degli host Linux: codifica UTF-8 e
+  reveal.js scelto dalla versione di pandoc sono canone; resta aperto il
+  controllo di freschezza tra host con pandoc diversi.
+- [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md)
+  — la regola sulla provenienza è canone; resta aperto dove passa il confine
+  della ricostruzione delegabile all'agente, e se le ritrattazioni salgono a
+  canone.

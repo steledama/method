@@ -6,7 +6,7 @@ ciclo: dev
 # Indice dei Confronti con obiettivo verificato
 
 Task della ristrutturazione della presentazione (2026-10-02). Dipende dalla
-[revisione dei verdetti](revisione-verdetti-contro-obiettivi.md), che
+revisione dei verdetti (chiusa), che
 assegna l'obiettivo a ogni filo, e da
 `presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`)
 per lo stile, la sigla nel titolo e la legenda interna degli obiettivi.
@@ -37,10 +37,9 @@ canone.
   dell'obiettivo, verificato con `goal_keys` dalla libreria condivisa. Una
   chiave vuota o assente dal register rompe la build.
 - Il `misura:` testuale nell'indice diventa un doppione dello stesso fatto
-  e si toglie (`i3/igiene-stadi-output.md`, una rappresentazione per
-  fatto).
+  e si toglie (una rappresentazione per fatto).
 - Quale obiettivo dare a ogni filo non si decide qui: lo decide la
-  [revisione dei verdetti](revisione-verdetti-contro-obiettivi.md), che
+  revisione dei verdetti (chiusa), che
   viene prima. Questo task rende e verifica quello che la revisione ha
   deciso.
 - Nell'indice la chiave `Ob.` porta alla legenda interna degli obiettivi
@@ -53,7 +52,7 @@ canone.
   proprio, perché separa le tensioni sul metodo stesso da quelle sul Mondo
   (oggi in `metodo` 12 `dev` e 4 `runtime`).
 - **Nessun filtro:** la lente dev/runtime come filtro resta rimandata
-  all'uso reale (`i3/home-minimalista.md`).
+  all'uso reale (`kb/presentation.md`).
 
 ## Casi limite
 

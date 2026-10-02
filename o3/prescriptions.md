@@ -31,68 +31,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   (6.0.2 da 3.12 in su, 5.1.0 sotto), con errore esplicito se non si legge;
   da `danea-auto`, che può tornare dal pin fisso alla regola.
 
-L'ultima chiusa, `liste-o3-i1-fedeli-alla-fonte` (nata 2026-09-09, versione
-Pandoc del 2026-09-21, potata il 2026-10-01): le viste a elenco rendono
-l'intera struttura della fonte invece di un'intestazione fissa. Ha un esito
-in tutti e sei: recepita da `nixos`, `bi` e `danea-auto`, divergenza
-motivata in `economia` e `salute`, che tengono il proprio renderer, non
-applicabile in `crm`.
-
-Lo stesso giorno `obiettivo-del-plan-collegato-al-goal` (nata 2026-09-30,
-potata il 2026-10-01): nella vista `tasks` ogni chiave `Ob.` porta
-all'intestazione di `goal.md`, con l'ancora letta dalla libreria condivisa.
-Recepita nei file da tutti e sei, link verificati contro le intestazioni del
-register. `danea-auto`, che non aveva viste, l'ha recepita forkando per la
-prima volta i builder di `presentation/`.
-
-Prima di lei `semplificazione-lessico-struttura` (nata 2026-08-21, potata
-il 2026-09-25): via `atrio`, `ali` e `stanze`, sostituiti dai nomi diretti.
-Tre `/method` di `bi` l'avevano attraversata `aligned` senza vederla. Si è
-chiusa quando `/method` ha cominciato a rileggere a ogni giro le prescrizioni
-aperte: `bi` ha tolto il lessico vivo, `nixos` e `crm` gli ultimi residui
-negli indici `o3/`, e nei sei restano solo cronaca e italiano comune (filo
-`i3/aligned-copre-prescrizioni-aperte.md`).
-
-Prima ancora `chiusura-task-controlla-world` (nata 2026-08-16, potata il
-2026-09-25): `exec plan`, prima di chiudere un task, controlla anche le sue
-materializzazioni nel Mondo. Il battito `/adottanti` del 2026-09-24 l'ha
-verificata nei fork di tutti e sei, leggendo i file invece dei marker (filo
-`criterio-world-substrato`, chiuso lo stesso giorno).
-
-Più indietro `skill-nomi-verbo-sostantivo` (nata 2026-08-01, recepita da
-tutti e quattro il 2026-08-02): il rename sostantivo dei due composti
-canonici in `-review`, `kb-review`→`kb` e `method-review`→`method` (ratifica
-in `i3/nome-skill-dominio-verbo-o-sostantivo.md`, filo chiuso). A metà corsa
-si è aggiunto il trasloco del marker di allineamento da root a
-`i3/allineamento-metodo.md` (verdetto `i3/allineamento-marker-stadio.md`,
-filo chiuso), innescato da una divergenza di `nixos` sul nome del marker e
-risolto generalizzando il principio «il nome eredita il produttore, salvo
-collisione» (`kb/affordance-signifier.md`). Raccomandazione di dominio
-`categorizza`→`categorizzazione` a `bi`: applicata (la fotografia di
-`metodo` la classificava già conforme, ma era stale). `aggiorna-overlay`→`overlay`
-a `nixos`: superata. Il 2026-08-02 `nixos` ha fuso la skill in `/manutenzione`
-(`4236918`).
-
-Le due chiuse prima di queste sono nate e si sono consumate **nello stesso
-giorno** (2026-08-01, recepite da tutti e quattro): `skill-per-arco` — la
-rifilatura
-`plan-review`/`verdicts-review` → `eval`/`exec` tripartite sui sei
-scope-stadio, che portava il montaggio delle skill di dominio come
-esperimento sequenziale e l'ha chiuso col bilancio 2-2 (autonome in `nixos` e
-`bi`, assorbite in `salute` ed `economia`) — e `quinta-domanda-verdetti`, il
-backport della domanda «è più sicuro del suo materiale?», sganciata perché la
-guardia non restasse spenta durante il pilota e chiusa dentro la rifilatura
-per tutti e quattro.
-
-Prima di loro `poli-register` (register gemelli `goal.md`/`world.md` che
-assorbono `map.md` e `sources.md`, home che rende l'intro dei register,
-quartetto di review; pilot `economia` 2026-07-09, recepita dai quattro il
-2026-07-11 con la chiusura di `salute`), ristrutturazione della root
-(collezioni-stadio `i1/`–`o3/`, catalogo `kb/kb.md`, verdetto a fili,
-`presentation/`, facet `ciclo`; pilot `nixos` 2026-07-05, recepita dai quattro
-il 2026-07-11 con la chiusura di `bi`, validata dal suo run notturno di
-produzione) e `disaccoppiamento-adottanti` (2026-06-21). La storia resta in
-Git.
+Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
+loro storia è in git.
 
 ## Strumenti
 
