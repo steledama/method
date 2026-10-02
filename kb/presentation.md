@@ -14,6 +14,20 @@ La cartella `presentation/` è la casa di questa superficie: le viste generate e
 gli asset condivisi. Non è una collezione-stadio e non ha indice proprio — è
 rappresentazione derivata, e la sua fonte vive sempre altrove.
 
+## Compartimento stagno
+
+`presentation/` si apre e si serve da sola: nessun URL emesso esce dalla
+cartella. Un link a una fonte (`../goal.md`, `../o2/…`) diventa la sua
+etichetta; restano link le ancore, i file della cartella e gli URL con schema.
+Il legame che una vista deve conservare si porta dentro: la chiave `Ob.` del
+plan apre la legenda degli obiettivi, una slide della vista con i titoli letti
+da `goal.md`. Le immagini di una vista hanno la fonte nella loro collezione (le
+tavole delle Interpretazioni in `i2/`) e la build le copia in
+`presentation/assets/`: la dipendenza resta nel verso della derivazione, e git
+salva una volta sola i file identici. Il builder rompe se un'immagine manca o
+un URL esce dalla cartella: è il «derivata implica verificata» di
+`view` applicato al confine.
+
 ## HTML apribile direttamente
 
 Il formato operativo minimo è un HTML versionato con path relativi, apribile con
@@ -25,8 +39,22 @@ si apre via `file://`; la connessione Internet serve solo a caricare il
 framework, non a servire i file locali. Se serve uso offline, Reveal va
 vendorizzato in `presentation/assets/`. La home statica non usa Reveal. Ha un
 CSS proprio (`system-image.css`) condiviso tra i fork adottanti, ma il contratto
-è minimale: token, base e sole classi emesse dal builder della home. Le classi
-delle viste Reveal restano nel loro CSS.
+è minimale: token, base e sole classi emesse dal builder della home. Le viste
+Reveal hanno un solo CSS canonico, `deck.css`, uguale in ogni repo: base pulita
+sul tema `white`, titoli con barra d'accento, cover, slide `hero` e tavola,
+tabella del plan. Le classi di dominio (diagrammi, componenti di un deck
+specifico) vivono in un CSS locale del repo.
+
+## Identità del progetto
+
+Le presentazioni dei progetti sono uniformi: a distinguerle sono solo la
+**sigla** nei titoli delle viste («Method Plan», «BI Piano», nella lingua del
+repo) e un **colore d'accento** unico per progetto, che vale per viste, liste e
+home. Lo stile a sketch è stato abbandonato perché troppo confidenziale per una
+superficie che deve passare da un repo all'altro senza attrito. Sigla, lingua,
+accento e sorgente del deck si dichiarano in un solo file,
+`o3/presentation/project.py`; la build scrive l'accento in
+`presentation/assets/theme.css`.
 
 ## Grafica nativa e build minima
 
@@ -36,10 +64,14 @@ diagrammi come Mermaid introducono parser, vincoli di layout e dipendenze
 runtime sproporzionati rispetto al vantaggio in presentazioni curate: non fanno
 parte del pattern di default.
 
-La build è versionata in entrypoint dedicati nella collezione `o3/`, uno per
-famiglia di vista, registrati nel suo indice insieme agli altri esecutori. Gli
-script restano privi di dipendenze installate quando possibile; gli asset comuni
-vivono in `presentation/assets/`. Due generazioni consecutive devono produrre lo
+La build è versionata in `o3/presentation/`, con lo **stesso path in ogni
+repo**: chi passa da un progetto all'altro, umano o agente, non deve scoprire
+dove stanno i builder, e le skill citano un solo comando. L'entrypoint è unico,
+`python3 o3/presentation/build.py`: rigenera tutte le viste, la home e gli
+asset, e chiude col presidio del compartimento stagno. È Python e non shell
+perché deve girare anche sugli host Windows. Gli script restano privi di
+dipendenze installate oltre a Pandoc e Prettier; gli asset comuni vivono in
+`presentation/assets/`. Due generazioni consecutive devono produrre lo
 stesso output: il determinismo è ciò che rende la rigenerazione un gesto
 meccanico invece di una decisione.
 

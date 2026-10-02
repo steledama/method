@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
-    <title>verdict</title>
+    <title>Method Verdicts</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -66,7 +66,8 @@
       href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css"
       id="theme"
     />
-    <link rel="stylesheet" href="assets/interpretations.css" />
+    <link rel="stylesheet" href="assets/deck.css" />
+    <link rel="stylesheet" href="assets/theme.css" />
   </head>
   <body>
     <div class="reveal">
@@ -1812,17 +1813,15 @@
           <p>
             Spostare il pin alla 6.0.2, come ha fatto <code>danea-auto</code>,
             avrebbe spostato il guasto sugli host con pandoc vecchio. Il rimedio
-            è quello di
-            <a href="vista-derivata-e-verificata.md"
-              >vista-derivata-e-verificata</a
-            >: la build <strong>rompe invece di degradare</strong>. La soglia è
-            verificata nel changelog di pandoc: la 3.12 (2026-09-27) corregge i
-            percorsi del template per reveal 6 (#11907), la 3.11 scrive ancora
-            quelli della 5. <code>o3/build-presentation.sh</code> legge quindi
-            la versione di pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12
-            in su, <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla
-            si ferma con un errore. Una slide bianca è una vista che inganna
-            senza che nessuno lo veda.
+            è quello di vista-derivata-e-verificata: la build
+            <strong>rompe invece di degradare</strong>. La soglia è verificata
+            nel changelog di pandoc: la 3.12 (2026-09-27) corregge i percorsi
+            del template per reveal 6 (#11907), la 3.11 scrive ancora quelli
+            della 5. <code>o3/build-presentation.sh</code> legge quindi la
+            versione di pandoc e sceglie <code>reveal.js@6.0.2</code> da 3.12 in
+            su, <code>reveal.js@5.1.0</code> sotto; se non riesce a leggerla si
+            ferma con un errore. Una slide bianca è una vista che inganna senza
+            che nessuno lo veda.
           </p>
           <p>
             Entrambi i fix sono nel canone dal 2026-10-01. Con pandoc 3.7.0.2

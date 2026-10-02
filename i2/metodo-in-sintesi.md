@@ -10,11 +10,11 @@ date: "2026.07.05"
 ciclo: dev
 ---
 
-## LLM, harness, artefatto {.img data-background-image="../i2/llm-harness-method.png" data-background-size="contain" data-background-color="#fef9e6"}
+## LLM, harness, artefatto {.img data-background-image="assets/llm-harness-method.png" data-background-size="contain" data-background-color="#fef9e6"}
 
-## Artefatto, sistema, metodo {.img data-background-image="../i2/artifact-system-method.png" data-background-size="contain" data-background-color="#fef9e6"}
+## Artefatto, sistema, metodo {.img data-background-image="assets/artifact-system-method.png" data-background-size="contain" data-background-color="#fef9e6"}
 
-## Il ciclo dell'azione (Norman) {.img data-background-image="../i2/action-cycle-norman.png" data-background-size="contain" data-background-color="#fefaea"}
+## Il ciclo dell'azione (Norman) {.img data-background-image="assets/action-cycle-norman.png" data-background-size="contain" data-background-color="#fefaea"}
 
 ## Dal ciclo di Norman al metodo
 
@@ -27,7 +27,7 @@ ciclo: dev
 - il riflessivo da solo non muove, il viscerale da solo è cieco: i livelli si
   servono a vicenda
 
-## La rilettura del metodo {.img data-background-image="../i2/action-cycle-method.png" data-background-size="contain" data-background-color="#fefbea"}
+## La rilettura del metodo {.img data-background-image="assets/action-cycle-method.png" data-background-size="contain" data-background-color="#fefbea"}
 
 ## Leggere il ciclo
 
@@ -49,11 +49,11 @@ ciclo: dev
 - portability is a quality of the runtime machine, not a replacement for the
   domain
 
-## Runtime cycle / development meta-cycle {.img data-background-image="../i2/development-meta-cycle.png" data-background-size="contain" data-background-color="#fcf6e3"}
+## Runtime cycle / development meta-cycle {.img data-background-image="assets/development-meta-cycle.png" data-background-size="contain" data-background-color="#fcf6e3"}
 
-## Sviluppo del metodo {.img data-background-image="../i2/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
+## Sviluppo del metodo {.img data-background-image="assets/method-development-loop.png" data-background-size="contain" data-background-color="#fdf8e5"}
 
-## Artefatto, KB, mondo {.img data-background-image="../i2/artifact-kb-world.png" data-background-size="contain" data-background-color="#fef9e6"}
+## Artefatto, KB, mondo {.img data-background-image="assets/artifact-kb-world.png" data-background-size="contain" data-background-color="#fef9e6"}
 
 ## Una lente sul livello viscerale: `o3 <-> i1` {.hero}
 

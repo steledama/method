@@ -7,44 +7,50 @@ import re
 from html import escape
 from pathlib import Path
 
-from presentation import check_plan_contract, goal_anchors, parse_plan, parse_task
+from sources import check_plan_contract, goal_titles, label, parse_plan, parse_task
 
 
 def repo_root() -> Path:
-    return Path(__file__).resolve().parents[1]
+    return Path(__file__).resolve().parents[2]
 
 
-def goal_links(obiettivo: str | None, anchors: dict[str, str], markdown: bool) -> str:
-    """Ogni chiave della colonna `Ob.` punta al suo obiettivo in `goal.md`.
+def goal_links(obiettivo: str | None, markdown: bool) -> str:
+    """Ogni chiave della colonna `Ob.` porta alla legenda degli obiettivi.
 
-    Il contratto del plan ha già verificato che ogni chiave esista nel
-    register: qui l'ancora si legge, non si indovina.
+    La legenda è una slide della vista, con i titoli letti da `goal.md`: il
+    legame task→obiettivo resta dentro `presentation/` (compartimento
+    stagno). Il contratto del plan ha già verificato che ogni chiave esista.
     """
     if not obiettivo:
         return "—"
     links = []
     for key in (part.strip() for part in obiettivo.split(",")):
-        href = f"../goal.md#{anchors[key]}"
         if markdown:
-            links.append(f"[`{key}`]({href})")
+            links.append(f"[`{key}`](#/obiettivi)")
         else:
-            links.append(f'<a href="{escape(href, quote=True)}">{escape(key)}</a>')
+            links.append(f'<a href="#/obiettivi">{escape(key)}</a>')
     return ", ".join(links)
+
+
+def goals_slide(root: Path) -> list[str]:
+    lines = [f"## {label('goals')} {{#obiettivi}}", ""]
+    for key, title in goal_titles(root).items():
+        lines.append(f"- **{key}** — {title}")
+    return lines + ["", f"[↩ {label('plan')}](#/plan)", ""]
 
 
 def task_view(root: Path) -> str:
     lines: list[str] = []
     rows = parse_plan(root)
     check_plan_contract(root, rows)
-    anchors = goal_anchors(root)
     if not rows:
-        lines += ["## Nessun task aperto {#plan}", "", "La coda operativa è vuota.", ""]
+        lines += [f"## {label('plan')} {{#plan}}", "", "Nessun task aperto: la coda è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
 
     # Gli indirizzi sono locali alla vista: tabella e dettagli li condividono,
     # senza imitare gli auto-identifier di Pandoc (accenti, markup, collisioni).
     lines += [
-        "## Plan {#plan}",
+        f"## {label('plan')} {{#plan}}",
         "",
         '<div class="plan-overview" tabindex="0" role="region" aria-label="Coda dei task">',
         "<table><caption>Task in ordine di esecuzione</caption>",
@@ -56,16 +62,15 @@ def task_view(root: Path) -> str:
     for index, row in enumerate(rows, 1):
         lines.append(
             f"<tr><td>{escape(row.ciclo or '—')}</td>"
-            f"<td>{goal_links(row.obiettivo, anchors, markdown=False)}</td>"
+            f"<td>{goal_links(row.obiettivo, markdown=False)}</td>"
             f'<td><a href="#/task-{index}">{escape(row.task)}</a></td>'
             f"<td>{escape(row.dependency)}</td></tr>"
         )
     lines += [
         "</tbody></table></div>",
         "",
-        "Dipendenze e condizioni di risveglio: [plan sorgente](../o1/plan.md).",
-        "",
     ]
+    lines += goals_slide(root)
 
     for index, row in enumerate(rows, 1):
         # Una riga senza dettaglio `o2/` è legittima (`kb/tasks.md`: il file
@@ -75,7 +80,7 @@ def task_view(root: Path) -> str:
         task = parse_task(root, row.source) if row.source else None
         meta = [f"ciclo: `{task.ciclo if task else row.ciclo or '—'}`"]
         if row.obiettivo:
-            meta.append(f"obiettivo: {goal_links(row.obiettivo, anchors, markdown=True)}")
+            meta.append(f"obiettivo: {goal_links(row.obiettivo, markdown=True)}")
         meta.append(f"dipendenza: `{row.dependency}`")
         lines += [
             f"## {task.title if task else row.task} {{#task-{index}}}",
@@ -85,9 +90,7 @@ def task_view(root: Path) -> str:
             task.sintesi if task else "Riga di piano senza dettaglio in `o2/`.",
             "",
         ]
-        if row.source:
-            lines += [f"Sorgente: [`{row.source}`](../{row.source})", ""]
-        lines += ["[Torna al plan](#plan)", ""]
+        lines += [f"[↩ {label('plan')}](#/plan)", ""]
     return "\n".join(lines).rstrip() + "\n"
 
 

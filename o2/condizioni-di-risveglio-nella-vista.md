@@ -6,7 +6,7 @@ ciclo: dev
 # Condizioni di risveglio nella vista del plan
 
 Terzo task della ristrutturazione della presentazione (2026-10-02). Dipende da
-[presentazione-autonoma-e-uniforme](presentazione-autonoma-e-uniforme.md):
+`presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`):
 senza link verso le fonti, il rimando al plan sorgente non ha più dove portare.
 
 ## Cosa si rende

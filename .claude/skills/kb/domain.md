@@ -53,5 +53,5 @@ nodi; gli esecutori sono registrati in `o3/prescriptions.md`.
 Formatta i Markdown modificati con `prettier --write <file...>` e i Python
 con `ruff format <file...>`. Riesegui i comandi di audit sopra; per modifiche
 al profiler esegui `python3 -m unittest discover -s tests -p 'test_kb_profile.py'`.
-Se cambiano le sorgenti delle viste, esegui `bash o3/build-presentation.sh`
-e `bash o3/build-system-image.sh`; controlla il diff delle viste derivate.
+Se cambiano le sorgenti delle viste, esegui `python3 o3/presentation/build.py`;
+controlla il diff delle viste derivate.

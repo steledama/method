@@ -52,7 +52,6 @@ nuovo repository.
   segnale costituirà la sua prima verifica;
 - aggiorna `i3/audit-adottanti.md` senza anticipare il cursore mensile:
   l'ingresso è un evento fuori giro, non un audit aggiuntivo;
-- rigenera le viste con `o3/build-presentation.sh` e
-  `o3/build-system-image.sh`;
+- rigenera le viste con `python3 o3/presentation/build.py`;
 - chiudi con `o3/kb_tools.py audit`, `git diff --check` e una ricerca finale dei
   candidati classificati, dichiarando quelli storici lasciati invariati.

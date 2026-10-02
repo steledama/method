@@ -6,7 +6,7 @@ ciclo: dev
 # Server LAN della presentazione
 
 Quarto task della ristrutturazione della presentazione (2026-10-02). Dipende da
-[presentazione-autonoma-e-uniforme](presentazione-autonoma-e-uniforme.md):
+`presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`):
 servire solo `presentation/` ha senso quando nessun link esce dalla cartella.
 
 ## Decisioni del custode (2026-10-02)
@@ -25,7 +25,7 @@ servire solo `presentation/` ha senso quando nessun link esce dalla cartella.
 
 - **Path di canone**: `o3/presentation/serve.py`, identico nei sei repo
   (decisione del custode, cfr.
-  [presentazione-autonoma-e-uniforme](presentazione-autonoma-e-uniforme.md)).
+  `presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`)).
   Il comando è `python3 o3/presentation/serve.py`, su Windows
   `py o3\presentation\serve.py`. La fonte resta in `o3/`, e `presentation/`
   resta fatta di file generati più gli asset.

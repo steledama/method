@@ -13,7 +13,8 @@ import html
 import re
 from pathlib import Path
 
-from presentation import heading_slug, inline_markdown, register_intro
+import project
+from sources import inline_markdown, register_intro
 
 # --- CONFIG specifico del repo ------------------------------------------------
 
@@ -54,7 +55,7 @@ SLOTS = {
 
 
 def repo_root() -> Path:
-    return Path(__file__).resolve().parents[1]
+    return Path(__file__).resolve().parents[2]
 
 
 def readme_title(root: Path) -> str:
@@ -64,7 +65,7 @@ def readme_title(root: Path) -> str:
     raise SystemExit("README.md: H1 mancante")
 
 
-def render_block(block: str, link_prefix: str = "") -> str:
+def render_block(block: str) -> str:
     """Rende un blocco markdown fedele: prosa in <p>, liste puntate in <ul>,
     e il misto lead-in + lista dentro lo stesso blocco."""
     parts: list[str] = []
@@ -73,12 +74,12 @@ def render_block(block: str, link_prefix: str = "") -> str:
 
     def flush_para() -> None:
         if para:
-            parts.append(f"<p>{inline_markdown(' '.join(para), link_prefix)}</p>")
+            parts.append(f"<p>{inline_markdown(' '.join(para))}</p>")
             para.clear()
 
     def flush_list() -> None:
         if items:
-            lis = "".join(f"<li>{inline_markdown(item, link_prefix)}</li>" for item in items)
+            lis = "".join(f"<li>{inline_markdown(item)}</li>" for item in items)
             parts.append(f"<ul>{lis}</ul>")
             items.clear()
 
@@ -96,9 +97,9 @@ def render_block(block: str, link_prefix: str = "") -> str:
     return "\n".join(parts)
 
 
-def render_markdown(markdown: str, link_prefix: str = "") -> str:
+def render_markdown(markdown: str) -> str:
     blocks = (block.strip() for block in markdown.split("\n\n"))
-    return "\n".join(render_block(block, link_prefix) for block in blocks if block)
+    return "\n".join(render_block(block) for block in blocks if block)
 
 
 def section_body(markdown: str, title: str, level: int) -> str:
@@ -138,7 +139,9 @@ def pole_links(items: list[tuple[str, str]], label: str) -> str:
 def goal_runtime_links(root: Path) -> list[tuple[str, str]]:
     text = (root / "goal.md").read_text(encoding="utf-8")
     runtime = section_body(text, "Obiettivi runtime", 2)
-    return [(title, f"../goal.md#{heading_slug(title)}") for title in headings(runtime, 3)]
+    # La legenda degli obiettivi vive nella vista del plan: la home non esce
+    # da `presentation/` (compartimento stagno).
+    return [(title, "tasks.html#/obiettivi") for title in headings(runtime, 3)]
 
 
 # --- Sezioni ------------------------------------------------------------------
@@ -148,7 +151,7 @@ def goal_pole_html(root: Path) -> str:
     goal = register_intro(root, "goal")
     return f"""      <section class="pole pole-goal">
         <p class="kicker">Obiettivi · Goal</p>
-{render_markdown(goal, "../")}
+{render_markdown(goal)}
 {pole_links(goal_runtime_links(root), "Obiettivi runtime")}
       </section>"""
 
@@ -157,7 +160,7 @@ def world_pole_html(root: Path) -> str:
     world = register_intro(root, "world")
     return f"""      <section class="pole pole-world">
         <p class="kicker">Mondo · World</p>
-{render_markdown(world, "../")}
+{render_markdown(world)}
       </section>"""
 
 
@@ -197,8 +200,9 @@ def render(root: Path) -> str:
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{html.escape(title)} · system image</title>
+    <title>{html.escape(project.SIGLA)} · {html.escape(title)}</title>
     <link rel="stylesheet" href="assets/system-image.css" />
+    <link rel="stylesheet" href="assets/theme.css" />
   </head>
   <body>
     <header class="hero">

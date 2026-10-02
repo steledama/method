@@ -8,7 +8,7 @@ ciclo: dev
 Task della ristrutturazione della presentazione (2026-10-02). Dipende dalla
 [revisione dei verdetti](revisione-verdetti-contro-obiettivi.md), che
 assegna l'obiettivo a ogni filo, e da
-[presentazione-autonoma-e-uniforme](presentazione-autonoma-e-uniforme.md)
+`presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`)
 per lo stile, la sigla nel titolo e la legenda interna degli obiettivi.
 
 ## Indice iniziale

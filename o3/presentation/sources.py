@@ -3,10 +3,42 @@
 from __future__ import annotations
 
 import html
+import json
 import posixpath
 import re
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlsplit
+
+import project
+
+# Titoli delle viste nelle due lingue ammesse: la sigla la mette `project.py`.
+LABELS = {
+    "en": {
+        "plan": "Plan",
+        "goals": "Goals",
+        "verdict": "Verdicts",
+        "interpretations": "Interpretations",
+        "prescriptions": "Prescriptions",
+        "perceptions": "Perceptions",
+    },
+    "it": {
+        "plan": "Piano",
+        "goals": "Obiettivi",
+        "verdict": "Confronti",
+        "interpretations": "Interpretazioni",
+        "prescriptions": "Prescrizioni",
+        "perceptions": "Percezioni",
+    },
+}
+
+
+def label(kind: str) -> str:
+    """Il titolo di una vista con la sigla del repo: «Method Plan», «BI Piano»."""
+    if project.LINGUA not in LABELS:
+        raise SystemExit(f"project.py: LINGUA «{project.LINGUA}» non ammessa ({', '.join(LABELS)})")
+    return f"{project.SIGLA} {LABELS[project.LINGUA][kind]}"
 
 
 @dataclass(frozen=True)
@@ -215,6 +247,19 @@ def goal_anchors(root: Path) -> dict[str, str]:
     return anchors
 
 
+def goal_titles(root: Path) -> dict[str, str]:
+    """Le chiavi del register con il titolo dell'obiettivo, nell'ordine di `goal.md`."""
+    goal = root / "goal.md"
+    if not goal.exists():
+        return {}
+    text = goal.read_text(encoding="utf-8")
+    titles = {key: re.sub(r"^\d+[.)]\s+", "", title) for title, key in _GOAL_HEADING.findall(text)}
+    dev = _DEV_GOAL_HEADING.search(text)
+    if dev:
+        titles["S"] = dev.group(1)
+    return titles
+
+
 def goal_keys(root: Path) -> set[str]:
     return set(goal_anchors(root))
 
@@ -314,25 +359,128 @@ def parse_task(root: Path, relative: str) -> TaskDetail:
     )
 
 
-def inline_markdown(text: str, link_prefix: str = "") -> str:
-    """Rende inline markdown (code, bold, link) fedele, con prefisso sui link relativi.
+def is_external(target: str) -> bool:
+    """Un URL con schema (https, mailto) o un'ancora: resta link anche fuori dal checkout."""
+    parts = urlsplit(target)
+    return bool(parts.scheme or parts.netloc) or target.startswith("#")
 
-    Condiviso dai generatori HTML: una vista che vive in `presentation/` legge
-    un file di collezione i cui link relativi puntano a fianco della fonte, non
-    a fianco della vista — `link_prefix` corregge la base.
+
+def inline_markdown(text: str) -> str:
+    """Rende inline markdown (code, bold, link) per la home.
+
+    La presentazione è chiusa su se stessa (`kb/presentation.md`): un link
+    relativo porterebbe a una fonte fuori da `presentation/`, quindi se ne
+    rende solo l'etichetta. Restano link gli URL con schema e le ancore.
     """
     escaped = html.escape(text)
     escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
     escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
 
     def link(match: re.Match[str]) -> str:
-        label = match.group(1)
-        href = match.group(2)
-        if not re.match(r"[a-z]+:|[#/]", href):
-            href = posixpath.normpath(link_prefix + href)
-        return f'<a href="{html.escape(href, quote=True)}">{label}</a>'
+        label_html, href = match.group(1), html.unescape(match.group(2))
+        if not is_external(href):
+            return label_html
+        return f'<a href="{html.escape(href, quote=True)}">{label_html}</a>'
 
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, escaped)
+
+
+# --- Pandoc e compartimento stagno ---------------------------------------------
+
+
+def pandoc_ast(markdown: str) -> dict:
+    """Il Markdown di Pandoc come AST JSON, il formato su cui la build lavora."""
+    parsed = subprocess.run(
+        ["pandoc", "--from=markdown-native_divs", "--to=json"],
+        input=markdown,
+        text=True,
+        encoding="utf-8",
+        capture_output=True,
+        check=True,
+    )
+    return json.loads(parsed.stdout)
+
+
+def pandoc_render(document: dict, args: list[str]) -> str:
+    return subprocess.run(
+        ["pandoc", "--from=json", *args],
+        input=json.dumps(document),
+        text=True,
+        encoding="utf-8",
+        capture_output=True,
+        check=True,
+    ).stdout
+
+
+def _inside(presentation: Path, target: str) -> bool:
+    path = urlsplit(target).path
+    if not path:
+        return True
+    normal = posixpath.normpath(path)
+    return (
+        not normal.startswith(("../", "/")) and normal != ".." and (presentation / normal).exists()
+    )
+
+
+def close_links(value: object, presentation: Path, source: str) -> object:
+    """Chiude l'AST dentro `presentation/`: il compartimento stagno.
+
+    Un link che esce dalla cartella diventa la sua etichetta; un'immagine,
+    anche di sfondo, deve stare nella cartella, altrimenti la build rompe:
+    una tavola che manca non si rende in silenzio (`kb/view.md`).
+    """
+    if isinstance(value, list):
+        out: list[object] = []
+        for child in value:
+            closed = close_links(child, presentation, source)
+            if isinstance(child, dict) and child.get("t") == "Link" and closed is None:
+                out.extend(close_links(child["c"][1], presentation, source))
+            else:
+                out.append(closed)
+        return out
+    if not isinstance(value, dict):
+        return value
+    kind = value.get("t")
+    if kind == "Link":
+        target = value["c"][-1][0]
+        if not is_external(target) and not _inside(presentation, target):
+            return None
+    if kind == "Image":
+        target = value["c"][-1][0]
+        if not is_external(target) and not _inside(presentation, target):
+            raise SystemExit(f"{source}: immagine fuori da presentation/ o assente — «{target}»")
+    if kind == "Header":
+        for key, target in value["c"][1][2]:
+            if key == "data-background-image" and not _inside(presentation, target):
+                raise SystemExit(f"{source}: tavola fuori da presentation/ o assente — «{target}»")
+    return {key: close_links(child, presentation, source) for key, child in value.items()}
+
+
+_URL_ATTR = re.compile(r'(?:href|src|data-background-image)="([^"]*)"|url\(([^)]*)\)')
+
+
+def check_closed(presentation: Path) -> None:
+    """Presidio finale: nessun URL emesso esce da `presentation/` o punta al vuoto."""
+    errors: list[str] = []
+    for page in sorted(presentation.glob("*.html")) + sorted(presentation.glob("assets/*.css")):
+        base = page.parent
+        for match in _URL_ATTR.finditer(page.read_text(encoding="utf-8")):
+            target = html.unescape((match.group(1) or match.group(2) or "").strip("'\""))
+            if not target or is_external(target):
+                continue
+            path = urlsplit(target).path
+            resolved = (base / path).resolve()
+            if (
+                presentation.resolve() not in resolved.parents
+                and resolved != presentation.resolve()
+            ):
+                errors.append(f"{page.relative_to(presentation)}: esce dalla cartella — «{target}»")
+            elif not resolved.exists():
+                errors.append(
+                    f"{page.relative_to(presentation)}: destinazione assente — «{target}»"
+                )
+    if errors:
+        raise SystemExit("presentation/ non è chiusa su se stessa:\n- " + "\n- ".join(errors))
 
 
 def register_intro(root: Path, name: str) -> str:

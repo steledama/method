@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Prescrizioni · system image</title>
+    <title>Method Prescriptions</title>
     <link rel="stylesheet" href="assets/system-image.css" />
+    <link rel="stylesheet" href="assets/theme.css" />
   </head>
   <body>
     <header class="hero">
       <p class="kicker">Elenco · List</p>
-      <h1>Prescrizioni</h1>
+      <h1>Method Prescriptions</h1>
     </header>
 
     <main>
@@ -18,18 +19,15 @@
           Indice della collezione <code>o3/</code>: lo
           <strong>stadio o3</strong> del ciclo, l’atto versionato e predisposto
           sul Mondo runtime. Il significato dello stadio vive nell’atomo
-          <a href="../kb/perform.md">perform</a>. Il Mondo runtime di
-          <code>method</code> sono gli adottanti: l’o3 di <code>method</code> è
-          il <strong>runbook di propagazione</strong> — la ricetta, per repo,
-          che porta un adottante al canone nuovo. Lo esegue il
+          perform. Il Mondo runtime di <code>method</code> sono gli adottanti:
+          l’o3 di <code>method</code> è il
+          <strong>runbook di propagazione</strong> — la ricetta, per repo, che
+          porta un adottante al canone nuovo. Lo esegue il
           <code>method</code> dell’adottante: o3 prescrive, method compie l’atto
-          (<a href="../kb/action-cycle.md">action-cycle</a>). Una prescrizione
-          nasce quando un segnale i1 (<a href="../i1/perceptions.md"
-            >perceptions</a
-          >) è stato valutato e ha prodotto un cambio di canone; resta finché
-          tutti gli adottanti non l’hanno recepita. La fetta di skill che
-          mantiene lo stadio è lo scope <code>perform</code> di
-          <a href="../.claude/skills/exec/SKILL.md">exec</a>.
+          (action-cycle). Una prescrizione nasce quando un segnale i1
+          (perceptions) è stato valutato e ha prodotto un cambio di canone;
+          resta finché tutti gli adottanti non l’hanno recepita. La fetta di
+          skill che mantiene lo stadio è lo scope <code>perform</code> di exec.
         </p>
         <h2 id="divisione-del-lavoro">Divisione del lavoro</h2>
         <p>
@@ -47,11 +45,10 @@
           <li>
             la mappatura sui file veri (path, nomi, struttura) la fa il
             <code>method</code> dell’adottante, che legge il repo aggiornato: è
-            il checkpoint di
-            <a href="../kb/cognitive-fidelity.md">cognitive-fidelity</a> — il
-            modello che <code>method</code> ha di un repo è una fotografia
-            dell’osservatorio e può derivare, quindi non va pre-cotto dove il
-            rappresentato cambia;
+            il checkpoint di cognitive-fidelity — il modello che
+            <code>method</code> ha di un repo è una fotografia dell’osservatorio
+            e può derivare, quindi non va pre-cotto dove il rappresentato
+            cambia;
           </li>
           <li>
             una prescrizione si <strong>personalizza per repo</strong> (un file
@@ -63,38 +60,28 @@
         <h2 id="contenuti">Contenuti</h2>
         <ul>
           <li>
-            <a href="../o3/ingresso-adottante.md"
-              >Ingresso di un adottante nell’osservatorio</a
-            >
-            — verificare l’adozione locale, fissare una baseline con
-            provenienza, aggiornare le rappresentazioni correnti e predisporre
-            il primo giro senza governare la coda del nuovo repository.
+            Ingresso di un adottante nell’osservatorio — verificare l’adozione
+            locale, fissare una baseline con provenienza, aggiornare le
+            rappresentazioni correnti e predisporre il primo giro senza
+            governare la coda del nuovo repository.
           </li>
           <li>
-            <a href="../o3/revisione-bootstrap-adottante.md"
-              >Revisione coordinata del bootstrap di un adottante</a
-            >
-            — rileggere insieme README, CLAUDE, Goal e World; il canone fornisce
-            criteri e indizi, il <code>/method</code> locale applica o motiva
-            l’ultimo miglio di dominio.
+            Revisione coordinata del bootstrap di un adottante — rileggere
+            insieme README, CLAUDE, Goal e World; il canone fornisce criteri e
+            indizi, il <code>/method</code> locale applica o motiva l’ultimo
+            miglio di dominio.
           </li>
           <li>
-            <a href="../o3/esiti-per-stadio-nel-commit.md"
-              >Ogni giro di <code>eval</code> ed <code>exec</code> lascia
-              l’esito per stadio nel commit</a
-            >
-            — trailer <code>Esiti:</code> con <code>materia</code> o
-            <code>vuoto</code> per ogni stadio invocato,
+            Ogni giro di <code>eval</code> ed <code>exec</code> lascia l’esito
+            per stadio nel commit — trailer <code>Esiti:</code> con
+            <code>materia</code> o <code>vuoto</code> per ogni stadio invocato,
             <code>--allow-empty</code> per i giri tutti vuoti; è la misura che
             la clausola di uscita della tripartizione non aveva. Da recepire
             prima del battito del 2026-11-01.
           </li>
           <li>
-            <a href="../o3/toolchain-builder-presentazione.md"
-              >I builder della presentazione dichiarano il toolchain che
-              assumono</a
-            >
-            — <code>encoding="utf-8"</code> nelle chiamate a pandoc e URL di
+            I builder della presentazione dichiarano il toolchain che assumono —
+            <code>encoding="utf-8"</code> nelle chiamate a pandoc e URL di
             reveal.js derivato dalla versione di pandoc (6.0.2 da 3.12 in su,
             5.1.0 sotto), con errore esplicito se non si legge; da
             <code>danea-auto</code>, che può tornare dal pin fisso alla regola.
@@ -219,55 +206,61 @@
             >.
           </li>
           <li>
-            <code>presentation.py</code> — libreria di parsing condivisa
-            (frontmatter, plan, task); importata dai due generatori, non si
-            invoca direttamente.
-          </li>
-          <li>
-            <code>build_views.py</code> — genera le sorgenti markdown derivate
-            per le viste Reveal.
-          </li>
-          <li>
-            <code>build_lists.py</code> — genera le due viste a elenco puntato
-            semplice (non slide): <code>prescriptions.html</code> e
-            <code>perceptions.html</code>, rendendo per intero e senza tagli i
-            rispettivi indici tramite Pandoc, già richiesto dalla build:
-            sezioni, sottotitoli e liste annidate nell’ordine della fonte; link
-            e immagini Markdown ribasati sull’AST. HTML grezzo e suoi URL
-            restano della fonte. Regressioni:
-            <code
-              >python3 -m unittest discover -s tests -p
-              'test_build_lists.py'</code
-            >.
-          </li>
-          <li>
-            <code>build-presentation.sh</code> — orchestra Pandoc +
-            <code>build_views.py</code> per le viste Reveal e
-            <code>build_lists.py</code> per le due viste a elenco: produce tutte
-            le viste in <code>../presentation/</code>.
-          </li>
-          <li>
-            <code>build_system_image.py</code> — genera la home statica
-            minimalista: ciclo singolo, un collegamento primario per slot; il
-            CSS condiviso della home resta potato alle classi che il builder
-            emette.
-          </li>
-          <li>
-            <code>build-system-image.sh</code> — wrapper: genera e formatta la
-            home.
+            <code>presentation/</code> — i builder della presentazione, con lo
+            stesso path in ogni repo (canone, cfr. presentation):
+            <ul>
+              <li>
+                <code>build.py</code> — <strong>unico entrypoint</strong>:
+                <code>python3 o3/presentation/build.py</code> rigenera viste
+                Reveal, liste, home e asset, formatta con Prettier e chiude col
+                presidio del compartimento stagno (nessun URL emesso esce da
+                <code>../presentation/</code>). È Python per girare anche sugli
+                host Windows;
+              </li>
+              <li>
+                <code>project.py</code> — l’unico file che il fork parametrizza:
+                sigla e lingua dei titoli, colore d’accento (scritto in
+                <code>assets/theme.css</code>), sorgente del deck delle
+                Interpretazioni;
+              </li>
+              <li>
+                <code>sources.py</code> — libreria condivisa: parsing di plan,
+                task e register, titoli con sigla, chiusura dei link sull’AST di
+                Pandoc; non si invoca direttamente;
+              </li>
+              <li>
+                <code>build_views.py</code> — le sorgenti Markdown delle viste
+                Reveal <code>tasks</code> (con la legenda interna degli
+                obiettivi) e <code>verdict</code>;
+              </li>
+              <li>
+                <code>build_lists.py</code> — le due viste a elenco
+                <code>prescriptions.html</code> e <code>perceptions.html</code>:
+                l’intero indice reso con Pandoc, nell’ordine e con la struttura
+                della fonte; i link alle fonti restano etichetta. Regressioni:
+                <code
+                  >python3 -m unittest discover -s tests -p
+                  'test_build_lists.py'</code
+                >;
+              </li>
+              <li>
+                <code>build_system_image.py</code> — la home statica
+                minimalista: ciclo singolo, un collegamento primario per slot;
+                il CSS condiviso della home resta potato alle classi che il
+                builder emette.
+              </li>
+            </ul>
           </li>
         </ul>
         <p>
           Ogni sezione delle viste generate ha una sorgente canonica; i
-          generatori verificano i contratti fra sorgenti (<a
-            href="../kb/view.md"
-            >view</a
-          >):
+          generatori verificano i contratti fra sorgenti (view):
         </p>
         <ul>
           <li>
             <code>../presentation/interpretations.html</code> ←
-            <code>../i2/metodo-in-sintesi.md</code>;
+            <code>../i2/metodo-in-sintesi.md</code>, con le tavole copiate da
+            <code>../i2/</code>;
           </li>
           <li>
             <code>../presentation/tasks.html</code> ←
@@ -295,8 +288,7 @@
         <p>
           I path interni sono riallineati alla struttura <code>o3/</code> +
           <code>presentation/</code> + <code>o1/plan.md</code>;
-          <code>build-presentation.sh</code>,
-          <code>build-system-image.sh</code> e
+          <code>presentation/build.py</code> e
           <code>kb_tools.py audit</code> sono il controllo minimo dopo modifiche
           strutturali.
         </p>

@@ -109,27 +109,32 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
   1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
   fatti o fonti. Test: `python3 -m unittest discover -s tests -p 'test_kb_profile.py'`.
-- `presentation.py` — libreria di parsing condivisa (frontmatter, plan, task);
-  importata dai due generatori, non si invoca direttamente.
-- `build_views.py` — genera le sorgenti markdown derivate per le viste Reveal.
-- `build_lists.py` — genera le due viste a elenco puntato semplice (non
-  slide): `prescriptions.html` e `perceptions.html`, rendendo per intero e
-  senza tagli i rispettivi indici tramite Pandoc, già richiesto dalla build:
-  sezioni, sottotitoli e liste annidate nell'ordine della fonte; link e immagini
-  Markdown ribasati sull'AST. HTML grezzo e suoi URL restano della fonte.
-  Regressioni: `python3 -m unittest discover -s tests -p 'test_build_lists.py'`.
-- `build-presentation.sh` — orchestra Pandoc + `build_views.py` per le viste
-  Reveal e `build_lists.py` per le due viste a elenco: produce tutte le viste
-  in `../presentation/`.
-- `build_system_image.py` — genera la home statica minimalista: ciclo singolo,
-  un collegamento primario per slot; il CSS condiviso della home resta potato
-  alle classi che il builder emette.
-- `build-system-image.sh` — wrapper: genera e formatta la home.
+- `presentation/` — i builder della presentazione, con lo stesso path in ogni
+  repo (canone, cfr. [presentation](../kb/presentation.md)):
+  - `build.py` — **unico entrypoint**: `python3 o3/presentation/build.py`
+    rigenera viste Reveal, liste, home e asset, formatta con Prettier e
+    chiude col presidio del compartimento stagno (nessun URL emesso esce da
+    `../presentation/`). È Python per girare anche sugli host Windows;
+  - `project.py` — l'unico file che il fork parametrizza: sigla e lingua dei
+    titoli, colore d'accento (scritto in `assets/theme.css`), sorgente del
+    deck delle Interpretazioni;
+  - `sources.py` — libreria condivisa: parsing di plan, task e register,
+    titoli con sigla, chiusura dei link sull'AST di Pandoc; non si invoca
+    direttamente;
+  - `build_views.py` — le sorgenti Markdown delle viste Reveal `tasks` (con
+    la legenda interna degli obiettivi) e `verdict`;
+  - `build_lists.py` — le due viste a elenco `prescriptions.html` e
+    `perceptions.html`: l'intero indice reso con Pandoc, nell'ordine e con la
+    struttura della fonte; i link alle fonti restano etichetta. Regressioni:
+    `python3 -m unittest discover -s tests -p 'test_build_lists.py'`;
+  - `build_system_image.py` — la home statica minimalista: ciclo singolo,
+    un collegamento primario per slot; il CSS condiviso della home resta
+    potato alle classi che il builder emette.
 
 Ogni sezione delle viste generate ha una sorgente canonica; i generatori
 verificano i contratti fra sorgenti ([view](../kb/view.md)):
 
-- `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`;
+- `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`, con le tavole copiate da `../i2/`;
 - `../presentation/tasks.html` ← `../o1/plan.md` e i file in `../o2/`;
 - `../presentation/verdict.html` ← i fili in `../i3/`;
 - `../presentation/prescriptions.html` ← l'intero indice
@@ -141,5 +146,5 @@ verificano i contratti fra sorgenti ([view](../kb/view.md)):
   le _collega_, non le rende.
 
 I path interni sono riallineati alla struttura `o3/` + `presentation/` +
-`o1/plan.md`; `build-presentation.sh`, `build-system-image.sh` e
+`o1/plan.md`; `presentation/build.py` e
 `kb_tools.py audit` sono il controllo minimo dopo modifiche strutturali.
