@@ -592,3 +592,31 @@ def register_intro(root: Path, name: str) -> str:
     if not match or not match.group("body").strip():
         raise SystemExit(f"{name}.md: intro del register mancante (H1 → primo H2)")
     return match.group("body").strip()
+
+
+def reveal_page(markdown: str, source: str, title: str, reveal_url: str, presentation: Path) -> str:
+    """Una vista Reveal canonica da Markdown: stile, accento e link chiusi.
+
+    È la resa di tutte le viste Reveal, e la usa anche un builder di dominio
+    che parte da Markdown (`DECK_BUILDER` in `project.py`).
+    """
+    document = close_links(pandoc_ast(markdown), presentation, source)
+    return pandoc_render(
+        document,
+        [
+            "--standalone",
+            "--to=revealjs",
+            "--slide-level=2",
+            "--css=assets/deck.css",
+            "--css=assets/theme.css",
+            *(f"--css=assets/{name}" for name in project.CSS_LOCALI),
+            f"--metadata=pagetitle:{title}",
+            f"--variable=revealjs-url:{reveal_url}",
+            "--variable=theme:white",
+            "--variable=width:1180",
+            "--variable=height:740",
+            "--variable=margin:0.05",
+            "--variable=center:false",
+            "--variable=slideNumber:true",
+        ],
+    )

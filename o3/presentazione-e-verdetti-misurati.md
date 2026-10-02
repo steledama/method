@@ -86,7 +86,11 @@ Copia da `$method_repo/o3/presentation/` i file canonici `build.py`,
 della home). Copia `presentation/assets/deck.css`. Poi:
 
 - scrivi `o3/presentation/project.py` con `SIGLA`, `LINGUA`, `ACCENTO`,
-  `DECK` e, se il tuo deck ha classi di dominio, `CSS_LOCALI`;
+  `DECK` e, se il tuo deck ha classi di dominio, `CSS_LOCALI`. Se il deck
+  non è un Markdown ma si genera dai dati del repo, lascia `DECK = None` e
+  dichiara il modulo in `DECK_BUILDER`: `render(root, reveal_url)` restituisce
+  la pagina, e chi parte da Markdown usa `sources.reveal_page`. Così
+  `build.py` resta identico al canone;
 - rimuovi i vecchi builder (`build-presentation.sh`, `build-system-image.sh`,
   `presentation.py`, `build_*.py` in `o3/` o `o3/tools/`) e il vecchio
   `interpretations.css`, dopo averne salvato le classi di dominio in un CSS
@@ -125,7 +129,9 @@ della home). Copia `presentation/assets/deck.css`. Poi:
 - **`crm`**: sigla «CRM», `LINGUA = "it"`, accento `#a16207`. I builder
   stanno in `o3/tools/`. Non ha `build_lists.py`, e genera
   `interpretations` da `build_views.py` invece che da un deck in `i2/`: o
-  porti la sorgente a un deck (`DECK`), o dichiari l'adattamento.
+  porti la sorgente a un deck (`DECK`), o sposti quella generazione in un
+  modulo di dominio dichiarato in `DECK_BUILDER`, che usa
+  `sources.reveal_page`.
 - **`danea-auto`**: sigla «Danea», `LINGUA = "it"`, accento `#7e22ce`. I
   builder stanno in `o3/`. `build.py` sostituisce la build lanciata da
   PowerShell via `bash.exe`. Collauda build e server su `danea2`: alla prima

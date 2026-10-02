@@ -9,6 +9,7 @@ nessun URL emesso esca da `presentation/` (`kb/presentation.md`).
 
 from __future__ import annotations
 
+import importlib
 import re
 import shutil
 import subprocess
@@ -19,7 +20,7 @@ from build_lists import PAGES
 from build_lists import render as render_list
 from build_system_image import render as render_home
 from build_views import task_view, verdict_view
-from sources import check_closed, close_links, label, pandoc_ast, pandoc_render
+from sources import check_closed, label, reveal_page
 
 ROOT = Path(__file__).resolve().parents[2]
 PRESENTATION = ROOT / "presentation"
@@ -86,26 +87,19 @@ def copy_plates(deck: Path) -> None:
 
 
 def reveal(markdown: str, source: str, title: str, reveal_url: str) -> str:
-    document = close_links(pandoc_ast(markdown), PRESENTATION, source)
-    return pandoc_render(
-        document,
-        [
-            "--standalone",
-            "--to=revealjs",
-            "--slide-level=2",
-            "--css=assets/deck.css",
-            "--css=assets/theme.css",
-            *(f"--css=assets/{name}" for name in project.CSS_LOCALI),
-            f"--metadata=pagetitle:{title}",
-            f"--variable=revealjs-url:{reveal_url}",
-            "--variable=theme:white",
-            "--variable=width:1180",
-            "--variable=height:740",
-            "--variable=margin:0.05",
-            "--variable=center:false",
-            "--variable=slideNumber:true",
-        ],
-    )
+    return reveal_page(markdown, source, title, reveal_url, PRESENTATION)
+
+
+def domain_deck(reveal_url: str) -> str:
+    """Il deck prodotto da un builder di dominio dichiarato in `DECK_BUILDER`.
+
+    Il modulo vive accanto ai builder canonici ed espone
+    `render(root, reveal_url) -> str`, la pagina completa: chi parte da
+    Markdown usa `sources.reveal_page`, chi ha un template proprio lo tiene.
+    Il presidio finale vale anche per questa pagina.
+    """
+    module = importlib.import_module(project.DECK_BUILDER)
+    return module.render(ROOT, reveal_url)
 
 
 def main() -> None:
@@ -115,8 +109,13 @@ def main() -> None:
     write(ASSETS / "theme.css", theme_css())
 
     outputs: dict[str, str] = {}
-    # Un repo senza deck delle Interpretazioni dichiara `DECK = None`.
-    if project.DECK:
+    # Un deck in Markdown (`DECK`), uno generato da un builder di dominio
+    # (`DECK_BUILDER`), oppure nessuno: entrambi None.
+    if project.DECK and project.DECK_BUILDER:
+        raise SystemExit("project.py: DECK e DECK_BUILDER sono alternativi, dichiarane uno")
+    if project.DECK_BUILDER:
+        outputs["interpretations.html"] = domain_deck(reveal_url)
+    elif project.DECK:
         deck = ROOT / project.DECK
         copy_plates(deck)
         outputs["interpretations.html"] = reveal(

@@ -19,6 +19,11 @@ ACCENTO = "#4338ca"
 # fonte vive accanto al deck.
 DECK: str | None = "i2/metodo-in-sintesi.md"
 
+# In alternativa a DECK: il nome di un modulo di dominio in questa cartella
+# che genera il deck, con `render(root, reveal_url) -> str` (la pagina
+# completa). Chi parte da Markdown usa `sources.reveal_page`.
+DECK_BUILDER: str | None = None
+
 # CSS di dominio delle viste Reveal (diagrammi, componenti di un deck), in
 # `presentation/assets/`, caricati dopo deck.css e theme.css. Vuoto se il
 # deck usa solo il canone.

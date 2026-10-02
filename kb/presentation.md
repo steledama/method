@@ -53,7 +53,9 @@ Le presentazioni dei progetti sono uniformi: a distinguerle sono solo la
 repo) e un **colore d'accento** unico per progetto, che vale per viste, liste e
 home. Lo stile a sketch è stato abbandonato perché troppo confidenziale per una
 superficie che deve passare da un repo all'altro senza attrito. Sigla, lingua,
-accento e sorgente del deck si dichiarano in un solo file,
+accento e sorgente del deck — un Markdown in `DECK`, oppure un builder di
+dominio in `DECK_BUILDER` quando il deck si genera dai dati del repo — si
+dichiarano in un solo file,
 `o3/presentation/project.py`; la build scrive l'accento in
 `presentation/assets/theme.css`.
 
