@@ -14,7 +14,6 @@ pianificazione.
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
-| dev   | 2   | Prescrizione della presentazione ristrutturata  | —    |
 
 Legenda dipendenze esterne:
 

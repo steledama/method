@@ -17,3 +17,8 @@ ACCENTO = "#4338ca"
 # Sorgente del deck delle Interpretazioni, relativa alla root. Le tavole si
 # citano come `assets/<nome>` e la loro fonte vive accanto al deck.
 DECK = "i2/metodo-in-sintesi.md"
+
+# CSS di dominio delle viste Reveal (diagrammi, componenti di un deck), in
+# `presentation/assets/`, caricati dopo deck.css e theme.css. Vuoto se il
+# deck usa solo il canone.
+CSS_LOCALI: list[str] = []

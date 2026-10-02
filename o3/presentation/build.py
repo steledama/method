@@ -91,6 +91,7 @@ def reveal(markdown: str, source: str, title: str, reveal_url: str) -> str:
             "--slide-level=2",
             "--css=assets/deck.css",
             "--css=assets/theme.css",
+            *(f"--css=assets/{name}" for name in project.CSS_LOCALI),
             f"--metadata=pagetitle:{title}",
             f"--variable=revealjs-url:{reveal_url}",
             "--variable=theme:white",

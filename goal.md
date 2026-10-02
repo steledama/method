@@ -38,7 +38,9 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
   per arco; `toolchain-builder-presentazione`, nata il 2026-10-01 dal primo
-  fork su Windows; `revisione-bootstrap-adottante` e `ingresso-adottante`,
+  fork su Windows; `presentazione-e-verdetti-misurati`, nata il 2026-10-02,
+  che porta ai sei la revisione dei fili contro gli obiettivi e la
+  presentazione uniforme; `revisione-bootstrap-adottante` e `ingresso-adottante`,
   non verificate nel merito.
 
 ### 3. Ascoltare il basso

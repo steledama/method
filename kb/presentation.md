@@ -43,7 +43,8 @@ CSS proprio (`system-image.css`) condiviso tra i fork adottanti, ma il contratto
 Reveal hanno un solo CSS canonico, `deck.css`, uguale in ogni repo: base pulita
 sul tema `white`, titoli con barra d'accento, cover, slide `hero` e tavola,
 tabella del plan. Le classi di dominio (diagrammi, componenti di un deck
-specifico) vivono in un CSS locale del repo.
+specifico) vivono in un CSS locale del repo, dichiarato in `CSS_LOCALI` di
+`o3/presentation/project.py`.
 
 ## Identità del progetto
 
