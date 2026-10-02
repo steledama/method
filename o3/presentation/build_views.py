@@ -98,10 +98,14 @@ def task_view(root: Path) -> str:
         "",
         '<div class="plan-overview" tabindex="0" role="region" aria-label="Coda dei task">',
         "<table><caption>Task in ordine di esecuzione</caption>",
-        '<colgroup><col class="plan-cycle"><col class="plan-goal">'
-        '<col class="plan-task"><col class="plan-dependency"></colgroup>',
-        '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
-        '<th scope="col">Task</th><th scope="col">Dip.</th></tr></thead><tbody>',
+        (
+            '<colgroup><col class="plan-cycle"><col class="plan-goal">'
+            '<col class="plan-task"><col class="plan-dependency"></colgroup>'
+        ),
+        (
+            '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
+            '<th scope="col">Task</th><th scope="col">Dip.</th></tr></thead><tbody>'
+        ),
     ]
     for index, row in enumerate(rows, 1):
         lines.append(
@@ -164,10 +168,14 @@ def verdict_view(root: Path) -> str:
     lines += [
         '<div class="plan-overview" tabindex="0" role="region" aria-label="Indice dei fili">',
         "<table><caption>Fili aperti, misurati contro gli obiettivi</caption>",
-        '<colgroup><col class="plan-cycle"><col class="plan-goal">'
-        '<col class="verdict-thread"></colgroup>',
-        '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
-        '<th scope="col">Filo</th></tr></thead><tbody>',
+        (
+            '<colgroup><col class="plan-cycle"><col class="plan-goal">'
+            '<col class="verdict-thread"></colgroup>'
+        ),
+        (
+            '<thead><tr><th scope="col">Ciclo</th><th scope="col">Ob.</th>'
+            '<th scope="col">Filo</th></tr></thead><tbody>'
+        ),
     ]
     for index, thread in enumerate(threads, 1):
         lines.append(

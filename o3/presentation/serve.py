@@ -23,16 +23,15 @@ PORT = 8765
 
 
 class PresentationHandler(SimpleHTTPRequestHandler):
-    def send_head(self):  # noqa: ANN201 — firma della libreria standard
+    def send_head(self):
         path = unquote(urlsplit(self.path).path)
         if any(part.startswith(".") for part in path.split("/") if part):
             self.send_error(HTTPStatus.NOT_FOUND)
             return None
         return super().send_head()
 
-    def list_directory(self, path):  # noqa: ANN001, ANN201
+    def list_directory(self, path):
         self.send_error(HTTPStatus.NOT_FOUND)
-        return None
 
 
 def lan_addresses() -> list[str]:
