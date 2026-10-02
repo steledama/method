@@ -210,7 +210,7 @@ def main() -> None:
 
     root = repo_root()
     content = task_view(root) if args.kind == "tasks" else verdict_view(root)
-    args.output.write_text(content, encoding="utf-8")
+    args.output.write_text(content, encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

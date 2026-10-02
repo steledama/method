@@ -111,6 +111,16 @@ Conclusione.
         self.assertFalse(any(tags == ("h2",) for tags, _ in parsed.text))
         self.assertEqual(html, MODULE.render_markdown(source, self.presentation))
 
+    def test_local_disk_schemes_are_not_external(self):
+        # `file:` e i path Windows (`C:\\…`, schema `c:`) portano sul disco di
+        # chi costruisce: non sono link esterni, restano etichetta.
+        source = "# I\n\n[Disco](file:///etc/hosts) [Win](C:\\dati\\goal.md) [Web](https://x.org)\n"
+        parsed = Elements(MODULE.render_markdown(source, self.presentation))
+        hrefs = {target for _, _, target in parsed.targets}
+        self.assertEqual(hrefs, {"https://x.org"})
+        with self.assertRaises(SystemExit):
+            MODULE.render_markdown("# I\n\n![F](file:///tmp/f.png)\n", self.presentation)
+
     def test_image_outside_presentation_breaks(self):
         with self.assertRaises(SystemExit):
             MODULE.render_markdown("# I\n\n![Figura](../i2/tavola.png)\n", self.presentation)

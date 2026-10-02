@@ -53,7 +53,11 @@ def revealjs_url() -> str:
 
 
 def write(path: Path, content: str | bytes) -> None:
-    """Scrive solo se cambia: la rigenerazione resta un gesto senza rumore."""
+    """Scrive solo se cambia: la rigenerazione resta un gesto senza rumore.
+
+    I testi si scrivono in byte UTF-8 con i loro `\n`: su Windows la
+    scrittura in modo testo li tradurrebbe in CRLF.
+    """
     data = content.encode("utf-8") if isinstance(content, str) else content
     if not path.exists() or path.read_bytes() != data:
         path.write_bytes(data)
@@ -127,7 +131,7 @@ def main() -> None:
         outputs[f"{kind}.html"] = render_list(ROOT, kind)
 
     for name, content in outputs.items():
-        (PRESENTATION / name).write_text(content, encoding="utf-8")
+        (PRESENTATION / name).write_text(content, encoding="utf-8", newline="\n")
     subprocess.run(
         [prettier, "--log-level=warn", "--write", *(str(PRESENTATION / name) for name in outputs)],
         check=True,

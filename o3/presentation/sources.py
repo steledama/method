@@ -444,10 +444,20 @@ def parse_task(root: Path, relative: str) -> TaskDetail:
     )
 
 
+# Gli unici schemi che portano fuori dal checkout senza portarsi dietro il
+# disco di chi costruisce: `file:` e i path Windows (`C:\…`, letto come
+# schema `c:`) non sono esterni, e il presidio li ferma.
+_EXTERNAL_SCHEMES = {"http", "https", "mailto"}
+
+
 def is_external(target: str) -> bool:
-    """Un URL con schema (https, mailto) o un'ancora: resta link anche fuori dal checkout."""
+    """Un URL web o mail, o un'ancora: resta link anche fuori dal checkout."""
     parts = urlsplit(target)
-    return bool(parts.scheme or parts.netloc) or target.startswith("#")
+    if target.startswith("#"):
+        return True
+    if parts.scheme:
+        return parts.scheme.lower() in _EXTERNAL_SCHEMES
+    return target.startswith("//")
 
 
 def inline_markdown(text: str) -> str:

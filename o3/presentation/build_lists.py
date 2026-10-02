@@ -72,7 +72,7 @@ def main() -> None:
     parser.add_argument("output", type=Path)
     args = parser.parse_args()
 
-    args.output.write_text(render(repo_root(), args.kind), encoding="utf-8")
+    args.output.write_text(render(repo_root(), args.kind), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

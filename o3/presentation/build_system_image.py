@@ -222,7 +222,7 @@ def render(root: Path) -> str:
 
 def main() -> None:
     root = repo_root()
-    (root / "presentation" / "index.html").write_text(render(root), encoding="utf-8")
+    (root / "presentation" / "index.html").write_text(render(root), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
