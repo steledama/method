@@ -10,8 +10,8 @@ scrive dopo che gli altri task si sono chiusi in `metodo`:
 `presentazione-autonoma-e-uniforme` (chiuso: canone in `kb/presentation.md`),
 [revisione-verdetti-contro-obiettivi](revisione-verdetti-contro-obiettivi.md),
 [indice-dei-confronti](indice-dei-confronti.md),
-[condizioni-di-risveglio-nella-vista](condizioni-di-risveglio-nella-vista.md)
-e [server-lan-della-presentazione](server-lan-della-presentazione.md).
+`condizioni-di-risveglio-nella-vista` (chiuso)
+e `server-lan-della-presentazione` (chiuso).
 
 ## Perché una prescrizione sola
 
@@ -31,8 +31,10 @@ l'indice dei Confronti rende quello che decide.
 - **`nixos`:** è la fonte dello stile. Builder da `o3/tools/` a
   `o3/presentation/`. Sposta le classi di diagramma nel
   CSS locale, accento #c2410c, sigla «NixOS», in inglese. Gli arriva anche
-  il segnale per aprire la porta del server solo verso la LAN su `svezia`
-  e `deck`.
+  il segnale per aprire la porta del server (8765) solo verso la LAN su
+  `svezia` e `deck`: verificato il 2026-10-02, il firewall dei
+  `home-clients` è attivo e la porta non è ammessa, quindi da un altro PC il
+  server non risponde finché `nixos` non la dichiara.
 - **`bi`, `crm`:** passano dallo stile sketch al CSS unico. Accento #0f766e
   per `bi` e #a16207 per `crm`, sigle «BI» e «CRM», in italiano. I builder
   si spostano da `o3/tools/` a `o3/presentation/`.

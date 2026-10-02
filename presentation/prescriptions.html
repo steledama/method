@@ -231,7 +231,10 @@
               <li>
                 <code>build_views.py</code> — le sorgenti Markdown delle viste
                 Reveal <code>tasks</code> (con la legenda interna degli
-                obiettivi) e <code>verdict</code>;
+                obiettivi e, in una slide, tutto ciò che nel plan segue la
+                tabella: legenda delle dipendenze, risvegli, scadenze; le chiavi
+                <code>p&lt;n&gt;</code>/<code>w&lt;n&gt;</code> della colonna
+                Dip. vi puntano e senza voce rompono) e <code>verdict</code>;
               </li>
               <li>
                 <code>build_lists.py</code> — le due viste a elenco
@@ -242,6 +245,13 @@
                   >python3 -m unittest discover -s tests -p
                   'test_build_lists.py'</code
                 >;
+              </li>
+              <li>
+                <code>serve.py</code> — serve la sola
+                <code>../presentation/</code> sulla LAN, su richiesta:
+                <code>python3 o3/presentation/serve.py</code>, porta 8765,
+                Ctrl-C per chiudere; solo libreria standard, niente dotfile né
+                elenchi di cartella;
               </li>
               <li>
                 <code>build_system_image.py</code> — la home statica

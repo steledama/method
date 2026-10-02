@@ -83,18 +83,23 @@ Il default è aprire il file localmente:
 xdg-open presentation/<vista>.html
 ```
 
-Solo per condividerlo temporaneamente con un altro dispositivo sulla stessa
-LAN/VPN:
+Per aprirla da un altro PC della LAN, lo stesso comando in ogni repo e su ogni
+sistema (su Windows `py o3\presentation\serve.py`):
 
 ```bash
-python3 -m http.server 8000 --bind 0.0.0.0 --directory presentation
+python3 o3/presentation/serve.py
 ```
 
-`http.server` non modifica il firewall. Sullo stesso host `localhost:8000`
-funziona senza aprire porte; da un altro dispositivo la porta TCP scelta deve
-essere ammessa dal firewall per la sola subnet o interfaccia privata necessaria.
-Terminata la condivisione, si chiude il processo e si rimuove l'eventuale regola
-temporanea.
+Il server usa solo la libreria standard e serve la sola cartella
+`presentation/`, che è chiusa su se stessa: niente dotfile, niente elenchi di
+cartella. Stampa gli URL raggiungibili, ascolta per default sulla porta 8765
+(`--port`, `--bind` per cambiarla o restringerla) e si chiude con Ctrl-C.
+
+Il server non tocca il firewall. Da un altro dispositivo la porta deve essere
+ammessa per la sola rete privata: sugli host con firewall dichiarativo la
+regola vive nella loro configurazione, e finché il server non gira sulla porta
+non ascolta nessuno; su Windows la prima esecuzione apre il prompt del
+firewall.
 
 ## Vincolo conservato
 

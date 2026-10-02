@@ -22,6 +22,7 @@ LABELS = {
         "interpretations": "Interpretations",
         "prescriptions": "Prescriptions",
         "perceptions": "Perceptions",
+        "wake": "Dependencies and deadlines",
     },
     "it": {
         "plan": "Piano",
@@ -30,6 +31,7 @@ LABELS = {
         "interpretations": "Interpretazioni",
         "prescriptions": "Prescrizioni",
         "perceptions": "Percezioni",
+        "wake": "Dipendenze e scadenze",
     },
 }
 

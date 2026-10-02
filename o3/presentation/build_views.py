@@ -39,10 +39,46 @@ def goals_slide(root: Path) -> list[str]:
     return lines + ["", f"[↩ {label('plan')}](#/plan)", ""]
 
 
+_WAKE_KEY = re.compile(r"\b[pw]\d+\b")
+
+
+def plan_notes(root: Path) -> str:
+    """Ciò che in `o1/plan.md` segue la tabella: legenda, risvegli, scadenze.
+
+    Si prende per struttura, non per nome d'intestazione (le forme variano tra
+    repo: paragrafi o liste, `p1` in codice o nudo). Le intestazioni scendono
+    di un livello, così tutto sta in una slide sotto il titolo della vista.
+    """
+    lines = (root / "o1" / "plan.md").read_text(encoding="utf-8").splitlines()
+    table = [index for index, line in enumerate(lines) if line.startswith("|")]
+    if not table:
+        return ""
+    notes: list[str] = []
+    fenced = False
+    for line in lines[table[-1] + 1 :]:
+        if line.startswith(("```", "~~~")):
+            fenced = not fenced
+        if not fenced and re.match(r"^#{1,5}\s", line):
+            line = "#" + line
+        notes.append(line)
+    return "\n".join(notes).strip()
+
+
+def dependency_cell(dependency: str, notes: str) -> str:
+    """Le chiavi `p<n>`/`w<n>` portano alla loro chiosa; una chiave senza voce rompe."""
+    for key in _WAKE_KEY.findall(dependency):
+        if not re.search(rf"\b{key}\b", notes):
+            raise SystemExit(f"o1/plan.md: la chiave «{key}» non ha voce nella legenda del plan")
+    return _WAKE_KEY.sub(
+        lambda match: f'<a href="#/dipendenze">{match.group(0)}</a>', escape(dependency)
+    )
+
+
 def task_view(root: Path) -> str:
     lines: list[str] = []
     rows = parse_plan(root)
     check_plan_contract(root, rows)
+    notes = plan_notes(root)
     if not rows:
         lines += [f"## {label('plan')} {{#plan}}", "", "Nessun task aperto: la coda è vuota.", ""]
         return "\n".join(lines).rstrip() + "\n"
@@ -64,12 +100,23 @@ def task_view(root: Path) -> str:
             f"<tr><td>{escape(row.ciclo or '—')}</td>"
             f"<td>{goal_links(row.obiettivo, markdown=False)}</td>"
             f'<td><a href="#/task-{index}">{escape(row.task)}</a></td>'
-            f"<td>{escape(row.dependency)}</td></tr>"
+            f"<td>{dependency_cell(row.dependency, notes)}</td></tr>"
         )
     lines += [
         "</tbody></table></div>",
         "",
     ]
+    if notes:
+        lines += [
+            f"## {label('wake')} {{#dipendenze}}",
+            "",
+            "::: plan-notes",
+            notes,
+            ":::",
+            "",
+            f"[↩ {label('plan')}](#/plan)",
+            "",
+        ]
     lines += goals_slide(root)
 
     for index, row in enumerate(rows, 1):

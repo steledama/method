@@ -122,11 +122,17 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     titoli con sigla, chiusura dei link sull'AST di Pandoc; non si invoca
     direttamente;
   - `build_views.py` — le sorgenti Markdown delle viste Reveal `tasks` (con
-    la legenda interna degli obiettivi) e `verdict`;
+    la legenda interna degli obiettivi e, in una slide, tutto ciò che nel plan
+    segue la tabella: legenda delle dipendenze, risvegli, scadenze; le chiavi
+    `p<n>`/`w<n>` della colonna Dip. vi puntano e senza voce rompono) e
+    `verdict`;
   - `build_lists.py` — le due viste a elenco `prescriptions.html` e
     `perceptions.html`: l'intero indice reso con Pandoc, nell'ordine e con la
     struttura della fonte; i link alle fonti restano etichetta. Regressioni:
     `python3 -m unittest discover -s tests -p 'test_build_lists.py'`;
+  - `serve.py` — serve la sola `../presentation/` sulla LAN, su richiesta:
+    `python3 o3/presentation/serve.py`, porta 8765, Ctrl-C per chiudere;
+    solo libreria standard, niente dotfile né elenchi di cartella;
   - `build_system_image.py` — la home statica minimalista: ciclo singolo,
     un collegamento primario per slot; il CSS condiviso della home resta
     potato alle classi che il builder emette.
