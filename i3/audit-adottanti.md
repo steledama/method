@@ -14,6 +14,21 @@ commit dietro origin: è stantia, non in drift.
 
 ## Verdetto
 
+**Verifica fuori giro, 2026-10-02.** Dopo la ristrutturazione della
+presentazione e la revisione dei verdetti, i sei sono stati riletti su
+`origin` e ricostruiti in una cartella temporanea. Tutti i marker sono a
+`8c024a1`, `aligned`, e coincidono coi file: nessun `misura:` negli indici
+`i3/`, `obiettivo:` in ogni file di `i3/` verificato dalla build, builder
+identici al canone salvo la CONFIG della home e un adattamento dichiarato in
+`salute`. Le viste sono fresche in cinque; in `danea-auto` cambiano solo le
+intestazioni scritte da pandoc (toolchain, cfr.
+`toolchain-builder-presentazione`). La revisione ha ridotto i fili da 38 a 19
+(marker inclusi): `crm` tiene solo il cursore, perché col dominio fermo
+nessuna tensione era viva. `presentazione-e-verdetti-misurati` e
+`toolchain-builder-presentazione` hanno un esito in tutti e sei e sono
+potate. Non verificati: lo stato dei firewall dopo i rebuild e il server
+LAN da Linux. Il battito del 2026-11-01 resta il prossimo giro d'insieme.
+
 **Canale del canone: tutti e sei alla HEAD del canone recepibile.** Ogni
 marker è a `47d8204`, `aligned`: l'unico commit successivo, `ff064c1`, è la
 potatura della prescrizione che quei marker hanno recepito. Il recepimento
@@ -103,7 +118,7 @@ Classificazione degli scostamenti:
   host Linux. È la codifica delle chiamate a pandoc, più il pin di reveal.js
   accoppiato a una versione di pandoc non fissata. Viene da `danea-auto`, è
   verificato nel canone ed è valutato nel filo
-  `toolchain-builder-presentazione`;
+  `toolchain-builder-presentazione` (propagazione chiusa il 2026-10-02);
 - **nessuna prescrizione nuova**: le aperte sono recepite o in attesa del
   loro battito;
 - **coda di dominio**: la data aggregata di `nixos`, l'attesa semestrale di

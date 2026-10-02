@@ -41,7 +41,13 @@ slide bianca è una vista che inganna senza che nessuno lo veda.
 
 Entrambi i fix sono nel canone dal 2026-10-01. Con pandoc 3.7.0.2 l'output è
 identico; i rami 3.12 e versione illeggibile sono provati con un pandoc
-simulato. La propagazione vive in `o3/toolchain-builder-presentazione.md`.
+simulato. La propagazione è chiusa il 2026-10-02: i sei hanno recepito i due
+fix copiando `build.py`, e la prescrizione è potata. Il primo collaudo reale
+su Windows (`danea-auto`, pandoc 3.12) ha confermato reveal.js 6.0.2 e ha
+trovato due altre assunzioni da host Linux, corrette nel canone lo stesso
+giorno: i link `file:` e `C:\…` passavano il presidio come esterni, e le
+viste restavano LF solo grazie a Prettier (ora `newline="\n"` e
+`.gitattributes`).
 
 ## Tensioni aperte
 

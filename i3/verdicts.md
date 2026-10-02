@@ -20,11 +20,11 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti` (quarto battito 2026-10-01, puntuale): tutti e sei a
-  `47d8204`, `aligned`, coincidenti coi file per il terzo giro; viste fresche
-  verificate per rigenerazione; `crm` col plan fermo da 41 giorni. Il
-  battito del 2026-11-01 conta i trailer `Esiti:` e decide se la verifica
-  delle prescrizioni nei file si alleggerisce.
+  mensile `/adottanti`: alla verifica fuori giro del 2026-10-02 tutti e sei
+  a `8c024a1`, `aligned`, coincidenti coi file; fili ridotti da 38 a 19 dalla
+  revisione contro gli obiettivi, viste fresche verificate per
+  rigenerazione. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
+  se la verifica delle prescrizioni nei file si alleggerisce.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
   tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
   clausola corretta perché gli esiti nulli non lasciavano traccia; si
@@ -33,9 +33,10 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   ipotesi del canone attendono il caso che le decide: quarta regione della
   tipologia, matrice del ciclo, facet estese.
 - [toolchain-builder-presentazione.md](toolchain-builder-presentazione.md) —
-  i builder assumevano il toolchain degli host Linux: codifica UTF-8 e
-  reveal.js scelto dalla versione di pandoc sono canone; resta aperto il
-  controllo di freschezza tra host con pandoc diversi.
+  i builder assumevano il toolchain degli host Linux: codifica, reveal.js
+  dalla versione di pandoc, link al disco locale e fine riga sono canone,
+  recepito dai sei; resta aperto il controllo di freschezza tra host con
+  pandoc diversi.
 - [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md)
   — la regola sulla provenienza è canone; resta aperto dove passa il confine
   della ricostruzione delegabile all'agente, e se le ritrattazioni salgono a

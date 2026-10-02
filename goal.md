@@ -31,16 +31,13 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   dell'audit mensile); lavoro: sei adottanti dal 2026-08-12 (`crm` e
   `danea-auto` quinto e sesto); obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile
-  `/adottanti` in `## Scadenze`. Al battito del 2026-10-01 tutti e sei sono a
-  `47d8204`, `aligned`, e i marker coincidono coi file; le viste sono fresche
+  `/adottanti` in `## Scadenze`. Alla verifica fuori giro del 2026-10-02 tutti e sei sono a
+  `8c024a1`, `aligned`, e i marker coincidono coi file; le viste sono fresche
   in tutti e sei, verificate rigenerando. `/method` rilegge a ogni giro le
   prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
-  per arco; `toolchain-builder-presentazione`, nata il 2026-10-01 dal primo
-  fork su Windows; `presentazione-e-verdetti-misurati`, nata il 2026-10-02,
-  che porta ai sei la revisione dei fili contro gli obiettivi e la
-  presentazione uniforme; `revisione-bootstrap-adottante` e `ingresso-adottante`,
+  per arco; `revisione-bootstrap-adottante` e `ingresso-adottante`,
   non verificate nel merito.
 
 ### 3. Ascoltare il basso

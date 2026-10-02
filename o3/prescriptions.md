@@ -25,18 +25,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
-- [I builder della presentazione dichiarano il toolchain che
-  assumono](toolchain-builder-presentazione.md) — `encoding="utf-8"` nelle
-  chiamate a pandoc e URL di reveal.js derivato dalla versione di pandoc
-  (6.0.2 da 3.12 in su, 5.1.0 sotto), con errore esplicito se non si legge;
-  da `danea-auto`, che può tornare dal pin fisso alla regola.
-- [Verdetti misurati contro un obiettivo e presentazione
-  uniforme](presentazione-e-verdetti-misurati.md) — prima la revisione dei
-  fili `i3/` (`obiettivo:` nel frontmatter, chiusi i fili che non
-  confrontano), poi builder in `o3/presentation/` con `build.py` e
-  `project.py`, stile unico con sigla e accento per progetto,
-  `presentation/` chiusa su se stessa, indice dei Confronti e `serve.py`
-  per la LAN. Assorbe `toolchain-builder-presentazione`.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.

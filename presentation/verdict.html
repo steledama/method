@@ -198,6 +198,28 @@
             </p>
             <h3 id="verdetto">Verdetto</h3>
             <p>
+              <strong>Verifica fuori giro, 2026-10-02.</strong> Dopo la
+              ristrutturazione della presentazione e la revisione dei verdetti,
+              i sei sono stati riletti su <code>origin</code> e ricostruiti in
+              una cartella temporanea. Tutti i marker sono a
+              <code>8c024a1</code>, <code>aligned</code>, e coincidono coi file:
+              nessun <code>misura:</code> negli indici <code>i3/</code>,
+              <code>obiettivo:</code> in ogni file di
+              <code>i3/</code> verificato dalla build, builder identici al
+              canone salvo la CONFIG della home e un adattamento dichiarato in
+              <code>salute</code>. Le viste sono fresche in cinque; in
+              <code>danea-auto</code> cambiano solo le intestazioni scritte da
+              pandoc (toolchain, cfr.
+              <code>toolchain-builder-presentazione</code>). La revisione ha
+              ridotto i fili da 38 a 19 (marker inclusi): <code>crm</code> tiene
+              solo il cursore, perché col dominio fermo nessuna tensione era
+              viva. <code>presentazione-e-verdetti-misurati</code> e
+              <code>toolchain-builder-presentazione</code> hanno un esito in
+              tutti e sei e sono potate. Non verificati: lo stato dei firewall
+              dopo i rebuild e il server LAN da Linux. Il battito del 2026-11-01
+              resta il prossimo giro d’insieme.
+            </p>
+            <p>
               <strong
                 >Canale del canone: tutti e sei alla HEAD del canone
                 recepibile.</strong
@@ -353,7 +375,9 @@
                 chiamate a pandoc, più il pin di reveal.js accoppiato a una
                 versione di pandoc non fissata. Viene da
                 <code>danea-auto</code>, è verificato nel canone ed è valutato
-                nel filo <code>toolchain-builder-presentazione</code>;
+                nel filo
+                <code>toolchain-builder-presentazione</code> (propagazione
+                chiusa il 2026-10-02);
               </li>
               <li>
                 <strong>nessuna prescrizione nuova</strong>: le aperte sono
@@ -743,8 +767,15 @@
             <p>
               Entrambi i fix sono nel canone dal 2026-10-01. Con pandoc 3.7.0.2
               l’output è identico; i rami 3.12 e versione illeggibile sono
-              provati con un pandoc simulato. La propagazione vive in
-              <code>o3/toolchain-builder-presentazione.md</code>.
+              provati con un pandoc simulato. La propagazione è chiusa il
+              2026-10-02: i sei hanno recepito i due fix copiando
+              <code>build.py</code>, e la prescrizione è potata. Il primo
+              collaudo reale su Windows (<code>danea-auto</code>, pandoc 3.12)
+              ha confermato reveal.js 6.0.2 e ha trovato due altre assunzioni da
+              host Linux, corrette nel canone lo stesso giorno: i link
+              <code>file:</code> e <code>C:\…</code> passavano il presidio come
+              esterni, e le viste restavano LF solo grazie a Prettier (ora
+              <code>newline="\n"</code> e <code>.gitattributes</code>).
             </p>
             <h3 id="tensioni-aperte-2">Tensioni aperte</h3>
             <ul>
