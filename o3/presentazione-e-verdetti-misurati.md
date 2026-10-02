@@ -80,7 +80,8 @@ intero nella pagina, e il canone dice già che la storia resta in git.
 ### 2. Sposta i builder in `o3/presentation/`
 
 Copia da `$method_repo/o3/presentation/` i file canonici `build.py`,
-`sources.py`, `build_views.py`, `build_lists.py`, `serve.py`, più
+`sources.py`, `build_views.py`, `build_lists.py`, `serve.py`, `ruff.toml`
+(così il formatter locale non riscrive le copie), più
 `build_system_image.py` riportandoci la **tua** sezione CONFIG (titoli e slot
 della home). Copia `presentation/assets/deck.css`. Poi:
 
@@ -112,8 +113,8 @@ della home). Copia `presentation/assets/deck.css`. Poi:
 - **`nixos`**: sigla «NixOS», `LINGUA = "en"`, accento `#c2410c`. I builder
   stanno in `o3/tools/`. Il deck (`i2/nixos-in-sintesi.md`) è la fonte dello
   stile pulito: le sue classi di diagramma vanno in un CSS locale dichiarato
-  in `CSS_LOCALI`. L'iniezione di Mermaid e l'estensione `raw_html` sono
-  adattamenti locali di `build.py`, da dichiarare nel marker. **Firewall**:
+  in `CSS_LOCALI`. L'iniezione di Mermaid è un adattamento locale di
+  `build.py`, da dichiarare nel marker (`raw_html` è già attivo in Pandoc). **Firewall**:
   su `svezia` e `deck` il firewall degli `home-clients` è attivo e la porta
   8765 non è ammessa. Dichiarala aperta solo verso la rete locale: finché
   `serve.py` non gira, sulla porta non ascolta nessuno.
