@@ -108,15 +108,17 @@ def main() -> None:
     require("pandoc")
     prettier = require("prettier")
     reveal_url = revealjs_url()
-    deck = ROOT / project.DECK
-
     write(ASSETS / "theme.css", theme_css())
-    copy_plates(deck)
 
-    outputs = {
-        "interpretations.html": reveal(
+    outputs: dict[str, str] = {}
+    # Un repo senza deck delle Interpretazioni dichiara `DECK = None`.
+    if project.DECK:
+        deck = ROOT / project.DECK
+        copy_plates(deck)
+        outputs["interpretations.html"] = reveal(
             deck.read_text(encoding="utf-8"), project.DECK, label("interpretations"), reveal_url
-        ),
+        )
+    outputs |= {
         "tasks.html": reveal(task_view(ROOT), "o1/plan.md", label("plan"), reveal_url),
         "verdict.html": reveal(verdict_view(ROOT), "i3/", label("verdict"), reveal_url),
         "index.html": render_home(ROOT),

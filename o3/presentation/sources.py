@@ -547,7 +547,9 @@ _URL_ATTR = re.compile(r'(?:href|src|data-background-image)="([^"]*)"|url\(([^)]
 def check_closed(presentation: Path) -> None:
     """Presidio finale: nessun URL emesso esce da `presentation/` o punta al vuoto."""
     errors: list[str] = []
-    for page in sorted(presentation.glob("*.html")) + sorted(presentation.glob("assets/*.css")):
+    # Anche le pagine nelle sottocartelle (viste di dominio generate) stanno
+    # dentro il compartimento.
+    for page in sorted(presentation.rglob("*.html")) + sorted(presentation.rglob("*.css")):
         base = page.parent
         for match in _URL_ATTR.finditer(page.read_text(encoding="utf-8")):
             target = html.unescape((match.group(1) or match.group(2) or "").strip("'\""))
