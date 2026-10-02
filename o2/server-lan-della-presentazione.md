@@ -1,5 +1,5 @@
 ---
-sintesi: "Un server su richiesta, identico in ogni repo, per aprire la presentazione dagli altri PC della LAN. È uno script Python senza dipendenze esterne, perché danea-auto gira su Windows e un comando di host via nixos lo escluderebbe. Pubblica solo presentation/, chiusa su se stessa, e la sua sede deve avere lo stesso path nei sei repo."
+sintesi: "Un server su richiesta, identico in ogni repo, per aprire la presentazione dagli altri PC della LAN: o3/presentation/serve.py, Python senza dipendenze esterne, perché danea-auto gira su Windows e un comando di host via nixos lo escluderebbe. Pubblica solo presentation/, chiusa su se stessa."
 ciclo: dev
 ---
 
@@ -23,18 +23,12 @@ servire solo `presentation/` ha senso quando nessun link esce dalla cartella.
 
 ## Forma
 
-- **Path identico nei sei repo.** I builder non stanno ovunque nello
-  stesso posto (`o3/` in `metodo` e `danea-auto`, `o3/tools/` in `nixos`,
-  `bi` e `crm`), quindi `o3/` non garantisce un comando uniforme. Il
-  candidato è `presentation/serve.py`, l'unico path che tutti i repo hanno
-  uguale: `python3 presentation/serve.py` (su Windows `py
-presentation\serve.py`).
-- **Tensione da risolvere:** `kb/presentation.md` dice che `presentation/`
-  contiene solo materiale derivato, con la fonte sempre altrove. Uno script
-  sorgente dentro la cartella va contro quella regola. Le due vie: emendare
-  il canone (il server è parte della superficie, non una vista), oppure
-  tenere la fonte in `o3/` e far comparire `presentation/serve.py` alla
-  build. Si sceglie all'implementazione.
+- **Path di canone**: `o3/presentation/serve.py`, identico nei sei repo
+  (decisione del custode, cfr.
+  [presentazione-autonoma-e-uniforme](presentazione-autonoma-e-uniforme.md)).
+  Il comando è `python3 o3/presentation/serve.py`, su Windows
+  `py o3\presentation\serve.py`. La fonte resta in `o3/`, e `presentation/`
+  resta fatta di file generati più gli asset.
 - **Comportamento:** ascolta su `0.0.0.0` (con `--bind` per restringere),
   usa una porta fissa poco comune (per esempio 8765, con `--port` per
   cambiarla), stampa gli URL raggiungibili sulla LAN, serve solo file sotto

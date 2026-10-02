@@ -1,15 +1,42 @@
 ---
-sintesi: "Primo passo della ristrutturazione della presentazione chiesta dal custode il 2026-10-02: un solo stile canonico (lo stile pulito di nixos al posto di quello a sketch), un colore d'accento per progetto, la sigla del repo nei titoli delle viste e presentation/ chiusa su se stessa, senza link alle fonti fuori dalla cartella. Sblocca gli altri tre task, che partono dalle stesse basi."
+sintesi: "Primo passo della ristrutturazione della presentazione chiesta dal custode il 2026-10-02: i builder in un path di canone identico in ogni repo (o3/presentation/), un solo stile canonico (lo stile pulito di nixos al posto di quello a sketch), un colore d'accento per progetto, la sigla del repo nei titoli delle viste e presentation/ chiusa su se stessa, fatta solo di file generati. Sblocca risveglio e server, che partono dalle stesse basi."
 ciclo: dev
 ---
 
 # Presentazione autonoma e uniforme per progetto
 
-Primo dei quattro task della ristrutturazione chiesta dal custode il
-2026-10-02. Gli altri tre (indice dei Confronti, condizioni di risveglio,
-server LAN) partono da qui. Il canone cambiato si propaga con una sola
+Primo task della ristrutturazione chiesta dal custode il 2026-10-02.
+Condizioni di risveglio, server LAN e (dopo la revisione dei verdetti)
+indice dei Confronti partono da qui. Il canone cambiato si propaga con una sola
 prescrizione alla fine
 ([prescrizione-presentazione-ristrutturata](prescrizione-presentazione-ristrutturata.md)).
+
+## Builder in `o3/presentation/`
+
+Decisione del custode (2026-10-02): il path dei builder è **canone, non
+scelta del fork**. Oggi stanno in `o3/` (`metodo`, `danea-auto`) o in
+`o3/tools/` (`nixos`, `bi`, `crm`), e chi passa da un repo all'altro, umano
+o agente, deve prima scoprire dove. Anche le skill (`commit`, `exec`, `kb`)
+citano path diversi a seconda del fork.
+
+- Tutto quello che produce o serve la presentazione vive in
+  `o3/presentation/`.
+- `o3/presentation/build.sh` è l'**unico entrypoint** di build: fonde
+  `build-presentation.sh` e `build-system-image.sh`, così la rigenerazione
+  è un gesto solo.
+- `o3/presentation/serve.py` è il server (task
+  [server-lan-della-presentazione](server-lan-della-presentazione.md)).
+- Accanto restano i moduli `build_views.py`, `build_lists.py` e
+  `build_system_image.py`. La libreria condivisa `presentation.py` si
+  rinomina (per esempio `sources.py`), perché un `presentation.py` dentro
+  `presentation/` confonde.
+- `o3/` resta la casa dei runbook (`.md`) e degli altri esecutori: la
+  sottocartella vale per ora solo per la presentazione. `kb_tools.py` e
+  `kb_profile.py` restano dove sono finché non nasce un secondo caso.
+- Si aggiornano i riferimenti: skill `commit`, `exec`, `kb`, indice
+  `o3/prescriptions.md`, test in `tests/`.
+- **Da verificare:** `build.sh` è bash, e su Windows (`danea-auto`) serve
+  Git Bash. Lo si controlla nel fork prima di fissarlo nel canone.
 
 ## Stile unico
 
@@ -65,17 +92,25 @@ che escono dalla cartella. Oggi ne escono 44 (`../goal.md`, `../o1/plan.md`,
 - Nelle liste (`build_lists.py`) i link verso i file della collezione
   diventano testo semplice. Restano link solo le ancore interne e gli URL
   assoluti.
-- **Da decidere all'implementazione:** le tavole raster delle
-  Interpretazioni (`i2/*.png`, 17 MB in `metodo`) oggi sono sfondi caricati da
-  `../i2/`. Le alternative sono tre: copiarle in `presentation/assets/` alla
-  build (raddoppia il peso versionato), spostarne la sede canonica in
-  `presentation/assets/`, oppure toglierle dal deck. Va scelta col custode,
-  misurando il peso negli adottanti.
+- **Tavole delle Interpretazioni** (`i2/*.png`, 17 MB in `metodo`): oggi
+  sono sfondi caricati da `../i2/`. Decisione del custode (2026-10-02): la
+  fonte resta in `i2/`, dove l'indice `i2/interpretations.md` le elenca
+  come sintesi illustrata, e il builder le **copia** in
+  `presentation/assets/`. Così la dipendenza resta nel verso giusto (la
+  presentazione si ricava dalle collezioni) e `presentation/` resta fatta
+  di file generati più gli asset. Il peso nella storia è nullo, perché git
+  salva una volta sola i file identici; il checkout cresce di 17 MB. La
+  fonte del deck riferisce le tavole col path di destinazione
+  (`assets/<nome>.png`), e il builder rompe se una tavola citata non esiste
+  in `i2/`.
 - **Presidio:** il builder rompe la build se un `href` o una `url(...)`
   emessi escono da `presentation/`. È il «derivata implica verificata» di
   `kb/view.md` applicato al confine della cartella.
 
 ## Canone da toccare
+
+- `kb/project-structure.md` o `kb/presentation.md`: `o3/presentation/` come
+  path canonico dei builder, con `build.sh` e `serve.py`.
 
 - `kb/presentation.md`: stile unico più accento, compartimento stagno e
   contratto del CSS canonico.
@@ -83,6 +118,7 @@ che escono dalla cartella. Oggi ne escono 44 (`../goal.md`, `../o1/plan.md`,
 
 ## Criterio di chiusura
 
-Le viste di `metodo` sono rigenerate col CSS unico e l'accento indigo, i
+I builder di `metodo` vivono in `o3/presentation/` e `build.sh` rigenera
+tutto in un gesto. Le viste sono rigenerate col CSS unico e l'accento indigo, i
 titoli portano «Method», `grep` non trova link che escono da `presentation/`
 e due build consecutive danno lo stesso output.
