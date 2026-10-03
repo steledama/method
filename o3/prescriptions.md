@@ -25,6 +25,12 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
+- [Presentazioni permanenti sulle reti private](presentazioni-permanenti.md)
+  — `serve.py` sulla porta 8000, un host privilegiato per progetto che serve
+  sempre la `presentation/`, decisione del custode dichiarata senza
+  eccezioni ed esposizione dei dati registrata; la configurazione degli host
+  resta in `nixos` e, per `danea2`, in `danea-auto`. `nixos` recepisce per
+  primo.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
@@ -67,9 +73,10 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     `perceptions.html`: l'intero indice reso con Pandoc, nell'ordine e con la
     struttura della fonte; i link alle fonti restano etichetta. Regressioni:
     `python3 -m unittest discover -s tests -p 'test_build_lists.py'`;
-  - `serve.py` — serve la sola `../presentation/` sulla LAN, su richiesta:
-    `python3 o3/presentation/serve.py`, porta 8765, Ctrl-C per chiudere;
-    solo libreria standard, niente dotfile né elenchi di cartella;
+  - `serve.py` — serve la sola `../presentation/` sulle reti private:
+    `python3 o3/presentation/serve.py`, porta 8000, Ctrl-C per chiudere; il
+    servizio permanente dell'host privilegiato lancia lo stesso script con
+    `--port`. Solo libreria standard, niente dotfile né elenchi di cartella;
   - `build_system_image.py` — la home statica minimalista: ciclo singolo,
     un collegamento primario per slot; il CSS condiviso della home resta
     potato alle classi che il builder emette.

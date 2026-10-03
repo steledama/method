@@ -81,7 +81,10 @@ meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
 - **[kb/](kb/kb.md)** — il nucleo di conoscenza formalizzata della system image;
   il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
 - **[presentation/](presentation/)** — la superficie presentativa: `index.html`
-  (la home della system image), le viste generate e gli asset condivisi
+  (la home della system image), le viste generate e gli asset condivisi. La
+  serve in modo permanente `deck` sulla porta 8001, alle sole reti private
+  (servizio utente dichiarato nel repo `nixos`); `python3
+o3/presentation/serve.py` la serve a mano sulla 8000 da qualsiasi host
 
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del
 ciclo:

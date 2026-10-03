@@ -79,6 +79,15 @@
             la clausola di uscita della tripartizione non aveva. Da recepire
             prima del battito del 2026-11-01.
           </li>
+          <li>
+            Presentazioni permanenti sulle reti private —
+            <code>serve.py</code> sulla porta 8000, un host privilegiato per
+            progetto che serve sempre la <code>presentation/</code>, decisione
+            del custode dichiarata senza eccezioni ed esposizione dei dati
+            registrata; la configurazione degli host resta in
+            <code>nixos</code> e, per <code>danea2</code>, in
+            <code>danea-auto</code>. <code>nixos</code> recepisce per primo.
+          </li>
         </ul>
         <p>
           Le prescrizioni recepite da tutti gli adottanti escono dall’indice: la
@@ -160,10 +169,11 @@
               </li>
               <li>
                 <code>serve.py</code> — serve la sola
-                <code>../presentation/</code> sulla LAN, su richiesta:
-                <code>python3 o3/presentation/serve.py</code>, porta 8765,
-                Ctrl-C per chiudere; solo libreria standard, niente dotfile né
-                elenchi di cartella;
+                <code>../presentation/</code> sulle reti private:
+                <code>python3 o3/presentation/serve.py</code>, porta 8000,
+                Ctrl-C per chiudere; il servizio permanente dell’host
+                privilegiato lancia lo stesso script con <code>--port</code>.
+                Solo libreria standard, niente dotfile né elenchi di cartella;
               </li>
               <li>
                 <code>build_system_image.py</code> — la home statica

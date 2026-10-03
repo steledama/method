@@ -43,6 +43,14 @@ La condizione di revisione di `kb/presentation.md § Vincolo conservato`
 soddisfatta. Il vincolo va **rivisto** e il task non deve aggirarlo con
 un'eccezione locale.
 
+## Stato (2026-10-03)
+
+Passi 1 e 2 fatti: `serve.py` canonico sulla 8000, `kb/presentation.md` con il
+vincolo rivisto, prescrizione [`o3/presentazioni-permanenti.md`](../o3/presentazioni-permanenti.md)
+indicizzata. Il task attende il recepimento nei sei adottanti, `nixos` per
+primo. Gli indizi per repo qui sotto sono la fotografia da cui è nata la
+prescrizione; quelli correnti vivono nella prescrizione.
+
 ## Passo 1 — Cambio di canone in `method`
 
 - `o3/presentation/serve.py`:

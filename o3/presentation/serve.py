@@ -1,11 +1,14 @@
-"""Serve `presentation/` sulla LAN, su richiesta: si avvia, si usa, Ctrl-C.
+"""Serve `presentation/` sulle reti private: lancio manuale o servizio permanente.
 
 Stesso comando in ogni repo: `python3 o3/presentation/serve.py`, su Windows
-`py o3\\presentation\\serve.py`. Solo libreria standard, così gira anche sugli
-host Windows. Pubblica la sola cartella `presentation/`, che è chiusa su se
-stessa (`kb/presentation.md`, «Compartimento stagno»): niente dotfile e niente
-elenchi di cartella. Non è un servizio permanente; la porta va ammessa dal
-firewall dell'host solo verso la rete privata.
+`py o3\\presentation\\serve.py`, porta 8000, Ctrl-C per chiudere. Il servizio
+permanente dell'host privilegiato lancia questo stesso script del checkout con
+`--port` (`kb/presentation.md`, «Vincolo conservato»): niente copie servite a
+parte, un pull aggiorna la presentazione. Solo libreria standard, così gira
+anche sugli host Windows. Pubblica la sola cartella `presentation/`, che è
+chiusa su se stessa (`kb/presentation.md`, «Compartimento stagno»): niente
+dotfile e niente elenchi di cartella. La porta va ammessa dal firewall
+dell'host solo verso le reti private; il server non lo tocca.
 """
 
 from __future__ import annotations
@@ -19,7 +22,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 PRESENTATION = Path(__file__).resolve().parents[2] / "presentation"
-PORT = 8765
+PORT = 8000
 
 
 class PresentationHandler(SimpleHTTPRequestHandler):
@@ -53,7 +56,7 @@ def lan_addresses() -> list[str]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Serve presentation/ sulla LAN, su richiesta")
+    parser = argparse.ArgumentParser(description="Serve presentation/ sulle reti private")
     parser.add_argument("--port", type=int, default=PORT, help=f"porta TCP (default {PORT})")
     parser.add_argument(
         "--bind", default="0.0.0.0", help="indirizzo d'ascolto (default: tutte le interfacce)"

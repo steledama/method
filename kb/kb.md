@@ -88,7 +88,7 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   paga rigenerando
 - [presentation](presentation.md) — Materializzazione della superficie
   presentativa: HTML apribile dal checkout, build minima e deterministica,
-  apertura locale e condivisione on-demand
+  apertura locale, condivisione e servizio permanente sulle reti private
 - [connection](connection.md) — Strategie di collegamento tra nodi: inline vs
   footer, motivazioni della scelta
 - [pace-layering](pace-layering.md) — Strati a frequenza di cambiamento diversa

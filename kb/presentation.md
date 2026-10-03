@@ -32,7 +32,9 @@ un URL esce dalla cartella: è il «derivata implica verificata» di
 
 Il formato operativo minimo è un HTML versionato con path relativi, apribile con
 doppio click o `xdg-open` sul file. Non deve richiedere build, deploy, servizi
-permanenti o `fetch` di file locali, che i browser bloccano sotto `file://`.
+permanenti o `fetch` di file locali, che i browser bloccano sotto `file://`. Il
+servizio permanente dell'host privilegiato (sotto) è un canale in più verso chi
+non ha il checkout, non un requisito della vista.
 
 Reveal può essere caricato da CDN senza introdurre dipendenze installate. L'HTML
 si apre via `file://`; la connessione Internet serve solo a caricare il
@@ -83,7 +85,7 @@ dipendenze installate oltre a Pandoc e Prettier; gli asset comuni vivono in
 stesso output: il determinismo è ciò che rende la rigenerazione un gesto
 meccanico invece di una decisione.
 
-## Apertura locale e condivisione on-demand
+## Apertura locale e condivisione sulle reti private
 
 Il default è aprire il file localmente:
 
@@ -91,8 +93,8 @@ Il default è aprire il file localmente:
 xdg-open presentation/<vista>.html
 ```
 
-Per aprirla da un altro PC della LAN, lo stesso comando in ogni repo e su ogni
-sistema (su Windows `py o3\presentation\serve.py`):
+Per aprirla da un altro PC delle reti private, lo stesso comando in ogni repo e
+su ogni sistema (su Windows `py o3\presentation\serve.py`):
 
 ```bash
 python3 o3/presentation/serve.py
@@ -100,23 +102,60 @@ python3 o3/presentation/serve.py
 
 Il server usa solo la libreria standard e serve la sola cartella
 `presentation/`, che è chiusa su se stessa: niente dotfile, niente elenchi di
-cartella. Stampa gli URL raggiungibili, ascolta per default sulla porta 8765
-(`--port`, `--bind` per cambiarla o restringerla) e si chiude con Ctrl-C.
+cartella. Stampa gli URL raggiungibili, ascolta per default sulla porta 8000
+(`--port`, `--bind` per cambiarla o restringerla) e si chiude con Ctrl-C. Il
+lancio manuale serve qualsiasi checkout su qualsiasi host, anche uno diverso da
+quello privilegiato: si lavora su un host e si consulta la presentazione da un
+altro PC senza sincronizzarla altrove.
 
 Il server non tocca il firewall. Da un altro dispositivo la porta deve essere
-ammessa per la sola rete privata: sugli host con firewall dichiarativo la
-regola vive nella loro configurazione, e finché il server non gira sulla porta
-non ascolta nessuno; su Windows la prima esecuzione apre il prompt del
-firewall.
+ammessa per le sole reti private (LAN e VPN dichiarate dall'host), mai per la
+rete pubblica: sugli host con firewall dichiarativo la regola vive nella loro
+configurazione, e finché il server non gira sulla porta non ascolta nessuno; su
+Windows la regola si crea dal prompt del firewall alla prima esecuzione o in
+modo esplicito.
 
 ## Vincolo conservato
 
 Una vista autonoma non giustifica un servizio permanente senza consumatori
 reali. Hook host-local e copie servite separatamente dal checkout possono
-rompersi in silenzio dopo un rename; apertura locale e condivisione on-demand
-mantengono invece sorgente e resa nello stesso artefatto. La condizione di
-revisione è un bisogno reale di disponibilità continua o accesso remoto, non la
-sola possibilità tecnica di mantenere un servizio.
+rompersi in silenzio dopo un rename; servire il checkout stesso mantiene invece
+sorgente e resa nello stesso artefatto. La condizione di revisione — un bisogno
+reale di disponibilità continua o accesso remoto, non la sola possibilità
+tecnica di mantenere un servizio — si è verificata: chi sta nelle reti private
+consulta com'è fatto un progetto e a che punto è senza averne il checkout.
+
+Un servizio permanente è quindi legittimo, alle condizioni che conservano il
+vincolo:
+
+- **consumatori reali**: persone nelle reti private che consultano lo stato del
+  progetto senza il checkout. Senza di loro il servizio non nasce;
+- **un solo host privilegiato per progetto**: un solo host serve
+  permanentemente ciascun progetto, così non circolano rese di checkout a
+  versioni diverse; le sessioni manuali possono servire temporaneamente altri
+  checkout. Se l'host è un ruolo (la produzione di una coppia di server), il
+  servizio segue il ruolo e al cambio resta attivo solo sul nuovo titolare;
+- **servizio utente**: a livello utente, non di sistema, gestibile da un agente
+  senza privilegi; disponibile dopo il riavvio dell'host e senza una sessione
+  interattiva aperta;
+- **solo reti private**: le porte le ammette il firewall dell'host, mai verso la
+  rete pubblica; il server non le apre;
+- **nessuna copia separata**: il servizio lancia lo stesso `serve.py` canonico
+  del checkout con `--port`. Il server legge i file su disco, quindi una
+  sincronizzazione aggiorna la presentazione senza riavvii; la rigenerazione
+  resta di `build.py`;
+- **assenza leggibile**: se mancano il checkout o `presentation/index.html` il
+  servizio resta fermo con una diagnosi leggibile, senza cicli di riavvio;
+- **esposizione dichiarata**: un server sempre acceso e senza autenticazione
+  espone il contenuto di `presentation/` in modo continuo, non più occasionale.
+  L'adottante lo registra dove tiene i propri vincoli sui dati — cosa entra in
+  `presentation/` e chi lo vede — non solo nella nota di rete. La protezione
+  sta in ciò che entra nella cartella e nelle reti ammesse, non in un server
+  più chiuso in un repo che negli altri.
+
+Host, porte e configurazione del servizio sono materia dell'host, non del
+canone: il canone fissa le condizioni, l'adottante dichiara il proprio host
+privilegiato e dove vive la sua configurazione.
 
 Connessioni:
 
