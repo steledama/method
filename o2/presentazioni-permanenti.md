@@ -32,7 +32,11 @@ agli adottanti, non se farlo.
    stesso `serve.py` canonico del checkout con `--port`. Non esiste una copia
    servita separatamente: il server legge i file su disco, quindi un pull
    aggiorna la presentazione senza riavvii. La rigenerazione resta compito di
-   `build.py`.
+   `build.py`. Il servizio è disponibile dopo il riavvio dell'host e senza
+   una sessione interattiva aperta. Se manca il checkout o l'indice, resta
+   fermo con una diagnosi leggibile, senza cicli di riavvio. Al cambio di
+   ruolo production resta attivo un solo servizio permanente per progetto,
+   sul nuovo host di produzione.
 
 La condizione di revisione di `kb/presentation.md § Vincolo conservato`
 («un bisogno reale di disponibilità continua o accesso remoto») è
@@ -55,10 +59,13 @@ un'eccezione locale.
     un servizio permanente:
     - consumatori reali: persone nelle reti private che consultano lo stato
       del progetto senza avere il checkout;
-    - un solo host privilegiato per progetto: niente presentazioni servite
-      da più host, che mostrerebbero checkout a versioni diverse. Se l'host
-      è un ruolo (la production della coppia), il servizio segue il ruolo;
+    - un solo host serve permanentemente ciascun progetto; le sessioni
+      manuali possono servire temporaneamente altri checkout. Se l'host è
+      un ruolo (la production della coppia), il servizio segue il ruolo e
+      al cambio resta attivo solo sul nuovo host di produzione;
     - un servizio utente, non di sistema, gestibile senza privilegi;
+    - disponibilità dopo il riavvio dell'host e senza una sessione
+      interattiva aperta;
     - solo reti private, ammesse dal firewall dell'host. Il server non apre
       porte;
     - nessuna copia servita separatamente: si serve il checkout con lo
@@ -122,7 +129,11 @@ lavoro`). Ogni adottante:
   server più chiuso di quello degli altri repo;
 - **d) indica l'host privilegiato**: host, porta e dove vive la
   configurazione del servizio (`nixos` per `deck` e per la coppia server,
-  configurazione a parte per `danea2`).
+  configurazione a parte per `danea2`). Le attività residue di installazione
+  e collaudo hanno un riferimento operativo esplicito nel repo che le
+  esegue: il task di `nixos` per gli host NixOS, un task locale di
+  `danea-auto` per `danea2`. Il marker distingue il recepimento del canone
+  dall'attivazione e dal collaudo del servizio e rimanda a quel lavoro.
 
 Indizi per repo (stato letto il 2026-10-03 dai checkout su `deck`):
 
@@ -193,8 +204,11 @@ adottante scrive di sé e rimanda a `nixos` per `deck` e la coppia server.
 
 ## Verifica
 
-- `grep -rn 8765` sul canone (`kb/`, `o3/`, `.claude/skills/`, `README.md`,
-  `CLAUDE.md`, `presentation/`) non trova nulla;
+- la ricerca di `8765` sul canone (`kb/`, `o3/`, `.claude/skills/`,
+  `README.md`, `CLAUDE.md`, `presentation/`) non trova default, comandi
+  operativi o regole attive che usino la vecchia porta. Sono ammesse le
+  menzioni della migrazione, comprese quelle del task nelle viste generate
+  e le istruzioni di dismissione nella prescrizione;
 - `python3 o3/presentation/serve.py` senza argomenti stampa URL sulla porta
   8000; `--port 8001` funziona; con `presentation/index.html` assente esce
   con errore e messaggio, senza traceback;
@@ -202,14 +216,26 @@ adottante scrive di sé e rimanda a `nixos` per `deck` e la coppia server.
   non segnala regressioni sul nodo;
 - per ogni adottante, il marker `i3/allineamento-metodo.md` registra il
   recepimento con i quattro punti a)–d). Il battito `/adottanti` lo legge
-  e conferma che i file corrispondono.
+  e conferma che i file corrispondono, comprese le attività residue e i loro
+  riferimenti operativi;
+- i task di installazione e collaudo negli adottanti verificano la
+  disponibilità dopo riavvio e senza sessione interattiva, l'arresto
+  leggibile senza cicli di riavvio quando manca il checkout o l'indice e,
+  per la coppia server, l'unicità del servizio permanente dopo il cambio di
+  ruolo production. Le soluzioni tecniche e le evidenze vivono in `nixos`
+  e in `danea-auto`.
 
 ## Criterio di chiusura
 
 - Canone aggiornato: `serve.py` con default 8000, `kb/presentation.md` col
-  vincolo rivisto, nessun 8765 nel canone.
-- Prescrizione recepita da tutti e sei gli adottanti. A quel punto esce
-  dall'indice di `o3/` secondo la regola della collezione.
+  vincolo rivisto, nessun uso operativo attivo di 8765 nel canone; restano
+  ammesse le menzioni della migrazione.
+- Prescrizione recepita da tutti e sei gli adottanti, con i punti a)–d)
+  verificati e ogni attività residua di installazione e collaudo collegata
+  al lavoro operativo nel repo responsabile. Questa chiusura certifica la
+  propagazione del canone; attivazione e collaudo si chiudono nei task degli
+  adottanti, con le rispettive evidenze. A quel punto la prescrizione esce
+  dalla collezione e dall'indice di `o3/` secondo la regola della collezione.
 - Alla chiusura, la riga in `o1/plan.md`, la voce in `o2/tasks.md` e questo
   file si rimuovono nello stesso commit. Le decisioni stabili sono già nel
   nodo `presentation`.
