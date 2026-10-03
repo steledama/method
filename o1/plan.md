@@ -11,9 +11,10 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip. |
-| ----- | --- | ----------------------------------------------- | ---- |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| Ciclo   | Ob. | Task                                            | Dip. |
+| ------- | --- | ----------------------------------------------- | ---- |
+| runtime | 2   | Presentazioni permanenti sulle reti private     | —    |
+| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 
