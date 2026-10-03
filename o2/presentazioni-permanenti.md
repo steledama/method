@@ -113,9 +113,13 @@ lavoro`). Ogni adottante:
   modo continuo, non più occasionale, e senza autenticazione. Va scritto dove
   il repo tiene i propri vincoli sui dati, non solo nella nota di rete:
   cosa finisce in `presentation/`, chi lo vede, quali dati non devono
-  entrarci. Se un vincolo locale contraddice la decisione (per esempio
-  «solo `--bind 127.0.0.1`» o «l'agente non lo avvia su altri host»), va
-  riscritto in coerenza con la decisione, non lasciato in contraddizione;
+  entrarci. La decisione vale **senza eccezioni**, anche per i repo con
+  dati personali (`economia`, `salute`): un vincolo locale che la
+  contraddice (per esempio «solo `--bind 127.0.0.1`» o «l'agente non lo
+  avvia su altri host») va riscritto in coerenza con la decisione. Non resta
+  in contraddizione e non diventa un'eccezione locale. La protezione dei dati
+  sta in ciò che entra in `presentation/` e nelle reti ammesse, non in un
+  server più chiuso di quello degli altri repo;
 - **d) indica l'host privilegiato**: host, porta e dove vive la
   configurazione del servizio (`nixos` per `deck` e per la coppia server,
   configurazione a parte per `danea2`).
@@ -136,8 +140,9 @@ Indizi per repo (stato letto il 2026-10-03 dai checkout su `deck`):
 - **economia** — host `deck`, porta 8004.
   - `CLAUDE.md` (righe 177-183) registra già la decisione LAN del
     2026-10-02 sulla 8765 e la regola «l'agente non lo avvia su altri host né
-    su altre reti»; la regola va riconciliata col lancio manuale su ogni host
-    (punto 2 della decisione);
+    su altre reti»; la regola va riscritta senza eccezioni: lancio manuale
+    sulla 8000 su ogni host e servizio permanente su `deck`, come gli altri
+    repo;
   - in `o3/tools.md` (righe 60-61) 8765 va aggiornata;
   - `i3/allineamento-metodo.md` dice «un servizio permanente sull'host di
     riferimento è da decidere» (righe 61-64) e dichiara un collaudo senza
@@ -145,7 +150,9 @@ Indizi per repo (stato letto il 2026-10-03 dai checkout su `deck`):
   - per il punto c): dati patrimoniali, fiscali e legali.
 - **salute** — host `deck`, porta 8003.
   - `CLAUDE.md` (righe 58-60) prescrive `--bind 127.0.0.1` e dice
-    «l'apertura alla LAN la decide il custode»;
+    «l'apertura alla LAN la decide il custode»: va riscritto senza
+    eccezioni, con lancio manuale sulla 8000 aperto alle reti private e
+    servizio permanente su `deck`, come gli altri repo;
   - `i3/allineamento-metodo.md § Limiti` (righe 90-93) dice che il server LAN
     non è collaudato;
   - per il punto c): dati sanitari personali. Va verificato dove il repo
@@ -163,8 +170,10 @@ Indizi per repo (stato letto il 2026-10-03 dai checkout su `deck`):
     `LocalSubnet`;
   - la regola va rifatta per 8000 e 8001 e la 8765 rimossa;
   - la forma del servizio permanente su Windows (non c'è `systemd --user`)
-    la sceglie e la dichiara l'adottante, con i requisiti del nodo: servizio
-    a livello utente, stesso `serve.py`, salto leggibile se manca l'indice.
+    la decide l'agente di `danea-auto` in loco, sulla base dell'ambiente
+    reale di `danea2`. Deve rispettare i requisiti del nodo: servizio a
+    livello utente, stesso `serve.py` del checkout, salto leggibile se manca
+    l'indice. Scelta e motivazione si dichiarano nel repo, al punto d).
 
 La prescrizione non contiene la configurazione degli host: dichiara cosa ogni
 adottante scrive di sé e rimanda a `nixos` per `deck` e la coppia server.
@@ -179,7 +188,8 @@ adottante scrive di sé e rimanda a `nixos` per `deck` e la coppia server.
    recepimento di questo canone. È il **consumatore** di questo task, e
    servizi utente, firewall, rotte statiche e marker di ruolo vivono lì:
    qui non si duplicano. Gli altri adottanti recepiscono nei loro giri;
-   `danea-auto` configura `danea2` in loco.
+   l'agente di `danea-auto` sceglie e configura il servizio su `danea2` in
+   loco.
 
 ## Verifica
 
