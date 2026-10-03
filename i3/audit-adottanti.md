@@ -14,6 +14,21 @@ commit dietro origin: è stantia, non in drift.
 
 ## Verdetto
 
+**Verifica fuori giro, 2026-10-03.** `presentazioni-permanenti` è recepita
+in tutti e sei, letta nei file (`origin` per `bi`, `crm` e `danea-auto`
+dopo un `git fetch`; `deck` per gli altri tre). Tutti i marker sono a
+`91cf874`, `serve.py` è identico al canonico, la decisione del custode è
+dichiarata nei `CLAUDE.md` senza eccezioni. L'esposizione dei dati è
+registrata dove ogni repo tiene i propri vincoli: `CLAUDE.md` in cinque,
+`world.md` in `crm`. Le 8765 residue sono solo di migrazione: il firewall
+transitorio di `nixos`, la rimozione della regola in `danea-auto`. In
+`crm` la 8765 è il server dei test Playwright, estraneo alla
+presentazione. Prescrizione e task sono potati. L'attivazione resta nei
+task locali che la eseguono: `nixos` `o2/serve-project-presentations.md`
+(firewall, rebuild, coppia server) e `danea-auto`
+`o2/presentazione-permanente-danea2.md` (client LAN e riavvio). Il battito
+del 2026-11-01 ne legge l'esito.
+
 **Verifica fuori giro, 2026-10-02.** Dopo la ristrutturazione della
 presentazione e la revisione dei verdetti, i sei sono stati riletti su
 `origin` e ricostruiti in una cartella temporanea. Tutti i marker sono a

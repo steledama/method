@@ -11,17 +11,11 @@ pianificazione.
 
 ## Task
 
-| Ciclo   | Ob. | Task                                            | Dip. |
-| ------- | --- | ----------------------------------------------- | ---- |
-| runtime | 2   | Presentazioni permanenti sulle reti private     | w1   |
-| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
-
-`w1` = recepimento di `o3/presentazioni-permanenti.md` negli adottanti via
-`/method`, `nixos` per primo (il suo task `o2/serve-project-presentations.md`
-ne dipende). Canone e prescrizione sono in `method` dal 2026-10-03. Vedi
-`o2/presentazioni-permanenti.md`.
 
 `p1` = battito `/adottanti` del **2026-11-01**. Il giudizio di settembre
 (2026-09-24) ha mantenuto la tripartizione e corretto la clausola: il

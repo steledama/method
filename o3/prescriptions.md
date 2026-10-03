@@ -25,12 +25,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva. Da
   recepire prima del battito del 2026-11-01.
-- [Presentazioni permanenti sulle reti private](presentazioni-permanenti.md)
-  — `serve.py` sulla porta 8000, un host privilegiato per progetto che serve
-  sempre la `presentation/`, decisione del custode dichiarata senza
-  eccezioni ed esposizione dei dati registrata; la configurazione degli host
-  resta in `nixos` e, per `danea2`, in `danea-auto`. `nixos` recepisce per
-  primo.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
