@@ -20,8 +20,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: alla verifica fuori giro del 2026-10-02 tutti e sei
-  a `8c024a1`, `aligned`, coincidenti coi file; fili ridotti da 38 a 19 dalla
+  mensile `/adottanti`: alla verifica fuori giro del 2026-10-03 tutti e sei
+  a `91cf874`, `aligned`, coincidenti coi file; fili ridotti da 38 a 19 dalla
   revisione contro gli obiettivi, viste fresche verificate per
   rigenerazione. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce.

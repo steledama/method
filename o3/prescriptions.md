@@ -23,8 +23,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 - [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
-  la misura che la clausola di uscita della tripartizione non aveva. Da
-  recepire prima del battito del 2026-11-01.
+  la misura che la clausola di uscita della tripartizione non aveva.
+  Recepita dai sei; resta attiva fino al conteggio del 2026-11-01.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.

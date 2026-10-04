@@ -13,22 +13,20 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
-| dev   | 1   | Viste e presentazione                           | —    |
+| dev   | S   | Viste e presentazione                           | —    |
 | dev   | 1   | Ipotesi e confronti i2/i3                       | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 
-`p1` = battito `/adottanti` del **2026-11-01**. Il giudizio di settembre
-(2026-09-24) ha mantenuto la tripartizione e corretto la clausola: il
-risveglio conta gli esiti per stadio registrati nei trailer `Esiti:` dopo il
-recepimento di `o3/esiti-per-stadio-nel-commit.md`. Vedi
-`o2/rivalutazione-skill-per-arco.md`.
+`p1` = battito `/adottanti` del **2026-11-01**: il risveglio conta gli
+esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
+`o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
 
 ## Scadenze
 
-- 2026-11-01 → `/adottanti`, audit runtime-o1 dei sei adottanti (mensile;
-  il quarto battito è arrivato puntuale, il 2026-10-01) → esiti nel filo
+- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
+  → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
   conferma o meno che `aligned` e i file coincidono.

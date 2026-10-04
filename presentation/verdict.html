@@ -186,73 +186,58 @@
             </p>
             <p>
               Verdetto aggregato dell’audit mensile <code>/adottanti</code>,
-              aggiornato in place a ogni giro. Ultimo giro:
+              aggiornato in place a ogni giro. Ultimo giro d’insieme:
               <strong>2026-10-01</strong>, quarto battito, puntuale sulla
-              scadenza (HEAD <code>ff064c1</code>). Le letture sono fatte su
-              <code>origin</code> dopo un <code>git fetch</code>:
-              <code>economia</code> e <code>salute</code> su <code>deck</code>,
-              <code>nixos</code>, <code>bi</code>, <code>crm</code> e
-              <code>danea-auto</code> su <code>svezia</code>. La copia locale di
-              <code>danea-auto</code> su <code>svezia</code> è 17 commit dietro
-              origin: è stantia, non in drift.
+              scadenza; verifiche fuori giro il 2026-10-02 e il 2026-10-03. Le
+              letture sono fatte su <code>origin</code> dopo un
+              <code>git fetch</code>: <code>economia</code> e
+              <code>salute</code> su <code>deck</code>, <code>nixos</code>,
+              <code>bi</code>, <code>crm</code> e <code>danea-auto</code> su
+              <code>svezia</code>.
             </p>
             <h3 id="verdetto">Verdetto</h3>
-            <p>
-              <strong>Verifica fuori giro, 2026-10-03.</strong>
-              <code>presentazioni-permanenti</code> è recepita in tutti e sei,
-              letta nei file (<code>origin</code> per <code>bi</code>,
-              <code>crm</code> e <code>danea-auto</code> dopo un
-              <code>git fetch</code>; <code>deck</code> per gli altri tre).
-              Tutti i marker sono a <code>91cf874</code>,
-              <code>serve.py</code> è identico al canonico, la decisione del
-              custode è dichiarata nei <code>CLAUDE.md</code> senza eccezioni.
-              L’esposizione dei dati è registrata dove ogni repo tiene i propri
-              vincoli: <code>CLAUDE.md</code> in cinque,
-              <code>world.md</code> in <code>crm</code>. Le 8765 residue sono
-              solo di migrazione: il firewall transitorio di <code>nixos</code>,
-              la rimozione della regola in <code>danea-auto</code>. In
-              <code>crm</code> la 8765 è il server dei test Playwright, estraneo
-              alla presentazione. Prescrizione e task sono potati. L’attivazione
-              resta nei task locali che la eseguono: <code>nixos</code>
-              <code>o2/serve-project-presentations.md</code> (firewall, rebuild,
-              coppia server) e <code>danea-auto</code>
-              <code>o2/presentazione-permanente-danea2.md</code> (client LAN e
-              riavvio). Il battito del 2026-11-01 ne legge l’esito.
-            </p>
-            <p>
-              <strong>Verifica fuori giro, 2026-10-02.</strong> Dopo la
-              ristrutturazione della presentazione e la revisione dei verdetti,
-              i sei sono stati riletti su <code>origin</code> e ricostruiti in
-              una cartella temporanea. Tutti i marker sono a
-              <code>8c024a1</code>, <code>aligned</code>, e coincidono coi file:
-              nessun <code>misura:</code> negli indici <code>i3/</code>,
-              <code>obiettivo:</code> in ogni file di
-              <code>i3/</code> verificato dalla build, builder identici al
-              canone salvo la CONFIG della home e un adattamento dichiarato in
-              <code>salute</code>. Le viste sono fresche in cinque; in
-              <code>danea-auto</code> cambiano solo le intestazioni scritte da
-              pandoc (toolchain, cfr.
-              <code>toolchain-builder-presentazione</code>). La revisione ha
-              ridotto i fili da 38 a 19 (marker inclusi): <code>crm</code> tiene
-              solo il cursore, perché col dominio fermo nessuna tensione era
-              viva. <code>presentazione-e-verdetti-misurati</code> e
-              <code>toolchain-builder-presentazione</code> hanno un esito in
-              tutti e sei e sono potate. Non verificati: lo stato dei firewall
-              dopo i rebuild e il server LAN da Linux. Il battito del 2026-11-01
-              resta il prossimo giro d’insieme.
-            </p>
             <p>
               <strong
                 >Canale del canone: tutti e sei alla HEAD del canone
                 recepibile.</strong
               >
-              Ogni marker è a <code>47d8204</code>, <code>aligned</code>:
-              l’unico commit successivo, <code>ff064c1</code>, è la potatura
-              della prescrizione che quei marker hanno recepito. Il recepimento
-              del link <code>Ob.</code>→<code>goal.md</code> è verificato nei
-              file, non nei marker: in tutte e sei le <code>tasks.html</code> le
-              ancore corrispondono alle intestazioni del rispettivo
-              <code>goal.md</code>.
+              Ogni marker è a <code>91cf874</code>, <code>aligned</code>: i
+              commit successivi del canone sono una potatura e lavoro
+              <code>o2/</code>, nulla da recepire. Il 2026-10-04
+              <code>nixos</code>, <code>bi</code>, <code>crm</code> e
+              <code>danea-auto</code> sono stati riletti su
+              <code>origin</code> senza variazioni; <code>deck</code> non
+              rispondeva, e per <code>economia</code> e <code>salute</code> vale
+              la lettura del 2026-10-03.
+            </p>
+            <p>
+              <strong><code>aligned</code> e file coincidono.</strong> Il
+              2026-10-02 i sei sono stati ricostruiti da <code>origin</code> in
+              una cartella temporanea: nessun <code>misura:</code> negli indici
+              <code>i3/</code>, <code>obiettivo:</code> in ogni file di
+              <code>i3/</code> verificato dalla build, builder identici al
+              canone salvo la CONFIG della home e un adattamento dichiarato in
+              <code>salute</code>. La revisione contro gli obiettivi ha ridotto
+              i fili da 38 a 19 (marker inclusi): <code>crm</code> tiene solo il
+              cursore, perché col dominio fermo nessuna tensione era viva. Il
+              2026-10-03 <code>presentazioni-permanenti</code> è risultata
+              recepita nei file di tutti e sei: <code>serve.py</code> identico
+              al canonico, decisione del custode nei
+              <code>CLAUDE.md</code> senza eccezioni, esposizione dei dati
+              registrata dove ogni repo tiene i propri vincoli (<code
+                >CLAUDE.md</code
+              >
+              in cinque, <code>world.md</code> in <code>crm</code>). Le 8765
+              residue sono solo di migrazione (firewall transitorio di
+              <code>nixos</code>, rimozione della regola in
+              <code>danea-auto</code>); in <code>crm</code> la 8765 è il server
+              dei test Playwright. L’attivazione resta nei task locali:
+              <code>nixos</code> <code>o2/serve-project-presentations.md</code>,
+              <code>danea-auto</code>
+              <code>o2/presentazione-permanente-danea2.md</code>. Il link
+              <code>Ob.</code>→<code>goal.md</code> è verificato nei file: in
+              tutte e sei le <code>tasks.html</code> le ancore corrispondono
+              alle intestazioni del rispettivo <code>goal.md</code>.
             </p>
             <p><strong>Prescrizioni aperte, verificate nei file:</strong></p>
             <ul>
@@ -472,7 +457,12 @@
               <li>
                 un giro <code>eval</code>/<code>exec</code> vuoto ora lascia un
                 commit con <code>Esiti:</code>, ma solo se si è chiuso: una
-                sessione interrotta resta invisibile.
+                sessione interrotta resta invisibile;
+              </li>
+              <li>
+                l’attivazione delle presentazioni permanenti non è verificata:
+                stato dei firewall dopo i rebuild e server LAN raggiungibile da
+                Linux; la legge il battito del 2026-11-01.
               </li>
             </ul>
           </div>
@@ -577,57 +567,6 @@
               verdetto si prende su numeri, non su proxy.
             </p>
             <h3 id="la-clausola-di-uscita-dichiarata-prima-di-partire">
-              La clausola di uscita, dichiarata prima di partire
-            </h3>
-            <p>
-              Il rischio dichiarato dal custode è il barocco: una divisione che
-              moltiplica scritture, token ed energie per azioni che verrebbero
-              naturali tutte insieme. La scommessa è che la rigidità paghi in
-              qualità autocorrettiva, e i tre episodi danno la misura del prezzo
-              dell’alternativa. Ma la scommessa si rivaluta, e la condizione si
-              scrive <strong>ora</strong> perché fra tre mesi non dipenda da chi
-              si ricorda di averla promessa:
-            </p>
-            <ul>
-              <li>
-                <strong>quando</strong>: il task di rivalutazione
-                <code>pause</code> esiste
-                (<code>o2/rivalutazione-skill-per-arco.md</code>). La data
-                originaria (<strong>2026-11-01</strong>) era stata anticipata
-                dal custode al <strong>2026-09-01</strong>; il giudizio di
-                settembre, preso il 2026-09-24, ha mantenuto la tripartizione e
-                riattivato novembre con l’evidenza mancante dichiarata (sezione
-                sopra);
-              </li>
-              <li>
-                <strong>la misura</strong>: il trailer <code>Esiti:</code> dei
-                commit che chiudono i giri, contato per stadio e per repository
-                con
-                <code>git log --format='%(trailers:key=Esiti,valueonly)'</code>.
-                Un sintomo che non si legge in questa misura va dichiarato
-                insieme alla fonte che lo rende contabile;
-              </li>
-              <li>
-                <strong>sintomi che direbbero «troppo»</strong>: uno stadio che
-                chiude <code>vuoto</code> in <em>tutti</em> i repo per tre giri;
-                giri tutti <code>vuoto</code> (commit
-                <code>--allow-empty</code>) che si ripetono senza che cambi
-                nulla nel verdetto o nella coda: è l’invocazione fatta solo per
-                disciplina;
-              </li>
-              <li>
-                <strong>sintomi che direbbero «ha pagato»</strong>: un errore
-                intercettato dallo stadio che prima non esisteva (una sintesi i2
-                corretta perché il claim è caduto, un segnale i1 che sarebbe
-                rimasto orfano, una prescrizione o3 consumata potata);
-              </li>
-              <li>
-                <strong>cosa si snellisce per primo</strong>, se si snellisce:
-                gli scope, non gli stadi — si accorpa l’invocazione, non si
-                smette di distinguere i passi.
-              </li>
-            </ul>
-            <h3 id="la-clausola-di-uscita-dichiarata-prima-di-partire-1">
               La clausola di uscita, dichiarata prima di partire
             </h3>
             <p>

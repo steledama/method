@@ -6,50 +6,37 @@ obiettivo: 2
 # Audit runtime-o1: la distanza degli adottanti dal telos
 
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
-ogni giro. Ultimo giro: **2026-10-01**, quarto battito, puntuale sulla
-scadenza (HEAD `ff064c1`). Le letture sono fatte su `origin` dopo un
-`git fetch`: `economia` e `salute` su `deck`, `nixos`, `bi`, `crm` e
-`danea-auto` su `svezia`. La copia locale di `danea-auto` su `svezia` è 17
-commit dietro origin: è stantia, non in drift.
+ogni giro. Ultimo giro d'insieme: **2026-10-01**, quarto battito, puntuale
+sulla scadenza; verifiche fuori giro il 2026-10-02 e il 2026-10-03. Le
+letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
+`deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`.
 
 ## Verdetto
 
-**Verifica fuori giro, 2026-10-03.** `presentazioni-permanenti` è recepita
-in tutti e sei, letta nei file (`origin` per `bi`, `crm` e `danea-auto`
-dopo un `git fetch`; `deck` per gli altri tre). Tutti i marker sono a
-`91cf874`, `serve.py` è identico al canonico, la decisione del custode è
-dichiarata nei `CLAUDE.md` senza eccezioni. L'esposizione dei dati è
-registrata dove ogni repo tiene i propri vincoli: `CLAUDE.md` in cinque,
-`world.md` in `crm`. Le 8765 residue sono solo di migrazione: il firewall
-transitorio di `nixos`, la rimozione della regola in `danea-auto`. In
-`crm` la 8765 è il server dei test Playwright, estraneo alla
-presentazione. Prescrizione e task sono potati. L'attivazione resta nei
-task locali che la eseguono: `nixos` `o2/serve-project-presentations.md`
-(firewall, rebuild, coppia server) e `danea-auto`
-`o2/presentazione-permanente-danea2.md` (client LAN e riavvio). Il battito
-del 2026-11-01 ne legge l'esito.
-
-**Verifica fuori giro, 2026-10-02.** Dopo la ristrutturazione della
-presentazione e la revisione dei verdetti, i sei sono stati riletti su
-`origin` e ricostruiti in una cartella temporanea. Tutti i marker sono a
-`8c024a1`, `aligned`, e coincidono coi file: nessun `misura:` negli indici
-`i3/`, `obiettivo:` in ogni file di `i3/` verificato dalla build, builder
-identici al canone salvo la CONFIG della home e un adattamento dichiarato in
-`salute`. Le viste sono fresche in cinque; in `danea-auto` cambiano solo le
-intestazioni scritte da pandoc (toolchain, cfr.
-`toolchain-builder-presentazione`). La revisione ha ridotto i fili da 38 a 19
-(marker inclusi): `crm` tiene solo il cursore, perché col dominio fermo
-nessuna tensione era viva. `presentazione-e-verdetti-misurati` e
-`toolchain-builder-presentazione` hanno un esito in tutti e sei e sono
-potate. Non verificati: lo stato dei firewall dopo i rebuild e il server
-LAN da Linux. Il battito del 2026-11-01 resta il prossimo giro d'insieme.
-
 **Canale del canone: tutti e sei alla HEAD del canone recepibile.** Ogni
-marker è a `47d8204`, `aligned`: l'unico commit successivo, `ff064c1`, è la
-potatura della prescrizione che quei marker hanno recepito. Il recepimento
-del link `Ob.`→`goal.md` è verificato nei file, non nei marker: in tutte e
-sei le `tasks.html` le ancore corrispondono alle intestazioni del rispettivo
-`goal.md`.
+marker è a `91cf874`, `aligned`: i commit successivi del canone sono una
+potatura e lavoro `o2/`, nulla da recepire. Il 2026-10-04 `nixos`, `bi`,
+`crm` e `danea-auto` sono stati riletti su `origin` senza variazioni;
+`deck` non rispondeva, e per `economia` e `salute` vale la lettura del
+2026-10-03.
+
+**`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
+da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
+`obiettivo:` in ogni file di `i3/` verificato dalla build, builder identici
+al canone salvo la CONFIG della home e un adattamento dichiarato in
+`salute`. La revisione contro gli obiettivi ha ridotto i fili da 38 a 19
+(marker inclusi): `crm` tiene solo il cursore, perché col dominio fermo
+nessuna tensione era viva. Il 2026-10-03 `presentazioni-permanenti` è
+risultata recepita nei file di tutti e sei: `serve.py` identico al canonico,
+decisione del custode nei `CLAUDE.md` senza eccezioni, esposizione dei dati
+registrata dove ogni repo tiene i propri vincoli (`CLAUDE.md` in cinque,
+`world.md` in `crm`). Le 8765 residue sono solo di migrazione (firewall
+transitorio di `nixos`, rimozione della regola in `danea-auto`); in `crm` la
+8765 è il server dei test Playwright. L'attivazione resta nei task locali:
+`nixos` `o2/serve-project-presentations.md`, `danea-auto`
+`o2/presentazione-permanente-danea2.md`. Il link `Ob.`→`goal.md` è
+verificato nei file: in tutte e sei le `tasks.html` le ancore corrispondono
+alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, verificate nei file:**
 
@@ -172,4 +159,7 @@ Classificazione degli scostamenti:
   non che i builder siano fedeli al canone: quella è materia dei
   `/method` locali;
 - un giro `eval`/`exec` vuoto ora lascia un commit con `Esiti:`, ma solo se
-  si è chiuso: una sessione interrotta resta invisibile.
+  si è chiuso: una sessione interrotta resta invisibile;
+- l'attivazione delle presentazioni permanenti non è verificata: stato dei
+  firewall dopo i rebuild e server LAN raggiungibile da Linux; la legge il
+  battito del 2026-11-01.
