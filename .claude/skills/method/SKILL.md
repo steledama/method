@@ -145,7 +145,7 @@ Confronta i commit dell'intervallo con lo stato locale attuale:
 
 - `README.md`, `CLAUDE.md`, `AGENTS.md`;
 - cruscotto e porte (`o1/plan.md`, fili `i3/`, `kb/kb.md`, register `goal.md`/`world.md`,
-  collezioni `i1/`-`o3/`, `presentation/`);
+  collezioni `i1/`-`o3/`, `presentation/`, `view/`);
 - riferimenti locali ai nodi metodologici condivisi;
 - `.claude/skills/` e `.codex/skills/`;
 - strumenti forkati in `o3/`;

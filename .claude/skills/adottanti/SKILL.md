@@ -73,7 +73,8 @@ propria fonte mentre ogni altro controllo dice che va tutto bene (cfr.
 
 Per adottante, in sola lettura:
 
-- **quali superfici esistono** (`presentation/` o l'equivalente dichiarato nel
+- **quali superfici esistono** (`view/`, o `presentation/` nella forma
+  precedente, o l'equivalente dichiarato nel
   suo `world.md`) e **quali sono generate** da uno script versionato: una vista
   il cui file cambia senza che cambi un generatore è mantenuta a mano;
 - tra le generate, **quali derivano da più fonti** che possono contraddirsi, e

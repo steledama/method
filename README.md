@@ -33,7 +33,8 @@ sviluppo è l'artefatto che custodisce il canone, con i nodi `kb/` al centro.
 Progettiamo l'artefatto persistente perché sostenga il sistema cognitivo che
 nasce nell'uso con umano e agenti. Per questa distinzione e i fondamenti si
 parte dall'hub [cognitive-artifact-design](kb/cognitive-artifact-design.md). Il
-modello illustrato vive in [i2/metodo-in-sintesi.md](i2/metodo-in-sintesi.md), i
+modello illustrato vive nel deck
+[presentation/presentation.md](presentation/presentation.md), i
 criteri progettuali in [design-principles](kb/design-principles.md).
 
 ## Metodo
@@ -80,11 +81,13 @@ meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
 
 - **[kb/](kb/kb.md)** — il nucleo di conoscenza formalizzata della system image;
   il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
-- **[presentation/](presentation/)** — la superficie presentativa: `index.html`
-  (la home della system image), le viste generate e gli asset condivisi. La
-  serve in modo permanente `deck` sulla porta 8001, alle sole reti private
-  (servizio utente dichiarato nel repo `nixos`); `python3
-o3/presentation/serve.py` la serve a mano sulla 8000 da qualsiasi host
+- **[presentation/](presentation/)** — il deck, racconto curato
+  dell'artefatto, con le sue tavole
+- **[view/](view/index.html)** — le viste generate: `index.html` (la home della
+  system image), le pagine 1:1 di register e collezioni, il deck reso e gli
+  asset. La serve in modo permanente `deck` sulla porta 8001, alle sole reti
+  private (servizio utente dichiarato nel repo `nixos`);
+  `python3 o3/view/serve.py` la serve a mano sulla 8000 da qualsiasi host
 
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del
 ciclo:
@@ -110,9 +113,10 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 - **Strumenti comuni** — esecutori e runbook sono registrati in
   [`o3/prescriptions.md`](o3/prescriptions.md); capacità e limiti in
   [`kb-tools`](kb/kb-tools.md) e [`skill`](kb/skill.md).
-- **Presentazione** — le viste generate vivono in
-  [`presentation/`](presentation/) e la disciplina della derivazione in
-  [`view`](kb/view.md).
+- **Viste e presentazione** — le viste generate vivono in [`view/`](view/index.html)
+  con la disciplina della derivazione in [`view`](kb/view.md); il deck curato
+  in [`presentation/`](presentation/), con la sua disciplina in
+  [`presentation`](kb/presentation.md).
 
 ## Come collegare un nuovo progetto
 

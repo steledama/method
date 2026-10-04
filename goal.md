@@ -37,8 +37,9 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
-  per arco; `revisione-bootstrap-adottante` e `ingresso-adottante`,
-  non verificate nel merito.
+  per arco; `migrazione-viste`, emessa il 2026-10-04 (viste in `view/`,
+  deck in `presentation/`); `revisione-bootstrap-adottante` e
+  `ingresso-adottante`, non verificate nel merito.
 
 ### 3. Ascoltare il basso
 

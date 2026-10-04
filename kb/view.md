@@ -9,13 +9,13 @@ sorgente del progetto senza diventare una seconda fonte di verità. È la cernie
 o2/i2 del metodo (cfr. `action-cycle`): o2 quando orienta una decisione, i2
 quando viene letta per attribuire significato a ciò che sintetizza.
 
-Nel metodo la forma segue la domanda: pagina markdown, tabella di confronto,
-presentazione a slide, grafico, canvas e home statica sono forme alternative,
-scelte secondo cosa devono far capire o decidere. La vista a slide è adatta a
-una sintesi che si scorre, non è l'unica forma possibile. Questo nodo tiene la
-**disciplina della derivazione** — a quali obblighi una vista risponde; il
-formato che si apre, la build che lo produce e il modo in cui raggiunge un
-lettore vivono in `presentation`.
+Nel metodo la forma segue la domanda: pagina, tabella di confronto, grafico,
+canvas e home statica sono forme alternative, scelte secondo cosa devono far
+capire o decidere. Questo nodo tiene la **disciplina della derivazione** — a
+quali obblighi una vista risponde — e la sua materializzazione: la cartella
+`view/`, le pagine che rendono le fonti, la build che le produce e il modo in
+cui raggiungono un lettore. Il racconto curato dell'artefatto, scritto e non
+derivato, è un'altra cosa e vive in `presentation`.
 
 ## Vista derivata, mai seconda fonte
 
@@ -100,6 +100,118 @@ silenzio dopo un rename. La condizione di revisione è dichiarata: se una vista
 stale passa comunque un commit, il gesto meccanico non basta più, e il costo
 dell'hook va ridiscusso contro la portabilità invece di darlo per perso.
 
+## Pagine 1:1 e perimetro
+
+La vista canonica è la **pagina**: la traduzione 1:1 di un `.md` in HTML, con
+la navigazione. «1:1» è fedeltà al contenuto e alla struttura della fonte — il
+corpo intero, il frontmatter reso in testa —, non una restrizione della nozione
+di vista derivata, che può restare una sintesi o un grafico quando la domanda
+lo chiede.
+
+Il perimetro reso è dichiarato: i register `goal.md` e `world.md` e le sei
+collezioni del ciclo, indici e item. Restano fuori, per ora in ogni repo, i
+nodi `kb/`, README e le istruzioni per gli agenti. Ciò che `.gitignore` tiene
+fuori dal repo resta fuori anche da `view/`, i symlink non si seguono e ogni
+repo può escludere per pattern ciò che non vuole esporre (`ESCLUSE` in
+`o3/view/project.py`): `view/` si versiona e può essere servita, quindi il
+perimetro è anche una decisione sui dati.
+
+Le pagine **ricalcano i path del repo**: `o1/plan.md` diventa
+`view/o1/plan.html`. Così la riscrittura dei link è meccanica — un link a una
+fonte del perimetro diventa il link alla sua pagina, un link a ciò che non si
+rende diventa la sua etichetta — e le immagini citate si copiano accanto alla
+pagina allo stesso path relativo. I legami che i contratti verificano si
+rendono percorribili: la chiave `Ob.` del plan e l'`obiettivo:` di un filo
+portano all'ancora stabile dell'obiettivo in `goal.html` (`ob-1`, `ob-s`),
+derivata dalla chiave e non dal titolo; un task del plan porta alla sua
+specifica in `o2/`.
+
+La navigazione è comune a ogni pagina: la home, l'indice della collezione e le
+voci della collezione come pallini su un filo d'accento, nell'ordine
+dell'indice — la sequenza curata, non l'ordine alfabetico. Su schermo stretto
+la barra va in orizzontale e le tabelle scorrono da sole.
+
+## Compartimento stagno
+
+`view/` si apre e si serve da sola: nessun URL emesso esce dalla cartella.
+Restano link le ancore, i file della cartella e gli URL web o mail; `file:` e i
+path di un disco locale non sono esterni e restano etichetta. La cartella è
+tutta generata: ciò che la build non produce più si rimuove, così una fonte
+cancellata non lascia una pagina orfana. Il builder rompe se un'immagine manca
+o un URL esce dalla cartella: è il «derivata implica verificata» applicato al
+confine.
+
+## HTML apribile direttamente e build minima
+
+Il formato operativo minimo è un HTML versionato con path relativi, apribile con
+doppio click o `xdg-open view/index.html`. Non richiede build, deploy, servizi
+permanenti o `fetch` di file locali, che i browser bloccano sotto `file://`.
+
+La build è versionata in `o3/view/`, con lo **stesso path in ogni repo**:
+chi passa da un progetto all'altro, umano o agente, non deve scoprire dove
+stanno i builder, e le skill citano un solo comando. L'entrypoint è unico,
+`python3 o3/view/build.py`: verifica i contratti fra le fonti, rigenera
+pagine, deck, home e asset, e chiude col presidio del compartimento stagno. È
+Python e non shell perché deve girare anche sugli host Windows; non ha
+dipendenze oltre a Pandoc e Prettier. I CSS canonici (`page.css` per le
+pagine, `system-image.css` per la home, `deck.css` per il deck) vivono accanto
+ai builder e la build li copia in `view/assets/`. Due generazioni consecutive
+producono lo stesso output: il determinismo rende la rigenerazione un gesto
+meccanico invece di una decisione.
+
+Le viste sono uniformi fra i progetti: a distinguerle sono la **sigla** e un
+**colore d'accento** unico per progetto. Sigla, lingua, accento, deck ed
+esclusioni si dichiarano in un solo file, `o3/view/project.py`; la build
+scrive l'accento in `view/assets/theme.css`. La home resta minimale, pura
+affordance di navigazione: i register in sintesi, i sei stadi verso i loro
+indici, il deck come voce a sé.
+
+## Servizio sulle reti private
+
+Per aprire le viste da un altro PC delle reti private, lo stesso comando in
+ogni repo e su ogni sistema (su Windows `py o3\view\serve.py`):
+
+```bash
+python3 o3/view/serve.py
+```
+
+Il server usa solo la libreria standard e serve la sola cartella `view/`,
+chiusa su se stessa: niente dotfile, niente elenchi di cartella. Ascolta per
+default sulla porta 8000 (`--port`, `--bind`) e si chiude con Ctrl-C. Non tocca
+il firewall: da un altro dispositivo la porta deve essere ammessa per le sole
+reti private, mai per la rete pubblica.
+
+Un servizio permanente è legittimo alle condizioni che conservano il vincolo
+dell'artefatto autonomo — hook host-local e copie servite a parte si rompono in
+silenzio dopo un rename, servire il checkout tiene sorgente e resa insieme:
+
+- **consumatori reali**: persone nelle reti private che consultano lo stato del
+  progetto senza il checkout. Senza di loro il servizio non nasce;
+- **un solo host privilegiato per progetto**, così non circolano rese di
+  checkout a versioni diverse. Se l'host è un ruolo (la produzione di una
+  coppia di server), il servizio segue il ruolo;
+- **servizio utente**, gestibile da un agente senza privilegi, disponibile dopo
+  il riavvio e senza sessione interattiva;
+- **solo reti private**: le porte le ammette il firewall dell'host, il server
+  non le apre;
+- **nessuna copia separata**: il servizio lancia lo stesso `serve.py` del
+  checkout con `--port`; un pull aggiorna le viste senza riavvii;
+- **assenza leggibile**: se mancano il checkout o `view/index.html` il servizio
+  resta fermo con una diagnosi leggibile, senza cicli di riavvio;
+- **esposizione dichiarata**: un server sempre acceso e senza autenticazione
+  espone `view/` in modo continuo. L'adottante lo registra dove tiene i propri
+  vincoli sui dati — cosa entra nel perimetro e chi lo vede.
+
+Host, porte e configurazione del servizio sono materia dell'host, non del
+canone.
+
+## Transizione
+
+Fino al recepimento della migrazione, un adottante può avere ancora la forma
+precedente: viste Reveal e liste in `presentation/`, builder in
+`o3/presentation/`, deck in `i2/`. Le due forme non convivono nello stesso
+repo: la migrazione sposta builder, deck e servizio nello stesso giro.
+
 Connessioni:
 
 - [presentation](presentation.md)
@@ -108,6 +220,8 @@ Connessioni:
 - [constraint](constraint.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [processing-layers](processing-layers.md)
+- [project-structure](project-structure.md)
+- [affordance-signifier](affordance-signifier.md)
 - [karpathy-pattern](karpathy-pattern.md)
 - [verdict](verdict.md)
 - [method-development](method-development.md)

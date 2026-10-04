@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Method · Il bootstrap nei sei adottanti</title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="interpretations.html"
+        ><span class="nav-key">i2</span> Interpretazioni</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="baricentro-kb-adottanti.html"
+            title="Baricentro KB: dove sta il contenuto dei quattro adottanti"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Baricentro KB: dove sta il contenuto dei quattro adottanti</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Entrare nel territorio è un&#x27;operazione del metodo"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Entrare nel territorio è un&#x27;operazione del metodo</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="bootstrap-adottanti.html"
+            title="Il bootstrap nei sei adottanti"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Il bootstrap nei sei adottanti</span></a
+          >
+        </li>
+        <li>
+          <a href="potatura-kb.html" title="Potatura minimalista della KB"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Potatura minimalista della KB</span></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">i2/bootstrap-adottanti.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+      </dl>
+      <h1 id="il-bootstrap-nei-sei-adottanti">
+        Il bootstrap nei sei adottanti
+      </h1>
+      <p>
+        Sintesi qualitativa del 2026-08-21 sui checkout correnti dei sei
+        adottanti dichiarati in <code>world.md</code>. Il materiale letto per
+        ogni repo è <code>README.md</code>, <code>CLAUDE.md</code>,
+        <code>goal.md</code> e <code>world.md</code>; il nodo
+        <code>kb/world.md</code> non è duplicato localmente ed è correttamente
+        consumato come <code>method/world.md</code> attraverso il symlink
+        canonico. Le lunghezze citate sono <strong>misurate</strong> con
+        <code>wc -l</code> sui checkout locali; i giudizi editoriali derivano
+        dalla lettura dei file, non da una soglia quantitativa.
+      </p>
+      <h2 id="la-relazione-da-verificare">La relazione da verificare</h2>
+      <p>I quattro file formano un solo bootstrap distribuito:</p>
+      <ul>
+        <li><code>README.md</code> orienta nel dominio e apre i percorsi;</li>
+        <li>
+          <code>CLAUDE.md</code> istruisce l’agente su azioni, vincoli e
+          pericoli;
+        </li>
+        <li>
+          <code>goal.md</code> rende il nord nell’intro e lo articola on-demand;
+        </li>
+        <li>
+          <code>world.md</code> rende il territorio nell’intro e ne registra
+          superfici e fonti.
+        </li>
+      </ul>
+      <p>
+        Una revisione del solo README può spostare, invece di risolvere,
+        l’accumulo: teoria, inventari e manuali rimossi dalla bussola possono
+        riversarsi in <code>CLAUDE.md</code>; un README domain-first può inoltre
+        contraddire un Goal o un World rimasti a una fotografia precedente. Il
+        criterio è perciò la <strong>coerenza del quartetto</strong>, non la
+        qualità isolata di un file.
+      </p>
+      <h2 id="fotografia-per-adottante">Fotografia per adottante</h2>
+      <h3 id="nixos"><code>nixos</code></h3>
+      <p>
+        Il README apre con sistema, host e tensione production/standby; Goal e
+        World sono intro brevi, semantiche e coerenti. Il router «Capire il
+        progetto in 5 minuti» è il percorso per intenzione più efficace del
+        gruppo. La seconda metà del README conserva però strumenti, legenda
+        completa della root e inventario tecnico: orientamento forte con
+        sovraccarico strutturale. <code>CLAUDE.md</code> (144 righe misurate)
+        resta prevalentemente costituzione operativa; rilevamento host, confini
+        rebuild e guardrail giustificano la sua specificità.
+      </p>
+      <h3 id="bi"><code>bi</code></h3>
+      <p>
+        <code>world.md</code> descrive con chiarezza sistemi vivi, relazioni
+        commerciali e flussi. L’intro di <code>goal.md</code>, invece, spiega
+        che cos’è un register e come il ciclo lo usa: rende il
+        <strong>contratto del polo</strong>, non il nord commerciale, che
+        compare solo nelle sezioni successive. README (136 righe) e
+        <code>CLAUDE.md</code> (340 righe) sono i più structure-first:
+        inventario dettagliato, comandi, strumenti e manuale di produzione
+        precedono o competono con i percorsi del dominio. È il caso che richiede
+        la revisione coordinata più ampia.
+      </p>
+      <h3 id="economia"><code>economia</code></h3>
+      <p>
+        Il README presenta subito i due assi finanziari e la fonte operativa, ma
+        poi duplica la root in elenco, tabella completa e albero. L’intro di
+        <code>goal.md</code> rende un nord autentico e ricco, ma incorpora
+        modello, casi, razionale e dettagli in una porzione molto più lunga
+        delle altre home. <code>CLAUDE.md</code> (269 righe) contiene molta
+        reference di strumenti. C’è inoltre una contraddizione semantica: il
+        Goal distingue l’asse con Ilaria e quello Sodini, mentre l’intro di
+        World presenta come due assi quello personale e quello con Ilaria, senza
+        rendere il secondo intreccio ereditario. È un giudizio di dominio da
+        risolvere localmente, non un testo da correggere dal canone.
+      </p>
+      <h3 id="salute"><code>salute</code></h3>
+      <p>
+        Il commit <code>513b6ac</code> ha trasformato il README ereditato dalla
+        genesi del metodo in una bussola domain-first: corpo-mente vissuto, tre
+        direzioni del Goal, percorsi semantici e responsabilità sanitaria
+        precedono la mappa strutturale. Le intro di Goal e World sono coerenti
+        con questa lettura. Il residuo maggiore è <code>CLAUDE.md</code> (308
+        righe): filosofia, inventario della struttura, convenzioni dei nodi e
+        operazioni formano ancora un manuale esteso. La riscrittura del README è
+        quindi un buon pilot, non la chiusura della revisione del bootstrap.
+      </p>
+      <h3 id="crm"><code>crm</code></h3>
+      <p>
+        Goal e World sono compatti, domain-first e coerenti;
+        <code>CLAUDE.md</code> (105 righe) separa bene scope, invarianti del
+        workflow, ownership con <code>manager</code> e sicurezza. Il README
+        mette la struttura subito dopo l’identità e contiene una lunga sezione
+        di sviluppo locale, ma stato e contratti validati restano leggibili.
+        Serve una rifinitura editoriale, non una rifondazione.
+      </p>
+      <h3 id="danea-auto"><code>danea-auto</code></h3>
+      <p>
+        È il caso più compresso: il README parte da automazioni, vincoli della
+        GUI, esecuzione e diagnosi; Goal e World sono nitidi.
+        <code>CLAUDE.md</code> (131 righe) è più lungo del README perché
+        conserva guardrail ad alta posta su credenziali, invii non annullabili,
+        GUI e Task Scheduler. Qui comprimere per quantità sarebbe un errore: una
+        regola resta nel bootstrap quando deve essere presente prima dell’atto
+        per impedirne uno dannoso.
+      </p>
+      <h2 id="generalizzazione">Generalizzazione</h2>
+      <p>La lunghezza non discrimina. Discriminano invece quattro domande:</p>
+      <ul>
+        <li>il dominio arriva prima della sua impalcatura metodologica?</li>
+        <li>ogni fatto vive nel file letto nel momento in cui serve?</li>
+        <li>
+          le intro di Goal e World rendono i poli, non il contratto dei
+          register?
+        </li>
+        <li>
+          il quartetto concorda su identità, direzione, territorio e stato
+          corrente?
+        </li>
+      </ul>
+      <p>
+        La comparazione appartiene all’osservatorio di <code>metodo</code>;
+        l’ultimo miglio appartiene all’adottante. Il canone può prescrivere
+        criteri e indicare tensioni da verificare, ma soltanto il repo locale
+        può decidere quali dettagli siano necessari al proprio dominio e
+        applicare le modifiche tramite <code>/method</code>.
+      </p>
+    </main>
+  </body>
+</html>

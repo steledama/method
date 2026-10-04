@@ -17,7 +17,8 @@ del dominio.
 - `goal.md` — direzione, obiettivi e segnali (`goal-register`);
 - `world.md` — territorio, superfici esterne e fonti (`world-register`);
 - `kb/` — conoscenza stabile, catalogata in `kb/kb.md`;
-- `presentation/` — home, viste generate e asset;
+- `presentation/` — sorgente del deck, il racconto curato dell'artefatto, e le sue tavole;
+- `view/` — home, pagine generate dalle fonti e asset, servita e chiusa su se stessa;
 - `i1/`, `i2/`, `i3/` — percezioni, interpretazioni e verdetti;
 - `o1/`, `o2/`, `o3/` — piano, specifiche operative e prescrizioni/esecutori.
 
@@ -49,7 +50,8 @@ da sola la destinazione (`pace-layering`):
 - supervisione del lavoro → `o1/plan.md`;
 - dettaglio di un task aperto → `o2/`;
 - prescrizione, runbook o esecutore → `o3/`;
-- rappresentazione derivata → `presentation/`;
+- racconto curato dell'artefatto → `presentation/`;
+- rappresentazione derivata → `view/`, generata da `o3/view/`;
 - asset con significato autonomo nel dominio runtime → superficie dichiarata in
   `world.md`; nel ciclo di sviluppo il Mondo è invece l'artefatto stesso.
 
@@ -100,4 +102,5 @@ Connessioni:
 - [verdict](verdict.md)
 - [pace-layering](pace-layering.md)
 - [presentation](presentation.md)
+- [view](view.md)
 - [system-image](system-image.md)

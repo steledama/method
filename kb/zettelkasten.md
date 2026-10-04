@@ -65,7 +65,7 @@ Regola pratica:
 - se orienta il lettore, va in README.md
 - se è una sintesi interpretativa multi-nodo, va in `i2/`; se prepara una
   decisione o un'azione, svolge la funzione o2; una vista derivata vive in
-  `presentation/`
+  `view/`
 
 La distinzione è operativa: un nodo può sintetizzare più fonti mantenendo una
 responsabilità autonoma. Dashboard, backlog e panoramiche trasversali hanno

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Method · Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel
+      commit
+    </title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="prescriptions.html"
+        ><span class="nav-key">o3</span> Prescriptions</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Ingresso di un adottante nell&#x27;osservatorio"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ingresso di un adottante nell&#x27;osservatorio</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="revisione-bootstrap-adottante.html"
+            title="Revisione coordinata del bootstrap di un adottante"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Revisione coordinata del bootstrap di un adottante</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="esiti-per-stadio-nel-commit.html"
+            title="Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel commit"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel
+              commit</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="migrazione-viste.html"
+            title="Le viste escono in view/, il deck curato in presentation/"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Le viste escono in view/, il deck curato in presentation/</span
+            ></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">o3/esiti-per-stadio-nel-commit.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>data</dt>
+          <dd>2026-09-24</dd>
+        </div>
+        <div>
+          <dt>stato</dt>
+          <dd>attiva</dd>
+        </div>
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+        <div>
+          <dt>target</dt>
+          <dd>nixos, bi, economia, salute, crm, danea-auto</dd>
+        </div>
+      </dl>
+      <h1 id="ogni-giro-di-eval-ed-exec-lascia-lesito-per-stadio-nel-commit">
+        Ogni giro di <code>eval</code> ed <code>exec</code> lascia l’esito per
+        stadio nel commit
+      </h1>
+      <h2 id="cosa-e-perché">Cosa e perché</h2>
+      <p>
+        La clausola di uscita della tripartizione <code>eval</code>/<code
+          >exec</code
+        >
+        giudica la divisione in stadi soprattutto sugli
+        <strong>esiti nulli</strong>: uno stadio che chiude vuoto in tutti i
+        repository per tre giri direbbe che la divisione è «troppo». Il battito
+        del 2026-09-24 ha mostrato che questa misura non esiste: un esito vuoto
+        viene restituito solo in conversazione e non lascia traccia, così un
+        giro senza materia è indistinguibile da un giro mai fatto
+        (<code>i3/skill-per-arco-tripartito.md</code>, verdetto del 2026-09-24).
+      </p>
+      <p>
+        Il canone (<code>kb/skill.md</code>) ora chiede che l’esito resti nella
+        storia. Nessun file nuovo: il log è git.
+      </p>
+      <h2 id="ricetta-di-recepimento">Ricetta di recepimento</h2>
+      <ol type="1">
+        <li>
+          Nei fork locali di <code>.claude/skills/eval/SKILL.md</code> e
+          <code>exec/SKILL.md</code>, dopo la regola della chiusura in una riga,
+          aggiungi la registrazione dell’esito nel commit che chiude il giro:
+          <code>Esiti: &lt;stadio&gt;=materia|vuoto ...</code>, una voce per
+          ogni stadio invocato. Preserva le parametrizzazioni di dominio.
+        </li>
+        <li>
+          Gli <strong>scope di dominio</strong> montati sulle canoniche (<code
+            >eval trascrizione</code
+          >
+          in <code>salute</code>,
+          <code>eval finanze|posta|registrazioni</code> in
+          <code>economia</code>) registrano lo stadio canonico a cui
+          appartengono, per esempio <code>Esiti: perceive=materia</code>, oppure
+          tutti e tre per <code>finanze</code>, che attraversa l’arco. Così il
+          conteggio resta confrontabile fra repository.
+        </li>
+        <li>
+          Un giro senza file cambiati si committa con
+          <code>git commit --allow-empty</code> e lo stesso trailer. Nel fork di
+          <code>/commit</code>, se la regola «una riga» è ancora presente,
+          aggiungi l’eccezione per il trailer <code>Esiti:</code>.
+        </li>
+        <li>
+          Le skill di dominio <strong>autonome</strong> (<code
+            >manutenzione</code
+          >
+          in <code>nixos</code>; <code>ordini</code>,
+          <code>categorizzazione</code>, <code>tassonomia</code> in
+          <code>bi</code>) non sono coinvolte: non sono stadi della
+          tripartizione.
+        </li>
+        <li>
+          Registra il recepimento nel marker
+          <code>i3/allineamento-metodo.md</code>.
+        </li>
+      </ol>
+      <h2 id="verifica">Verifica</h2>
+      <p>
+        <code
+          >git log --since=&lt;data&gt;
+          --format='%(trailers:key=Esiti,valueonly)'</code
+        >
+        restituisce una riga per giro. Il battito <code>/adottanti</code> del
+        2026-11-01 la usa per contare gli esiti per stadio e per repository. Un
+        repository senza nessuna riga dopo il recepimento non ha fatto giri,
+        oppure non registra: la distinzione si fa leggendo il resto del
+        <code>git log</code>.
+      </p>
+    </main>
+  </body>
+</html>

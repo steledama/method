@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Method · Le viste escono in view/, il deck curato in presentation/
+    </title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="prescriptions.html"
+        ><span class="nav-key">o3</span> Prescriptions</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Ingresso di un adottante nell&#x27;osservatorio"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ingresso di un adottante nell&#x27;osservatorio</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="revisione-bootstrap-adottante.html"
+            title="Revisione coordinata del bootstrap di un adottante"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Revisione coordinata del bootstrap di un adottante</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="esiti-per-stadio-nel-commit.html"
+            title="Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel commit"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel
+              commit</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="migrazione-viste.html"
+            title="Le viste escono in view/, il deck curato in presentation/"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Le viste escono in view/, il deck curato in presentation/</span
+            ></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">o3/migrazione-viste.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>data</dt>
+          <dd>2026-10-04</dd>
+        </div>
+        <div>
+          <dt>stato</dt>
+          <dd>attiva</dd>
+        </div>
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+        <div>
+          <dt>target</dt>
+          <dd>nixos, bi, economia, salute, crm, danea-auto</dd>
+        </div>
+      </dl>
+      <h1 id="le-viste-escono-in-view-il-deck-curato-in-presentation">
+        Le viste escono in <code>view/</code>, il deck curato in
+        <code>presentation/</code>
+      </h1>
+      <h2 id="cosa-e-perché">Cosa e perché</h2>
+      <p>
+        In <code>presentation/</code> convivevano due cose diverse: le
+        <strong>viste</strong>, derivate e rigenerate, e il
+        <strong>deck</strong>, il racconto curato dell’artefatto, scritto e non
+        derivato. La confusione era arrivata fino a i2, dove in più repo il deck
+        occupava la collezione delle interpretazioni. Il canone ora le separa
+        (<code>kb/view.md</code>, <code>kb/presentation.md</code>):
+      </p>
+      <ul>
+        <li>
+          <code>view/</code> — tutta generata, servita e chiusa su se stessa: la
+          home, una pagina 1:1 per ogni <code>.md</code> di
+          <code>goal.md</code>, <code>world.md</code> e delle sei collezioni,
+          allo stesso path del repo (<code>o1/plan.md</code> →
+          <code>view/o1/plan.html</code>), il deck reso in
+          <code>view/presentation.html</code>, gli asset. Le viste Reveal
+          <code>tasks</code> e <code>verdict</code> e le liste
+          <code>prescriptions</code>/<code>perceptions</code> sono sostituite
+          dalle pagine degli indici e degli item;
+        </li>
+        <li>
+          <code>presentation/</code> — la sola sorgente del deck,
+          <code>presentation.md</code>, con le tavole accanto;
+        </li>
+        <li>
+          <code>o3/view/</code> — i builder (prima
+          <code>o3/presentation/</code>), con un solo entrypoint,
+          <code>python3 o3/view/build.py</code>, e i CSS canonici in
+          <code>o3/view/assets/</code>.
+        </li>
+      </ul>
+      <p>
+        Il perimetro reso è più largo di prima: non più solo indici, plan e
+        fili, ma ogni item delle sei collezioni. <code>kb/</code>, README e le
+        istruzioni per gli agenti restano fuori in ogni repo.
+      </p>
+      <h2 id="ricetta-di-recepimento">Ricetta di recepimento</h2>
+      <ol type="1">
+        <li>
+          <strong>Builder.</strong> <code>git mv o3/presentation o3/view</code>,
+          poi prendi dal canone <code>build.py</code>, <code>sources.py</code>,
+          <code>build_pages.py</code>, <code>serve.py</code>,
+          <code>assets/</code> e <code>build_system_image.py</code> (la sua
+          CONFIG locale si conserva, ma gli <code>href</code> degli slot puntano
+          ora agli indici: <code>o1/plan.html</code>,
+          <code>o2/tasks.html</code>, <code>o3/prescriptions.html</code>,
+          <code>i3/verdicts.html</code>, <code>i2/interpretations.html</code>,
+          <code>i1/perceptions.html</code>). <code>build_views.py</code> e
+          <code>build_lists.py</code> si rimuovono; i test locali che li usavano
+          passano a <code>tests/test_build_pages.py</code>.
+        </li>
+        <li>
+          <strong><code>project.py</code>.</strong> Allinea al canone:
+          <code>DECK</code> punta a <code>presentation/presentation.md</code> se
+          il repo ha un deck in Markdown; <code>CSS_LOCALI</code> nomina file in
+          <code>presentation/</code>; aggiungi <code>ESCLUSE</code>.
+        </li>
+        <li>
+          <strong>Il deck.</strong> Se vive in <code>i2/</code> (per esempio
+          <code>i2/&lt;repo&gt;-in-sintesi.md</code> con le tavole), spostalo in
+          <code>presentation/presentation.md</code> con le tavole accanto e
+          togli dall’indice <code>i2/interpretations.md</code> le voci e la nota
+          di build che lo riguardavano. Un builder di dominio
+          (<code>DECK_BUILDER</code>) resta in <code>o3/view/</code>: rileggi i
+          path che usa (<code>presentation/assets/</code> diventa
+          <code>view/assets/</code>) e verifica che la sua pagina passi il
+          presidio. Un deck generato dai dati conserva la sua funzione
+          interpretativa: cambiare cartella non la cancella, e i contratti
+          runtime dei suoi JSON restano com’erano.
+        </li>
+        <li>
+          <strong>La cartella generata.</strong> Rimuovi le vecchie viste da
+          <code>presentation/</code> (HTML e <code>assets/</code>), lancia
+          <code>python3 o3/view/build.py</code> e versiona <code>view/</code>.
+          In <code>.gitattributes</code> i path
+          <code>o3/presentation/**</code> e
+          <code>presentation/**</code> diventano <code>o3/view/**</code> e
+          <code>view/**</code>.
+        </li>
+        <li>
+          <strong>Esposizione.</strong> <code>view/</code> rende ora ogni item
+          delle collezioni. Rileggi i vincoli sui dati dove il repo li tiene
+          (<code>CLAUDE.md</code> o <code>world.md</code>): ciò che non deve
+          essere servito sulle reti private va in <code>ESCLUSE</code>, oppure
+          resta fuori dal repo. La decisione del 2026-10-03 (servizio senza
+          eccezioni) non cambia: cambia cosa entra nella cartella, e va scritto.
+        </li>
+        <li>
+          <strong>Servizio permanente, nello stesso giro.</strong> Il servizio
+          dell’host privilegiato legge il nuovo path:
+          <code>view/index.html</code> come condizione,
+          <code>o3/view/serve.py</code> come comando. Per <code>deck</code> e la
+          coppia server la configurazione vive in
+          <code>nixos</code> (<code>o3/modules/home/presentations.nix</code>):
+          finché i repo serviti non sono tutti migrati, la condizione accetta
+          l’una o l’altra forma, poi la vecchia si toglie. Per
+          <code>danea2</code> la configurazione vive in <code>danea-auto</code>.
+          Un servizio fermo in silenzio dopo la migrazione è l’assenza leggibile
+          mancata.
+        </li>
+        <li>
+          <strong>Skill e bussole.</strong> Nei fork di <code>/commit</code>,
+          <code>exec</code> e della skill <code>kb</code>, il comando di build
+          diventa <code>python3 o3/view/build.py</code>; README, CLAUDE e AGENTS
+          nominano <code>view/</code> e <code>presentation/</code> per quello
+          che sono.
+        </li>
+        <li>
+          Registra l’esito nel marker <code>i3/allineamento-metodo.md</code>.
+        </li>
+      </ol>
+      <h2 id="seguito-tracciato-nixos">
+        Seguito tracciato: <code>nixos</code>
+      </h2>
+      <p>
+        Il deck di <code>nixos</code> mescola racconto dell’artefatto e lettura
+        causale del boot. Questa prescrizione ne chiede solo la
+        <strong>migrazione dei path</strong>: la revisione del contenuto (che
+        cosa resta deck e che cosa torna a i2 come lettura presidiata) attende
+        l’esito del task <code>o2/ipotesi-e-confronti-i2-i3.md</code> in
+        <code>metodo</code>. La prescrizione resta aperta su questo punto finché
+        quel task non lo sblocca: la migrazione non lo chiude.
+      </p>
+      <h2 id="verifica">Verifica</h2>
+      <p>
+        Il battito <code>/adottanti</code> successivo legge la migrazione nei
+        file, non nei marker: <code>o3/view/</code> presente e
+        <code>o3/presentation/</code> assente, <code>view/</code> rigenerata
+        identica da <code>origin</code> in una cartella temporanea, deck fuori
+        da <code>i2/</code>, servizio permanente che risponde sul nuovo path
+        dall’host privilegiato.
+      </p>
+    </main>
+  </body>
+</html>

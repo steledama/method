@@ -5,7 +5,8 @@ Regole operative per agenti che lavorano su questo repository.
 ## Bootstrap di sessione
 
 La root contiene le collezioni `i1/`–`i3/` e `o1/`–`o3/`, ciascuna col
-proprio indice, più `kb/`, `presentation/` e i register `goal.md` e
+proprio indice, più `kb/`, `presentation/` (il deck), `view/` (le viste generate) e i
+register `goal.md` e
 `world.md`. Il cruscotto è `o1/plan.md` con i fili pertinenti in `i3/`;
 catalogo, register e altre collezioni si aprono quando servono. Gli item delle
 collezioni dichiarano `ciclo: dev|runtime`. Ordine di lettura:

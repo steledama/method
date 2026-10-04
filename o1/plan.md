@@ -13,7 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
-| dev   | S   | Viste e presentazione                           | —    |
 | dev   | 1   | Ipotesi e confronti i2/i3                       | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 

@@ -9,7 +9,8 @@ verdetto. Produce note e sintesi che dichiarano fonti, assunzioni e incertezza.
 La rilevanza è guidata dai goal; la valenza resta sospesa per evitare che la
 sintesi diventi persuasione.
 
-`i2/` raccoglie sintesi multi-nodo e superfici curate. Un nodo KB in stato
+`i2/` raccoglie sintesi multi-nodo che interpretano i segnali; il racconto
+curato dell'artefatto vive in `presentation/` (`presentation`). Un nodo KB in stato
 `bozza` può invece ospitare un concetto ancora in maturazione. Il passaggio a
 `compare` richiede giudizio: nessuna interpretazione diventa conoscenza stabile
 automaticamente.
@@ -21,3 +22,4 @@ Connessioni:
 - [compare](compare.md)
 - [goal](goal.md)
 - [source-of-truth](source-of-truth.md)
+- [presentation](presentation.md)

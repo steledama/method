@@ -23,7 +23,7 @@ l'autorità concessa. La conoscenza utile non resta dispersa nella chat.
 
 La collocazione segue la funzione: le sintesi interpretative vivono in `i2/`, le
 specifiche che preparano una decisione in `o2/`, le rappresentazioni derivate in
-`presentation/`. Nella KB risale la conoscenza riusabile, anche quando nasce da
+`view/`. Nella KB risale la conoscenza riusabile, anche quando nasce da
 una sintesi. L'atomicità limita le responsabilità del nodo, non vieta di
 integrare più fonti sullo stesso concetto.
 

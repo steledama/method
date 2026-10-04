@@ -13,7 +13,7 @@ dovuto cambiare due punti del canone. Tutti e due sono verificati nel
 codice di `metodo`, e tutti e due vengono dalla stessa assunzione taciuta: il
 toolchain è quello degli host Linux di chi li ha scritti.
 
-**Codifica.** `build_lists.py` chiama pandoc con `text=True` e senza
+**Codifica.** `build_lists.py` (oggi assorbito in `o3/view/`) chiamava pandoc con `text=True` e senza
 `encoding`: Python usa la codifica di default della piattaforma, cp1252 su
 Windows, e la build fallisce. Il fix di `danea-auto`, `encoding="utf-8"`
 nelle due chiamate, entra nel canone così com'è. Non cambia nulla sugli
@@ -34,7 +34,7 @@ guasto sugli host con pandoc vecchio. Il rimedio è quello di
 degradare**. La soglia è verificata nel changelog di pandoc:
 la 3.12 (2026-09-27) corregge i percorsi del template per reveal 6 (#11907),
 la 3.11 scrive ancora quelli della 5. La build (oggi
-`o3/presentation/build.py`) legge quindi
+`o3/view/build.py`) legge quindi
 la versione di pandoc e sceglie `reveal.js@6.0.2` da 3.12 in su,
 `reveal.js@5.1.0` sotto; se non riesce a leggerla si ferma con un errore. Una
 slide bianca è una vista che inganna senza che nessuno lo veda.

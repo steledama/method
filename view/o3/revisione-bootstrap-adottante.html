@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Method · Revisione coordinata del bootstrap di un adottante</title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="prescriptions.html"
+        ><span class="nav-key">o3</span> Prescriptions</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Ingresso di un adottante nell&#x27;osservatorio"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ingresso di un adottante nell&#x27;osservatorio</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="revisione-bootstrap-adottante.html"
+            title="Revisione coordinata del bootstrap di un adottante"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Revisione coordinata del bootstrap di un adottante</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="esiti-per-stadio-nel-commit.html"
+            title="Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel commit"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Ogni giro di eval ed exec lascia l&#x27;esito per stadio nel
+              commit</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="migrazione-viste.html"
+            title="Le viste escono in view/, il deck curato in presentation/"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Le viste escono in view/, il deck curato in presentation/</span
+            ></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">o3/revisione-bootstrap-adottante.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+      </dl>
+      <h1 id="revisione-coordinata-del-bootstrap-di-un-adottante">
+        Revisione coordinata del bootstrap di un adottante
+      </h1>
+      <p>
+        Prescrizione da eseguire nel singolo repository tramite
+        <code>/method</code>. Non impone un template e non autorizza
+        <code>metodo</code> a scrivere nel repo adottante: porta il contratto
+        comune fino al confine e lascia al dominio l’ultimo miglio.
+      </p>
+      <h2 id="perimetro">Perimetro</h2>
+      <p>Leggere insieme, nell’ordine di bootstrap effettivo:</p>
+      <ol type="1">
+        <li><code>README.md</code>;</li>
+        <li><code>CLAUDE.md</code>;</li>
+        <li>intro e articolazione di <code>goal.md</code>;</li>
+        <li>intro e articolazione di <code>world.md</code>;</li>
+        <li>
+          nodo canonico <code>method/world.md</code> e gli altri nodi
+          metodologici collegati intenzionalmente dai quattro file.
+        </li>
+      </ol>
+      <p>
+        Usare come materiale comparativo
+        <code>method/../i2/bootstrap-adottanti.md</code> quando il checkout
+        consente di raggiungerlo; le osservazioni per-repo sono indizi da
+        verificare sullo stato locale, non ordini testuali.
+      </p>
+      <h2 id="contratto-comune">Contratto comune</h2>
+      <h3 id="readme-orienta">README — orienta</h3>
+      <ul>
+        <li>identità e scopo sono comprensibili senza aprire altri file;</li>
+        <li>
+          il primo contenuto sostanziale rende Mondo, poste e percorsi nel
+          linguaggio del dominio;
+        </li>
+        <li>
+          Goal, World, cruscotto, catalogo e regole operative sono
+          raggiungibili;
+        </li>
+        <li>
+          la sezione <code>## Metodo</code> dichiara una volta dipendenza,
+          symlink, hub stabile e register dei poli;
+        </li>
+        <li>
+          teoria estesa, inventario completo, procedure e troubleshooting non
+          competono con la funzione di bussola.
+        </li>
+      </ul>
+      <h3 id="claude-istruisce">CLAUDE — istruisce</h3>
+      <ul>
+        <li>
+          contiene ciò che deve essere presente
+          <strong>prima dell’azione</strong>: autorizzazioni, vincoli, pericoli,
+          ambiente e convenzioni operative;
+        </li>
+        <li>
+          sposta nei nodi reference, razionali e conoscenza consultabile
+          on-demand;
+        </li>
+        <li>
+          non ricostruisce il catalogo del metodo né duplica estesamente il
+          README;
+        </li>
+        <li>
+          conserva guardrail ad alta posta anche quando rendono il file più
+          lungo.
+        </li>
+      </ul>
+      <h3 id="goal-rende-il-nord">Goal — rende il nord</h3>
+      <ul>
+        <li>
+          l’intro dall’H1 al primo H2 è la visione della direzione, non una
+          spiegazione del register o del ciclo;
+        </li>
+        <li>
+          obiettivi, segnali e lavoro corrente concordano col README e col plan;
+        </li>
+        <li>
+          la compressione dell’intro non cancella tensioni costitutive del
+          dominio.
+        </li>
+      </ul>
+      <h3 id="world-rende-il-territorio">World — rende il territorio</h3>
+      <ul>
+        <li>
+          l’intro dall’H1 al primo H2 dice di che cosa è fatto il Mondo
+          rilevante;
+        </li>
+        <li>
+          superfici, fonti, pipeline e dettaglio territoriale vivono nelle
+          sezioni on-demand;
+        </li>
+        <li>
+          entità e assi concordano col Goal e con il dominio presentato nel
+          README;
+        </li>
+        <li>
+          <code>world.md</code> locale applica il nodo canonico
+          <code>method/world.md</code>, non lo duplica.
+        </li>
+      </ul>
+      <h2 id="controllo-trasversale">Controllo trasversale</h2>
+      <p>Verificare esplicitamente:</p>
+      <ul>
+        <li>contraddizioni fra identità, assi, stato, Goal e World;</li>
+        <li>
+          lo stesso dettaglio ripetuto in più file senza lettori distinti;
+        </li>
+        <li>
+          contenuto rimosso dal README ma riversato senza criterio in CLAUDE;
+        </li>
+        <li>
+          link interni al metodo privi di una dipendenza semantica o operativa
+          locale;
+        </li>
+        <li>
+          intro dei register che la home amplificherebbe come metadocumentazione
+          o modello eccessivamente esteso.
+        </li>
+      </ul>
+      <h2 id="esito-locale">Esito locale</h2>
+      <p>
+        Applicare soltanto le modifiche giustificate dal dominio. Nel marker
+        <code>i3/allineamento-metodo.md</code> registrare:
+      </p>
+      <ul>
+        <li>file revisionati e commit del canone usato;</li>
+        <li>modifiche applicate;</li>
+        <li>differenze conservate con motivazione di dominio;</li>
+        <li>
+          eventuali tensioni nuove da far risalire come segnale i1 a
+          <code>metodo</code>.
+        </li>
+      </ul>
+      <p>
+        Rigenerare e verificare la home se rende le intro di Goal e World. Un
+        esito senza modifiche è legittimo quando il quartetto soddisfa già il
+        contratto.
+      </p>
+    </main>
+  </body>
+</html>

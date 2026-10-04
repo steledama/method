@@ -4,164 +4,67 @@ stato: bozza
 
 # Presentation
 
-La superficie presentativa dell'artefatto: dove le viste derivate vengono rese,
-aperte e condivise. Se `view` tiene la disciplina della derivazione — a quali
-obblighi una vista risponde — questo nodo tiene la sua **materializzazione**: il
-formato che si apre senza attrezzatura, la build che lo produce e il modo in cui
-raggiunge un lettore che non ha il checkout.
+La presentazione è il **racconto curato dell'artefatto**: un solo deck che
+spiega com'è fatto il progetto e perché, a chi lo incontra senza percorrerne le
+collezioni. È scritta, non derivata. Se una vista (`view`) traduce una fonte
+senza diventarne una seconda, la presentazione è essa stessa una fonte: un
+argomento composto, con un ordine, delle tavole e delle omissioni scelte.
 
-La cartella `presentation/` è la casa di questa superficie: le viste generate e
-gli asset condivisi. Non è una collezione-stadio e non ha indice proprio — è
-rappresentazione derivata, e la sua fonte vive sempre altrove.
+## Distinta dalle viste e dall'interpretazione
 
-## Compartimento stagno
+Due confusioni da tenere fuori.
 
-`presentation/` si apre e si serve da sola: nessun URL emesso esce dalla
-cartella. Un link a una fonte (`../goal.md`, `../o2/…`) diventa la sua
-etichetta; restano link le ancore, i file della cartella e gli URL con schema.
-Il legame che una vista deve conservare si porta dentro: la chiave `Ob.` del
-plan apre la legenda degli obiettivi, una slide della vista con i titoli letti
-da `goal.md`. Le immagini di una vista hanno la fonte nella loro collezione (le
-tavole delle Interpretazioni in `i2/`) e la build le copia in
-`presentation/assets/`: la dipendenza resta nel verso della derivazione, e git
-salva una volta sola i file identici. Il builder rompe se un'immagine manca o
-un URL esce dalla cartella: è il «derivata implica verificata» di
-`view` applicato al confine.
+- **Non è una vista.** Una vista si rigenera e la sua freschezza è un gesto
+  meccanico; il deck si scrive, e la sua freschezza è un giudizio: quando
+  cambia ciò che racconta, va riletto. Per questo non vive in `view/`, dove
+  tutto è generato, ma in `presentation/`: la sorgente `presentation.md` e
+  le tavole accanto. La build la rende in `view/presentation.html` e la home
+  la linka come voce a sé.
+- **Non è uno stadio.** Il racconto dell'artefatto non interpreta i segnali del
+  Mondo: tenerlo in `i2/` mescola la superficie curata con le letture che
+  attendono riscontro, e fa sembrare interpretazione ciò che è esposizione.
+  `i2/` resta alle sintesi che interpretano i segnali.
 
-## HTML apribile direttamente
+## Fedeltà alle fonti
 
-Il formato operativo minimo è un HTML versionato con path relativi, apribile con
-doppio click o `xdg-open` sul file. Non deve richiedere build, deploy, servizi
-permanenti o `fetch` di file locali, che i browser bloccano sotto `file://`. Il
-servizio permanente dell'host privilegiato (sotto) è un canale in più verso chi
-non ha il checkout, non un requisito della vista.
+Il deck comprime: ogni slide sceglie una tensione e ne tace altre. La
+compressione è legittima finché ciò che afferma resta riconducibile a una fonte
+del repo — un nodo, una sintesi, un register — e non introduce tesi che il
+canone non regge. Una tavola che semplifica un concetto deve semplificarlo
+nella direzione del nodo, non in quella più raccontabile (`verdict`, «Il
+verdetto non può essere più sicuro del materiale»). Il deck non sostituisce le
+fonti: chi vuole il dettaglio apre le pagine.
 
-Reveal può essere caricato da CDN senza introdurre dipendenze installate. L'HTML
-si apre via `file://`; la connessione Internet serve solo a caricare il
-framework, non a servire i file locali. Se serve uso offline, Reveal va
-vendorizzato in `presentation/assets/`. La home statica non usa Reveal. Ha un
-CSS proprio (`system-image.css`) condiviso tra i fork adottanti, ma il contratto
-è minimale: token, base e sole classi emesse dal builder della home. Le viste
-Reveal hanno un solo CSS canonico, `deck.css`, uguale in ogni repo: base pulita
-sul tema `white`, titoli con barra d'accento, cover, slide `hero` e tavola,
-tabella del plan. Le classi di dominio (diagrammi, componenti di un deck
-specifico) vivono in un CSS locale del repo, dichiarato in `CSS_LOCALI` di
-`o3/presentation/project.py`.
+Negli adottanti il deck può essere generato dai dati del repo da un builder di
+dominio (`DECK_BUILDER` in `o3/view/project.py`), invece che scritto in
+Markdown (`DECK`). In quel caso conserva la funzione che ha nel dominio: se
+porta anche una lettura del Mondo, quella lettura non scompare cambiando
+cartella, e il confine fra racconto dell'artefatto e interpretazione si decide
+nel repo.
 
-## Identità del progetto
+## Forma
 
-Le presentazioni dei progetti sono uniformi: a distinguerle sono solo la
-**sigla** nei titoli delle viste («Method Plan», «BI Piano», nella lingua del
-repo) e un **colore d'accento** unico per progetto, che vale per viste, liste e
-home. Lo stile a sketch è stato abbandonato perché troppo confidenziale per una
-superficie che deve passare da un repo all'altro senza attrito. Sigla, lingua,
-accento e sorgente del deck — un Markdown in `DECK`, oppure un builder di
-dominio in `DECK_BUILDER` quando il deck si genera dai dati del repo — si
-dichiarano in un solo file,
-`o3/presentation/project.py`; la build scrive l'accento in
-`presentation/assets/theme.css`.
+Reveal, caricato da CDN senza dipendenze installate: l'HTML si apre via
+`file://` e la rete serve solo al framework; per l'uso offline Reveal si
+vendorizza. Il deck ha un CSS canonico, `deck.css`, uguale in ogni repo — base
+pulita sul tema `white`, titoli con barra d'accento, cover, slide `hero` e
+tavola —; le classi di dominio vivono in un CSS locale dichiarato in
+`CSS_LOCALI`. Le tavole si citano come `assets/<nome>`, hanno la fonte accanto
+al deck e la build le copia in `view/assets/`; una tavola che manca rompe la
+build.
 
-La home resta minimale, pura affordance di navigazione, senza modalità
-dev/runtime. Se la lente dev/runtime servirà, entrerà come filtro nelle singole
-viste, che già mostrano la colonna `Ciclo`; finché l'uso non la chiede, resta
-rimandata.
-
-## Grafica nativa e build minima
-
-Le view usano HTML e CSS nativi per layout, diagrammi e componenti visivi; SVG
-inline è disponibile quando serve controllo geometrico più preciso. Motori di
-diagrammi come Mermaid introducono parser, vincoli di layout e dipendenze
-runtime sproporzionati rispetto al vantaggio in presentazioni curate: non fanno
-parte del pattern di default.
-
-La build è versionata in `o3/presentation/`, con lo **stesso path in ogni
-repo**: chi passa da un progetto all'altro, umano o agente, non deve scoprire
-dove stanno i builder, e le skill citano un solo comando. L'entrypoint è unico,
-`python3 o3/presentation/build.py`: rigenera tutte le viste, la home e gli
-asset, e chiude col presidio del compartimento stagno. È Python e non shell
-perché deve girare anche sugli host Windows. Gli script restano privi di
-dipendenze installate oltre a Pandoc e Prettier; gli asset comuni vivono in
-`presentation/assets/`. Due generazioni consecutive devono produrre lo
-stesso output: il determinismo è ciò che rende la rigenerazione un gesto
-meccanico invece di una decisione.
-
-## Apertura locale e condivisione sulle reti private
-
-Il default è aprire il file localmente:
-
-```bash
-xdg-open presentation/<vista>.html
-```
-
-Per aprirla da un altro PC delle reti private, lo stesso comando in ogni repo e
-su ogni sistema (su Windows `py o3\presentation\serve.py`):
-
-```bash
-python3 o3/presentation/serve.py
-```
-
-Il server usa solo la libreria standard e serve la sola cartella
-`presentation/`, che è chiusa su se stessa: niente dotfile, niente elenchi di
-cartella. Stampa gli URL raggiungibili, ascolta per default sulla porta 8000
-(`--port`, `--bind` per cambiarla o restringerla) e si chiude con Ctrl-C. Il
-lancio manuale serve qualsiasi checkout su qualsiasi host, anche uno diverso da
-quello privilegiato: si lavora su un host e si consulta la presentazione da un
-altro PC senza sincronizzarla altrove.
-
-Il server non tocca il firewall. Da un altro dispositivo la porta deve essere
-ammessa per le sole reti private (LAN e VPN dichiarate dall'host), mai per la
-rete pubblica: sugli host con firewall dichiarativo la regola vive nella loro
-configurazione, e finché il server non gira sulla porta non ascolta nessuno; su
-Windows la regola si crea dal prompt del firewall alla prima esecuzione o in
-modo esplicito.
-
-## Vincolo conservato
-
-Una vista autonoma non giustifica un servizio permanente senza consumatori
-reali. Hook host-local e copie servite separatamente dal checkout possono
-rompersi in silenzio dopo un rename; servire il checkout stesso mantiene invece
-sorgente e resa nello stesso artefatto. La condizione di revisione — un bisogno
-reale di disponibilità continua o accesso remoto, non la sola possibilità
-tecnica di mantenere un servizio — si è verificata: chi sta nelle reti private
-consulta com'è fatto un progetto e a che punto è senza averne il checkout.
-
-Un servizio permanente è quindi legittimo, alle condizioni che conservano il
-vincolo:
-
-- **consumatori reali**: persone nelle reti private che consultano lo stato del
-  progetto senza il checkout. Senza di loro il servizio non nasce;
-- **un solo host privilegiato per progetto**: un solo host serve
-  permanentemente ciascun progetto, così non circolano rese di checkout a
-  versioni diverse; le sessioni manuali possono servire temporaneamente altri
-  checkout. Se l'host è un ruolo (la produzione di una coppia di server), il
-  servizio segue il ruolo e al cambio resta attivo solo sul nuovo titolare;
-- **servizio utente**: a livello utente, non di sistema, gestibile da un agente
-  senza privilegi; disponibile dopo il riavvio dell'host e senza una sessione
-  interattiva aperta;
-- **solo reti private**: le porte le ammette il firewall dell'host, mai verso la
-  rete pubblica; il server non le apre;
-- **nessuna copia separata**: il servizio lancia lo stesso `serve.py` canonico
-  del checkout con `--port`. Il server legge i file su disco, quindi una
-  sincronizzazione aggiorna la presentazione senza riavvii; la rigenerazione
-  resta di `build.py`;
-- **assenza leggibile**: se mancano il checkout o `presentation/index.html` il
-  servizio resta fermo con una diagnosi leggibile, senza cicli di riavvio;
-- **esposizione dichiarata**: un server sempre acceso e senza autenticazione
-  espone il contenuto di `presentation/` in modo continuo, non più occasionale.
-  L'adottante lo registra dove tiene i propri vincoli sui dati — cosa entra in
-  `presentation/` e chi lo vede — non solo nella nota di rete. La protezione
-  sta in ciò che entra nella cartella e nelle reti ammesse, non in un server
-  più chiuso in un repo che negli altri.
-
-Host, porte e configurazione del servizio sono materia dell'host, non del
-canone: il canone fissa le condizioni, l'adottante dichiara il proprio host
-privilegiato e dove vive la sua configurazione.
+HTML e CSS nativi bastano per layout e componenti; SVG inline quando serve
+controllo geometrico. Motori di diagrammi come Mermaid introducono parser e
+dipendenze runtime sproporzionati per un racconto curato e non fanno parte del
+pattern di default. Il PDF per stampa o distribuzione esce dall'export del deck
+e non si versiona.
 
 Connessioni:
 
 - [view](view.md)
 - [output](output.md)
+- [interpret](interpret.md)
+- [verdict](verdict.md)
 - [project-structure](project-structure.md)
-- [constraint](constraint.md)
 - [processing-layers](processing-layers.md)
 - [affordance-signifier](affordance-signifier.md)

@@ -6,10 +6,12 @@ ciclo: dev
 # Ipotesi e confronti i2/i3
 
 Task di prova, non di migrazione. Nato il 2026-10-04 dalla revisione della
-presentazione e separato lo stesso giorno da
-[viste-e-presentazione](viste-e-presentazione.md): liberare i2 dal deck non
-dice ancora che cosa i2 debba custodire, e la risposta va provata sui casi
-prima di diventare obbligo canonico. Il suo prodotto è un modello sottoposto al
+presentazione e separato lo stesso giorno dalla migrazione delle viste, ora
+chiusa nel canone e prescritta ai sei (`o3/migrazione-viste.md`): liberare i2
+dal deck non dice ancora che cosa i2 debba custodire, e la risposta va provata
+sui casi prima di diventare obbligo canonico. Dall'esito dipende il seguito
+tracciato di quella prescrizione: la revisione del deck di `nixos`, che
+mescola racconto dell'artefatto e lettura del boot. Il suo prodotto è un modello sottoposto al
 custode; canone, ristrutturazione di `metodo` e prescrizione ai sei nascono
 come task propri solo dopo la ratifica.
 

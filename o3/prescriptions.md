@@ -25,6 +25,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei; resta attiva fino al conteggio del 2026-11-01.
+- [Le viste escono in `view/`, il deck curato in
+  `presentation/`](migrazione-viste.md) — builder in `o3/view/`, pagine 1:1
+  di register e collezioni, deck fuori da i2, servizio permanente sul nuovo
+  path nello stesso giro; la revisione del deck misto di `nixos` resta un
+  seguito tracciato.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
@@ -44,51 +49,42 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
   1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
   fatti o fonti. Test: `python3 -m unittest discover -s tests -p 'test_kb_profile.py'`.
-- `presentation/` — i builder della presentazione, con lo stesso path in ogni
-  repo (canone, cfr. [presentation](../kb/presentation.md)):
-  - `build.py` — **unico entrypoint**: `python3 o3/presentation/build.py`
-    rigenera viste Reveal, liste, home e asset, formatta con Prettier e
-    chiude col presidio del compartimento stagno (nessun URL emesso esce da
-    `../presentation/`). È Python per girare anche sugli host Windows;
-  - `project.py` — l'unico file che il fork parametrizza: sigla e lingua dei
-    titoli, colore d'accento (scritto in `assets/theme.css`), sorgente del
-    deck delle Interpretazioni;
+- `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
+  cfr. [view](../kb/view.md)):
+  - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i
+    contratti fra le fonti, rigenera pagine, deck, home e asset in `../view/`,
+    rimuove ciò che non produce più, formatta con Prettier e chiude col
+    presidio del compartimento stagno (nessun URL emesso esce da `../view/`).
+    È Python per girare anche sugli host Windows;
+  - `project.py` — l'unico file che il fork parametrizza: sigla, lingua,
+    colore d'accento (scritto in `view/assets/theme.css`), sorgente del deck,
+    CSS di dominio ed esclusioni dal perimetro;
   - `sources.py` — libreria condivisa: parsing di plan, task e register,
-    titoli con sigla, chiusura dei link sull'AST di Pandoc; non si invoca
+    contratti plan × o2 e i3 × goal, Pandoc e resa del deck; non si invoca
     direttamente;
-  - `build_views.py` — le sorgenti Markdown delle viste Reveal `tasks` (con
-    la legenda interna degli obiettivi e, in una slide, tutto ciò che nel plan
-    segue la tabella: legenda delle dipendenze, risvegli, scadenze; le chiavi
-    `p<n>`/`w<n>` della colonna Dip. vi puntano e senza voce rompono) e
-    `verdict` (indice Ciclo · Ob. · Filo nell'ordine di `../i3/verdicts.md`,
-    poi un filo per slide; contratto i3 × goal: ogni file indicizzato, ogni
-    voce col suo file, `obiettivo:` verificato contro `../goal.md`);
-  - `build_lists.py` — le due viste a elenco `prescriptions.html` e
-    `perceptions.html`: l'intero indice reso con Pandoc, nell'ordine e con la
-    struttura della fonte; i link alle fonti restano etichetta. Regressioni:
-    `python3 -m unittest discover -s tests -p 'test_build_lists.py'`;
-  - `serve.py` — serve la sola `../presentation/` sulle reti private:
-    `python3 o3/presentation/serve.py`, porta 8000, Ctrl-C per chiudere; il
-    servizio permanente dell'host privilegiato lancia lo stesso script con
-    `--port`. Solo libreria standard, niente dotfile né elenchi di cartella;
-  - `build_system_image.py` — la home statica minimalista: ciclo singolo,
-    un collegamento primario per slot; il CSS condiviso della home resta
-    potato alle classi che il builder emette.
+  - `build_pages.py` — le pagine 1:1 di `goal.md`, `world.md` e delle sei
+    collezioni, allo stesso path del repo, con la navigazione comune, i link
+    riscritti sul perimetro e le immagini copiate accanto. Regressioni:
+    `python3 -m unittest discover -s tests -p 'test_build_pages.py'`;
+  - `build_system_image.py` — la home statica minimalista: register in
+    sintesi, un collegamento primario per stadio, il deck come voce a sé;
+  - `serve.py` — serve la sola `../view/` sulle reti private:
+    `python3 o3/view/serve.py`, porta 8000, Ctrl-C per chiudere; il servizio
+    permanente dell'host privilegiato lancia lo stesso script con `--port`.
+    Solo libreria standard, niente dotfile né elenchi di cartella;
+  - `assets/` — i CSS canonici, copiati in `../view/assets/`: `page.css`
+    per le pagine, `system-image.css` per la home, `deck.css` per il deck.
 
-Ogni sezione delle viste generate ha una sorgente canonica; i generatori
-verificano i contratti fra sorgenti ([view](../kb/view.md)):
+Ogni file di `../view/` ha una sorgente canonica; il generatore verifica i
+contratti fra sorgenti ([view](../kb/view.md)):
 
-- `../presentation/interpretations.html` ← `../i2/metodo-in-sintesi.md`, con le tavole copiate da `../i2/`;
-- `../presentation/tasks.html` ← `../o1/plan.md` e i file in `../o2/`;
-- `../presentation/verdict.html` ← i fili in `../i3/`;
-- `../presentation/prescriptions.html` ← l'intero indice
-  `prescriptions.md` (questo file);
-- `../presentation/perceptions.html` ← l'intero indice
-  `../i1/perceptions.md`;
-- `../presentation/index.html` ← titolo di `../README.md`, intro dei register
-  `../goal.md` e `../world.md`, configurazione degli slot; le collezioni-stadio
-  le _collega_, non le rende.
+- `../view/<path>.html` ← `../<path>.md`, per `../goal.md`, `../world.md` e
+  ogni `.md` delle sei collezioni;
+- `../view/presentation.html` ← `../presentation/presentation.md`, con le
+  tavole copiate da `../presentation/`;
+- `../view/index.html` ← titolo di `../README.md`, intro dei register
+  `../goal.md` e `../world.md`, configurazione degli slot; le collezioni le
+  _collega_, non le rende.
 
-I path interni sono riallineati alla struttura `o3/` + `presentation/` +
-`o1/plan.md`; `presentation/build.py` e
-`kb_tools.py audit` sono il controllo minimo dopo modifiche strutturali.
+`view/build.py` e `kb_tools.py audit` sono il controllo minimo dopo
+modifiche strutturali.
