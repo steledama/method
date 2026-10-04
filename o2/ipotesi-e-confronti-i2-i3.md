@@ -37,7 +37,12 @@ cardinalità, schema e ciclo di vita si provano sui casi.
   `economia`. La lettura è orientata dal Goal sulla rilevanza;
   spiegare o prevedere non equivale a giudicare il successo rispetto al Goal.
 - **i3 governa i confronti**: le questioni valutative vive, collegate alle
-  letture i2, con obiettivo, giudizio corrente e condizione di riesame.
+  letture i2, con obiettivo, giudizio corrente e condizione di riesame. Il
+  confronto porta una sintesi valutativa: che cosa la lettura significa
+  rispetto allo scopo, quale tensione rivela, quali conseguenze propone per
+  l'azione o per il Goal, compresa l'aggiunta, la rettifica o la
+  ridefinizione di un obiettivo. La modifica del Goal resta una decisione del
+  custode, resa esplicita nel register.
   L'ordine esprime priorità di attenzione e verifica; il plan mantiene la
   priorità dell'azione. Una questione può essere importante mentre non
   autorizza ancora nessuna mossa.
@@ -247,6 +252,20 @@ con il segnale più netto; gli altri due provano la generalità.
   causale: è un orologio nostro (`kb/plan.md`, «Tempo e fonti») e verifica
   che il presidio scatti, non che il Mondo abbia risposto. Si dichiara così e
   non vale come la scadenza esogena di `economia`.
+
+  Divisione attesa del lavoro, da verificare nel prototipo. i2 tiene la
+  lettura: entrambi gli incidenti sono avvenuti al primo riavvio dopo un
+  `nixos-rebuild switch`, mentre un reboot successivo senza rebuild è riuscito
+  (`i2/nixos-in-sintesi.md`, `o2/investigate-server-boot-recurrence.md`); la
+  correlazione resta un'ipotesi presidiata, con le alternative e
+  l'incertezza. i3 confronta quella lettura con l'obiettivo di affidabilità.
+  Il criterio corrente di `i3/affidabilita-boot-server.md`, tre primi reboot
+  dopo un rebuild senza emergency mode, misura la non ricorrenza; il
+  confronto può concludere che non basta a dire l'obiettivo raggiunto mentre
+  la causa resta ignota, e proporre di rettificarne il criterio di successo.
+  La proposta resta tale: la modifica del Goal la decide il custode nel
+  register di `nixos`.
+
 - **salute**, potatura `ae9a174`: tre fili eliminati; baricentro accorpato al
   quadro corporeo e domande autobiografiche conservate in
   `i2/educazione-cattolica.md`. Prova il gradiente: rabbia inavvertita e
@@ -327,9 +346,11 @@ la pratica al dominio che ne beneficia.
 - granularità: identificativo per ipotesi, con file per ipotesi o ancore in
   un file comune;
 - criterio di permanenza degli esiti;
-- forma di i3: file per confronto con indice tabellare come o1 e o2, oppure
-  sola tabella; dove vive la prosa del giudizio, dato che i2 sospende la
-  valenza e una cella è illeggibile a larghezza mobile (`CLAUDE.md`);
+- forma di i3: orientamento verso un file per confronto, che porta la
+  sintesi valutativa in prosa, con un indice tabellare come o1 e o2; la sola
+  tabella non ha posto per quella prosa, che non può scendere in i2 perché
+  i2 sospende la valenza, e una cella è illeggibile a larghezza mobile
+  (`CLAUDE.md`). Da ratificare dopo la prova;
 - destinazione di cursori e contratti come `i3/allineamento-metodo.md`;
 - etichetta della collezione i3: «Verdetti» o «Confronti», con rinomina dei
   nodi `verdict` e `compare` o senza;
