@@ -1,5 +1,5 @@
 ---
-sintesi: "Provare su economia e nixos, poi salute e bi, un modello in cui i2 tiene le ipotesi interpretative esposte alla prova del Mondo e i3 i confronti contro il Goal, con eval che verifica le ipotesi sui nuovi eventi i1 e conserva gli esiti finché condizionano una lettura. Misurare prima il bisogno sulle potature recenti; consegnare al custode un modello da ratificare, con la propria condizione di caduta, senza incidere il canone."
+sintesi: "Provare un laboratorio delle ipotesi nella collezione i2 di ogni adottante: file autonomi classificati tramite tipo: sintesi|ipotesi, riscontri, revisioni e scioglimento propri; i3 conserva i confronti contro il Goal. Prototipi su economia e nixos, generalità su salute e bi, riesame tramite eval e permanenza degli esiti utili. Misurare separatamente le perdite nella potatura dei sedici fili originari; consegnare un modello verificato senza incidere il canone."
 ciclo: dev
 ---
 
@@ -15,15 +15,16 @@ come task propri solo dopo la ratifica.
 
 ## Il problema
 
-Il canone non ha casa per le **convinzioni sul Mondo ancora esposte alla
-prova**. `kb/verdict.md` manda l'ipotesi in attesa allo `stato: bozza` del suo
-nodo: copre le ipotesi sul canone, non la causa del boot di `nixos`, la
-profezia su Orsi di `economia` o la rabbia inavvertita di `salute`. Il
-criterio «un filo misura un obiettivo» ha potato i fili senza obiettivo, e la
-lettura a valenza sospesa non aveva altro posto. Le potature recenti — `5ea8204`
-in `metodo` (sedici fili ridotti a cinque), da 38 a 19 nell'aggregato dei sei
-— possono aver cacciato letture vive insieme ai verdetti morti. È un sospetto
-fondato, non ancora misurato.
+Il canone assegna già a i2 letture, assunzioni e incertezza, ma non
+esplicita il contratto per rendere raggiungibili le **convinzioni sul Mondo
+ancora esposte alla prova**, riesaminarle sui riscontri e conservarne gli
+esiti utili. Le pratiche esistono: previsioni in `economia`, spiegazioni del
+boot in `nixos`, letture esplorative in `salute`.
+
+Due bisogni si misurano separatamente: il presidio incompleto delle ipotesi e
+l'eventuale perdita di letture nelle potature recenti — `5ea8204` in `metodo`
+(sedici fili ridotti a cinque), da 38 a 19 nell'aggregato dei sei. Una potatura
+corretta non smentisce il bisogno di riesame osservato altrove.
 
 ## Direzione concordata e modello da verificare
 
@@ -32,8 +33,7 @@ cardinalità, schema e ciclo di vita si provano sui casi.
 
 - **i2 rende concreta la lettura**: evidenze e provenienza, chiavi
   interpretative, ipotesi, alternative, assunzioni e limiti. Qui vivono le
-  ipotesi da verificare, comprese le previsioni oggi raccolte nell'Angolo di
-  Nostradamus di `economia`. La lettura è orientata dal Goal sulla rilevanza;
+  ipotesi da verificare, comprese le previsioni già praticate in `economia`. La lettura è orientata dal Goal sulla rilevanza;
   spiegare o prevedere non equivale a giudicare il successo rispetto al Goal.
 - **i3 governa i confronti**: le questioni valutative vive, collegate alle
   letture i2, con obiettivo, giudizio corrente e condizione di riesame.
@@ -54,6 +54,51 @@ valutazione, specifiche dell'azione e letture del Mondo. Non impone di
 stringere il contratto plan×o2 né di ridurre tutti gli stadi a file Markdown:
 in `bi` esistono anche prodotti automatici runtime i2 e i3.
 
+## Oggetti della collezione e laboratorio delle ipotesi
+
+Direzione concordata col custode: istituzionalizzare il laboratorio delle
+ipotesi nella collezione esistente `i2/` di ogni adottante, senza imporre
+ipotesi da produrre né una nuova collezione. Una collezione senza ipotesi
+correnti è legittima. Il nome comune è «ipotesi»; il nome scherzoso della
+pratica di `economia` non entra nel modello.
+
+Provare la facet `tipo: sintesi|ipotesi`, a valori chiusi e singola per item,
+accanto a `ciclo: dev|runtime`, dichiarata nel canone e verificabile dagli
+strumenti. Oggi questa facet non esiste in i2: è una proposta da provare,
+non un controllo già implementato. L'indice esistente rende raggiungibili
+entrambi i tipi; le viste possono selezionare le ipotesi dai metadati.
+
+Una sintesi può contenere domande e ipotesi esplorative. Una lettura riceve
+un file autonomo quando richiede riscontri, revisioni e criteri di
+scioglimento propri o condiziona decisioni nel tempo. L'orizzonte è una
+proprietà possibile, non il requisito per avere una casa. La prova verifica
+il confine fra i tipi e la loro copertura, compresi i prodotti runtime.
+
+Tenere distinti tipo dell'oggetto, esito dei riscontri e maturità dei nodi KB:
+`stato: bozza|iniziale|maturo` non esprime corroborazione o falsificazione.
+Provare se l'esito debba essere un campo a valori chiusi; formulazione,
+alternative, prove, vincoli di scioglimento e revisioni restano nel corpo.
+
+### Precedenti nelle altre collezioni
+
+La proposta si confronta con la classificazione già praticata: in o3
+convivono prescrizioni, runbook ed esecutori; i Markdown delle prescrizioni
+possono dichiarare ciclo, stato, data e destinatari. In i1 convivono catture
+singole e stato corrente rigenerato, come `nixos/i1/manutenzione.json`
+(segnale `i1/registro-perpetuo-vs-cattura-singola.md`).
+
+In `bi`, `kb/percezioni.md` e `o3/lib/perception.js` dichiarano invece un
+contratto runtime: envelope JSON con produttore, consumatori, versione dello
+schema e stadio, registry e controlli sulle chiamate reali. I metadati
+sistematizzano classificazione e provenienza; il codice applica il contratto.
+Frontmatter Markdown e envelope JSON hanno ruoli analoghi, ma formati e
+controlli distinti. Non aggiungere un inventario manuale parallelo al registry
+né imporre frontmatter a script o JSON.
+
+Usare questi precedenti per verificare la proposta i2, distinguendo natura,
+ciclo di vita e contratto di produzione/consumo. Il task non generalizza una
+tassonomia di tutti gli stadi né migra i contratti runtime degli adottanti.
+
 ## Ipotesi e riscontri
 
 Provare una forma minima che renda riconoscibili:
@@ -66,10 +111,11 @@ Provare una forma minima che renda riconoscibili:
 - esito motivato: in attesa, corroborata, falsificata, mista o non valutabile,
   con limiti del riscontro e conseguenze sulla lettura corrente.
 
-La forma completa vale per le ipotesi con un evento atteso o un orizzonte: sono
-quelle che il presidio di `eval` deve raggiungere. Una lettura esplorativa
-resta prosa i2 con le sue domande discriminanti, senza scheda. La prova dice se
-il gradiente regge o se una delle due forme assorbe l'altra.
+Il file autonomo mantiene la lettura corrente e i passaggi significativi
+che ne spiegano le revisioni. Ogni ipotesi autonoma è raggiungibile dal
+presidio di `eval`, anche senza scadenza o confronto i3. Le domande ancora
+esplorative possono restare nella prosa della sintesi; la prova verifica il
+gradiente senza imporre campi privi di senso.
 
 Una corroborazione non prova automaticamente la causa o l'intenzione attribuita.
 L'assenza di dati non è conferma né falsificazione; il mancato evento vale come
@@ -79,21 +125,23 @@ smentita. Probabilità numeriche e previsioni non sono campi obbligatori.
 
 La formulazione e il criterio originari non si riscrivono alla luce dell'esito.
 Una revisione dichiara cosa cambia e perché, conservando il predecessore e il
-suo esito. Il tono locale di Nostradamus può restare; il presidio della
-verifica deve funzionare senza dipendere da quel nome o da un singolo dominio.
+suo esito. Git conserva la storia completa; il file conserva i precedenti necessari a
+capire la lettura corrente, senza un diario delle sessioni.
 
 ## Permanenza degli esiti
 
-È la decisione centrale e contraddice il canone vigente: `kb/verdict.md` vuole
-lo stato aggiornato in place e la storia in Git, mentre una falsificazione è
-materiale cognitivo vivo. Criterio proposto, da provare: **un esito resta in i2
-finché condiziona una lettura corrente** — la profezia 0 di `economia` tiene
-viva la calibrazione su Caprioli. Quando non condiziona più nulla ne resta la
-lezione, nella sintesi o in un nodo, e il dettaglio torna a Git. Senza un
-criterio del genere «conserva anche le falsificazioni» diventa un registro
-perpetuo (cfr. `i1/registro-perpetuo-vs-cattura-singola.md`); Nostradamus,
-281 righe, è il banco di prova. La promozione nella KB richiede giudizio e non
-cancella il precedente necessario a ricordare una smentita.
+Il canone vigente governa lo stato corrente dei fili i3 e già protegge le
+altre funzioni vive. La proposta esplicita una funzione di i2: **un esito
+resta finché condiziona una lettura corrente**. Il file indica quale lettura
+ne dipende, con una frase o un collegamento; la previsione smentita su
+Caprioli in `economia` è un caso di calibrazione ancora utile.
+
+Quando il dettaglio non condiziona più nulla, ne resta la lezione nella
+sintesi o in un nodo e il dettaglio torna a Git. Provare sia la conservazione
+di un precedente utile sia la condensazione di materiale consumato. Il
+criterio impedisce accumulo senza funzione corrente, non crescita legittima
+per nuove ipotesi. La promozione nella KB richiede giudizio e non cancella un
+precedente ancora necessario a ricordare una smentita.
 
 ## Presidio della skill eval
 
@@ -113,23 +161,30 @@ Un controllo periodico cerca ipotesi il cui evento o orizzonte è già arrivato 
 riscontri rimasti senza confronto, anche senza nuovi eventi nel giro, e
 consente di riaprire un'ipotesi corroborata quando emergono smentite.
 
-Il costo va tenuto basso. Un resoconto per giro di ogni ipotesi controllata,
-non pertinente o non verificabile cresce con ipotesi × eventi; un cursore sul
-materiale già valutato rischia di replicare il registro i1. Ipotesi da provare
-per prima: la parte deterministica si riduce a un campo di orizzonte nel
-frontmatter delle ipotesi, che l'audit `o3/kb_tools.py` segnala alla scadenza
-come già fa coi contratti; il conto del giro entra nel trailer `Esiti:`
-esistente invece che in un nuovo registro. Pertinenza, sufficienza e
-indipendenza delle evidenze restano giudizio; rilevare e proporre non
-significa applicare nuovi giudizi, goal o azioni senza la ratifica prevista
-dalle skill.
+Il costo va tenuto basso. Provare l'identificazione delle ipotesi tramite
+`tipo` e un eventuale campo di orizzonte; l'audit delle scadenze richiede
+un'estensione esplicita di `o3/kb_tools.py`, non è una capacità già presente.
+Gli eventi senza data e le correzioni delle fonti richiedono un riesame
+semantico. Ogni ipotesi deve essere indirizzabile singolarmente, anche quando
+il materiale originario raccoglie più previsioni in un file.
+
+La prova esercita un evento pertinente, uno irrilevante, una scadenza senza
+nuovi eventi e una correzione della fonte. Il trailer `Esiti:` conta gli esiti
+per stadio; non certifica quali ipotesi o riscontri siano stati coperti.
+Definire la traccia minima necessaria al riesame evitando un registro
+parallelo o un resoconto di ogni coppia ipotesi × evento. Pertinenza,
+sufficienza e indipendenza delle evidenze restano giudizio; rilevare e
+proporre non significa applicare nuovi giudizi, goal o azioni senza la
+ratifica prevista dalle skill.
 
 ## Prova
 
 ### Prima: misurare il bisogno
 
-Rileggere i sedici fili rimossi da `5ea8204` con il modello in mano: per ciascuno
-«chiuso a ragione», «salito in un nodo» oppure «lettura da ripristinare in i2»,
+Rileggere i sedici fili originari di `5ea8204`: undici eliminati e cinque
+conservati e riscritti. Per ciascuno dichiarare destinazione e funzione del
+materiale, distinguendo chiusura corretta, conoscenza risalita e lettura
+persa da ripristinare in i2,
 con il presidio pertinente. Non associare automaticamente una riga i3 al
 materiale recuperato. È il test più economico: dice quanto il buco pesa prima
 di costruire lo schema per riempirlo. Le potature degli adottanti si
@@ -146,8 +201,8 @@ con il segnale più netto; gli altri due provano la generalità.
 - **economia**, potatura `3c8d84b`: quattro fili eliminati; fonti, lente
   patrimonio/reddito e linea Fiano ricollocate nella KB e nei task. È l'unico
   adottante che pratica già criteri anteriori ed errori conservati. Prova:
-  istituzionalizzare le ipotesi di `i2/angolo-nostradamus.md` e applicarvi il
-  criterio di permanenza. La profezia 8 sulla risposta di Orsi è ancora
+  proporre file autonomi dalle previsioni di `i2/angolo-nostradamus.md`
+  (path sorgente attuale) e applicarvi il criterio di permanenza. La previsione 8 sulla risposta di Orsi è ancora
   «aperta» mentre altri materiali riportano il chiarimento successivo: è
   un'ipotesi scaduta senza presidio, da riesaminare contro il documento
   originale senza dedurne qui un esito.
@@ -171,30 +226,34 @@ con il segnale più netto; gli altri due provano la generalità.
   efficacia sul guasto reale. Un report riscritto a ogni run non è una serie
   storica: verificare la disponibilità della serie di riscontri.
 
-Per ciascun caso produrre una proposta concreta di i2 e riga i3, indicando
-cosa cambia, cosa non ha riscontro e dove vivono dati ed esiti. Nessuna
+Per ciascun caso produrre una proposta concreta di i2 e presidio del riesame;
+aggiungere un confronto i3 solo quando esiste una questione valutativa contro
+il Goal. Includere un caso senza confronto i3. Indicare cosa cambia, cosa non
+ha riscontro e dove vivono dati ed esiti. Nessuna
 migrazione degli adottanti è implicita in questa prova.
 
 ## Condizione di caduta
 
-Proposta da ratificare prima di aprire i casi, come il task chiede alle
-ipotesi che presidia. Il modello non sale a canone se:
+I criteri di prova sono concordati prima dei prototipi. Il modello non
+si generalizza se:
 
-- la rilettura di `5ea8204` non trova letture da ripristinare, o le poche
-  trovate hanno già casa in un nodo `bozza` o in un task;
-- in `nixos`, `salute` o `bi` la scheda produce campi senza un'osservazione
-  che distingua davvero le alternative, o ripete il confronto i3 senza ridurre
-  duplicazioni;
-- il criterio di permanenza non impedisce a Nostradamus di crescere, o
-  l'applicarlo fa perdere una lezione che il custode considera viva.
+- non migliora raggiungibilità e riesame delle ipotesi in almeno due domini
+  diversi, rispetto alla pratica corrente;
+- impone duplicazioni o campi senza funzione senza un beneficio osservabile;
+- non distingue precedenti cognitivamente utili da materiale consumato,
+  oppure perde una lezione ancora viva.
 
-In quei casi l'esito è una regola più piccola — per esempio il solo campo di
-orizzonte sulle letture i2 esistenti — oppure il riconoscimento che la pratica
-resta di dominio in `economia`.
+L'assenza di letture perse in `5ea8204` smentisce il sospetto sulla potatura,
+non il bisogno di presidio negli adottanti. Un caso esplorativo che resta
+in prosa può confermare il gradiente; la crescita per nuove ipotesi non è
+un fallimento. La prova confronta recupero dei riscontri, duplicazioni e costo
+di manutenzione prima e dopo. Se il modello non regge, consegna una regola
+più piccola o delimita la pratica al dominio che ne beneficia.
 
 ## Decisioni da consegnare al custode
 
-- schema minimo e gradiente tra ipotesi con orizzonte e letture esplorative;
+- schema minimo della facet `tipo`, eventuale `esito` e gradiente fra
+  sintesi esplorativa e ipotesi autonoma, anche senza orizzonte;
 - criterio di permanenza degli esiti;
 - forma di i3: file per confronto con indice tabellare come o1 e o2, oppure
   sola tabella; dove vive la prosa del giudizio, dato che i2 sospende la
@@ -203,7 +262,7 @@ resta di dominio in `economia`.
 - etichetta della collezione i3: «Verdetti» o «Confronti», con rinomina dei
   nodi `verdict` e `compare` o senza;
 - copertura e costo del presidio di `eval`;
-- quali task nascono dopo la ratifica: nodi (`verdict`, `interpret`,
+- quali task nascono dopo la ratifica: nodi (`node` dove toccato, `verdict`, `interpret`,
   `compare`, `plan`, `tasks`, `specify` dove toccati), skill `eval`,
   `adottanti`, `method`, `commit`, eccezione tabellare di i3 in `CLAUDE.md`,
   triage di `i2/` in `metodo` (`potatura-kb` conclusa,
@@ -212,16 +271,17 @@ resta di dominio in `economia`.
 
 ## Feedback
 
-- La rilettura di `5ea8204` dichiara per ogni filo rimosso l'esito, anche
+- La rilettura di `5ea8204` dichiara per ogni filo originario l'esito, anche
   quando è «chiuso a ragione».
 - I casi rendono distinguibili evidenze, ipotesi, giudizio contro il Goal e
   azioni. Nessuna spiegazione risulta confermata per la sola chiusura
   operativa del problema.
 - Un evento i1 pertinente raggiunge un'ipotesi e ne provoca il riesame; un
   evento irrilevante non forza un esito. Dati mancanti restano tali.
-- La prova su Nostradamus verifica il caso rimasto aperto e mantiene
+- La prova sulle previsioni di `economia` verifica il caso rimasto aperto e mantiene
   consultabili almeno un esito falsificato e uno corroborato, con formulazione
-  e criterio originari. Un nuovo riscontro contrario può riaprire la lettura.
+  e criterio originari, e condensa un dettaglio non più utile dichiarando la
+  lezione conservata. Un nuovo riscontro contrario può riaprire la lettura.
 - Il modello consegnato dichiara quale condizione di caduta è stata
   esercitata e con quale esito.
 

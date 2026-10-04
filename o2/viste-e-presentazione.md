@@ -21,9 +21,10 @@ Questo task lo sposta e chiude la motivazione originaria. Che cosa i2 diventi
 una volta liberato è materia del task
 [ipotesi-e-confronti-i2-i3](ipotesi-e-confronti-i2-i3.md), da cui questo è
 stato separato il 2026-10-04 perché il lavoro meccanico non attendesse l'esito
-di una prova di modello. Il solo punto di contatto è l'etichetta della
-collezione i3 («Verdetti» o «Confronti»): decisione di canone che appartiene
-all'altro task; qui il builder legge il titolo dall'indice, senza cablarlo.
+di una prova di modello. La migrazione tecnica è autonoma; etichetta di i3 e revisione semantica del
+deck misto di `nixos` dipendono dall'altro task. Qui il builder legge il
+titolo dall'indice, senza cablarlo, e la prescrizione distingue la migrazione
+dei path dalla revisione del contenuto differita.
 
 ## Cartelle
 
@@ -48,17 +49,19 @@ Decisioni aperte, da prendere prima del builder:
 - **perimetro delle fonti rese e degli asset**, anche per symlink, dati
   personali e prodotti runtime: non si pubblica automaticamente ogni `.md` del
   checkout;
-- **versionamento di `view/`**: oggi `presentation/` generata è versionata e
-  rigenerata nel commit (gate `commit`, check i2). Tenere la stessa regola o
-  ignorare la cartella cambia la freschezza verificabile dal checkout e il
-  modo in cui l'audit `/adottanti` legge le viste.
+- **versionamento di `view/`**: mantenere come default le viste versionate e
+  rigenerate nel commit, coerentemente col Goal di apertura dal checkout.
+  Un'alternativa deve conservare quel comportamento e dichiarare come
+  verificare freschezza e disponibilità, anche per l'audit `/adottanti`.
 
 ## Fasi
 
 1. **Canone.** Nodi `view` (resa delle pagine, build, servizio sulle reti
    private), `presentation` (il racconto curato dell'artefatto e la sua
    fedeltà alle fonti, distinto dalle viste derivate) e `project-structure`;
-   skill `commit` (nuova build); `CLAUDE.md` e `README.md`. Transizione
+   `interpret` dove assegna a i2 le superfici curate; skill `commit` e `exec`
+   (nuova build); registro degli strumenti e delle sorgenti in
+   `o3/prescriptions.md`; `CLAUDE.md` e `README.md`. Transizione
    dichiarata per gli adottanti che leggono i nodi via symlink ma non hanno
    ancora migrato.
 2. **Ristrutturazione di `metodo`.** Deck e tavole da `i2/` a
@@ -79,7 +82,11 @@ Decisioni aperte, da prendere prima del builder:
 ## Feedback
 
 - La build passa col contratto di riferimenti e il presidio del
-  compartimento stagno su `view/`.
+  compartimento stagno su `view/`; conserva i controlli plan × o2 e i3 × Goal.
+- Due build consecutive producono lo stesso output; una modifica della fonte
+  si riflette nella vista rigenerata e nel gate di freschezza.
+- Il servizio permanente legge il nuovo path e serve la home dopo la
+  migrazione; le condizioni di assenza restano diagnosticabili.
 - Ogni pagina si apre via `file://` e via `serve.py`; la navigazione regge a
   larghezza mobile.
 - Il deck di `metodo` non vive più in `i2/`.
