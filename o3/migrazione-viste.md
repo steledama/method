@@ -59,14 +59,19 @@ restano fuori in ogni repo.
    non deve essere servito sulle reti private va in `ESCLUSE`, oppure resta
    fuori dal repo. La decisione del 2026-10-03 (servizio senza eccezioni)
    non cambia: cambia cosa entra nella cartella, e va scritto.
-6. **Servizio permanente, nello stesso giro.** Il servizio dell'host
-   privilegiato legge il nuovo path: `view/index.html` come condizione,
-   `o3/view/serve.py` come comando. Per `deck` e la coppia server la
-   configurazione vive in `nixos` (`o3/modules/home/presentations.nix`):
-   finché i repo serviti non sono tutti migrati, la condizione accetta l'una
-   o l'altra forma, poi la vecchia si toglie. Per `danea2` la configurazione
-   vive in `danea-auto`. Un servizio fermo in silenzio dopo la migrazione è
-   l'assenza leggibile mancata.
+6. **Servizio permanente: prima il servizio, poi la migrazione.** Il
+   servizio dell'host privilegiato accetta **entrambe** le forme prima che il
+   primo repo servito migri: parte se esiste `view/index.html` oppure
+   `presentation/index.html`, e lancia lo `serve.py` della forma presente
+   (`o3/view/` o `o3/presentation/`). Così ogni repo migra quando vuole,
+   senza finestre al buio. Quando tutti i repo serviti da quell'host sono
+   migrati, la forma vecchia si toglie. `serve.py` risolve la cartella
+   all'avvio: dopo la migrazione il servizio di quel repo si **riavvia**,
+   altrimenti continua a servire la cartella vecchia, ormai vuota. Per `deck`
+   e la coppia server la configurazione vive in `nixos`
+   (`o3/modules/home/presentations.nix`); per `danea2` in `danea-auto`. Un
+   servizio fermo in silenzio dopo la migrazione è l'assenza leggibile
+   mancata.
 7. **Skill e bussole.** Nei fork di `/commit`, `exec` e della skill `kb`, il
    comando di build diventa `python3 o3/view/build.py`; README, CLAUDE e
    AGENTS nominano `view/` e `presentation/` per quello che sono.

@@ -173,17 +173,24 @@
           eccezioni) non cambia: cambia cosa entra nella cartella, e va scritto.
         </li>
         <li>
-          <strong>Servizio permanente, nello stesso giro.</strong> Il servizio
-          dell’host privilegiato legge il nuovo path:
-          <code>view/index.html</code> come condizione,
-          <code>o3/view/serve.py</code> come comando. Per <code>deck</code> e la
-          coppia server la configurazione vive in
-          <code>nixos</code> (<code>o3/modules/home/presentations.nix</code>):
-          finché i repo serviti non sono tutti migrati, la condizione accetta
-          l’una o l’altra forma, poi la vecchia si toglie. Per
-          <code>danea2</code> la configurazione vive in <code>danea-auto</code>.
-          Un servizio fermo in silenzio dopo la migrazione è l’assenza leggibile
-          mancata.
+          <strong
+            >Servizio permanente: prima il servizio, poi la migrazione.</strong
+          >
+          Il servizio dell’host privilegiato accetta
+          <strong>entrambe</strong> le forme prima che il primo repo servito
+          migri: parte se esiste <code>view/index.html</code> oppure
+          <code>presentation/index.html</code>, e lancia lo
+          <code>serve.py</code> della forma presente (<code>o3/view/</code> o
+          <code>o3/presentation/</code>). Così ogni repo migra quando vuole,
+          senza finestre al buio. Quando tutti i repo serviti da quell’host sono
+          migrati, la forma vecchia si toglie. <code>serve.py</code> risolve la
+          cartella all’avvio: dopo la migrazione il servizio di quel repo si
+          <strong>riavvia</strong>, altrimenti continua a servire la cartella
+          vecchia, ormai vuota. Per <code>deck</code> e la coppia server la
+          configurazione vive in
+          <code>nixos</code> (<code>o3/modules/home/presentations.nix</code>);
+          per <code>danea2</code> in <code>danea-auto</code>. Un servizio fermo
+          in silenzio dopo la migrazione è l’assenza leggibile mancata.
         </li>
         <li>
           <strong>Skill e bussole.</strong> Nei fork di <code>/commit</code>,

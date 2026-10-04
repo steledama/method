@@ -101,16 +101,16 @@
       <h2 id="verdetto">Verdetto</h2>
       <p>
         <strong
-          >Canale del canone: tutti e sei alla HEAD del canone
-          recepibile.</strong
+          >Canale del canone: tutti e sei a <code>91cf874</code>,
+          <code>aligned</code>.</strong
         >
-        Ogni marker è a <code>91cf874</code>, <code>aligned</code>: i commit
-        successivi del canone sono una potatura e lavoro <code>o2/</code>, nulla
-        da recepire. Il 2026-10-04 <code>nixos</code>, <code>bi</code>,
-        <code>crm</code> e <code>danea-auto</code> sono stati riletti su
-        <code>origin</code> senza variazioni; <code>deck</code> non rispondeva,
-        e per <code>economia</code> e <code>salute</code> vale la lettura del
-        2026-10-03.
+        Il 2026-10-04 tutti e sei sono stati riletti su
+        <code>origin</code> senza variazioni: <code>nixos</code>,
+        <code>bi</code>, <code>crm</code> e <code>danea-auto</code> da
+        <code>svezia</code>, <code>economia</code> e <code>salute</code> da
+        <code>deck</code>. Dopo <code>91cf874</code> il canone ha emesso
+        <code>migrazione-viste</code> (viste in <code>view/</code>, deck in
+        <code>presentation/</code>): è la prossima cosa da recepire.
       </p>
       <p>
         <strong><code>aligned</code> e file coincidono.</strong> Il 2026-10-02 i
@@ -343,8 +343,11 @@
           interrotta resta invisibile;
         </li>
         <li>
-          l’attivazione delle presentazioni permanenti non è verificata: stato
-          dei firewall dopo i rebuild e server LAN raggiungibile da Linux; la
+          l’attivazione delle presentazioni permanenti è verificata solo su
+          <code>deck</code>, dove il 2026-10-04 le quattro unit
+          <code>presentazione-*</code> sono attive. Restano da verificare la
+          produzione (<code>bi</code>, <code>crm</code>), <code>danea2</code>, i
+          firewall dopo i rebuild e la raggiungibilità da un client LAN; li
           legge il battito del 2026-11-01.
         </li>
       </ul>

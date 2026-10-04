@@ -13,12 +13,11 @@ letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
 
 ## Verdetto
 
-**Canale del canone: tutti e sei alla HEAD del canone recepibile.** Ogni
-marker è a `91cf874`, `aligned`: i commit successivi del canone sono una
-potatura e lavoro `o2/`, nulla da recepire. Il 2026-10-04 `nixos`, `bi`,
-`crm` e `danea-auto` sono stati riletti su `origin` senza variazioni;
-`deck` non rispondeva, e per `economia` e `salute` vale la lettura del
-2026-10-03.
+**Canale del canone: tutti e sei a `91cf874`, `aligned`.** Il 2026-10-04
+tutti e sei sono stati riletti su `origin` senza variazioni: `nixos`, `bi`,
+`crm` e `danea-auto` da `svezia`, `economia` e `salute` da `deck`. Dopo
+`91cf874` il canone ha emesso `migrazione-viste` (viste in `view/`, deck in
+`presentation/`): è la prossima cosa da recepire.
 
 **`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
 da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
@@ -160,6 +159,8 @@ Classificazione degli scostamenti:
   `/method` locali;
 - un giro `eval`/`exec` vuoto ora lascia un commit con `Esiti:`, ma solo se
   si è chiuso: una sessione interrotta resta invisibile;
-- l'attivazione delle presentazioni permanenti non è verificata: stato dei
-  firewall dopo i rebuild e server LAN raggiungibile da Linux; la legge il
-  battito del 2026-11-01.
+- l'attivazione delle presentazioni permanenti è verificata solo su `deck`,
+  dove il 2026-10-04 le quattro unit `presentazione-*` sono attive. Restano
+  da verificare la produzione (`bi`, `crm`), `danea2`, i firewall dopo i
+  rebuild e la raggiungibilità da un client LAN; li legge il battito del
+  2026-11-01.
