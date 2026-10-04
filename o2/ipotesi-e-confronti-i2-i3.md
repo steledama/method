@@ -69,19 +69,30 @@ strumenti. Oggi questa facet non esiste in i2: è una proposta da provare,
 non un controllo già implementato. L'indice esistente rende raggiungibili
 entrambi i tipi; le viste possono selezionare le ipotesi dai metadati.
 
-L'unità del presidio è l'ipotesi, non il file. Requisito: ogni ipotesi ha un
-identificativo stabile, il file stesso o un'ancora dentro un file di tipo
-`ipotesi`, che `eval`, i collegamenti e le letture dipendenti possono citare.
-La granularità dei file resta una variabile della prova. Un file per ipotesi
-rende ciascuna indirizzabile ma può disperdere ciò che le ipotesi insegnano
-insieme: in `economia` la calibrazione su Caprioli nasce dal confronto fra le
-previsioni 0, 1 e 7, non da una sola. È il caso in cui le due scelte si
-separano, e la prova le esercita entrambe.
+L'unità del presidio è l'ipotesi, non il file: identità e contenitore sono
+scelte distinte. Ogni ipotesi ha un identificativo stabile, il file stesso o
+un'ancora, che `eval`, i collegamenti e le letture dipendenti possono citare
+e che permette di seguirne formulazione, riscontri e revisioni. Il contenitore
+può ospitare una o più ipotesi, ma un'ipotesi presidiata vive solo in un file
+`tipo: ipotesi`: la selezione per `tipo` trova così tutti i contenitori senza
+imporre un file per ipotesi. Una sintesi resta libera di porre domande
+esplorative; non ospita ipotesi presidiate.
 
-Una sintesi può contenere domande e ipotesi esplorative. Una lettura riceve
-un file autonomo quando richiede riscontri, revisioni e criteri di
-scioglimento propri o condiziona decisioni nel tempo. L'orizzonte è una
-proprietà possibile, non il requisito per avere una casa. La prova verifica
+`tipo` è una facet del contenitore. Esito e orizzonte appartengono invece alla
+singola ipotesi, non al frontmatter del file, quando il file ne contiene più
+d'una: la prova dello schema ne tiene conto, e il costo di leggere metadati
+dentro le sezioni, anche per l'audit, è una variabile da misurare. La
+granularità resta una variabile della prova: in `economia` la calibrazione su
+Caprioli nasce dal confronto fra le previsioni 0, 1 e 7, e la prova esercita
+entrambe le scelte. La calibrazione trasversale è comunque responsabilità della
+sintesi, qualunque granularità si scelga.
+
+Una sintesi può contenere domande e ipotesi esplorative. Una lettura diventa
+un'ipotesi presidiata quando richiede riscontri, revisioni e criteri di
+scioglimento propri o condiziona decisioni nel tempo. La prova determina se
+ospitarla in un file autonomo o in una sezione identificata di un contenitore
+`tipo: ipotesi`. L'orizzonte è una proprietà possibile, non il requisito per
+avere una casa. La prova verifica
 il confine fra i tipi e la loro copertura, compresi i prodotti runtime.
 
 Tenere distinti tipo dell'oggetto, esito dei riscontri e maturità dei nodi KB:
@@ -179,11 +190,12 @@ riscontri rimasti senza confronto, anche senza nuovi eventi nel giro, e
 consente di riaprire un'ipotesi corroborata quando emergono smentite.
 
 Il costo va tenuto basso. Provare l'identificazione delle ipotesi tramite
-`tipo` e un eventuale campo di orizzonte; l'audit delle scadenze richiede
-un'estensione esplicita di `o3/kb_tools.py`, non è una capacità già presente.
-Gli eventi senza data e le correzioni delle fonti richiedono un riesame
-semantico. Ogni ipotesi è raggiungibile dal suo identificativo, anche quando
-il materiale originario raccoglie più previsioni in un file.
+`tipo` del contenitore, identificativo e un eventuale orizzonte per ipotesi;
+l'audit delle scadenze richiede un'estensione esplicita di `o3/kb_tools.py`,
+non è una capacità già presente. Gli eventi senza data e le correzioni delle
+fonti richiedono un riesame semantico. Ogni ipotesi è raggiungibile dal suo
+identificativo, anche quando il materiale originario raccoglie più previsioni
+in un file.
 
 La prova esercita un evento pertinente, uno irrilevante, una scadenza senza
 nuovi eventi e una correzione della fonte. Il trailer `Esiti:` conta gli esiti
@@ -230,7 +242,11 @@ con il segnale più netto; gli altri due provano la generalità.
   `o2/investigate-server-boot-recurrence.md` e
   `i3/affidabilita-boot-server.md`. È il caso canonico di chiusura ≠
   spiegazione: tre reboot sani per server possono chiudere come «non
-  ricorso», senza dimostrare la causa del guasto.
+  ricorso», senza dimostrare la causa del guasto. La scadenza della prova è
+  quella del riesame, anche senza una data di risoluzione dell'ipotesi
+  causale: è un orologio nostro (`kb/plan.md`, «Tempo e fonti») e verifica
+  che il presidio scatti, non che il Mondo abbia risposto. Si dichiara così e
+  non vale come la scadenza esogena di `economia`.
 - **salute**, potatura `ae9a174`: tre fili eliminati; baricentro accorpato al
   quadro corporeo e domande autobiografiche conservate in
   `i2/educazione-cattolica.md`. Prova il gradiente: rabbia inavvertita e
@@ -255,27 +271,42 @@ migrazione degli adottanti è implicita in questa prova.
 I criteri si fissano prima dei prototipi e si esercitano due volte, sulla
 pratica corrente e sul modello, con le stesse quattro situazioni: un evento
 pertinente, uno irrilevante, una scadenza senza nuovi eventi, una correzione
-della fonte. La pratica corrente ha già un fallimento documentato: la
-previsione 8 di `economia`, rimasta aperta dopo il chiarimento che la
-riguardava.
+della fonte.
+
+Il confronto misura i protocolli, non quanto si guida il lettore. I due bracci
+ricevono gli stessi materiali, fissati a un commit dichiarato dell'adottante,
+la stessa richiesta e lo stesso budget di attenzione, senza indicare quale
+ipotesi riesaminare. La richiesta naturale è lo stesso comando, `eval
+interpret` sugli eventi nuovi, con la skill corrente in un braccio e quella
+modificata per la prova nell'altro; ogni braccio gira in una sessione nuova,
+perché chi ha eseguito il primo arriva al secondo sapendo cosa cercare.
+
+La previsione 8 di `economia`, rimasta aperta dopo il chiarimento che la
+riguardava, documenta un fallimento storico della pratica corrente. Non
+sostituisce la prova: rileggendo oggi quel materiale, la pratica corrente
+potrebbe intercettarla, e solo il confronto alla pari lo dice.
 
 Il modello si generalizza solo se, in entrambi i prototipi (`economia` e
 `nixos`):
 
-- coglie tutte e quattro le situazioni: l'evento pertinente avvia il riesame,
-  quello irrilevante non forza un esito, la scadenza emerge senza nuovi
-  eventi, la correzione della fonte riapre la lettura che ne dipende;
+- gestisce correttamente tutte e quattro le situazioni: l'evento pertinente
+  avvia il riesame, quello irrilevante non forza un esito, la scadenza emerge
+  senza nuovi eventi, la correzione della fonte riapre la lettura che ne
+  dipende;
 - la pratica corrente ne manca almeno una; altrimenti in quel dominio il
   modello non serve;
-- ogni file, campo o collegamento introdotto è letto da almeno un passaggio
-  della prova (`eval`, audit, vista o lettura dipendente): ciò che nessuno
-  legge è costo senza funzione;
+- ogni file, campo o collegamento introdotto sostiene un comportamento della
+  prova o una lettura dipendente identificabile; essere letto da una vista non
+  basta, perché una vista può leggere qualsiasi campo senza renderlo utile.
+  Gli elementi superflui si eliminano;
 - il criterio di permanenza condensa almeno un dettaglio consumato e conserva
   almeno un precedente utile, e fra i dettagli condensati il custode non
   riconosce una lezione ancora viva.
 
 `salute` e `bi` non decidono la generalizzazione: ne tracciano il perimetro.
-Un fallimento lì delimita il modello invece di farlo cadere, e si dichiara.
+Un limite di dominio lì delimita il modello invece di farlo cadere, e si
+dichiara. Un'incompatibilità con un contratto canonico comune torna invece sul
+modello generale: non ogni fallimento si assorbe come eccezione locale.
 
 Non sono condizioni di caduta, né vanno lette come conferme:
 

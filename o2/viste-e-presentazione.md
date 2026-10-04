@@ -21,10 +21,10 @@ Questo task lo sposta e chiude la motivazione originaria. Che cosa i2 diventi
 una volta liberato è materia del task
 [ipotesi-e-confronti-i2-i3](ipotesi-e-confronti-i2-i3.md), da cui questo è
 stato separato il 2026-10-04 perché il lavoro meccanico non attendesse l'esito
-di una prova di modello. La migrazione tecnica è autonoma; etichetta di i3 e revisione semantica del
-deck misto di `nixos` dipendono dall'altro task. Qui il builder legge il
-titolo dall'indice, senza cablarlo, e la prescrizione distingue la migrazione
-dei path dalla revisione del contenuto differita.
+di una prova di modello. La migrazione tecnica è autonoma; etichetta di i3 e
+revisione semantica del deck misto di `nixos` dipendono dall'altro task. Qui il
+builder legge il titolo dall'indice, senza cablarlo, e la prescrizione
+distingue la migrazione dei path dalla revisione del contenuto differita.
 
 ## Cartelle
 
@@ -77,7 +77,12 @@ Decisioni aperte, da prendere prima del builder:
 4. **Prescrizione ai sei** in `o3/`: migrazione delle cartelle e nuovo path
    nei servizi permanenti degli host (`nixos`, `danea-auto` su `danea2`) che
    oggi controllano `presentation/index.html`. Ogni adottante decide e
-   applica la migrazione nel proprio dominio.
+   applica la migrazione nel proprio dominio. La prescrizione separa la
+   migrazione dei path dalla revisione semantica del deck misto di `nixos`,
+   differita all'esito di
+   [ipotesi-e-confronti-i2-i3](ipotesi-e-confronti-i2-i3.md), e ne lascia un
+   seguito tracciato: la revisione resta aperta nella prescrizione finché
+   l'altro task non la sblocca, non scompare con la migrazione.
 
 ## Feedback
 
