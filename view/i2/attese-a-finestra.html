@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Method · Il marcatore delle attese a finestra non è mai stato esercitato
+    </title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="interpretations.html"
+        ><span class="nav-key">i2</span> Interpretazioni</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="baricentro-kb-adottanti.html"
+            title="Baricentro KB: dove sta il contenuto dei quattro adottanti"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Baricentro KB: dove sta il contenuto dei quattro adottanti</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Entrare nel territorio è un&#x27;operazione del metodo"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Entrare nel territorio è un&#x27;operazione del metodo</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="bootstrap-adottanti.html"
+            title="Il bootstrap nei sei adottanti"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Il bootstrap nei sei adottanti</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="attese-a-finestra.html"
+            title="Il marcatore delle attese a finestra non è mai stato esercitato"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Il marcatore delle attese a finestra non è mai stato
+              esercitato</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="potatura-kb.html" title="Potatura minimalista della KB"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Potatura minimalista della KB</span></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">i2/attese-a-finestra.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+      </dl>
+      <h1 id="il-marcatore-delle-attese-a-finestra-non-è-mai-stato-esercitato">
+        Il marcatore delle attese a finestra non è mai stato esercitato
+      </h1>
+      <p>
+        Dal 2026-08-22 <code>kb/plan.md</code> distingue tre comportamenti
+        dell’attesa: piatta, onerosa e <strong>a finestra</strong>, quella che
+        non incarisce ma può chiudere l’opzione. Per renderla visibile l’indice
+        di dipendenza porta un <code>!</code> (<code>w2!</code>): deperibile,
+        non urgente. Il filo che la presidiava si è chiuso nella potatura
+        <code>5ea8204</code> del 2026-10-02 e la regola è rimasta nel nodo, che
+        è <code>stato: maturo</code> per le sue altre funzioni. Non è rimasta
+        invece la verifica che il filo attendeva: il primo caso reale che
+        eserciti il marcatore.
+      </p>
+      <h2 id="misura">Misura</h2>
+      <p>
+        Il 2026-10-05, sulla storia di <code>o1/plan.md</code> dei sette
+        adottanti, nessun commit introduce un indice nella forma
+        <code>w&lt;n&gt;!</code> o <code>p&lt;n&gt;!</code> (ricerca
+        <code>git log -G'[wp][0-9]+!'</code>). In sei settimane il marcatore non
+        è comparso una volta.
+      </p>
+      <h2 id="letture-possibili">Letture possibili</h2>
+      <ul>
+        <li>
+          nei domini attuali non ci sono attese a finestra senza data e senza
+          mossa in agenda: la regola è corretta e semplicemente rara, come il
+          nodo prevede («la rarità è ciò che lo fa funzionare»);
+        </li>
+        <li>
+          le attese a finestra ci sono, ma chi scrive il plan non le riconosce
+          come tali: finiscono in <code>## Scadenze</code> con una data
+          inventata, oppure restano senza presidio.
+        </li>
+      </ul>
+      <p>
+        Il conteggio non distingue le due letture. Le distingue la rilettura
+        delle dipendenze <code>w&lt;n&gt;</code> aperte negli adottanti,
+        chiedendo per ciascuna se la sua chiusura ha una data calcolabile e che
+        cosa resta se l’opzione si chiude. <code>economia</code> è il candidato
+        naturale: controparti e decadenze sono il suo dominio.
+      </p>
+      <h2 id="che-cosa-ne-dipende">Che cosa ne dipende</h2>
+      <p>
+        La maturità di <code>kb/plan.md</code> non dice nulla su questa parte
+        del nodo. Finché manca un caso reale, la distinzione deperibile/urgente
+        è un’ipotesi incisa, non una regola provata sotto pressione. Il riesame
+        spetta al battito <code>/adottanti</code> o a un segnale i1 da un
+        adottante che incontri una finestra.
+      </p>
+    </main>
+  </body>
+</html>

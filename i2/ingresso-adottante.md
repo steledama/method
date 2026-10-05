@@ -34,6 +34,18 @@ supervisionato: inventario deterministico, giudizio esplicito sulle fotografie,
 marker verificato e baseline rinviata al primo `/adottanti` quando manca un
 giro comparabile.
 
+## Collaudo prospettico: `baserow`
+
+Il protocollo è poi diventato la prescrizione `o3/ingresso-adottante.md`, e
+il terzo ingresso, `baserow` il 2026-10-05, è stato il primo fuori dai due
+casi che l'avevano generata. Ha retto: il task di ingresso ha classificato
+in anticipo i candidati in inventario corrente, baseline e fotografie da
+preservare, e l'ingresso è partito solo quando il marker locale era
+`aligned`. Ha richiesto una sola correzione, che ora sta nella prescrizione
+(`f44b6c0`): la scelta di un accento delle viste non confondibile con quelli
+già registrati, nata da un primo colore troppo vicino a quello di `salute`.
+La prima verifica nell'uso è il battito `/adottanti` del 2026-11-01.
+
 ## Materiale verificato
 
 - `metodo` commit `b9d01b5`, ingresso di `crm` e relativa cattura i1;

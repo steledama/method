@@ -5,11 +5,15 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
 ## Contenuti
 
 - [baricentro-kb-adottanti.md](baricentro-kb-adottanti.md) — dove sta il contenuto delle KB: quattro regioni G/M/A/N (Goal/ought, Mondo/is, Macchina, Norma della macchina), con O e S laterali, e il baricentro per repo come diagnosi. Prima istanza dell'osservatorio cross-repo, **i2-runtime** (rilegge gli adottanti, non i nodi del metodo) e materiale osservativo del nodo canonico sulla tipologia.
-- [ingresso-adottante.md](ingresso-adottante.md) — confronto fra gli ingressi di `crm` e `danea-auto`: stessa bonifica cross-strato, ma due profili opposti (fondativo e produttivo) mostrano che l'ammissione nel territorio è un'operazione propria del metodo, oggi senza protocollo.
+- [ingresso-adottante.md](ingresso-adottante.md) — confronto fra gli ingressi di `crm` e `danea-auto`: stessa bonifica cross-strato, ma due profili opposti (fondativo e produttivo) mostrano che l'ammissione nel territorio è un'operazione propria del metodo; la prescrizione che ne è nata ha retto al primo ingresso fuori campione, `baserow`, con una correzione.
 - [bootstrap-adottanti.md](bootstrap-adottanti.md) — lettura coordinata di
   README, CLAUDE, Goal e World nei sei adottanti: il bootstrap è un sistema
   distribuito; il canone confronta e prescrive i criteri, mentre il repo locale
   giudica e applica l'ultimo miglio di dominio.
+- [attese-a-finestra.md](attese-a-finestra.md) — il marcatore `!` delle
+  attese a finestra, inciso in `kb/plan.md` il 2026-08-22, non è mai comparso
+  nei plan dei sette adottanti: regola rara o finestre non riconosciute, da
+  distinguere rileggendo le dipendenze aperte.
 - [potatura-kb.md](potatura-kb.md) — criterio minimalista per eliminare o
   fondere concetti che non cambiano decisioni, distinzioni, compressione delle
   regole o fondamento teorico usato; revisione conclusa in cinque scaglioni,
