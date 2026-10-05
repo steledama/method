@@ -658,6 +658,24 @@ dei run ma resta un giudizio. Deviazioni di protocollo senza effetto sui
 giudizi: `nixos-r3` ha proseguito con un `/exec plan` non chiesto,
 `nixos-r4` ha eseguito `hostname`.
 
+## Ratifica (2026-10-05)
+
+Il custode ratifica la regola più piccola: **ogni ipotesi in attesa dichiara
+orizzonte e riscontro con fonte, ed è raggiungibile da `eval`**. Facet
+`tipo`, contenitori separati e presidio generalizzato non entrano nel
+canone. Le decisioni sotto si leggono ridotte a questa regola. Il seguito,
+in ordine:
+
+1. incidere la regola nei nodi `interpret` e `verdict` e nello scope
+   `interpret` della skill `eval` canonica, con la prescrizione agli
+   adottanti;
+2. riportare in `i2/` di `metodo` ciò che della prova resta vivo (la misura
+   su `5ea8204`, l'esito dei bracci) e potare questo task;
+3. negli adottanti, tramite il loro `/method` e non da qui: `economia`
+   aggiorna le profezie 8, 5 e 6; `nixos` aggiorna il conteggio e dichiara
+   se un guasto lo azzera;
+4. rimuovere `~/prova-ipotesi*` dopo il passo 2.
+
 ## Decisioni da consegnare al custode
 
 - schema minimo della facet `tipo`, eventuale `esito` e gradiente fra
