@@ -476,7 +476,11 @@ di giudizio sono stati ratificati dal custode il 2026-10-05.
   messaggio, che non è catturato in i1. Atteso: riapertura dell'esito,
   rivalutato contro il criterio originario, con la formulazione intatta e il
   predecessore conservato. Si riapre anche la lezione di calibrazione che ne
-  dipende, la «cannata collegata».
+  dipende, la «cannata collegata». L'originale, letto in sola lettura con `gog` il
+  2026-10-05 (thread `19fb231b7df13ed5`, 14/08 alle 08:45), è firmato
+  «Teresa e Maurizio» e conferma l'esito attuale: la correzione lo
+  contraddice per costruzione, e nessuno dei due bracci ha accesso alla
+  casella.
 
 **`nixos`, a `6262067`**, ultimo giro `eval` il 2026-09-27:
 
