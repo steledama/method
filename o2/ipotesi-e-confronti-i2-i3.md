@@ -205,7 +205,7 @@ Analisi sui checkout locali, puliti e allineati ai rispettivi `origin/main`
 dopo il fetch del 2026-10-05, ai commit che la prova fissa:
 
 - `economia` `84cefbc`, `nixos` `6262067`, `salute` `e8e323a`, `bi`
-  `4be04bcb`, `crm` `d638a64`, `danea-auto` `f6eedb5`, `baserow` `3a84767`.
+  `4be04bcb`, `crm` `d638a64`, `danea-auto` `c3acb33`, `baserow` `3a84767`.
 
 Nessuna verifica live degli host, delle controparti o degli eventi sanitari:
 riferimenti Git e file sono fonti della diagnosi degli artefatti, non
@@ -299,9 +299,12 @@ switch`, mentre un reboot successivo senza rebuild è riuscito; la
   valenza su un caso in cui la pratica corrente funziona. La scadenza cade
   durante la prova e offre una situazione «scadenza senza nuovi eventi»
   reale, osservata senza intervenire sul runtime. In `i2/` le finestre di
-  osservazione sono sintesi con misure; il deck `i2/danea-auto-in-sintesi.md`
-  vi resta finché l'adottante non recepisce `o3/migrazione-viste.md` e non
-  entra nella prova.
+  osservazione sono sintesi con misure; il deck è uscito in `presentation/`
+  col recepimento di `migrazione-viste` (`1443454`).
+  `i2/chiusura-danea-connessione-persa.md`, del 2026-10-05, rilegge quattro
+  chiusure di Danea con la stessa firma in `Easyfatt.log`: una lettura
+  causale su ricorrenze, banco per distinguere una firma ricorrente da una
+  causa dimostrata.
 - **baserow**, nessuna potatura: adottante dal 2026-10-05. `i2/` è vuota per
   scelta dichiarata, misure in i1 e giudizio nei fili i3. Prova la
   collezione legittimamente senza ipotesi e il confine con la verifica

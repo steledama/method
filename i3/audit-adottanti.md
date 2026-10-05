@@ -16,11 +16,13 @@ delle code.
 
 ## Verdetto
 
-**Canale del canone: tutti e sei a `91cf874`, `aligned`.** Il 2026-10-04
-tutti e sei sono stati riletti su `origin` senza variazioni: `nixos`, `bi`,
-`crm` e `danea-auto` da `svezia`, `economia` e `salute` da `deck`. Dopo
-`91cf874` il canone ha emesso `migrazione-viste` (viste in `view/`, deck in
-`presentation/`): è la prossima cosa da recepire.
+**Canale del canone: `migrazione-viste` recepita da tutti e sei, `aligned`
+su `origin`.** Riletti il 2026-10-05 dopo un `git fetch`: `nixos`, `bi`,
+`economia`, `salute` e `crm` a `f21594b`; `danea-auto` a `a344f64`
+(`c3acb33`, che ha pubblicato anche il recepimento `1443454` fatto su
+`danea2`); `baserow` a `f44b6c0`. Resta il passo 6 della prescrizione: la
+forma vecchia del servizio si toglie dagli host quando tutti i repo che
+servono sono migrati.
 
 **`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
 da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
@@ -183,9 +185,11 @@ Classificazione degli scostamenti:
   (`fb8509c`, collaudo LAN in `ec881e8`, da casa in `41453cc`): verificato
   qui dall'indirizzo LAN di `svezia`, 200 coi titoli giusti, 404 su `/.env`.
   Per `danea2` c'è solo il collaudo riportato dall'istanza di `danea-auto`,
-  in un commit non ancora su `origin`; lo legge il battito del 2026-11-01;
+  ora pubblicato su `origin` ma non verificato da qui; lo legge il battito
+  del 2026-11-01;
 - `origin` resta indietro quando un adottante non pubblica i suoi commit.
   Il 2026-10-05 `danea-auto` aveva recepito `migrazione-viste` a `f21594b`
-  nel checkout di `danea2` (`1443454`), mentre `origin` e `svezia` erano
-  ancora a `91cf874`; lo stesso per `baserow` (`62396a7`). Le letture su
-  `origin` misurano ciò che è pubblicato, non ciò che è stato recepito.
+  nel checkout di `danea2` (`1443454`) mentre `origin` era ancora a
+  `91cf874`, e lo stesso per `baserow` (`62396a7`); lo scarto si è chiuso
+  il giorno stesso con le pubblicazioni. Le letture su `origin` misurano ciò
+  che è pubblicato, non ciò che è stato recepito.

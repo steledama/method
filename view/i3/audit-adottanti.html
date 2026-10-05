@@ -104,16 +104,17 @@
       <h2 id="verdetto">Verdetto</h2>
       <p>
         <strong
-          >Canale del canone: tutti e sei a <code>91cf874</code>,
-          <code>aligned</code>.</strong
+          >Canale del canone: <code>migrazione-viste</code> recepita da tutti e
+          sei, <code>aligned</code> su <code>origin</code>.</strong
         >
-        Il 2026-10-04 tutti e sei sono stati riletti su
-        <code>origin</code> senza variazioni: <code>nixos</code>,
-        <code>bi</code>, <code>crm</code> e <code>danea-auto</code> da
-        <code>svezia</code>, <code>economia</code> e <code>salute</code> da
-        <code>deck</code>. Dopo <code>91cf874</code> il canone ha emesso
-        <code>migrazione-viste</code> (viste in <code>view/</code>, deck in
-        <code>presentation/</code>): è la prossima cosa da recepire.
+        Riletti il 2026-10-05 dopo un <code>git fetch</code>:
+        <code>nixos</code>, <code>bi</code>, <code>economia</code>,
+        <code>salute</code> e <code>crm</code> a <code>f21594b</code>;
+        <code>danea-auto</code> a <code>a344f64</code> (<code>c3acb33</code>,
+        che ha pubblicato anche il recepimento <code>1443454</code> fatto su
+        <code>danea2</code>); <code>baserow</code> a <code>f44b6c0</code>. Resta
+        il passo 6 della prescrizione: la forma vecchia del servizio si toglie
+        dagli host quando tutti i repo che servono sono migrati.
       </p>
       <p>
         <strong><code>aligned</code> e file coincidono.</strong> Il 2026-10-02 i
@@ -378,17 +379,18 @@
           <code>ec881e8</code>, da casa in <code>41453cc</code>): verificato qui
           dall’indirizzo LAN di <code>svezia</code>, 200 coi titoli giusti, 404
           su <code>/.env</code>. Per <code>danea2</code> c’è solo il collaudo
-          riportato dall’istanza di <code>danea-auto</code>, in un commit non
-          ancora su <code>origin</code>; lo legge il battito del 2026-11-01;
+          riportato dall’istanza di <code>danea-auto</code>, ora pubblicato su
+          <code>origin</code> ma non verificato da qui; lo legge il battito del
+          2026-11-01;
         </li>
         <li>
           <code>origin</code> resta indietro quando un adottante non pubblica i
           suoi commit. Il 2026-10-05 <code>danea-auto</code> aveva recepito
           <code>migrazione-viste</code> a <code>f21594b</code> nel checkout di
-          <code>danea2</code> (<code>1443454</code>), mentre
-          <code>origin</code> e <code>svezia</code> erano ancora a
-          <code>91cf874</code>; lo stesso per
-          <code>baserow</code> (<code>62396a7</code>). Le letture su
+          <code>danea2</code> (<code>1443454</code>) mentre
+          <code>origin</code> era ancora a <code>91cf874</code>, e lo stesso per
+          <code>baserow</code> (<code>62396a7</code>); lo scarto si è chiuso il
+          giorno stesso con le pubblicazioni. Le letture su
           <code>origin</code> misurano ciò che è pubblicato, non ciò che è stato
           recepito.
         </li>
