@@ -2,93 +2,58 @@
 data: 2026-10-04
 stato: attiva
 ciclo: runtime
-target: nixos, bi, economia, salute, crm, danea-auto
+target: nixos, danea-auto
 ---
 
 # Le viste escono in `view/`, il deck curato in `presentation/`
 
 ## Cosa e perché
 
-In `presentation/` convivevano due cose diverse: le **viste**, derivate e
-rigenerate, e il **deck**, il racconto curato dell'artefatto, scritto e non
-derivato. La confusione era arrivata fino a i2, dove in più repo il deck
-occupava la collezione delle interpretazioni. Il canone ora le separa
-(`kb/view.md`, `kb/presentation.md`):
+Il canone separa le **viste**, derivate e rigenerate, dal **deck**, il
+racconto curato dell'artefatto (`kb/view.md`, `kb/presentation.md`): `view/`
+è tutta generata dall'unico entrypoint `python3 o3/view/build.py`,
+`presentation/` tiene la sola sorgente del deck, `o3/view/` i builder. La
+ricetta completa di recepimento è nella storia di questo file (`216ec6f`,
+`f21594b`).
 
-- `view/` — tutta generata, servita e chiusa su se stessa: la home, una
-  pagina 1:1 per ogni `.md` di `goal.md`, `world.md` e delle sei collezioni,
-  allo stesso path del repo (`o1/plan.md` → `view/o1/plan.html`), il deck
-  reso in `view/presentation.html`, gli asset. Le viste Reveal `tasks` e
-  `verdict` e le liste `prescriptions`/`perceptions` sono sostituite dalle
-  pagine degli indici e degli item;
-- `presentation/` — la sola sorgente del deck, `presentation.md`, con le
-  tavole accanto;
-- `o3/view/` — i builder (prima `o3/presentation/`), con un solo entrypoint,
-  `python3 o3/view/build.py`, e i CSS canonici in `o3/view/assets/`.
+## Stato
 
-Il perimetro reso è più largo di prima: non più solo indici, plan e fili, ma
-ogni item delle sei collezioni. `kb/`, README e le istruzioni per gli agenti
-restano fuori in ogni repo.
+Recepita da tutti e sei i destinatari originari, verificato nei file su
+`origin` il 2026-10-05: `o3/view/` presente, `o3/presentation/` assente,
+nessun deck in `i2/`. Marker: `nixos`, `bi`, `economia`, `salute` e `crm` a
+`f21594b`, `danea-auto` a `a344f64`. `baserow` è nato nella forma nuova. La
+prescrizione resta attiva per due residui, ciascuno col proprio destinatario.
 
-## Ricetta di recepimento
+## Residui
 
-1. **Builder.** `git mv o3/presentation o3/view`, poi prendi dal canone
-   `build.py`, `sources.py`, `build_pages.py`, `serve.py`, `assets/` e
-   `build_system_image.py` (la sua CONFIG locale si conserva, ma gli `href`
-   degli slot puntano ora agli indici: `o1/plan.html`, `o2/tasks.html`,
-   `o3/prescriptions.html`, `i3/verdicts.html`, `i2/interpretations.html`,
-   `i1/perceptions.html`). `build_views.py` e `build_lists.py` si rimuovono;
-   i test locali che li usavano passano a `tests/test_build_pages.py`.
-2. **`project.py`.** Allinea al canone: `DECK` punta a
-   `presentation/presentation.md` se il repo ha un deck in Markdown;
-   `CSS_LOCALI` nomina file in `presentation/`; aggiungi `ESCLUSE`.
-3. **Il deck.** Se vive in `i2/` (per esempio `i2/<repo>-in-sintesi.md` con le
-   tavole), spostalo in `presentation/presentation.md` con le tavole accanto e
-   togli dall'indice `i2/interpretations.md` le voci e la nota di build che lo
-   riguardavano. Un builder di dominio (`DECK_BUILDER`) resta in `o3/view/`:
-   rileggi i path che usa (`presentation/assets/` diventa `view/assets/`) e
-   verifica che la sua pagina passi il presidio. Un deck generato dai dati
-   conserva la sua funzione interpretativa: cambiare cartella non la
-   cancella, e i contratti runtime dei suoi JSON restano com'erano.
-4. **La cartella generata.** Rimuovi le vecchie viste da `presentation/`
-   (HTML e `assets/`), lancia `python3 o3/view/build.py` e versiona `view/`.
-   In `.gitattributes` i path `o3/presentation/**` e `presentation/**`
-   diventano `o3/view/**` e `view/**`.
-5. **Esposizione.** `view/` rende ora ogni item delle collezioni. Rileggi i
-   vincoli sui dati dove il repo li tiene (`CLAUDE.md` o `world.md`): ciò che
-   non deve essere servito sulle reti private va in `ESCLUSE`, oppure resta
-   fuori dal repo. La decisione del 2026-10-03 (servizio senza eccezioni)
-   non cambia: cambia cosa entra nella cartella, e va scritto.
-6. **Servizio permanente: prima il servizio, poi la migrazione.** Il
-   servizio dell'host privilegiato accetta **entrambe** le forme prima che il
-   primo repo servito migri: parte se esiste `view/index.html` oppure
-   `presentation/index.html`, e lancia lo `serve.py` della forma presente
-   (`o3/view/` o `o3/presentation/`). Così ogni repo migra quando vuole,
-   senza finestre al buio. Quando tutti i repo serviti da quell'host sono
-   migrati, la forma vecchia si toglie. `serve.py` risolve la cartella
-   all'avvio: dopo la migrazione il servizio di quel repo si **riavvia**,
-   altrimenti continua a servire la cartella vecchia, ormai vuota. Per `deck`
-   e la coppia server la configurazione vive in `nixos`
-   (`o3/modules/home/presentations.nix`); per `danea2` in `danea-auto`. Un
-   servizio fermo in silenzio dopo la migrazione è l'assenza leggibile
-   mancata.
-7. **Skill e bussole.** Nei fork di `/commit`, `exec` e della skill `kb`, il
-   comando di build diventa `python3 o3/view/build.py`; README, CLAUDE e
-   AGENTS nominano `view/` e `presentation/` per quello che sono.
-8. Registra l'esito nel marker `i3/allineamento-metodo.md`.
+1. **Togliere la forma vecchia del servizio** — `nixos`, `danea-auto`.
+   Prima della migrazione il servizio permanente accettava entrambe le
+   forme: `view/index.html` servito da `o3/view/serve.py` oppure
+   `presentation/index.html` servito da `o3/presentation/serve.py`. Ora
+   tutti i repo serviti sono migrati, quindi il ramo vecchio non ha più
+   funzione:
+   - in `nixos`, `o3/modules/home/presentations.nix`: il ramo
+     `o3/presentation/serve.py`, il controllo sul processo che lo esegue
+     ancora e la path unit che riavvia il servizio alla comparsa di
+     `view/index.html` (deck e coppia server);
+   - in `danea-auto`, `o3/scheduler/serve_presentazione.pyw`: la coppia
+     `o3/presentation/serve.py` / `presentation/index.html` (`danea2`).
 
-## Seguito tracciato: `nixos`
+   Prima di togliere, il `method` locale verifica che ogni repo servito
+   dall'host abbia `view/index.html` sul checkout dell'host, non solo su
+   `origin`. Dopo il deploy, ogni porta risponde ancora coi titoli giusti.
 
-Il deck di `nixos` mescola racconto dell'artefatto e lettura causale del boot.
-Questa prescrizione ne chiede solo la **migrazione dei path**: la revisione
-del contenuto (che cosa resta deck e che cosa torna a i2 come lettura
-presidiata) attende l'esito del task `o2/ipotesi-e-confronti-i2-i3.md` in
-`metodo`. La prescrizione resta aperta su questo punto finché quel task non
-lo sblocca: la migrazione non lo chiude.
+2. **Seguito tracciato: il deck di `nixos`** — mescola racconto
+   dell'artefatto e lettura causale del boot. La migrazione dei path è
+   fatta; la revisione del contenuto, che cosa resta deck e che cosa torna a
+   i2 come lettura presidiata, attende l'esito del task
+   `o2/ipotesi-e-confronti-i2-i3.md` in `metodo`, che la sblocca con una
+   prescrizione propria dopo la ratifica.
 
 ## Verifica
 
-Il battito `/adottanti` successivo legge la migrazione nei file, non nei
-marker: `o3/view/` presente e `o3/presentation/` assente, `view/` rigenerata
-identica da `origin` in una cartella temporanea, deck fuori da `i2/`,
-servizio permanente che risponde sul nuovo path dall'host privilegiato.
+Il battito `/adottanti` legge nei file su `origin` che i due servizi non
+nominano più `o3/presentation/` e che le porte rispondono; per `danea2` resta
+il collaudo riportato dall'istanza locale. Chiuso il residuo 1, la
+prescrizione resta solo come rimando del residuo 2; quando il task delle
+ipotesi emette la propria prescrizione per `nixos`, questa si pota.

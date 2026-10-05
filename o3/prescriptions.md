@@ -26,10 +26,9 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
 - [Le viste escono in `view/`, il deck curato in
-  `presentation/`](migrazione-viste.md) — builder in `o3/view/`, pagine 1:1
-  di register e collezioni, deck fuori da i2, servizio permanente sul nuovo
-  path nello stesso giro; la revisione del deck misto di `nixos` resta un
-  seguito tracciato.
+  `presentation/`](migrazione-viste.md) — recepita dai sei; restano la
+  rimozione della forma vecchia del servizio in `nixos` e `danea-auto` e,
+  come seguito tracciato, la revisione del deck misto di `nixos`.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
