@@ -199,6 +199,61 @@ conteggio di chiusure, risalite e perdite passa al custode come peso del
 bisogno nel dominio di `metodo` e orienta l'ordine in cui, dopo la ratifica,
 si rivalutano le potature degli adottanti, ciascuna nel proprio repo.
 
+#### Esito della misura (2026-10-05)
+
+Riletti i sedici fili a `5ea8204^`, cercandone la destinazione nel repo
+corrente e, per i watchpoint, l'evento atteso negli adottanti. Su sedici:
+cinque conservati con le tensioni intatte, due chiusi a ragione, sette
+risaliti con una destinazione raggiungibile, due con una lettura viva senza
+casa, ripristinata in i2. In più, tre risalite hanno lasciato orfana una
+verifica.
+
+- **Conservati e riscritti** (5): `audit-adottanti`,
+  `maturazione-nodi-fondativi`, `skill-per-arco-tripartito`,
+  `toolchain-builder-presentazione` e `verdetto-piu-sicuro-del-materiale`
+  tengono le loro tensioni. L'ipotesi sul montaggio degli scope di dominio
+  era già regola in `kb/skill.md`; il watchpoint sulle ritrattazioni di
+  `economia` è ora materia di questo task. Si perde solo la nota sul costo di
+  discoverability in `bi`, senza lettura che ne dipenda.
+- **Chiusi a ragione** (2): `home-minimalista`, con decisioni incise, il
+  mini-server «fuori orizzonte» superato dalle presentazioni permanenti e il
+  watchpoint sulle tavole generalizzato in `kb/presentation.md` («Fedeltà
+  alle fonti»); `liste-o3-i1-fedeli-alla-fonte`, il cui watchpoint si è
+  sciolto perché `i1/perceptions.md` non porta più cronaca.
+- **Risaliti** (7): `de-cablaggio-binomio-due-agenti` nello `stato: bozza`
+  di `kb/agent.md`, con la condizione d'uso reale; `bootstrap-adottanti` e
+  `aligned-copre-prescrizioni-aperte` nelle tensioni datate di
+  `i3/audit-adottanti.md`; `vista-derivata-e-verificata` in `kb/view.md`
+  («Freschezza», con l'escalation); `igiene-stadi-output` in `kb/plan.md`
+  (`Ob.`, chiave `S`), con la contraddizione di `economia` sciolta;
+  `protocollo-post-evento` e `ricorrenza-per-battito` in `kb/skill.md` e
+  `kb/plan.md`.
+- **Verifiche orfane** dentro le risalite (3): l'email come superficie i1
+  attende ancora la seconda istanza, `acquisti@` di `bi`, che il suo task
+  `skill-ordini-fornitori` rinvia; la skill `ordini` di `bi`, prima istanza
+  attesa della cadenza in configurazione per entità, esiste dal 2026-07-22 e
+  nessuno l'ha valutata; la skill `update` di `nixos`, il cui ramo
+  quotidiano doveva collaudare la coesistenza di righe di specie diverse,
+  non esiste più. Nessuna lettura corrente ne dipende: per il criterio di
+  permanenza tornano a Git, ma sono tre istanze del difetto che il presidio
+  deve impedire, con l'evento arrivato e nessun riesame.
+- **Letture vive senza casa** (2), ripristinate in i2 con un commit proprio:
+  - `attese-a-finestra`: la regola è in `kb/plan.md`, `stato: maturo`, ma la
+    verifica attesa è sparita. Il marcatore `!` non compare in nessun commit
+    dei plan dei sette adottanti dal 2026-08-22; ora vive in
+    `i2/attese-a-finestra.md`. Mostra il limite della regola di potatura:
+    lo `stato` di un nodo con più funzioni non porta l'ipotesi di una sola;
+  - `ingresso-adottante`: il collaudo prospettico è arrivato con `baserow`
+    il 2026-10-05. La prescrizione è stata eseguita e corretta in un punto,
+    l'accento delle viste (`f44b6c0`), ma l'esito non era registrato nella
+    lettura, ora aggiornata in `i2/ingresso-adottante.md`.
+
+Peso del bisogno nel dominio di `metodo`: la potatura non ha perso
+conoscenza stabile, ha perso **verifiche**. Cinque attese su sedici fili
+sono rimaste senza presidio, e in tre l'evento era già arrivato. È il
+difetto che il modello deve correggere; la misura non lo dimostra negli
+adottanti, dove le potature si rivalutano dopo la ratifica.
+
 ### Poi: i casi
 
 Analisi sui checkout locali, puliti e allineati ai rispettivi `origin/main`
@@ -319,6 +374,35 @@ Per ciascun caso produrre una proposta concreta di i2 e presidio del riesame,
 indicando cosa cambia, cosa non ha riscontro e dove vivono dati ed esiti.
 Aggiungere un confronto i3 solo quando esiste una questione valutativa contro
 il Goal; almeno un caso, `crm` o `baserow`, resta senza confronto i3.
+
+#### Esiti attesi: la scadenza di `danea-auto`
+
+Fissati il 2026-10-05, prima dell'osservazione, a `c3acb33`. È un caso del
+perimetro, quindi non si fanno girare i due bracci: si osserva se la pratica
+corrente fa emergere la scadenza da sola. Nessuno la ricorda alle sessioni di
+`danea-auto`, altrimenti l'osservazione è contaminata.
+
+- **Ipotesi**: LibreOffice rallenta con l'uptime
+  (`i3/rallentamento-libreoffice.md`). Istanza viva dal 01/10 alle 11:42;
+  età della rampa osservata intorno ai 12 giorni, quindi verso il 13/10;
+  l'istanza della crisi del 25/09 aveva 16 giorni.
+- **Riscontro**: le righe di ritentativo `^+s` contate per giorno da
+  `o3/stats.ps1`, con la soglia di 10 righe di `kb/affidabilita-gui.md`.
+- **Esito corretto, secondo la finestra**:
+  - righe sopra soglia mentre l'istanza invecchia: l'ipotesi si rafforza,
+    ma la corroborazione resta sul precursore e non prova la causa. La
+    conseguenza proposta è il task già dichiarato, il riavvio di LibreOffice
+    insieme a quello delle 05:45;
+  - zero righe con l'istanza ininterrotta almeno fino al 17/10, cioè oltre
+    l'età della crisi del 25/09: l'uptime non è la variabile alla scala
+    osservata, e la lettura si rivede;
+  - istanza rinnovata prima dei 12 giorni, per chiusura manuale o riavvio
+    di `danea2`, compreso quello di Windows ancora da osservare: non
+    valutabile. L'orizzonte si sposta, e il mancato evento non vale come
+    falsificazione.
+- **Cosa si misura**: se il primo giro `eval` di `danea-auto` dopo il 13/10
+  fa emergere l'ipotesi senza un nuovo evento che la nomini. La lettura si
+  fa sui commit pubblicati, col trailer `Esiti:` e il diff del filo.
 
 ## Condizione di caduta
 
