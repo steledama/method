@@ -803,6 +803,63 @@
         indizio, non il confronto: quella sessione non era un giro
         <code>eval</code>.
       </p>
+      <h3 id="esecuzione">Esecuzione</h3>
+      <p>
+        Materiali preparati il 2026-10-05 su <code>deck</code>, fuori dai repo
+        degli adottanti:
+      </p>
+      <ul>
+        <li>
+          <code>~/prova-ipotesi-fixture/</code>: i due repository di prova, con
+          i rami <code>base</code> (commit fissato, più per
+          <code>nixos</code> la data di rivalutazione anticipata,
+          <code>5e8ffa5</code>), <code>braccio-a</code> (base più eventi:
+          <code>economia</code> <code>c55433e</code>, <code>nixos</code>
+          <code>4ea89c0</code>) e <code>braccio-b</code> (base più modello più
+          gli stessi eventi: <code>economia</code> <code>0735789</code>,
+          <code>nixos</code> <code>5ebdb7f</code>). Il diff degli eventi è
+          identico nei due bracci. Il modello del braccio B aggiunge in
+          <code>economia</code> la riga <strong>Presidio</strong> a ogni
+          profezia e <code>tipo: ipotesi</code>, in <code>nixos</code>
+          <code>i2/boot-server.md</code> con H1; in entrambi il blocco «Presidio
+          delle ipotesi» in <code>interpret</code> e una riga in
+          <code>compare</code> della skill <code>eval</code>;
+        </li>
+        <li>
+          <code>~/prova-ipotesi/</code>: otto cloni a ramo singolo,
+          <code>economia-r1</code>…<code>r4</code> e
+          <code>nixos-r1</code>…<code>r4</code>, due per braccio con
+          assegnazione casuale; <code>method/kb</code> è la copia della sola
+          <code>kb/</code> di <code>metodo</code>, perché il symlink
+          <code>method/</code> dei repo la trovi senza esporre <code>o2/</code>;
+          <code>esiti/</code> raccoglie i resoconti;
+        </li>
+        <li>
+          la corrispondenza fra run e braccio sta in
+          <code>~/prova-ipotesi-fixture/mappa.txt</code> e si apre solo dopo il
+          giudizio.
+        </li>
+      </ul>
+      <p>
+        Ogni run è una sessione nuova aperta nella sua cartella, con questo
+        testo identico, sostituito solo il nome del run:
+      </p>
+      <pre><code>/eval interpret, poi /eval compare. Lavora solo sui file di questo
+repository: nessun accesso a host, rete, servizi o caselle di posta, e non
+leggere le cartelle accanto. Presenta le proposte senza applicarle e senza
+committare. Alla fine scrivi in ../esiti/&lt;run&gt;.md il resoconto completo dei
+due stadi: segnali considerati, esiti, proposte, ciò che resta non
+verificato.</code></pre>
+      <p>
+        A ogni richiesta di conferma l’operatore risponde soltanto «Non
+        applicare nulla: prosegui». Il giudice è una sessione nuova in
+        <code>metodo</code>: legge questa sezione dei criteri e i file in
+        <code>~/prova-ipotesi/esiti/</code>, senza aprire la mappa, e per ogni
+        run e situazione assegna gestita, parziale o mancata, citando il passo
+        del resoconto. Solo dopo si apre la mappa e si applica la condizione di
+        caduta. Il criterio di permanenza non passa dai bracci: lo esercita il
+        custode sul prototipo del braccio B.
+      </p>
       <p>
         La previsione 8 di <code>economia</code> documenta un fallimento storico
         della pratica corrente ma non sostituisce la prova: rileggendo oggi quel

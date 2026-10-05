@@ -516,6 +516,46 @@ la sessione di manutenzione del 2026-10-05 ha registrato i due reboot sani
 senza aggiornare il conteggio. È un indizio, non il confronto: quella
 sessione non era un giro `eval`.
 
+### Esecuzione
+
+Materiali preparati il 2026-10-05 su `deck`, fuori dai repo degli adottanti:
+
+- `~/prova-ipotesi-fixture/`: i due repository di prova, con i rami
+  `base` (commit fissato, più per `nixos` la data di rivalutazione anticipata,
+  `5e8ffa5`), `braccio-a` (base più eventi: `economia` `c55433e`, `nixos`
+  `4ea89c0`) e `braccio-b` (base più modello più gli stessi eventi:
+  `economia` `0735789`, `nixos` `5ebdb7f`). Il diff degli eventi è identico
+  nei due bracci. Il modello del braccio B aggiunge in `economia` la riga
+  **Presidio** a ogni profezia e `tipo: ipotesi`, in `nixos`
+  `i2/boot-server.md` con H1; in entrambi il blocco «Presidio delle ipotesi»
+  in `interpret` e una riga in `compare` della skill `eval`;
+- `~/prova-ipotesi/`: otto cloni a ramo singolo, `economia-r1`…`r4` e
+  `nixos-r1`…`r4`, due per braccio con assegnazione casuale; `method/kb`
+  è la copia della sola `kb/` di `metodo`, perché il symlink `method/` dei
+  repo la trovi senza esporre `o2/`; `esiti/` raccoglie i resoconti;
+- la corrispondenza fra run e braccio sta in
+  `~/prova-ipotesi-fixture/mappa.txt` e si apre solo dopo il giudizio.
+
+Ogni run è una sessione nuova aperta nella sua cartella, con questo testo
+identico, sostituito solo il nome del run:
+
+```
+/eval interpret, poi /eval compare. Lavora solo sui file di questo
+repository: nessun accesso a host, rete, servizi o caselle di posta, e non
+leggere le cartelle accanto. Presenta le proposte senza applicarle e senza
+committare. Alla fine scrivi in ../esiti/<run>.md il resoconto completo dei
+due stadi: segnali considerati, esiti, proposte, ciò che resta non
+verificato.
+```
+
+A ogni richiesta di conferma l'operatore risponde soltanto «Non applicare
+nulla: prosegui». Il giudice è una sessione nuova in `metodo`: legge questa
+sezione dei criteri e i file in `~/prova-ipotesi/esiti/`, senza aprire la
+mappa, e per ogni run e situazione assegna gestita, parziale o mancata,
+citando il passo del resoconto. Solo dopo si apre la mappa e si applica la
+condizione di caduta. Il criterio di permanenza non passa dai bracci: lo
+esercita il custode sul prototipo del braccio B.
+
 La previsione 8 di `economia` documenta un fallimento storico della pratica
 corrente ma non sostituisce la prova: rileggendo oggi quel materiale, la
 pratica corrente potrebbe intercettarla, e solo il confronto alla pari lo
