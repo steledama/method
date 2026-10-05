@@ -69,12 +69,14 @@ adattamenti dove le hanno toccate. È il terzo giro in cui `aligned` e i
 file coincidono: `aligned` copre ora anche le prescrizioni aperte, e il
 marker non avanza finché una pertinente resta senza esito.
 
-**Superfici e viste: fresche in tutti e sei, verificate per rigenerazione.**
-Ogni repo è stato estratto da `origin` in una cartella temporanea e
-ricostruito coi propri builder. In cinque la rigenerazione è identica alle
-viste versionate. In `danea-auto` cambia solo il CSS di default di pandoc:
-le viste sono state costruite su Windows con pandoc 3.12, `svezia` ha la
-3.7.0.2. È toolchain, non contenuto. Il confronto per date, la lente del
+**Superfici e viste: fresche in tutti e sette, verificate per
+rigenerazione dopo la migrazione.** Il 2026-10-05 ogni repo è stato estratto
+da `origin` in una cartella temporanea e ricostruito con
+`python3 o3/view/build.py`: build riuscita ovunque, e in sei la
+rigenerazione è identica a `view/` versionata. In `danea-auto` cambia solo
+`view/presentation.html`, il deck reso da pandoc: costruito su Windows con
+pandoc 3.12, qui con la 3.7.0.2, che porta un altro CSS di default e il pin
+di reveal.js a `5.1.0` invece di `6.0.2`. È toolchain, non contenuto. Il confronto per date, la lente del
 giro precedente, segnalava invece viste più vecchie della fonte in
 `economia`, `salute`, `bi` e `crm`. Erano tutti falsi rossi: la fonte era
 cambiata fuori dalla parte che la vista rende, per esempio `world.md` sotto

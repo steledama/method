@@ -36,8 +36,9 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   e sette sono `aligned`: `nixos`, `bi`, `economia`, `salute` e `crm` a
   `f21594b`, `danea-auto` a `a344f64`, `baserow` a `f44b6c0`. I file
   confermano la migrazione delle viste nei sei (`o3/view/` presente,
-  `o3/presentation/` assente, nessun deck in `i2/`); la freschezza di `view/`
-  non è stata ancora verificata rigenerando dopo la migrazione. `/method`
+  `o3/presentation/` assente, nessun deck in `i2/`) e le viste sono fresche
+  in tutti e sette, verificate rigenerando da `origin` lo stesso giorno: in
+  `danea-auto` il deck differisce solo per la versione di pandoc. `/method`
   rilegge a ogni giro le prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill

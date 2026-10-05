@@ -186,14 +186,17 @@
       </p>
       <p>
         <strong
-          >Superfici e viste: fresche in tutti e sei, verificate per
-          rigenerazione.</strong
+          >Superfici e viste: fresche in tutti e sette, verificate per
+          rigenerazione dopo la migrazione.</strong
         >
-        Ogni repo è stato estratto da <code>origin</code> in una cartella
-        temporanea e ricostruito coi propri builder. In cinque la rigenerazione
-        è identica alle viste versionate. In <code>danea-auto</code> cambia solo
-        il CSS di default di pandoc: le viste sono state costruite su Windows
-        con pandoc 3.12, <code>svezia</code> ha la 3.7.0.2. È toolchain, non
+        Il 2026-10-05 ogni repo è stato estratto da <code>origin</code> in una
+        cartella temporanea e ricostruito con
+        <code>python3 o3/view/build.py</code>: build riuscita ovunque, e in sei
+        la rigenerazione è identica a <code>view/</code> versionata. In
+        <code>danea-auto</code> cambia solo <code>view/presentation.html</code>,
+        il deck reso da pandoc: costruito su Windows con pandoc 3.12, qui con la
+        3.7.0.2, che porta un altro CSS di default e il pin di reveal.js a
+        <code>5.1.0</code> invece di <code>6.0.2</code>. È toolchain, non
         contenuto. Il confronto per date, la lente del giro precedente,
         segnalava invece viste più vecchie della fonte in <code>economia</code>,
         <code>salute</code>, <code>bi</code> e <code>crm</code>. Erano tutti
