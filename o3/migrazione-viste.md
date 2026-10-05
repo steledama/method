@@ -22,7 +22,8 @@ Recepita da tutti e sei i destinatari originari, verificato nei file su
 `origin` il 2026-10-05: `o3/view/` presente, `o3/presentation/` assente,
 nessun deck in `i2/`. Marker: `nixos`, `bi`, `economia`, `salute` e `crm` a
 `f21594b`, `danea-auto` a `a344f64`. `baserow` è nato nella forma nuova. La
-prescrizione resta attiva per due residui, ciascuno col proprio destinatario.
+prescrizione resta attiva per la forma vecchia dei servizi. Il seguito sul
+deck di `nixos` è trasferito a [presidio-ipotesi](presidio-ipotesi.md).
 
 ## Residui
 
@@ -43,17 +44,9 @@ prescrizione resta attiva per due residui, ciascuno col proprio destinatario.
    dall'host abbia `view/index.html` sul checkout dell'host, non solo su
    `origin`. Dopo il deploy, ogni porta risponde ancora coi titoli giusti.
 
-2. **Seguito tracciato: il deck di `nixos`** — mescola racconto
-   dell'artefatto e lettura causale del boot. La migrazione dei path è
-   fatta; la revisione del contenuto, che cosa resta deck e che cosa torna a
-   i2 come lettura presidiata, attende l'esito del task
-   `o2/ipotesi-e-confronti-i2-i3.md` in `metodo`, che la sblocca con una
-   prescrizione propria dopo la ratifica.
-
 ## Verifica
 
 Il battito `/adottanti` legge nei file su `origin` che i due servizi non
 nominano più `o3/presentation/` e che le porte rispondono; per `danea2` resta
-il collaudo riportato dall'istanza locale. Chiuso il residuo 1, la
-prescrizione resta solo come rimando del residuo 2; quando il task delle
-ipotesi emette la propria prescrizione per `nixos`, questa si pota.
+il collaudo riportato dall'istanza locale. Chiusa la
+rimozione della forma vecchia dei servizi, questa prescrizione si pota.

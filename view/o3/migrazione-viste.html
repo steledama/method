@@ -58,6 +58,16 @@
             ></a
           >
         </li>
+        <li>
+          <a
+            href="presidio-ipotesi.html"
+            title="Rendere raggiungibili le ipotesi in attesa senza presidio"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Rendere raggiungibili le ipotesi in attesa senza presidio</span
+            ></a
+          >
+        </li>
       </ol>
     </nav>
     <main class="page-body">
@@ -103,22 +113,21 @@
         Marker: <code>nixos</code>, <code>bi</code>, <code>economia</code>,
         <code>salute</code> e <code>crm</code> a <code>f21594b</code>,
         <code>danea-auto</code> a <code>a344f64</code>. <code>baserow</code> è
-        nato nella forma nuova. La prescrizione resta attiva per due residui,
-        ciascuno col proprio destinatario.
+        nato nella forma nuova. La prescrizione resta attiva per la forma
+        vecchia dei servizi. Il seguito sul deck di <code>nixos</code> è
+        trasferito a <a href="presidio-ipotesi.html">presidio-ipotesi</a>.
       </p>
       <h2 id="residui">Residui</h2>
       <ol type="1">
         <li>
-          <p>
-            <strong>Togliere la forma vecchia del servizio</strong> —
-            <code>nixos</code>, <code>danea-auto</code>. Prima della migrazione
-            il servizio permanente accettava entrambe le forme:
-            <code>view/index.html</code> servito da
-            <code>o3/view/serve.py</code> oppure
-            <code>presentation/index.html</code> servito da
-            <code>o3/presentation/serve.py</code>. Ora tutti i repo serviti sono
-            migrati, quindi il ramo vecchio non ha più funzione:
-          </p>
+          <strong>Togliere la forma vecchia del servizio</strong> —
+          <code>nixos</code>, <code>danea-auto</code>. Prima della migrazione il
+          servizio permanente accettava entrambe le forme:
+          <code>view/index.html</code> servito da
+          <code>o3/view/serve.py</code> oppure
+          <code>presentation/index.html</code> servito da
+          <code>o3/presentation/serve.py</code>. Ora tutti i repo serviti sono
+          migrati, quindi il ramo vecchio non ha più funzione:
           <ul>
             <li>
               in <code>nixos</code>,
@@ -134,23 +143,10 @@
               <code>presentation/index.html</code> (<code>danea2</code>).
             </li>
           </ul>
-          <p>
-            Prima di togliere, il <code>method</code> locale verifica che ogni
-            repo servito dall’host abbia <code>view/index.html</code> sul
-            checkout dell’host, non solo su <code>origin</code>. Dopo il deploy,
-            ogni porta risponde ancora coi titoli giusti.
-          </p>
-        </li>
-        <li>
-          <p>
-            <strong>Seguito tracciato: il deck di <code>nixos</code></strong> —
-            mescola racconto dell’artefatto e lettura causale del boot. La
-            migrazione dei path è fatta; la revisione del contenuto, che cosa
-            resta deck e che cosa torna a i2 come lettura presidiata, attende
-            l’esito del task <code>o2/ipotesi-e-confronti-i2-i3.md</code> in
-            <code>metodo</code>, che la sblocca con una prescrizione propria
-            dopo la ratifica.
-          </p>
+          Prima di togliere, il <code>method</code> locale verifica che ogni
+          repo servito dall’host abbia <code>view/index.html</code> sul checkout
+          dell’host, non solo su <code>origin</code>. Dopo il deploy, ogni porta
+          risponde ancora coi titoli giusti.
         </li>
       </ol>
       <h2 id="verifica">Verifica</h2>
@@ -159,9 +155,8 @@
         <code>origin</code> che i due servizi non nominano più
         <code>o3/presentation/</code> e che le porte rispondono; per
         <code>danea2</code> resta il collaudo riportato dall’istanza locale.
-        Chiuso il residuo 1, la prescrizione resta solo come rimando del residuo
-        2; quando il task delle ipotesi emette la propria prescrizione per
-        <code>nixos</code>, questa si pota.
+        Chiusa la rimozione della forma vecchia dei servizi, questa prescrizione
+        si pota.
       </p>
     </main>
   </body>

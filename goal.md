@@ -42,9 +42,9 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   rilegge a ogni giro le prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
-  per arco; `migrazione-viste`, recepita dai sei e attiva su due residui
-  (forma vecchia del servizio in `nixos` e `danea-auto`, revisione del deck
-  di `nixos` dopo il task sulle ipotesi); `revisione-bootstrap-adottante`,
+  per arco; `migrazione-viste`, recepita dai sei e attiva sulla forma vecchia
+  del servizio in `nixos` e `danea-auto`; `presidio-ipotesi`, da recepire nei
+  sette dove manca il presidio, con il seguito sul deck di `nixos`; `revisione-bootstrap-adottante`,
   non verificata nel merito; `ingresso-adottante`, eseguita per la prima
   volta con `baserow`.
 

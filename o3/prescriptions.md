@@ -27,8 +27,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
 - [Le viste escono in `view/`, il deck curato in
   `presentation/`](migrazione-viste.md) — recepita dai sei; restano la
-  rimozione della forma vecchia del servizio in `nixos` e `danea-auto` e,
-  come seguito tracciato, la revisione del deck misto di `nixos`.
+  rimozione della forma vecchia del servizio in `nixos` e `danea-auto`.
+- [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
+  riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
+  recepimento nei sette e seguito sulla lettura del boot nel deck di `nixos`.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.

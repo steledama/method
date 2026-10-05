@@ -18,3 +18,9 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
   fondere concetti che non cambiano decisioni, distinzioni, compressione delle
   regole o fondamento teorico usato; revisione conclusa in cinque scaglioni,
   con misure prima/dopo.
+- [potatura-fili-e-verifiche.md](potatura-fili-e-verifiche.md) — misura sui
+  sedici fili di `5ea8204`: regole conservate, verifiche perse e due letture
+  recuperate; il solo stato del nodo non presidia ogni ipotesi.
+- [presidio-ipotesi-adottanti.md](presidio-ipotesi-adottanti.md) — criteri,
+  esiti e limiti degli otto run; regola minima ratificata e osservazione
+  ancora aperta su `danea-auto`, raggiungibile dalle Scadenze del plan.

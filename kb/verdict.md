@@ -16,6 +16,12 @@ cursore o un contratto corrente, come `i3/allineamento-metodo.md` negli
 adottanti, resta necessario anche con stato `aligned`: si aggiorna il verdetto
 senza eliminare il cursore che servirà alla prossima revisione.
 
+Anche un'ipotesi in attesa è una funzione viva: dichiara orizzonte e riscontro
+con fonte ed è raggiungibile da `eval` ([interpret](interpret.md)). Un filo
+con criterio, conteggio e data può già presidiarla. Prima di rimuoverlo,
+conservare quel presidio in una destinazione esplicita e raggiungibile.
+La chiusura operativa non conferma da sola una spiegazione.
+
 Il verdetto non può essere più sicuro del materiale:
 
 - una quantità rilevante dichiara se è misurata, dichiarata da terzi o derivata;
@@ -42,8 +48,9 @@ Ciò che non ha le tre cose non è un verdetto, e va dove il suo genere vive:
 
 - la motivazione di una decisione ormai stabile va nel nodo che porta la regola
   e nel messaggio del commit; il filo si chiude;
-- un'ipotesi incisa che attende l'uso è lo `stato: bozza` del suo nodo, non un
-  filo aperto senza data;
+- un'ipotesi incisa che attende l'uso può restare nel nodo o nella lettura
+  pertinente, con orizzonte, riscontro con fonte e raggiungibilità da `eval`:
+  il solo `stato: bozza` non ne presidia il riesame;
 - il seguito di una prescrizione negli adottanti lo misura l'audit periodico;
 - una decisione ancora da prendere è un task.
 

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Method · Il presidio serve dove le ipotesi restano fuori dal riesame
+    </title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="interpretations.html"
+        ><span class="nav-key">i2</span> Interpretazioni</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="baricentro-kb-adottanti.html"
+            title="Baricentro KB: dove sta il contenuto dei quattro adottanti"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Baricentro KB: dove sta il contenuto dei quattro adottanti</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="ingresso-adottante.html"
+            title="Entrare nel territorio è un&#x27;operazione del metodo"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Entrare nel territorio è un&#x27;operazione del metodo</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="bootstrap-adottanti.html"
+            title="Il bootstrap nei sei adottanti"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Il bootstrap nei sei adottanti</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="attese-a-finestra.html"
+            title="Il marcatore delle attese a finestra non è mai stato esercitato"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Il marcatore delle attese a finestra non è mai stato
+              esercitato</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="potatura-kb.html" title="Potatura minimalista della KB"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Potatura minimalista della KB</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="potatura-fili-e-verifiche.html"
+            title="La potatura conserva le regole ma può perdere le verifiche"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >La potatura conserva le regole ma può perdere le verifiche</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="presidio-ipotesi-adottanti.html"
+            title="Il presidio serve dove le ipotesi restano fuori dal riesame"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Il presidio serve dove le ipotesi restano fuori dal riesame</span
+            ></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">i2/presidio-ipotesi-adottanti.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>ciclo</dt>
+          <dd>runtime</dd>
+        </div>
+      </dl>
+      <h1 id="il-presidio-serve-dove-le-ipotesi-restano-fuori-dal-riesame">
+        Il presidio serve dove le ipotesi restano fuori dal riesame
+      </h1>
+      <p>
+        La prova del 2026-10-05 su <code>economia</code> e
+        <code>nixos</code> confronta la pratica corrente (braccio A) con un
+        modello che aggiunge contenitori di ipotesi, facet <code>tipo</code> e
+        presidio in <code>eval</code> (braccio B). Non giustifica quel modello
+        generale: il custode ha ratificato solo la regola minima, recepita in
+        interpret e prescritta in
+        <a href="../o3/presidio-ipotesi.html">presidio-ipotesi</a>. La
+        <a href="potatura-fili-e-verifiche.html"
+          >misura sulla potatura del canone</a
+        >
+        è distinta.
+      </p>
+      <h2 id="protocollo-e-provenienza">Protocollo e provenienza</h2>
+      <p>
+        Otto sessioni nuove, due run per braccio e prototipo, stessa richiesta
+        <code>eval interpret</code> poi <code>eval compare</code>, solo file
+        locali, nessuna applicazione. Eventi uguali fra i bracci; quattro
+        situazioni: evento pertinente, irrilevante, scadenza senza nuovo evento
+        e correzione della fonte. Il protocollo prescriveva stesso modello,
+        sforzo e budget; i resoconti non forniscono una misura indipendente
+        dell’effettiva parità del costo. Il giudice ha letto gli output prima
+        della mappa; due dubbi sono stati risolti dal custode prima di aprirla.
+        Una situazione conta come gestita solo se lo è in entrambi i run del
+        braccio.
+      </p>
+      <p>
+        La generalizzazione richiedeva tutte e quattro le situazioni gestite da
+        B e almeno una mancata da A in entrambi i prototipi, utilità
+        identificabile di ogni elemento introdotto e permanenza selettiva degli
+        esiti. Quest’ultima non era misurata dai bracci: spettava al custode;
+        non se ne deduce qui un collaudo autonomo. La caduta sui primi criteri
+        basta a respingere il modello.
+      </p>
+      <p>
+        Fonti persistenti: commit <code>ef8abb3</code> per protocollo e
+        preparazione, <code>8deb856</code> per giudizio e limiti,
+        <code>da41329</code> per ratifica, nel Git di <code>metodo</code>. Le
+        fixture e gli otto cloni temporanei sono materiale consumato; questa
+        lettura conserva criteri, mappa, risultati e limiti necessari al
+        riesame, non i resoconti integrali. Le fonti di dominio restano nei
+        rispettivi repo. Gli esiti attesi ratificati sono criteri della prova,
+        non giudizi applicati al dominio reale: questi spettano agli adottanti.
+      </p>
+      <h2 id="criteri-ed-eventi-della-prova">Criteri ed eventi della prova</h2>
+      <p>
+        Eventi ed esiti attesi dei due prototipi, scritti prima di costruirli.
+        Ciascun evento costruito vive solo nel worktree; gli esiti di giudizio
+        sono stati ratificati dal custode il 2026-10-05.
+      </p>
+      <p>
+        <strong><code>economia</code>, a <code>84cefbc</code></strong
+        >, ultimo giro <code>eval</code> il 2026-10-02:
+      </p>
+      <ul>
+        <li>
+          <strong>pertinente</strong>, costruito: una cattura
+          <code>i1/email/</code> in cui Teresa scrive nel thread dei
+          comproprietari mettendo Carlo in copia e chiedendogli di esprimersi,
+          senza che nessuno del ramo Pompa l’abbia sollecitata. Atteso: riesame
+          della profezia 6, esito falsificata per il suo criterio («sbagliata se
+          uno dei tre lo porta dentro spontaneamente»), con la conseguenza sulla
+          lettura che ne dipendeva, la convergenza di interessi sul silenzio di
+          Carlo; nessuna mossa sul credito di Carlo senza compare e plan. Prima
+          dell’evento la profezia ha già due riscontri parziali, la
+          compensazione a carico di Carlo proposta da Caprioli il 01/09 e il
+          contatto diretto di Stefano il 03/09: nessuno dei due la falsifica
+          (ratificato), perché il primo è contabilità e non porta Carlo al
+          tavolo, e il secondo è iniziativa nostra;
+        </li>
+        <li>
+          <strong>irrilevante</strong>, costruito: la fattura telefonica WINDTRE
+          di settembre, addebitata sul conto personale, che non tocca Fiano.
+          Atteso: nessun esito su nessuna profezia;
+        </li>
+        <li>
+          <strong>scadenza senza nuovi eventi</strong>, reale: la profezia 8
+          attende la risposta di Orsi, catturata il 13/08 in
+          <code>i1/email/2026-08-13.json</code> e mai riportata sulla profezia.
+          Atteso: la profezia emerge come valutabile senza che un evento nuovo
+          la nomini, con esito corroborata (ratificato): Orsi conferma il
+          riparto del residuo secondo le indicazioni ricevute, rinvia la
+          differenza a un conguaglio fra comproprietari e definisce anomala una
+          nota di credito. Emerge anche la profezia 5, la partita Orsi saldata
+          per bonifici separati il 13/08 e il 18/08, con esito mista
+          (ratificato): la separazione dei pagamenti si è avverata, ma il
+          conguaglio è stato chiesto per iscritto nel thread;
+        </li>
+        <li>
+          <strong>correzione della fonte</strong>, costruita: una ricattura del
+          thread di metà agosto mostra che la domanda del 14/08 sull’unico
+          pagamento era di Ilaria a Stefano, e che da Teresa e Maurizio non c’è
+          risposta scritta, solo il bonifico del 18/08. L’esito di oggi della
+          profezia 7 si regge su quel messaggio, che non è catturato in i1.
+          Atteso: riapertura dell’esito, rivalutato contro il criterio
+          originario, con la formulazione intatta e il predecessore conservato.
+          Si riapre anche la lezione di calibrazione che ne dipende, la «cannata
+          collegata». L’originale, letto in sola lettura con <code>gog</code> il
+          2026-10-05 (thread <code>19fb231b7df13ed5</code>, 14/08 alle 08:45), è
+          firmato «Teresa e Maurizio» e conferma l’esito attuale: la correzione
+          lo contraddice per costruzione, e nessuno dei due bracci ha accesso
+          alla casella.
+        </li>
+      </ul>
+      <p>
+        <strong><code>nixos</code>, a <code>6262067</code></strong
+        >, ultimo giro <code>eval</code> il 2026-09-27:
+      </p>
+      <ul>
+        <li>
+          <strong>pertinente</strong>, reale:
+          <code>i1/manutenzione.json</code> registra il 2026-10-05
+          <code>rebuild switch</code> e reboot di <code>norvegia</code> e poi di
+          <code>svezia</code>, entrambi senza unità fallite; il reboot di
+          <code>svezia</code> è avvenuto senza il runbook. Il conteggio in
+          <code>o2/investigate-server-boot-recurrence.md</code> è ancora 0/3 per
+          entrambi. Atteso: due primi reboot sani dopo un rebuild, e il
+          conteggio passa a 1/3 per ciascun server. L’ipotesi resta in attesa:
+          un esito sano non la falsifica, perché il guasto non è deterministico,
+          e non conferma alcuna causa. Il reboot senza runbook è una variabile
+          da annotare, non un riscontro sul boot;
+        </li>
+        <li>
+          <strong>irrilevante</strong>, costruito: un aggiornamento del ramo
+          <code>ia</code> di <code>manutenzione.json</code> applicato al solo
+          <code>deck</code>. Atteso: nessun effetto sull’ipotesi del boot;
+        </li>
+        <li>
+          <strong>scadenza senza nuovi eventi</strong>, costruita: nei materiali
+          dei due bracci la data di rivalutazione del filo e del task passa dal
+          2026-12-31 al 2026-10-01. È un orologio nostro: verifica che il
+          presidio scatti, non che il Mondo abbia risposto. Atteso: la scadenza
+          emerge; si dichiara il numero di eventi, 1/3 per server dopo l’evento
+          pertinente, e si sposta la data senza chiudere;
+        </li>
+        <li>
+          <strong>correzione della fonte</strong>, costruita: una rettifica alla
+          cattura <code>i1/svezia-boot-failure-20260907.md</code> mostra che il
+          fallimento del 09/07 era il secondo reboot dopo il rebuild, non il
+          primo, e che il primo era riuscito. Atteso: si riapre la lettura che
+          regge la pista principale, perché la correlazione «primo reboot dopo
+          <code>switch</code>» perde una delle due istanze. Le alternative
+          riprendono peso, la definizione del conteggio va rivista, e nessuna
+          causa nuova si attribuisce senza evidenza discriminante.
+        </li>
+      </ul>
+      <p>
+        La pratica corrente di <code>nixos</code> ha già mancato l’evento
+        pertinente nel Mondo: la sessione di manutenzione del 2026-10-05 ha
+        registrato i due reboot sani senza aggiornare il conteggio. È un
+        indizio, non il confronto: quella sessione non era un giro
+        <code>eval</code>.
+      </p>
+      <h2 id="risultati-e-limiti">Risultati e limiti</h2>
+      <p>
+        Otto run, giudicati alla cieca da una sessione separata; la mappa è
+        stata aperta dopo il giudizio e dopo due decisioni del custode sui dubbi
+        sollevati dal giudice.
+      </p>
+      <ul>
+        <li>
+          <strong>Fixture di <code>nixos</code> viziata</strong>: la correzione
+          costruita contraddice <code>1ff314b</code>, che registra
+          <code>svezia</code> spenta dalle 19:50 del 06/09 alle 08:55 del 07/09.
+          Il criterio è stato rivisto: con fonti in conflitto la gestione
+          corretta è riaprire la lettura dipendente senza scegliere in silenzio
+          e senza attribuire cause. Tutti e quattro i run la riaprono; tre
+          vedono il conflitto, uno (<code>r2</code>) accetta la rettifica senza
+          vederlo.
+        </li>
+        <li>
+          <strong>Conteggio di <code>nixos</code> ambiguo</strong>: il 06/09
+          <code>norvegia</code> ha fatto un primo reboot sano dopo un rebuild,
+          prima del guasto dell’08/09. Il criterio del filo non dice se un
+          guasto azzera il conteggio, e i run arrivano a totali diversi. La
+          situazione misura solo l’incremento dovuto al 05/10; l’ambiguità è un
+          risultato per <code>nixos</code>, non un errore dei run.
+        </li>
+      </ul>
+      <p>
+        Esiti per situazione (gestita in entrambi i run del braccio, altrimenti
+        no):
+      </p>
+      <ul>
+        <li>
+          <strong><code>economia</code>, braccio A</strong> (<code>r3</code>,
+          <code>r4</code>): pertinente no (<code>r3</code> non nomina la
+          profezia 6); irrilevante sì; scadenza no (<code>r3</code> non fa
+          emergere né la P8 né la P5, <code>r4</code> la sola P8); correzione no
+          (<code>r3</code> non conserva il predecessore);
+        </li>
+        <li>
+          <strong><code>economia</code>, braccio B</strong> (<code>r1</code>,
+          <code>r2</code>): pertinente sì; irrilevante sì; scadenza parziale in
+          entrambi, perché la P8 emerge corroborata e la P5 emerge ma come
+          avverata invece che mista; correzione sì;
+        </li>
+        <li>
+          <strong><code>nixos</code>, braccio A</strong> (<code>r2</code>,
+          <code>r3</code>) e <strong>braccio B</strong> (<code>r1</code>,
+          <code>r4</code>): tutte e quattro gestite in tutti i run.
+        </li>
+      </ul>
+      <p>
+        Condizione di caduta: <strong>il modello non si generalizza</strong>.
+      </p>
+      <ul>
+        <li>
+          in <code>nixos</code> la pratica corrente non manca nessuna
+          situazione: il filo i3 porta già criterio, conteggio e data di
+          rivalutazione, e il ciclo li esercita;
+        </li>
+        <li>
+          in <code>economia</code> il modello migliora la pratica e la rende
+          stabile: il braccio A ha due run molto diversi, il B no. Ma non
+          gestisce del tutto la scadenza, perché sulla P5 il giudizio diverge
+          dall’esito ratificato. Contare la sola emersione, come fa la riga
+          della condizione di caduta, darebbe la scadenza per gestita: l’esito
+          non cambierebbe, perché la caduta viene da <code>nixos</code>.
+        </li>
+      </ul>
+      <p>
+        Che cosa dice: il valore sta dove un’ipotesi non ha già un presidio. In
+        <code>economia</code> le profezie non compaiono nella skill
+        <code>eval</code>, non hanno un orizzonte dichiarato e il loro riesame
+        dipende da chi legge; in <code>nixos</code> l’ipotesi vive nel filo con
+        conteggio e data, e il ciclo la trova. È la regola più piccola prevista
+        dal task:
+        <strong
+          >ogni ipotesi in attesa dichiara orizzonte e riscontro con fonte, ed è
+          raggiungibile da <code>eval</code></strong
+        >. Dove già lo è, come nel filo di <code>nixos</code>, non serve altro;
+        il resto del modello (facet <code>tipo</code>, separazione obbligata dei
+        contenitori, presidio per tutti gli adottanti) non ha dimostrato di
+        servire.
+      </p>
+      <p>
+        Limiti: due run per braccio; una fixture viziata e corretta dopo il
+        giudizio, prima della mappa; il criterio della P5 è stato ratificato
+        prima dei run ma resta un giudizio. Deviazioni di protocollo senza
+        effetto sui giudizi: <code>nixos-r3</code> ha proseguito con un
+        <code>/exec plan</code> non chiesto, <code>nixos-r4</code> ha eseguito
+        <code>hostname</code>.
+      </p>
+      <h2 id="perimetro-osservato-non-validazione-aggiuntiva">
+        Perimetro osservato, non validazione aggiuntiva
+      </h2>
+      <p>
+        Le fotografie dei cinque altri adottanti non decidono la
+        generalizzazione: <code>salute</code> a <code>e8e323a</code> conserva
+        letture esplorative in prosa; <code>bi</code> a <code>4be04bcb</code> ha
+        prodotti runtime e contratti JSON, a cui non si impone frontmatter;
+        <code>crm</code> a <code>d638a64</code> distingue incognite ancora non
+        formulate come ipotesi nell’import clienti e un esito Twenty da cui
+        dipende la scelta corrente; <code>baserow</code> a
+        <code>3a84767</code> ha i2 vuota legittimamente e un’attesa operativa
+        sul warning Redis; <code>danea-auto</code> a <code>c3acb33</code> offre
+        l’osservazione sotto. Sono indizi sui file, non collaudi conclusi del
+        modello né verifiche live.
+      </p>
+      <p>
+        Il conteggio dei file i3, cursori compresi, nei sei adottanti allora
+        presenti passa da 37 a 19: misura registrata il 2026-10-05 sui commit di
+        potatura <code>3c8d84b</code> (economia), <code>068e25b</code> (nixos),
+        <code>ae9a174</code> (salute), <code>f1e304b5</code> (bi),
+        <code>8d0e338</code> (crm), <code>230f1e2</code> (danea-auto). Non prova
+        che quelle potature abbiano perso letture vive.
+      </p>
+      <p>
+        Resta una lezione sulle fonti: il giro email di
+        <code>economia</code> del 19/08, pur dichiarando copertura dal 14/08,
+        aveva perso la risposta di Teresa e Maurizio del 14/08 su cui poggiava
+        P7; la cattura è arrivata il 2026-10-05 (<code>97c644f</code>). La
+        finestra dichiarata di un giro non certifica la copertura.
+      </p>
+      <h2 id="osservazione-aperta-danea-auto">
+        Osservazione aperta: danea-auto
+      </h2>
+      <p>
+        <strong>Presidio in attesa.</strong> Orizzonte dal
+        <strong>2026-10-13</strong>, con osservazione valutabile almeno fino al
+        <strong>2026-10-17</strong> per l’assenza del precursore.
+        <code>eval interpret</code> di <code>metodo</code> la raggiunge dalle
+        <a href="../o1/plan.html#scadenze">Scadenze del plan</a>. Il riesame
+        legge i commit pubblicati di <code>danea-auto</code>: trailer
+        <code>Esiti:</code> e diff di
+        <code>i3/rallentamento-libreoffice.md</code>; il dato di dominio
+        proviene da <code>o3/stats.ps1</code> e dalla soglia di
+        <code>kb/affidabilita-gui.md</code>. Se non arriva un giro
+        <code>eval</code> o manca la copertura, il riscontro resta mancante e si
+        dichiara il prossimo riesame: nessun silenzio vale come esito.
+      </p>
+      <p>
+        Fissati il 2026-10-05, prima dell’osservazione, a <code>c3acb33</code>.
+        È un caso del perimetro, quindi non si fanno girare i due bracci: si
+        osserva se la pratica corrente fa emergere la scadenza da sola. Nessuno
+        la ricorda alle sessioni di <code>danea-auto</code>, altrimenti
+        l’osservazione è contaminata.
+      </p>
+      <ul>
+        <li>
+          <strong>Ipotesi</strong>: LibreOffice rallenta con l’uptime
+          (<code>i3/rallentamento-libreoffice.md</code>). Istanza viva dal 01/10
+          alle 11:42; età della rampa osservata intorno ai 12 giorni, quindi
+          verso il 13/10; l’istanza della crisi del 25/09 aveva 16 giorni.
+        </li>
+        <li>
+          <strong>Riscontro</strong>: le righe di ritentativo
+          <code>^+s</code> contate per giorno da <code>o3/stats.ps1</code>, con
+          la soglia di 10 righe di <code>kb/affidabilita-gui.md</code>.
+        </li>
+        <li>
+          <strong>Esito corretto, secondo la finestra</strong>:
+          <ul>
+            <li>
+              righe sopra soglia mentre l’istanza invecchia: l’ipotesi si
+              rafforza, ma la corroborazione resta sul precursore e non prova la
+              causa. La conseguenza proposta è il task già dichiarato, il
+              riavvio di LibreOffice insieme a quello delle 05:45;
+            </li>
+            <li>
+              zero righe con l’istanza ininterrotta almeno fino al 17/10, cioè
+              oltre l’età della crisi del 25/09: l’uptime non è la variabile
+              alla scala osservata, e la lettura si rivede;
+            </li>
+            <li>
+              istanza rinnovata prima dei 12 giorni, per chiusura manuale o
+              riavvio di <code>danea2</code>, compreso quello di Windows ancora
+              da osservare: non valutabile. L’orizzonte si sposta, e il mancato
+              evento non vale come falsificazione.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Cosa si misura</strong>: se il primo giro <code>eval</code> di
+          <code>danea-auto</code> dopo il 13/10 fa emergere l’ipotesi senza un
+          nuovo evento che la nomini. La lettura si fa sui commit pubblicati,
+          col trailer <code>Esiti:</code> e il diff del filo.
+        </li>
+      </ul>
+      <p>
+        L’ipotesi osservativa di <code>metodo</code> è che il presidio corrente
+        faccia emergere la scadenza da solo. Non ricordarla alle sessioni
+        dell’adottante. Se prima del giro la skill locale cambia per recepire la
+        prescrizione, dichiarare la contaminazione: il risultato non misurerebbe
+        più la pratica precedente. Il trailer da solo non certifica il riesame
+        della specifica ipotesi.
+      </p>
+    </main>
+  </body>
+</html>

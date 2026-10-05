@@ -76,6 +76,17 @@ Tre obblighi sulle sintesi `i2/`:
   sintesi. Sono evidenza di ciò che il progetto ha deciso, scritto o valutato;
   non provano da soli i fatti esterni che riportano.
 
+**Ipotesi in attesa** (cfr. `kb/interpret.md`): leggi l'indice `i2/`, i fili
+raggiunti da `i3/verdicts.md` e le `## Scadenze` di `o1/plan.md`, seguendo i
+rimandi alle ipotesi anche quando non ci sono segnali nuovi. Ogni ipotesi in
+attesa dichiara orizzonte e riscontro con fonte: verifica se l'evento o il
+riesame è arrivato, confronta il riscontro disponibile con il criterio e
+riporta le correzioni nelle letture dipendenti. Distingui dati mancanti,
+riesame scaduto e ipotesi risolta. Proponi il presidio dove manca; un filo
+con criterio, conteggio e data può già bastare. Non introdurre facet,
+contenitori o ipotesi per completare una collezione vuota. Dichiara quali
+ipotesi hai riesaminato e ciò che resta non verificato.
+
 Esito: quali sintesi sono nate o cambiate, contro quale materiale sono state
 verificate, quali affermazioni restano non verificate e sono dichiarate tali.
 
@@ -124,7 +135,8 @@ ancora valutate.
   frontmatter, verificato dalla build). Un filo che non misura nessun obiettivo
   è materiale da triage: o rivela un obiettivo mancante nel register
   (proponilo), o non è un verdetto — motivazione stabile da portare nel nodo,
-  ipotesi in attesa da lasciare allo `stato` del nodo, seguito di prescrizione
+  ipotesi in attesa da mantenere raggiungibili con orizzonte e riscontro
+  con fonte nel nodo o nella lettura pertinente, seguito di prescrizione
   da lasciare all'audit (`kb/verdict.md`, «Che cosa è un filo»). Non
   confondere la provenienza del segnale con l'obiettivo misurato.
 - Segnali orfani (percezioni `i1/` che nessun filo valuta, marker che nessuno
