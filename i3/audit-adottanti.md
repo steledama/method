@@ -177,11 +177,13 @@ Classificazione degli scostamenti:
   `/method` locali;
 - un giro `eval`/`exec` vuoto ora lascia un commit con `Esiti:`, ma solo se
   si è chiuso: una sessione interrotta resta invisibile;
-- l'attivazione delle presentazioni permanenti è verificata solo su `deck`,
-  dove il 2026-10-04 le quattro unit `presentazione-*` sono attive. Restano
-  da verificare la produzione (`bi`, `crm`), `danea2`, i firewall dopo i
-  rebuild e la raggiungibilità da un client LAN; li legge il battito del
-  2026-11-01;
+- l'attivazione delle presentazioni permanenti: su `deck` il 2026-10-04 le
+  quattro unit `presentazione-*` sono attive. Il 2026-10-05 la produzione
+  serve `bi`, `crm` e `baserow` sulle 8001-8003 dopo i rebuild di `nixos`
+  (`fb8509c`, collaudo LAN in `ec881e8`, da casa in `41453cc`): verificato
+  qui dall'indirizzo LAN di `svezia`, 200 coi titoli giusti, 404 su `/.env`.
+  Per `danea2` c'è solo il collaudo riportato dall'istanza di `danea-auto`,
+  in un commit non ancora su `origin`; lo legge il battito del 2026-11-01;
 - `origin` resta indietro quando un adottante non pubblica i suoi commit.
   Il 2026-10-05 `danea-auto` aveva recepito `migrazione-viste` a `f21594b`
   nel checkout di `danea2` (`1443454`), mentre `origin` e `svezia` erano
