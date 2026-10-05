@@ -40,6 +40,9 @@ cambia:
 
 - checkout sullo standby: il 2026-10-05 `norvegia` aveva `~/baserow` a
   `e981bff`, un commit dietro `svezia`;
+- accento: concordato `#0369a1` il 2026-10-05 (il primo `#be185d` era
+  confondibile con `#be123c` di `salute`); verificare che sia quello in
+  `o3/view/project.py` prima di registrarlo in `world.md`;
 - perimetro di `view/`: solo hostname, porte e topologia, nessun dato delle
   tabelle né credenziali;
 - prescrizioni aperte recepite già nella forma corrente

@@ -82,7 +82,11 @@ Per adottante, in sola lettura:
   a fonte unica non può divergere: non è un buco);
 - il test rapido su una vista a mano è il confronto con l'**ultima** modifica
   della fonte, non un campione sul contenuto vecchio: il drift colpisce il fatto
-  più fresco, cioè quello per cui la vista si apre.
+  più fresco, cioè quello per cui la vista si apre;
+- **l'accento** in `o3/view/project.py` (o `o3/presentation/project.py` nella
+  forma precedente) coincide con la copia in `world.md`. Sull'insieme: nessun
+  accento ripetuto né confondibile a colpo d'occhio con un altro, `metodo`
+  compreso. Una copia divergente si corregge in `world.md`, che è la copia.
 
 Il costo **ordina, non classifica**: la regola è una per tutti, ma una vista a
 mano che rende fatti su cui si agisce (salute, denaro, scadenze) si guarda per

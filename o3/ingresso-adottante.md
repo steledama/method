@@ -39,6 +39,10 @@ nuovo repository.
 ## Aggiorna solo le rappresentazioni correnti
 
 - registra nome, profilo e superficie nel register `world.md`;
+- scegli con l'adottante un accento per le viste che non sia già in uso né
+  confondibile a colpo d'occhio con quelli registrati in `world.md` (stessa
+  tinta in tonalità vicina non basta a distinguere), e registralo accanto alla
+  sua voce;
 - cerca nel repository enumerazioni e conteggi correnti degli adottanti: `rg`
   propone candidati, non decide;
 - classifica ogni occorrenza come inventario corrente da aggiornare, baseline

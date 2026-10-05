@@ -8,23 +8,26 @@ centro. Questi ruoli dipendono dal ciclo osservato, non dal versionamento: gli
 adottanti e l'artefatto del metodo hanno una storia Git.
 
 Adottanti (con la superficie da cui si leggono i marker
-`i3/allineamento-metodo.md`):
+`i3/allineamento-metodo.md` e il colore d'accento delle viste). L'accento è
+unico per progetto ([view](kb/view.md)) e vive in `o3/view/project.py` di ogni
+repo: qui ne resta una copia, verificata da `/adottanti`, perché l'unicità è
+una proprietà dell'insieme. Quello di `metodo` è `#4338ca`.
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
-  NixOS multi-host — checkout `~/nixos` su `svezia`
+  NixOS multi-host — checkout `~/nixos` su `svezia`; accento `#c2410c`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
-  sincronizzazione dati — checkout `~/bi` su `svezia`
+  sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,
   patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio
-  salto: `ssh norvegia`, poi `ssh deck`)
+  salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`
 - **[salute](https://github.com/steledama/salute)** — Benessere, pratica,
   filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto:
-  `ssh norvegia`, poi `ssh deck`)
+  `ssh norvegia`, poi `ssh deck`); accento `#be123c`
 - **[crm](https://github.com/tt-sviluppo/crm)** — CRM commerciale custom
-  minimale per proposte e richiami affidabili — checkout `~/crm` su `svezia`
+  minimale per proposte e richiami affidabili — checkout `~/crm` su `svezia`; accento `#a16207`
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
-  checkout `~/danea-auto` su `svezia`, runtime su `danea2`
+  checkout `~/danea-auto` su `svezia`, runtime su `danea2`; accento `#7e22ce`
 
 ## Superfici della membrana
 
