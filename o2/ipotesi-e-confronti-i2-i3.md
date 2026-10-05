@@ -416,10 +416,15 @@ pratica corrente e sul modello, con quattro situazioni:
 
 Il confronto misura i protocolli, non quanto si guida il lettore. I due bracci
 ricevono gli stessi materiali, la stessa richiesta e lo stesso budget, senza
-indicare quale ipotesi riesaminare. La richiesta è lo stesso comando, `eval
-interpret` sugli eventi nuovi, con la skill corrente in un braccio e quella
-modificata per la prova nell'altro; ogni braccio gira in una sessione nuova,
-perché chi ha eseguito il primo arriva al secondo sapendo cosa cercare.
+indicare quale ipotesi riesaminare. La richiesta è la stessa sequenza,
+`/eval interpret` e poi `/eval compare`, con la skill corrente in un braccio
+e quella modificata per la prova nell'altro. Serve anche `compare`, perché
+nella pratica corrente scadenze e conteggi di chiusura vivono nei fili i3.
+`perceive` resta fuori: gli eventi sono già catturati, e ai due bracci si
+dice allo stesso modo di lavorare solo sui file del repo, senza accesso a
+host, rete o servizi. Ogni braccio gira in una sessione nuova, perché chi ha
+eseguito il primo arriva al secondo sapendo cosa cercare, e non apre
+`metodo/o2/`, dove vivono gli esiti attesi.
 
 - **Eventi**: si usano eventi reali quando esistono al commit fissato; gli
   altri si costruiscono come file i1 identici per i due bracci. Per ogni
@@ -434,6 +439,80 @@ perché chi ha eseguito il primo arriva al secondo sapendo cosa cercare.
 - **Varianza**: due run per braccio e per prototipo; una situazione conta
   come gestita solo se lo è in entrambi i run, e la divergenza fra run si
   dichiara come instabilità, non come successo.
+
+### Criteri fissati (2026-10-05)
+
+Eventi ed esiti attesi dei due prototipi, scritti prima di costruirli.
+Ciascun evento costruito vive solo nel worktree; gli esiti contrassegnati
+«da ratificare» li conferma il custode prima di eseguire i bracci.
+
+**`economia`, a `84cefbc`**, ultimo giro `eval` il 2026-10-02:
+
+- **pertinente**, costruito: una cattura `i1/email/` in cui Teresa scrive
+  nel thread dei comproprietari mettendo Carlo in copia e chiedendogli di
+  esprimersi, senza che nessuno del ramo Pompa l'abbia sollecitata. Atteso:
+  riesame della profezia 6, esito falsificata per il suo criterio
+  («sbagliata se uno dei tre lo porta dentro spontaneamente»), con la
+  conseguenza sulla lettura che ne dipendeva, la convergenza di interessi
+  sul silenzio di Carlo; nessuna mossa sul credito di Carlo senza compare e
+  plan. Prima dell'evento la profezia ha già due riscontri parziali, la
+  compensazione a carico di Carlo proposta da Caprioli il 01/09 e il
+  contatto diretto di Stefano il 03/09: nessuno dei due la falsifica (da
+  ratificare), perché il primo è contabilità e non porta Carlo al tavolo, e
+  il secondo è iniziativa nostra;
+- **irrilevante**, costruito: una comunicazione della banca sul conto
+  personale che non tocca Fiano. Atteso: nessun esito su nessuna profezia;
+- **scadenza senza nuovi eventi**, reale: la profezia 8 attende la risposta
+  di Orsi, catturata il 13/08 in `i1/email/2026-08-13.json` e mai riportata
+  sulla profezia. Atteso: la profezia emerge come valutabile senza che un
+  evento nuovo la nomini, con esito corroborata (da ratificare): Orsi
+  conferma il riparto del residuo secondo le indicazioni ricevute, rinvia la
+  differenza a un conguaglio fra comproprietari e definisce anomala una nota
+  di credito. Emerge anche la profezia 5, la partita Orsi saldata per
+  bonifici separati il 13/08 e il 18/08, con esito da fissare dal custode
+  fra corroborata e mista;
+- **correzione della fonte**, costruita: una ricattura del thread di metà
+  agosto mostra che la domanda del 14/08 sull'unico pagamento era di Ilaria
+  a Stefano, e che da Teresa e Maurizio non c'è risposta scritta, solo il
+  bonifico del 18/08. L'esito di oggi della profezia 7 si regge su quel
+  messaggio, che non è catturato in i1. Atteso: riapertura dell'esito,
+  rivalutato contro il criterio originario, con la formulazione intatta e il
+  predecessore conservato. Si riapre anche la lezione di calibrazione che ne
+  dipende, la «cannata collegata».
+
+**`nixos`, a `6262067`**, ultimo giro `eval` il 2026-09-27:
+
+- **pertinente**, reale: `i1/manutenzione.json` registra il 2026-10-05
+  `rebuild switch` e reboot di `norvegia` e poi di `svezia`, entrambi senza
+  unità fallite; il reboot di `svezia` è avvenuto senza il runbook. Il
+  conteggio in `o2/investigate-server-boot-recurrence.md` è ancora 0/3 per
+  entrambi. Atteso: due primi reboot sani dopo un rebuild, e il conteggio
+  passa a 1/3 per ciascun server. L'ipotesi resta in attesa: un esito sano
+  non la falsifica, perché il guasto non è deterministico, e non conferma
+  alcuna causa. Il reboot senza runbook è una variabile da annotare, non un
+  riscontro sul boot;
+- **irrilevante**, costruito: un aggiornamento del ramo `ia` di
+  `manutenzione.json` applicato al solo `deck`. Atteso: nessun effetto
+  sull'ipotesi del boot;
+- **scadenza senza nuovi eventi**, costruita: nei materiali dei due bracci
+  la data di rivalutazione del filo e del task passa dal 2026-12-31 al
+  2026-10-01. È un orologio nostro: verifica che il presidio scatti, non che
+  il Mondo abbia risposto. Atteso: la scadenza emerge; si dichiara il numero
+  di eventi, 1/3 per server dopo l'evento pertinente, e si sposta la data
+  senza chiudere;
+- **correzione della fonte**, costruita: una rettifica alla cattura
+  `i1/svezia-boot-failure-20260907.md` mostra che il fallimento del 09/07
+  era il secondo reboot dopo il rebuild, non il primo, e che il primo era
+  riuscito. Atteso: si riapre la lettura che regge la pista principale,
+  perché la correlazione «primo reboot dopo `switch`» perde una delle due
+  istanze. Le alternative riprendono peso, la definizione del conteggio va
+  rivista, e nessuna causa nuova si attribuisce senza evidenza
+  discriminante.
+
+La pratica corrente di `nixos` ha già mancato l'evento pertinente nel Mondo:
+la sessione di manutenzione del 2026-10-05 ha registrato i due reboot sani
+senza aggiornare il conteggio. È un indizio, non il confronto: quella
+sessione non era un giro `eval`.
 
 La previsione 8 di `economia` documenta un fallimento storico della pratica
 corrente ma non sostituisce la prova: rileggendo oggi quel materiale, la
