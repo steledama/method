@@ -158,7 +158,14 @@ Il futuro protocollo collega i1 → i2 → i3:
 
 1. **Perceive** rende riconoscibili gli eventi nuovi e le fonti raggiungibili.
    La presenza di un file, la sua data di modifica o l'ultimo commit non
-   certificano da soli che un evento sia stato valutato.
+   certificano da soli che un evento sia stato valutato. Nemmeno la
+   finestra di un giro certifica che ogni evento sia stato catturato: in
+   `economia` il giro email del 19/08 copriva dal 14/08 e ha perso la
+   risposta scritta di Teresa e Maurizio del 14/08, l'unica fonte primaria
+   dell'esito della profezia 7. È stata catturata a posteriori il
+   2026-10-05 (`97c644f`). Un esito può poggiare su una fonte che
+   l'artefatto non contiene: il presidio chiede che il riscontro citi la
+   cattura, non il solo racconto.
 2. **Interpret** controlla quali ipotesi possono ricevere riscontro dagli
    eventi, leggendo anche materiale di casa e fonti primarie, e registra
    riscontri, alternative, esiti e correzioni alle sintesi dipendenti.
