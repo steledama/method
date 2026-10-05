@@ -48,7 +48,9 @@ repo, come già prescrive la skill canonica. Questo toglie la causa del caso
 osservato, ma non la fragilità: qualunque riga aggiunta dopo il paragrafo di
 `Esiti:` lo fa ignorare come trailer. Il fork di `danea-auto` vieta già la
 riga, eppure 23 suoi commit dal 2026-09-25 la portano: la regola nella skill
-da sola non ha fermato l'harness.
+da sola non ha fermato l'harness. Da `nixos` `6262067` l'attribuzione è spenta
+nelle impostazioni di Claude Code (`attribution` con `commit` e `pr` vuoti),
+verificata su `svezia` con una prova e il suo controllo inverso.
 
 Un solo caso di perdita. Il conteggio del 2026-11-01 può comunque leggere le
 righe `^Esiti:` del corpo oltre ai trailer, per non perdere `205c627`.
