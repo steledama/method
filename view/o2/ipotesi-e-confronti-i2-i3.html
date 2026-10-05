@@ -44,10 +44,11 @@
             Provare un laboratorio delle ipotesi nella collezione i2 di ogni
             adottante: file autonomi classificati tramite tipo: sintesi|ipotesi,
             riscontri, revisioni e scioglimento propri; i3 conserva i confronti
-            contro il Goal. Prototipi su economia e nixos, generalità su salute
-            e bi, riesame tramite eval e permanenza degli esiti utili. Misurare
-            separatamente le perdite nella potatura dei sedici fili originari;
-            consegnare un modello verificato senza incidere il canone.
+            contro il Goal. Prototipi su economia e nixos, perimetro sugli altri
+            cinque adottanti, riesame tramite eval e permanenza degli esiti
+            utili. Misurare separatamente le perdite nella potatura dei sedici
+            fili originari; consegnare un modello verificato senza incidere il
+            canone.
           </dd>
         </div>
         <div>
@@ -66,8 +67,8 @@
         tracciato di quella prescrizione: la revisione del deck di
         <code>nixos</code>, che mescola racconto dell’artefatto e lettura del
         boot. Il suo prodotto è un modello sottoposto al custode; canone,
-        ristrutturazione di <code>metodo</code> e prescrizione ai sei nascono
-        come task propri solo dopo la ratifica.
+        ristrutturazione di <code>metodo</code> e prescrizione agli adottanti
+        nascono come task propri solo dopo la ratifica.
       </p>
       <h2 id="il-problema">Il problema</h2>
       <p>
@@ -82,8 +83,10 @@
         Due bisogni si misurano separatamente: il presidio incompleto delle
         ipotesi e l’eventuale perdita di letture nelle potature recenti —
         <code>5ea8204</code> in <code>metodo</code> (sedici fili ridotti a
-        cinque), da 38 a 19 nell’aggregato dei sei. Una potatura corretta non
-        smentisce il bisogno di riesame osservato altrove.
+        cinque); nei sei adottanti di allora i file i3, cursore compreso, sono
+        passati da 37 a 19 (riconteggio del 2026-10-05 sui commit di potatura
+        elencati nei casi). Una potatura corretta non smentisce il bisogno di
+        riesame osservato altrove.
       </p>
       <h2 id="direzione-concordata-e-modello-da-verificare">
         Direzione concordata e modello da verificare
@@ -355,14 +358,36 @@
         si rivalutano allo stesso modo solo dopo la ratifica, ciascuna nel
         proprio repo.
       </p>
+      <p>
+        L’esito non fa cadere il modello (vedi «Condizione di caduta»), ma ha
+        due conseguenze dichiarate. Una lettura persa e ancora viva si
+        ripristina subito in <code>i2/</code> di <code>metodo</code> come
+        sintesi corrente, in un commit proprio, senza attendere lo schema. Il
+        conteggio di chiusure, risalite e perdite passa al custode come peso del
+        bisogno nel dominio di <code>metodo</code> e orienta l’ordine in cui,
+        dopo la ratifica, si rivalutano le potature degli adottanti.
+      </p>
       <h3 id="poi-i-casi">Poi: i casi</h3>
       <p>
-        Analisi del 2026-10-04 sui checkout locali, puliti e allineati ai
-        rispettivi <code>origin/main</code>; nessuna verifica live degli host,
-        delle controparti o degli eventi sanitari. Riferimenti Git e file sono
-        fonti della diagnosi degli artefatti, non conferme indipendenti dei
-        fatti esterni. Si parte dai due casi con il segnale più netto; gli altri
-        due provano la generalità.
+        Analisi sui checkout locali, puliti e allineati ai rispettivi
+        <code>origin/main</code> dopo il fetch del 2026-10-05, ai commit che la
+        prova fissa:
+      </p>
+      <ul>
+        <li>
+          <code>economia</code> <code>84cefbc</code>, <code>nixos</code>
+          <code>6262067</code>, <code>salute</code> <code>e8e323a</code>,
+          <code>bi</code> <code>4be04bcb</code>, <code>crm</code>
+          <code>d638a64</code>, <code>danea-auto</code> <code>f6eedb5</code>,
+          <code>baserow</code> <code>3a84767</code>.
+        </li>
+      </ul>
+      <p>
+        Nessuna verifica live degli host, delle controparti o degli eventi
+        sanitari. Riferimenti Git e file sono fonti della diagnosi degli
+        artefatti, non conferme indipendenti dei fatti esterni. Si parte dai due
+        casi con il segnale più netto; gli altri cinque provano la generalità e
+        ne tracciano il perimetro.
       </p>
       <ul>
         <li>
@@ -379,19 +404,36 @@
             riesaminare contro il documento originale senza dedurne qui un
             esito.
           </p>
+          <p>
+            Il file numera le profezie da 0 a 8 in un ordine che non segue
+            quello del testo (0, 1, 3, 4, 5, 6, 7, 2, 8): i numeri sono già
+            identificativi stabili indipendenti dalla posizione, il caso
+            concreto per scegliere fra ancore e file per ipotesi. Gli esiti
+            praticati, <code>APERTA</code>, <code>AVVERATA</code>,
+            <code>SBAGLIATA</code> e mista, si mappano su quelli proposti, e la
+            mappatura è un costo da misurare: «avverata» non diventa
+            «corroborata» senza verificare caso per caso criterio e riscontro.
+          </p>
         </li>
         <li>
           <p>
             <strong>nixos</strong>, potatura <code>068e25b</code>: quattro fili
-            eliminati, con regole consolidate nella KB e lavoro nei task. La
-            lettura causale del boot resta distribuita fra
-            <code>i2/nixos-in-sintesi.md</code>,
+            eliminati, con regole consolidate nella KB e lavoro nei task. Da
+            <code>fcf60a7</code> (2026-10-04, recepimento della migrazione delle
+            viste) <code>i2/nixos-in-sintesi.md</code> non esiste più e
+            <code>i2/</code> contiene il solo indice: la lettura causale del
+            boot è passata nel deck, <code>presentation/presentation.md</code> §
+            «Affidabilità del boot dei server», e resta distribuita fra il deck,
             <code>o2/investigate-server-boot-recurrence.md</code> e
-            <code>i3/affidabilita-boot-server.md</code>. È il caso canonico di
-            chiusura ≠ spiegazione: tre reboot sani per server possono chiudere
-            come «non ricorso», senza dimostrare la causa del guasto. La
-            scadenza della prova è quella del riesame, anche senza una data di
-            risoluzione dell’ipotesi causale: è un orologio nostro
+            <code>i3/affidabilita-boot-server.md</code>. Il prototipo legge
+            quella sezione del deck e propone dove la lettura vivrebbe in i2,
+            senza modificare il deck: la sua revisione resta il seguito
+            tracciato di <code>o3/migrazione-viste.md</code> e parte dopo la
+            ratifica, con la proposta di questo prototipo come ingresso. È il
+            caso canonico di chiusura ≠ spiegazione: tre reboot sani per server
+            possono chiudere come «non ricorso», senza dimostrare la causa del
+            guasto. La scadenza della prova è quella del riesame, anche senza
+            una data di risoluzione dell’ipotesi causale: è un orologio nostro
             (<code>kb/plan.md</code>, «Tempo e fonti») e verifica che il
             presidio scatti, non che il Mondo abbia risposto. Si dichiara così e
             non vale come la scadenza esogena di <code>economia</code>.
@@ -400,10 +442,9 @@
             Divisione attesa del lavoro, da verificare nel prototipo. i2 tiene
             la lettura: entrambi gli incidenti sono avvenuti al primo riavvio
             dopo un <code>nixos-rebuild switch</code>, mentre un reboot
-            successivo senza rebuild è riuscito
-            (<code>i2/nixos-in-sintesi.md</code>,
-            <code>o2/investigate-server-boot-recurrence.md</code>); la
-            correlazione resta un’ipotesi presidiata, con le alternative e
+            successivo senza rebuild è riuscito (deck § «Affidabilità del boot
+            dei server», <code>o2/investigate-server-boot-recurrence.md</code>);
+            la correlazione resta un’ipotesi presidiata, con le alternative e
             l’incertezza. i3 confronta quella lettura con l’obiettivo di
             affidabilità. Il criterio corrente di
             <code>i3/affidabilita-boot-server.md</code>, tre primi reboot dopo
@@ -436,13 +477,69 @@
             serie storica: verificare la disponibilità della serie di riscontri.
           </p>
         </li>
+        <li>
+          <p>
+            <strong>crm</strong>, potatura <code>8d0e338</code>: due fili
+            eliminati, la scelta architetturale già ratificata nel nodo maturo e
+            il registro clienti già consegnato come handoff in o2; in i3 resta
+            il solo cursore. Prova il caso senza confronto i3 e il confine fra
+            sintesi e ipotesi:
+            <code>i2/registro-clienti-unificato.md</code> chiude con tre
+            incognite aperte (sistema delle newsletter, autorità dell’indirizzo
+            commerciale, significato operativo di SalesKing) che condizionano
+            l’import senza essere ipotesi formulate;
+            <code>i2/valutazione-twenty.md</code> porta un esito concluso, il
+            no-go del pilot, da cui dipende la lettura corrente sulla soluzione
+            custom. Verificare se quelle incognite restano domande in prosa o
+            diventano ipotesi presidiate, e se l’esito di Twenty soddisfa il
+            criterio di permanenza.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>danea-auto</strong>, potatura <code>230f1e2</code>: un filo
+            eliminato, Controlp chiuso nel nodo
+            <code>kb/affidabilita-gui.md</code>. È la pratica più vicina al
+            modello senza averlo:
+            <code>i3/rallentamento-libreoffice.md</code> formula un’ipotesi
+            (LibreOffice rallenta con l’uptime), un precursore misurato da
+            <code>o3/stats.ps1</code> con soglia e una scadenza esogena,
+            l’istanza del 01/10 all’età della rampa intorno al 13/10, con le due
+            uscite dichiarate. L’ipotesi vive però nel confronto i3 insieme
+            all’effetto sull’obiettivo: prova la separazione di valenza, lettura
+            in i2 ed effetto sul Goal in i3, su un caso in cui la pratica
+            corrente funziona. La scadenza cade durante la prova e offre una
+            situazione «scadenza senza nuovi eventi» reale, osservata senza
+            intervenire sul runtime. In <code>i2/</code> le finestre di
+            osservazione sono sintesi con misure; il deck
+            <code>i2/danea-auto-in-sintesi.md</code> vi resta finché l’adottante
+            non recepisce <code>o3/migrazione-viste.md</code> e non entra nella
+            prova.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>baserow</strong>, nessuna potatura: adottante dal
+            2026-10-05. <code>i2/</code> è vuota per scelta dichiarata, misure
+            in i1 e giudizio nei fili i3. Prova la collezione legittimamente
+            senza ipotesi e il confine con la verifica operativa:
+            <code>i3/redis-overcommit.md</code> attende che il warning sparisca
+            al primo riavvio del container, dopo una correzione applicata da
+            <code>nixos</code>. Stabilire se un’attesa di questo tipo, legata a
+            un evento pianificato e a una correzione di un altro repo, è
+            un’ipotesi sul Mondo da presidiare in i2 o la condizione di chiusura
+            di un confronto, e se il presidio regge una dipendenza fra
+            adottanti.
+          </p>
+        </li>
       </ul>
       <p>
         Per ciascun caso produrre una proposta concreta di i2 e presidio del
         riesame; aggiungere un confronto i3 solo quando esiste una questione
-        valutativa contro il Goal. Includere un caso senza confronto i3.
-        Indicare cosa cambia, cosa non ha riscontro e dove vivono dati ed esiti.
-        Nessuna migrazione degli adottanti è implicita in questa prova.
+        valutativa contro il Goal. Includere un caso senza confronto i3,
+        <code>crm</code> o <code>baserow</code>. Indicare cosa cambia, cosa non
+        ha riscontro e dove vivono dati ed esiti. Nessuna migrazione degli
+        adottanti è implicita in questa prova.
       </p>
       <h2 id="condizione-di-caduta">Condizione di caduta</h2>
       <p>
@@ -461,6 +558,33 @@
         nell’altro; ogni braccio gira in una sessione nuova, perché chi ha
         eseguito il primo arriva al secondo sapendo cosa cercare.
       </p>
+      <ul>
+        <li>
+          <strong>Eventi</strong>: si usano eventi reali quando esistono al
+          commit fissato; gli altri si costruiscono come file i1 identici per i
+          due bracci. Per ogni situazione l’esito atteso si scrive prima di
+          eseguire i bracci.
+        </li>
+        <li>
+          <strong>Dove</strong>: entrambi i bracci girano in un worktree
+          dell’adottante al commit fissato; eventi costruiti e skill modificata
+          vivono solo lì e non arrivano mai su <code>main</code> dell’adottante.
+        </li>
+        <li>
+          <strong>Giudice</strong>: una sessione distinta confronta gli output,
+          anonimizzati come A e B, con gli esiti attesi; il custode dirime i
+          casi dubbi.
+        </li>
+        <li>
+          <strong>Budget</strong>: stesso modello, stesso livello di sforzo e
+          stesso limite dichiarato di turni, nessuna indicazione aggiuntiva.
+        </li>
+        <li>
+          <strong>Varianza</strong>: due run per braccio e per prototipo; una
+          situazione conta come gestita solo se lo è in entrambi i run, e la
+          divergenza fra run si dichiara come instabilità, non come successo.
+        </li>
+      </ul>
       <p>
         La previsione 8 di <code>economia</code>, rimasta aperta dopo il
         chiarimento che la riguardava, documenta un fallimento storico della
@@ -498,11 +622,12 @@
         </li>
       </ul>
       <p>
-        <code>salute</code> e <code>bi</code> non decidono la generalizzazione:
-        ne tracciano il perimetro. Un limite di dominio lì delimita il modello
-        invece di farlo cadere, e si dichiara. Un’incompatibilità con un
-        contratto canonico comune torna invece sul modello generale: non ogni
-        fallimento si assorbe come eccezione locale.
+        <code>salute</code>, <code>bi</code>, <code>crm</code>,
+        <code>danea-auto</code> e <code>baserow</code> non decidono la
+        generalizzazione: ne tracciano il perimetro. Un limite di dominio lì
+        delimita il modello invece di farlo cadere, e si dichiara.
+        Un’incompatibilità con un contratto canonico comune torna invece sul
+        modello generale: non ogni fallimento si assorbe come eccezione locale.
       </p>
       <p>Non sono condizioni di caduta, né vanno lette come conferme:</p>
       <ul>
