@@ -466,8 +466,8 @@ di giudizio sono stati ratificati dal custode il 2026-10-05.
   compensazione a carico di Carlo proposta da Caprioli il 01/09 e il
   contatto diretto di Stefano il 03/09: nessuno dei due la falsifica (ratificato), perché il primo è contabilità e non porta Carlo al tavolo, e
   il secondo è iniziativa nostra;
-- **irrilevante**, costruito: una comunicazione della banca sul conto
-  personale che non tocca Fiano. Atteso: nessun esito su nessuna profezia;
+- **irrilevante**, costruito: la fattura telefonica WINDTRE di settembre,
+  addebitata sul conto personale, che non tocca Fiano. Atteso: nessun esito su nessuna profezia;
 - **scadenza senza nuovi eventi**, reale: la profezia 8 attende la risposta
   di Orsi, catturata il 13/08 in `i1/email/2026-08-13.json` e mai riportata
   sulla profezia. Atteso: la profezia emerge come valutabile senza che un
@@ -599,6 +599,64 @@ Non sono condizioni di caduta, né vanno lette come conferme:
 Se un prototipo fallisce, il task consegna una regola più piccola, per esempio
 il solo identificativo con orizzonte sulle letture esistenti, oppure delimita
 la pratica al dominio che ne beneficia.
+
+## Esito della prova (2026-10-05)
+
+Otto run, giudicati alla cieca da una sessione separata; la mappa è stata
+aperta dopo il giudizio e dopo due decisioni del custode sui dubbi sollevati
+dal giudice.
+
+- **Fixture di `nixos` viziata**: la correzione costruita contraddice
+  `1ff314b`, che registra `svezia` spenta dalle 19:50 del 06/09 alle 08:55
+  del 07/09. Il criterio è stato rivisto: con fonti in conflitto la
+  gestione corretta è riaprire la lettura dipendente senza scegliere in
+  silenzio e senza attribuire cause. Tutti e quattro i run la riaprono; tre
+  vedono il conflitto, uno (`r2`) accetta la rettifica senza vederlo.
+- **Conteggio di `nixos` ambiguo**: il 06/09 `norvegia` ha fatto un primo
+  reboot sano dopo un rebuild, prima del guasto dell'08/09. Il criterio del
+  filo non dice se un guasto azzera il conteggio, e i run arrivano a totali
+  diversi. La situazione misura solo l'incremento dovuto al 05/10;
+  l'ambiguità è un risultato per `nixos`, non un errore dei run.
+
+Esiti per situazione (gestita in entrambi i run del braccio, altrimenti no):
+
+- **`economia`, braccio A** (`r3`, `r4`): pertinente no (`r3` non nomina la
+  profezia 6); irrilevante sì; scadenza no (`r3` non fa emergere né la P8 né
+  la P5, `r4` la sola P8); correzione no (`r3` non conserva il
+  predecessore);
+- **`economia`, braccio B** (`r1`, `r2`): pertinente sì; irrilevante sì;
+  scadenza parziale in entrambi, perché la P8 emerge corroborata e la P5
+  emerge ma come avverata invece che mista; correzione sì;
+- **`nixos`, braccio A** (`r2`, `r3`) e **braccio B** (`r1`, `r4`): tutte e
+  quattro gestite in tutti i run.
+
+Condizione di caduta: **il modello non si generalizza**.
+
+- in `nixos` la pratica corrente non manca nessuna situazione: il filo i3
+  porta già criterio, conteggio e data di rivalutazione, e il ciclo li
+  esercita;
+- in `economia` il modello migliora la pratica e la rende stabile: il
+  braccio A ha due run molto diversi, il B no. Ma non gestisce del tutto la
+  scadenza, perché sulla P5 il giudizio diverge dall'esito ratificato.
+  Contare la sola emersione, come fa la riga della condizione di caduta,
+  darebbe la scadenza per gestita: l'esito non cambierebbe, perché la
+  caduta viene da `nixos`.
+
+Che cosa dice: il valore sta dove un'ipotesi non ha già un presidio. In
+`economia` le profezie non compaiono nella skill `eval`, non hanno un
+orizzonte dichiarato e il loro riesame dipende da chi legge; in `nixos`
+l'ipotesi vive nel filo con conteggio e data, e il ciclo la trova. È la
+regola più piccola prevista dal task: **ogni ipotesi in attesa dichiara
+orizzonte e riscontro con fonte, ed è raggiungibile da `eval`**. Dove già
+lo è, come nel filo di `nixos`, non serve altro; il resto del modello
+(facet `tipo`, separazione obbligata dei contenitori, presidio per tutti gli
+adottanti) non ha dimostrato di servire.
+
+Limiti: due run per braccio; una fixture viziata e corretta dopo il
+giudizio, prima della mappa; il criterio della P5 è stato ratificato prima
+dei run ma resta un giudizio. Deviazioni di protocollo senza effetto sui
+giudizi: `nixos-r3` ha proseguito con un `/exec plan` non chiesto,
+`nixos-r4` ha eseguito `hostname`.
 
 ## Decisioni da consegnare al custode
 

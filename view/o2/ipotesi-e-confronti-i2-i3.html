@@ -727,9 +727,9 @@
           tavolo, e il secondo è iniziativa nostra;
         </li>
         <li>
-          <strong>irrilevante</strong>, costruito: una comunicazione della banca
-          sul conto personale che non tocca Fiano. Atteso: nessun esito su
-          nessuna profezia;
+          <strong>irrilevante</strong>, costruito: la fattura telefonica WINDTRE
+          di settembre, addebitata sul conto personale, che non tocca Fiano.
+          Atteso: nessun esito su nessuna profezia;
         </li>
         <li>
           <strong>scadenza senza nuovi eventi</strong>, reale: la profezia 8
@@ -919,6 +919,97 @@ verificato.</code></pre>
         Se un prototipo fallisce, il task consegna una regola più piccola, per
         esempio il solo identificativo con orizzonte sulle letture esistenti,
         oppure delimita la pratica al dominio che ne beneficia.
+      </p>
+      <h2 id="esito-della-prova-2026-10-05">Esito della prova (2026-10-05)</h2>
+      <p>
+        Otto run, giudicati alla cieca da una sessione separata; la mappa è
+        stata aperta dopo il giudizio e dopo due decisioni del custode sui dubbi
+        sollevati dal giudice.
+      </p>
+      <ul>
+        <li>
+          <strong>Fixture di <code>nixos</code> viziata</strong>: la correzione
+          costruita contraddice <code>1ff314b</code>, che registra
+          <code>svezia</code> spenta dalle 19:50 del 06/09 alle 08:55 del 07/09.
+          Il criterio è stato rivisto: con fonti in conflitto la gestione
+          corretta è riaprire la lettura dipendente senza scegliere in silenzio
+          e senza attribuire cause. Tutti e quattro i run la riaprono; tre
+          vedono il conflitto, uno (<code>r2</code>) accetta la rettifica senza
+          vederlo.
+        </li>
+        <li>
+          <strong>Conteggio di <code>nixos</code> ambiguo</strong>: il 06/09
+          <code>norvegia</code> ha fatto un primo reboot sano dopo un rebuild,
+          prima del guasto dell’08/09. Il criterio del filo non dice se un
+          guasto azzera il conteggio, e i run arrivano a totali diversi. La
+          situazione misura solo l’incremento dovuto al 05/10; l’ambiguità è un
+          risultato per <code>nixos</code>, non un errore dei run.
+        </li>
+      </ul>
+      <p>
+        Esiti per situazione (gestita in entrambi i run del braccio, altrimenti
+        no):
+      </p>
+      <ul>
+        <li>
+          <strong><code>economia</code>, braccio A</strong> (<code>r3</code>,
+          <code>r4</code>): pertinente no (<code>r3</code> non nomina la
+          profezia 6); irrilevante sì; scadenza no (<code>r3</code> non fa
+          emergere né la P8 né la P5, <code>r4</code> la sola P8); correzione no
+          (<code>r3</code> non conserva il predecessore);
+        </li>
+        <li>
+          <strong><code>economia</code>, braccio B</strong> (<code>r1</code>,
+          <code>r2</code>): pertinente sì; irrilevante sì; scadenza parziale in
+          entrambi, perché la P8 emerge corroborata e la P5 emerge ma come
+          avverata invece che mista; correzione sì;
+        </li>
+        <li>
+          <strong><code>nixos</code>, braccio A</strong> (<code>r2</code>,
+          <code>r3</code>) e <strong>braccio B</strong> (<code>r1</code>,
+          <code>r4</code>): tutte e quattro gestite in tutti i run.
+        </li>
+      </ul>
+      <p>
+        Condizione di caduta: <strong>il modello non si generalizza</strong>.
+      </p>
+      <ul>
+        <li>
+          in <code>nixos</code> la pratica corrente non manca nessuna
+          situazione: il filo i3 porta già criterio, conteggio e data di
+          rivalutazione, e il ciclo li esercita;
+        </li>
+        <li>
+          in <code>economia</code> il modello migliora la pratica e la rende
+          stabile: il braccio A ha due run molto diversi, il B no. Ma non
+          gestisce del tutto la scadenza, perché sulla P5 il giudizio diverge
+          dall’esito ratificato. Contare la sola emersione, come fa la riga
+          della condizione di caduta, darebbe la scadenza per gestita: l’esito
+          non cambierebbe, perché la caduta viene da <code>nixos</code>.
+        </li>
+      </ul>
+      <p>
+        Che cosa dice: il valore sta dove un’ipotesi non ha già un presidio. In
+        <code>economia</code> le profezie non compaiono nella skill
+        <code>eval</code>, non hanno un orizzonte dichiarato e il loro riesame
+        dipende da chi legge; in <code>nixos</code> l’ipotesi vive nel filo con
+        conteggio e data, e il ciclo la trova. È la regola più piccola prevista
+        dal task:
+        <strong
+          >ogni ipotesi in attesa dichiara orizzonte e riscontro con fonte, ed è
+          raggiungibile da <code>eval</code></strong
+        >. Dove già lo è, come nel filo di <code>nixos</code>, non serve altro;
+        il resto del modello (facet <code>tipo</code>, separazione obbligata dei
+        contenitori, presidio per tutti gli adottanti) non ha dimostrato di
+        servire.
+      </p>
+      <p>
+        Limiti: due run per braccio; una fixture viziata e corretta dopo il
+        giudizio, prima della mappa; il criterio della P5 è stato ratificato
+        prima dei run ma resta un giudizio. Deviazioni di protocollo senza
+        effetto sui giudizi: <code>nixos-r3</code> ha proseguito con un
+        <code>/exec plan</code> non chiesto, <code>nixos-r4</code> ha eseguito
+        <code>hostname</code>.
       </p>
       <h2 id="decisioni-da-consegnare-al-custode">
         Decisioni da consegnare al custode
