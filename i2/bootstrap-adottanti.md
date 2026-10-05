@@ -5,7 +5,8 @@ ciclo: runtime
 # Il bootstrap nei sei adottanti
 
 Sintesi qualitativa del 2026-08-21 sui checkout correnti dei sei adottanti
-dichiarati in `world.md`. Il materiale letto per ogni repo è `README.md`,
+dichiarati in `world.md` a quella data; `baserow`, entrato il 2026-10-05, è
+fuori dal suo perimetro. Il materiale letto per ogni repo è `README.md`,
 `CLAUDE.md`, `goal.md` e `world.md`; il nodo `kb/world.md` non è duplicato
 localmente ed è correttamente consumato come `method/world.md` attraverso il
 symlink canonico. Le lunghezze citate sono **misurate** con `wc -l` sui checkout

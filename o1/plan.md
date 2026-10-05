@@ -11,17 +11,12 @@ pianificazione.
 
 ## Task
 
-| Ciclo   | Ob. | Task                                            | Dip. |
-| ------- | --- | ----------------------------------------------- | ---- |
-| runtime | 2   | Ingresso di baserow nell'osservatorio           | w1   |
-| dev     | 1   | Ipotesi e confronti i2/i3                       | —    |
-| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | 1   | Ipotesi e confronti i2/i3                       | —    |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
-
-`w1` = adozione locale in `~/baserow`, condotta da una sessione lì sul
-passaggio di consegne di `TODO.md`; si sblocca col marker `aligned`. Vedi
-`o2/ingresso-baserow.md`.
 
 `p1` = battito `/adottanti` del **2026-11-01**: il risveglio conta gli
 esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
@@ -29,7 +24,7 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 
 ## Scadenze
 
-- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
+- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sette adottanti
   → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e

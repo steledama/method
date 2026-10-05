@@ -46,10 +46,10 @@ la superficie Drive delle fonti vive come `gdrive/` gitignorato, non come
 `world/`. L'hub d'ingresso è
 [`cognitive-artifact-design.md`](kb/cognitive-artifact-design.md), il solo nome
 di nodo assunto stabile come punto d'aggancio. Questa è la **sezione README
-canonica** ([readme](kb/readme.md)) — comune ai sette repo: dichiara l'adozione
+canonica** ([readme](kb/readme.md)) — comune agli otto repo: dichiara l'adozione
 e punta ai due poli, che vivono nei register di root — [`goal.md`](goal.md) (il
 nord: obiettivi, segnali, lavoro corrente) e [`world.md`](world.md) (il
-territorio: i sei adottanti, le superfici della membrana, le fonti) — da cui la
+territorio: i sette adottanti, le superfici della membrana, le fonti) — da cui la
 home ricava i poli Goal e World rendendone l'intro.
 
 ## Orientarsi
@@ -95,7 +95,7 @@ ciclo:
 - **[goal.md](goal.md)** — il polo superiore: il nord declinato in obiettivi,
   ognuno coi segnali che lo misurano e il lavoro corrente che lo serve; custode
   umano ([goal](kb/goal.md))
-- **[world.md](world.md)** — il polo inferiore: il territorio (i sei adottanti),
+- **[world.md](world.md)** — il polo inferiore: il territorio (i sette adottanti),
   le superfici della membrana e la provenienza delle fonti-mondo autorevoli,
   base dei `## Riferimenti` (i3) ([world](kb/world.md))
 

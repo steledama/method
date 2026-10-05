@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `metodo` ha due facce: i **sei progetti adottanti**, da cui
+Il Mondo runtime di `metodo` ha due facce: i **sette progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -28,6 +28,10 @@ una proprietà dell'insieme. Quello di `metodo` è `#4338ca`.
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
   checkout `~/danea-auto` su `svezia`, runtime su `danea2`; accento `#7e22ce`
+- **[baserow](https://github.com/tt-sviluppo/baserow)** — Custodia
+  dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
+  e contratto con `bi` — checkout `~/baserow` su `svezia` (produzione),
+  standby su `norvegia`; accento `#0369a1`
 
 ## Superfici della membrana
 

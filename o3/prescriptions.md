@@ -24,7 +24,7 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
-  Recepita dai sei; resta attiva fino al conteggio del 2026-11-01.
+  Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
 - [Le viste escono in `view/`, il deck curato in
   `presentation/`](migrazione-viste.md) — builder in `o3/view/`, pagine 1:1
   di register e collezioni, deck fuori da i2, servizio permanente sul nuovo

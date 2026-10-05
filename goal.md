@@ -28,8 +28,9 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
 - **Canone recepito dagli adottanti** — struttura, register e quartetto chiusi
   (2026-07-11, ultimo `salute`); segnali: marker `i3/allineamento-metodo.md`
   degli adottanti, filo [audit-adottanti](i3/audit-adottanti.md) (verdetto
-  dell'audit mensile); lavoro: sei adottanti dal 2026-08-12 (`crm` e
-  `danea-auto` quinto e sesto); obiettivo con **un fronte aperto** — il giro
+  dell'audit mensile); lavoro: sette adottanti dal 2026-10-05 (`crm` e
+  `danea-auto` quinto e sesto il 2026-08-12, `baserow` settimo, entrato a
+  `f44b6c0`); obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile
   `/adottanti` in `## Scadenze`. Alla verifica fuori giro del 2026-10-03 tutti e sei sono a
   `91cf874`, `aligned`, e i marker coincidono coi file; le viste sono fresche
@@ -38,8 +39,8 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
   su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
   per arco; `migrazione-viste`, emessa il 2026-10-04 (viste in `view/`,
-  deck in `presentation/`); `revisione-bootstrap-adottante` e
-  `ingresso-adottante`, non verificate nel merito.
+  deck in `presentation/`); `revisione-bootstrap-adottante`, non verificata nel merito;
+  `ingresso-adottante`, eseguita per la prima volta con `baserow`.
 
 ### 3. Ascoltare il basso
 

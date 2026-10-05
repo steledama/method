@@ -9,7 +9,10 @@ Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
 ogni giro. Ultimo giro d'insieme: **2026-10-01**, quarto battito, puntuale
 sulla scadenza; verifiche fuori giro il 2026-10-02 e il 2026-10-03. Le
 letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
-`deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`.
+`deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`. `baserow`, settimo
+adottante, è entrato il 2026-10-05 fuori giro: le letture qui sotto che
+contano «i sei» lo precedono, e la sua baseline fondativa è nella fotografia
+delle code.
 
 ## Verdetto
 
@@ -105,6 +108,17 @@ dominio):
   una funzione locale»: ha adottato `/commit` (con `valida_ahk.ps1` come
   controllo sostanziale) e ha generato `presentation/`. Qui l'audit
   continua a non certificare Danea, Task Scheduler né il backup.
+- **baserow** — baseline fondativa all'ingresso del 2026-10-05, contata a
+  mano sul checkout di `svezia` al commit di adozione `62396a7`, non ancora
+  su `origin`. Marker a `f44b6c0`, `aligned`, con le quattro prescrizioni
+  aperte esitate. Contenuto: 4 nodi `kb/`, 2 catture `i1/`, nessuna sintesi
+  `i2/`, 2 fili `i3/` più il marker, 3 runbook `o3/`. Plan con 4 task, 3
+  runtime e 1 dev, quest'ultimo in attesa di `nixos`. Skill: il quartetto
+  forkato più `method`, senza `/kb` e senza skill di dominio. Builder
+  identici al canone salvo la CONFIG della home; accento `#0369a1`. Il
+  bootstrap regge il contratto comune. Dominio a posta alta e fermo sul
+  primo fronte: nessun backup automatico, ultimo archivio del 31 luglio.
+  Non c'è storia comparabile, quindi niente delta.
 
 **Materiale per la clausola di uscita delle skill per arco**
 (`o2/rivalutazione-skill-per-arco.md`). Primo dato con la misura nuova,
@@ -147,7 +161,11 @@ Classificazione degli scostamenti:
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
 - la clausola di uscita delle skill per arco: il battito del 2026-11-01
-  conta gli esiti per stadio e per repository.
+  conta gli esiti per stadio e per repository;
+- `baserow`, prima verifica nell'uso al battito del 2026-11-01: il segnale
+  è lo stato del backup raccolto dai suoi `/eval perceive`. Un timer attivo
+  con restore provato chiude il primo fronte; un plan che non si muove sul
+  backup sarebbe la stessa domanda posta a `crm`.
 
 ## Limiti
 
@@ -163,4 +181,9 @@ Classificazione degli scostamenti:
   dove il 2026-10-04 le quattro unit `presentazione-*` sono attive. Restano
   da verificare la produzione (`bi`, `crm`), `danea2`, i firewall dopo i
   rebuild e la raggiungibilità da un client LAN; li legge il battito del
-  2026-11-01.
+  2026-11-01;
+- `origin` resta indietro quando un adottante non pubblica i suoi commit.
+  Il 2026-10-05 `danea-auto` aveva recepito `migrazione-viste` a `f21594b`
+  nel checkout di `danea2` (`1443454`), mentre `origin` e `svezia` erano
+  ancora a `91cf874`; lo stesso per `baserow` (`62396a7`). Le letture su
+  `origin` misurano ciò che è pubblicato, non ciò che è stato recepito.

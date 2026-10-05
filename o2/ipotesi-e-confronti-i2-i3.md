@@ -362,7 +362,7 @@ la pratica al dominio che ne beneficia.
   `adottanti`, `method`, `commit`, eccezione tabellare di i3 in `CLAUDE.md`,
   triage di `i2/` in `metodo` (`potatura-kb` conclusa,
   `baricentro-kb-adottanti` materiale di nodo, `bootstrap-adottanti` e
-  `ingresso-adottante` da rileggere), prescrizione ai sei.
+  `ingresso-adottante` da rileggere), prescrizione agli adottanti.
 
 ## Feedback
 
