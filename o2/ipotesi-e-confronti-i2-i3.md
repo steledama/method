@@ -443,8 +443,8 @@ eseguito il primo arriva al secondo sapendo cosa cercare, e non apre
 ### Criteri fissati (2026-10-05)
 
 Eventi ed esiti attesi dei due prototipi, scritti prima di costruirli.
-Ciascun evento costruito vive solo nel worktree; gli esiti contrassegnati
-«da ratificare» li conferma il custode prima di eseguire i bracci.
+Ciascun evento costruito vive solo nel worktree; gli esiti
+di giudizio sono stati ratificati dal custode il 2026-10-05.
 
 **`economia`, a `84cefbc`**, ultimo giro `eval` il 2026-10-02:
 
@@ -457,20 +457,18 @@ Ciascun evento costruito vive solo nel worktree; gli esiti contrassegnati
   sul silenzio di Carlo; nessuna mossa sul credito di Carlo senza compare e
   plan. Prima dell'evento la profezia ha già due riscontri parziali, la
   compensazione a carico di Carlo proposta da Caprioli il 01/09 e il
-  contatto diretto di Stefano il 03/09: nessuno dei due la falsifica (da
-  ratificare), perché il primo è contabilità e non porta Carlo al tavolo, e
+  contatto diretto di Stefano il 03/09: nessuno dei due la falsifica (ratificato), perché il primo è contabilità e non porta Carlo al tavolo, e
   il secondo è iniziativa nostra;
 - **irrilevante**, costruito: una comunicazione della banca sul conto
   personale che non tocca Fiano. Atteso: nessun esito su nessuna profezia;
 - **scadenza senza nuovi eventi**, reale: la profezia 8 attende la risposta
   di Orsi, catturata il 13/08 in `i1/email/2026-08-13.json` e mai riportata
   sulla profezia. Atteso: la profezia emerge come valutabile senza che un
-  evento nuovo la nomini, con esito corroborata (da ratificare): Orsi
+  evento nuovo la nomini, con esito corroborata (ratificato): Orsi
   conferma il riparto del residuo secondo le indicazioni ricevute, rinvia la
   differenza a un conguaglio fra comproprietari e definisce anomala una nota
   di credito. Emerge anche la profezia 5, la partita Orsi saldata per
-  bonifici separati il 13/08 e il 18/08, con esito da fissare dal custode
-  fra corroborata e mista;
+  bonifici separati il 13/08 e il 18/08, con esito mista (ratificato): la separazione dei pagamenti si è avverata, ma il conguaglio è stato chiesto per iscritto nel thread;
 - **correzione della fonte**, costruita: una ricattura del thread di metà
   agosto mostra che la domanda del 14/08 sull'unico pagamento era di Ilaria
   a Stefano, e che da Teresa e Maurizio non c'è risposta scritta, solo il
