@@ -1,5 +1,5 @@
 ---
-sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Prima prova su metodo: ultima vista buona conservata, provenienza verificabile, recupero all'avvio. Gli host si preparano prima della rimozione da git; canone portabile e implementazioni NixOS/Windows restano distinti."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Prima prova su metodo: ultima vista buona conservata, provenienza verificabile, recupero all'avvio. Gli host si preparano prima della rimozione da git; resta aperta la scelta fra pull manuale e aggiornamento automatico su deck dopo il push."
 ciclo: dev
 ---
 
@@ -20,7 +20,9 @@ Il debito di freschezza passa alla pubblicazione, non scompare.
 
 Ogni repo ha già un **host privilegiato** che serve le viste sulle reti
 private. Il flusso previsto è: verifica locale → commit → push su richiesta
-→ pull sull'host → build e pubblicazione automatica. Dove si sviluppa e si
+→ aggiornamento del checkout sull'host → build e pubblicazione automatica.
+Resta da decidere se l'aggiornamento sia manuale o automatico dopo il push,
+come descritto nella decisione aperta sotto. Dove si sviluppa e si
 serve sullo stesso host (`danea2`), la pubblicazione segue il commit locale.
 Il gate pre-commit resta una verifica, distinta dalla pubblicazione.
 
@@ -163,12 +165,38 @@ richiede il collaudo del servizio locale e delle differenze di piattaforma.
   raggiungibile, senza confondere l'uguaglianza degli hash con la correttezza
   del generatore.
 
+## Decisione aperta: aggiornamento di deck dopo il push
+
+Togliere `view/` da git non elimina da solo l'attesa del pull: dopo un commit
+e un push da `game`, le pagine su `deck` restano vecchie finché il suo checkout
+non si aggiorna. L'automazione di questo passaggio **non è esclusa dal task e
+non è ancora approvata**. La scelta va esplicitata prima di finalizzare il
+servizio della prova su `metodo`.
+
+- **Pull manuale**: il custode aggiorna `deck`; da quel momento build e
+  pubblicazione sono automatiche. Mantiene un gesto distinto per aggiornare
+  il sito, ma resta possibile dimenticarlo dopo il push.
+- **Aggiornamento automatico**: il push resta il gesto autorizzato dal
+  custode; `deck` acquisisce il commit, costruisce e pubblica senza un secondo
+  intervento. Un controllo periodico (per esempio ogni due minuti) è una
+  possibilità da valutare, non una configurazione già scelta. Richiede di
+  definire il checkout dedicato alla pubblicazione, il ramo seguito, la
+  gestione degli errori e il comportamento in presenza di modifiche locali
+  o divergenze: nessuna sovrascrittura o risoluzione automatica dei conflitti.
+
+In entrambi i casi resta il contratto dell'ultima vista buona. Se si sceglie
+l'automazione, il collaudo copre l'intero flusso `game → remoto → deck`,
+compreso il recupero dopo indisponibilità del remoto. La prova su `metodo`
+precede l'eventuale proposta agli altri repository; la scelta per `deck` non
+implica che ogni host adottante debba usare lo stesso meccanismo.
+
 ## Confini e verifiche sul Mondo
 
 - Verificare le porte dai luoghi dell'audit, in particolare `danea2` da casa
   e la coppia server dal lavoro. Una verifica mancante resta dichiarata.
-- Push su richiesta e pull manuale restano invariati: l'automazione del pull
-  è una decisione separata. Fino al pull la vista remota può restare indietro.
+- Il push resta su richiesta. Il pull è oggi manuale; il suo assetto futuro
+  dipende dalla decisione aperta sopra. Fino all'aggiornamento del checkout
+  sull'host, la vista remota può restare indietro.
 - Il deck in `presentation/` resta versionato come sorgente; solo la resa
   in `view/` esce da git.
 - La rimozione dei cloni di `danea-auto` dagli altri host è una decisione
