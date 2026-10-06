@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Method · Viste fuori da git</title>
+    <link rel="stylesheet" href="../assets/page.css" />
+    <link rel="stylesheet" href="../assets/theme.css" />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navigation">
+      <a class="nav-home" href="../index.html">Method</a
+      ><a class="nav-index" href="tasks.html"
+        ><span class="nav-key">o2</span> Task</a
+      >
+      <ol class="nav-thread">
+        <li>
+          <a
+            href="rivalutazione-skill-per-arco.html"
+            title="Rivalutazione clausola di uscita skill per arco"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label"
+              >Rivalutazione clausola di uscita skill per arco</span
+            ></a
+          >
+        </li>
+        <li>
+          <a
+            href="viste-fuori-da-git.html"
+            title="Viste fuori da git"
+            aria-current="page"
+            ><span class="dot" aria-hidden="true"></span
+            ><span class="nav-label">Viste fuori da git</span></a
+          >
+        </li>
+      </ol>
+    </nav>
+    <main class="page-body">
+      <p class="page-source">o2/viste-fuori-da-git.md</p>
+      <dl class="page-meta">
+        <div>
+          <dt>sintesi</dt>
+          <dd>
+            Proposta del 2026-10-06: view/ esce da git in tutti i repo. Le viste
+            si generano sull&#x27;host privilegiato che le serve, con una unit
+            dichiarata in nixos che ricostruisce dopo il pull, e in locale su
+            richiesta. Il task porta i fatti verificati, il giro in quattro
+            tempi e i punti da rivalutare; resta pause fino alla revisione del
+            custode.
+          </dd>
+        </div>
+        <div>
+          <dt>ciclo</dt>
+          <dd>dev</dd>
+        </div>
+      </dl>
+      <h1 id="viste-fuori-da-git">Viste fuori da git</h1>
+      <p>
+        Task <code>pause</code>. La proposta nasce il
+        <strong>2026-10-06</strong> dal custode, che riconsidera la decisione di
+        versionare <code>view/</code> presa con la migrazione delle viste
+        (<code>216ec6f</code>). Si attende la sua revisione prima di toccare il
+        canone.
+      </p>
+      <h2 id="la-proposta">La proposta</h2>
+      <p>
+        <code>view/</code> è interamente derivata dalle fonti <code>.md</code> e
+        da <code>presentation/</code>: versionarla è un debito
+        (<code>kb/view.md</code>, «Freschezza»). Ogni repo ha già un
+        <strong>host privilegiato</strong> che serve le viste sulle reti
+        private; basta che sia lui a generarle. Il flusso diventa: commit → push
+        su richiesta → pull sull’host privilegiato → ricostruzione automatica.
+        Chi lavora su un altro checkout genera le viste in locale quando vuole
+        aprirle.
+      </p>
+      <h2 id="fatti-verificati-il-2026-10-06">
+        Fatti verificati il 2026-10-06
+      </h2>
+      <ul>
+        <li>
+          <code>view/</code> in <code>metodo</code>: 41 file, tutti prodotti da
+          <code>python3 o3/view/build.py</code> (Pandoc e Prettier). La
+          rigenerazione sul checkout pulito non cambia nulla: la build è
+          deterministica e le viste erano fresche.
+        </li>
+        <li>
+          I 17 MB di <code>view/</code> sono quasi tutti i sette PNG copiati da
+          <code>presentation/</code>: blob identici, git li conserva una volta.
+          Il peso non è un argomento.
+        </li>
+        <li>
+          24 dei 75 commit dell’ultimo mese toccano <code>view/</code>: un terzo
+          della storia porta HTML rigenerato.
+        </li>
+        <li>
+          L’output dipende dalla versione di Pandoc dell’host: il 2026-10-05 il
+          deck di <code>danea-auto</code> differiva solo per quella
+          (<code>goal.md</code>, obiettivo 2).
+        </li>
+        <li>
+          Le ragioni del versionamento in <code>kb/view.md</code> sono due:
+          aprire le viste dal checkout senza build, e il servizio permanente che
+          «lancia lo stesso <code>serve.py</code> del checkout; un pull aggiorna
+          le viste senza riavvii». L’hook di rigenerazione era scartato perché
+          installazione host-locale non versionata.
+        </li>
+        <li>
+          In <code>nixos</code> (<code>o3/modules/home/presentations.nix</code>,
+          <code>o3/presentations.nix</code>) il pull sugli host privilegiati è
+          <strong>manuale</strong>: oggi le viste servite cambiano solo dopo
+          push e pull. Host privilegiati: <code>deck</code> per
+          <code>method</code>, <code>nixos</code>, <code>salute</code>,
+          <code>economia</code>; il ruolo <code>production</code> della coppia
+          server per <code>bi</code>, <code>crm</code>, <code>baserow</code>;
+          <code>danea2</code> per <code>danea-auto</code>.
+        </li>
+      </ul>
+      <h2 id="perché-lobiezione-allhook-non-regge-più">
+        Perché l’obiezione all’hook non regge più
+      </h2>
+      <p>
+        Una path unit systemd
+        <strong>dichiarata in <code>nixos</code></strong> è versionata, non
+        stato host-locale: è lo stesso schema della path unit
+        <code>-vista</code> già in uso per la migrazione. La ricostruzione dopo
+        il pull diventa automatica, push e pull restano gesti del custode. Con
+        Pandoc e Prettier forniti da nix sugli host privilegiati, la build ha
+        versioni fisse: sparisce anche il rumore fra host.
+      </p>
+      <h2 id="il-giro-in-quattro-tempi">Il giro in quattro tempi</h2>
+      <ol type="1">
+        <li>
+          <strong><code>metodo</code>, il canone</strong>:
+          <ul>
+            <li>
+              <code>kb/view.md</code>: viste non versionate; build sull’host
+              privilegiato dopo il pull e in locale su richiesta. Si riscrivono
+              «Freschezza» (l’obbligo passa dal commit al servizio), «Perimetro»
+              (<code>view/</code> non si versiona ma si serve: resta decisione
+              sui dati), «HTML apribile direttamente e build minima», «Servizio
+              sulle reti private» (la condizione «nessuna copia separata» si
+              aggiorna: il servizio ricostruisce e serve dal checkout);
+            </li>
+            <li>
+              <code>goal.md</code>, Goal di sviluppo: «viste che si aprono dal
+              checkout» diventa «viste servite dall’host privilegiato,
+              generabili in locale»;
+            </li>
+            <li>
+              gate di <code>/commit</code>: cade la domanda «le viste sono
+              ancora vere?» come rigenerazione; resta il giudizio sugli
+              artefatti di sintesi <code>i2/</code>;
+            </li>
+            <li>
+              <code>/adottanti</code>: la freschezza non si legge più su
+              <code>origin</code> ma sulla porta servita. Proposta: la build
+              scrive l’hash del commit sorgente nel piè di pagina della home,
+              così il controllo è un confronto fra hash;
+            </li>
+            <li>
+              <code>.gitignore</code> con <code>view/</code> e
+              <code>git rm -r --cached view</code>;
+            </li>
+            <li>
+              riferimenti a <code>view/</code> versionata nelle skill e nei nodi
+              (<code>project-structure</code>, <code>presentation</code>,
+              <code>karpathy-pattern</code>, <code>zettelkasten</code> da
+              rileggere).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>Prescrizione <code>o3/</code></strong> per i sette adottanti:
+          <code>.gitignore</code>, rimozione di <code>view/</code> dall’indice,
+          verifica che la home servita mostri l’hash di <code>origin</code>.
+          Collegata a <code>migrazione-viste</code>, che si può chiudere nello
+          stesso giro.
+        </li>
+        <li>
+          <strong><code>nixos</code></strong
+          >: Pandoc e Prettier sugli host privilegiati; per ogni repo una path
+          unit su <code>.git/logs/HEAD</code> che lancia
+          <code>o3/view/build.py</code> e, se la home prima mancava, avvia il
+          servizio. La <code>ConditionPathExists</code> su
+          <code>view/index.html</code> resta la diagnosi dell’assenza. Si toglie
+          insieme il ramo della forma vecchia
+          (<code>o3/presentation/serve.py</code>, path unit
+          <code>-vista</code>), residuo di <code>migrazione-viste</code>.
+        </li>
+        <li>
+          <strong><code>danea-auto</code></strong
+          >: si sviluppa solo su <code>danea2</code>, che lo serve: la build
+          gira lì al commit o dopo il pull, e
+          <code>o3/scheduler/serve_presentazione.pyw</code> perde la forma
+          vecchia. Il custode valuta di togliere i cloni dagli altri host per
+          non modificarlo altrove; <code>/adottanti</code> legge su
+          <code>origin</code> e non ne dipende.
+        </li>
+      </ol>
+      <h2 id="da-rivalutare-in-revisione">Da rivalutare in revisione</h2>
+      <ul>
+        <li>
+          <strong>Consumatori senza checkout</strong>: la proposta presuppone
+          che le viste si leggano soprattutto dal server. Su un PC senza Pandoc
+          e Prettier il checkout non ha viste.
+        </li>
+        <li>
+          <strong>Host Windows</strong>: <code>danea2</code> deve avere Pandoc e
+          Prettier e un modo di ricostruire dopo il pull senza hook git; da
+          verificare cosa offre lo scheduler già presente.
+        </li>
+        <li>
+          <strong>Pull ancora manuale</strong>: le viste servite restano
+          indietro finché non si fa il pull, come oggi. Un pull automatico
+          sull’host privilegiato è una decisione separata, fuori da questo task.
+        </li>
+        <li>
+          <strong>Errore di build sul server</strong>: il contratto fra fonti fa
+          fallire la build; serve che il servizio continui a servire l’ultima
+          vista buona e che l’errore sia leggibile (journal), non un’assenza
+          silenziosa.
+        </li>
+        <li>
+          <strong>Deck in <code>presentation/</code></strong
+          >: resta versionato come sorgente; solo la sua resa in
+          <code>view/presentation.html</code> esce da git.
+        </li>
+      </ul>
+      <h2 id="criterio-di-chiusura">Criterio di chiusura</h2>
+      <p>
+        Il custode approva, corregge o ritira la proposta. Se approvata, il task
+        si consuma col canone rivisto e la prescrizione pubblicata; il seguito
+        negli adottanti vive nella prescrizione, quello in
+        <code>nixos</code> nel suo plan.
+      </p>
+    </main>
+  </body>
+</html>

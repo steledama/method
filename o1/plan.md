@@ -14,12 +14,17 @@ pianificazione.
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| dev   | S   | Viste fuori da git                              | p2   |
 
 Legenda dipendenze esterne:
 
 `p1` = battito `/adottanti` del **2026-11-01**: il risveglio conta gli
 esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 `o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
+
+`p2` = revisione del custode della proposta del 2026-10-06: `view/` esce da
+git e si genera sull'host privilegiato dopo il pull. Vedi
+`o2/viste-fuori-da-git.md`.
 
 ## Scadenze
 
