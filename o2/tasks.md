@@ -5,4 +5,4 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 ## Contenuti
 
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al battito del 2026-11-01 sui numeri registrati.
-- [viste-fuori-da-git.md](viste-fuori-da-git.md) — task `pause`: proposta del 2026-10-06 di togliere `view/` da git in tutti i repo e generarla sull'host privilegiato dopo il pull; attende la revisione del custode.
+- [viste-fuori-da-git.md](viste-fuori-da-git.md) — direzione approvata il 2026-10-06: prima prova su `metodo` della pubblicazione da commit pulito con conservazione dell'ultima vista buona; preparazione degli host prima della rimozione di `view/` da git, poi recepimento negli adottanti.

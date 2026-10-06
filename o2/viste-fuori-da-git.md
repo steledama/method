@@ -1,22 +1,28 @@
 ---
-sintesi: "Proposta del 2026-10-06: view/ esce da git in tutti i repo. Le viste si generano sull'host privilegiato che le serve, con una unit dichiarata in nixos che ricostruisce dopo il pull, e in locale su richiesta. Il task porta i fatti verificati, il giro in quattro tempi, la build che resta come verifica nel gate di /commit e i punti da rivalutare; resta pause fino alla revisione del custode."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Prima prova su metodo: ultima vista buona conservata, provenienza verificabile, recupero all'avvio. Gli host si preparano prima della rimozione da git; canone portabile e implementazioni NixOS/Windows restano distinti."
 ciclo: dev
 ---
 
 # Viste fuori da git
 
-Task `pause`. La proposta nasce il **2026-10-06** dal custode, che
-riconsidera la decisione di versionare `view/` presa con la migrazione delle
-viste (`216ec6f`). Si attende la sua revisione prima di toccare il canone.
+Direzione approvata dal custode il **2026-10-06**, con le correzioni emerse
+dalla revisione. La revisione della specifica è autorizzata; l'implementazione
+resta lavoro futuro, a partire dalla prova su `metodo`. Si riconsidera la
+decisione di versionare `view/` presa con la migrazione delle viste (`216ec6f`).
 
 ## La proposta
 
-`view/` è interamente derivata dalle fonti `.md` e da `presentation/`:
-versionarla è un debito (`kb/view.md`, «Freschezza»). Ogni repo ha già un
-**host privilegiato** che serve le viste sulle reti private; basta che sia
-lui a generarle. Il flusso diventa: commit → push su richiesta → pull
-sull'host privilegiato → ricostruzione automatica. Chi lavora su un altro
-checkout genera le viste in locale quando vuole aprirle.
+`view/` è interamente derivata dalle fonti, dai builder e dagli asset
+versionati. Togliere l'output da git rende i diff più leggibili ed elimina
+il rumore di toolchain dalla storia. Si rinuncia all'HTML disponibile subito
+dopo il clone: chi lavora su un altro checkout genera le viste in locale.
+Il debito di freschezza passa alla pubblicazione, non scompare.
+
+Ogni repo ha già un **host privilegiato** che serve le viste sulle reti
+private. Il flusso previsto è: verifica locale → commit → push su richiesta
+→ pull sull'host → build e pubblicazione automatica. Dove si sviluppa e si
+serve sullo stesso host (`danea2`), la pubblicazione segue il commit locale.
+Il gate pre-commit resta una verifica, distinta dalla pubblicazione.
 
 ## Fatti verificati il 2026-10-06
 
@@ -41,80 +47,146 @@ checkout genera le viste in locale quando vuole aprirle.
   `nixos`, `salute`, `economia`; il ruolo `production` della coppia server
   per `bi`, `crm`, `baserow`; `danea2` per `danea-auto`.
 
-## Perché l'obiezione all'hook non regge più
+- La revisione ha confermato in un clone temporaneo che la build normale
+  passa senza diff. Simulando un errore tardivo di Prettier, invece, la build
+  fallisce dopo aver modificato `view/goal.html`: `build.py` scrive e pota
+  nella cartella servita prima di Prettier e del controllo finale.
+- `o3/view/build_pages.py` legge il working tree e include Markdown non
+  tracciati e non ignorati. Il solo hash di `HEAD` non identifica queste
+  fonti; nel gate pre-commit indica inoltre il commit precedente.
+- La unit `-vista` attuale in `nixos` è una migrazione una tantum, con
+  `RemainAfterExit=true`. Non è già un modello di ricostruzione ricorrente.
+  `PathChanged=` non recupera le modifiche precedenti all'attivazione solo
+  perché il file esiste: cfr. [documentazione systemd.path](https://github.com/systemd/systemd/blob/main/man/systemd.path.xml).
+- La revisione ha letto la configurazione locale dei servizi, non collaudato
+  gli host remoti o la raggiungibilità delle loro porte.
 
-Una path unit systemd **dichiarata in `nixos`** è versionata, non stato
-host-locale: è lo stesso schema della path unit `-vista` già in uso per la
-migrazione. La ricostruzione dopo il pull diventa automatica, push e pull
-restano gesti del custode. Con Pandoc e Prettier forniti da nix sugli host
-privilegiati, la build ha versioni fisse: sparisce anche il rumore fra host.
+## Contratto della pubblicazione
 
-## Il giro in quattro tempi
+Questi requisiti entrano nel canone senza dipendere da NixOS o da un host
+particolare. La configurazione dei servizi ne è un'implementazione.
 
-1. **`metodo`, il canone**:
-   - `kb/view.md`: viste non versionate; build sull'host privilegiato dopo
-     il pull e in locale su richiesta. Si riscrivono «Freschezza»
-     (l'obbligo passa dal commit al servizio), «Perimetro» (`view/` non si
-     versiona ma si serve: resta decisione sui dati), «HTML apribile
-     direttamente e build minima», «Servizio sulle reti private» (la
-     condizione «nessuna copia separata» si aggiorna: il servizio ricostruisce
-     e serve dal checkout);
-   - `goal.md`, Goal di sviluppo: «viste che si aprono dal checkout» diventa
-     «viste servite dall'host privilegiato, generabili in locale»;
-   - gate di `/commit`: la build **resta**, ma come verifica e non come
-     rigenerazione da committare. `build.py` controlla anche i contratti
-     fra le fonti («Derivata implica verificata»): toglierla dal gate
-     sposterebbe l'errore sul server, dopo il push, dove la vista servita
-     resta ferma senza che nessuno lo veda. Il gate esegue la build, rompe
-     sul contratto violato, e il suo output non entra nel commit. Resta il
-     giudizio sugli artefatti di sintesi `i2/`;
-   - `/adottanti`: la freschezza non si legge più su `origin` ma sulla porta
-     servita. Proposta: la build scrive l'hash del commit sorgente nel piè
-     di pagina della home, così il controllo è un confronto fra hash. Una
-     porta che dal PC dell'audit non si raggiunge si dichiara non
-     verificata, non si presume fresca;
-   - `.gitignore` con `view/` e `git rm -r --cached view`;
-   - riferimenti a `view/` versionata nelle skill e nei nodi
-     (`project-structure`, `presentation`, `karpathy-pattern`, `zettelkasten`
-     da rileggere).
-2. **Prescrizione `o3/`** per i sette adottanti: `.gitignore`, rimozione di
-   `view/` dall'indice, verifica che la home servita mostri l'hash di
-   `origin`. Collegata a `migrazione-viste`, che si può chiudere nello stesso
-   giro.
-3. **`nixos`**: Pandoc e Prettier sugli host privilegiati; per ogni repo una
-   path unit su `.git/logs/HEAD` che lancia `o3/view/build.py` e, se la home
-   prima mancava, avvia il servizio. La `ConditionPathExists` su
-   `view/index.html` resta la diagnosi dell'assenza. Si toglie insieme il
-   ramo della forma vecchia (`o3/presentation/serve.py`, path unit `-vista`),
-   residuo di `migrazione-viste`.
-4. **`danea-auto`**: si sviluppa solo su `danea2`, che lo serve: lì non c'è
-   un pull da intercettare, la build del gate di `/commit` produce già le
-   viste sul posto. Nessun meccanismo di ricostruzione su Windows; lo
-   scheduler `o3/scheduler/serve_presentazione.pyw` perde solo la forma
-   vecchia. Il custode valuta di togliere i cloni dagli altri
-   host per non modificarlo altrove; `/adottanti` legge su `origin` e non ne
-   dipende.
+- **Ultima vista buona**: costruire in una destinazione temporanea, eseguire
+  contratti, rendering, formattazione e controllo del compartimento stagno,
+  poi pubblicare soltanto l'esito riuscito. Un errore, anche tardivo, lascia
+  intatta la versione precedente. Specificare e provare il passaggio fra le
+  versioni, senza esporre una cartella parzialmente aggiornata; la soluzione
+  deve funzionare anche su Windows.
+- **Anteprima e pubblicazione**: la build locale può rendere il lavoro in
+  corso, dichiarandolo come anteprima. La vista pubblicata deriva da un
+  commit pulito: escludere modifiche e file non tracciati che entrerebbero
+  nell'output. Il gate verifica senza sostituire la vista pubblicata, anche
+  quando sviluppo e servizio condividono lo stesso host.
+- **Provenienza**: la home pubblicata espone l'hash del commit realmente
+  costruito, scritto insieme all'output valido. Registrare anche le versioni
+  del toolchain per diagnosticare differenze. Costruire da fonti stabili:
+  serializzare o isolare la lettura rispetto a pull, edit e build concorrenti;
+  non attribuire un hash a contenuti letti da revisioni diverse.
+- **Recupero**: verificare all'avvio se l'output manca o è arretrato, oltre a
+  ricostruire dopo un aggiornamento delle fonti. Definire recupero dopo un
+  errore e gestione di un nuovo aggiornamento durante la build. Se manca
+  qualunque versione valida, il servizio resta fermo con diagnosi leggibile;
+  se ne esiste una, continua a servirla e rende consultabile l'errore.
+- **Verifica distinta dalla freschezza**: `/adottanti` controlla separatamente
+  build e contratti sulle fonti, revisione servita rispetto al riferimento
+  remoto aggiornato, raggiungibilità della porta. La corrispondenza degli hash
+  non prova la correttezza del rendering. Una porta irraggiungibile è «non
+  verificata», non fresca per presunzione.
 
-## Da rivalutare in revisione
+## Sequenza e risorse
 
-- **Raggiungibilità delle porte**: il controllo di `/adottanti` per hash
-  presuppone che ogni porta servita si raggiunga dal PC dell'audit. Da
-  verificare in particolare `danea2` da casa e la coppia server dal lavoro.
-- **Pull ancora manuale**: le viste servite restano indietro finché non si
-  fa il pull, come oggi. Un pull automatico sull'host privilegiato è una
-  decisione separata, fuori da questo task.
-- **Errore di build sul server**: il contratto fra fonti fa fallire la build;
-  serve che il servizio continui a servire l'ultima vista buona e che
-  l'errore sia leggibile (journal), non un'assenza silenziosa.
-- **Deck in `presentation/`**: resta versionato come sorgente; solo la sua
-  resa in `view/presentation.html` esce da git.
+1. **Preparare e provare su `metodo`**, mantenendo inizialmente `view/`
+   versionata. Modificare `o3/view/build.py` e, se necessario, `serve.py` per
+   rispettare il contratto; definire le modalità di verifica, anteprima e
+   pubblicazione senza duplicare le regole di derivazione. Superare le prove
+   sotto prima di generalizzare la soluzione.
+2. **Preparare il servizio dell'host di `metodo` attraverso `nixos`**.
+   `o3/modules/home/presentations.nix` e `o3/presentations.nix` governano
+   toolchain e servizi. Fornire gli eseguibili con versioni controllate e
+   percorsi espliciti. Una path unit su `.git/logs/HEAD` è un candidato al
+   trigger, da validare insieme al controllo all'avvio e al recupero; non
+   ereditare il comportamento una tantum di `-vista`. La condizione sulla
+   presenza dell'HTML non deve impedire la prima build. Collaudare la porta
+   dell'host prima della rimozione delle viste da git.
+3. **Migrare `metodo` e incidere il canone**, dopo la preparazione dell'host:
+   - `.gitignore` con `/view/` e rimozione dall'indice. `git rm --cached`
+     conserva l'output sul checkout che lo esegue, ma il pull del commit di
+     rimozione può eliminare i file tracciati negli altri checkout: predisporre
+     e provare il passaggio mantenendo disponibile l'ultima vista buona;
+   - `kb/view.md`: riscrivere Freschezza, Perimetro, HTML e Servizio con il
+     contratto portabile; ammettere lo spazio temporaneo e la versione valida
+     necessaria alla pubblicazione, senza fonti mantenute a mano;
+   - `goal.md`: proporre «viste facilmente consultabili, riproducibili dalle
+     fonti» al posto di «viste che si aprono dal checkout»;
+   - gate di `/commit`: la build **resta come verifica**, il suo output non
+     entra più nel commit e non viene pubblicato. Resta il giudizio sugli
+     artefatti di sintesi `i2/`;
+   - `/adottanti`: separare i tre controlli del contratto; aggiornare i
+     riferimenti alla versione delle viste nelle skill e nei nodi
+     (`project-structure`, `presentation`, `karpathy-pattern`, `zettelkasten`),
+     nelle bussole e nelle istruzioni dei builder.
+4. **Prescrivere il recepimento ai sette adottanti** dopo il collaudo su
+   `metodo`. Ogni `method` locale ratifica builder e modalità di pubblicazione,
+   prepara il proprio host, prova, poi rimuove `view/` da git e verifica la
+   porta. La preparazione dei servizi in `nixos` è una dipendenza esplicita
+   per i repo che serve, non un passo successivo alla rimozione dell'output.
+5. **Adattare a `danea-auto`** tramite il suo `method`: su `danea2` la verifica
+   precede il commit, la pubblicazione lo segue su fonti pulite. Definire il
+   comando o meccanismo locale che esegue questo secondo passo e il recupero
+   all'avvio; la sola build del gate non basta. Il seguito coinvolge anche
+   `o3/scheduler/serve_presentazione.pyw`. Collaudare il passaggio fra versioni
+   con il server Windows in funzione prima di rimuovere l'output da git.
+
+## Prove di accettazione
+
+La prova su `metodo` deve produrre evidenza dei seguenti esiti; la prescrizione
+richiede il collaudo del servizio locale e delle differenze di piattaforma.
+
+- Build riuscita: contratti e controllo finale passano; con le stesse fonti
+  e toolchain l'output è identico. Dopo pubblicazione la porta rende le nuove
+  pagine e l'hash del commit costruito.
+- Errore tardivo simulato, anche dopo il rendering: nessun file della versione
+  pubblicata cambia, la porta continua a servire quella versione e l'errore
+  è leggibile. Una nuova build riuscita ripristina l'aggiornamento.
+- Primo avvio senza output e riavvio con output arretrato: il servizio
+  costruisce e pubblica senza attendere un altro pull. Senza build valida
+  l'assenza è diagnosticata, senza ciclo di riavvio incontrollato.
+- Modifiche locali o fonti non tracciate: l'anteprima resta possibile, ma
+  la pubblicazione non le attribuisce a `HEAD`. Dopo il commit il nuovo hash
+  corrisponde alle fonti rese, anche nel flusso locale di `danea2`.
+- Aggiornamento durante una build e richieste HTTP durante la pubblicazione:
+  nessuna resa parziale o di fonti mescolate; l'ultimo commit richiesto viene
+  infine pubblicato. Definire il comportamento delle richieste già in corso.
+- Pull del commit che elimina le viste tracciate: l'host già predisposto
+  conserva la disponibilità della versione valida e pubblica la nuova.
+- Audit: distinguere build fallita, versione servita arretrata e porta non
+  raggiungibile, senza confondere l'uguaglianza degli hash con la correttezza
+  del generatore.
+
+## Confini e verifiche sul Mondo
+
+- Verificare le porte dai luoghi dell'audit, in particolare `danea2` da casa
+  e la coppia server dal lavoro. Una verifica mancante resta dichiarata.
+- Push su richiesta e pull manuale restano invariati: l'automazione del pull
+  è una decisione separata. Fino al pull la vista remota può restare indietro.
+- Il deck in `presentation/` resta versionato come sorgente; solo la resa
+  in `view/` esce da git.
+- La rimozione dei cloni di `danea-auto` dagli altri host è una decisione
+  separata, non un requisito per pubblicare correttamente su `danea2`.
+- Il canone prescrive; gli adottanti ratificano. Preparazione e deploy degli
+  host passano dai rispettivi repository e mandati.
 
 ## Bilancio e momento
 
-Il guadagno è modesto — diff puliti, nessuna vista stale nella storia — e il
-costo è un giro su sette repo più `nixos`. Conviene farlo insieme alla
-chiusura di `migrazione-viste`, che tocca gli stessi servizi, non come lavoro
-a sé.
+Il guadagno ricorrente è la leggibilità dei diff e l'assenza di output stale
+nella storia; il costo comprende builder, pubblicazione affidabile, collaudo
+su Linux e Windows e recepimento nei sette adottanti. La prima prova su
+`metodo` rende questo costo osservabile prima della propagazione.
+
+Coordinare con `migrazione-viste`, che tocca gli stessi servizi, senza rendere
+la pulizia del ramo vecchio dipendente dall'intera nuova architettura. La sua
+chiusura richiede le verifiche già dichiarate nella prescrizione, non la sola
+approvazione di questo task.
 
 La pulizia della storia è scartata: nessun commit tocca solo `view/` (0 su
 25), lo spazio non cala perché i PNG sono gli stessi blob di
@@ -124,6 +196,10 @@ avanti.
 
 ## Criterio di chiusura
 
-Il custode approva, corregge o ritira la proposta. Se approvata, il task si
-consuma col canone rivisto e la prescrizione pubblicata; il seguito negli
-adottanti vive nella prescrizione, quello in `nixos` nel suo plan.
+Il task si chiude dopo il collaudo e la migrazione effettiva di `metodo`, il
+canone rivisto e la prescrizione pubblicata con ordine di recepimento e prove.
+L'approvazione della direzione o la sola modifica documentale non bastano.
+Le evidenze della prova e gli eventuali limiti residui devono essere leggibili
+prima della chiusura. Il seguito negli adottanti vive nella prescrizione;
+quello dei servizi vive nel plan di `nixos`, senza dichiararlo compiuto per
+il solo handoff.
