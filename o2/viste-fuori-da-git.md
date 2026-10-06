@@ -1,5 +1,5 @@
 ---
-sintesi: "Proposta del 2026-10-06: view/ esce da git in tutti i repo. Le viste si generano sull'host privilegiato che le serve, con una unit dichiarata in nixos che ricostruisce dopo il pull, e in locale su richiesta. Il task porta i fatti verificati, il giro in quattro tempi e i punti da rivalutare; resta pause fino alla revisione del custode."
+sintesi: "Proposta del 2026-10-06: view/ esce da git in tutti i repo. Le viste si generano sull'host privilegiato che le serve, con una unit dichiarata in nixos che ricostruisce dopo il pull, e in locale su richiesta. Il task porta i fatti verificati, il giro in quattro tempi, la build che resta come verifica nel gate di /commit e i punti da rivalutare; resta pause fino alla revisione del custode."
 ciclo: dev
 ---
 
@@ -61,11 +61,18 @@ privilegiati, la build ha versioni fisse: sparisce anche il rumore fra host.
      e serve dal checkout);
    - `goal.md`, Goal di sviluppo: «viste che si aprono dal checkout» diventa
      «viste servite dall'host privilegiato, generabili in locale»;
-   - gate di `/commit`: cade la domanda «le viste sono ancora vere?» come
-     rigenerazione; resta il giudizio sugli artefatti di sintesi `i2/`;
+   - gate di `/commit`: la build **resta**, ma come verifica e non come
+     rigenerazione da committare. `build.py` controlla anche i contratti
+     fra le fonti («Derivata implica verificata»): toglierla dal gate
+     sposterebbe l'errore sul server, dopo il push, dove la vista servita
+     resta ferma senza che nessuno lo veda. Il gate esegue la build, rompe
+     sul contratto violato, e il suo output non entra nel commit. Resta il
+     giudizio sugli artefatti di sintesi `i2/`;
    - `/adottanti`: la freschezza non si legge più su `origin` ma sulla porta
      servita. Proposta: la build scrive l'hash del commit sorgente nel piè
-     di pagina della home, così il controllo è un confronto fra hash;
+     di pagina della home, così il controllo è un confronto fra hash. Una
+     porta che dal PC dell'audit non si raggiunge si dichiara non
+     verificata, non si presume fresca;
    - `.gitignore` con `view/` e `git rm -r --cached view`;
    - riferimenti a `view/` versionata nelle skill e nei nodi
      (`project-structure`, `presentation`, `karpathy-pattern`, `zettelkasten`
@@ -80,20 +87,19 @@ privilegiati, la build ha versioni fisse: sparisce anche il rumore fra host.
    `view/index.html` resta la diagnosi dell'assenza. Si toglie insieme il
    ramo della forma vecchia (`o3/presentation/serve.py`, path unit `-vista`),
    residuo di `migrazione-viste`.
-4. **`danea-auto`**: si sviluppa solo su `danea2`, che lo serve: la build gira
-   lì al commit o dopo il pull, e `o3/scheduler/serve_presentazione.pyw`
-   perde la forma vecchia. Il custode valuta di togliere i cloni dagli altri
+4. **`danea-auto`**: si sviluppa solo su `danea2`, che lo serve: lì non c'è
+   un pull da intercettare, la build del gate di `/commit` produce già le
+   viste sul posto. Nessun meccanismo di ricostruzione su Windows; lo
+   scheduler `o3/scheduler/serve_presentazione.pyw` perde solo la forma
+   vecchia. Il custode valuta di togliere i cloni dagli altri
    host per non modificarlo altrove; `/adottanti` legge su `origin` e non ne
    dipende.
 
 ## Da rivalutare in revisione
 
-- **Consumatori senza checkout**: la proposta presuppone che le viste si
-  leggano soprattutto dal server. Su un PC senza Pandoc e Prettier il
-  checkout non ha viste.
-- **Host Windows**: `danea2` deve avere Pandoc e Prettier e un modo di
-  ricostruire dopo il pull senza hook git; da verificare cosa offre lo
-  scheduler già presente.
+- **Raggiungibilità delle porte**: il controllo di `/adottanti` per hash
+  presuppone che ogni porta servita si raggiunga dal PC dell'audit. Da
+  verificare in particolare `danea2` da casa e la coppia server dal lavoro.
 - **Pull ancora manuale**: le viste servite restano indietro finché non si
   fa il pull, come oggi. Un pull automatico sull'host privilegiato è una
   decisione separata, fuori da questo task.
@@ -102,6 +108,19 @@ privilegiati, la build ha versioni fisse: sparisce anche il rumore fra host.
   l'errore sia leggibile (journal), non un'assenza silenziosa.
 - **Deck in `presentation/`**: resta versionato come sorgente; solo la sua
   resa in `view/presentation.html` esce da git.
+
+## Bilancio e momento
+
+Il guadagno è modesto — diff puliti, nessuna vista stale nella storia — e il
+costo è un giro su sette repo più `nixos`. Conviene farlo insieme alla
+chiusura di `migrazione-viste`, che tocca gli stessi servizi, non come lavoro
+a sé.
+
+La pulizia della storia è scartata: nessun commit tocca solo `view/` (0 su
+25), lo spazio non cala perché i PNG sono gli stessi blob di
+`presentation/`, e la riscrittura degli hash romperebbe i marker degli
+adottanti e i riferimenti nei `.md`. Basta `git rm --cached` da qui in
+avanti.
 
 ## Criterio di chiusura
 

@@ -45,8 +45,8 @@
             si generano sull&#x27;host privilegiato che le serve, con una unit
             dichiarata in nixos che ricostruisce dopo il pull, e in locale su
             richiesta. Il task porta i fatti verificati, il giro in quattro
-            tempi e i punti da rivalutare; resta pause fino alla revisione del
-            custode.
+            tempi, la build che resta come verifica nel gate di /commit e i
+            punti da rivalutare; resta pause fino alla revisione del custode.
           </dd>
         </div>
         <div>
@@ -147,15 +147,22 @@
               generabili in locale»;
             </li>
             <li>
-              gate di <code>/commit</code>: cade la domanda «le viste sono
-              ancora vere?» come rigenerazione; resta il giudizio sugli
-              artefatti di sintesi <code>i2/</code>;
+              gate di <code>/commit</code>: la build <strong>resta</strong>, ma
+              come verifica e non come rigenerazione da committare.
+              <code>build.py</code> controlla anche i contratti fra le fonti
+              («Derivata implica verificata»): toglierla dal gate sposterebbe
+              l’errore sul server, dopo il push, dove la vista servita resta
+              ferma senza che nessuno lo veda. Il gate esegue la build, rompe
+              sul contratto violato, e il suo output non entra nel commit. Resta
+              il giudizio sugli artefatti di sintesi <code>i2/</code>;
             </li>
             <li>
               <code>/adottanti</code>: la freschezza non si legge più su
               <code>origin</code> ma sulla porta servita. Proposta: la build
               scrive l’hash del commit sorgente nel piè di pagina della home,
-              così il controllo è un confronto fra hash;
+              così il controllo è un confronto fra hash. Una porta che dal PC
+              dell’audit non si raggiunge si dichiara non verificata, non si
+              presume fresca;
             </li>
             <li>
               <code>.gitignore</code> con <code>view/</code> e
@@ -189,9 +196,11 @@
         </li>
         <li>
           <strong><code>danea-auto</code></strong
-          >: si sviluppa solo su <code>danea2</code>, che lo serve: la build
-          gira lì al commit o dopo il pull, e
-          <code>o3/scheduler/serve_presentazione.pyw</code> perde la forma
+          >: si sviluppa solo su <code>danea2</code>, che lo serve: lì non c’è
+          un pull da intercettare, la build del gate di
+          <code>/commit</code> produce già le viste sul posto. Nessun meccanismo
+          di ricostruzione su Windows; lo scheduler
+          <code>o3/scheduler/serve_presentazione.pyw</code> perde solo la forma
           vecchia. Il custode valuta di togliere i cloni dagli altri host per
           non modificarlo altrove; <code>/adottanti</code> legge su
           <code>origin</code> e non ne dipende.
@@ -200,14 +209,10 @@
       <h2 id="da-rivalutare-in-revisione">Da rivalutare in revisione</h2>
       <ul>
         <li>
-          <strong>Consumatori senza checkout</strong>: la proposta presuppone
-          che le viste si leggano soprattutto dal server. Su un PC senza Pandoc
-          e Prettier il checkout non ha viste.
-        </li>
-        <li>
-          <strong>Host Windows</strong>: <code>danea2</code> deve avere Pandoc e
-          Prettier e un modo di ricostruire dopo il pull senza hook git; da
-          verificare cosa offre lo scheduler già presente.
+          <strong>Raggiungibilità delle porte</strong>: il controllo di
+          <code>/adottanti</code> per hash presuppone che ogni porta servita si
+          raggiunga dal PC dell’audit. Da verificare in particolare
+          <code>danea2</code> da casa e la coppia server dal lavoro.
         </li>
         <li>
           <strong>Pull ancora manuale</strong>: le viste servite restano
@@ -226,6 +231,20 @@
           <code>view/presentation.html</code> esce da git.
         </li>
       </ul>
+      <h2 id="bilancio-e-momento">Bilancio e momento</h2>
+      <p>
+        Il guadagno è modesto — diff puliti, nessuna vista stale nella storia —
+        e il costo è un giro su sette repo più <code>nixos</code>. Conviene
+        farlo insieme alla chiusura di <code>migrazione-viste</code>, che tocca
+        gli stessi servizi, non come lavoro a sé.
+      </p>
+      <p>
+        La pulizia della storia è scartata: nessun commit tocca solo
+        <code>view/</code> (0 su 25), lo spazio non cala perché i PNG sono gli
+        stessi blob di <code>presentation/</code>, e la riscrittura degli hash
+        romperebbe i marker degli adottanti e i riferimenti nei
+        <code>.md</code>. Basta <code>git rm --cached</code> da qui in avanti.
+      </p>
       <h2 id="criterio-di-chiusura">Criterio di chiusura</h2>
       <p>
         Il custode approva, corregge o ritira la proposta. Se approvata, il task
