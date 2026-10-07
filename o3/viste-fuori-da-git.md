@@ -38,7 +38,10 @@ Per ogni repo, in quest'ordine, senza saltare il collaudo:
    dopo che il checkout dell'host ha i builder nuovi **in un commit**: la
    pubblicazione costruisce `HEAD`, quindi builder solo nel working tree
    fanno fallire la prima pubblicazione. Se l'host non è quello dove si
-   sviluppa, serve anche il push e l'aggiornamento del suo checkout.
+   sviluppa, serve anche il push e l'aggiornamento del suo checkout. Il
+   servizio parte solo se il checkout ha `o3/view/publish.py`: un
+   `build.py` precedente alla prescrizione ignora `--publish`, rigenera
+   `view/` nel checkout ed esce con 0, cioè fallirebbe in silenzio.
 3. **Git** (il `method` locale). `view/` esce dall'indice solo con l'host
    pronto e la porta collaudata.
 
@@ -110,12 +113,21 @@ anteprima.
   repo (`build_perceptions_index.py`, `fotografia_mensile.py`) restano in git
   e si rigenerano nel gate.
 - **bi**: passi 1-5 fatti il 2026-10-07 in `5fc8008e` su `svezia`, marker
-  a `4a1bd0c` `aligned` con l'adattamento in corso, secondo l'esito
-  riportato dall'istanza di `bi`: non su `origin` e non verificato da
-  `metodo`. La `view/` versionata a `85e40937` non era indietro. Il checkout
-  servito è `~/bi` su `svezia`, lo stesso in cui `bi` lavora. Il passo 6
-  attende il collaudo della porta 8001 sulla coppia server da parte di
-  `nixos`.
+  a `4a1bd0c` `aligned` con l'adattamento in corso. La `view/` versionata a
+  `85e40937` non era indietro. Host pronto: `nixos` `a1777f6` (fatto su
+  `svezia`) serve `bi` dalla 8001 della produzione nella forma pubblicata,
+  collaudo superato (prima pubblicazione, commit che ripubblica, build
+  fallita con i file serviti intatti, porta dalla LAN di lavoro). Esiti
+  riportati dalle istanze di `bi` e `nixos`, non su `origin` e non
+  verificati da `metodo`. Resta il passo 6 nel task locale.
+- **Standby della coppia (`norvegia`)**: Home Manager non applicato e
+  checkout di `bi` a `85e40937`. Promosso così, il server di `bi` resta
+  fermo con la diagnosi, senza riavvii; senza la configurazione nuova
+  servirebbe la `view/` del checkout finché `bi` non la toglie da git.
+  Prima di una promozione vanno aggiornati i checkout dei repo serviti e
+  applicata la configurazione: un allineamento da autorizzare, che conviene
+  fare una volta sola, quando `crm` e `baserow` hanno chiuso il passo dei
+  builder.
 - **crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
