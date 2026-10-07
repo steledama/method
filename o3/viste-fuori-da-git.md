@@ -35,7 +35,10 @@ Per ogni repo, in quest'ordine, senza saltare il collaudo:
    versionata finché il passo 3 non arriva.
 2. **Host** (chi ne governa i servizi: `nixos` per `deck` e la coppia server,
    `danea-auto` per `danea2`). Il servizio passa alla forma pubblicata solo
-   dopo che il checkout dell'host ha i builder nuovi.
+   dopo che il checkout dell'host ha i builder nuovi **in un commit**: la
+   pubblicazione costruisce `HEAD`, quindi builder solo nel working tree
+   fanno fallire la prima pubblicazione. Se l'host non è quello dove si
+   sviluppa, serve anche il push e l'aggiornamento del suo checkout.
 3. **Git** (il `method` locale). `view/` esce dall'indice solo con l'host
    pronto e la porta collaudata.
 
@@ -76,12 +79,28 @@ anteprima.
    `project.py`) non dicono più che le viste si aprono dal checkout senza
    build; un link a `view/index.html` in una bussola si rompe su un clone
    pulito. Verifica su una copia dei soli file tracciati: audit senza link
-   rotti, `--check` e build riusciti.
+   rotti, `--check` e build riusciti. Il symlink `method` è relativo
+   (`../method/kb`): la copia va messa accanto al repo, per esempio
+   `git worktree add --detach ../<repo>-verifica` dopo il commit (poi
+   `git worktree remove`), altrimenti il symlink non si risolve e l'audit
+   va ripuntato a mano.
 7. Registrare nel marker il recepimento o l'adattamento motivato.
+
+## Stato
+
+- **nixos**: recepita fino all'ultimo passo, riportato dall'istanza di
+  `nixos` e verificato su `deck` il 2026-10-07: `b5867fc` con `view/` fuori
+  dall'indice, marker a `341b622` `aligned`, porta 8002 nella forma
+  pubblicata (`served_commit` `b5867fc`, `ok: true`). Non ancora su
+  `origin`. Le due note pratiche della ricetta (builder in un commit prima
+  di attivare, copia di verifica accanto al repo) vengono da questo giro.
+- **bi, economia, salute, crm, baserow, danea-auto**: da recepire. `nixos`
+  aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
+  ognuno ha chiuso il passo dei builder.
 
 ## Indizi per repo, da verificare in loco
 
-- **nixos**, a `7eb6811`: il servizio di `method` è già nella forma
+- **nixos** (recepita, cfr. Stato), a `7eb6811`: il servizio di `method` era già nella forma
   pubblicata (elenco `published` in `o3/presentations.nix`, tre unit per
   repo, `ExecCondition` con `serve.py --check`). Per sé: `nixos_deck.py`
   chiude i link su `root / "view"` (passo 2 della ricetta). Come host:

@@ -218,7 +218,9 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
    l'interfaccia dei builder di deck di dominio non riceveva la cartella di
    uscita, e `nixos_deck.py` chiudeva i link su `root / "view"`. Ora è
    `render(root, reveal_url, folder)`, e la firma vecchia ferma la build.
-   Il task resta aperto sul recepimento dei sette.
+   Il task resta aperto sul recepimento dei sette. `nixos` ha recepito per
+   primo lo stesso giorno, fino a `view/` fuori da git e la sua porta 8002
+   nella forma pubblicata; lo stato per repo vive nella prescrizione.
 
 5. **Adattare a `danea-auto`** tramite il suo `method`: su `danea2` la verifica
    precede il commit, la pubblicazione lo segue su fonti pulite. Definire il
