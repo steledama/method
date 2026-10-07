@@ -94,7 +94,14 @@ anteprima.
   pubblicata (`served_commit` `b5867fc`, `ok: true`). Non ancora su
   `origin`. Le due note pratiche della ricetta (builder in un commit prima
   di attivare, copia di verifica accanto al repo) vengono da questo giro.
-- **bi, economia, salute, crm, baserow, danea-auto**: da recepire. `nixos`
+- **salute**: passi 1-5 fatti il 2026-10-07 (`1829087`, `430e6ed`, non
+  ancora su `origin`), marker a `943ea6f` `aligned` con l'adattamento in
+  corso; verificato su `deck`. La patch del canone si è applicata sopra
+  `check_plan_details` e `PLATES` senza conflitti; `build_deck.py` accetta
+  `folder` senza usarlo, e nessun builder legge `gdrive`. Il passo 6 attende
+  il collaudo della porta 8003 da parte di `nixos`; il checkout servito da
+  `deck` è lo stesso in cui `salute` sviluppa.
+- **bi, economia, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
 
