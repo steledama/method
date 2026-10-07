@@ -100,16 +100,15 @@ anteprima.
   8003 collaudata), `view/` fuori da git in `36fa7db`, ripubblicato da solo
   (`served_commit` `36fa7db`, `ok: true`). Non ancora su `origin`. La patch
   del canone si è applicata sopra gli adattamenti locali senza conflitti.
-- **economia**: passi 1-5 fatti il 2026-10-07 in `5f46e90` (non ancora su
-  `origin`), marker a `8c204c5` `aligned` con l'adattamento in corso;
-  verificato su `deck`. Builder canonici copiati, perché coincidevano col
-  canone; `deck.py` legge solo JSON tracciati di `i1/`. Il giro ha trovato
-  la `view/` versionata a `4f03c89` indietro rispetto alle fonti (un task
-  già ritirato ancora reso): la rigenerazione è entrata nel commit con la
-  regola di transizione. Host pronto: `nixos` `fe080cd` serve `economia`
-  sulla 8004 nella forma pubblicata, con la fotografia mensile nel deck
-  (verificato qui: `served_commit` `5f46e90`, `ok: true`); dalla LAN casa
-  la porta non è stata provata. Resta il passo 6 nel task locale.
+- **economia**: recepita per intero il 2026-10-07, verificato su `deck`:
+  builder in `5f46e90`, servizio di `nixos` in `fe080cd` (porta 8004
+  collaudata, fotografia mensile nel deck), `view/` fuori da git in
+  `22462c9`, ripubblicato da solo (`served_commit` `22462c9`, `ok: true`).
+  Non ancora su `origin`; dalla LAN casa la porta non è stata provata. Il
+  giro ha trovato la `view/` versionata a `4f03c89` indietro rispetto alle
+  fonti (un task già ritirato ancora reso). Le fonti derivate versionate del
+  repo (`build_perceptions_index.py`, `fotografia_mensile.py`) restano in git
+  e si rigenerano nel gate.
 - **bi, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
