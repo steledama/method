@@ -31,6 +31,6 @@ DECK_BUILDER: str | None = None
 CSS_LOCALI: list[str] = []
 
 # Fonti del perimetro (register e collezioni) da non rendere, come pattern
-# glob relativi alla root: «i2/diario-*.md». `view/` si versiona e può essere
-# servita sulle reti private: ciò che il repo non vuole esporre resta qui.
+# glob relativi alla root: «i2/diario-*.md». Le viste possono essere servite
+# sulle reti private: ciò che il repo non vuole esporre resta qui.
 ESCLUSE: list[str] = []

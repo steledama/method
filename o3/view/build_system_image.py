@@ -168,9 +168,16 @@ def cycle_html() -> str:
 
 
 def provenance_html(provenance: dict[str, str] | None) -> str:
-    """La revisione costruita e il toolchain, solo nella vista pubblicata."""
+    """La revisione costruita e il toolchain; senza, la vista si dichiara anteprima.
+
+    La build locale rende il working tree, modifiche e file non tracciati
+    compresi: non le attribuisce a nessun commit (`kb/view.md`).
+    """
     if not provenance:
-        return ""
+        return (
+            '\n    <footer class="provenance">\n'
+            f"      <p>{html.escape(label('preview'))}</p>\n    </footer>"
+        )
     tools = " · ".join(provenance[key] for key in ("pandoc", "prettier") if provenance.get(key))
     return (
         '\n    <footer class="provenance">\n'

@@ -64,7 +64,7 @@ dipendenza che resta `world` anche se l'attesa puntuale è sciolta).
 **2. Verifica la consistenza o1↔o2 col generatore**
 
 Il contratto plan×`o2/` lo verifica il generatore: esegui
-`python3 o3/view/build.py` e interpretane l'esito — a contratto violato esce
+`python3 o3/view/build.py --check` e interpretane l'esito — a contratto violato esce
 con l'elenco degli errori (file `o2/` senza riga del plan, voce di
 `o2/tasks.md` senza file, file non indicizzato, colonna `Ob.` vuota,
 frontmatter senza `sintesi`). Una riga semplice del plan può non avere un

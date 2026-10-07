@@ -18,7 +18,8 @@ del dominio.
 - `world.md` — territorio, superfici esterne e fonti (`world-register`);
 - `kb/` — conoscenza stabile, catalogata in `kb/kb.md`;
 - `presentation/` — sorgente del deck, il racconto curato dell'artefatto, e le sue tavole;
-- `view/` — home, pagine generate dalle fonti e asset, servita e chiusa su se stessa;
+- `view/` — home, pagine generate dalle fonti e asset, chiusa su se stessa; non
+  si versiona e l'host privilegiato la pubblica da commit pulito;
 - `i1/`, `i2/`, `i3/` — percezioni, interpretazioni e verdetti;
 - `o1/`, `o2/`, `o3/` — piano, specifiche operative e prescrizioni/esecutori.
 

@@ -3,6 +3,10 @@
 # cache degli strumenti locali (rigenerata)
 cache/
 
+# viste derivate: si generano con python3 o3/view/build.py e l'host
+# privilegiato le pubblica da commit pulito (kb/view.md)
+/view/
+
 # cache legacy dello strumento di lint/format Python
 .ruff_cache/
 __pycache__/

@@ -83,11 +83,12 @@ meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
   il catalogo è l'indice interno omonimo [`kb/kb.md`](kb/kb.md)
 - **[presentation/](presentation/)** — il deck, racconto curato
   dell'artefatto, con le sue tavole
-- **[view/](view/index.html)** — le viste generate: `index.html` (la home della
+- **`view/`** — le viste generate, non versionate: `index.html` (la home della
   system image), le pagine 1:1 di register e collezioni, il deck reso e gli
-  asset. La serve in modo permanente `deck` sulla porta 8001, alle sole reti
+  asset. `python3 o3/view/build.py` le genera dal checkout come anteprima;
+  `deck` le pubblica da commit pulito sulla porta 8001, alle sole reti
   private (servizio utente dichiarato nel repo `nixos`);
-  `python3 o3/view/serve.py` la serve a mano sulla 8000 da qualsiasi host
+  `python3 o3/view/serve.py` serve l'anteprima a mano sulla 8000 da qualsiasi host
 
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del
 ciclo:
@@ -113,7 +114,7 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 - **Strumenti comuni** — esecutori e runbook sono registrati in
   [`o3/prescriptions.md`](o3/prescriptions.md); capacità e limiti in
   [`kb-tools`](kb/kb-tools.md) e [`skill`](kb/skill.md).
-- **Viste e presentazione** — le viste generate vivono in [`view/`](view/index.html)
+- **Viste e presentazione** — le viste generate vivono in `view/`, fuori da git,
   con la disciplina della derivazione in [`view`](kb/view.md); il deck curato
   in [`presentation/`](presentation/), con la sua disciplina in
   [`presentation`](kb/presentation.md).

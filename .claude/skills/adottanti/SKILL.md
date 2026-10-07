@@ -83,6 +83,14 @@ Per adottante, in sola lettura:
 - il test rapido su una vista a mano è il confronto con l'**ultima** modifica
   della fonte, non un campione sul contenuto vecchio: il drift colpisce il fatto
   più fresco, cioè quello per cui la vista si apre;
+- **la vista pubblicata**, con tre controlli distinti da non fondere
+  (`kb/view.md`, «Pubblicazione»): build e contratti sulle fonti di `origin`
+  (`python3 o3/view/build.py --check` su un'estrazione temporanea); revisione
+  servita (`/_stato` o la home pubblicata) rispetto al riferimento remoto
+  aggiornato; porta raggiungibile dal luogo dell'audit. Hash uguali non
+  provano un rendering corretto, e una porta irraggiungibile è «non
+  verificata», non fresca. Nei repo che versionano ancora `view/` resta il
+  confronto fra rigenerazione e `view/` versionata;
 - **l'accento** in `o3/view/project.py` (o `o3/presentation/project.py` nella
   forma precedente) coincide con la copia in `world.md`. Sull'insieme: nessun
   accento ripetuto né confondibile a colpo d'occhio con un altro, `metodo`

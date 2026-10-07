@@ -3,7 +3,7 @@
 È l'unico entrypoint di build, con lo stesso path in ogni repo
 (`python3 o3/view/build.py`, su Windows `py o3\\view\\build.py`). È Python e
 non bash perché deve girare anche sugli host Windows. `view/` è tutta
-generata: ciò che la build non produce più si rimuove, così una fonte
+generata e ignorata da git: ciò che la build non produce più si rimuove, così una fonte
 cancellata non lascia una pagina orfana. Due build consecutive producono lo
 stesso output; alla fine il presidio verifica che nessun URL emesso esca da
 `view/` (`kb/view.md`).

@@ -238,6 +238,11 @@ def publish(repo: Path, dest: Path, rev: str = "HEAD", builder: Builder | None =
                         file=sys.stderr,
                     )
                     result = 1
+                except BaseException:
+                    # SIGTERM o Ctrl-C: la versione servita resta, ma lo stato
+                    # dice che la richiesta non è arrivata.
+                    write_status(dest, ok=False, requested=commit, error="pubblicazione interrotta")
+                    raise
                 else:
                     write_status(dest, ok=True, requested=commit)
                     print(f"publish: pubblicata {name}")

@@ -1,5 +1,5 @@
 ---
-sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passi 1 e 2 fatti il 2026-10-07: pubblicazione da commit con ultima vista buona, provata in locale, e servizio di deck in nixos collaudato (pull manuale, deciso dal custode). Prossimo il passo 3: rimozione di view/ da git in metodo e canone inciso."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passi 1-3 fatti il 2026-10-07: pubblicazione da commit con ultima vista buona, servizio di deck collaudato in nixos (pull manuale), view/ fuori da git in metodo e canone inciso con una transizione per gli adottanti. Prossimo il passo 4: la prescrizione ai sette adottanti."
 ciclo: dev
 ---
 
@@ -164,8 +164,15 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
    uscita 143, nessun lock o `.partial` residuo, versione servita intatta).
    Una build fallita non chiude più il giro se nel frattempo è arrivato un
    commit nuovo, che copre anche la corsa fra scrittura del reflog e
-   spostamento del ref. Seguito per `nixos`: sostituire il controllo
-   rifatto nell'`ExecCondition` con `serve.py --publish-root DIR --check`.
+   spostamento del ref. Il seguito in `nixos` è fatto (`7eb6811`, riportato
+   dall'istanza di `nixos`): `ExecCondition` con `serve.py --check`,
+   `RestartPreventExitStatus=3`, timeout della pubblicazione a 5 minuti.
+   Provati il salto della unit senza versione valida (0 riavvii, diagnosi
+   nel journal) e lo stop durante una pubblicazione (nessun lock,
+   `.partial` o sorgente temporanea residui, versione servita intatta). Non
+   collaudata l'uscita 3 a server avviato, una corsa difficile da
+   riprodurre. Da quel collaudo viene una correzione in `metodo`: una
+   pubblicazione interrotta ora si registra in `status.json`.
 
 3. **Migrare `metodo` e incidere il canone**, dopo la preparazione dell'host:
    - `.gitignore` con `/view/` e rimozione dall'indice. `git rm --cached`
@@ -184,6 +191,20 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
      riferimenti alla versione delle viste nelle skill e nei nodi
      (`project-structure`, `presentation`, `karpathy-pattern`, `zettelkasten`),
      nelle bussole e nelle istruzioni dei builder.
+
+   **Stato al 2026-10-07: fatto in `metodo`.** `view/` è in `.gitignore` e
+   fuori dall'indice; la build locale si dichiara anteprima nella home.
+   `kb/view.md` ha Freschezza, HTML e Servizio riscritti, la nuova sezione
+   «Pubblicazione» col contratto e una Transizione per gli adottanti che
+   versionano ancora `view/`. `/commit` ed `exec plan` usano
+   `build.py --check`, `/adottanti` separa i tre controlli; `goal.md` ha la
+   formulazione approvata dal custode. `presentation`, `karpathy-pattern` e
+   `zettelkasten` nominano `view/` senza presupporne il versionamento e non
+   sono cambiati. Provato su una copia dei soli file tracciati: audit senza
+   link rotti, `--check` e build riusciti, `view/` ignorata. Resta da
+   osservare su `deck` il commit che rimuove `view/`: la pubblicazione non
+   dipende dal checkout, ma è la prova di accettazione ancora aperta.
+
 4. **Prescrivere il recepimento ai sette adottanti** dopo il collaudo su
    `metodo`. Ogni `method` locale ratifica builder e modalità di pubblicazione,
    prepara il proprio host, prova, poi rimuove `view/` da git e verifica la

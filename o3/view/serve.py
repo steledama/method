@@ -1,11 +1,11 @@
 """Serve `view/` sulle reti private: lancio manuale o servizio permanente.
 
 Stesso comando in ogni repo: `python3 o3/view/serve.py`, su Windows
-`py o3\\view\\serve.py`, porta 8000, Ctrl-C per chiudere. Il servizio
-permanente dell'host privilegiato lancia questo stesso script del checkout con
-`--port` (`kb/presentation.md`, «Vincolo conservato»): niente copie servite a
-parte, un pull aggiorna le viste. Solo libreria standard, così gira
-anche sugli host Windows. Pubblica la sola cartella `view/`, che è chiusa
+`py o3\\view\\serve.py`, porta 8000, Ctrl-C per chiudere: serve l'anteprima
+generata in `view/` dal working tree. Il servizio permanente dell'host
+privilegiato lancia questo stesso script del checkout con `--port` e
+`--publish-root` (`kb/view.md`, «Pubblicazione»). Solo libreria standard, così gira
+anche sugli host Windows. Pubblica la sola cartella servita, che è chiusa
 su se stessa (`kb/view.md`, «Compartimento stagno»): niente
 dotfile e niente elenchi di cartella. La porta va ammessa dal firewall
 dell'host solo verso le reti private; il server non lo tocca.

@@ -20,11 +20,13 @@ LABELS = {
         "presentation": "Presentation",
         "register": "Full register",
         "nav": "Navigation",
+        "preview": "Preview of the working tree, not published",
     },
     "it": {
         "presentation": "Presentazione",
         "register": "Register completo",
         "nav": "Navigazione",
+        "preview": "Anteprima del working tree, non pubblicata",
     },
 }
 

@@ -112,6 +112,24 @@ class PublishTest(unittest.TestCase):
         self.assertEqual(served(self.dest), "due")
         self.assertFalse((self.dest / ".lock").exists())
 
+    def test_interruzione_registrata_nello_stato(self) -> None:
+        commit(self.repo, "uno")
+        self.run_publish()
+        sha = commit(self.repo, "due")
+
+        def builder_interrotto(source: Path, out: Path, sha: str) -> None:
+            out.mkdir(parents=True)
+            raise SystemExit(143)
+
+        with self.assertRaises(SystemExit):
+            publish.publish(self.repo, self.dest, builder=builder_interrotto)
+        status = json.loads((self.dest / "status.json").read_text(encoding="utf-8"))
+        self.assertFalse(status["ok"])
+        self.assertEqual(status["requested"], sha)
+        self.assertEqual(status["error"], "pubblicazione interrotta")
+        self.assertEqual(served(self.dest), "uno")
+        self.assertFalse((self.dest / ".lock").exists())
+
     def test_lock_di_un_processo_morto_si_riprende(self) -> None:
         commit(self.repo, "uno")
         dead = subprocess.Popen([sys.executable, "-c", "pass"])

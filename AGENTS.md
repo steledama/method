@@ -4,7 +4,7 @@ Wrapper agent-agnostico per questo repository.
 
 La root rende visibili le collezioni `i1/`–`i3/` e `o1/`–`o3/`, ognuna col
 proprio indice, `kb/` col catalogo `kb/kb.md`, `presentation/` (il deck), `view/` (le viste
-generate) e i register
+generate, non versionate) e i register
 `goal.md` e `world.md`. Il cruscotto è `o1/plan.md` con i fili pertinenti in
 `i3/`.
 

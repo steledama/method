@@ -65,7 +65,7 @@ i2/i3 invece di incidere il canone di straforo.
 Posizione auspicata lungo le dimensioni candidate comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
 dell'adottante, umano **in-the-loop**, **basso attrito di lettura** (bussola
-snella, viste che si aprono dal checkout), KB riflessiva coerente, loop di
+snella, viste facilmente consultabili e riproducibili dalle fonti), KB riflessiva coerente, loop di
 propagazione che si chiude. Il lavoro che la serve porta `Ob. S` in
 [`o1/plan.md`](o1/plan.md); il battito mensile `/adottanti` — l'audit runtime-o1
 che chiude il giro dall'alto — vive in `## Scadenze`.
