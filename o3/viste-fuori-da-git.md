@@ -98,9 +98,10 @@ anteprima.
   ancora su `origin`), marker a `943ea6f` `aligned` con l'adattamento in
   corso; verificato su `deck`. La patch del canone si è applicata sopra
   `check_plan_details` e `PLATES` senza conflitti; `build_deck.py` accetta
-  `folder` senza usarlo, e nessun builder legge `gdrive`. Il passo 6 attende
-  il collaudo della porta 8003 da parte di `nixos`; il checkout servito da
-  `deck` è lo stesso in cui `salute` sviluppa.
+  `folder` senza usarlo, e nessun builder legge `gdrive`. Host pronto:
+  `nixos` `4a726d4` serve `salute` sulla 8003 nella forma pubblicata,
+  collaudo superato (verificato qui: `served_commit` `430e6ed`, `ok: true`).
+  Resta il passo 6, `view/` fuori da git, nel task locale di `salute`.
 - **bi, economia, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
