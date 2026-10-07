@@ -82,7 +82,8 @@ anteprima.
    rotti, `--check` e build riusciti. Il symlink `method` è relativo
    (`../method/kb`): la copia va messa accanto al repo, per esempio
    `git worktree add --detach ../<repo>-verifica` dopo il commit (poi
-   `git worktree remove`), altrimenti il symlink non si risolve e l'audit
+   `git worktree remove --force`, perché la build vi lascia la `view/`
+   ignorata), altrimenti il symlink non si risolve e l'audit
    va ripuntato a mano.
 7. Registrare nel marker il recepimento o l'adattamento motivato.
 
@@ -94,14 +95,11 @@ anteprima.
   pubblicata (`served_commit` `b5867fc`, `ok: true`). Non ancora su
   `origin`. Le due note pratiche della ricetta (builder in un commit prima
   di attivare, copia di verifica accanto al repo) vengono da questo giro.
-- **salute**: passi 1-5 fatti il 2026-10-07 (`1829087`, `430e6ed`, non
-  ancora su `origin`), marker a `943ea6f` `aligned` con l'adattamento in
-  corso; verificato su `deck`. La patch del canone si è applicata sopra
-  `check_plan_details` e `PLATES` senza conflitti; `build_deck.py` accetta
-  `folder` senza usarlo, e nessun builder legge `gdrive`. Host pronto:
-  `nixos` `4a726d4` serve `salute` sulla 8003 nella forma pubblicata,
-  collaudo superato (verificato qui: `served_commit` `430e6ed`, `ok: true`).
-  Resta il passo 6, `view/` fuori da git, nel task locale di `salute`.
+- **salute**: recepita per intero il 2026-10-07, verificato su `deck`:
+  builder in `1829087` e `430e6ed`, servizio di `nixos` in `4a726d4` (porta
+  8003 collaudata), `view/` fuori da git in `36fa7db`, ripubblicato da solo
+  (`served_commit` `36fa7db`, `ok: true`). Non ancora su `origin`. La patch
+  del canone si è applicata sopra gli adattamenti locali senza conflitti.
 - **bi, economia, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
