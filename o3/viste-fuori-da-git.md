@@ -153,9 +153,8 @@ anteprima.
   `6ad2a25` con `publish.py` tracciato, servizio di `nixos` in `3d100c7`
   (8003 della produzione collaudata, timer compreso), `view/` fuori da git
   in `3ff86e7`, ripubblicato da solo (`served_commit` `3ff86e7`, `ok: true`,
-  riportato dall'istanza di `baserow`), marker a `6fef556`. Il passo 6 non
-  è ancora su `origin` e non è verificato da `metodo`. La `view/`
-  versionata non era indietro.
+  riportato dall'istanza di `baserow`), marker a `6fef556`; passo 6 e
+  marker verificati su `origin`. La `view/` versionata non era indietro.
 - **danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
