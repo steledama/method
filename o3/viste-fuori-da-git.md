@@ -131,7 +131,12 @@ anteprima.
   applicata la configurazione: un allineamento da autorizzare, che conviene
   fare una volta sola, quando `crm` e `baserow` hanno chiuso il passo dei
   builder.
-- **crm, baserow, danea-auto**: da recepire. `nixos`
+- **crm**: passi 1-5 fatti il 2026-10-07 in `8071091` su `svezia`,
+  verificato su `origin`: `publish.py` tracciato, marker a `2116d48`
+  `aligned` con l'adattamento in corso. La `view/` versionata a `b698bda`
+  non era indietro. Il checkout servito è `~/crm` su `svezia`. Il passo 6
+  attende il collaudo della porta 8002 da parte di `nixos`.
+- **baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
 
