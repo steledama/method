@@ -30,7 +30,7 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   rimozione della forma vecchia del servizio in `nixos` e `danea-auto`.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
-  recepimento nei sette e seguito sulla lettura del boot nel deck di `nixos`.
+  recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.

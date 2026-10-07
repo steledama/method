@@ -2,7 +2,7 @@
 data: 2026-10-05
 stato: attiva
 ciclo: runtime
-target: nixos, bi, economia, salute, crm, danea-auto, baserow
+target: danea-auto
 ---
 
 # Rendere raggiungibili le ipotesi in attesa senza presidio
@@ -20,6 +20,15 @@ L'intervento serve dove un'ipotesi in attesa non ha già un presidio. Una
 collezione senza ipotesi è legittima, come in `baserow`; un filo con criterio,
 conteggio e data, come in `nixos`, soddisfa già la regola. La lettura dei nodi
 arriva via `method/`; il fork della skill richiede recepimento locale.
+
+## Stato
+
+Recepita da sei destinatari su sette, verificato nei marker e nei file su
+`origin` il 2026-10-07: `nixos`, `bi`, `economia`, `salute`, `crm` e
+`baserow` a `35a08d5`, ciascuno con l'esito nel marker. Il seguito sul deck
+di `nixos` è chiuso: la lettura causale vive in `i2/ipotesi-boot-server.md`,
+raggiunta dal filo `affidabilita-boot-server`. Resta `danea-auto`, a
+`a344f64`, osservato senza sollecitazione fino al riesame dal 2026-10-13.
 
 ## Ricetta per il /method locale
 

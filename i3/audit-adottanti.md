@@ -16,11 +16,10 @@ delle code.
 
 ## Verdetto
 
-**Canale del canone: `migrazione-viste` recepita da tutti e sei, `aligned`
-su `origin`.** Riletti il 2026-10-05 dopo un `git fetch`: `nixos`, `bi`,
-`economia`, `salute` e `crm` a `f21594b`; `danea-auto` a `a344f64`
-(`c3acb33`, che ha pubblicato anche il recepimento `1443454` fatto su
-`danea2`); `baserow` a `f44b6c0`. Resta il passo 6 della prescrizione: la
+**Canale del canone: tutti e sette `aligned` su `origin`.** Riletti il
+2026-10-07 da `deck` dopo un `git fetch`: `nixos`, `bi`, `economia`,
+`salute`, `crm` e `baserow` a `35a08d5`; `danea-auto` a `a344f64`
+(`c3acb33`). `migrazione-viste` è recepita dai sei; resta il passo 6: la
 forma vecchia del servizio si toglie dagli host quando tutti i repo che
 servono sono migrati.
 
@@ -45,11 +44,21 @@ alle intestazioni del rispettivo `goal.md`.
 **Prescrizioni aperte, verificate nei file:**
 
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
-  `eval`/`exec` di tutti e sei, e cinque lo scrivono davvero dal
-  recepimento del 2026-09-25: `danea-auto` 21 giri, `economia` 9, `bi` 8,
-  `nixos` 2, `salute` 2. `crm` non ha fatto giri, quindi non ha righe:
-  il `git log` lo conferma, non è un buco di registrazione. La prescrizione
-  resta attiva fino al conteggio del 2026-11-01;
+  `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
+  `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,
+  `economia` 15, `bi` 11, `baserow` 6, `nixos` 4, `salute` 3. In
+  `baserow` uno è nascosto a `%(trailers)` (`205c627`, il segnale i1
+  `trailer-esiti-ultimo-paragrafo`); nessun altro caso negli altri repo.
+  `crm` non ha fatto giri, quindi non ha righe: il `git log` lo conferma,
+  non è un buco di registrazione. La prescrizione resta attiva fino al
+  conteggio del 2026-11-01;
+- `presidio-ipotesi` — recepita nei file di sei repo a `35a08d5`, ciascuno
+  con l'esito nel marker. Il seguito sul deck di `nixos` è chiuso: la
+  lettura causale vive in `i2/ipotesi-boot-server.md` e il filo
+  `affidabilita-boot-server` la raggiunge, col riesame al 2026-12-31.
+  `danea-auto` non l'ha ancora revisionata ed è osservato senza
+  sollecitazione (`i2/presidio-ipotesi-adottanti.md`, riesame dal
+  2026-10-13);
 - `liste-o3-i1-fedeli-alla-fonte` — ha un esito in tutti e sei, ma non
   sempre è un recepimento. La riscrittura Pandoc è nei file di `nixos`,
   `bi` e `danea-auto`, che ha forkato i builder per la prima volta.
@@ -168,8 +177,9 @@ Classificazione degli scostamenti:
   conta gli esiti per stadio e per repository;
 - `baserow`, prima verifica nell'uso al battito del 2026-11-01: il segnale
   è lo stato del backup raccolto dai suoi `/eval perceive`. Un timer attivo
-  con restore provato chiude il primo fronte; un plan che non si muove sul
-  backup sarebbe la stessa domanda posta a `crm`.
+  con restore provato chiude il primo fronte. Su `origin` al 2026-10-07 il
+  restore è provato (`9f69920`) e strumenti e timer sono versionati
+  (`7f3b0d9`); l'attivazione del timer su `svezia` non è verificata da qui.
 
 ## Limiti
 

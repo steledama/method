@@ -104,17 +104,17 @@
       <h2 id="verdetto">Verdetto</h2>
       <p>
         <strong
-          >Canale del canone: <code>migrazione-viste</code> recepita da tutti e
-          sei, <code>aligned</code> su <code>origin</code>.</strong
+          >Canale del canone: tutti e sette <code>aligned</code> su
+          <code>origin</code>.</strong
         >
-        Riletti il 2026-10-05 dopo un <code>git fetch</code>:
-        <code>nixos</code>, <code>bi</code>, <code>economia</code>,
-        <code>salute</code> e <code>crm</code> a <code>f21594b</code>;
-        <code>danea-auto</code> a <code>a344f64</code> (<code>c3acb33</code>,
-        che ha pubblicato anche il recepimento <code>1443454</code> fatto su
-        <code>danea2</code>); <code>baserow</code> a <code>f44b6c0</code>. Resta
-        il passo 6 della prescrizione: la forma vecchia del servizio si toglie
-        dagli host quando tutti i repo che servono sono migrati.
+        Riletti il 2026-10-07 da <code>deck</code> dopo un
+        <code>git fetch</code>: <code>nixos</code>, <code>bi</code>,
+        <code>economia</code>, <code>salute</code>, <code>crm</code> e
+        <code>baserow</code> a <code>35a08d5</code>; <code>danea-auto</code> a
+        <code>a344f64</code> (<code>c3acb33</code>).
+        <code>migrazione-viste</code> è recepita dai sei; resta il passo 6: la
+        forma vecchia del servizio si toglie dagli host quando tutti i repo che
+        servono sono migrati.
       </p>
       <p>
         <strong><code>aligned</code> e file coincidono.</strong> Il 2026-10-02 i
@@ -146,12 +146,28 @@
         <li>
           <code>esiti-per-stadio-nel-commit</code> — il trailer
           <code>Esiti:</code> è nei fork di <code>eval</code>/<code>exec</code>
-          di tutti e sei, e cinque lo scrivono davvero dal recepimento del
-          2026-09-25: <code>danea-auto</code> 21 giri, <code>economia</code> 9,
-          <code>bi</code> 8, <code>nixos</code> 2, <code>salute</code> 2.
-          <code>crm</code> non ha fatto giri, quindi non ha righe: il
-          <code>git log</code> lo conferma, non è un buco di registrazione. La
-          prescrizione resta attiva fino al conteggio del 2026-11-01;
+          di tutti e sette, e sei lo scrivono davvero. Commit con
+          <code>Esiti:</code> dal 2026-09-25 al 2026-10-07 su
+          <code>origin</code>: <code>danea-auto</code> 27,
+          <code>economia</code> 15, <code>bi</code> 11, <code>baserow</code> 6,
+          <code>nixos</code> 4, <code>salute</code> 3. In
+          <code>baserow</code> uno è nascosto a
+          <code>%(trailers)</code> (<code>205c627</code>, il segnale i1
+          <code>trailer-esiti-ultimo-paragrafo</code>); nessun altro caso negli
+          altri repo. <code>crm</code> non ha fatto giri, quindi non ha righe:
+          il <code>git log</code> lo conferma, non è un buco di registrazione.
+          La prescrizione resta attiva fino al conteggio del 2026-11-01;
+        </li>
+        <li>
+          <code>presidio-ipotesi</code> — recepita nei file di sei repo a
+          <code>35a08d5</code>, ciascuno con l’esito nel marker. Il seguito sul
+          deck di <code>nixos</code> è chiuso: la lettura causale vive in
+          <code>i2/ipotesi-boot-server.md</code> e il filo
+          <code>affidabilita-boot-server</code> la raggiunge, col riesame al
+          2026-12-31. <code>danea-auto</code> non l’ha ancora revisionata ed è
+          osservato senza sollecitazione
+          (<code>i2/presidio-ipotesi-adottanti.md</code>, riesame dal
+          2026-10-13);
         </li>
         <li>
           <code>liste-o3-i1-fedeli-alla-fonte</code> — ha un esito in tutti e
@@ -351,8 +367,10 @@
           <code>baserow</code>, prima verifica nell’uso al battito del
           2026-11-01: il segnale è lo stato del backup raccolto dai suoi
           <code>/eval perceive</code>. Un timer attivo con restore provato
-          chiude il primo fronte; un plan che non si muove sul backup sarebbe la
-          stessa domanda posta a <code>crm</code>.
+          chiude il primo fronte. Su <code>origin</code> al 2026-10-07 il
+          restore è provato (<code>9f69920</code>) e strumenti e timer sono
+          versionati (<code>7f3b0d9</code>); l’attivazione del timer su
+          <code>svezia</code> non è verificata da qui.
         </li>
       </ul>
       <h2 id="limiti">Limiti</h2>

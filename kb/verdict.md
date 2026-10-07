@@ -17,7 +17,7 @@ adottanti, resta necessario anche con stato `aligned`: si aggiorna il verdetto
 senza eliminare il cursore che servirà alla prossima revisione.
 
 Anche un'ipotesi in attesa è una funzione viva: dichiara orizzonte e riscontro
-con fonte ed è raggiungibile da `eval` ([interpret](interpret.md)). Un filo
+con fonte ed è raggiungibile da `eval` (cfr. `interpret`). Un filo
 con criterio, conteggio e data può già presidiarla. Prima di rimuoverlo,
 conservare quel presidio in una destinazione esplicita e raggiungibile.
 La chiusura operativa non conferma da sola una spiegazione.
@@ -70,6 +70,7 @@ di aggiornare un verdetto.
 Connessioni:
 
 - [compare](compare.md)
+- [interpret](interpret.md)
 - [goal](goal.md)
 - [plan](plan.md)
 - [tasks](tasks.md)

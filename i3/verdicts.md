@@ -20,13 +20,12 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: alla verifica fuori giro del 2026-10-03 tutti e sei
-  a `91cf874`, `aligned`, coincidenti coi file; fili ridotti da 38 a 19 dalla
-  revisione contro gli obiettivi, viste fresche verificate per
-  rigenerazione. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
-  se la verifica delle prescrizioni nei file si alleggerisce. `baserow` è
-  entrato il 2026-10-05 con una baseline fondativa: la sua prima verifica
-  nell'uso è lo stesso battito.
+  mensile `/adottanti`: alla lettura del 2026-10-07 tutti e sette
+  `aligned`, sei a `35a08d5` e `danea-auto` a `a344f64`; `presidio-ipotesi`
+  recepita da sei, viste fresche verificate per rigenerazione il
+  2026-10-05. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
+  se la verifica delle prescrizioni nei file si alleggerisce; è anche la
+  prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
   tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
   clausola corretta perché gli esiti nulli non lasciavano traccia; si

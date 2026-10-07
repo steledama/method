@@ -32,19 +32,20 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   `danea-auto` quinto e sesto il 2026-08-12, `baserow` settimo, entrato a
   `f44b6c0`); obiettivo con **un fronte aperto** — il giro
   vive nei `method` degli adottanti e il battito è la riga mensile
-  `/adottanti` in `## Scadenze`. Alla lettura su `origin` del 2026-10-05 tutti
-  e sette sono `aligned`: `nixos`, `bi`, `economia`, `salute` e `crm` a
-  `f21594b`, `danea-auto` a `a344f64`, `baserow` a `f44b6c0`. I file
+  `/adottanti` in `## Scadenze`. Alla lettura su `origin` del 2026-10-07 tutti
+  e sette sono `aligned`: `nixos`, `bi`, `economia`, `salute`, `crm` e
+  `baserow` a `35a08d5`, `danea-auto` a `a344f64`. I file del 2026-10-05
   confermano la migrazione delle viste nei sei (`o3/view/` presente,
   `o3/presentation/` assente, nessun deck in `i2/`) e le viste sono fresche
   in tutti e sette, verificate rigenerando da `origin` lo stesso giorno: in
   `danea-auto` il deck differisce solo per la versione di pandoc. `/method`
   rilegge a ogni giro le prescrizioni aperte.
-  Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da cinque repo
-  su sei e da contare il 2026-11-01, quando si riapre la clausola delle skill
+  Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da sei repo
+  su sette (`crm` non ha fatto giri) e da contare il 2026-11-01, quando si riapre la clausola delle skill
   per arco; `migrazione-viste`, recepita dai sei e attiva sulla forma vecchia
-  del servizio in `nixos` e `danea-auto`; `presidio-ipotesi`, da recepire nei
-  sette dove manca il presidio, con il seguito sul deck di `nixos`; `revisione-bootstrap-adottante`,
+  del servizio in `nixos` e `danea-auto`; `presidio-ipotesi`, recepita da sei a
+  `35a08d5` col seguito sul deck di `nixos` chiuso, e attesa in `danea-auto`,
+  osservato senza sollecitazione; `revisione-bootstrap-adottante`,
   non verificata nel merito; `ingresso-adottante`, eseguita per la prima
   volta con `baserow`.
 
