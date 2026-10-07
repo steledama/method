@@ -16,7 +16,9 @@ versione in `releases/` e un puntatore `current` che nomina quella servita.
 - **Richieste concorrenti**: un lock serializza le pubblicazioni. Chi lo trova
   occupato lascia una richiesta pendente e chi lo tiene, finito il giro,
   ripubblica la revisione più recente: l'ultimo commit richiesto arriva
-  comunque. Si tengono la versione corrente e la precedente, così una
+  comunque, anche dopo una build fallita. Il lock porta il PID: un lock
+  lasciato da un processo morto (SIGKILL, host spento) si riprende subito, e
+  un SIGTERM chiude il giro dal `finally` come un'uscita normale. Si tengono la versione corrente e la precedente, così una
   richiesta HTTP iniziata prima dello scambio finisce sulla sua versione.
 
 Solo libreria standard: gira anche sugli host Windows.
@@ -28,6 +30,7 @@ import io
 import json
 import os
 import shutil
+import signal
 import subprocess
 import sys
 import tarfile
@@ -42,7 +45,8 @@ POINTER = "current"
 STATUS = "status.json"
 LOCK = ".lock"
 PENDING = ".pending"
-# Un lock più vecchio di così è di una pubblicazione morta (host spento a metà).
+# Oltre questa età un lock non si rispetta neppure se il PID risulta vivo:
+# dopo un riavvio il PID può essere stato riassegnato.
 STALE_LOCK = 30 * 60
 # Giri massimi per inseguire commit arrivati durante la pubblicazione.
 MAX_ROUNDS = 5
@@ -128,13 +132,45 @@ def write_status(dest: Path, **fields: object) -> None:
     write_atomic(dest / STATUS, json.dumps(status, indent=2, ensure_ascii=False) + "\n")
 
 
-def acquire(dest: Path) -> bool:
-    lock = dest / LOCK
+def alive(pid: int) -> bool:
+    if os.name == "nt":
+        # Su Windows os.kill(pid, 0) termina il processo: si chiede al kernel.
+        import ctypes
+
+        kernel32 = ctypes.windll.kernel32
+        handle = kernel32.OpenProcess(0x1000, False, pid)  # QUERY_LIMITED_INFORMATION
+        if not handle:
+            return False
+        code = ctypes.c_ulong()
+        kernel32.GetExitCodeProcess(handle, ctypes.byref(code))
+        kernel32.CloseHandle(handle)
+        return code.value == 259  # STILL_ACTIVE
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def stale(lock: Path) -> bool:
     try:
         if time.time() - lock.stat().st_mtime > STALE_LOCK:
-            lock.unlink()
+            return True
+        pid = int(lock.read_text(encoding="utf-8").strip() or 0)
     except FileNotFoundError:
-        pass
+        return False
+    except ValueError:
+        # Lock appena creato e non ancora scritto: lo rispettiamo.
+        return False
+    return pid > 0 and not alive(pid)
+
+
+def acquire(dest: Path) -> bool:
+    lock = dest / LOCK
+    if stale(lock):
+        lock.unlink(missing_ok=True)
     try:
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except FileExistsError:
@@ -180,13 +216,17 @@ def publish(repo: Path, dest: Path, rev: str = "HEAD", builder: Builder | None =
         (dest / PENDING).touch()
         print(f"publish: pubblicazione già in corso in {dest}, richiesta accodata")
         return 0
+    # systemd ferma la unit con SIGTERM: diventa un'uscita che passa dal finally.
+    previous_handler = signal.signal(signal.SIGTERM, lambda *_: sys.exit(143))
     try:
+        result = 0
         for _ in range(MAX_ROUNDS):
             (dest / PENDING).unlink(missing_ok=True)
             commit = resolve(repo, rev)
             if served_commit(dest) == commit:
                 write_status(dest, ok=True, requested=commit)
                 print(f"publish: {commit[:12]} già servito")
+                result = 0
             else:
                 try:
                     name = publish_once(repo, dest, commit, builder)
@@ -197,11 +237,16 @@ def publish(repo: Path, dest: Path, rev: str = "HEAD", builder: Builder | None =
                         f"{current(dest) or 'nessuna versione'}\n{error}",
                         file=sys.stderr,
                     )
-                    return 1
-                write_status(dest, ok=True, requested=commit)
-                print(f"publish: pubblicata {name}")
+                    result = 1
+                else:
+                    write_status(dest, ok=True, requested=commit)
+                    print(f"publish: pubblicata {name}")
+                    result = 0
+            # Un commit arrivato durante la build si pubblica ora, anche se
+            # la build appena chiusa è fallita.
             if not (dest / PENDING).exists() and resolve(repo, rev) == commit:
-                return 0
-        return 0
+                return result
+        return result
     finally:
         (dest / LOCK).unlink(missing_ok=True)
+        signal.signal(signal.SIGTERM, previous_handler)

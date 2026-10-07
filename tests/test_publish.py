@@ -5,6 +5,7 @@ non la resa. Eseguire con python3 -m unittest discover -s tests.
 """
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -110,6 +111,56 @@ class PublishTest(unittest.TestCase):
         publish.publish(self.repo, self.dest, builder=builder_con_commit_concorrente)
         self.assertEqual(served(self.dest), "due")
         self.assertFalse((self.dest / ".lock").exists())
+
+    def test_lock_di_un_processo_morto_si_riprende(self) -> None:
+        commit(self.repo, "uno")
+        dead = subprocess.Popen([sys.executable, "-c", "pass"])
+        dead.wait()
+        (self.dest / "releases").mkdir(parents=True)
+        (self.dest / ".lock").write_text(str(dead.pid), encoding="utf-8")
+        self.assertEqual(self.run_publish(), 0)
+        self.assertEqual(served(self.dest), "uno")
+
+    def test_lock_di_un_processo_vivo_accoda(self) -> None:
+        commit(self.repo, "uno")
+        (self.dest / "releases").mkdir(parents=True)
+        (self.dest / ".lock").write_text(str(os.getpid()), encoding="utf-8")
+        self.assertEqual(self.run_publish(), 0)
+        self.assertTrue((self.dest / ".pending").exists())
+        self.assertIsNone(publish.current(self.dest))
+
+    def test_commit_arrivato_durante_una_build_fallita_si_pubblica(self) -> None:
+        commit(self.repo, "rotto")
+
+        def builder_che_fallisce_e_vede_un_commit(source: Path, out: Path, sha: str) -> None:
+            if (source / "goal.md").read_text(encoding="utf-8") == "rotto":
+                commit(self.repo, "buono")
+            fake_builder(source, out, sha)
+
+        self.assertEqual(
+            publish.publish(self.repo, self.dest, builder=builder_che_fallisce_e_vede_un_commit),
+            0,
+        )
+        self.assertEqual(served(self.dest), "buono")
+
+
+class ServeCheckTest(unittest.TestCase):
+    def check(self, root: Path) -> int:
+        return subprocess.run(
+            [sys.executable, str(BUILDERS / "serve.py"), "--publish-root", str(root), "--check"],
+            capture_output=True,
+            check=False,
+        ).returncode
+
+    def test_codici_di_uscita(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.assertEqual(self.check(root), 3)
+            release = root / "releases" / "v1"
+            release.mkdir(parents=True)
+            (release / "index.html").write_text("ok", encoding="utf-8")
+            (root / "current").write_text("v1\n", encoding="utf-8")
+            self.assertEqual(self.check(root), 0)
 
 
 if __name__ == "__main__":

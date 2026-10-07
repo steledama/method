@@ -1,5 +1,5 @@
 ---
-sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passo 1 fatto il 2026-10-07: build in cartella temporanea, pubblicazione da commit con ultima vista buona, provenienza e stato, provata in locale. Prossimo il servizio di deck in nixos, con pull manuale deciso dal custode il 2026-10-07."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passi 1 e 2 fatti il 2026-10-07: pubblicazione da commit con ultima vista buona, provata in locale, e servizio di deck in nixos collaudato (pull manuale, deciso dal custode). Prossimo il passo 3: rimozione di view/ da git in metodo e canone inciso."
 ciclo: dev
 ---
 
@@ -124,7 +124,7 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
 
    Restano fuori dal passo: il marcatore di anteprima sulla build locale,
    che cambierebbe la `view/` ancora versionata e si aggiunge al passo 3;
-   l'avvio e il recupero gestiti dal servizio (passo 2); la prova su
+   la prova su
    Windows, dove `tarfile` non estrae i symlink senza privilegi; i fork in
    cui il perimetro attraversa un symlink come `method/`, che `git archive`
    esporta come link e la build già non segue.
@@ -137,6 +137,36 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
    ereditare il comportamento una tantum di `-vista`. La condizione sulla
    presenza dell'HTML non deve impedire la prima build. Collaudare la porta
    dell'host prima della rimozione delle viste da git.
+
+   **Stato al 2026-10-07: fatto in `nixos` e collaudato su `deck`**, secondo
+   l'esito riportato dall'istanza di `nixos` (task locale
+   `o2/publish-views-from-clean-commit.md`, KB in
+   `kb/network-architecture.md`); qui non è stato riverificato. Per il solo
+   `method`: una oneshot `presentazione-method-pubblicazione` lancia
+   `build.py --publish ~/.local/state/view/method` con toolchain dal flake
+   (pandoc 3.7.0.2, prettier 3.9.6) e parte al login; una path unit su
+   `~/method/.git/logs/HEAD` la innesca a ogni spostamento di `HEAD`
+   (commit, checkout, pull, non fetch); `presentazione-method` serve sulla
+   8001 dopo la pubblicazione, anche se questa fallisce, e senza versione
+   valida resta ferma senza riavvii. Prove superate: primo avvio senza
+   output, commit su un ramo di prova, build fallita con versione servita
+   identica byte per byte, nessuna versione valida, output arretrato al
+   login, due commit a un secondo in un solo giro con 30 richieste HTTP
+   tutte 200, porta da `neve` e `norvegia` (200, 404 su `/.git/config`).
+   Non verificati: login o reboot veri (simulati con `default.target`), la
+   porta da `game` e da `svezia`.
+
+   Le due debolezze segnalate da `nixos` sono corrette in `metodo` lo stesso
+   giorno: `serve.py` esce con 3 quando manca una versione valida e ha
+   `--check` per un `ExecCondition`, così il controllo non si duplica nella
+   unit; il lock di `publish.py` porta il PID e si riprende subito se il
+   processo è morto, un SIGTERM chiude il giro dal `finally` (provato:
+   uscita 143, nessun lock o `.partial` residuo, versione servita intatta).
+   Una build fallita non chiude più il giro se nel frattempo è arrivato un
+   commit nuovo, che copre anche la corsa fra scrittura del reflog e
+   spostamento del ref. Seguito per `nixos`: sostituire il controllo
+   rifatto nell'`ExecCondition` con `serve.py --publish-root DIR --check`.
+
 3. **Migrare `metodo` e incidere il canone**, dopo la preparazione dell'host:
    - `.gitignore` con `/view/` e rimozione dall'indice. `git rm --cached`
      conserva l'output sul checkout che lo esegue, ma il pull del commit di

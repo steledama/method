@@ -15,7 +15,9 @@ Con `--publish-root DIR` serve invece la versione pubblicata da
 richiesta, così uno scambio di versione non chiede riavvii e una richiesta
 già iniziata finisce sulla sua versione. `/_stato` rende `status.json`:
 revisione servita, ultimo tentativo ed eventuale errore. Senza alcuna
-versione valida il server non parte e dice perché.
+versione valida il server non parte, dice perché ed esce con il codice 3,
+distinto dagli altri errori; `--check` fa solo questo controllo (0 o 3), per
+esempio come `ExecCondition` di un servizio.
 """
 
 from __future__ import annotations
@@ -32,6 +34,8 @@ from urllib.parse import unquote, urlsplit
 
 VIEW = Path(__file__).resolve().parents[2] / "view"
 PORT = 8000
+# Uscita per «nessuna versione valida»: un servizio la distingue da un crash.
+NO_VALID_VERSION = 3
 
 
 class ViewHandler(SimpleHTTPRequestHandler):
@@ -88,7 +92,7 @@ def served_folder(root: Path) -> Path:
         f"serve: nessuna versione valida in {root}; esegui build.py --publish {root}\n{detail}",
         file=sys.stderr,
     )
-    raise SystemExit(1)
+    raise SystemExit(NO_VALID_VERSION)
 
 
 def lan_addresses() -> list[str]:
@@ -118,11 +122,21 @@ def main() -> None:
     parser.add_argument(
         "--publish-root", type=Path, help="serve la versione pubblicata da build.py --publish"
     )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help=f"con --publish-root: esce con 0 se c'è una versione valida, {NO_VALID_VERSION} se no",
+    )
     args = parser.parse_args()
 
+    if args.check and not args.publish_root:
+        parser.error("--check richiede --publish-root")
     if args.publish_root:
         root = args.publish_root.resolve()
         folder = served_folder(root)
+        if args.check:
+            print(f"serve: versione valida {folder.name}")
+            return
         handler = type("Handler", (PublishedHandler,), {"root": root})
     else:
         folder = VIEW

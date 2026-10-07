@@ -5,4 +5,4 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 ## Contenuti
 
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al battito del 2026-11-01 sui numeri registrati.
-- [viste-fuori-da-git.md](viste-fuori-da-git.md) — direzione approvata il 2026-10-06; passo 1 fatto il 2026-10-07 (build in cartella temporanea, pubblicazione da commit pulito con ultima vista buona, provata in locale); prossimo il servizio di `deck` attraverso `nixos`, poi rimozione di `view/` da git e recepimento negli adottanti.
+- [viste-fuori-da-git.md](viste-fuori-da-git.md) — direzione approvata il 2026-10-06; passi 1 e 2 fatti il 2026-10-07 (pubblicazione da commit pulito con ultima vista buona; servizio di `deck` collaudato in `nixos`, pull manuale); prossimo il passo 3, rimozione di `view/` da git in `metodo` e canone, poi recepimento negli adottanti.

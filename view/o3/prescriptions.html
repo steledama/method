@@ -210,7 +210,7 @@
               chiamata da <code>build.py --publish</code>: fonti esportate con
               <code>git archive</code>, una cartella per versione, puntatore
               <code>current</code> scambiato solo a build riuscita,
-              <code>status.json</code> con l’ultimo tentativo, lock con
+              <code>status.json</code> con l’ultimo tentativo, lock col PID e
               richiesta accodata. Test:
               <code
                 >python3 -m unittest discover -s tests -p
@@ -250,7 +250,10 @@
               Ctrl-C per chiudere; il servizio permanente dell’host privilegiato
               lancia lo stesso script con <code>--port</code>; con
               <code>--publish-root DIR</code> serve la versione pubblicata e
-              <code>/_stato</code>. Solo libreria standard, niente dotfile né
+              <code>/_stato</code>, e senza versione valida esce con 3 (<code
+                >--check</code
+              >
+              fa solo il controllo). Solo libreria standard, niente dotfile né
               elenchi di cartella;
             </li>
             <li>
