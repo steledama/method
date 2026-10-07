@@ -135,7 +135,10 @@ anteprima.
   build non lo segue, ma un builder di dominio non deve leggerlo.
 - **bi, crm, baserow**: nessun builder di dominio. Il servizio vive sulla
   coppia server: la pubblicazione su `svezia` (produzione) e la
-  preparazione dello standby su `norvegia` passano da `nixos`.
+  preparazione dello standby su `norvegia` passano da `nixos`. Su `svezia`
+  il checkout si aggiorna con un pull manuale, come su `deck` (decisione del
+  custode, 2026-10-07). Ricetta provata da `metodo` su un clone di `bi` a
+  `85e40937`: patch senza conflitti, pubblicazione identica all'anteprima.
 - **danea-auto**: sviluppo e servizio sullo stesso host, `danea2`, Windows.
   La verifica precede il commit, la pubblicazione lo segue su fonti pulite:
   definire il comando o meccanismo locale che la esegue dopo il commit e al
