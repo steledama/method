@@ -109,7 +109,14 @@ anteprima.
   fonti (un task già ritirato ancora reso). Le fonti derivate versionate del
   repo (`build_perceptions_index.py`, `fotografia_mensile.py`) restano in git
   e si rigenerano nel gate.
-- **bi, crm, baserow, danea-auto**: da recepire. `nixos`
+- **bi**: passi 1-5 fatti il 2026-10-07 in `5fc8008e` su `svezia`, marker
+  a `4a1bd0c` `aligned` con l'adattamento in corso, secondo l'esito
+  riportato dall'istanza di `bi`: non su `origin` e non verificato da
+  `metodo`. La `view/` versionata a `85e40937` non era indietro. Il checkout
+  servito è `~/bi` su `svezia`, lo stesso in cui `bi` lavora. Il passo 6
+  attende il collaudo della porta 8001 sulla coppia server da parte di
+  `nixos`.
+- **crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
 
