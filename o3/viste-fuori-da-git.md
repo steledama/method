@@ -75,7 +75,11 @@ anteprima.
    `build.py --check` (con la regola di transizione finché `view/` è
    versionata); `exec plan` usa `--check` per il contratto plan × `o2/`.
 5. **Passo 1 chiuso**: commit e push su richiesta del custode, marker al
-   commit di `metodo` recepito. Segnalare all'host che il checkout è pronto.
+   commit di `metodo` recepito. `publish.py` è un file nuovo e un
+   `git commit -a` non lo include: aggiungerlo esplicitamente e controllare
+   `git ls-files o3/view/publish.py` dopo il commit. Lasciato non tracciato
+   passa inosservato, perché `build.py --publish` lo legge dal working tree.
+   Segnalare all'host che il checkout è pronto.
 6. **Dopo il collaudo dell'host**: `/view/` in `.gitignore`,
    `git rm -r --cached view`, la regola `view/**` tolta da `.gitattributes`
    se presente. Bussole e istruzioni (README, CLAUDE, AGENTS, commenti di
