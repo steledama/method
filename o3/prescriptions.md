@@ -28,6 +28,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 - [Le viste escono in `view/`, il deck curato in
   `presentation/`](migrazione-viste.md) — recepita dai sei; restano la
   rimozione della forma vecchia del servizio in `nixos` e `danea-auto`.
+- [Le viste escono da git e l'host le pubblica da commit
+  pulito](viste-fuori-da-git.md) — per ogni repo builder, host, poi git;
+  `nixos` prepara i servizi di `deck` e della coppia server, `danea-auto`
+  il proprio su `danea2`. Prescritta il 2026-10-07 ai sette.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

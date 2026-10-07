@@ -21,7 +21,7 @@ ACCENTO = "#4338ca"
 DECK: str | None = "presentation/presentation.md"
 
 # In alternativa a DECK: il nome di un modulo di dominio in questa cartella
-# che genera il deck, con `render(root, reveal_url) -> str` (la pagina
+# che genera il deck, con `render(root, reveal_url, folder) -> str` (la pagina
 # completa). Chi parte da Markdown usa `sources.reveal_page`.
 DECK_BUILDER: str | None = None
 

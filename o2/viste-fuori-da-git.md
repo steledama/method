@@ -1,5 +1,5 @@
 ---
-sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passi 1-3 fatti il 2026-10-07: pubblicazione da commit con ultima vista buona, servizio di deck collaudato in nixos (pull manuale), view/ fuori da git in metodo e canone inciso con una transizione per gli adottanti. Prossimo il passo 4: la prescrizione ai sette adottanti."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passi 1-3 fatti il 2026-10-07: pubblicazione da commit con ultima vista buona, servizio di deck collaudato in nixos (pull manuale), view/ fuori da git in metodo e canone inciso con una transizione per gli adottanti. Passo 4 prescritto lo stesso giorno (o3/viste-fuori-da-git.md); resta il recepimento dei sette, danea-auto compreso."
 ciclo: dev
 ---
 
@@ -210,6 +210,16 @@ DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
    prepara il proprio host, prova, poi rimuove `view/` da git e verifica la
    porta. La preparazione dei servizi in `nixos` è una dipendenza esplicita
    per i repo che serve, non un passo successivo alla rimozione dell'output.
+
+   **Stato al 2026-10-07: prescritto** in
+   [`o3/viste-fuori-da-git.md`](../o3/viste-fuori-da-git.md), con l'ordine
+   builder → host → git per ogni repo. La ricetta, provata in un clone di
+   `nixos` e uno di `salute`, ha fatto emergere un difetto del canone:
+   l'interfaccia dei builder di deck di dominio non riceveva la cartella di
+   uscita, e `nixos_deck.py` chiudeva i link su `root / "view"`. Ora è
+   `render(root, reveal_url, folder)`, e la firma vecchia ferma la build.
+   Il task resta aperto sul recepimento dei sette.
+
 5. **Adattare a `danea-auto`** tramite il suo `method`: su `danea2` la verifica
    precede il commit, la pubblicazione lo segue su fonti pulite. Definire il
    comando o meccanismo locale che esegue questo secondo passo e il recupero

@@ -40,6 +40,10 @@ deck di `nixos` è trasferito a [presidio-ipotesi](presidio-ipotesi.md).
    - in `danea-auto`, `o3/scheduler/serve_presentazione.pyw`: la coppia
      `o3/presentation/serve.py` / `presentation/index.html` (`danea2`).
 
+   Il passaggio alla pubblicazione da commit pulito
+   ([viste-fuori-da-git](viste-fuori-da-git.md)) riscrive comunque questi
+   servizi: il residuo può chiudersi nello stesso giro.
+
    Prima di togliere, il `method` locale verifica che ogni repo servito
    dall'host abbia `view/index.html` sul checkout dell'host, non solo su
    `origin`. Dopo il deploy, ogni porta risponde ancora coi titoli giusti.

@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import importlib
+import inspect
 import json
 import platform
 import re
@@ -122,13 +123,21 @@ def deck_page(reveal_url: str, out: Path) -> str | None:
     """Il deck: un Markdown in `DECK`, un builder di dominio in `DECK_BUILDER`, o nessuno.
 
     Il builder di dominio vive accanto ai builder canonici ed espone
-    `render(root, reveal_url) -> str`, la pagina completa. Il presidio finale
-    vale anche per questa pagina.
+    `render(root, reveal_url, folder) -> str`, la pagina completa: `folder` è
+    la cartella in cui la build sta rendendo, l'unica contro cui chiudere i
+    link (non `root / "view"`, che durante una build non è l'output). Il
+    presidio finale vale anche per questa pagina.
     """
     if project.DECK and project.DECK_BUILDER:
         raise SystemExit("project.py: DECK e DECK_BUILDER sono alternativi, dichiarane uno")
     if project.DECK_BUILDER:
-        return importlib.import_module(project.DECK_BUILDER).render(ROOT, reveal_url)
+        builder = importlib.import_module(project.DECK_BUILDER).render
+        if len(inspect.signature(builder).parameters) < 3:
+            raise SystemExit(
+                f"{project.DECK_BUILDER}.render deve accettare la cartella di uscita: "
+                "render(root, reveal_url, folder) (cfr. la prescrizione viste-fuori-da-git)"
+            )
+        return builder(ROOT, reveal_url, out)
     if project.DECK:
         deck = ROOT / project.DECK
         return reveal_page(
