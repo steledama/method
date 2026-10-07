@@ -112,14 +112,13 @@ anteprima.
   fonti (un task già ritirato ancora reso). Le fonti derivate versionate del
   repo (`build_perceptions_index.py`, `fotografia_mensile.py`) restano in git
   e si rigenerano nel gate.
-- **bi**: passi 1-5 fatti il 2026-10-07 in `5fc8008e` su `svezia`, marker
-  a `4a1bd0c` `aligned` con l'adattamento in corso. La `view/` versionata a
-  `85e40937` non era indietro. Host pronto: `nixos` `a1777f6` (fatto su
-  `svezia`) serve `bi` dalla 8001 della produzione nella forma pubblicata,
-  collaudo superato (prima pubblicazione, commit che ripubblica, build
-  fallita con i file serviti intatti, porta dalla LAN di lavoro). Esiti
-  riportati dalle istanze di `bi` e `nixos`, non su `origin` e non
-  verificati da `metodo`. Resta il passo 6 nel task locale.
+- **bi**: recepita per intero il 2026-10-07 su `svezia`: builder in
+  `5fc8008e`, servizio di `nixos` in `a1777f6` (8001 della produzione
+  collaudata), `view/` fuori da git in `091bdce4`, ripubblicato da solo
+  (`served_commit` `091bdce4`, `ok: true`), marker a `238370d`. La `view/`
+  versionata non era indietro. Esiti riportati dalle istanze di `bi` e
+  `nixos`, non su `origin` e non verificati da `metodo`; su `norvegia`
+  nessun pull.
 - **Standby della coppia (`norvegia`)**: Home Manager non applicato e
   checkout di `bi` a `85e40937`. Promosso così, il server di `bi` resta
   fermo con la diagnosi, senza riavvii; senza la configurazione nuova
