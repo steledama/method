@@ -146,7 +146,9 @@ anteprima.
   innesco e fine della pubblicazione: `nixos` `5b873ef` aggiunge il timer
   periodico sulla produzione, e la race riprodotta si è riallineata da sola
   entro un intervallo più il minuto di precisione di systemd. Su `deck` il
-  timer attende un `home-manager switch`.
+  timer è applicato con `nixos` `59257d7` e verificato qui: quattro timer
+  attivi, porte 8001-8004 con `served_commit` uguale ad `HEAD`, nessuna unit
+  fallita.
 - **baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
