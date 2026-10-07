@@ -152,8 +152,12 @@ anteprima.
 - **baserow**: passi 1-5 fatti il 2026-10-07 in `6ad2a25` su `svezia`,
   verificato su `origin`: `publish.py` tracciato, marker a `9302e13`
   `aligned` con l'adattamento in corso. La `view/` versionata a `66cc901`
-  non era indietro. Il checkout servito è `~/baserow` su `svezia`. Il passo
-  6 attende il collaudo della porta 8003 da parte di `nixos`.
+  non era indietro. Il checkout servito è `~/baserow` su `svezia`. Host
+  pronto: `nixos` `3d100c7` serve `baserow` dalla 8003 della produzione
+  nella forma pubblicata, con il timer, collaudo superato secondo l'istanza
+  di `nixos` (`published` verificato su `origin`). Su `deck` e sulla
+  produzione nessun repo usa più la forma vecchia. Resta il passo 6 nel
+  task locale.
 - **danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
