@@ -49,17 +49,16 @@ giorno: i link `file:` e `C:\…` passavano il presidio come esterni, e le
 viste restavano LF solo grazie a Prettier (ora `newline="\n"` e
 `.gitattributes`).
 
+Il gate di freschezza assumeva lo stesso toolchain: con pandoc diversi tra
+host la stessa fonte dava HTML diversi, e un commit fatto dall'host
+«sbagliato» portava rumore presentato come freschezza. In `metodo` la
+tensione si è sciolta con l'uscita di `view/` da git (`9b9597f`): il gate
+verifica senza confrontare l'output, e la vista pubblicata dichiara il
+toolchain che l'ha resa. Negli adottanti che versionano ancora `view/` resta
+finché non recepiscono la prescrizione.
+
 ## Tensioni aperte
 
-- **Il gate di freschezza assume lo stesso toolchain.** Il check i2 di
-  `/commit` legge come stale tutto ciò che cambia rigenerando. Con pandoc
-  diversi tra host, la stessa fonte dà HTML diversi: le viste di
-  `danea-auto` rigenerate su `svezia` cambiano nel CSS di default di pandoc,
-  non nel contenuto. Un commit fatto dall'host «sbagliato» porterebbe rumore
-  di toolchain presentato come freschezza. Per ora è un solo adottante su
-  un host diverso: si dichiara, non si risolve. Se un secondo caso lo
-  mostra, la domanda è se il canone debba dichiarare una versione di
-  pandoc;
 - la regola regge finché il template di pandoc non cambia di nuovo i
   percorsi. Il controllo ferma solo una versione illeggibile: un cambio
   futuro tornerebbe a dare slide bianche senza errori, finché qualcuno non

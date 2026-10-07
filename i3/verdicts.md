@@ -36,8 +36,9 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 - [toolchain-builder-presentazione.md](toolchain-builder-presentazione.md) —
   i builder assumevano il toolchain degli host Linux: codifica, reveal.js
   dalla versione di pandoc, link al disco locale e fine riga sono canone,
-  recepito dai sei; resta aperto il controllo di freschezza tra host con
-  pandoc diversi.
+  recepito dai sei; il rumore di toolchain nel gate si è sciolto in `metodo`
+  con le viste fuori da git; resta aperta la soglia di pandoc per i percorsi
+  di reveal.js.
 - [verdetto-piu-sicuro-del-materiale.md](verdetto-piu-sicuro-del-materiale.md)
   — la regola sulla provenienza è canone; resta aperto dove passa il confine
   della ricostruzione delegabile all'agente, e se le ritrattazioni salgono a
