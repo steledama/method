@@ -149,7 +149,12 @@ anteprima.
   timer è applicato con `nixos` `59257d7` e verificato qui: quattro timer
   attivi, porte 8001-8004 con `served_commit` uguale ad `HEAD`, nessuna unit
   fallita.
-- **baserow, danea-auto**: da recepire. `nixos`
+- **baserow**: passi 1-5 fatti il 2026-10-07 in `6ad2a25` su `svezia`,
+  verificato su `origin`: `publish.py` tracciato, marker a `9302e13`
+  `aligned` con l'adattamento in corso. La `view/` versionata a `66cc901`
+  non era indietro. Il checkout servito è `~/baserow` su `svezia`. Il passo
+  6 attende il collaudo della porta 8003 da parte di `nixos`.
+- **danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
 
