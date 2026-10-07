@@ -238,7 +238,11 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   commit. Un pull o un edit durante la build non mescolano le revisioni;
 - **provenienza**: la home pubblicata espone l'hash del commit costruito e il
   toolchain che l'ha resa, registrati anche in un file accanto all'output;
-- **recupero**: all'avvio si pubblica se l'output manca o è arretrato. Più
+- **recupero**: all'avvio si pubblica se l'output manca o è arretrato.
+  L'innesco a evento dopo un aggiornamento delle fonti può perdere un
+  cambio che arriva mentre una pubblicazione si chiude: lo affianca un
+  controllo periodico, idempotente e quasi gratuito quando il commit è già
+  servito, che recupera anche un errore transitorio. Più
   richieste concorrenti si serializzano, e l'ultimo commit richiesto viene
   infine pubblicato, anche dopo una build fallita. Senza alcuna versione valida
   il server non parte, dice perché ed esce con un codice proprio; se una

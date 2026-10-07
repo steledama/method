@@ -42,6 +42,12 @@ Per ogni repo, in quest'ordine, senza saltare il collaudo:
    servizio parte solo se il checkout ha `o3/view/publish.py`: un
    `build.py` precedente alla prescrizione ignora `--publish`, rigenera
    `view/` nel checkout ed esce con 0, cioè fallirebbe in silenzio.
+   All'innesco dopo l'aggiornamento del checkout si affianca un controllo
+   periodico (per esempio ogni 5 minuti) che rilancia la pubblicazione:
+   l'evento può andare perso se arriva mentre la pubblicazione precedente
+   si chiude, come ha mostrato il collaudo di `crm` su `svezia`
+   (`kb/view.md`, «Pubblicazione»). Con il commit già servito il giro
+   costa una lettura.
 3. **Git** (il `method` locale). `view/` esce dall'indice solo con l'host
    pronto e la porta collaudata.
 
