@@ -106,8 +106,10 @@ anteprima.
   canone; `deck.py` legge solo JSON tracciati di `i1/`. Il giro ha trovato
   la `view/` versionata a `4f03c89` indietro rispetto alle fonti (un task
   già ritirato ancora reso): la rigenerazione è entrata nel commit con la
-  regola di transizione. Il passo 6 attende il collaudo della porta 8004 da
-  parte di `nixos`.
+  regola di transizione. Host pronto: `nixos` `fe080cd` serve `economia`
+  sulla 8004 nella forma pubblicata, con la fotografia mensile nel deck
+  (verificato qui: `served_commit` `5f46e90`, `ok: true`); dalla LAN casa
+  la porta non è stata provata. Resta il passo 6 nel task locale.
 - **bi, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.

@@ -36,7 +36,10 @@ deck di `nixos` è trasferito a [presidio-ipotesi](presidio-ipotesi.md).
    - in `nixos`, `o3/modules/home/presentations.nix`: il ramo
      `o3/presentation/serve.py`, il controllo sul processo che lo esegue
      ancora e la path unit che riavvia il servizio alla comparsa di
-     `view/index.html` (deck e coppia server);
+     `view/index.html`. Su `deck` è chiuso il 2026-10-07 (`fe080cd`): i
+     quattro repo serviti pubblicano da commit e il modulo genera la forma
+     vecchia solo per i repo non pubblicati. Resta la coppia server (`bi`,
+     `crm`, `baserow`, con lo standby di `crm` su `norvegia`);
    - in `danea-auto`, `o3/scheduler/serve_presentazione.pyw`: la coppia
      `o3/presentation/serve.py` / `presentation/index.html` (`danea2`).
 
