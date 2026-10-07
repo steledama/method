@@ -7,14 +7,29 @@ generata: ciò che la build non produce più si rimuove, così una fonte
 cancellata non lascia una pagina orfana. Due build consecutive producono lo
 stesso output; alla fine il presidio verifica che nessun URL emesso esca da
 `view/` (`kb/view.md`).
+
+La build scrive sempre in una cartella temporanea e copia in `view/` solo a
+esito riuscito: un errore, anche tardivo, lascia intatta la vista precedente.
+
+- senza argomenti: rende il working tree in `view/`;
+- `--check`: verifica contratti e resa senza toccare `view/`;
+- `--out DIR`: rende in una cartella nuova (lo usa la pubblicazione);
+- `--publish DIR`: pubblica da un commit pulito (`--rev`, default `HEAD`)
+  nella cartella di pubblicazione dell'host, conservando l'ultima vista
+  buona (`publish.py`).
 """
 
 from __future__ import annotations
 
+import argparse
 import importlib
+import json
+import platform
 import re
 import shutil
 import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 import project
@@ -41,6 +56,15 @@ def require(tool: str) -> str:
     if not path:
         raise SystemExit(f"build: «{tool}» non trovato nel PATH")
     return path
+
+
+def version(tool: str) -> str:
+    first = subprocess.run(
+        [tool, "--version"], text=True, encoding="utf-8", capture_output=True, check=True
+    ).stdout.splitlines()
+    line = first[0].strip() if first else "?"
+    name = Path(tool).name
+    return line if line.lower().startswith(name) else f"{name} {line}"
 
 
 def revealjs_url() -> str:
@@ -94,7 +118,7 @@ def plates(deck: Path) -> dict[str, bytes]:
     return found
 
 
-def deck_page(reveal_url: str) -> str | None:
+def deck_page(reveal_url: str, out: Path) -> str | None:
     """Il deck: un Markdown in `DECK`, un builder di dominio in `DECK_BUILDER`, o nessuno.
 
     Il builder di dominio vive accanto ai builder canonici ed espone
@@ -108,12 +132,17 @@ def deck_page(reveal_url: str) -> str | None:
     if project.DECK:
         deck = ROOT / project.DECK
         return reveal_page(
-            deck.read_text(encoding="utf-8"), project.DECK, label("presentation"), reveal_url, VIEW
+            deck.read_text(encoding="utf-8"), project.DECK, label("presentation"), reveal_url, out
         )
     return None
 
 
-def main() -> None:
+def render(out: Path, commit: str | None = None) -> None:
+    """Rende tutte le viste in `out`, cartella vuota o nuova.
+
+    Con `commit` la home dichiara la revisione costruita e il toolchain, e
+    `provenance.json` li registra: è la vista pubblicata da fonti pulite.
+    """
     require("pandoc")
     prettier = require("prettier")
     reveal_url = revealjs_url()
@@ -139,29 +168,81 @@ def main() -> None:
     # Le tavole e le immagini devono esistere prima di rendere il deck: il suo
     # presidio verifica che stiano nella cartella.
     for relative, data in binaries.items():
-        write(VIEW / relative, data)
+        write(out / relative, data)
+
+    provenance = None
+    if commit:
+        provenance = {
+            "commit": commit,
+            "pandoc": version("pandoc"),
+            "prettier": version(prettier),
+            "python": platform.python_version(),
+        }
+        write(out / "provenance.json", json.dumps(provenance, indent=2) + "\n")
 
     texts = dict(pages)
-    deck = deck_page(reveal_url)
+    deck = deck_page(reveal_url, out)
     if deck is not None:
         texts["presentation.html"] = deck
-    texts["index.html"] = render_home(ROOT, deck is not None)
+    texts["index.html"] = render_home(ROOT, deck is not None, provenance)
 
     for relative, content in texts.items():
-        write(VIEW / relative, content)
+        write(out / relative, content)
 
-    expected = {VIEW / relative for relative in [*binaries, *texts]}
-    for path in sorted(VIEW.rglob("*"), reverse=True):
+    subprocess.run(
+        [prettier, "--log-level=warn", "--write", *(str(out / name) for name in texts)],
+        check=True,
+    )
+    check_closed(out)
+
+
+def sync(staged: Path, target: Path) -> None:
+    """Porta in `target` l'esito riuscito: scrive ciò che cambia, pota il resto."""
+    expected = set()
+    for path in sorted(staged.rglob("*")):
+        if path.is_file():
+            relative = path.relative_to(staged)
+            expected.add(target / relative)
+            write(target / relative, path.read_bytes())
+    if not target.exists():
+        return
+    for path in sorted(target.rglob("*"), reverse=True):
         if path.is_file() and path not in expected:
             path.unlink()
         elif path.is_dir() and not any(path.iterdir()):
             path.rmdir()
 
-    subprocess.run(
-        [prettier, "--log-level=warn", "--write", *(str(VIEW / name) for name in texts)],
-        check=True,
-    )
-    check_closed(VIEW)
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Rigenera le viste in view/")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--check", action="store_true", help="verifica senza toccare view/")
+    mode.add_argument("--out", type=Path, help="rende in una cartella nuova")
+    mode.add_argument("--publish", type=Path, metavar="DIR", help="pubblica da un commit pulito")
+    parser.add_argument("--rev", default="HEAD", help="revisione da pubblicare (con --publish)")
+    parser.add_argument("--commit", help=argparse.SUPPRESS)
+    args = parser.parse_args()
+
+    if args.publish:
+        from publish import publish
+
+        sys.exit(publish(ROOT, args.publish.resolve(), args.rev))
+    try:
+        if args.out:
+            if args.out.exists():
+                raise SystemExit(f"build: {args.out} esiste già, serve una cartella nuova")
+            render(args.out.resolve(), args.commit)
+            return
+        with tempfile.TemporaryDirectory(prefix="view-") as tmp:
+            staged = Path(tmp) / "view"
+            render(staged)
+            if not args.check:
+                sync(staged, VIEW)
+    except subprocess.CalledProcessError as error:
+        tool = Path(str(error.cmd[0])).name
+        raise SystemExit(
+            f"build: {tool} è uscito con codice {error.returncode}; nessuna vista sostituita"
+        ) from None
 
 
 if __name__ == "__main__":

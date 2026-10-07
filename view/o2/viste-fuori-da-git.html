@@ -42,11 +42,11 @@
           <dt>sintesi</dt>
           <dd>
             Direzione approvata il 2026-10-06: view/ esce da git, con verifica
-            nel gate e pubblicazione da un commit pulito dopo la build. Prima
-            prova su metodo: ultima vista buona conservata, provenienza
-            verificabile, recupero all&#x27;avvio. Gli host si preparano prima
-            della rimozione da git; resta aperta la scelta fra pull manuale e
-            aggiornamento automatico su deck dopo il push.
+            nel gate e pubblicazione da un commit pulito dopo la build. Passo 1
+            fatto il 2026-10-07: build in cartella temporanea, pubblicazione da
+            commit con ultima vista buona, provenienza e stato, provata in
+            locale. Prossimo il servizio di deck in nixos; resta aperta la
+            scelta fra pull manuale e aggiornamento automatico dopo il push.
           </dd>
         </div>
         <div>
@@ -138,19 +138,11 @@
         </li>
         <li>
           <p>
-            La revisione ha confermato in un clone temporaneo che la build
-            normale passa senza diff. Simulando un errore tardivo di Prettier,
-            invece, la build fallisce dopo aver modificato
-            <code>view/goal.html</code>: <code>build.py</code> scrive e pota
-            nella cartella servita prima di Prettier e del controllo finale.
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>o3/view/build_pages.py</code> legge il working tree e include
-            Markdown non tracciati e non ignorati. Il solo hash di
-            <code>HEAD</code> non identifica queste fonti; nel gate pre-commit
-            indica inoltre il commit precedente.
+            Fino al 2026-10-07 <code>build.py</code> scriveva e potava nella
+            cartella servita prima di Prettier e del controllo finale, e
+            <code>build_pages.py</code> leggeva dal working tree anche i
+            Markdown non tracciati: il solo hash di <code>HEAD</code> non
+            identificava le fonti. Il passo 1 ha chiuso entrambi i punti.
           </p>
         </li>
         <li>
@@ -224,31 +216,81 @@
       <h2 id="sequenza-e-risorse">Sequenza e risorse</h2>
       <ol type="1">
         <li>
-          <strong>Preparare e provare su <code>metodo</code></strong
-          >, mantenendo inizialmente <code>view/</code> versionata. Modificare
-          <code>o3/view/build.py</code> e, se necessario,
-          <code>serve.py</code> per rispettare il contratto; definire le
-          modalità di verifica, anteprima e pubblicazione senza duplicare le
-          regole di derivazione. Superare le prove sotto prima di generalizzare
-          la soluzione.
+          <p>
+            <strong>Preparare e provare su <code>metodo</code></strong
+            >, mantenendo inizialmente <code>view/</code> versionata. Modificare
+            <code>o3/view/build.py</code> e, se necessario,
+            <code>serve.py</code> per rispettare il contratto; definire le
+            modalità di verifica, anteprima e pubblicazione senza duplicare le
+            regole di derivazione. Superare le prove sotto prima di
+            generalizzare la soluzione.
+          </p>
+          <p>
+            <strong
+              >Stato al 2026-10-07: lato build e server fatto e provato in
+              locale.</strong
+            >
+            <code>build.py</code> rende sempre in una cartella temporanea e
+            copia in <code>view/</code> solo a esito riuscito;
+            <code>--check</code> verifica senza scrivere.
+            <code>build.py --publish DIR</code> delega a
+            <code>publish.py</code>: esporta il commit con
+            <code>git archive</code> (niente modifiche locali né file non
+            tracciati, fonti stabili durante pull ed edit), costruisce coi
+            builder di quel commit in
+            <code>releases/&lt;data&gt;-&lt;hash&gt;</code> e scambia il
+            puntatore <code>current</code> con <code>os.replace</code>. Tiene la
+            versione corrente e la precedente, scrive <code>status.json</code>,
+            serializza con un lock e ripubblica la revisione più recente se
+            un’altra richiesta arriva durante la build. La home pubblicata
+            espone commit e toolchain, che
+            <code>provenance.json</code> registra.
+            <code>serve.py --publish-root DIR</code> rilegge il puntatore a ogni
+            richiesta, rende <code>/_stato</code> e senza versioni valide non
+            parte e dice perché.
+          </p>
+          <p>
+            Provato su un clone di <code>metodo</code>, con la porta solo su
+            <code>127.0.0.1</code>: output pubblicato identico alla build del
+            working tree, salvo il piè di pagina; working tree sporco e file non
+            tracciati esclusi; contratto violato ed errore tardivo di Prettier
+            senza effetti sulla versione servita, con l’errore in
+            <code>/_stato</code>; 300 richieste HTTP durante tre scambi, tutte
+            200; richiesta accodata durante una build pubblicata alla fine;
+            avvio senza versioni con diagnosi. Test in
+            <code>tests/test_publish.py</code>.
+          </p>
+          <p>
+            Restano fuori dal passo: il marcatore di anteprima sulla build
+            locale, che cambierebbe la <code>view/</code> ancora versionata e si
+            aggiunge al passo 3; l’avvio e il recupero gestiti dal servizio
+            (passo 2); la prova su Windows, dove <code>tarfile</code> non estrae
+            i symlink senza privilegi; i fork in cui il perimetro attraversa un
+            symlink come <code>method/</code>, che
+            <code>git archive</code> esporta come link e la build già non segue.
+          </p>
         </li>
         <li>
-          <strong
-            >Preparare il servizio dell’host di <code>metodo</code> attraverso
-            <code>nixos</code></strong
-          >. <code>o3/modules/home/presentations.nix</code> e
-          <code>o3/presentations.nix</code> governano toolchain e servizi.
-          Fornire gli eseguibili con versioni controllate e percorsi espliciti.
-          Una path unit su <code>.git/logs/HEAD</code> è un candidato al
-          trigger, da validare insieme al controllo all’avvio e al recupero; non
-          ereditare il comportamento una tantum di <code>-vista</code>. La
-          condizione sulla presenza dell’HTML non deve impedire la prima build.
-          Collaudare la porta dell’host prima della rimozione delle viste da
-          git.
+          <p>
+            <strong
+              >Preparare il servizio dell’host di <code>metodo</code> attraverso
+              <code>nixos</code></strong
+            >. <code>o3/modules/home/presentations.nix</code> e
+            <code>o3/presentations.nix</code> governano toolchain e servizi.
+            Fornire gli eseguibili con versioni controllate e percorsi
+            espliciti. Una path unit su <code>.git/logs/HEAD</code> è un
+            candidato al trigger, da validare insieme al controllo all’avvio e
+            al recupero; non ereditare il comportamento una tantum di
+            <code>-vista</code>. La condizione sulla presenza dell’HTML non deve
+            impedire la prima build. Collaudare la porta dell’host prima della
+            rimozione delle viste da git.
+          </p>
         </li>
         <li>
-          <strong>Migrare <code>metodo</code> e incidere il canone</strong>,
-          dopo la preparazione dell’host:
+          <p>
+            <strong>Migrare <code>metodo</code> e incidere il canone</strong>,
+            dopo la preparazione dell’host:
+          </p>
           <ul>
             <li>
               <code>.gitignore</code> con <code>/view/</code> e rimozione
@@ -285,23 +327,27 @@
           </ul>
         </li>
         <li>
-          <strong>Prescrivere il recepimento ai sette adottanti</strong> dopo il
-          collaudo su <code>metodo</code>. Ogni <code>method</code> locale
-          ratifica builder e modalità di pubblicazione, prepara il proprio host,
-          prova, poi rimuove <code>view/</code> da git e verifica la porta. La
-          preparazione dei servizi in <code>nixos</code> è una dipendenza
-          esplicita per i repo che serve, non un passo successivo alla rimozione
-          dell’output.
+          <p>
+            <strong>Prescrivere il recepimento ai sette adottanti</strong> dopo
+            il collaudo su <code>metodo</code>. Ogni <code>method</code> locale
+            ratifica builder e modalità di pubblicazione, prepara il proprio
+            host, prova, poi rimuove <code>view/</code> da git e verifica la
+            porta. La preparazione dei servizi in <code>nixos</code> è una
+            dipendenza esplicita per i repo che serve, non un passo successivo
+            alla rimozione dell’output.
+          </p>
         </li>
         <li>
-          <strong>Adattare a <code>danea-auto</code></strong> tramite il suo
-          <code>method</code>: su <code>danea2</code> la verifica precede il
-          commit, la pubblicazione lo segue su fonti pulite. Definire il comando
-          o meccanismo locale che esegue questo secondo passo e il recupero
-          all’avvio; la sola build del gate non basta. Il seguito coinvolge
-          anche <code>o3/scheduler/serve_presentazione.pyw</code>. Collaudare il
-          passaggio fra versioni con il server Windows in funzione prima di
-          rimuovere l’output da git.
+          <p>
+            <strong>Adattare a <code>danea-auto</code></strong> tramite il suo
+            <code>method</code>: su <code>danea2</code> la verifica precede il
+            commit, la pubblicazione lo segue su fonti pulite. Definire il
+            comando o meccanismo locale che esegue questo secondo passo e il
+            recupero all’avvio; la sola build del gate non basta. Il seguito
+            coinvolge anche <code>o3/scheduler/serve_presentazione.pyw</code>.
+            Collaudare il passaggio fra versioni con il server Windows in
+            funzione prima di rimuovere l’output da git.
+          </p>
         </li>
       </ol>
       <h2 id="prove-di-accettazione">Prove di accettazione</h2>

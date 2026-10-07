@@ -199,8 +199,23 @@
               fonti, rigenera pagine, deck, home e asset in
               <code>../view/</code>, rimuove ciò che non produce più, formatta
               con Prettier e chiude col presidio del compartimento stagno
-              (nessun URL emesso esce da <code>../view/</code>). È Python per
-              girare anche sugli host Windows;
+              (nessun URL emesso esce da <code>../view/</code>). Costruisce in
+              una cartella temporanea e tocca <code>../view/</code> solo a esito
+              riuscito; <code>--check</code> verifica senza scrivere,
+              <code>--publish DIR</code> pubblica da un commit pulito. È Python
+              per girare anche sugli host Windows;
+            </li>
+            <li>
+              <code>publish.py</code> — la pubblicazione da commit pulito
+              chiamata da <code>build.py --publish</code>: fonti esportate con
+              <code>git archive</code>, una cartella per versione, puntatore
+              <code>current</code> scambiato solo a build riuscita,
+              <code>status.json</code> con l’ultimo tentativo, lock con
+              richiesta accodata. Test:
+              <code
+                >python3 -m unittest discover -s tests -p
+                'test_publish.py'</code
+              >;
             </li>
             <li>
               <code>project.py</code> — l’unico file che il fork parametrizza:
@@ -233,8 +248,10 @@
               <code>serve.py</code> — serve la sola <code>../view/</code> sulle
               reti private: <code>python3 o3/view/serve.py</code>, porta 8000,
               Ctrl-C per chiudere; il servizio permanente dell’host privilegiato
-              lancia lo stesso script con <code>--port</code>. Solo libreria
-              standard, niente dotfile né elenchi di cartella;
+              lancia lo stesso script con <code>--port</code>; con
+              <code>--publish-root DIR</code> serve la versione pubblicata e
+              <code>/_stato</code>. Solo libreria standard, niente dotfile né
+              elenchi di cartella;
             </li>
             <li>
               <code>assets/</code> — i CSS canonici, copiati in

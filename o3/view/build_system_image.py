@@ -167,7 +167,19 @@ def cycle_html() -> str:
       </section>"""
 
 
-def render(root: Path, deck: bool) -> str:
+def provenance_html(provenance: dict[str, str] | None) -> str:
+    """La revisione costruita e il toolchain, solo nella vista pubblicata."""
+    if not provenance:
+        return ""
+    tools = " · ".join(provenance[key] for key in ("pandoc", "prettier") if provenance.get(key))
+    return (
+        '\n    <footer class="provenance">\n'
+        f"      <p>Commit <code>{html.escape(provenance['commit'][:12])}</code>"
+        f" · {html.escape(tools)}</p>\n    </footer>"
+    )
+
+
+def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> str:
     title = readme_title(root)
     # Il deck è il racconto curato dell'artefatto, non uno stadio: la home lo
     # linka come voce a sé.
@@ -195,7 +207,7 @@ def render(root: Path, deck: bool) -> str:
 {goal_pole_html(root)}
 {cycle_html()}
 {world_pole_html(root)}
-    </main>
+    </main>{provenance_html(provenance)}
   </body>
 </html>
 """

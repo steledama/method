@@ -1,5 +1,5 @@
 ---
-sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Prima prova su metodo: ultima vista buona conservata, provenienza verificabile, recupero all'avvio. Gli host si preparano prima della rimozione da git; resta aperta la scelta fra pull manuale e aggiornamento automatico su deck dopo il push."
+sintesi: "Direzione approvata il 2026-10-06: view/ esce da git, con verifica nel gate e pubblicazione da un commit pulito dopo la build. Passo 1 fatto il 2026-10-07: build in cartella temporanea, pubblicazione da commit con ultima vista buona, provenienza e stato, provata in locale. Prossimo il servizio di deck in nixos; resta aperta la scelta fra pull manuale e aggiornamento automatico dopo il push."
 ciclo: dev
 ---
 
@@ -49,13 +49,10 @@ Il gate pre-commit resta una verifica, distinta dalla pubblicazione.
   `nixos`, `salute`, `economia`; il ruolo `production` della coppia server
   per `bi`, `crm`, `baserow`; `danea2` per `danea-auto`.
 
-- La revisione ha confermato in un clone temporaneo che la build normale
-  passa senza diff. Simulando un errore tardivo di Prettier, invece, la build
-  fallisce dopo aver modificato `view/goal.html`: `build.py` scrive e pota
-  nella cartella servita prima di Prettier e del controllo finale.
-- `o3/view/build_pages.py` legge il working tree e include Markdown non
-  tracciati e non ignorati. Il solo hash di `HEAD` non identifica queste
-  fonti; nel gate pre-commit indica inoltre il commit precedente.
+- Fino al 2026-10-07 `build.py` scriveva e potava nella cartella servita
+  prima di Prettier e del controllo finale, e `build_pages.py` leggeva dal
+  working tree anche i Markdown non tracciati: il solo hash di `HEAD` non
+  identificava le fonti. Il passo 1 ha chiuso entrambi i punti.
 - La unit `-vista` attuale in `nixos` è una migrazione una tantum, con
   `RemainAfterExit=true`. Non è già un modello di ricostruzione ricorrente.
   `PathChanged=` non recupera le modifiche precedenti all'attivazione solo
@@ -102,6 +99,36 @@ particolare. La configurazione dei servizi ne è un'implementazione.
    rispettare il contratto; definire le modalità di verifica, anteprima e
    pubblicazione senza duplicare le regole di derivazione. Superare le prove
    sotto prima di generalizzare la soluzione.
+
+   **Stato al 2026-10-07: lato build e server fatto e provato in locale.**
+   `build.py` rende sempre in una cartella temporanea e copia in `view/` solo
+   a esito riuscito; `--check` verifica senza scrivere. `build.py --publish
+DIR` delega a `publish.py`: esporta il commit con `git archive` (niente
+   modifiche locali né file non tracciati, fonti stabili durante pull ed
+   edit), costruisce coi builder di quel commit in `releases/<data>-<hash>`
+   e scambia il puntatore `current` con `os.replace`. Tiene la versione
+   corrente e la precedente, scrive `status.json`, serializza con un lock e
+   ripubblica la revisione più recente se un'altra richiesta arriva durante
+   la build. La home pubblicata espone commit e toolchain, che
+   `provenance.json` registra. `serve.py --publish-root DIR` rilegge il
+   puntatore a ogni richiesta, rende `/_stato` e senza versioni valide non
+   parte e dice perché.
+
+   Provato su un clone di `metodo`, con la porta solo su `127.0.0.1`:
+   output pubblicato identico alla build del working tree, salvo il piè di
+   pagina; working tree sporco e file non tracciati esclusi; contratto
+   violato ed errore tardivo di Prettier senza effetti sulla versione
+   servita, con l'errore in `/_stato`; 300 richieste HTTP durante tre
+   scambi, tutte 200; richiesta accodata durante una build pubblicata alla
+   fine; avvio senza versioni con diagnosi. Test in `tests/test_publish.py`.
+
+   Restano fuori dal passo: il marcatore di anteprima sulla build locale,
+   che cambierebbe la `view/` ancora versionata e si aggiunge al passo 3;
+   l'avvio e il recupero gestiti dal servizio (passo 2); la prova su
+   Windows, dove `tarfile` non estrae i symlink senza privilegi; i fork in
+   cui il perimetro attraversa un symlink come `method/`, che `git archive`
+   esporta come link e la build già non segue.
+
 2. **Preparare il servizio dell'host di `metodo` attraverso `nixos`**.
    `o3/modules/home/presentations.nix` e `o3/presentations.nix` governano
    toolchain e servizi. Fornire gli eseguibili con versioni controllate e

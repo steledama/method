@@ -77,7 +77,34 @@ def perimeter(root: Path) -> list[str]:
     versiona e si serve. I symlink non si seguono: puntano fuori dal
     checkout. `ESCLUSE` in `project.py` toglie ciò che il repo non vuole
     esporre.
+
+    Le fonti esportate da un commit per la pubblicazione (`publish.py`) non
+    hanno `.git`: lì ogni file è tracciato per costruzione e si legge il disco.
     """
+    sources = set()
+    for relative in _listed(root):
+        path = root / relative
+        if not relative.endswith(".md") or not path.is_file() or _excluded(relative):
+            continue
+        if any((root / part).is_symlink() for part in _prefixes(relative)):
+            continue
+        sources.add(relative)
+    for collection, index in INDEXES.items():
+        if f"{collection}/{index}" not in sources:
+            raise SystemExit(f"{collection}/{index}: indice della collezione assente o escluso")
+    return sorted(sources)
+
+
+def _listed(root: Path) -> list[str]:
+    if not (root / ".git").exists():
+        found = [name for name in REGISTERS if (root / name).exists()]
+        for collection in INDEXES:
+            found += [
+                path.relative_to(root).as_posix()
+                for path in (root / collection).rglob("*")
+                if path.is_file() or path.is_symlink()
+            ]
+        return found
     listed = subprocess.run(
         [
             "git",
@@ -94,18 +121,7 @@ def perimeter(root: Path) -> list[str]:
         capture_output=True,
         check=True,
     ).stdout.decode("utf-8")
-    sources = set()
-    for relative in filter(None, listed.split("\0")):
-        path = root / relative
-        if not relative.endswith(".md") or not path.is_file() or _excluded(relative):
-            continue
-        if any((root / part).is_symlink() for part in _prefixes(relative)):
-            continue
-        sources.add(relative)
-    for collection, index in INDEXES.items():
-        if f"{collection}/{index}" not in sources:
-            raise SystemExit(f"{collection}/{index}: indice della collezione assente o escluso")
-    return sorted(sources)
+    return list(filter(None, listed.split("\0")))
 
 
 def _prefixes(relative: str) -> list[str]:

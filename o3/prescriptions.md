@@ -56,7 +56,14 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     contratti fra le fonti, rigenera pagine, deck, home e asset in `../view/`,
     rimuove ciò che non produce più, formatta con Prettier e chiude col
     presidio del compartimento stagno (nessun URL emesso esce da `../view/`).
-    È Python per girare anche sugli host Windows;
+    Costruisce in una cartella temporanea e tocca `../view/` solo a esito
+    riuscito; `--check` verifica senza scrivere, `--publish DIR` pubblica da
+    un commit pulito. È Python per girare anche sugli host Windows;
+  - `publish.py` — la pubblicazione da commit pulito chiamata da
+    `build.py --publish`: fonti esportate con `git archive`, una cartella
+    per versione, puntatore `current` scambiato solo a build riuscita,
+    `status.json` con l'ultimo tentativo, lock con richiesta accodata.
+    Test: `python3 -m unittest discover -s tests -p 'test_publish.py'`;
   - `project.py` — l'unico file che il fork parametrizza: sigla, lingua,
     colore d'accento (scritto in `view/assets/theme.css`), sorgente del deck,
     CSS di dominio ed esclusioni dal perimetro;
@@ -71,7 +78,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     sintesi, un collegamento primario per stadio, il deck come voce a sé;
   - `serve.py` — serve la sola `../view/` sulle reti private:
     `python3 o3/view/serve.py`, porta 8000, Ctrl-C per chiudere; il servizio
-    permanente dell'host privilegiato lancia lo stesso script con `--port`.
+    permanente dell'host privilegiato lancia lo stesso script con `--port`;
+    con `--publish-root DIR` serve la versione pubblicata e `/_stato`.
     Solo libreria standard, niente dotfile né elenchi di cartella;
   - `assets/` — i CSS canonici, copiati in `../view/assets/`: `page.css`
     per le pagine, `system-image.css` per la home, `deck.css` per il deck.
