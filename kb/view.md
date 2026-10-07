@@ -92,7 +92,10 @@ Rigenerare, però, non chiede di versionare l'output. Una vista versionata
 porta un debito: va rigenerata nell'atto stesso che tocca le sue fonti, la sua
 storia raddoppia quella delle fonti con HTML derivato, e l'output dipende dal
 toolchain dell'host, così un commit fatto altrove porta rumore presentato come
-freschezza. Le viste perciò **non si versionano**: `view/` è ignorata da git,
+freschezza. E il gesto che doveva pagare il debito non reggeva: in
+`economia` un giro `exec` ha cambiato plan e task senza rigenerare, e la vista
+versionata, servita sulle reti private, ha continuato a mostrare un task già
+ritirato. Le viste perciò **non si versionano**: `view/` è ignorata da git,
 si genera dal checkout con la build e si pubblica dall'host privilegiato.
 L'obbligo di freschezza non scompare: si sposta dove la vista si legge.
 

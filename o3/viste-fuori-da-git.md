@@ -100,7 +100,15 @@ anteprima.
   8003 collaudata), `view/` fuori da git in `36fa7db`, ripubblicato da solo
   (`served_commit` `36fa7db`, `ok: true`). Non ancora su `origin`. La patch
   del canone si è applicata sopra gli adattamenti locali senza conflitti.
-- **bi, economia, crm, baserow, danea-auto**: da recepire. `nixos`
+- **economia**: passi 1-5 fatti il 2026-10-07 in `5f46e90` (non ancora su
+  `origin`), marker a `8c204c5` `aligned` con l'adattamento in corso;
+  verificato su `deck`. Builder canonici copiati, perché coincidevano col
+  canone; `deck.py` legge solo JSON tracciati di `i1/`. Il giro ha trovato
+  la `view/` versionata a `4f03c89` indietro rispetto alle fonti (un task
+  già ritirato ancora reso): la rigenerazione è entrata nel commit con la
+  regola di transizione. Il passo 6 attende il collaudo della porta 8004 da
+  parte di `nixos`.
+- **bi, crm, baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
 
