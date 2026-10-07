@@ -45,8 +45,8 @@
             nel gate e pubblicazione da un commit pulito dopo la build. Passo 1
             fatto il 2026-10-07: build in cartella temporanea, pubblicazione da
             commit con ultima vista buona, provenienza e stato, provata in
-            locale. Prossimo il servizio di deck in nixos; resta aperta la
-            scelta fra pull manuale e aggiornamento automatico dopo il push.
+            locale. Prossimo il servizio di deck in nixos, con pull manuale
+            deciso dal custode il 2026-10-07.
           </dd>
         </div>
         <div>
@@ -76,9 +76,9 @@
         Ogni repo ha già un <strong>host privilegiato</strong> che serve le
         viste sulle reti private. Il flusso previsto è: verifica locale → commit
         → push su richiesta → aggiornamento del checkout sull’host → build e
-        pubblicazione automatica. Resta da decidere se l’aggiornamento sia
-        manuale o automatico dopo il push, come descritto nella decisione aperta
-        sotto. Dove si sviluppa e si serve sullo stesso host
+        pubblicazione automatica. Su <code>deck</code> l’aggiornamento del
+        checkout resta manuale, come deciso dal custode (sezione «Decisione»
+        sotto). Dove si sviluppa e si serve sullo stesso host
         (<code>danea2</code>), la pubblicazione segue il commit locale. Il gate
         pre-commit resta una verifica, distinta dalla pubblicazione.
       </p>
@@ -396,44 +396,26 @@
           correttezza del generatore.
         </li>
       </ul>
-      <h2 id="decisione-aperta-aggiornamento-di-deck-dopo-il-push">
-        Decisione aperta: aggiornamento di deck dopo il push
+      <h2 id="decisione-pull-manuale-su-deck">
+        Decisione: pull manuale su deck
       </h2>
       <p>
-        Togliere <code>view/</code> da git non elimina da solo l’attesa del
-        pull: dopo un commit e un push da <code>game</code>, le pagine su
-        <code>deck</code> restano vecchie finché il suo checkout non si
-        aggiorna. L’automazione di questo passaggio
-        <strong>non è esclusa dal task e non è ancora approvata</strong>. La
-        scelta va esplicitata prima di finalizzare il servizio della prova su
-        <code>metodo</code>.
+        Il custode ha deciso il <strong>2026-10-07</strong>: per ora
+        <code>deck</code> si aggiorna con un pull manuale. Dopo un commit e un
+        push da <code>game</code> le pagine su <code>deck</code> restano vecchie
+        finché il custode non aggiorna il checkout; da quel momento build e
+        pubblicazione sono automatiche. Resta un gesto distinto per aggiornare
+        il sito, che si può dimenticare dopo il push.
       </p>
-      <ul>
-        <li>
-          <strong>Pull manuale</strong>: il custode aggiorna <code>deck</code>;
-          da quel momento build e pubblicazione sono automatiche. Mantiene un
-          gesto distinto per aggiornare il sito, ma resta possibile dimenticarlo
-          dopo il push.
-        </li>
-        <li>
-          <strong>Aggiornamento automatico</strong>: il push resta il gesto
-          autorizzato dal custode; <code>deck</code> acquisisce il commit,
-          costruisce e pubblica senza un secondo intervento. Un controllo
-          periodico (per esempio ogni due minuti) è una possibilità da valutare,
-          non una configurazione già scelta. Richiede di definire il checkout
-          dedicato alla pubblicazione, il ramo seguito, la gestione degli errori
-          e il comportamento in presenza di modifiche locali o divergenze:
-          nessuna sovrascrittura o risoluzione automatica dei conflitti.
-        </li>
-      </ul>
       <p>
-        In entrambi i casi resta il contratto dell’ultima vista buona. Se si
-        sceglie l’automazione, il collaudo copre l’intero flusso
+        L’aggiornamento automatico non è escluso per il futuro. Se si riapre, va
+        definito il checkout dedicato alla pubblicazione, il ramo seguito, la
+        gestione degli errori e il comportamento con modifiche locali o
+        divergenze, senza sovrascritture né risoluzioni automatiche dei
+        conflitti; il collaudo copre l’intero flusso
         <code>game → remoto → deck</code>, compreso il recupero dopo
-        indisponibilità del remoto. La prova su <code>metodo</code> precede
-        l’eventuale proposta agli altri repository; la scelta per
-        <code>deck</code> non implica che ogni host adottante debba usare lo
-        stesso meccanismo.
+        indisponibilità del remoto. La scelta per <code>deck</code> non implica
+        che ogni host adottante debba usare lo stesso meccanismo.
       </p>
       <h2 id="confini-e-verifiche-sul-mondo">Confini e verifiche sul Mondo</h2>
       <ul>
@@ -443,9 +425,9 @@
           verifica mancante resta dichiarata.
         </li>
         <li>
-          Il push resta su richiesta. Il pull è oggi manuale; il suo assetto
-          futuro dipende dalla decisione aperta sopra. Fino all’aggiornamento
-          del checkout sull’host, la vista remota può restare indietro.
+          Il push resta su richiesta e il pull resta manuale (decisione sopra).
+          Fino all’aggiornamento del checkout sull’host, la vista remota può
+          restare indietro.
         </li>
         <li>
           Il deck in <code>presentation/</code> resta versionato come sorgente;
