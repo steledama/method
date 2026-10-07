@@ -47,7 +47,8 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   `35a08d5` col seguito sul deck di `nixos` chiuso, e attesa in `danea-auto`,
   osservato senza sollecitazione; `revisione-bootstrap-adottante`,
   non verificata nel merito; `ingresso-adottante`, eseguita per la prima
-  volta con `baserow`.
+  volta con `baserow`; `viste-fuori-da-git`, prescritta il 2026-10-07 ai
+  sette, con `nixos` come host di `deck` e della coppia server.
 
 ### 3. Ascoltare il basso
 
