@@ -137,14 +137,16 @@ anteprima.
   applicata la configurazione: un allineamento da autorizzare, che conviene
   fare una volta sola, quando `crm` e `baserow` hanno chiuso il passo dei
   builder.
-- **crm**: passi 1-5 fatti il 2026-10-07 in `8071091` su `svezia`,
-  verificato su `origin`: `publish.py` tracciato, marker a `2116d48`
-  `aligned` con l'adattamento in corso. La `view/` versionata a `b698bda`
-  non era indietro. Il checkout servito è `~/crm` su `svezia`. Host pronto:
-  `nixos` `e4087ea` serve `crm` dalla 8002 della produzione nella forma
-  pubblicata, collaudo superato secondo l'istanza di `nixos` (`published`
-  verificato su `origin`); `bi` continua a servire `091bdce4`. Resta il
-  passo 6 nel task locale.
+- **crm**: recepita per intero il 2026-10-07 su `svezia`, verificato su
+  `origin`: builder in `8071091` con `publish.py` tracciato, servizio di
+  `nixos` in `e4087ea` (8002 della produzione collaudata), `view/` fuori da
+  git in `c7fb1b0`, marker a `55f92a5`. Ripubblicazione riportata
+  dall'istanza di `crm` (`served_commit` `c7fb1b0`, `ok: true`). La `view/`
+  versionata non era indietro. Il collaudo dell'host ha trovato la race fra
+  innesco e fine della pubblicazione: `nixos` `5b873ef` aggiunge il timer
+  periodico sulla produzione, e la race riprodotta si è riallineata da sola
+  entro un intervallo più il minuto di precisione di systemd. Su `deck` il
+  timer attende un `home-manager switch`.
 - **baserow, danea-auto**: da recepire. `nixos`
   aggiunge ai suoi servizi i repo di `deck` e della coppia server quando
   ognuno ha chiuso il passo dei builder.
