@@ -29,6 +29,8 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
   primo giro locale dopo il 13/10, trailer `Esiti:` e diff del filo pubblicati;
   fonte del precursore `o3/stats.ps1`. Nessuna sollecitazione all'adottante;
   se giro o copertura mancano, dichiarare il limite e il prossimo riesame.
+  Chiusa l'osservazione, sollecitare `danea-auto` a recepire
+  `presidio-ipotesi`, rinviata nel suo marker fino a quella sollecitazione.
 
 - 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sette adottanti
   → esiti nel filo

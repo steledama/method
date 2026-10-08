@@ -29,6 +29,11 @@ Recepita da sei destinatari su sette, verificato nei marker e nei file su
 di `nixos` è chiuso: la lettura causale vive in `i2/ipotesi-boot-server.md`,
 raggiunta dal filo `affidabilita-boot-server`. Resta `danea-auto`, a
 `a344f64`, osservato senza sollecitazione fino al riesame dal 2026-10-13.
+Il rinvio è voluto: dal 2026-10-08 il suo marker può avanzare con una riga
+neutra che rimanda il recepimento alla sollecitazione di `metodo`, senza
+nominare ipotesi né filo; la sollecitazione parte dalla scadenza del plan a
+osservazione chiusa. Recepirla prima del giro misurato contaminerebbe
+l'osservazione.
 
 ## Ricetta per il /method locale
 
