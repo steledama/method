@@ -24,3 +24,8 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
 - [presidio-ipotesi-adottanti.md](presidio-ipotesi-adottanti.md) — criteri,
   esiti e limiti degli otto run; regola minima ratificata e osservazione
   ancora aperta su `danea-auto`, raggiungibile dalle Scadenze del plan.
+- [churn-goal-adottanti.md](churn-goal-adottanti.md) — 118 commit su
+  `goal.md` in due mesi negli otto repo: il 74% tocca solo segnali e stato,
+  le misure copiate da una fonte sono 16 e quasi tutte in `danea-auto` e
+  `bi`; il churn diffuso viene dallo stato del lavoro ricopiato da fili, plan
+  e `o3/`. Il nord si separa meccanicamente sullo scheletro.
