@@ -26,6 +26,11 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   2026-10-05. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
   prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
+- [battito-autonomo.md](battito-autonomo.md) — l'artefatto regge un giro
+  `eval` → `exec` → commit senza custode? Push autonomo in `method` e
+  prescritto ai sette; nessun giro autonomo ancora; da decidere se il Goal di
+  sviluppo passa da «in-the-loop» a «on-the-loop». Riesame il 2026-11-01,
+  verdetto alla fine del pilota.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
   tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
   clausola corretta perché gli esiti nulli non lasciavano traccia; si

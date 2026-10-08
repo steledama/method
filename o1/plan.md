@@ -41,7 +41,9 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
   → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
-  conferma o meno che `aligned` e i file coincidono.
+  conferma o meno che `aligned` e i file coincidono. Riesame del filo
+  [i3/battito-autonomo.md](../i3/battito-autonomo.md): recepimento di
+  `push-autonomo` e avanzamento del percorso.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).
