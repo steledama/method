@@ -22,3 +22,8 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   una riga `Co-Authored-By` dopo una riga vuota ha nascosto `Esiti:` a
   `%(trailers)`; la skill canonica mostra `Esiti:` in un `-m` a sé, e il fork
   di `baserow` ora verifica la posizione prima e dopo il commit. Un solo caso.
+- [Le fotografie numeriche hanno un churn che il register del Goal non
+  regge](fotografie-ad-alto-churn.md) — dal custode, sul caso `danea-auto`
+  `2afd7bf`: in `goal.md` solo gli obiettivi, i numeri ad alto churn fuori
+  dal register e forse fuori da git; si versionano le decisioni prese sui
+  numeri. Da misurare il churn di `goal.md` negli otto repo.
