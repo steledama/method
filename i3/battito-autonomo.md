@@ -62,8 +62,9 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 
 ## Il percorso
 
-I passi sono task in `o1/plan.md`: terminologia agente/custode, trailer di
-autonomia e incisione, home con fatto e da fare, criteri di autonomia nel
+La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
+**custode** il ruolo umano che decide. I passi restanti sono task in
+`o1/plan.md`: trailer di autonomia e incisione, home con fatto e da fare, criteri di autonomia nel
 trittico costitutivo, dove gira il battito, pilota. L'ordine mette la
 visibilità prima dell'autonomia: il controllo deve esistere prima che la
 conferma si tolga.

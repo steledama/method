@@ -41,7 +41,7 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   valutazione e prodotti versionati
 - [affordance-signifier](affordance-signifier.md) — Distinzione di Norman tra
   azione possibile e segnale di dove agire; il metodo applica la distinzione
-  alle rese per il lettore umano e per l'agente macchina
+  alle rese per il lettore umano e per l'agente
 - [constraint](constraint.md) — La limitazione progettata (guardrail): tipi di
   Norman, presidio strutturale sotto il check riflessivo, l'errore reso
   impossibile o rumoroso

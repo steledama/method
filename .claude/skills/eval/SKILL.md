@@ -159,7 +159,7 @@ potare alla cieca avrebbe distrutto informazione.
 
 Fondere guarda anche ai **lettori**, non solo al contenuto: chiedersi chi altro
 legge la copia che stai rimuovendo, macchine incluse. In `metodo` il footer
-`## Dettagli task` era un secondo indice per l'umano ma l'unica chiave con cui
+`## Dettagli task` era un secondo indice per il lettore ma l'unica chiave con cui
 il generatore risolveva una riga del plan al suo `o2/`: potato il footer, la
 vista dei task è rimasta vuota per diciassette giorni senza che nulla rompesse
 (`kb/view.md`, «Derivata implica verificata»).
@@ -169,7 +169,7 @@ vista dei task è rimasta vuota per diciassette giorni senza che nulla rompesse
 Input esogeni che non chiudono loop noti ma ne aprono di nuovi (una percezione
 da un adottante che non rientra in nessun obiettivo, una cornice teorica
 importata) → proponi il filo nuovo o il ritocco al register. Sempre in proposta:
-decidere cosa conta è del custode umano (`kb/goal.md`).
+decidere cosa conta è del custode (`kb/goal.md`).
 
 **6. Proponi, poi applica**
 

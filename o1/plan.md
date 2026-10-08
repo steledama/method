@@ -13,7 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip.                                            |
 | ----- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| dev   | 1   | Bozza agente e custode                          | —                                               |
 | dev   | S   | Trailer di autonomia e incisione                | —                                               |
 | dev   | S   | Home con fatto e da fare                        | —                                               |
 | dev   | S   | Criteri di autonomia nel trittico costitutivo   | ↳ Trailer di autonomia e incisione              |

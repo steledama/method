@@ -57,7 +57,7 @@ del signifier.
 Un artefatto del metodo — un nodo `kb/`, un quadro, una vista di output — ha
 _affordance_ (quali azioni rende possibili a chi lo legge) e ha bisogno di
 _signifier_ (cosa dice al lettore dove e come agire). Gran parte del lavoro
-dello strato output, soprattutto nella resa destinata all'agente umano, è
+dello strato output, soprattutto nella resa destinata al lettore umano, è
 aggiunta di signifier: il termometro, lo schema, la raccomandazione accanto allo
 stato rendono riconoscibili azioni già possibili. Quando un'azione desiderata
 non avviene, si verifica se manchi l'affordance o il signifier. Attendere o
@@ -72,10 +72,10 @@ augmentation — il means che porta l'azione possibile alla soglia dell'atto.
 
 Nel caso umano/LLM il metodo progetta affordance e signifier per entrambi i
 lettori. Da questa scelta deriva la possibilità di rese diverse dello stesso
-contenuto; la loro utilità va verificata per ciascun agente. La resa per
-l'agente macchina porta i signifier di cui quello ha bisogno — fatti
+contenuto; la loro utilità va verificata per ciascun lettore. La resa per
+l'agente porta i signifier di cui quello ha bisogno — fatti
 strutturati, scadenze esplicite, stato leggibile senza inferenza; la resa per
-l'agente umano porta i suoi — una vista comprensibile a colpo d'occhio. Un nodo
+il lettore umano porta i suoi — una vista comprensibile a colpo d'occhio. Un nodo
 ben _segnalato_ per l'umano può essere muto per la macchina, e viceversa. La
 distinzione affordance/signifier dà il criterio per progettare entrambe senza
 confonderle, ed è il completamento naturale delle quattro proprietà cardine già

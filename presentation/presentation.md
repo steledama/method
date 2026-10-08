@@ -2,7 +2,7 @@
 title: "Cognizione condivisa"
 subtitle:
   "Framework metodologico e osservatorio cross-repo per la progettazione di
-  artefatti di supporto alla cognizione condivisa tra uomo e modelli di
+  artefatti di supporto alla cognizione condivisa tra umano e modelli di
   intelligenza artificiale tramite knowledge base (KB) e superfici versionate
   del ciclo d'azione"
 author: "Stefano Pompa · stefano.pompa@gmail.com · github.com/steledama/method"

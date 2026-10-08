@@ -73,8 +73,8 @@ L'asimmetria ha conseguenze di progetto: l'artefatto deve essere
 sufficientemente esplicito per ricostruire il contesto di progetto, senza
 richiedere la memoria di sessioni precedenti né ripetere ogni conoscenza
 generale già disponibile. Non è un equilibrio facile — è la tensione che motiva
-lo sdoppiamento dello strato output nelle due rese per l'agente macchina e per
-l'agente umano (cfr. `affordance-signifier`), e che richiede che certe cose
+lo sdoppiamento dello strato output nelle due rese per l'agente e per il
+lettore umano (cfr. `affordance-signifier`), e che richiede che certe cose
 (assunzioni, contesto, ragioni di una decisione) siano esplicite nell'artefatto
 anche quando l'umano le ricorderebbe.
 

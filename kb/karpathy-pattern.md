@@ -18,7 +18,7 @@ teorica e questa pratica locale hanno responsabilità distinte.
 
 Quando entra una fonte, l'LLM ne estrae i concetti, aggiorna i nodi pertinenti,
 segnala tensioni e propone nuove unità soltanto quando hanno una funzione
-autonoma. L'umano custodisce senso, direzione e stile; l'agente opera entro
+autonoma. Il custode tiene senso, direzione e stile; l'agente opera entro
 l'autorità concessa. La conoscenza utile non resta dispersa nella chat.
 
 La collocazione segue la funzione: le sintesi interpretative vivono in `i2/`, le

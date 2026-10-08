@@ -4,7 +4,7 @@ stato: maturo
 
 # Action cycle
 
-Il metodo adatta il ciclo d'azione di Donald Norman all'agente umano+LLM che
+Il metodo adatta il ciclo d'azione di Donald Norman al sistema umano+LLM che
 opera attraverso un artefatto versionato. Tra i poli Goal e Mondo corrono sei
 atti:
 

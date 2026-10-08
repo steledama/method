@@ -31,11 +31,26 @@ adottanti e le fonti teoriche dichiarati in [world.md](world.md); il Mondo di
 sviluppo è l'artefatto che custodisce il canone, con i nodi `kb/` al centro.
 
 Progettiamo l'artefatto persistente perché sostenga il sistema cognitivo che
-nasce nell'uso con umano e agenti. Per questa distinzione e i fondamenti si
+nasce nell'uso tra umano e LLM. Per questa distinzione e i fondamenti si
 parte dall'hub [cognitive-artifact-design](kb/cognitive-artifact-design.md). Il
 modello illustrato vive nel deck
 [presentation/presentation.md](presentation/presentation.md), i
 criteri progettuali in [design-principles](kb/design-principles.md).
+
+Il lessico ha due registri. Nella **teoria** (cognizione distribuita, Norman)
+«agente» è chiunque agisca con l'artefatto, umano o macchina, e umano e LLM
+sono le due categorie del sistema cognitivo ([agent](kb/agent.md)). Nel
+lessico **operativo**, chi fa cosa nel repository:
+
+- **agente** è l'IA che opera nel repository; dove servono tutti e due si dice
+  «i due agenti»;
+- **custode** è il ruolo che decide: Goal, Mondo, criteri e autorizzazioni. Lo
+  ricopre una persona, dichiarata nel register `goal.md`;
+- **umano** resta la categoria, per esempio il lettore umano di una vista, chi
+  che sia: non tutti i lettori sono il custode;
+- **utente** è l'interlocutore della sessione con l'agente, di solito il
+  custode ma non per forza; LLM e modello indicano la tecnologia sostituibile
+  sotto l'agente.
 
 ## Metodo
 

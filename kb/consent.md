@@ -14,11 +14,11 @@ da annullare o incontra il Mondo, formula prima la proposta e attende il via. Un
 sì su una parte non autorizza il tutto.
 
 Non è cautela burocratica ma la disciplina della cerniera tra esecuzione e
-valutazione nel ciclo dell'azione. L'umano è l'agente che chiude il cappio —
-fissa il Goal e giudica l'esito; l'LLM propone il piano e lo specifica, ma il
+valutazione nel ciclo dell'azione. Il custode chiude il cappio — fissa il
+Goal e giudica l'esito; l'agente propone il piano e lo specifica, ma il
 passaggio all'azione nel mondo è il punto in cui l'autorità si trasferisce e va
 riconosciuta esplicitamente. Saltare il consenso significa attraversare il gulf
-of execution senza che l'umano abbia attraversato quello di valutazione sulla
+of execution senza che il custode abbia attraversato quello di valutazione sulla
 proposta: l'agente agisce su un'intenzione presunta, non confermata. È
 l'asimmetria di autorità tra i due agenti del sistema, resa procedura.
 

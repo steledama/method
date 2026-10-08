@@ -11,7 +11,7 @@ collezione né un documento di aspirazioni.
 
 L'intro, dall'H1 al primo H2, è il polo in sintesi che la home deriva senza
 euristiche. Le sezioni successive articolano gli obiettivi runtime e il Goal di
-sviluppo. Il motivo resta custodito dall'umano: gli agenti possono proporre uno
+sviluppo. Il motivo resta del custode: gli agenti possono proporre uno
 scostamento, ma non riscrivere autonomamente il nord.
 
 Ogni obiettivo ha due aggetti, i due versi della cerniera:

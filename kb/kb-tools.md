@@ -6,7 +6,7 @@ stato: maturo
 
 Gli strumenti KB rendono deterministici i controlli ripetitivi: parsing dei
 link, backlink, catalogo, frontmatter, formato e copertura. Non decidono quali
-concetti siano veri o utili. Lo script produce evidenze; umano e LLM le
+concetti siano veri o utili. Lo script produce evidenze; custode e agente le
 interpretano e modificano la conoscenza.
 
 `o3/kb_tools.py` offre una superficie portabile usata dalla skill `kb`:

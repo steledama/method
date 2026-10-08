@@ -8,7 +8,9 @@ L'agente è l'attore che agisce nell'artefatto cognitivo e con esso: chi legge l
 knowledge base, la interroga, la modifica e la usa per agire sul mondo. È
 distinto dal file AGENTS.md, che è solo il punto di ingresso operativo verso le
 istruzioni: quello indirizza gli agenti, questo nodo descrive chi sono e quanti
-livelli possono avere.
+livelli possono avere. È il registro teorico: nel lessico operativo del
+metodo «agente» è l'IA che opera nel repository e l'umano che decide Goal,
+Mondo e autorizzazioni è il **custode**, un ruolo che una persona ricopre.
 
 Il caso umano/LLM presenta un'asimmetria: l'umano integra l'artefatto con
 esperienza e memoria personale; l'LLM ricostruisce il contesto di progetto

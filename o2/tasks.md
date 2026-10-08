@@ -6,7 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 Il battito autonomo (`eval` → `exec` → commit senza custode), in ordine:
 
-- [bozza-agente-custode.md](bozza-agente-custode.md) — censire gli usi dei due termini, portare la distinzione nel README, lasciare aperte le domande non risolte dall'uso.
 - [trailer-autonomia-incisione.md](trailer-autonomia-incisione.md) — `Autonomia:` e `Incisione:` nel commit, con esempi concreti prima del canone; il rosso è una proposta committata.
 - [home-fatto-da-fare.md](home-fatto-da-fare.md) — due sezioni in cima alla home: ultimi commit con colore, prossime scadenze e dipendenze del plan.
 - [criteri-autonomia.md](criteri-autonomia.md) — il terzo register del trittico con `goal.md` e `world.md`; i gate di `eval`/`exec` lo leggono per colore.

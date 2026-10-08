@@ -20,8 +20,8 @@ stabilizzate e conoscenza riusabile oltre il singolo giro. Le collezioni `i*` e
 `o*` trattano invece il lavoro in transito; README orienta, CLAUDE istruisce
 l'agente, Git conserva la storia.
 
-La manutenzione divide responsabilità diverse. L'umano resta autore e decide
-cosa è vero o rilevante; l'LLM integra, collega e segnala incoerenze; gli script
+La manutenzione divide responsabilità diverse. Il custode resta autore e decide
+cosa è vero o rilevante; l'agente integra, collega e segnala incoerenze; gli script
 versionati eseguono i controlli ripetitivi (`kb-tools`). Questa separazione
 permette alla rete di crescere senza trasformare giudizi interpretativi in
 automatismi fittizi.
