@@ -12,6 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Il push segue ogni commit senza richiesta](push-autonomo.md) — via la
+  riserva sul push git dalle bussole e dai fork delle skill; verificare dove
+  un push innesca un rilascio nel Mondo. Prescritta il 2026-10-08 ai sette,
+  `danea-auto` già allineato.
 - [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
   verificare l'adozione locale, fissare una baseline con provenienza,
   aggiornare le rappresentazioni correnti e predisporre il primo giro senza

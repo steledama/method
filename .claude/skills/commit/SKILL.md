@@ -61,11 +61,15 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
 6. Esegui `git status` per confermare che il commit sia andato a buon fine.
 
+7. Esegui `git push` del branch corrente su `origin` (autorizzato dal custode
+   il 2026-10-08, `CLAUDE.md` «Push remoto») e riporta SHA ed esito. Se il
+   push è rifiutato non forzarlo: fermati e riferisci.
+
 IMPORTANTE:
 
 - NON usare `--no-verify`
 - NON fare amend di commit esistenti salvo richiesta esplicita
-- NON fare push salvo richiesta esplicita
+- NON fare `push --force` né push di altri branch salvo richiesta esplicita
 - NON committare file con segreti (`.env`)
 - NON aggiungere automaticamente trailer di attribuzione o coautoria riferiti a
   modelli, vendor o harness. Aggiungerli solo su richiesta esplicita dell'utente.

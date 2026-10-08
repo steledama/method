@@ -20,6 +20,7 @@ collezioni dichiarano `ciclo: dev|runtime`. Ordine di lettura:
 - modifica ai nodi in `kb/`
 - aggiornamento di `README.md`, `o1/plan.md` e dei fili in `i3/`
 - commit e operazioni git locali
+- push del branch corrente su `origin` dopo ogni commit riuscito (cfr. «Push remoto»)
 
 ## Skill
 
@@ -74,4 +75,7 @@ I progetti leggono i nodi via symlink — vedono automaticamente le modifiche. N
 
 ## Push remoto
 
-Mai automatico, sempre su richiesta esplicita.
+Dal 2026-10-08 il custode autorizza il push automatico del branch corrente su
+`origin` dopo ogni commit riuscito. Restano su richiesta esplicita `--force`,
+`amend` di commit già pubblicati e il push di altri branch. Se il push è
+rifiutato (divergenza, rete, permessi) non si forza: ci si ferma e si riferisce.
