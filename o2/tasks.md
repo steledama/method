@@ -13,4 +13,5 @@ Il battito autonomo (`eval` → `exec` → commit senza custode), in ordine:
 
 Altri task:
 
+- [goal-senza-fotografia.md](goal-senza-fotografia.md) — `goal.md` tiene solo il nord coi segnali come puntatori; stato nei fili e nel plan, numeri nella fonte; canone riscritto e poi prescritto agli otto.
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al battito del 2026-11-01 sui numeri registrati.

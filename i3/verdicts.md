@@ -20,10 +20,9 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: alla lettura del 2026-10-07 tutti e sette
-  `aligned`, sei a `35a08d5` e `danea-auto` a `a344f64`; `presidio-ipotesi`
-  recepita da sei, viste fresche verificate per rigenerazione il
-  2026-10-05. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
+  mensile `/adottanti`: tutti e sette `aligned`; il 2026-10-08
+  `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
+  recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
   prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
 - [battito-autonomo.md](battito-autonomo.md) — l'artefatto regge un giro

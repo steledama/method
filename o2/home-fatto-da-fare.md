@@ -1,5 +1,5 @@
 ---
-sintesi: "La home della vista apre con due sezioni: «fatto», gli ultimi commit con autonomia e colore, e «da fare», scadenze e dipendenze del plan in ordine di data."
+sintesi: "La home della vista apre con due sezioni: «fatto», gli ultimi commit con autonomia, impatto e motivo, e «da fare», scadenze e dipendenze del plan in ordine di data."
 ciclo: dev
 ---
 

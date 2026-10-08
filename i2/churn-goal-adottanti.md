@@ -4,8 +4,9 @@ ciclo: dev
 
 # Il churn di goal.md viene dallo stato del lavoro più che dai numeri
 
-Sintesi della percezione
-[fotografie-ad-alto-churn](../i1/fotografie-ad-alto-churn.md): il custode
+Sintesi della percezione `i1/fotografie-ad-alto-churn.md` (`0e5c6e8`,
+consumata dal verdetto nel task
+[goal-senza-fotografia](../o2/goal-senza-fotografia.md)): il custode
 propone che in `goal.md` stiano solo gli obiettivi e che le fotografie
 numeriche, ad alto churn, escano dal register e forse da git. Qui si misura
 quanto e cosa cambia davvero nel `goal.md` degli otto repo.
