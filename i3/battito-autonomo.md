@@ -49,11 +49,12 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 
 ## Cosa sposterebbe il verdetto
 
-- **A favore**: giri del pilota in cui il custode, leggendo la home, non
-  avrebbe cambiato nessun verde né giallo, e ogni rosso arriva come proposta
-  leggibile.
-- **Contro**: un giallo che il custode avrebbe respinto, un rosso mancato
-  (incisione sul nord applicata invece che proposta), giri che si fermano su
+- **A favore**: giri del pilota in cui ogni livello d'impatto ha un motivo
+  che il custode, leggendo la home, ricostruisce senza chiedere, e ogni
+  impatto alto arriva come proposta leggibile. Le stime sbagliate sono
+  attese all'inizio: affinano i criteri e non contano contro.
+- **Contro**: un livello senza motivo ricostruibile, un impatto alto
+  applicato invece che proposto (sul nord, sulla bussola), giri che si fermano su
   conflitti che nessuno vede, criteri di autonomia che crescono più in
   fretta dei casi concreti che li giustificano.
 - **Da decidere prima**: se «in-the-loop» nel Goal di sviluppo diventa
@@ -63,8 +64,10 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 ## Il percorso
 
 La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
-**custode** il ruolo umano che decide. I passi restanti sono task in
-`o1/plan.md`: trailer di autonomia e incisione, home con fatto e da fare, criteri di autonomia nel
+**custode** il ruolo umano che decide. Lo stesso giorno i trailer
+`Autonomia:`, `Impatto:` e `Impatto-motivo:` sono entrati nella skill di
+commit e il consenso differito in `kb/consent.md`. I passi restanti sono task in
+`o1/plan.md`: home con fatto e da fare, criteri di autonomia nel
 trittico costitutivo, dove gira il battito, pilota. L'ordine mette la
 visibilità prima dell'autonomia: il controllo deve esistere prima che la
 conferma si tolga.

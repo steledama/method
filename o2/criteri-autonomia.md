@@ -20,11 +20,14 @@ rivede su casi concreti.
 
 - Il register parte quasi vuoto. I permessi entrano uno alla volta, ciascuno
   da un caso concreto discusso.
-- Primo candidato: autonomia gialla sul livello riflessivo o1 ↔ i3
+- Primo candidato: autonomia a impatto medio sul livello riflessivo o1 ↔ i3
   (verdetti dei fili e riordino del plan). Gli altri stadi restano gated.
 - Il gate «proponi, poi applica» di `eval` ed `exec` diventa una lettura del
-  register: verde si applica, giallo si applica e si segnala, rosso resta
-  proposta committata.
+  register: impatto basso si applica, medio si applica e si segnala, alto
+  resta proposta committata. Ogni criterio ha un nome che il trailer
+  `Impatto-motivo:` cita (`kb/consent.md`); all'inizio i criteri sono
+  severi e si allentano coi casi, per esempio il codice di produzione parte
+  alto e scende per i fix di difetti evidenti.
 
 ## Tensione da sciogliere
 

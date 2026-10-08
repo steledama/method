@@ -12,7 +12,7 @@ home, prima dei poli Goal e World.
 ## Le due sezioni
 
 - **Fatto**: gli ultimi 5 commit, con data e ora, titolo, autonomia e
-  colore. La fonte è `git log` con i trailer, letto dall'host che pubblica
+  impatto vestito col semaforo, e il motivo leggibile accanto. La fonte è `git log` con i trailer, letto dall'host che pubblica
   dal commit.
 - **Da fare**: le prossime mosse in ordine di scadenza, cioè `## Scadenze` e
   le dipendenze `w`/`p` di `o1/plan.md`. Oggi si leggono solo aprendo il
@@ -23,6 +23,6 @@ home, prima dei poli Goal e World.
 - È un cambio del canone delle viste (`kb/view.md`, builder in `o3/view/`):
   si prescrive agli adottanti come gli altri.
 - «Da fare» non dipende da nulla e può partire subito. «Fatto» mostra
-  `Esiti:` finché non arrivano i trailer di autonomia e incisione.
+  `Esiti:` e i trailer `Autonomia:`/`Impatto:` dove ci sono, già in `/commit`.
 - La pubblicazione costruisce da `git archive`: verificare come il builder
   legge la storia senza rompere il contratto del commit pulito.

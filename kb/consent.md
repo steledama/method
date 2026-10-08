@@ -30,6 +30,29 @@ affermare o comunicare un fatto, controllarlo alla fonte invece di fidarsi del
 ricordo. Entrambe difendono lo stesso confine — l'agente non deve trasformare
 una presunzione in un atto compiuto.
 
+Quando l'agente lavora senza il custode, il consenso non può più accadere nel
+momento e si sposta nel registro. Ogni commit dichiara se è `concordato` o
+dell'`agente`, e un commit dell'agente dichiara l'**impatto** — basso, medio,
+alto — e il **motivo** che l'ha determinato. Basso e medio si applicano, e il
+medio chiede uno sguardo dopo; l'alto resta proposta committata e non
+applicata, perché è proprio l'atto in cui l'autorità dovrebbe trasferirsi e
+nessuno era lì a trasferirla. La forma dei trailer vive nella skill di commit.
+
+Il livello dipende dalla natura della modifica, non dal tipo di file: un fix
+che ripara un difetto evidente nel codice di produzione pesa poco, una
+funzionalità nuova sullo stesso file è un'iniziativa da valutare insieme. Per
+questo il criterio verificabile fissa il livello minimo e il giudizio
+dell'agente può solo alzarlo. I criteri partono severi e si allentano coi
+casi.
+
+Un errore di stima è atteso, ed è materia per affinare i criteri. Ciò che non
+si tollera è un livello di cui non si può ricostruire la ragione: il motivo
+nomina il criterio e ciò che l'ha fatto scattare, o il giudizio che ha alzato
+il livello. Lo stato dei criteri in quel momento è il register a quel commit,
+e la storia di git lo conserva. Impatto è una proprietà del commit; il
+semaforo che lo veste nelle viste è presentazione, riusabile per altre
+proprietà a tre gradi.
+
 Caratteristiche:
 
 - riconoscere l'autorità già dichiarata nella richiesta e nelle regole operative
@@ -39,6 +62,8 @@ Caratteristiche:
   per esplorazioni reversibili e interne
 - gemello sul lato input: verificare i fatti alla fonte prima di affermarli,
   specie prima di comunicazioni esterne
+- senza custode, consenso differito: impatto e motivo ricostruibile in ogni
+  commit dell'agente, l'alto resta proposta
 
 Esempi:
 

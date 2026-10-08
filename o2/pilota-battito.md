@@ -12,7 +12,8 @@ articolano i loop di dominio.
 
 - Push autonomo recepito nel repo pilota: soddisfatto, recepito dai sette
   il 2026-10-08 (in `bi` con l'eccezione del codice del ciclo).
-- Trailer di autonomia e incisione e sezione «fatto» della home: il custode
+- Trailer di autonomia e impatto (in `/commit` dal 2026-10-08) e sezione
+  «fatto» della home: il custode
   deve vedere i giri prima di toglierne la conferma.
 - Il primo criterio di autonomia scritto nel register.
 - La scelta di dove gira il battito.
@@ -29,4 +30,5 @@ articolano i loop di dominio.
 ## Da fissare alla partenza
 
 Intervallo, durata dell'osservazione e criterio di riuscita: ad esempio
-nessun rosso mancato, nessun giallo che il custode avrebbe respinto.
+ogni livello d'impatto con un motivo ricostruibile, nessun impatto alto
+applicato invece che proposto.

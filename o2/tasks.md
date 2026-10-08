@@ -6,9 +6,8 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 Il battito autonomo (`eval` → `exec` → commit senza custode), in ordine:
 
-- [trailer-autonomia-incisione.md](trailer-autonomia-incisione.md) — `Autonomia:` e `Incisione:` nel commit, con esempi concreti prima del canone; il rosso è una proposta committata.
-- [home-fatto-da-fare.md](home-fatto-da-fare.md) — due sezioni in cima alla home: ultimi commit con colore, prossime scadenze e dipendenze del plan.
-- [criteri-autonomia.md](criteri-autonomia.md) — il terzo register del trittico con `goal.md` e `world.md`; i gate di `eval`/`exec` lo leggono per colore.
+- [home-fatto-da-fare.md](home-fatto-da-fare.md) — due sezioni in cima alla home: ultimi commit con impatto e motivo, prossime scadenze e dipendenze del plan.
+- [criteri-autonomia.md](criteri-autonomia.md) — il terzo register del trittico con `goal.md` e `world.md`; i gate di `eval`/`exec` lo leggono per livello d'impatto.
 - [dove-gira-il-battito.md](dove-gira-il-battito.md) — timer su `nixos`, `/loop`, routine cloud, Task Scheduler: pro e contro prima di scegliere.
 - [pilota-battito.md](pilota-battito.md) — un adottante apripista, scelto insieme, con intervallo e criterio di riuscita.
 

@@ -13,9 +13,8 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip.                                            |
 | ----- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| dev   | S   | Trailer di autonomia e incisione                | —                                               |
 | dev   | S   | Home con fatto e da fare                        | —                                               |
-| dev   | S   | Criteri di autonomia nel trittico costitutivo   | ↳ Trailer di autonomia e incisione              |
+| dev   | S   | Criteri di autonomia nel trittico costitutivo   | —                                               |
 | dev   | S   | Dove gira il battito                            | —                                               |
 | dev   | S   | Pilota del battito                              | ↳ Criteri di autonomia nel trittico costitutivo |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                              |

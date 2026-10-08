@@ -52,11 +52,31 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    `vuoto`). Un giro senza file cambiati si committa comunque, con
    `--allow-empty` (cfr. `kb/skill.md`).
 
+   Ogni commit dichiara chi l'ha deciso (cfr. `kb/consent.md`, consenso
+   differito):
+
+   - `Autonomia: concordato` se il custode era in sessione e ha visto la
+     modifica, `Autonomia: agente` in un giro senza custode. Un commit senza
+     il trailer, come quelli storici, si legge `concordato`;
+   - solo con `Autonomia: agente`, `Impatto: basso|medio|alto` e almeno un
+     `Impatto-motivo:` che dice cosa ha determinato il livello: il criterio
+     del register e il file o la sezione che l'ha fatto scattare, oppure
+     `giudizio:` seguito dalla ragione quando l'agente ha alzato il livello.
+     Il giudizio alza, non abbassa. Con più motivi si ripete il trailer e
+     vale il livello più alto. Un commit `alto` porta la proposta, non
+     l'atto: il messaggio nomina il file dove vive.
+
+   Tutti i trailer stanno nell'**ultimo paragrafo** del messaggio, insieme:
+   una riga vuota fra loro li nasconde a `%(trailers)`.
+
 5. Crea il commit con il messaggio preparato:
 
    ```
-   git commit -m "descrizione del commit"
-   git commit -m "descrizione del giro" -m "Esiti: perceive=vuoto interpret=materia compare=materia"
+   git commit -m "descrizione del commit" -m "Autonomia: concordato"
+   git commit -m "descrizione del giro" -m "Esiti: perceive=vuoto interpret=materia compare=materia
+   Autonomia: agente
+   Impatto: medio
+   Impatto-motivo: bussola (CLAUDE.md, «Push remoto»)"
    ```
 
 6. Esegui `git status` per confermare che il commit sia andato a buon fine.
