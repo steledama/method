@@ -22,7 +22,14 @@ delle code.
 (`c3acb33`). Il 2026-10-08 `danea-auto` è a `6e1d95f` (`e8ad9c9`),
 verificato su `origin`: `migrazione-viste` e `viste-fuori-da-git` sono
 recepite dai sette e chiuse, con la forma vecchia dei servizi tolta in
-`nixos` (`422bb5b`) e in `danea-auto` (`11c0510`).
+`nixos` (`422bb5b`) e in `danea-auto` (`11c0510`). Sempre il 2026-10-08,
+dopo un `git fetch`, `push-autonomo` risulta recepita dai sette e chiusa:
+`nixos` `3fdec4e`, `bi` `42ba5dbb`, `economia` `60d52bc`, `salute`
+`130ddbc`, `crm` `644b70c`, `danea-auto` `ffb2953`, `baserow` `623f086`;
+nessuna riserva residua sul push git nei `.md` su `origin`. `bi` adatta con
+motivo: il push resta su richiesta quando i commit non pubblicati toccano
+codice eseguito dal ciclo, perché `o3/scripts-auto*.sh` fanno `pull` ed
+eseguono.
 
 **`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
 da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,

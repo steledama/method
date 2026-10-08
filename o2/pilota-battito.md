@@ -10,7 +10,8 @@ articolano i loop di dominio.
 
 ## Prerequisiti
 
-- Push autonomo recepito nel repo pilota (`o3/push-autonomo.md`).
+- Push autonomo recepito nel repo pilota: soddisfatto, recepito dai sette
+  il 2026-10-08 (in `bi` con l'eccezione del codice del ciclo).
 - Trailer di autonomia e incisione e sezione «fatto» della home: il custode
   deve vedere i giri prima di toglierne la conferma.
 - Il primo criterio di autonomia scritto nel register.

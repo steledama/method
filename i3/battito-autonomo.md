@@ -32,8 +32,10 @@ La tensione si misura contro due obiettivi:
 
 Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 
-- **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), prescritto ai
-  sette (`o3/push-autonomo.md`). `danea-auto` lo applica dal 2026-10-07 e la
+- **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
+  sette lo stesso giorno e prescrizione chiusa (dettaglio in
+  `i3/audit-adottanti.md`); `bi` lo esclude per i commit che toccano il
+  codice eseguito dal ciclo. `danea-auto` lo applica dal 2026-10-07 e la
   sua sessione dell'08/10 ha chiuso due giri `eval`/`exec` con commit e push
   senza intervento sul push.
 - **Primo attrito reale**, 2026-10-08: il primo push autonomo di `method` è
@@ -68,8 +70,8 @@ conferma si tolga.
 
 ## Condizione di chiusura
 
-Riesame al battito `/adottanti` del **2026-11-01**: recepimento di
-`push-autonomo` nei sette, avanzamento del percorso, decisione sul Goal di
+Riesame al battito `/adottanti` del **2026-11-01**: avanzamento del
+percorso, decisione sul Goal di
 sviluppo. Il verdetto vero arriva alla fine dell'osservazione del pilota,
 con durata e criterio di riuscita fissati in `o2/pilota-battito.md`. A quel
 punto il loop di base diventa canone e si prescrive, si corregge, oppure si

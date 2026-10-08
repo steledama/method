@@ -30,4 +30,5 @@ confrontare le soluzioni prima di scegliere.
 - Il giro parte con `pull --rebase`; un push rifiutato non si forza e chiude
   il giro come rosso (caso reale in `method` il 2026-10-08).
 - Dove un push innesca un rilascio (`bi`), il battito eredita la scelta
-  della prescrizione `push-autonomo`.
+  locale: in `bi` il push resta su richiesta quando i commit toccano il
+  codice eseguito dal ciclo.
