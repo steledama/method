@@ -13,7 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip. |
 | ----- | --- | ----------------------------------------------- | ---- |
-| dev   | S   | Viste fuori da git                              | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:

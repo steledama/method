@@ -42,13 +42,13 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
   rilegge a ogni giro le prescrizioni aperte.
   Prescrizioni aperte: `esiti-per-stadio-nel-commit`, scritta da sei repo
   su sette (`crm` non ha fatto giri) e da contare il 2026-11-01, quando si riapre la clausola delle skill
-  per arco; `migrazione-viste`, recepita dai sei e attiva sulla forma vecchia
-  del servizio in `nixos` e `danea-auto`; `presidio-ipotesi`, recepita da sei a
-  `35a08d5` col seguito sul deck di `nixos` chiuso, e attesa in `danea-auto`,
-  osservato senza sollecitazione; `revisione-bootstrap-adottante`,
+  per arco; `presidio-ipotesi`, recepita da sei a
+  `35a08d5` col seguito sul deck di `nixos` chiuso, e rinviata in
+  `danea-auto` fino alla chiusura dell'osservazione senza sollecitazione; `revisione-bootstrap-adottante`,
   non verificata nel merito; `ingresso-adottante`, eseguita per la prima
-  volta con `baserow`; `viste-fuori-da-git`, prescritta il 2026-10-07 ai
-  sette, con `nixos` come host di `deck` e della coppia server.
+  volta con `baserow`. `migrazione-viste` e `viste-fuori-da-git` sono
+  chiuse il 2026-10-08: i sette pubblicano le viste da commit pulito, con
+  `view/` fuori da git e la forma vecchia dei servizi tolta.
 
 ### 3. Ascoltare il basso
 

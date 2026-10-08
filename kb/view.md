@@ -253,20 +253,6 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   rendering corretto; una porta irraggiungibile è «non verificata», non fresca
   per presunzione.
 
-## Transizione
-
-Fino al recepimento della prescrizione, un adottante può ancora versionare
-`view/`. Lì vale la regola precedente: il gate di `/commit` esegue la build e
-legge `git status`, una vista che compare modificata **era** stale e la sua
-rigenerazione entra nel commit; il servizio permanente lancia `serve.py` sul
-`view/` del checkout, e un pull aggiorna le viste. Il passaggio si fa per
-host: prima si prepara e si collauda la pubblicazione, poi `view/` esce da git.
-
-Più indietro ancora, un adottante può avere la forma che precede la
-migrazione delle viste: viste Reveal e liste in `presentation/`, builder in
-`o3/presentation/`, deck in `i2/`. Le due forme non convivono nello stesso
-repo: la migrazione sposta builder, deck e servizio nello stesso giro.
-
 Connessioni:
 
 - [presentation](presentation.md)

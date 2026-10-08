@@ -19,9 +19,10 @@ delle code.
 **Canale del canone: tutti e sette `aligned` su `origin`.** Riletti il
 2026-10-07 da `deck` dopo un `git fetch`: `nixos`, `bi`, `economia`,
 `salute`, `crm` e `baserow` a `35a08d5`; `danea-auto` a `a344f64`
-(`c3acb33`). `migrazione-viste` è recepita dai sei; resta il passo 6: la
-forma vecchia del servizio si toglie dagli host quando tutti i repo che
-servono sono migrati.
+(`c3acb33`). Il 2026-10-08 `danea-auto` è a `6e1d95f` (`e8ad9c9`),
+verificato su `origin`: `migrazione-viste` e `viste-fuori-da-git` sono
+recepite dai sette e chiuse, con la forma vecchia dei servizi tolta in
+`nixos` (`422bb5b`) e in `danea-auto` (`11c0510`).
 
 **`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
 da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
