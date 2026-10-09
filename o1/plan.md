@@ -41,7 +41,7 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
   conferma o meno che `aligned` e i file coincidono. Riesame del filo
   [i3/battito-autonomo.md](../i3/battito-autonomo.md): avanzamento del
-  percorso.
+  percorso e riscontri sulla prima delega.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

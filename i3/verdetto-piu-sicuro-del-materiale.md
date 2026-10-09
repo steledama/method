@@ -17,9 +17,9 @@ direzione, verso la lettura più raccontabile — è nel nodo e in git.
 
 - **Il punto di controllo.** Il caso più costoso è stato prodotto da un
   agente e intercettato da un umano, per caso: il custode stava chiedendo
-  altro. Il modello in-the-loop del Goal di sviluppo copre la _decisione_;
-  qui è servito a intercettare una _ricostruzione_, che il metodo tratta
-  come lavoro delegabile. L'ipotesi è che sia delegabile la ricostruzione
+  altro. La custodia umana prevista dal Goal di sviluppo copre la _decisione_
+  su scopi, territorio e deleghe; qui è servito a intercettare una
+  _ricostruzione_, che il metodo tratta come lavoro delegabile. L'ipotesi è che sia delegabile la ricostruzione
   che si appoggia a materiale già verificato, e non la sintesi che ne ricava
   una tesi nuova. Un secondo episodio in un altro adottante deciderebbe se è
   una qualificazione da incidere in `goal`/`agent` o una proprietà locale
