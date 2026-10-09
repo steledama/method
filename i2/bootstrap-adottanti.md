@@ -2,16 +2,14 @@
 ciclo: runtime
 ---
 
-# Il bootstrap nei sei adottanti
+# Il bootstrap nei sette adottanti
 
-Sintesi qualitativa del 2026-08-21 sui checkout correnti dei sei adottanti
-dichiarati in `world.md` a quella data; `baserow`, entrato il 2026-10-05, è
-fuori dal suo perimetro. Il materiale letto per ogni repo è `README.md`,
-`CLAUDE.md`, `goal.md` e `world.md`; il nodo `kb/world.md` non è duplicato
-localmente ed è correttamente consumato come `method/world.md` attraverso il
-symlink canonico. Le lunghezze citate sono **misurate** con `wc -l` sui checkout
-locali; i giudizi editoriali derivano dalla lettura dei file, non da una soglia
-quantitativa.
+Sintesi qualitativa del 2026-10-09 sui file di `origin` dei sette adottanti,
+letti dopo `git fetch` dai clone su `deck` al recepimento di `f0c9a9b`. Il
+materiale per ogni repo è `README.md`, `CLAUDE.md`, `goal.md`, `world.md` e
+il nuovo `autonomy.md`. Le lunghezze sono misurate con `wc -l`; i giudizi
+derivano dalla lettura, non da una soglia quantitativa. La sintesi precedente,
+del 2026-08-21 su sei repo, è nella storia Git del file.
 
 ## La relazione da verificare
 
@@ -22,83 +20,88 @@ I quattro file formano un solo bootstrap distribuito:
 - `goal.md` rende il nord nell'intro e lo articola on-demand;
 - `world.md` rende il territorio nell'intro e ne registra superfici e fonti.
 
-Una revisione del solo README può spostare, invece di risolvere, l'accumulo:
-teoria, inventari e manuali rimossi dalla bussola possono riversarsi in
-`CLAUDE.md`; un README domain-first può inoltre contraddire un Goal o un World
-rimasti a una fotografia precedente. Il criterio è perciò la **coerenza del
-quartetto**, non la qualità isolata di un file.
+`autonomy.md` si aggiunge come register dell'autorità: in tutti e sette è
+raggiungibile da README o CLAUDE e il Goal di sviluppo vi rimanda. Il
+criterio resta la **coerenza del quartetto**, non la qualità isolata di un
+file (`kb/readme.md`, `kb/claude.md`).
 
 ## Fotografia per adottante
 
 ### `nixos`
 
-Il README apre con sistema, host e tensione production/standby; Goal e World
-sono intro brevi, semantiche e coerenti. Il router «Capire il progetto in 5
-minuti» è il percorso per intenzione più efficace del gruppo. La seconda metà
-del README conserva però strumenti, legenda completa della root e inventario
-tecnico: orientamento forte con sovraccarico strutturale. `CLAUDE.md` (144 righe
-misurate) resta prevalentemente costituzione operativa; rilevamento host,
-confini rebuild e guardrail giustificano la sua specificità.
+README, Goal e World concordano su host, coppia production/standby e i due
+goal in tensione; il terzo obiettivo, l'inferenza su `game`, è dichiarato
+come capacità e non come polo. `CLAUDE.md` (157 righe) resta costituzione
+operativa: rilevamento host, confini di rebuild e guardrail di reboot
+giustificano la specificità. Residuo editoriale: la seconda metà del README
+conserva elenco hardware, porte della presentazione e catalogo, in parte
+ripetuti in World e CLAUDE.
 
 ### `bi`
 
-`world.md` descrive con chiarezza sistemi vivi, relazioni commerciali e flussi.
-L'intro di `goal.md`, invece, spiega che cos'è un register e come il ciclo lo
-usa: rende il **contratto del polo**, non il nord commerciale, che compare solo
-nelle sezioni successive. README (136 righe) e `CLAUDE.md` (340 righe) sono i
-più structure-first: inventario dettagliato, comandi, strumenti e manuale di
-produzione precedono o competono con i percorsi del dominio. È il caso che
-richiede la revisione coordinata più ampia.
+Il caso di agosto si è in gran parte risolto: il README apre con «Il dominio
+in breve» e l'intro di `goal.md` rende i tre risultati di business invece
+del contratto del polo. Resta aperto `CLAUDE.md`, cresciuto da 340 a 417
+righe: la sezione «Strumenti» (circa cento righe) dichiara di avere la
+reference completa altrove ma la riporta, e «Task management» e
+«Documentazione e KB» ripetono regole già nei nodi canonici. I guardrail ad
+alta posta, come il push che è un rilascio, giustificano parte della
+lunghezza, non l'inventario. Il marker dichiara il quartetto coerente: la
+lettura nel merito lo conferma per tre file su quattro.
 
 ### `economia`
 
-Il README presenta subito i due assi finanziari e la fonte operativa, ma poi
-duplica la root in elenco, tabella completa e albero. L'intro di `goal.md` rende
-un nord autentico e ricco, ma incorpora modello, casi, razionale e dettagli in
-una porzione molto più lunga delle altre home. `CLAUDE.md` (269 righe) contiene
-molta reference di strumenti. C'è inoltre una contraddizione semantica: il Goal
-distingue l'asse con Ilaria e quello Sodini, mentre l'intro di World presenta
-come due assi quello personale e quello con Ilaria, senza rendere il secondo
-intreccio ereditario. È un giudizio di dominio da risolvere localmente, non un
-testo da correggere dal canone.
+La contraddizione di agosto è sciolta: README, Goal e World nominano gli
+stessi due assi ereditari, con Ilaria e Sodini. L'intro del Goal è un nord
+autentico in tre paragrafi. `CLAUDE.md` (313 righe) è lungo soprattutto per
+guardrail sugli invii, la privacy e la verifica dei destinatari, che devono
+precedere l'atto; residuo minore il template del nodo, già in
+`method/node.md`.
 
 ### `salute`
 
-Il commit `513b6ac` ha trasformato il README ereditato dalla genesi del metodo
-in una bussola domain-first: corpo-mente vissuto, tre direzioni del Goal,
-percorsi semantici e responsabilità sanitaria precedono la mappa strutturale.
-Le intro di Goal e World sono coerenti con questa lettura. Il residuo maggiore
-è `CLAUDE.md` (308 righe): filosofia, inventario della struttura, convenzioni
-dei nodi e operazioni formano ancora un manuale esteso. La riscrittura del
-README è quindi un buon pilot, non la chiusura della revisione del bootstrap.
+`CLAUDE.md` è sceso da 308 a 183 righe: il manuale residuo di agosto si è
+ridotto a responsabilità, dati personali, intento → strumento e
+convenzioni. README, Goal e World concordano sul corpo-mente vissuto e sulle
+tre direzioni. `world.md` è lungo (402 righe) per le fonti, che sono il suo
+contenuto on-demand.
 
 ### `crm`
 
-Goal e World sono compatti, domain-first e coerenti; `CLAUDE.md` (105 righe)
-separa bene scope, invarianti del workflow, ownership con `manager` e sicurezza.
-Il README mette la struttura subito dopo l'identità e contiene una lunga
-sezione di sviluppo locale, ma stato e contratti validati restano leggibili.
-Serve una rifinitura editoriale, non una rifondazione.
+Goal e World restano compatti e coerenti. Il README conserva una sezione
+«Stato» con l'avanzamento corrente e il prossimo incremento, e una sezione
+«Sviluppo locale» procedurale: la prima ripete ciò che vive nel plan, la
+seconda compete con la bussola. Il Goal di sviluppo dichiara la delega ma
+non segnali propri oltre al marker.
 
 ### `danea-auto`
 
-È il caso più compresso: il README parte da automazioni, vincoli della GUI,
-esecuzione e diagnosi; Goal e World sono nitidi. `CLAUDE.md` (131 righe) è più
-lungo del README perché conserva guardrail ad alta posta su credenziali, invii
-non annullabili, GUI e Task Scheduler. Qui comprimere per quantità sarebbe un
-errore: una regola resta nel bootstrap quando deve essere presente prima
-dell'atto per impedirne uno dannoso.
+Resta il caso più compresso e nitido: README su automazioni, esecuzione e
+diagnosi, Goal con quattro obiettivi e segnali, World breve. `CLAUDE.md`
+(201 righe) porta guardrail inderogabili su GUI, Controlp e Task Scheduler.
+Il marker di `bf186fb` registra la revisione come rinviata, per effetto
+della formula del prompt del recepimento selettivo; il marker precedente la
+dava già soddisfatta, e la lettura lo conferma.
+
+### `baserow`
+
+Scritto all'adozione contro il contratto: percorsi per intenzione, Goal con
+quattro obiettivi e un buco di misura dichiarato, World centrato
+sull'istanza. Come `crm`, il README ha una sezione «Stato» con versione,
+date e avanzamento del task di backup.
 
 ## Generalizzazione
 
-La lunghezza non discrimina. Discriminano invece quattro domande:
+Le quattro domande di agosto discriminano ancora:
 
 - il dominio arriva prima della sua impalcatura metodologica?
 - ogni fatto vive nel file letto nel momento in cui serve?
 - le intro di Goal e World rendono i poli, non il contratto dei register?
 - il quartetto concorda su identità, direzione, territorio e stato corrente?
 
-La comparazione appartiene all'osservatorio di `metodo`; l'ultimo miglio
-appartiene all'adottante. Il canone può prescrivere criteri e indicare tensioni
-da verificare, ma soltanto il repo locale può decidere quali dettagli siano
-necessari al proprio dominio e applicare le modifiche tramite `/method`.
+In ottobre le prime e le terze reggono ovunque. I residui cadono sulla
+seconda: inventari di strumenti in `CLAUDE.md` (`bi`) e stato corrente nel
+README (`crm`, `baserow`). Quest'ultimo è lo stesso movimento che
+`goal-senza-fotografia` ha tolto dal Goal, spostato nella bussola: è un
+segnale aperto in `i1/stato-nel-readme.md`. L'ultimo miglio resta
+dell'adottante.

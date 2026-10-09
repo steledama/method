@@ -16,10 +16,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   verificare l'adozione locale, fissare una baseline con provenienza,
   aggiornare le rappresentazioni correnti e predisporre il primo giro senza
   governare la coda del nuovo repository.
-- [Revisione coordinata del bootstrap di un
-  adottante](revisione-bootstrap-adottante.md) — rileggere insieme README,
-  CLAUDE, Goal e World; il canone fornisce criteri e indizi, il `/method`
-  locale applica o motiva l'ultimo miglio di dominio.
 - [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è

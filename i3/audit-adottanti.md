@@ -44,6 +44,16 @@ recepimento selettivo con effetto dichiarato sull'osservazione
 divergenza si è fermato fino al via del custode al rebase: confine
 rispettato, primo caso riuscito da riesaminare al battito.
 
+`revisione-bootstrap-adottante` è chiusa lo stesso giorno, dopo la lettura
+nel merito dei quattro file su `origin` (`i2/bootstrap-adottanti.md`): il
+contratto regge in tutti e sette, con residui editoriali di ultimo miglio
+che restano dell'adottante. Il più ampio è `CLAUDE.md` di `bi`, che
+riporta un inventario di strumenti già indicizzato altrove; lo stato
+corrente nel README di `crm` e `baserow` è un segnale aperto
+(`i1/stato-nel-readme.md`). Il marker di `danea-auto` a `bf186fb` la dà
+rinviata per la formula del prompt selettivo, mentre il precedente la dava
+già soddisfatta: il prossimo `/method` locale può ripristinare l'esito.
+
 `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
 2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
 `bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
@@ -86,10 +96,6 @@ alle intestazioni del rispettivo `goal.md`.
   `danea-auto` non l'ha ancora revisionata ed è osservato senza
   sollecitazione (`i2/presidio-ipotesi-adottanti.md`, riesame dal
   2026-10-13);
-- `revisione-bootstrap-adottante` — i marker letti il 09/10 riportano
-  esiti locali; in `nixos` l'esito dell'ultimo giro riguarda soprattutto
-  CLAUDE e il push. La verifica del quartetto nel merito non è stata
-  ripetuta qui: non si chiude la prescrizione sulla sola dichiarazione;
 - `ingresso-adottante` — procedura riusabile; il collaudo con `baserow` e
   la correzione sull'accento sono in `i2/ingresso-adottante.md`. La prima
   verifica nell'uso resta al battito del 01/11.

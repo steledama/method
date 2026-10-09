@@ -17,6 +17,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Lo stato corrente vive anche nel README](stato-nel-readme.md) — dalla
+  revisione del bootstrap del 2026-10-09: `crm` e `baserow` tengono una
+  sezione «Stato» nel README con fatti già nel plan e nei fili; il contratto
+  di `kb/readme.md` non nomina lo stato. Due casi su sette, stesso schema di
+  README.
 - [`Esiti:` è un trailer solo se sta nell'ultimo paragrafo del
   messaggio](trailer-esiti-ultimo-paragrafo.md) — da baserow: in `205c627`
   una riga `Co-Authored-By` dopo una riga vuota ha nascosto `Esiti:` a

@@ -18,8 +18,9 @@ nuovo repository.
 - leggi dal marker adattamenti intenzionali, limiti di verifica e commit di
   `method` recepito: `aligned` certifica l'allineamento documentale dichiarato,
   non il runtime esterno;
-- applica `revisione-bootstrap-adottante.md` al quartetto README, CLAUDE, Goal
-  e World;
+- rileggi insieme il quartetto README, CLAUDE, Goal e World contro i nodi
+  `readme`, `claude`, `goal` e `world`, con la comparazione corrente in
+  `i2/bootstrap-adottanti.md`;
 - non correggere la coda locale: task, gradualità e priorità restano
   giurisdizione dell'adottante.
 
