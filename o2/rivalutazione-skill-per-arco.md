@@ -45,3 +45,17 @@ com'è, si snellisce (quali scope si accorpano e perché), o si corregge il
 canone. La decisione è del custode; il task si consuma col verdetto inciso.
 Se la prescrizione non fosse recepita in tempo, il verdetto lo dichiara e
 fissa la data successiva sul recepimento, non su un'attesa generica.
+
+## Integrità e contesto della misura
+
+Confrontare i trailer riconosciuti da Git con le righe `Esiti:` nel corpo:
+`baserow` `205c627` è un caso documentato di perdita nel parsing. Contarlo
+una volta, dichiarando il recupero; l'adozione del presidio in `danea-auto`
+non prova un secondo incidente. `/commit` canonico richiede ora tutti i
+trailer nell'ultimo paragrafo.
+
+Quando la fonte lo permette, distinguere giri innescati da eventi o dal
+custode e giri periodici autonomi; se non lo permette, dichiarare il limite.
+Una maggiore frequenza programmata può aumentare gli esiti vuoti senza
+smentire la tripartizione. L'assenza di un commit non prova l'assenza di un
+tentativo: gli arresti prima del commit richiedono una fonte dell'esecutore.

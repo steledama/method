@@ -16,20 +16,22 @@ delle code.
 
 ## Verdetto
 
-**Canale del canone: tutti e sette `aligned` su `origin`.** Riletti il
-2026-10-07 da `deck` dopo un `git fetch`: `nixos`, `bi`, `economia`,
-`salute`, `crm` e `baserow` a `35a08d5`; `danea-auto` a `a344f64`
-(`c3acb33`). Il 2026-10-08 `danea-auto` è a `6e1d95f` (`e8ad9c9`),
-verificato su `origin`: `migrazione-viste` e `viste-fuori-da-git` sono
-recepite dai sette e chiuse, con la forma vecchia dei servizi tolta in
-`nixos` (`422bb5b`) e in `danea-auto` (`11c0510`). Sempre il 2026-10-08,
-dopo un `git fetch`, `push-autonomo` risulta recepita dai sette e chiusa:
-`nixos` `3fdec4e`, `bi` `42ba5dbb`, `economia` `60d52bc`, `salute`
-`130ddbc`, `crm` `644b70c`, `danea-auto` `ffb2953`, `baserow` `623f086`;
-nessuna riserva residua sul push git nei `.md` su `origin`. `bi` adatta con
-motivo: il push resta su richiesta quando i commit non pubblicati toccano
-codice eseguito dal ciclo, perché `o3/scripts-auto*.sh` fanno `pull` ed
-eseguono.
+**Canale del canone: i sette marker letti il 2026-10-09 dichiarano
+`aligned` a `0a75d97`, revisione del 2026-10-08.** Superfici: checkout di
+`economia` e `salute` su `deck`; `nixos`, `bi`, `crm`, `danea-auto` e
+`baserow` su `svezia`, letti via SSH. Nessun fetch in questa verifica:
+il dato aggiorna i cursori osservati, non certifica `origin`, coincidenza
+con tutti i file o runtime. L'ultimo audit mensile resta quello del 01/10.
+
+`migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
+2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
+`bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
+`danea-auto` `ffb2953`, `baserow` `623f086`. `bi` mantiene il push su richiesta
+quando i commit non pubblicati toccano codice eseguito dal ciclo: lì è un
+rilascio. La rimozione della forma vecchia dei servizi è registrata nel
+codice di `nixos` (`422bb5b`) e in `danea-auto` (`11c0510`); il marker di
+`nixos` conserva un task per confermare la generazione attiva sui server.
+Chiusura del canone e attivazione locale restano evidenze distinte.
 
 **`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
 da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
@@ -41,15 +43,11 @@ nessuna tensione era viva. Il 2026-10-03 `presentazioni-permanenti` è
 risultata recepita nei file di tutti e sei: `serve.py` identico al canonico,
 decisione del custode nei `CLAUDE.md` senza eccezioni, esposizione dei dati
 registrata dove ogni repo tiene i propri vincoli (`CLAUDE.md` in cinque,
-`world.md` in `crm`). Le 8765 residue sono solo di migrazione (firewall
-transitorio di `nixos`, rimozione della regola in `danea-auto`); in `crm` la
-8765 è il server dei test Playwright. L'attivazione resta nei task locali:
-`nixos` `o2/serve-project-presentations.md`, `danea-auto`
-`o2/presentazione-permanente-danea2.md`. Il link `Ob.`→`goal.md` è
+`world.md` in `crm`). Il link `Ob.`→`goal.md` è
 verificato nei file: in tutte e sei le `tasks.html` le ancore corrispondono
 alle intestazioni del rispettivo `goal.md`.
 
-**Prescrizioni aperte, verificate nei file:**
+**Prescrizioni aperte, con provenienza della verifica:**
 
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
@@ -67,16 +65,13 @@ alle intestazioni del rispettivo `goal.md`.
   `danea-auto` non l'ha ancora revisionata ed è osservato senza
   sollecitazione (`i2/presidio-ipotesi-adottanti.md`, riesame dal
   2026-10-13);
-- `liste-o3-i1-fedeli-alla-fonte` — ha un esito in tutti e sei, ma non
-  sempre è un recepimento. La riscrittura Pandoc è nei file di `nixos`,
-  `bi` e `danea-auto`, che ha forkato i builder per la prima volta.
-  `economia` e `salute` tengono il proprio renderer Python con una
-  divergenza motivata nel marker: i loro indici non hanno gerarchie che il
-  renderer appiattisce, e in `economia` Pandoc non è nel `flake.nix`. `crm`
-  non ha viste a elenco: non si applica. Potata il 2026-10-01;
-- `revisione-bootstrap-adottante` e `ingresso-adottante` — non verificate
-  nel merito (cfr. Limiti); `salute` le dichiara una soddisfatta e una non
-  pertinente.
+- `revisione-bootstrap-adottante` — i marker letti il 09/10 riportano
+  esiti locali; in `nixos` l'esito dell'ultimo giro riguarda soprattutto
+  CLAUDE e il push. La verifica del quartetto nel merito non è stata
+  ripetuta qui: non si chiude la prescrizione sulla sola dichiarazione;
+- `ingresso-adottante` — procedura riusabile; il collaudo con `baserow` e
+  la correzione sull'accento sono in `i2/ingresso-adottante.md`. La prima
+  verifica nell'uso resta al battito del 01/11.
 
 **Il passo «Rileggi le prescrizioni aperte» di `/method` ha girato in tutti
 e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto
@@ -148,20 +143,11 @@ si contano. Il più frequente è `interpret=vuoto` in `bi`, in tutti e cinque
 i suoi giri `eval`. Conferma la lettura di settembre: la sua `interpret`
 vive negli script, lo stadio esiste ma la skill non lo esercita.
 
-Classificazione degli scostamenti:
-
-- **segnale i1**: i builder della presentazione assumono il toolchain degli
-  host Linux. È la codifica delle chiamate a pandoc, più il pin di reveal.js
-  accoppiato a una versione di pandoc non fissata. Viene da `danea-auto`, è
-  verificato nel canone ed è valutato nel filo
-  `toolchain-builder-presentazione` (propagazione chiusa il 2026-10-02);
-- **nessuna prescrizione nuova**: le aperte sono recepite o in attesa del
-  loro battito;
-- **coda di dominio**: la data aggregata di `nixos`, l'attesa semestrale di
-  `bi`, il plan fermo di `crm`;
-- **per `exec perform`**: `obiettivo-del-plan-collegato-al-goal` è potata il
-  2026-10-01 (`ff064c1`), `liste-o3-i1-fedeli-alla-fonte` lo stesso giorno,
-  dopo la verifica nei file.
+Il segnale sui trailer resta un solo incidente documentato di perdita,
+`baserow` `205c627`. Il marker di `danea-auto` documenta il recepimento del
+presidio, non un secondo incidente. Il canone di `/commit` prescrive ormai
+l'ultimo paragrafo unico: il conteggio di novembre confronterà trailer e
+righe nel corpo, senza riscrivere la storia.
 
 ## Tensioni aperte
 
@@ -169,10 +155,10 @@ Classificazione degli scostamenti:
   2026-10-01). Finché non è confermato, il battito verifica le prescrizioni
   nei file e non nei marker; se il 2026-11-01 coincidono ancora, la verifica
   d'insieme si alleggerisce;
-- `revisione-bootstrap-adottante`: la prescrizione resta aperta finché i sei
-  registrano nel marker un esito sulla revisione coordinata di README,
-  CLAUDE, Goal e World, divergenze motivate incluse. Il merito non si
-  verifica in un giro d'insieme (cfr. Limiti);
+- `revisione-bootstrap-adottante`: completare il confronto fra gli esiti
+  dichiarati e il contratto della revisione coordinata; i marker da soli
+  non equivalgono alla rilettura qualitativa dei quartetti. Il task
+  `Goal senza fotografia` aggiornerà anche questa prescrizione;
 - ripetibilità: il quarto battito è arrivato in tempo, ma lo ha ricordato
   l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
   cella runtime-o1 resta D finché il battito non parte da un innesco;
@@ -191,9 +177,9 @@ Classificazione degli scostamenti:
 
 ## Limiti
 
-- `revisione-bootstrap-adottante` e `ingresso-adottante` non verificate nel
-  merito: richiedono una lettura qualitativa dei quartetti di bootstrap,
-  fuori dalla portata di un giro d'insieme su sei repo;
+- i quartetti di bootstrap non sono stati riletti nel giro del 09/10;
+  il collaudo dell'ingresso di `baserow` è documentato nella sintesi i2,
+  ma non certifica da solo la qualità corrente di tutti i bootstrap;
 - la rigenerazione dimostra che le viste sono fedeli ai builder del repo,
   non che i builder siano fedeli al canone: quella è materia dei
   `/method` locali;

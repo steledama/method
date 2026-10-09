@@ -54,8 +54,9 @@ host la stessa fonte dava HTML diversi, e un commit fatto dall'host
 «sbagliato» portava rumore presentato come freschezza. In `metodo` la
 tensione si è sciolta con l'uscita di `view/` da git (`9b9597f`): il gate
 verifica senza confrontare l'output, e la vista pubblicata dichiara il
-toolchain che l'ha resa. Negli adottanti che versionano ancora `view/` resta
-finché non recepiscono la prescrizione.
+toolchain che l'ha resa. La migrazione di `view/` fuori da git è chiusa per tutti e sette gli
+adottanti dal 2026-10-08 (filo `audit-adottanti`); questa attesa non è più
+aperta. Resta il rischio sul prossimo cambiamento del template.
 
 ## Tensioni aperte
 

@@ -85,3 +85,14 @@ averla promessa:
   segnale i1 che sarebbe rimasto orfano, una prescrizione o3 consumata potata);
 - **cosa si snellisce per primo**, se si snellisce: gli scope, non gli stadi —
   si accorpa l'invocazione, non si smette di distinguere i passi.
+
+## Lettura della misura con un battito programmato
+
+Il risveglio resta il 2026-11-01. Se iniziano giri periodici, il loro
+innesco va distinto, quando documentabile, dai giri richiesti da eventi o
+dal custode: aumentare la frequenza può aumentare gli esiti vuoti senza
+provare che gli stadi siano superflui. Dove la fonte non discrimina,
+dichiarare il limite. L'integrità del conteggio si controlla confrontando
+trailer riconosciuti e righe nel corpo, recuperando senza duplicazioni il
+caso noto di `baserow`. Un tentativo interrotto prima del commit resta fuori
+da questa misura e richiede la fonte dell'esecutore del battito.

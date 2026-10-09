@@ -49,14 +49,16 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 
 ## Cosa sposterebbe il verdetto
 
-- **A favore**: giri del pilota in cui ogni livello d'impatto ha un motivo
-  che il custode, leggendo la home, ricostruisce senza chiedere, e ogni
-  impatto alto arriva come proposta leggibile. Le stime sbagliate sono
-  attese all'inizio: affinano i criteri e non contano contro.
-- **Contro**: un livello senza motivo ricostruibile, un impatto alto
-  applicato invece che proposto (sul nord, sulla bussola), giri che si fermano su
-  conflitti che nessuno vede, criteri di autonomia che crescono più in
-  fretta dei casi concreti che li giustificano.
+- **A favore**: giri entro gli atti delegati, impatti motivati e proposte
+  alte leggibili fino alla decisione; ricostruzioni fedeli alle fonti nel
+  campione concordato; meno interventi e meno tempo di ricostruzione per il
+  custode rispetto al confronto assistito. Le stime sbagliate affinano i
+  criteri, ma non assolvono atti fuori delega o errori che alterano decisioni.
+- **Contro**: un livello senza motivo ricostruibile, un atto fuori delega,
+  un impatto alto applicato invece che proposto, una ricostruzione errata
+  che altera una decisione, arresti o partenze mancate invisibili, oppure
+  maggiore lavoro di supervisione senza beneficio dimostrato. Criteri che
+  crescono più in fretta dei casi concreti restano un segnale negativo.
 - **Da decidere prima**: se «in-the-loop» nel Goal di sviluppo diventa
   «on-the-loop». È una decisione del custode sul nord, sollevata in
   `o2/criteri-autonomia.md`, e non la prende questo filo.
@@ -67,10 +69,19 @@ La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
 **custode** il ruolo umano che decide. Lo stesso giorno i trailer
 `Autonomia:`, `Impatto:` e `Impatto-motivo:` sono entrati nella skill di
 commit e il consenso differito in `kb/consent.md`. I passi restanti sono task in
-`o1/plan.md`: home con fatto e da fare, criteri di autonomia nel
-trittico costitutivo, dove gira il battito, pilota. L'ordine mette la
-visibilità prima dell'autonomia: il controllo deve esistere prima che la
-conferma si tolga.
+`o1/plan.md`: separazione del Goal dallo stato, criteri di autonomia nel trittico
+costitutivo, home con fatto e da fare, scelta dell'esecutore e pilota. La
+ricerca sull'esecutore può partire indipendentemente; il pilota attende
+criteri, home ed esecutore. La visibilità deve esistere prima che la
+conferma si tolga e deve includere i tentativi senza commit.
+
+Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
+impedisce di equiparare un motivo leggibile a una ricostruzione fedele.
+La delega sulla manutenzione dell'artefatto non estende automaticamente
+quella sulle azioni di dominio. La revisione concordata il 2026-10-09
+specifica il percorso, senza decidere un nuovo Goal, scegliere il pilota o
+concedere nuovi permessi. L'esito deve misurare anche il costo per il custode:
+un battito frequente e ben documentato può comunque aumentarlo.
 
 ## Condizione di chiusura
 

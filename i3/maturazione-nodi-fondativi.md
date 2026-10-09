@@ -27,5 +27,8 @@ Tre ipotesi sperimentali, ciascuna con il caso che la deciderebbe:
   `bi`; resta da osservare il caso `tipo:` di `economia`.
 
 I limiti delle fonti restano dichiarati nel register `world.md`. Il filo si
-chiude quando le tre ipotesi sono decise, o quando il custode le riporta allo
-`stato` dei rispettivi nodi senza un caso atteso.
+chiude quando le tre ipotesi sono decise, oppure quando il loro presidio è
+trasferito in una destinazione raggiungibile da `eval`, con orizzonte e
+riscontro con fonte. Il solo `stato` dei nodi non conserva la verifica. Il
+battito `/adottanti` riesamina i casi attesi; l'assenza di un caso nuovo non
+conferma le ipotesi.

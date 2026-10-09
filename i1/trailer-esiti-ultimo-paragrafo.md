@@ -54,3 +54,13 @@ verificata su `svezia` con una prova e il suo controllo inverso.
 
 Un solo caso di perdita. Il conteggio del 2026-11-01 può comunque leggere le
 righe `^Esiti:` del corpo oltre ai trailer, per non perdere `205c627`.
+
+## Stato del seguito
+
+Al riesame del 2026-10-09 la skill canonica `/commit` prescrive tutti i
+trailer nell'ultimo paragrafo, insieme. Il marker di `danea-auto` dichiara
+anche la verifica con `git interpret-trailers`: è recepimento del presidio,
+non un secondo caso osservato di perdita. La cattura resta raggiungibile
+fino al conteggio del 2026-11-01 per recuperare `205c627`, come previsto in
+`o2/rivalutazione-skill-per-arco.md`; il conteggio confronterà trailer e
+righe nel corpo senza duplicare il commit.

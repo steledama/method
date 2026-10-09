@@ -11,14 +11,14 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.                                            |
-| ----- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| dev   | S   | Home con fatto e da fare                        | —                                               |
-| dev   | S   | Criteri di autonomia nel trittico costitutivo   | —                                               |
-| dev   | S   | Dove gira il battito                            | —                                               |
-| dev   | S   | Pilota del battito                              | ↳ Criteri di autonomia nel trittico costitutivo |
-| dev   | 1   | Goal senza fotografia                           | —                                               |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                              |
+| Ciclo | Ob. | Task                                            | Dip.                                                                                            |
+| ----- | --- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| dev   | 1   | Goal senza fotografia                           | —                                                                                               |
+| dev   | S   | Criteri di autonomia nel trittico costitutivo   | —                                                                                               |
+| dev   | S   | Home con fatto e da fare                        | —                                                                                               |
+| dev   | S   | Dove gira il battito                            | —                                                                                               |
+| dev   | S   | Pilota del battito                              | ↳ Criteri di autonomia nel trittico costitutivo; Home con fatto e da fare; Dove gira il battito |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                                                                              |
 
 Legenda dipendenze esterne:
 

@@ -20,5 +20,6 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 - [`Esiti:` è un trailer solo se sta nell'ultimo paragrafo del
   messaggio](trailer-esiti-ultimo-paragrafo.md) — da baserow: in `205c627`
   una riga `Co-Authored-By` dopo una riga vuota ha nascosto `Esiti:` a
-  `%(trailers)`; la skill canonica mostra `Esiti:` in un `-m` a sé, e il fork
-  di `baserow` ora verifica la posizione prima e dopo il commit. Un solo caso.
+  `%(trailers)`; la skill canonica ora richiede l'ultimo paragrafo unico; `baserow` e
+  `danea-auto` ne presidiano la posizione. Un solo caso di perdita documentato;
+  cattura mantenuta per il recupero nel conteggio del 2026-11-01.

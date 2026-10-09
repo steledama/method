@@ -4,14 +4,14 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 ## Contenuti
 
-Il battito autonomo (`eval` → `exec` → commit senza custode), in ordine:
+Il percorso verso il battito autonomo, secondo le priorità del plan:
 
-- [home-fatto-da-fare.md](home-fatto-da-fare.md) — due sezioni in cima alla home: ultimi commit con impatto e motivo, prossime scadenze e dipendenze del plan.
-- [criteri-autonomia.md](criteri-autonomia.md) — il terzo register del trittico con `goal.md` e `world.md`; i gate di `eval`/`exec` lo leggono per livello d'impatto.
+- [goal-senza-fotografia.md](goal-senza-fotografia.md) — separare il nord dallo stato e aggiornare i consumatori del contratto.
+- [criteri-autonomia.md](criteri-autonomia.md) — atti delegati, evidenza richiesta e trattamento per impatto nel terzo register.
+- [home-fatto-da-fare.md](home-fatto-da-fare.md) — commit, proposte pendenti, lavoro pronto e stato dei tentativi per la supervisione.
 - [dove-gira-il-battito.md](dove-gira-il-battito.md) — timer su `nixos`, `/loop`, routine cloud, Task Scheduler: pro e contro prima di scegliere.
 - [pilota-battito.md](pilota-battito.md) — un adottante apripista, scelto insieme, con intervallo e criterio di riuscita.
 
-Altri task:
+Rivalutazione in pausa:
 
-- [goal-senza-fotografia.md](goal-senza-fotografia.md) — `goal.md` tiene solo il nord coi segnali come puntatori; stato nei fili e nel plan, numeri nella fonte; canone riscritto e poi prescritto agli otto.
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al battito del 2026-11-01 sui numeri registrati.

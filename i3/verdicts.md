@@ -20,7 +20,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: tutti e sette `aligned`; il 2026-10-08
+  mensile `/adottanti`: i sette marker letti nei checkout il 2026-10-09 dichiarano `aligned` a
+  `0a75d97` (nessun nuovo fetch); il 2026-10-08
   `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
   recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
@@ -29,7 +30,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   `eval` → `exec` → commit senza custode? Push autonomo in `method` e
   prescritto ai sette; nessun giro autonomo ancora; da decidere se il Goal di
   sviluppo passa da «in-the-loop» a «on-the-loop». Riesame il 2026-11-01,
-  verdetto alla fine del pilota.
+  verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
+  e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
   tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
   clausola corretta perché gli esiti nulli non lasciavano traccia; si
