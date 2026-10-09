@@ -37,8 +37,7 @@ sospensione è tolta (`a01e6f53`).
 3. **Backfill limitato a ciò che le tracce provano.** Le tracce provano 4
    correzioni, rimozioni Axro del 2/10 su link con firma vuota, che il
    backfill marca «manuale» (`casi-delega-bi-2026-10-09-attuazione.md`); le
-   1.340
-   correzioni di categoria passate non hanno precedente, perché la traccia
+   1.340 correzioni di categoria passate non hanno precedente, perché la traccia
    si sovrascrive e il backup non salva `categoria_auto`. Questione: una
    traccia che si sovrascrive non è una traccia; la tracciabilità su cui si
    regge la delega va verificata sulla conservazione, non solo sulla
