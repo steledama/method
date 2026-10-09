@@ -86,6 +86,10 @@ alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
 
+- `pull-autonomo` — applicata in `method` il 2026-10-09: regola «Pull
+  remoto» in `CLAUDE.md` e aggiornamento del checkout nel passo 1 di
+  `/method`, che prima lo vietava. Recepimento dei sette da verificare; in
+  `danea-auto` il pull del repository su `danea2` è un rilascio da decidere;
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
   `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,

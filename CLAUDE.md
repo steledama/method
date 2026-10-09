@@ -21,6 +21,8 @@ collezioni dichiarano `ciclo: dev|runtime`. Ordine di lettura:
 - aggiornamento di `README.md`, `o1/plan.md` e dei fili in `i3/`
 - commit e operazioni git locali
 - push del branch corrente su `origin` dopo ogni commit riuscito (cfr. «Push remoto»)
+- pull `--ff-only` del branch corrente da `origin` a working tree pulito, anche
+  del checkout di `method` letto da un adottante (cfr. «Pull remoto»)
 
 ## Delega del ciclo
 
@@ -87,3 +89,14 @@ Dal 2026-10-08 il custode autorizza il push automatico del branch corrente su
 `origin` dopo ogni commit riuscito. Restano su richiesta esplicita `--force`,
 `amend` di commit già pubblicati e il push di altri branch. Se il push è
 rifiutato (divergenza, rete, permessi) non si forza: ci si ferma e si riferisce.
+
+## Pull remoto
+
+Dal 2026-10-09 il custode autorizza il pull del branch corrente da `origin`
+senza richiesta: a inizio sessione, prima di un giro e quando un confronto
+trova il checkout indietro. Si usa `git pull --ff-only` e solo a working tree
+pulito. Con modifiche locali o un branch divergente non si fa merge né rebase
+da soli: ci si ferma e si riferisce. Vale per il repository in cui l'agente
+lavora e per il checkout di `method` che legge, non per i checkout di altri
+repository, dove può lavorare un'altra sessione: per verificarli bastano
+`fetch` e `origin`.

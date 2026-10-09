@@ -94,9 +94,12 @@ git -C "$method_repo" status --short
 git -C "$method_repo" log -1 --format='%H %ad %s' --date=short
 ```
 
-Se il checkout di `method` è dirty, la revisione usa comunque `HEAD` e dichiara
-che le modifiche non committate sono fuori intervallo. Non fare fetch o pull
-automatici: il confronto è con il checkout disponibile.
+Aggiorna il checkout di `method` prima del confronto: se è pulito,
+`git -C "$method_repo" pull --ff-only`. Il pull porta canone e prescrizioni ma
+non applica nulla: il recepimento resta soggetto al gate di questa skill. Se il
+checkout è dirty o diverge da `origin`, non fare merge né rebase: la revisione
+usa `HEAD` e dichiara il limite, comprese le modifiche non committate fuori
+intervallo.
 
 ### 2. Determina l'intervallo
 
