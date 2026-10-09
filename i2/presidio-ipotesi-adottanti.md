@@ -246,5 +246,10 @@ Il recepimento (`bf186fb`) non nomina l'ipotesi né la scadenza, ma
 `autonomy.md` locale delega il ripristino di LibreOffice incastrato:
 una chiusura delle istanze `soffice` da parte dell'agente rinnova l'istanza
 e ricade nell'esito «non valutabile». Il riesame la cerca nei commit e
-nelle diagnostiche prima di leggere le righe di ritentativo.
+nelle diagnostiche prima di leggere le righe di ritentativo. Il 2026-10-09
+`danea-auto` ha recepito anche `pull-autonomo` (`e7b3bad`): il fork di
+`/method` ora aggiorna da solo il checkout di `method`, che contiene questa
+nota, e `eval perceive` ha un formato dei casi più ricco. Il commit non
+nomina l'ipotesi né la scadenza; il riesame dichiara entrambe le modifiche
+come limite.
 Il trailer da solo non certifica il riesame della specifica ipotesi.

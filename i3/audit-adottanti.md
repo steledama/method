@@ -60,6 +60,17 @@ procedure di `o3/prescriptions.md`, richiamata da `/adottanti`. Il collaudo
 con `baserow` è in `i2/ingresso-adottante.md`; la prima verifica nell'uso
 resta al battito del 01/11.
 
+`pull-autonomo` è chiusa lo stesso giorno, recepita dai sette su `origin`:
+`economia`, `salute`, `crm` e `baserow` a `8796425`, `bi` a `1f0e55a`
+(`b5c3b785`), `nixos` a `33b4f2c` (`de2ac9c`), `danea-auto` a `03a37bc`
+(`e7b3bad`). Dove il checkout è produzione il pull o il commit diventano un
+rilascio, deciso dal custode per ciascuno: in `bi` il push del codice è
+autonomo dopo l'intera suite verde e i cron, se il pull fallisce,
+continuano col codice locale; su `deck` il pull ripubblica le sole viste; in
+`danea-auto` il pull del repository è autonomo solo fuori dagli slot, ora
+elencati in `world.md`, e senza la riga di fine del run precedente diventa
+un'anomalia da riportare. Nessun rilascio da pull ancora esercitato dal vivo.
+
 `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
 2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
 `bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
@@ -86,17 +97,6 @@ alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
 
-- `pull-autonomo` — applicata in `method` il 2026-10-09: regola «Pull
-  remoto» in `CLAUDE.md` e aggiornamento del checkout nel passo 1 di
-  `/method`, che prima lo vietava. Recepita su `origin` da `economia`,
-  `salute`, `crm` e `baserow` a `8796425` e da `bi` a `1f0e55a`
-  (`b5c3b785`), dove il push del codice è autonomo dopo l'intera suite
-  verde perché il checkout è produzione, e da `nixos` a `33b4f2c`
-  (`de2ac9c`): su `deck` la path unit ripubblica le viste a ogni
-  spostamento di `HEAD`, quindi il pull è un rilascio delle sole viste, e
-  `/manutenzione` passa a `--ff-only` per proteggere il suo lock. Manca
-  `danea-auto`, dove il pull del repository su `danea2` è un rilascio da
-  decidere;
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
   `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,

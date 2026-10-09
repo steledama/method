@@ -12,12 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [Il pull non attende il custode](pull-autonomo.md) — `pull --ff-only` del
-  branch corrente a working tree pulito, nel repository locale e nel
-  checkout di `method`; fermarsi su modifiche locali o divergenza; il pull è
-  un rilascio dove il working tree è produzione. Applicata in `method`,
-  recepimento dei sette da verificare.
-
 - [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
