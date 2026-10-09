@@ -131,10 +131,9 @@ Il seguito torna agli adottanti attraverso il normale canale del canone.
 - `economia` e `salute`: distinguere la manutenzione dell'artefatto dalle
   decisioni patrimoniali, personali e sanitarie e dagli invii.
 - `crm` e `baserow`: conservare i confini locali su deploy e produzione.
-- `danea-auto`: il recepimento che modifica `eval` attende la chiusura
-  dell'osservazione già presidiata in `i2/presidio-ipotesi-adottanti.md` di
-  `method`. Il marker può registrare il rinvio neutro senza ricordare alle
-  sessioni l'ipotesi osservata. La propagazione non deve contaminare la prova.
+- `danea-auto`: recepimento selettivo deciso dal custode il 2026-10-09,
+  con perimetro fissato dalla richiesta che avvia `/method`. Le prescrizioni
+  non elencate restano nel marker come rinvio neutro, senza motivazione.
 
 ## Stato e chiusura
 

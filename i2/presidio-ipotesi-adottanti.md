@@ -237,4 +237,9 @@ L'ipotesi osservativa di `metodo` è che il presidio corrente faccia emergere
 la scadenza da solo. Non ricordarla alle sessioni dell'adottante. Se prima
 del giro la skill locale cambia per recepire la prescrizione, dichiarare
 la contaminazione: il risultato non misurerebbe più la pratica precedente.
+Il 2026-10-09 il custode ha scelto di far recepire subito a `danea-auto`
+`delega-ciclo` e `goal-senza-fotografia`, che toccano anche `eval`,
+accettandone il costo: un repository in osservazione non deve fermare il
+canone. Il riesame lo dichiara come limite. Restano escluse
+`presidio-ipotesi` e ogni menzione dell'ipotesi o della scadenza.
 Il trailer da solo non certifica il riesame della specifica ipotesi.
