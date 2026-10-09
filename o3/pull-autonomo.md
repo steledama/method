@@ -62,8 +62,8 @@ Lettura del 2026-10-09 dai marker e dai `CLAUDE.md` su `origin`:
   dell'agente lavora nel checkout di produzione: un commit locale è già in
   esercizio per chi lancia lo script, prima e senza il push (giro del
   2026-10-09, `de44d122`). Il pull `--ff-only` si ferma correttamente sui
-  commit non pubblicati; resta da verificare come si comporta il `git pull`
-  dei cron sullo stesso stato.
+  commit non pubblicati, e così il `git pull --ff-only` dei cron: se
+  `origin` avanza mentre il checkout ha commit locali, il run si ferma.
 - **baserow**: la versione dell'immagine è bloccata in `docker-compose.yml`
   nel checkout; un pull non riavvia nulla, ma il successivo avvio dello
   stack (`docker compose up`) userebbe la configurazione nuova. Verificare

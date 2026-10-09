@@ -17,6 +17,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Casi della delega: giro di correzioni di
+  `bi`](casi-delega-bi-2026-10-09-correzioni.md) — da `bi` `4867d68c`: mandato
+  incollato eseguito senza conferma, presidio citato dal criterio ma non
+  esistente, rilascio al commit nel checkout di produzione, link corretti che
+  peggiorano un segnale a valle. Con i cinque del primo giro.
 - [Casi della delega: primo giro di `bi`](casi-delega-bi-2026-10-09.md) —
   da `bi` `c8ff758c`: primo ciclo con le scritture Baserow delegate. Cinque
   casi: conferma su mandato incollato, condizioni più strette del mandato in
