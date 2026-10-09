@@ -49,7 +49,9 @@ la fedeltà delle ricostruzioni resta da verificare sulle fonti e a campione.
 
 L'attribuzione segue chi decide la modifica concreta: `concordato` se il
 custode la decide o ratifica, `agente` se la decide l'agente entro la delega,
-anche col custode presente in chat. Ogni commit dichiara se è `concordato` o
+anche col custode presente in chat. Resta `concordato` la modifica che il
+custode chiede in concreto lasciandone esplicitamente il modo all'agente
+(«agisci come meglio ritieni»); la sola delega del ciclo non basta. Ogni commit dichiara se è `concordato` o
 dell'`agente`, e un commit dell'agente dichiara l'**impatto** — basso, medio,
 alto — e il **motivo** che l'ha determinato. Entro gli atti delegati, basso e medio si applicano, e il
 medio chiede uno sguardo dopo; l'alto resta proposta committata e non

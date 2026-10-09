@@ -72,7 +72,8 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    differito):
 
    - `Autonomia: concordato` se il custode ha deciso o ratificato la modifica
-     concreta; `Autonomia: agente` se l'ha decisa l'agente entro una delega,
+     concreta, anche lasciandone esplicitamente il modo all'agente;
+     `Autonomia: agente` se l'ha decisa l'agente entro una delega,
      anche col custode presente in chat. L'avvio del ciclo non ratifica in
      anticipo le sue decisioni. Nei commit misti separa le decisioni quando
      possibile; altrimenti usa `agente` e dichiara i motivi pertinenti. Un commit senza
