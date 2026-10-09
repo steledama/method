@@ -58,8 +58,12 @@ Lettura del 2026-10-09 dai marker e dai `CLAUDE.md` su `origin`:
   Windows può restare indietro e che `/method` non fa fetch.
 - **bi**: `o3/scripts-auto.sh` e `o3/scripts-auto-morning.sh` fanno già
   `git pull` prima di girare, quindi ciò che è su `origin` è già rilasciato
-  per costruzione; il pull dell'agente sull'host di produzione anticipa il
-  cron. Verificare che non esistano altri esecutori dal working tree.
+  per costruzione e il pull dell'agente anticipa il cron. Ma la sessione
+  dell'agente lavora nel checkout di produzione: un commit locale è già in
+  esercizio per chi lancia lo script, prima e senza il push (giro del
+  2026-10-09, `de44d122`). Il pull `--ff-only` si ferma correttamente sui
+  commit non pubblicati; resta da verificare come si comporta il `git pull`
+  dei cron sullo stesso stato.
 - **baserow**: la versione dell'immagine è bloccata in `docker-compose.yml`
   nel checkout; un pull non riavvia nulla, ma il successivo avvio dello
   stack (`docker compose up`) userebbe la configurazione nuova. Verificare
