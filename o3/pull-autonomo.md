@@ -75,7 +75,11 @@ Lettura del 2026-10-09 dai marker e dai `CLAUDE.md` su `origin`:
 - **nixos**: `CLAUDE.md` dice che nessun host fa `pull` da solo e che la
   pubblicazione delle viste costruisce l'`HEAD` del checkout locale; un pull
   dell'agente aggiorna le viste servite, non il sistema, che richiede
-  `nixos-rebuild`. Riformulare la frase in modo che resti vera.
+  `nixos-rebuild`. Riformulare la frase in modo che resti vera. Recepita a
+  `de2ac9c`: su `deck` i repository in `published` (`nixos`, `method`,
+  `salute`, `economia`) ripubblicano le viste a ogni spostamento di `HEAD`
+  tramite una path unit, quindi lì il pull è un rilascio delle sole viste,
+  di contenuto già pubblicato su `origin`.
 - **economia**, **salute**: repository di dati e conoscenza; il pull può
   portare catture prodotte da un altro host. Nessun esecutore noto dal
   working tree.

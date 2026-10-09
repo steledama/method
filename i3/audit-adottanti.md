@@ -91,8 +91,12 @@ alle intestazioni del rispettivo `goal.md`.
   `/method`, che prima lo vietava. Recepita su `origin` da `economia`,
   `salute`, `crm` e `baserow` a `8796425` e da `bi` a `1f0e55a`
   (`b5c3b785`), dove il push del codice è autonomo dopo l'intera suite
-  verde perché il checkout è produzione. `nixos` è ancora a `f0c9a9b`; in
-  `danea-auto` il pull del repository su `danea2` è un rilascio da decidere;
+  verde perché il checkout è produzione, e da `nixos` a `33b4f2c`
+  (`de2ac9c`): su `deck` la path unit ripubblica le viste a ogni
+  spostamento di `HEAD`, quindi il pull è un rilascio delle sole viste, e
+  `/manutenzione` passa a `--ff-only` per proteggere il suo lock. Manca
+  `danea-auto`, dove il pull del repository su `danea2` è un rilascio da
+  decidere;
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
   `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,
