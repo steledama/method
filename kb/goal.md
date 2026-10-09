@@ -112,7 +112,9 @@ lavoro: il Goal lo rigenera chiudendo loop noti, il Mondo lo apre con segnali
 inattesi.
 
 Il contratto del register root che materializza questo polo vive in
-`goal-register`; qui resta il modello del Goal.
+`goal-register`: motivo, obiettivi e puntatori ai segnali, con lo stato nei
+fili e nel plan. Il Goal di sviluppo dichiara la forma auspicata; lo scarto
+misurato resta sul versante della valutazione. Qui resta il modello del Goal.
 
 ## Riferimenti
 

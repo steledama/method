@@ -63,7 +63,7 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [goal](goal.md) — Gerarchia motivo/goal/operazione (Leontiev): il goal come
   confine aperto di Norman e la KB che lo informa senza generarlo
 - [goal-register](goal-register.md) — Contratto del polo Goal in root:
-  obiettivi, segnali, stato del lavoro, custodia umana e direzione
+  obiettivi, puntatori ai segnali, custodia umana e direzione
   task→obiettivo
 - [development-goal](development-goal.md) — Il polo Goal del ciclo di sviluppo:
   dimensioni candidate comuni (attrito, autonomia, temporalità) e posizione

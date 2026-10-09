@@ -13,7 +13,6 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip.                                                                                            |
 | ----- | --- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| dev   | 1   | Goal senza fotografia                           | —                                                                                               |
 | dev   | S   | Criteri di autonomia nel trittico costitutivo   | —                                                                                               |
 | dev   | S   | Home con fatto e da fare                        | —                                                                                               |
 | dev   | S   | Dove gira il battito                            | —                                                                                               |

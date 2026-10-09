@@ -49,6 +49,11 @@ alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
 
+- `goal-senza-fotografia` — contratto applicato in `method` il 2026-10-09:
+  nord e puntatori nel register, stato in fili e plan, misure nelle fonti.
+  Ricetta ai sette predisposta, nessun recepimento ancora verificato.
+  Il battito del 01/11 ne legge gli esiti dei `/method` locali;
+
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
   `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,
@@ -158,7 +163,7 @@ righe nel corpo, senza riscrivere la storia.
 - `revisione-bootstrap-adottante`: completare il confronto fra gli esiti
   dichiarati e il contratto della revisione coordinata; i marker da soli
   non equivalgono alla rilettura qualitativa dei quartetti. Il task
-  `Goal senza fotografia` aggiornerà anche questa prescrizione;
+  `Goal senza fotografia` ha aggiornato il contratto di questa prescrizione;
 - ripetibilità: il quarto battito è arrivato in tempo, ma lo ha ricordato
   l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
   cella runtime-o1 resta D finché il battito non parte da un innesco;

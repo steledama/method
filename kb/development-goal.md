@@ -82,7 +82,7 @@ lettura va accompagnata da esiti runtime, segnali aggiornati e copertura degli
 obiettivi. Cadenza e scheduler sono fonti del battito, non prove della sua
 efficacia (`plan`, `skill`).
 
-## Gradualità di dominio e casa della fotografia
+## Gradualità di dominio e posizione auspicata
 
 Le posizioni auspicate si confrontano lungo le dimensioni candidate, senza
 forzare il dominio ad adottare una forma unica. Due contrasti ne mostrano l'uso.
@@ -94,11 +94,13 @@ che non hanno cadenza fissa ma si aprono su un evento: un set-and-review di
 configurazione, una decisione a posta alta, il segnale di un adottante.
 
 Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo:
-`metodo` propone le dimensioni comuni, non la fotografia altrui — tenerne qui un
-elenco sarebbe la seconda rappresentazione che deriva in silenzio. La fotografia
-ha una **casa dichiarata**: la sezione «Goal di sviluppo» del register root
-`goal.md` dell'adottante (cfr. `goal-register`). Le dimensioni restano candidate
-finché l'uso nei domini non ne conferma sufficienza e confini.
+`metodo` propone le dimensioni comuni. La posizione desiderata vive nella
+sezione «Goal di sviluppo» del register root `goal.md` dell'adottante
+(`goal-register`), coi puntatori ai segnali che permettono il confronto.
+La fotografia attuale vive nelle letture e nei report; il verdetto sullo
+scarto nei fili `i3/`, il lavoro per ridurlo in `o1/plan.md` e `o2/`.
+Il register non ne conserva una seconda copia. Le dimensioni restano
+candidate finché l'uso nei domini non ne conferma sufficienza e confini.
 
 ## Riferimenti
 

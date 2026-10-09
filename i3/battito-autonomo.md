@@ -68,9 +68,11 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
 La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
 **custode** il ruolo umano che decide. Lo stesso giorno i trailer
 `Autonomia:`, `Impatto:` e `Impatto-motivo:` sono entrati nella skill di
-commit e il consenso differito in `kb/consent.md`. I passi restanti sono task in
-`o1/plan.md`: separazione del Goal dallo stato, criteri di autonomia nel trittico
-costitutivo, home con fatto e da fare, scelta dell'esecutore e pilota. La
+commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
+stato in `method`; la [prescrizione](../o3/goal-senza-fotografia.md) porta il
+contratto ai sette adottanti. I passi restanti sono task in `o1/plan.md`:
+criteri di autonomia nel trittico costitutivo, home con fatto e da fare,
+scelta dell'esecutore e pilota. La
 ricerca sull'esecutore può partire indipendentemente; il pilota attende
 criteri, home ed esecutore. La visibilità deve esistere prima che la
 conferma si tolga e deve includere i tentativi senza commit.

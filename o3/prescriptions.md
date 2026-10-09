@@ -12,6 +12,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Il Goal conserva il nord e punta ai segnali](goal-senza-fotografia.md) —
+  eliminare la copia dello stato dal register preservando obiettivi, fonti e
+  lettori; applicata in `method`, recepimento da verificare nei sette adottanti.
+
 - [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
   verificare l'adozione locale, fissare una baseline con provenienza,
   aggiornare le rappresentazioni correnti e predisporre il primo giro senza

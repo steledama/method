@@ -5,8 +5,8 @@ ciclo: dev
 # Il churn di goal.md viene dallo stato del lavoro più che dai numeri
 
 Sintesi della percezione `i1/fotografie-ad-alto-churn.md` (`0e5c6e8`,
-consumata dal verdetto nel task
-[goal-senza-fotografia](../o2/goal-senza-fotografia.md)): il custode
+consumata dal verdetto nel task di `6a5ef01`, ora attuato nella
+[prescrizione](../o3/goal-senza-fotografia.md)): il custode
 propone che in `goal.md` stiano solo gli obiettivi e che le fotografie
 numeriche, ad alto churn, escano dal register e forse da git. Qui si misura
 quanto e cosa cambia davvero nel `goal.md` degli otto repo.
@@ -47,7 +47,7 @@ mano.
   derivazione al momento della vista toglierebbe la maggior parte del churn.
   Altrove i numeri sono rari.
 - **Il churn diffuso è lo stato del lavoro, ed è il canone a chiederlo.**
-  `kb/goal-register.md` vuole per ogni obiettivo «lo stato del lavoro che lo
+  `kb/goal-register.md` nella versione misurata chiedeva per ogni obiettivo «lo stato del lavoro che lo
   serve — a regime, event-driven o con un fronte aperto». Lo stato non è un
   numero ma una valutazione, e il custode chiede di versionare le
   valutazioni. Il problema che la misura mostra è un altro: quella
@@ -56,9 +56,11 @@ mano.
   natura del dato.
 - **Il nord cambia poco ed è riconoscibile.** 15 commit su 118 toccano lo
   scheletro, e un confronto deterministico sullo scheletro li separa dagli
-  altri. Per i criteri di autonomia un criterio verificabile su `goal.md`
-  non deve guardare il file ma lo scheletro: sul file sbaglierebbe tre volte
-  su quattro.
+  altri. Nel contratto allora vigente un criterio di autonomia sul solo file
+  avrebbe confuso spesso nord e stato; lo scheletro li separava con i limiti
+  sotto. Dopo la separazione dello stato dal register non si trasferisce
+  automaticamente quel rapporto al nuovo contratto: restano da distinguere
+  modifiche agli scopi e manutenzione dei puntatori ai segnali.
 
 ## Limiti
 

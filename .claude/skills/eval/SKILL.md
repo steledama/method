@@ -130,7 +130,8 @@ ancora valutate.
 
 - Ogni obiettivo del register ha un **segnale vivo** (filo, audit, marker) e —
   se c'è tensione aperta — un filo che la tiene. Un obiettivo senza segnale è un
-  buco di misura da dichiarare nel register, non da nascondere.
+  buco di misura da dichiarare nel register, non da nascondere. Il register
+  punta al segnale; esito e stato del lavoro restano nei fili e nel plan.
 - Ogni filo dichiara **quale obiettivo misura** (`obiettivo:` nel
   frontmatter, verificato dalla build). Un filo che non misura nessun obiettivo
   è materiale da triage: o rivela un obiettivo mancante nel register
@@ -193,6 +194,8 @@ nulla da passare, dillo esplicitamente.
   `i3/verdicts.md` non li ripete.
 - La valutazione non cambia mai un segnale (audit, marker): se il segnale è
   sbagliato, il fix è un task, non un ritocco al verdetto.
-- Aggiornamenti del register `goal.md` in questa sede sono fotografie (obiettivo
-  a regime, buco di misura dichiarato), non nuovi obiettivi: quelli li porta il
-  custode.
+- Il register `goal.md` conserva il nord e i puntatori ai segnali. In questa
+  sede se ne verifica la copertura: correggere puntatori o dichiarare un buco
+  di misura segue il gate comune; esiti, misure e stato del lavoro restano
+  nelle fonti, nei fili e nel plan. Nuovi obiettivi o cambi del nord tornano
+  al custode, senza dedurli dall'aggiornamento di una fotografia.

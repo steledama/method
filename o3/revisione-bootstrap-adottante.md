@@ -48,7 +48,11 @@ verificare sullo stato locale, non ordini testuali.
 
 - l'intro dall'H1 al primo H2 è la visione della direzione, non una spiegazione
   del register o del ciclo;
-- obiettivi, segnali e lavoro corrente concordano col README e col plan;
+- obiettivi e puntatori ai segnali concordano col README e con le chiavi del
+  plan; stato del lavoro ed esiti restano nei fili e nella coda;
+- il Goal di sviluppo dichiara la posizione auspicata, con segnali per
+  confrontarla con quella osservata; soglie desiderate e misure osservate
+  restano distinte;
 - la compressione dell'intro non cancella tensioni costitutive del dominio.
 
 ### World — rende il territorio
