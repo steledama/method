@@ -51,7 +51,9 @@ perché uno tocca codice in `o3/`.
 ## Fatti accanto ai casi
 
 - Il custode ha deciso lo stesso giorno di cancellare Global come
-  fornitore: è già in blacklist, non manda feed e non si adegua ai flussi.
+  fornitore: non manda feed e non si adegua ai flussi. Il custode lo
+  riteneva già in blacklist; in Baserow nessuna delle 1.090 righe lo era
+  (`casi-delega-bi-2026-10-09-global.md`, caso 1).
 - Il `git pull --ff-only` dei cron fallisce se `origin` avanza mentre il
   checkout di produzione ha commit non pubblicati; i cron avvisano e
   continuano con il codice locale (`bi` `b5c3b785`). Una versione
