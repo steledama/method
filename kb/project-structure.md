@@ -16,6 +16,7 @@ del dominio.
 - `AGENTS.md` — wrapper agent-agnostico con ordine di lettura;
 - `goal.md` — direzione, obiettivi e segnali (`goal-register`);
 - `world.md` — territorio, superfici esterne e fonti (`world-register`);
+- `autonomy.md` — criteri e confini della delega concessa dal custode (`consent`);
 - `kb/` — conoscenza stabile, catalogata in `kb/kb.md`;
 - `presentation/` — sorgente del deck, il racconto curato dell'artefatto, e le sue tavole;
 - `view/` — home, pagine generate dalle fonti e asset, chiusa su se stessa; non
@@ -33,7 +34,8 @@ Le sei collezioni del ciclo hanno un indice interno:
 - `o3/prescriptions.md`.
 
 `goal.md` e `world.md` sono register, non collezioni: sintetizzano i due confini
-del ciclo e forniscono alla home le rispettive intro. `method/` espone negli
+del ciclo e forniscono alla home le rispettive intro. `autonomy.md` è il
+register dell'autorità: si legge prima di agire e non aggiunge uno stadio. `method/` espone negli
 adottanti i nodi canonici tramite symlink. Le superfici esterne concrete
 (`gdrive/`, mount, sync, servizi) sono dichiarate in `world.md`, gitignorate
 quando locali e chiamate per ciò che sono.

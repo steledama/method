@@ -29,8 +29,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
 - [battito-autonomo.md](battito-autonomo.md) — l'artefatto regge un giro
   `eval` → `exec` → commit senza custode? Push autonomo in `method` e
-  prescritto ai sette; nessun giro autonomo ancora; da decidere se il Goal di
-  sviluppo passa da «in-the-loop» a «on-the-loop». Riesame il 2026-11-01,
+  prescritto ai sette; delega dei cicli avviati dal custode ratificata in
+  `autonomy.md`, con Goal aggiornato; il battito schedulato resta da collaudare. Riesame il 2026-11-01,
   verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
   e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la

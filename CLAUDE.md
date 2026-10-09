@@ -22,6 +22,14 @@ collezioni dichiarano `ciclo: dev|runtime`. Ordine di lettura:
 - commit e operazioni git locali
 - push del branch corrente su `origin` dopo ogni commit riuscito (cfr. «Push remoto»)
 
+## Delega del ciclo
+
+Leggere [`autonomy.md`](autonomy.md) prima di operare: il ciclo avviato dal
+custode prosegue entro la delega fino a verifiche, commit e push autorizzato,
+senza conferme intermedie sugli esiti ordinari. Chiedere sui punti riservati
+e continuare il lavoro indipendente. La presenza in chat non è ratifica
+preventiva delle decisioni dell'agente. Il battito schedulato resta da autorizzare.
+
 ## Skill
 
 Il quartetto operativo del metodo e la skill di allineamento vivono versionati anche

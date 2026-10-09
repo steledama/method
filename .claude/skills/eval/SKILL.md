@@ -36,10 +36,21 @@ delle priorità (pilota `economia`, 2026-07-12). Questa è la copia canonica del
 skill: gli adottanti la forkano e la parametrizzano sui propri segnali di
 dominio.
 
-**Gate comune, proponi-poi-applica**: le modifiche a collezioni e register si
-applicano solo dopo conferma del custode, e il gate prevale sull'autorizzazione
-generica delle bussole — quella copertura è per il lavoro ordinario di sessione,
-non per l'auto-applicazione degli esiti di una supervisione.
+**Gate comune, autorità prima dell'atto**: leggere `autonomy.md` insieme
+alle autorizzazioni operative di `CLAUDE.md` e alla richiesta corrente. Nel
+ciclo delegato dal custode si applicano gli esiti ordinari senza conferme
+intermedie, con fonti verificate e incertezza esplicita. Restano al custode
+cambi di scopi, territorio o criteri di autonomia, atti fuori delega e
+incertezze decisive non risolvibili dalle fonti. Sospendere il solo punto
+che richiede una decisione e continuare il lavoro indipendente. In assenza
+di delega applicabile si propone; il colore dell'impatto non concede autorità.
+
+Chiudere gli scope richiesti con i controlli e `/commit`, incluso il push
+quando autorizzato. Nel ciclo congiunto l'ordine è `eval → exec → commit`,
+senza conferme obbligatorie fra gli archi; invocare un arco solo non estende
+lo scope. Il resoconto finale distingue decisioni applicate, motivi,
+incertezze e proposte pendenti. La presenza del custode non equivale alla
+ratifica di ogni modifica; i trailer seguono chi l'ha decisa.
 
 ## `perceive` — raccogliere il grezzo
 
@@ -172,12 +183,13 @@ da un adottante che non rientra in nessun obiettivo, una cornice teorica
 importata) → proponi il filo nuovo o il ritocco al register. Sempre in proposta:
 decidere cosa conta è del custode (`kb/goal.md`).
 
-**6. Proponi, poi applica**
+**6. Applica entro la delega, proponi oltre il confine**
 
-Presenta le modifiche come elenco — una voce per filo/obiettivo, con azione
-(aggiorna/chiudi/split/crea, migra dal plan) e motivo. Se non c'è nulla da
-proporre, dillo esplicitamente. Applica a `i3/`, `goal.md` e `o1/plan.md` solo
-dopo conferma del custode (gate comune); chiudi suggerendo `/commit`.
+Per ogni filo/obiettivo rendi leggibili azione (aggiorna/chiudi/split/crea,
+migra dal plan) e motivo. Applica gli esiti autorizzati dal gate comune;
+porta al custode soltanto i punti riservati, con una proposta concreta e
+raggiungibile. Distingui nel resoconto modifiche applicate e decisioni
+pendenti. Se non c'è materia, dichiaralo e chiudi secondo il gate comune.
 
 **7. Handoff «impatti sul piano»**
 

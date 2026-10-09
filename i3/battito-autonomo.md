@@ -21,16 +21,19 @@ controlli a colpo d'occhio e tenga in mano i criteri.
 
 La tensione si misura contro due obiettivi:
 
-- **S**: il Goal di sviluppo dice oggi «umano **in-the-loop**» e «basso
-  attrito di lettura». Il battito sposta il custode verso la supervisione
-  del giro e chiede che la lettura diventi ancora più immediata. Il primo
-  movimento contraddice la lettera del Goal; il secondo la estende.
+- **S**: il Goal di sviluppo ora delega il governo operativo dei cicli
+  avviati dal custode e conserva la supervisione degli esiti. Il battito
+  schedulato richiede un'ulteriore estensione e visibilità senza sessione.
 - **2**: il loop si propaga come canone agli adottanti, e lì incontra le
   differenze di dominio.
 
 ## Lo stato del verdetto
 
-Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
+Il battito schedulato non è ancora misurabile. La prima delega è invece
+ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
+conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
+frequente riferita dal custode motiva la riduzione dell'attrito, non prova
+la fedeltà delle ricostruzioni. I fatti ulteriori:
 
 - **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
   sette lo stesso giorno e prescrizione chiusa (dettaglio in
@@ -59,9 +62,8 @@ Non ancora misurabile: nessun giro autonomo è avvenuto. I fatti finora:
   che altera una decisione, arresti o partenze mancate invisibili, oppure
   maggiore lavoro di supervisione senza beneficio dimostrato. Criteri che
   crescono più in fretta dei casi concreti restano un segnale negativo.
-- **Da decidere prima**: se «in-the-loop» nel Goal di sviluppo diventa
-  «on-the-loop». È una decisione del custode sul nord, sollevata in
-  `o2/criteri-autonomia.md`, e non la prende questo filo.
+- **Da decidere prima del pilota**: estensione della delega all'avvio
+  schedulato e condizioni del pilota, nel residuo di `o2/criteri-autonomia.md`.
 
 ## Il percorso
 
@@ -74,22 +76,20 @@ contratto ai sette adottanti. I passi restanti sono task in `o1/plan.md`:
 criteri di autonomia nel trittico costitutivo, home con fatto e da fare,
 scelta dell'esecutore e pilota. La
 ricerca sull'esecutore può partire indipendentemente; il pilota attende
-criteri, home ed esecutore. La visibilità deve esistere prima che la
-conferma si tolga e deve includere i tentativi senza commit.
+criteri, home ed esecutore. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
+Prima del battito schedulato la home deve includere i tentativi senza commit.
 
 Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
 impedisce di equiparare un motivo leggibile a una ricostruzione fedele.
 La delega sulla manutenzione dell'artefatto non estende automaticamente
-quella sulle azioni di dominio. La revisione concordata il 2026-10-09
-specifica il percorso, senza decidere un nuovo Goal, scegliere il pilota o
-concedere nuovi permessi. L'esito deve misurare anche il costo per il custode:
+quella sulle azioni di dominio. Il custode ha ratificato il nuovo Goal e la prima delega del ciclo il
+2026-10-09; il pilota e la sua estensione restano da decidere. L'esito deve misurare anche il costo per il custode:
 un battito frequente e ben documentato può comunque aumentarlo.
 
 ## Condizione di chiusura
 
 Riesame al battito `/adottanti` del **2026-11-01**: avanzamento del
-percorso, decisione sul Goal di
-sviluppo. Il verdetto vero arriva alla fine dell'osservazione del pilota,
+percorso e riscontri sulla prima delega. Il verdetto vero arriva alla fine dell'osservazione del pilota,
 con durata e criterio di riuscita fissati in `o2/pilota-battito.md`. A quel
 punto il loop di base diventa canone e si prescrive, si corregge, oppure si
 torna indietro.

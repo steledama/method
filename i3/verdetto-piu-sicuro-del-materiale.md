@@ -33,8 +33,8 @@ degli adottanti, e il battito `/adottanti` le cerca nei loro fili `i3/`.
 
 ## Rilevanza per il battito autonomo
 
-Il primo candidato di [criteri-autonomia](../o2/criteri-autonomia.md),
-o1 ↔ i3, incontra questa tensione: riordinare il lavoro su fatti verificati
+La delega del ciclo in [autonomy.md](../autonomy.md), già operativa per
+i giri avviati dal custode, incontra questa tensione: riordinare il lavoro su fatti verificati
 e introdurre una tesi nuova non hanno la stessa delegabilità. Il pilota del
 [battito autonomo](battito-autonomo.md) deve rileggere un campione di
 ricostruzioni contro le fonti, oltre a verificare impatto e motivo. La

@@ -12,6 +12,11 @@ livelli possono avere. È il registro teorico: nel lessico operativo del
 metodo «agente» è l'IA che opera nel repository e l'umano che decide Goal,
 Mondo e autorizzazioni è il **custode**, un ruolo che una persona ricopre.
 
+Il governo operativo del ciclo può essere delegato all'agente. La custodia
+resta la decisione su scopi, territorio e condizioni della delega, compresa
+la sua revoca; la presenza umana in ogni passaggio non ne è un requisito
+(`consent`).
+
 Il caso umano/LLM presenta un'asimmetria: l'umano integra l'artefatto con
 esperienza e memoria personale; l'LLM ricostruisce il contesto di progetto
 soprattutto dall'artefatto persistente, insieme a richiesta corrente, strumenti

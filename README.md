@@ -105,6 +105,11 @@ meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).
   private (servizio utente dichiarato nel repo `nixos`);
   `python3 o3/view/serve.py` serve l'anteprima a mano sulla 8000 da qualsiasi host
 
+**Criteri di autonomia** — [`autonomy.md`](autonomy.md) dichiara gli atti
+delegati, i confini riservati al custode e il resoconto del ciclo. Si legge
+con le regole operative prima di agire; il governo operativo può essere
+delegato mantenendo la custodia umana di scopi, territorio e deleghe.
+
 **Register dei poli** — puntano _fuori_ dall'artefatto, ai due confini del
 ciclo:
 

@@ -12,6 +12,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Delegare il ciclo avviato dal custode](delega-ciclo.md) — criteri locali,
+  esiti ordinari senza conferme intermedie e chiusura con controlli e commit;
+  applicata in `method`, recepimento dei sette da verificare, rinvio di
+  `danea-auto` fino alla chiusura dell'osservazione.
+
 - [Il Goal conserva il nord e punta ai segnali](goal-senza-fotografia.md) —
   eliminare la copia dello stato dal register preservando obiettivi, fonti e
   lettori; applicata in `method`, recepimento da verificare nei sette adottanti.

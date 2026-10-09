@@ -39,7 +39,9 @@ i2/i3 invece di incidere il canone di straforo.
 
 Posizione auspicata lungo le dimensioni candidate comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
-dell'adottante, umano **in-the-loop**, **basso attrito di lettura** (bussola
+dell'adottante, **governo operativo delegato all'agente nei cicli avviati dal
+custode**, con supervisione degli esiti e decisione umana su scopi, territorio
+e deleghe ([autonomia](autonomy.md)), **basso attrito di lettura** (bussola
 snella, viste facilmente consultabili e riproducibili dalle fonti), KB riflessiva coerente, loop di
 propagazione che si chiude.
 

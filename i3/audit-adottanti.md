@@ -49,6 +49,11 @@ alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
 
+- `delega-ciclo` — prima delega ratificata e applicata in `method`:
+  criteri in `autonomy.md`, gate e attribuzione delle decisioni aggiornati.
+  Recepimento dei sette da verificare; `danea-auto` rinvia l'aggiornamento
+  di `eval` fino alla chiusura dell'osservazione, senza sollecitazione;
+
 - `goal-senza-fotografia` — contratto applicato in `method` il 2026-10-09:
   nord e puntatori nel register, stato in fili e plan, misure nelle fonti.
   Ricetta ai sette predisposta, nessun recepimento ancora verificato.

@@ -51,3 +51,12 @@ motivo e impatto di un commit e raggiunge una proposta ancora pendente oltre
 i cinque commit. Prima dell'avvio del pilota deve essere verificata anche
 la resa di un tentativo fallito o non partito, usando la fonte concordata
 con l'esecutore. La pubblicazione continua a rispettare i contratti delle viste.
+
+## Register della delega
+
+`autonomy.md` contiene la prima delega operativa del ciclo richiesto dal
+custode. Il resoconto con diff e commit è già il controllo di quel giro;
+la home deve renderne raggiungibili i criteri e le proposte pendenti prima
+del pilota schedulato. Il register è per ora leggibile dal repository:
+aggiungerlo al perimetro delle pagine e concordarne la resa nella home con
+il residuo di `criteri-autonomia`, senza introdurre un nuovo stadio.

@@ -15,7 +15,8 @@ articolano i loop di dominio.
 - Trailer di autonomia e impatto (in `/commit` dal 2026-10-08) e sezione
   «fatto» della home: il custode
   deve vedere i giri prima di toglierne la conferma.
-- Il primo criterio di autonomia scritto nel register.
+- Criteri per il battito schedulato concordati nel register: la delega
+  corrente copre solo cicli avviati dal custode.
 - La scelta di dove gira il battito.
 
 ## Scelta del pilota (aperta, da fare insieme)

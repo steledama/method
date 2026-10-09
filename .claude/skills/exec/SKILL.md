@@ -33,12 +33,21 @@ priorità si rivalutano su verdetti freschi, non stantii. Questa è la copia
 canonica della skill: gli adottanti la forkano e la parametrizzano sui propri
 segnali di dominio.
 
-**Gate comune, proponi-poi-applica**: le modifiche a collezioni e register si
-applicano solo dopo conferma del custode, e il gate prevale
-sull'autorizzazione generica delle bussole — quella copertura è per il lavoro
-ordinario di sessione, non per l'auto-applicazione degli esiti di una
-supervisione. Fa eccezione solo l'atto che l'autorizzazione dello scope già
-copre (cfr. `perform`).
+**Gate comune, autorità prima dell'atto**: leggere `autonomy.md` insieme
+alle autorizzazioni operative di `CLAUDE.md` e alla richiesta corrente. Nel
+ciclo delegato dal custode si applicano gli esiti ordinari senza conferme
+intermedie, con fonti verificate e incertezza esplicita. Restano al custode
+cambi di scopi, territorio o criteri di autonomia, atti fuori delega e
+incertezze decisive non risolvibili dalle fonti. Sospendere il solo punto
+che richiede una decisione e continuare il lavoro indipendente. In assenza
+di delega applicabile si propone; il colore dell'impatto non concede autorità.
+
+Chiudere gli scope richiesti con i controlli e `/commit`, incluso il push
+quando autorizzato. Nel ciclo congiunto l'ordine è `eval → exec → commit`,
+senza conferme obbligatorie fra gli archi; invocare un arco solo non estende
+lo scope. Il resoconto finale distingue decisioni applicate, motivi,
+incertezze e proposte pendenti. La presenza del custode non equivale alla
+ratifica di ogni modifica; i trailer seguono chi l'ha decisa.
 
 ## `plan` — la coda
 
@@ -130,17 +139,17 @@ stesso invariante, momento diverso. La ricchezza multi-attore (incentivi,
 canali neutrali, tempismo di una negoziazione) vive nei fork degli adottanti
 come adattamento di dominio; qui resta l'invariante.
 
-**4. Proponi le modifiche e il prossimo task**
+**4. Applica entro la delega e indica il prossimo task**
 
-Presenta al custode, come elenco, le modifiche proposte — una voce per task,
+Rendi leggibili le modifiche applicate e le proposte pendenti — una voce per task,
 con azione (aggiungi/modifica/rimuovi), priorità e motivo:
 
 - **<task>** — <azione>; priorità <…>; <motivo>
 
 Se non ci sono modifiche da proporre, dillo esplicitamente. Chiudi indicando
 il task consigliato per la sessione corrente, motivandolo con urgenza,
-dipendenze e costo/opportunità. Applica a `o1/plan.md` e `o2/` solo dopo
-conferma (gate comune).
+dipendenze e costo/opportunità. Applica a `o1/plan.md` e `o2/` entro la
+delega del gate comune; chiedi solo sui punti che ne superano il confine.
 
 **5. Chiudi con l'handoff inverso «verdetti da rivalutare»**
 
@@ -200,5 +209,5 @@ verificati), atti compiuti o predisposti, o la chiusura in una riga.
 - La chiusura di un task coordina l'eventuale prescrizione `o3/` con i documenti
   operativi che ha prodotto nel Mondo: `perform` tiene onesta la collezione,
   `plan` controlla che non restino copie consumate sulle superfici dichiarate
-- Dopo la revisione, suggerisci `/commit` per chiudere la sessione quando ci
-  sono modifiche da fissare
+- Dopo la revisione, esegui `/commit` nel perimetro del gate comune; conserva
+  i trailer degli scope invocati anche quando il giro è vuoto

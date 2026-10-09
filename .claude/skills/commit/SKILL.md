@@ -7,9 +7,19 @@ Crea un git commit seguendo le convenzioni del progetto. Questa è la copia
 canonica della skill: gli adottanti la forkano e la parametrizzano sui propri
 formatter e fonti di verità.
 
-## Pre-commit: domande da fare prima di procedere
+## Pre-commit: controlli e confini della delega
 
-**1. Audit KB** — Valuta se le modifiche toccano un numero significativo di nodi in `kb/` (aggiunte, rinominamenti, ristrutturazioni di link). Se sì, chiedi all'utente: _"Vuoi eseguire /kb audit prima del commit?"_. Se l'utente risponde sì, esegui lo scope `audit` della skill `kb` e includi eventuali fix nel commit. Se le modifiche sono minori (un file, fix puntuale), salta la domanda. Non avviare implicitamente `kb review`: è una revisione profonda separata, non un gate pre-commit ordinario.
+Leggi `autonomy.md`, richiesta corrente e autorizzazioni operative. I controlli
+necessari e gli aggiornamenti pertinenti già delegati si eseguono senza una
+nuova conferma. Chiedi solo per cambi di scopi, territorio o delega, atti non
+autorizzati o incertezze decisive non risolvibili dalle fonti. Un punto
+sospeso non blocca modifiche indipendenti e verificabili.
+
+**1. Audit KB** — Se le modifiche toccano un numero significativo di nodi
+(aggiunte, rinominamenti, ristrutturazioni), esegui `python3 o3/kb_tools.py audit`
+e risolvi i problemi pertinenti entro il mandato. Per modifiche minori scegli
+i controlli appropriati. Non avviare implicitamente `kb review`, revisione
+semantica profonda separata dal gate ordinario.
 
 **1b. Formato nodo** — Per ogni nodo nuovo o pesantemente modificato in `kb/`: verifica che abbia (a) frontmatter con `stato:` in cima e (b) sezione `Connessioni:` in fondo. Se mancano entrambi, segnalalo prima di committare.
 
@@ -17,12 +27,18 @@ formatter e fonti di verità.
 
 **1d. Propagazione** — Se un nodo è stato rinominato o spostato, verifica le connessioni intenzionali effettivamente coinvolte, senza ricostruire inventari dei path canonici. Il recepimento avviene nel repository adottante con il suo `/method`; qui si rende leggibile il cambiamento di canone (`kb/method-development.md`).
 
-**2. Filo in i3/** — Valuta se la sessione ha cambiato il verdetto su un filo/area aperta: nuovi nodi, cluster nuovi, decisioni strutturali o metodologiche, ingest di fonti, cambiamenti di approccio. Se sì, chiedi all'utente: _"Vuoi aggiornare il filo pertinente in `i3/` per questa sessione?"_. Se sì, aggiorna **in place** il file del filo pertinente (o crea un nuovo file se il filo è nuovo) con lo stato attuale — non un'entry datata, non un elenco di file: il git history del file è già il log. Se il filo si è chiuso (verdetto stabile, nessuna tensione aperta) e non custodisce altre funzioni vive, rimuovi file e voce in `i3/verdicts.md`. Conserva i file che portano cursori o contratti correnti, come `i3/allineamento-metodo.md` anche quando `aligned` (`kb/verdict.md`). Se le modifiche sono di manutenzione (formatting, fix link, task completati), salta la domanda.
+**2. Filo in i3/** — Se la modifica cambia un verdetto, aggiorna in place
+il filo pertinente entro la delega vigente: stato corrente e motivo, non log.
+Crea un filo solo per una tensione viva contro un obiettivo. Se si chiude,
+rimuovi file e voce d'indice dopo aver conservato eventuali presidi di ipotesi;
+i cursori e i contratti correnti restano. Chiedi al custode solo quando la
+modifica supera il confine della delega. La semplice manutenzione non richiede
+un aggiornamento rituale del filo.
 
-**3. I due check del ciclo di valutazione (i2/i3)** — Prompt leggeri, non burocrazia: se la risposta è no, si procede.
+**3. I due check del ciclo di valutazione (i2/i3)** — Verifiche da eseguire; eventuali decisioni seguono il confine della delega.
 
 - **i2 — le viste sono ancora vere?** Non è una domanda di giudizio: esegui la verifica della build, uguale in ogni repo (`python3 o3/view/build.py --check`). Contratti fra le fonti e presidio del compartimento stagno devono passare; un errore si corregge nelle fonti prima del commit. L'output non entra nel commit: `view/` è ignorata da git e la vista pubblicata la ricostruisce l'host dal commit (cfr. `kb/view.md`, «Freschezza»). Il giudizio resta solo su ciò che la build non copre: un artefatto di sintesi (`i2/`) il cui _significato_ è cambiato va ripensato, non solo ri-derivato — è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
-- **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare il file-filo in `i3/` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, chiedi anche: _si propaga a `o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/exec plan`), ai puntatori ai segnali di `goal.md` (copertura da mantenere, senza ricopiare lo stato) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
+- **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare il file-filo in `i3/` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, verifica anche: _si propaga a `o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/exec plan`), ai puntatori ai segnali di `goal.md` (copertura da mantenere, senza ricopiare lo stato) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
 
 Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
@@ -55,8 +71,11 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    Ogni commit dichiara chi l'ha deciso (cfr. `kb/consent.md`, consenso
    differito):
 
-   - `Autonomia: concordato` se il custode era in sessione e ha visto la
-     modifica, `Autonomia: agente` in un giro senza custode. Un commit senza
+   - `Autonomia: concordato` se il custode ha deciso o ratificato la modifica
+     concreta; `Autonomia: agente` se l'ha decisa l'agente entro una delega,
+     anche col custode presente in chat. L'avvio del ciclo non ratifica in
+     anticipo le sue decisioni. Nei commit misti separa le decisioni quando
+     possibile; altrimenti usa `agente` e dichiara i motivi pertinenti. Un commit senza
      il trailer, come quelli storici, si legge `concordato`;
    - solo con `Autonomia: agente`, `Impatto: basso|medio|alto` e almeno un
      `Impatto-motivo:` che dice cosa ha determinato il livello: il criterio
@@ -76,7 +95,7 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    git commit -m "descrizione del giro" -m "Esiti: perceive=vuoto interpret=materia compare=materia
    Autonomia: agente
    Impatto: medio
-   Impatto-motivo: bussola (CLAUDE.md, «Push remoto»)"
+   Impatto-motivo: ciclo-delegato (autonomy.md, verdetto corretto su fonte verificata)"
    ```
 
 6. Esegui `git status` per confermare che il commit sia andato a buon fine.
