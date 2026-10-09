@@ -88,7 +88,10 @@ alle intestazioni del rispettivo `goal.md`.
 
 - `pull-autonomo` — applicata in `method` il 2026-10-09: regola «Pull
   remoto» in `CLAUDE.md` e aggiornamento del checkout nel passo 1 di
-  `/method`, che prima lo vietava. Recepimento dei sette da verificare; in
+  `/method`, che prima lo vietava. Recepita su `origin` da `economia`,
+  `salute`, `crm` e `baserow` a `8796425` e da `bi` a `1f0e55a`
+  (`b5c3b785`), dove il push del codice è autonomo dopo l'intera suite
+  verde perché il checkout è produzione. `nixos` è ancora a `f0c9a9b`; in
   `danea-auto` il pull del repository su `danea2` è un rilascio da decidere;
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con

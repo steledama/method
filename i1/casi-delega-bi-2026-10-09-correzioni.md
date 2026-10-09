@@ -52,5 +52,7 @@ perché uno tocca codice in `o3/`.
 
 - Il custode ha deciso lo stesso giorno di cancellare Global come
   fornitore: è già in blacklist, non manda feed e non si adegua ai flussi.
-- Il `git pull --ff-only` dei cron si ferma se `origin` avanza mentre il
-  checkout di produzione ha commit non pubblicati.
+- Il `git pull --ff-only` dei cron fallisce se `origin` avanza mentre il
+  checkout di produzione ha commit non pubblicati; i cron avvisano e
+  continuano con il codice locale (`bi` `b5c3b785`). Una versione
+  precedente di questa cattura diceva che il run si ferma.

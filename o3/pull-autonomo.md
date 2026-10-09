@@ -63,7 +63,9 @@ Lettura del 2026-10-09 dai marker e dai `CLAUDE.md` su `origin`:
   esercizio per chi lancia lo script, prima e senza il push (giro del
   2026-10-09, `de44d122`). Il pull `--ff-only` si ferma correttamente sui
   commit non pubblicati, e così il `git pull --ff-only` dei cron: se
-  `origin` avanza mentre il checkout ha commit locali, il run si ferma.
+  `origin` avanza mentre il checkout ha commit locali il pull fallisce, e i
+  cron avvisano e continuano con il codice locale (`bi` `b5c3b785`). `bi`
+  ha recepito con push autonomo del codice dopo l'intera suite verde.
 - **baserow**: la versione dell'immagine è bloccata in `docker-compose.yml`
   nel checkout; un pull non riavvia nulla, ma il successivo avvio dello
   stack (`docker compose up`) userebbe la configurazione nuova. Verificare
