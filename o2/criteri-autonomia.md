@@ -3,7 +3,7 @@ sintesi: "La prima delega è operativa in autonomy.md e nelle skill: ciclo avvia
 ciclo: dev
 ---
 
-# Criteri di autonomia nel trittico costitutivo
+# Criteri del battito schedulato
 
 Il trittico è materializzato in root: `goal.md` dichiara gli scopi,
 `world.md` il territorio, [autonomy.md](../autonomy.md) le condizioni della

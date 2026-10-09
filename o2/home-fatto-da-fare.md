@@ -38,7 +38,7 @@ fonte non esiste, la vista dichiara il dato non disponibile.
 
 - «Fatto» conserva gli ultimi cinque commit; le proposte ancora da decidere
   restano raggiungibili anche quando escono da quel campione. La loro fonte
-  e il loro consumo sono definiti in [Criteri di autonomia](criteri-autonomia.md).
+  e il loro consumo sono definiti in [Criteri del battito schedulato](criteri-autonomia.md).
 - «Da fare» rende anche la prossima mossa pronta senza data, rispettando
   l'ordine del plan. Le attese senza data restano tali, senza date inventate.
 - La storia estratta per la pubblicazione termina al commit esportato con

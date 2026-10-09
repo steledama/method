@@ -11,13 +11,13 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.                                                                                            |
-| ----- | --- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| dev   | S   | Criteri di autonomia nel trittico costitutivo   | —                                                                                               |
-| dev   | S   | Home con fatto e da fare                        | —                                                                                               |
-| dev   | S   | Dove gira il battito                            | —                                                                                               |
-| dev   | S   | Pilota del battito                              | ↳ Criteri di autonomia nel trittico costitutivo; Home con fatto e da fare; Dove gira il battito |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                                                                              |
+| Ciclo | Ob. | Task                                            | Dip.                                                                             |
+| ----- | --- | ----------------------------------------------- | -------------------------------------------------------------------------------- |
+| dev   | S   | Criteri del battito schedulato                  | —                                                                                |
+| dev   | S   | Home con fatto e da fare                        | —                                                                                |
+| dev   | S   | Dove gira il battito                            | —                                                                                |
+| dev   | S   | Pilota del battito                              | ↳ Criteri del battito schedulato; Home con fatto e da fare; Dove gira il battito |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                                                               |
 
 Legenda dipendenze esterne:
 

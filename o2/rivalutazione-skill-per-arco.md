@@ -54,6 +54,11 @@ una volta, dichiarando il recupero; l'adozione del presidio in `danea-auto`
 non prova un secondo incidente. `/commit` canonico richiede ora tutti i
 trailer nell'ultimo paragrafo.
 
+Escludere il trailer `Esiti:` di `metodo` `e790baf`: l'agente che ha fatto
+il commit lo ha dedotto dal contenuto, non lo ha ripreso dal registro di un
+giro. Lo ha dichiarato lui stesso nel resoconto. Il commit pubblicato non si
+riscrive: questa nota lo corregge.
+
 Quando la fonte lo permette, distinguere giri innescati da eventi o dal
 custode e giri periodici autonomi; se non lo permette, dichiarare il limite.
 Una maggiore frequenza programmata può aumentare gli esiti vuoti senza

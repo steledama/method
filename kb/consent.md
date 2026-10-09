@@ -67,7 +67,13 @@ Un errore di stima è atteso, ed è materia per affinare i criteri. Ciò che non
 si tollera è un livello di cui non si può ricostruire la ragione: il motivo
 nomina il criterio e ciò che l'ha fatto scattare, o il giudizio che ha alzato
 il livello. Lo stato dei criteri in quel momento è il register a quel commit,
-e la storia di git lo conserva. Impatto è una proprietà del commit; il
+e la storia di git lo conserva.
+
+Lo stesso vale per ogni errore dell'agente: la delega si regge sulla
+tracciabilità, non sull'assenza di errori. L'agente dichiara nel resoconto
+l'errore che scopre e lo corregge con un atto che lascia traccia, senza
+riscrivere la storia pubblicata. Un errore nascosto consuma la fiducia su
+cui la delega si regge; uno dichiarato la rende verificabile. Impatto è una proprietà del commit; il
 semaforo che lo veste nelle viste è presentazione, riusabile per altre
 proprietà a tre gradi.
 
