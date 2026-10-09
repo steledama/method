@@ -29,6 +29,21 @@ dichiarano l'esito, con gli adattamenti locali motivati (in `nixos` il solo
 fatto senza altra sede è passato in `kb/rclone-gdrive.md`; in `danea-auto`
 due fatti restano nel Goal come buchi di misura con provenienza).
 
+`delega-ciclo` è chiusa lo stesso giorno: i sette hanno `autonomy.md` locale
+e il presidio dei casi in `eval perceive`; il riesame dei casi e di un
+campione di decisioni ordinarie vive nello step 5b di `/adottanti`, la
+raccolta nel passo 3 di `eval perceive` canonico. Nessun caso ancora
+raccolto, nessun giro delegato reale. Perimetri decisi dal custode nelle
+sessioni: sola lettura e atti di `CLAUDE.md` in `nixos`; rilasci e PROD
+riservati in `bi`; deploy, produzione e invii riservati in `crm`; invii come
+sola bozza in `economia`. Tre atti sul Mondo delegati: eventi Calendar delle
+scadenze in `salute`, backup manuale senza restore in `baserow`, ripristino
+di LibreOffice incastrato e test dei task fuori slot in `danea-auto`,
+recepimento selettivo con effetto dichiarato sull'osservazione
+(`i2/presidio-ipotesi-adottanti.md`). In `nixos` il push rifiutato per
+divergenza si è fermato fino al via del custode al rebase: confine
+rispettato, primo caso riuscito da riesaminare al battito.
+
 `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
 2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
 `bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
@@ -54,20 +69,6 @@ verificato nei file: in tutte e sei le `tasks.html` le ancore corrispondono
 alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
-
-- `delega-ciclo` — recepita dai sette il 2026-10-09, ciascuno con
-  `autonomy.md` locale e presidio dei casi in `eval perceive`; nessun caso
-  ancora raccolto, nessun giro delegato reale. Perimetri decisi dal custode
-  nelle sessioni: sola lettura e atti di `CLAUDE.md` in `nixos`; rilasci e
-  PROD riservati in `bi`; deploy, produzione e invii riservati in `crm`;
-  invii come sola bozza in `economia`. Tre atti sul Mondo delegati: eventi
-  Calendar delle scadenze in `salute`, backup manuale senza restore in
-  `baserow`, ripristino di LibreOffice incastrato e test dei task fuori slot
-  in `danea-auto`, recepimento selettivo con effetto dichiarato
-  sull'osservazione (`i2/presidio-ipotesi-adottanti.md`). In `nixos` il
-  push rifiutato per divergenza si è fermato fino al via del custode al
-  rebase: confine rispettato. Resta aperta finché il presidio lato `method`
-  (riesame dei casi e campione al battito) non vive in `/adottanti`;
 
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con

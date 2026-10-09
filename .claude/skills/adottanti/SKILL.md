@@ -100,6 +100,30 @@ Il costo **ordina, non classifica**: la regola è una per tutti, ma una vista a
 mano che rende fatti su cui si agisce (salute, denaro, scadenze) si guarda per
 prima. Segnale rosso: la vista invita a un'azione che la fonte ha già ritirato.
 
+### 5b. Casi della delega
+
+La delega del ciclo (`autonomy.md` di ogni adottante) si affina dal basso,
+sui casi raccolti nell'uso. Per adottante, in sola lettura:
+
+- i **casi arrivati**: catture in `method/i1/` e catture locali ancora «da
+  inoltrare» nel presidio dichiarato dal marker. Una cattura locale si
+  acquisisce in `method/i1/` con la sua fonte; la segnatura «acquisita da
+  method» la aggiorna l'adottante nel suo giro, non questo audit;
+- un **piccolo campione** di decisioni ordinarie con fonti disponibili
+  (commit `Autonomia: agente` con il loro `Impatto-motivo:`), includendo
+  autonomie riuscite con riscontro e conferme rivelatesi inutili, non solo
+  i problemi: la sola raccolta degli errori spinge i criteri verso la
+  restrizione. Confronta la ricostruzione con la fonte, non solo il motivo
+  dichiarato (filo `i3/verdetto-piu-sicuro-del-materiale.md`).
+
+Dichiara perimetro e limiti del campione: l'assenza di segnalazioni non
+dimostra assenza di attrito o errori, e un assenso frequente del custode è
+un segnale di attrito, non una verifica di correttezza. Un episodio motiva
+una domanda o un adattamento locale, non un obbligo per tutti; ogni modifica
+alle condizioni della delega torna al custode. Il seguito si rende
+riconoscibile in `eval` di `metodo`: criterio comune, adattamento locale,
+ulteriore osservazione o nessuna modifica motivata.
+
 ### 6. Verdetto aggregato
 
 Aggiorna `i3/audit-adottanti.md` in place: una fotografia sottile per

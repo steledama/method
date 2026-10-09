@@ -68,7 +68,19 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    effimero o che per precisione e durata chiede un riflesso stabile (cfr.
    `kb/perceive.md`): il grezzo persistente resta fuori, raggiungibile dalla sua
    fonte.
-3. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
+3. Raccogli i **casi della delega** (`autonomy.md`) emersi nell'uso dall'ultimo
+   giro: un confine ambiguo, un arresto, un errore di ricostruzione, un
+   criterio che non bastava, ma anche un'autonomia riuscita con riscontro o
+   una conferma rivelatasi inutile. Ogni caso porta in prosa breve
+   situazione, confine (criterio e sua versione), comportamento con le
+   alternative, riscontro (fatto, dichiarazione o interpretazione; se manca,
+   orizzonte e fonte del riesame) e questione per il metodo. Un criterio
+   suggerito è un'ipotesi, non una regola applicabile. Negli adottanti la
+   cattura resta raggiungibile in `i1/`, segnata «da inoltrare» finché
+   `metodo` non la acquisisce; in `metodo` i casi arrivano come segnali i1
+   e si acquisiscono anche dall'audit `/adottanti`. Nessun caso va prodotto
+   solo per completare il giro.
+4. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
 
 ## `interpret` — distillare in sintesi
 

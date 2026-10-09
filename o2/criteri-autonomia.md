@@ -18,8 +18,10 @@ candidato ristretto a o1 ↔ i3. Il Goal di sviluppo e le skill sono allineati;
 il resoconto è la superficie di controllo immediata.
 
 I criteri `ciclo-delegato` e `confine-delega`, i casi esemplificativi e il
-percorso delle proposte vivono nel register. La forma è prescritta ai sette
-in [delega-ciclo](../o3/delega-ciclo.md); nessun recepimento è presunto.
+percorso delle proposte vivono nel register. La forma è recepita dai sette
+adottanti (prescrizione `delega-ciclo`, chiusa il 2026-10-09), ciascuno col
+proprio perimetro; la raccolta dei casi vive in `eval perceive` e il loro
+riesame in `/adottanti`.
 
 ## Lavoro residuo prima del battito schedulato
 
