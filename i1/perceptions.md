@@ -17,6 +17,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Casi della delega: primo giro di `bi`](casi-delega-bi-2026-10-09.md) —
+  da `bi` `c8ff758c`: primo ciclo con le scritture Baserow delegate. Cinque
+  casi: conferma su mandato incollato, condizioni più strette del mandato in
+  un commit `concordato`, categorizzazione riuscita, dry-run concatenato
+  alla scrittura, criterio mancante sulle righe B-grade. Da interpretare
+  insieme ai casi successivi, al più tardi al battito del 01/11.
 - [Lo stato corrente vive anche nel README](stato-nel-readme.md) — dalla
   revisione del bootstrap del 2026-10-09: `crm` e `baserow` tengono una
   sezione «Stato» nel README con fatti già nel plan e nei fili; il contratto
