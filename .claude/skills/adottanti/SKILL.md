@@ -29,6 +29,9 @@ aggiornato in place a ogni giro.
   coda di dominio e non ci riguarda.
 - Non sostituisce `method` (il giro per-adottante guidato dal marker,
   eseguito _nell'adottante_): questo è il giro d'insieme, dall'alto.
+- Quando un progetto entra nel territorio, l'ingresso segue la procedura
+  [`o3/ingresso-adottante.md`](../../../o3/ingresso-adottante.md): è un
+  evento fuori giro, non un audit aggiuntivo.
 
 ## Procedura
 

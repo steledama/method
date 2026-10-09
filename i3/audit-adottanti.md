@@ -54,6 +54,12 @@ corrente nel README di `crm` e `baserow` è un segnale aperto
 rinviata per la formula del prompt selettivo, mentre il precedente la dava
 già soddisfatta: il prossimo `/method` locale può ripristinare l'esito.
 
+`ingresso-adottante` esce dalle prescrizioni lo stesso giorno: è una
+procedura dell'osservatorio, non una ricetta da recepire, e vive fra le
+procedure di `o3/prescriptions.md`, richiamata da `/adottanti`. Il collaudo
+con `baserow` è in `i2/ingresso-adottante.md`; la prima verifica nell'uso
+resta al battito del 01/11.
+
 `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
 2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
 `bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
@@ -96,9 +102,6 @@ alle intestazioni del rispettivo `goal.md`.
   `danea-auto` non l'ha ancora revisionata ed è osservato senza
   sollecitazione (`i2/presidio-ipotesi-adottanti.md`, riesame dal
   2026-10-13);
-- `ingresso-adottante` — procedura riusabile; il collaudo con `baserow` e
-  la correzione sull'accento sono in `i2/ingresso-adottante.md`. La prima
-  verifica nell'uso resta al battito del 01/11.
 
 **Il passo «Rileggi le prescrizioni aperte» di `/method` ha girato in tutti
 e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto

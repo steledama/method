@@ -12,10 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
-  verificare l'adozione locale, fissare una baseline con provenienza,
-  aggiornare le rappresentazioni correnti e predisporre il primo giro senza
-  governare la coda del nuovo repository.
 - [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
   commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
@@ -27,6 +23,17 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
+
+## Procedure
+
+Runbook permanenti che `method` esegue su se stesso come osservatorio, non
+ricette da far recepire agli adottanti: restano finché servono.
+
+- [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
+  verificare l'adozione locale, fissare una baseline con provenienza,
+  aggiornare le rappresentazioni correnti e predisporre il primo giro senza
+  governare la coda del nuovo repository. Si esegue da `/adottanti` quando
+  un progetto entra nel territorio.
 
 ## Strumenti
 
