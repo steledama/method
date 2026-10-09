@@ -16,12 +16,18 @@ delle code.
 
 ## Verdetto
 
-**Canale del canone: i sette marker letti il 2026-10-09 dichiarano
-`aligned` a `0a75d97`, revisione del 2026-10-08.** Superfici: checkout di
-`economia` e `salute` su `deck`; `nixos`, `bi`, `crm`, `danea-auto` e
-`baserow` su `svezia`, letti via SSH. Nessun fetch in questa verifica:
-il dato aggiorna i cursori osservati, non certifica `origin`, coincidenza
-con tutti i file o runtime. L'ultimo audit mensile resta quello del 01/10.
+**Canale del canone: i sette marker su `origin` dichiarano `aligned` a
+`f0c9a9b`, revisione del 2026-10-09.** Lettura dopo `git fetch` dai clone
+su `deck`, marker e commit di recepimento con `Autonomia: concordato`:
+`nixos` `dcf9ad1`, `bi` `a95c4f10` e `a8c849bd`, `economia` `8ed2926`,
+`salute` `7d3a448`, `crm` `cc0500b`, `baserow` `305de15`, `danea-auto`
+`bf186fb`. Il dato certifica cursori e commit pubblicati, non la semantica
+di ogni file né il runtime. L'ultimo audit mensile resta quello del 01/10.
+
+`goal-senza-fotografia` è chiusa il 2026-10-09: i sette marker ne
+dichiarano l'esito, con gli adattamenti locali motivati (in `nixos` il solo
+fatto senza altra sede è passato in `kb/rclone-gdrive.md`; in `danea-auto`
+due fatti restano nel Goal come buchi di misura con provenienza).
 
 `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
 2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
@@ -49,17 +55,19 @@ alle intestazioni del rispettivo `goal.md`.
 
 **Prescrizioni aperte, con provenienza della verifica:**
 
-- `delega-ciclo` — prima delega ratificata e applicata in `method`:
-  criteri in `autonomy.md`, gate e attribuzione delle decisioni aggiornati.
-  Recepimento dei sette avviato il 2026-10-09, da verificare. Per
-  `danea-auto` il custode ha scelto un recepimento selettivo con
-  `goal-senza-fotografia`, accettando l'effetto sull'osservazione
-  (`i2/presidio-ipotesi-adottanti.md`): il repository non blocca il canone;
-
-- `goal-senza-fotografia` — contratto applicato in `method` il 2026-10-09:
-  nord e puntatori nel register, stato in fili e plan, misure nelle fonti.
-  Ricetta ai sette predisposta, nessun recepimento ancora verificato.
-  Il battito del 01/11 ne legge gli esiti dei `/method` locali;
+- `delega-ciclo` — recepita dai sette il 2026-10-09, ciascuno con
+  `autonomy.md` locale e presidio dei casi in `eval perceive`; nessun caso
+  ancora raccolto, nessun giro delegato reale. Perimetri decisi dal custode
+  nelle sessioni: sola lettura e atti di `CLAUDE.md` in `nixos`; rilasci e
+  PROD riservati in `bi`; deploy, produzione e invii riservati in `crm`;
+  invii come sola bozza in `economia`. Tre atti sul Mondo delegati: eventi
+  Calendar delle scadenze in `salute`, backup manuale senza restore in
+  `baserow`, ripristino di LibreOffice incastrato e test dei task fuori slot
+  in `danea-auto`, recepimento selettivo con effetto dichiarato
+  sull'osservazione (`i2/presidio-ipotesi-adottanti.md`). In `nixos` il
+  push rifiutato per divergenza si è fermato fino al via del custode al
+  rebase: confine rispettato. Resta aperta finché il presidio lato `method`
+  (riesame dei casi e campione al battito) non vive in `/adottanti`;
 
 - `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
   `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con

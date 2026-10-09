@@ -20,9 +20,9 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: i sette marker letti nei checkout il 2026-10-09 dichiarano `aligned` a
-  `0a75d97` (nessun nuovo fetch); `goal-senza-fotografia` è prescritta ai
-  sette, con recepimento da verificare. Il 2026-10-08
+  mensile `/adottanti`: i sette marker su `origin` dichiarano `aligned` a
+  `f0c9a9b` il 2026-10-09; `goal-senza-fotografia` chiusa, `delega-ciclo`
+  recepita dai sette, aperta per il presidio dei casi. Il 2026-10-08
   `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
   recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la

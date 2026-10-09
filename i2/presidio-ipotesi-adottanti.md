@@ -242,4 +242,9 @@ Il 2026-10-09 il custode ha scelto di far recepire subito a `danea-auto`
 accettandone il costo: un repository in osservazione non deve fermare il
 canone. Il riesame lo dichiara come limite. Restano escluse
 `presidio-ipotesi` e ogni menzione dell'ipotesi o della scadenza.
+Il recepimento (`bf186fb`) non nomina l'ipotesi né la scadenza, ma
+`autonomy.md` locale delega il ripristino di LibreOffice incastrato:
+una chiusura delle istanze `soffice` da parte dell'agente rinnova l'istanza
+e ricade nell'esito «non valutabile». Il riesame la cerca nei commit e
+nelle diagnostiche prima di leggere le righe di ritentativo.
 Il trailer da solo non certifica il riesame della specifica ipotesi.
