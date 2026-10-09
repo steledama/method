@@ -251,5 +251,10 @@ nelle diagnostiche prima di leggere le righe di ritentativo. Il 2026-10-09
 `/method` ora aggiorna da solo il checkout di `method`, che contiene questa
 nota, e `eval perceive` ha un formato dei casi più ricco. Il commit non
 nomina l'ipotesi né la scadenza; il riesame dichiara entrambe le modifiche
-come limite.
+come limite. Fino al 2026-10-09 anche la sezione indizi della prescrizione
+aperta `o3/presidio-ipotesi.md` nominava per `danea-auto` il filo e la sua
+scadenza, e il passo «rileggi le prescrizioni aperte» di `/method` può
+averla letta nei giri del 08/10 e del 09/10: non è verificabile, quindi il
+riesame lo dichiara come possibile contaminazione. L'indizio è stato reso
+neutro lo stesso giorno.
 Il trailer da solo non certifica il riesame della specifica ipotesi.

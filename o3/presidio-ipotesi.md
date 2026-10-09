@@ -75,10 +75,7 @@ Fotografie della prova del 2026-10-05, da confrontare con i file correnti:
   casa raggiungibile alla lettura causale, in i2 se necessario, mantenendo
   il presidio già funzionante nel filo. Questo è il seguito sul contenuto
   del deck trasferito da `migrazione-viste`.
-- **danea-auto**: il canone osserva senza sollecitarla la scadenza già
-  prevista nel filo LibreOffice. L'osservazione e i limiti di attribuzione
-  in caso di recepimento anticipato vivono nella
-  [lettura della prova](../i2/presidio-ipotesi-adottanti.md#osservazione-aperta-danea-auto).
+- **danea-auto**: gli indizi arrivano con la sollecitazione di `metodo`.
 - **bi, salute, crm, baserow**: distinguere ipotesi in attesa, letture
   esplorative, domande e verifiche operative. Nessuna creazione obbligata di
   ipotesi o file; nessun frontmatter imposto a prodotti JSON o script.
