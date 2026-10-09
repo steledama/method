@@ -17,6 +17,10 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Casi della delega: giro di attuazione di `bi` dopo
+  Global](casi-delega-bi-2026-10-09-attuazione.md) — da `bi` `e110e9d0`: una
+  fonte trovata che non ripristina la disponibilità, il marcatore «manuale»
+  che non identifica l'operatore.
 - [Casi della delega: giro di `bi` su Global, feed e
   correzioni](casi-delega-bi-2026-10-09-global.md) — da `bi` `c4e9b84a`:
   premessa smentita dalla scala, paradosso `wl`+`bl` lasciato in attesa,
