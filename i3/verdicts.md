@@ -21,7 +21,7 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
   mensile `/adottanti`: i sette marker su `origin` dichiarano `aligned` a
-  `f0c9a9b` il 2026-10-09; `goal-senza-fotografia` e `delega-ciclo` chiuse,
+  `d8a88e7` il 2026-10-10, `delega-nel-checkout-servito` chiusa; `goal-senza-fotografia` e `delega-ciclo` chiuse,
   recepite dai sette. Il 2026-10-08
   `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
   recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide

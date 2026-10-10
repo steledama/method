@@ -17,11 +17,13 @@ delle code.
 ## Verdetto
 
 **Canale del canone: i sette marker su `origin` dichiarano `aligned` a
-`f0c9a9b`, revisione del 2026-10-09.** Lettura dopo `git fetch` dai clone
-su `deck`, marker e commit di recepimento con `Autonomia: concordato`:
-`nixos` `dcf9ad1`, `bi` `a95c4f10` e `a8c849bd`, `economia` `8ed2926`,
-`salute` `7d3a448`, `crm` `cc0500b`, `baserow` `305de15`, `danea-auto`
-`bf186fb`. Il dato certifica cursori e commit pubblicati, non la semantica
+`d8a88e7`, revisione del 2026-10-10.** Lettura dopo `git fetch` dai clone
+su `deck`, commit di recepimento con `Autonomia: concordato`: `nixos`
+`ec6c7c9`, `bi` `cd1c42e5`, `economia` `c8f3adf`, `salute` `997c6d2`,
+`crm` `5ec2ba2`, `baserow` `6e9890b`, `danea-auto` `7679fb7`.
+`delega-nel-checkout-servito` è chiusa: i sette riconoscono l'host prima
+del primo atto, le eccezioni sono in `i2/casi-delega-adottanti.md`; `crm`
+e `baserow` segnano acquisiti i propri casi. Il dato certifica cursori e commit pubblicati, non la semantica
 di ogni file né il runtime. L'ultimo audit mensile resta quello del 01/10.
 
 `goal-senza-fotografia` è chiusa il 2026-10-09: i sette marker ne

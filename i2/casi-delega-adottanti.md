@@ -79,8 +79,10 @@ che il custode ha giudicato corretto.
 - **Ipotesi**: nel checkout servito basta la delega del ciclo con le
   eccezioni nominate, purché host e checkout si riconoscano prima del primo
   atto. Il custode l'ha resa canone il 2026-10-10
-  ([consent](../kb/consent.md), prescrizione
-  [`o3/delega-nel-checkout-servito.md`](../o3/delega-nel-checkout-servito.md)).
+  ([consent](../kb/consent.md)), recepito dai sette lo stesso giorno.
+  Eccezioni nominate: pull su richiesta in `baserow`; push del codice a
+  suite verde in `bi`; pull fuori dagli slot in `danea-auto`; push su
+  richiesta in `nixos` solo se un ciclo automatico eseguisse dal checkout.
   **Orizzonte**: il battito `/adottanti` del 2026-11-01. **Riscontro**: i
   casi inoltrati entro quella data e le eccezioni scritte nei sette
   `autonomy.md` su `origin`. La smentisce un atto del ciclo su un checkout

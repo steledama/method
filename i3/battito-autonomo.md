@@ -56,7 +56,8 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   il commit è già rilascio, in `crm` una pubblicazione. Un battito senza
   custode non potrebbe chiedere su quel confine: va riconosciuto prima
   dell'atto. Il custode ha deciso il 2026-10-10 che la delega vale anche lì,
-  con eccezioni nominate ([prescrizione](../o3/delega-nel-checkout-servito.md)).
+  con eccezioni nominate in `autonomy.md` ([consent](../kb/consent.md));
+  recepito dai sette lo stesso giorno.
 
 ## Cosa sposterebbe il verdetto
 
