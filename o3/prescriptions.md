@@ -17,6 +17,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
+- [La delega del ciclo vale anche nel checkout
+  servito](delega-nel-checkout-servito.md) — commit, pull e push del ciclo
+  restano delegati dove il checkout è servito; le eccezioni si nominano in
+  `autonomy.md` e host e checkout si riconoscono prima del primo atto.
+  Prescritta ai sette il 2026-10-10.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

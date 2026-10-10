@@ -55,7 +55,8 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   residuo di dominio è il checkout che è anche superficie servita: in `bi`
   il commit è già rilascio, in `crm` una pubblicazione. Un battito senza
   custode non potrebbe chiedere su quel confine: va riconosciuto prima
-  dell'atto ([proposta](../o2/delega-nel-checkout-servito.md)).
+  dell'atto. Il custode ha deciso il 2026-10-10 che la delega vale anche lì,
+  con eccezioni nominate ([prescrizione](../o3/delega-nel-checkout-servito.md)).
 
 ## Cosa sposterebbe il verdetto
 

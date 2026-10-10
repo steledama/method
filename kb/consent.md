@@ -47,6 +47,15 @@ perimetro locale: la forma canonica non autorizza atti di dominio da sola.
 La conferma frequente dichiarata dal custode motiva la riduzione dell'attrito;
 la fedeltà delle ricostruzioni resta da verificare sulle fonti e a campione.
 
+Un checkout può essere anche una superficie servita: un timer, un cron o uno
+scheduler eseguono o pubblicano i suoi file, e allora commit, pull e push
+diventano rilasci o pubblicazioni. Di regola la delega del ciclo vale anche
+lì: l'atto del ciclo resta autorizzato e il resoconto dichiara cosa ha
+rilasciato o pubblicato. Le eccezioni sono nominate in `autonomy.md`, con
+la superficie, l'atto escluso o la condizione che lo ammette. Per
+applicarle l'agente riconosce host e checkout prima del primo atto della
+sessione, pull compreso; un'eccezione non scritta non si deduce.
+
 L'attribuzione segue chi decide la modifica concreta: `concordato` se il
 custode la decide o ratifica, `agente` se la decide l'agente entro la delega,
 anche col custode presente in chat. Resta `concordato` la modifica che il

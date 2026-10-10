@@ -9,7 +9,6 @@ Il percorso verso il battito autonomo, secondo le priorità del plan:
 - [criteri-autonomia.md](criteri-autonomia.md) — prima delega operativa; restano criteri per il battito schedulato e collaudo delle proposte nella home.
 - [home-fatto-da-fare.md](home-fatto-da-fare.md) — commit, proposte pendenti, lavoro pronto e stato dei tentativi per la supervisione.
 - [dove-gira-il-battito.md](dove-gira-il-battito.md) — timer su `nixos`, `/loop`, routine cloud, Task Scheduler: pro e contro prima di scegliere.
-- [delega-nel-checkout-servito.md](delega-nel-checkout-servito.md) — da decidere: il checkout che è anche superficie servita va riconosciuto prima del primo atto e nominato in `autonomy.md`.
 - [pilota-battito.md](pilota-battito.md) — un adottante apripista, scelto insieme, con intervallo e criterio di riuscita.
 
 Rivalutazione in pausa:

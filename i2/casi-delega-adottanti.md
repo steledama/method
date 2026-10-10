@@ -76,15 +76,15 @@ che il custode ha giudicato corretto.
 
 ## Ipotesi in attesa
 
-- **Ipotesi**: la delega del ciclo presuppone che il checkout non sia una
-  superficie servita; dove lo è, il bootstrap deve farlo riconoscere prima
-  del primo atto e `autonomy.md` deve nominare quella superficie. La
-  proposta di canone è in
-  [`o2/delega-nel-checkout-servito.md`](../o2/delega-nel-checkout-servito.md).
+- **Ipotesi**: nel checkout servito basta la delega del ciclo con le
+  eccezioni nominate, purché host e checkout si riconoscano prima del primo
+  atto. Il custode l'ha resa canone il 2026-10-10
+  ([consent](../kb/consent.md), prescrizione
+  [`o3/delega-nel-checkout-servito.md`](../o3/delega-nel-checkout-servito.md)).
   **Orizzonte**: il battito `/adottanti` del 2026-11-01. **Riscontro**: i
-  casi inoltrati entro quella data e i bootstrap dei sette letti su
-  `origin`. La rafforza un altro caso di atto non riconosciuto su un
-  checkout servito; la indebolisce un mese di cicli senza casi su quella
-  superficie.
+  casi inoltrati entro quella data e le eccezioni scritte nei sette
+  `autonomy.md` su `origin`. La smentisce un atto del ciclo su un checkout
+  servito che il custode giudica da riservare senza che un'eccezione lo
+  nominasse; la rafforza un mese di cicli senza casi di quel tipo.
 - I temi di un solo adottante si riesaminano allo stesso battito; senza un
   secondo adottante restano adattamenti locali.
