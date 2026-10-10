@@ -47,8 +47,15 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   rebase ha chiesto la cancellazione di due file, e il permesso dell'harness
   l'ha fermata. Un battito senza custode incontrerà lo stesso caso e non
   potrà chiedere.
-- **Residuo di dominio**: in `bi` gli script automatici fanno `pull` prima di
-  girare, quindi un push autonomo è un rilascio in produzione.
+- **Primi riscontri sulla prima delega**, 2026-10-09/10: 18 casi inoltrati
+  da `bi`, `crm` e `baserow` (`i2/casi-delega-adottanti.md`). Nessuna
+  autonomia rivelatasi sbagliata con danno; due errori dichiarati
+  dall'agente, uno dei quali giudicato corretto dal custode; quattro
+  conferme rivelate inutili, con il criterio allentato in `crm`. Il
+  residuo di dominio è il checkout che è anche superficie servita: in `bi`
+  il commit è già rilascio, in `crm` una pubblicazione. Un battito senza
+  custode non potrebbe chiedere su quel confine: va riconosciuto prima
+  dell'atto ([proposta](../o2/delega-nel-checkout-servito.md)).
 
 ## Cosa sposterebbe il verdetto
 

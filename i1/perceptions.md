@@ -17,6 +17,14 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Casi della delega: primo ciclo di `crm` su
+  `svezia`](casi-delega-crm-2026-10-10.md) — da `crm` `ca59b1e`: pull prima
+  di riconoscere l'host, commit del ciclo che pubblica le viste di
+  produzione; due conferme rivelate inutili dal custode.
+- [Casi della delega: terzo giro del backup di
+  `baserow`](casi-delega-baserow-2026-10-10.md) — da `baserow` `a1116e8`:
+  criterio di smentita toccato alla lettera e riscritto col custode,
+  criterio vecchio conservato fino all'orizzonte del 16/10.
 - [Casi della delega: giro di attuazione di `bi` dopo
   Global](casi-delega-bi-2026-10-09-attuazione.md) — da `bi` `e110e9d0`: una
   fonte trovata che non ripristina la disponibilità, il marcatore «manuale»

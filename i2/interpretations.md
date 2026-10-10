@@ -29,3 +29,7 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
   le misure copiate da una fonte sono 16 e quasi tutte in `danea-auto` e
   `bi`; il churn diffuso viene dallo stato del lavoro ricopiato da fili, plan
   e `o3/`. Il nord si separa meccanicamente sullo scheletro.
+- [casi-delega-adottanti.md](casi-delega-adottanti.md) — prima lettura dei
+  18 casi della delega da `bi`, `crm` e `baserow`: due temi attraversano
+  più adottanti, il checkout che è anche superficie servita e le conferme
+  rivelate inutili; gli altri restano in attesa di un secondo adottante.

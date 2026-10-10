@@ -30,7 +30,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 - [battito-autonomo.md](battito-autonomo.md) — l'artefatto regge un giro
   `eval` → `exec` → commit senza custode? Push autonomo in `method` e
   prescritto ai sette; delega dei cicli avviati dal custode ratificata in
-  `autonomy.md`, con Goal aggiornato; il battito schedulato resta da collaudare. Riesame il 2026-11-01,
+  `autonomy.md`, con Goal aggiornato; primi 18 casi della delega da tre
+  adottanti, residuo nel checkout servito; il battito schedulato resta da collaudare. Riesame il 2026-11-01,
   verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
   e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la

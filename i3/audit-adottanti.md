@@ -32,8 +32,11 @@ due fatti restano nel Goal come buchi di misura con provenienza).
 `delega-ciclo` è chiusa lo stesso giorno: i sette hanno `autonomy.md` locale
 e il presidio dei casi in `eval perceive`; il riesame dei casi e di un
 campione di decisioni ordinarie vive nello step 5b di `/adottanti`, la
-raccolta nel passo 3 di `eval perceive` canonico. Nessun caso ancora
-raccolto, nessun giro delegato reale. Perimetri decisi dal custode nelle
+raccolta nel passo 3 di `eval perceive` canonico. Al 2026-10-10 i giri
+delegati reali hanno inoltrato 18 casi da `bi`, `crm` e `baserow`, letti in
+`i2/casi-delega-adottanti.md`; nei giri dall'08/10 i trailer `Esiti:`
+compaiono in sei adottanti, mentre l'ultimo giro di `nixos` con trailer è
+del 27/09 (`821795a`). Perimetri decisi dal custode nelle
 sessioni: sola lettura e atti di `CLAUDE.md` in `nixos`; rilasci e PROD
 riservati in `bi`; deploy, produzione e invii riservati in `crm`; invii come
 sola bozza in `economia`. Tre atti sul Mondo delegati: eventi Calendar delle
