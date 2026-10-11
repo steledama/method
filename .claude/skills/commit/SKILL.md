@@ -99,7 +99,11 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    Impatto-motivo: ciclo-delegato (autonomy.md, verdetto corretto su fonte verificata)"
    ```
 
-6. Esegui `git status` per confermare che il commit sia andato a buon fine.
+6. Esegui `git status` per confermare che il commit sia andato a buon fine,
+   e rileggi i trailer con `git log -1 --format='%(trailers)'`: devono
+   comparire tutti quelli scritti. Se mancano o sono sbagliati, correggi con
+   `git commit --amend` finché il commit non è pubblicato; dopo il push non
+   si riscrive la storia, si dichiara l'errore.
 
 7. Esegui `git push` del branch corrente su `origin` (autorizzato dal custode
    il 2026-10-08, `CLAUDE.md` «Push remoto») e riporta SHA ed esito. Se il
@@ -108,7 +112,9 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 IMPORTANTE:
 
 - NON usare `--no-verify`
-- NON fare amend di commit esistenti salvo richiesta esplicita
+- NON fare amend di commit già pubblicati salvo richiesta esplicita: l'amend
+  corregge solo il commit locale non ancora spinto (`git log @{u}..HEAD` lo
+  elenca)
 - NON fare `push --force` né push di altri branch salvo richiesta esplicita
 - NON committare file con segreti (`.env`)
 - NON aggiungere automaticamente trailer di attribuzione o coautoria riferiti a

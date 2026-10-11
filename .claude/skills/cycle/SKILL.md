@@ -33,7 +33,9 @@ un ostacolo da aggirare.
 **Avvio.** L'unità ha già controllato host, lock, branch e working tree; la
 skill li ricontrolla prima di ogni atto (`git status --short` vuoto,
 `git pull --ff-only` riuscito). Se una condizione manca, non toccare nulla e
-chiudi con il resoconto e lo stop.
+chiudi con il resoconto e lo stop. I comandi git partono dalla cartella
+del repo, senza `git -C`: i permessi riconoscono il comando dal suo inizio, e
+un comando composto con un pezzo non concesso è negato per intero.
 
 **Durante il giro.** Non fare domande. Ogni punto che in sessione
 chiederesti al custode, e ogni punto riservato da `confine-delega`, diventa
@@ -49,8 +51,12 @@ sessione concorrente, e allora non committi e chiudi con lo stop. Le
 verifiche del repo devono passare; se una fallisce, niente commit e working
 tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
 con `Esiti:`, `Autonomia: agente`, `Impatto` almeno medio e
-`Impatto-motivo:` col criterio di copertura. Poi il push: se è rifiutato,
-niente force, rebase o merge; il commit resta locale e lo dichiari.
+`Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
+senza trailer di coautoria. Prima del push rileggi i trailer
+(`git log -1 --format='%(trailers)'`) e correggi con `git commit --amend` se
+mancano: dopo il push la storia non si riscrive, l'errore si dichiara nel
+resoconto. Poi il push: se è rifiutato, niente force, rebase o merge; il
+commit resta locale e lo dichiari.
 
 **Resoconto finale.** È l'ultimo messaggio e finisce nel log del tentativo,
 reso nella pagina del giro della vista (`kb/view.md`, «Stato operativo letto

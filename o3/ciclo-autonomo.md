@@ -70,11 +70,37 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
      lettura con `additionalDirectories`: fuori dalla cartella di lavoro il
      modo non interattivo nega anche la lettura. La scrittura resta
      impossibile perché l'unità rende la home in sola lettura;
+   - git e verifiche hanno una base uguale in ogni repo, che non si spezza
+     per cartella:
+     - in lettura `git status*`, `git diff*`, `git log*`, `git show*`,
+       `git rev-parse *`, `git branch --show-current`, `git pull --ff-only*`;
+     - negli atti `git add *`, `git commit *` (amend compreso), `git push`,
+       `git push origin <branch>`;
+     - i deny che la recintano, in `.claude/settings.json` perché valgono
+       anche in sessione: `git add -A*`, `--all*`, `.*`, `--no-verify`,
+       ogni forma di force push, `git reset`, `rebase`, `clean`, `checkout`,
+       `switch`, `restore`, `stash`, `merge`, `config`, e di `git branch` le
+       sole forme che cancellano, rinominano o forzano (`-d`, `-D`,
+       `--delete`, `-m`, `-M`, `-f`, `--force`). Un deny vince sempre su un
+       allow: `git branch*` intero negava anche `--show-current` (tre
+       dinieghi nel secondo giro di `salute`). Non si concede `git -C *`, che
+       aggirerebbe i pattern: la skill lavora dalla cartella del repo;
+     - l'amend è concesso dove è concesso il commit, perché chi committa
+       possa correggere un trailer sbagliato. Corregge solo il commit non
+       ancora pubblicato: il force push resta negato, e un amend dopo il push
+       lascerebbe il branch divergente e fermerebbe il giro successivo;
+   - restano di dominio, per nome e oggetto, gli script del repo e gli
+     strumenti sul Mondo (`rclone`, `gog` e simili);
    - gli atti sul Mondo si concedono per nome e oggetto, mai per famiglia
      intera; gli invii verso persone esterne restano al custode, con un
      wrapper nell'unità dove l'harness non basta (es.
      `gog --gmail-no-send`).
 8. Registrare nel marker il recepimento o l'adattamento motivato.
+
+Il ciclo autonomo non legge `~/.claude/settings.json`: ciò che lì vale per
+tutte le sessioni, come le variabili d'ambiente e `attribution` vuoto (niente
+`Co-Authored-By`, che nel secondo giro di `salute` ha staccato i trailer
+dall'ultimo paragrafo), lo passa l'unità dell'host.
 
 Lato host, in `nixos` (non è un passo dell'adottante): modulo `cicli`
 (`o3/cicli.nix`, unità `ciclo-<repo>` e `ciclo-<repo>-sonda`, stato in

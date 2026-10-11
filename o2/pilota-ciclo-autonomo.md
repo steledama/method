@@ -70,6 +70,20 @@ arriva agli adottanti via symlink.
   ereditano nei workspace fidati; senza fonti il giro perde `CLAUDE.md` e
   skill. Regola da prescrivere: gli allow di `settings.json` stanno dentro
   quelli del file del ciclo autonomo, i deny sono liberi.
+- **`salute`, secondo giro manuale, 2026-10-11** (`deck`): riuscito con
+  commit `1d7fe22` e push, 2,5 minuti, 44 turni, 0,89 USD. La skill `cycle` invocata in modo `autonomo`, riga `Attenzione:` presente, semaforo
+  giallo per proposte e dinieghi. Le correzioni dei permessi del primo giro
+  tengono (`sort`, lettura di `method/`). Una foto pressoria illeggibile non
+  registrata e lasciata come proposta in `o2/`. Due difetti, dichiarati
+  dall'agente stesso: tre dinieghi su `git` (il deny intero su `git branch`
+  e `git -C`) e un `Co-Authored-By` che ha staccato i trailer, perché il
+  ciclo autonomo non legge `attribution` dalle impostazioni utente. Il giro
+  resta fuori dal conteggio degli esiti; `1d7fe22` non si riscrive. Il
+  custode ha deciso lo stesso giorno: amend concesso dove è concesso il
+  commit, solo prima del push, con la rilettura dei trailer nelle skill
+  `commit` e `cycle`; base git comune nella prescrizione
+  [ciclo-autonomo](../o3/ciclo-autonomo.md); `attribution` passato
+  dall'unità.
 - **`crm`, `svezia`**: sospeso fino alla presenza del custode sull'host.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
