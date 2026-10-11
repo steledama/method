@@ -40,6 +40,16 @@ al custode; il lavoro indipendente prosegue. Il resoconto espone decisioni,
 motivi, incertezze e proposte. La delega di un ciclo avviato dall'umano non
 autorizza da sola un battito schedulato.
 
+Il contenuto delegato non decide da solo il momento del commit. Nella
+sessione interattiva le decisioni restano aperte finché il custode le
+discute, e un commit a ogni passaggio fissa fotografie che cambieranno: a
+storia pubblicata ogni ritocco diventa un altro commit. Lì il momento si
+concorda: l'agente lo propone quando un punto si è fermato, o lo prende
+dichiarandolo quando un lettore fuori dalla sessione ne ha bisogno. Il
+ciclo chiesto fino al commit lo include, e il giro senza custode chiude col
+proprio commit. Il push resta una conseguenza del commit, non una seconda
+decisione.
+
 Il consenso può precedere il giro e vivere nel register anche quando il
 custode è presente. `autonomy.md` dichiara criteri nominati, ambito, evidenza,
 atti consentiti e condizioni di arresto. Gli adottanti ne definiscono il

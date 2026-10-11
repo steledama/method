@@ -46,7 +46,9 @@ che richiede una decisione e continuare il lavoro indipendente. In assenza
 di delega applicabile si propone; il colore dell'impatto non concede autorità.
 
 Chiudere gli scope richiesti con i controlli e `/commit`, incluso il push
-quando autorizzato. Nel ciclo congiunto l'ordine è `eval → exec → commit`,
+quando autorizzato. Nella sessione interattiva il momento del commit si
+concorda col custode (`kb/consent.md`): un ciclo chiesto fino al commit lo
+include, gli scambi successivi no. Nel ciclo congiunto l'ordine è `eval → exec → commit`,
 senza conferme obbligatorie fra gli archi; invocare un arco solo non estende
 lo scope. Il resoconto finale distingue decisioni applicate, motivi,
 incertezze e proposte pendenti. La presenza del custode non equivale alla

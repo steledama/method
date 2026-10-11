@@ -21,6 +21,15 @@ delle collezioni. Include gli interventi già autorizzati, i controlli
 necessari e la chiusura con commit e push nei limiti di `CLAUDE.md`.
 Una voce nel plan non autorizza da sola qualsiasi atto di dominio.
 
+Criterio `momento-del-commit`, deciso il 2026-10-11 da Stefano. Nella
+sessione interattiva il momento del commit si concorda: le decisioni in
+discussione restano aperte ad aggiustamenti e ripensamenti. L'agente
+propone il commit quando un punto si è fermato; lo fa di propria
+iniziativa, dichiarandolo, solo se un lettore fuori dalla sessione ne ha
+bisogno, come un adottante che recepisce o un'altra sessione. Il ciclo
+chiesto esplicitamente fino al commit lo include. Il push segue ogni
+commit senza conferma.
+
 L'agente verifica le fonti, esplicita provenienza e incertezza e conserva il
 presidio delle ipotesi. Una tesi nuova può essere registrata come ipotesi;
 non diventa un fatto certo per rendere eseguibile una decisione.
