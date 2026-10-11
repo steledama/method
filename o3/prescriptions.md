@@ -17,6 +17,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
+- [Nella sessione interattiva il momento del commit si
+  concorda](momento-del-commit.md) — l'agente propone il commit quando un
+  punto si è fermato, lo prende da sé solo per un lettore fuori dalla
+  sessione; il push resta automatico. Prescritta ai sette il 2026-10-11.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.
