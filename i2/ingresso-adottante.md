@@ -15,7 +15,7 @@ fissata nel commit locale `57ef8a6` e il marker è `aligned` a `c6939d6`.
 La differenza di dominio non ha cambiato il lavoro nel repository canonico. In
 entrambi i casi l'ingresso ha richiesto di ritrovare a mano le rappresentazioni
 del territorio: voce e conteggio in `world.md`, bussola e register Goal, nodi che
-descrivono il Mondo e gli adottanti, scadenza del battito, filo dell'audit e
+descrivono il Mondo e gli adottanti, scadenza dell'audit, filo dell'audit e
 viste derivate. Il primo giro su `crm` aveva già misurato **nove file** toccati e
 una vista stale; quantità misurata sul diff `b9d01b5`. Il secondo giro conferma
 la dispersione ma aggiunge il bisogno di distinguere tre fotografie:
@@ -44,7 +44,7 @@ preservare, e l'ingresso è partito solo quando il marker locale era
 `aligned`. Ha richiesto una sola correzione, che ora sta nella prescrizione
 (`f44b6c0`): la scelta di un accento delle viste non confondibile con quelli
 già registrati, nata da un primo colore troppo vicino a quello di `salute`.
-La prima verifica nell'uso è il battito `/adottanti` del 2026-11-01.
+La prima verifica nell'uso è l'audit `/adottanti` del 2026-11-01.
 
 ## Materiale verificato
 
@@ -52,7 +52,7 @@ La prima verifica nell'uso è il battito `/adottanti` del 2026-11-01.
 - `danea-auto` commit `57ef8a6`, marker `i3/allineamento-metodo.md`, register,
   plan e catalogo locali;
 - `metodo` a `c6939d6`, inclusi `world.md`, `goal.md`, `adopter-comparison`,
-  `audit-adottanti` e la scadenza del battito.
+  `audit-adottanti` e la scadenza dell'audit.
 
 Non sono stati verificati il runtime Windows, Task Scheduler, Danea,
 LibreOffice, backup o Google Drive: sono limiti della baseline locale, non del

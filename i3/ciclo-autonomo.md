@@ -3,7 +3,7 @@ ciclo: dev
 obiettivo: S, 2
 ---
 
-# Il battito autonomo: con quali garanzie ogni repo ci arriva?
+# Il ciclo autonomo: con quali garanzie ogni repo ci arriva?
 
 Il custode, 2026-10-08: gli adottanti sono abbastanza maturi da iniziare a
 girare da soli. Le ultime modifiche al canone rendono esplicite, scritte e
@@ -13,7 +13,7 @@ attesa è un **loop agentico di base**, uguale per tutti: un giro `eval` →
 `exec` che chiude con un commit e il push, schedulato da ogni repo e senza
 custode. I loop di dominio si articolano poi su questa base.
 
-Il custode, 2026-10-11: il battito autonomo di runtime è parte costitutiva del
+Il custode, 2026-10-11: il ciclo autonomo di runtime è parte costitutiva del
 metodo (`goal.md`, Goal di sviluppo). Ogni repo ci va, gradualmente e con i
 propri limiti; l'artefatto deve avere un ambito di autonomia e strumenti
 rigorosi di tracciabilità, controllo e verifica. La domanda non è più _se_
@@ -29,14 +29,14 @@ controlli a colpo d'occhio e tenga in mano i criteri.
 La tensione si misura contro due obiettivi:
 
 - **S**: il Goal di sviluppo ora delega il governo operativo dei cicli
-  avviati dal custode e conserva la supervisione degli esiti. Il battito
+  avviati dal custode e conserva la supervisione degli esiti. Il ciclo autonomo
   schedulato richiede un'ulteriore estensione e visibilità senza sessione.
 - **2**: il loop si propaga come canone agli adottanti, e lì incontra le
   differenze di dominio.
 
 ## Lo stato del verdetto
 
-Il battito schedulato non è ancora misurabile; il primo giro non
+Il ciclo autonomo schedulato non è ancora misurabile; il primo giro non
 interattivo sì. La prima delega è invece
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
@@ -44,12 +44,12 @@ frequente riferita dal custode motiva la riduzione dell'attrito, non prova
 la fedeltà delle ricostruzioni. I fatti ulteriori:
 
 - **Primo giro reale**, 2026-10-11: `salute` su `deck`, gradino 0 avviato
-  a mano dall'unità del modulo `battiti` di `nixos`. Riuscito con commit e
+  a mano dall'unità del modulo `cicli` di `nixos`. Riuscito con commit e
   push, materia in tutti gli stadi, una proposta lasciata al custode, un
   errore di strumento corretto con test, errori minori dichiarati
-  dall'agente. Dettaglio e punti aperti in `o2/pilota-battito.md`. Il
+  dall'agente. Dettaglio e punti aperti in `o2/pilota-ciclo-autonomo.md`. Il
   custode ha giudicato ottimo il test; la fedeltà resta da misurare sul
-  campione. Il custode ha posto la visibilità del battito nella home come
+  campione. Il custode ha posto la visibilità del ciclo autonomo nella home come
   condizione parallela, non successiva (`o2/home-fatto-da-fare.md`).
 - **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
   sette lo stesso giorno e prescrizione chiusa (dettaglio in
@@ -61,7 +61,7 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   stato rifiutato perché un altro checkout aveva pubblicato nel frattempo.
   La regola ha tenuto: nessuna forzatura, arresto, riferimento al custode. Il
   rebase ha chiesto la cancellazione di due file, e il permesso dell'harness
-  l'ha fermata. Un battito senza custode incontrerà lo stesso caso e non
+  l'ha fermata. Un ciclo autonomo senza custode incontrerà lo stesso caso e non
   potrà chiedere.
 - **Primi riscontri sulla prima delega**, 2026-10-09/10: 18 casi inoltrati
   da `bi`, `crm` e `baserow` (`i2/casi-delega-adottanti.md`). Nessuna
@@ -69,7 +69,7 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   dall'agente, uno dei quali giudicato corretto dal custode; quattro
   conferme rivelate inutili, con il criterio allentato in `crm`. Il
   residuo di dominio è il checkout che è anche superficie servita: in `bi`
-  il commit è già rilascio, in `crm` una pubblicazione. Un battito senza
+  il commit è già rilascio, in `crm` una pubblicazione. Un ciclo autonomo senza
   custode non potrebbe chiedere su quel confine: va riconosciuto prima
   dell'atto. Il custode ha deciso il 2026-10-10 che la delega vale anche lì,
   con eccezioni nominate in `autonomy.md` ([consent](../kb/consent.md));
@@ -98,24 +98,24 @@ La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
 commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
 stato in `method` e nei sette adottanti (`goal-senza-fotografia`, chiusa
 il 2026-10-09). I passi restanti sono task in `o1/plan.md`:
-criteri del battito schedulato, home con fatto e da fare,
+criteri del ciclo autonomo schedulato, home con fatto e da fare,
 scelta dell'esecutore e pilota. La
 ricerca sull'esecutore può partire indipendentemente; il pilota attende
 criteri, home ed esecutore. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
-Prima del battito schedulato la home deve includere i tentativi senza commit.
+Prima del ciclo autonomo schedulato la home deve includere i tentativi senza commit.
 
 Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
 impedisce di equiparare un motivo leggibile a una ricostruzione fedele.
 La delega sulla manutenzione dell'artefatto non estende automaticamente
 quella sulle azioni di dominio. Il custode ha ratificato il nuovo Goal e la prima delega del ciclo il
 2026-10-09; il pilota e la sua estensione restano da decidere. L'esito deve misurare anche il costo per il custode:
-un battito frequente e ben documentato può comunque aumentarlo.
+un ciclo autonomo frequente e ben documentato può comunque aumentarlo.
 
 ## Condizione di chiusura
 
-Riesame al battito `/adottanti` del **2026-11-01**: avanzamento del
+Riesame all'audit `/adottanti` del **2026-11-01**: avanzamento del
 percorso e riscontri sulla prima delega. Il verdetto vero arriva alla fine dell'osservazione del pilota,
-con durata e criterio di riuscita fissati in `o2/pilota-battito.md`. A quel
+con durata e criterio di riuscita fissati in `o2/pilota-ciclo-autonomo.md`. A quel
 punto il loop di base diventa canone e si prescrive, oppure si corregge. Il
 ritorno alla modalità assistita resta possibile per il singolo repo o
 gradino, non per la direzione.

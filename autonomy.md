@@ -77,7 +77,7 @@ ricostruzioni con le fonti, secondo il filo
 
 Questa delega riguarda cicli avviati dal custode. Non copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
-Il battito schedulato,
+Il ciclo autonomo schedulato,
 la sua visibilità anche senza commit e l'estensione dei criteri attendono
-il [percorso del pilota](o2/pilota-battito.md). Il custode può restringere o
+il [percorso del pilota](o2/pilota-ciclo-autonomo.md). Il custode può restringere o
 revocare la delega; il register e Git ne conservano lo stato e la storia.

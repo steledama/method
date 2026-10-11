@@ -11,17 +11,17 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.                                                                             |
-| ----- | --- | ----------------------------------------------- | -------------------------------------------------------------------------------- |
-| dev   | S   | Criteri del battito schedulato                  | —                                                                                |
-| dev   | S   | Home con fatto e da fare                        | —                                                                                |
-| dev   | S   | Dove gira il battito                            | —                                                                                |
-| dev   | S   | Pilota del battito                              | ↳ Criteri del battito schedulato; Home con fatto e da fare; Dove gira il battito |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                                                               |
+| Ciclo | Ob. | Task                                            | Dip.                                                                                           |
+| ----- | --- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| dev   | S   | Criteri del ciclo autonomo schedulato           | —                                                                                              |
+| dev   | S   | Home con fatto e da fare                        | —                                                                                              |
+| dev   | S   | Dove gira il ciclo autonomo                     | —                                                                                              |
+| dev   | S   | Pilota del ciclo autonomo                       | ↳ Criteri del ciclo autonomo schedulato; Home con fatto e da fare; Dove gira il ciclo autonomo |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                                                                                             |
 
 Legenda dipendenze esterne:
 
-`p1` = battito `/adottanti` del **2026-11-01**: il risveglio conta gli
+`p1` = audit `/adottanti` del **2026-11-01**: il risveglio conta gli
 esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 `o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
 
@@ -40,7 +40,7 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
   conferma o meno che `aligned` e i file coincidono. Riesame del filo
-  [i3/battito-autonomo.md](../i3/battito-autonomo.md): avanzamento del
+  [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md): avanzamento del
   percorso e riscontri sulla prima delega.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da

@@ -6,7 +6,7 @@ obiettivo: 2
 # Audit runtime-o1: la distanza degli adottanti dal telos
 
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
-ogni giro. Ultimo giro d'insieme: **2026-10-01**, quarto battito, puntuale
+ogni giro. Ultimo giro d'insieme: **2026-10-01**, quarto audit, puntuale
 sulla scadenza; verifiche fuori giro il 2026-10-02 e il 2026-10-03. Le
 letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
 `deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`. `baserow`, settimo
@@ -47,7 +47,7 @@ di LibreOffice incastrato e test dei task fuori slot in `danea-auto`,
 recepimento selettivo con effetto dichiarato sull'osservazione
 (`i2/presidio-ipotesi-adottanti.md`). In `nixos` il push rifiutato per
 divergenza si è fermato fino al via del custode al rebase: confine
-rispettato, primo caso riuscito da riesaminare al battito.
+rispettato, primo caso riuscito da riesaminare all'audit.
 
 `revisione-bootstrap-adottante` è chiusa lo stesso giorno, dopo la lettura
 nel merito dei quattro file su `origin` (`i2/bootstrap-adottanti.md`): il
@@ -63,7 +63,7 @@ già soddisfatta: il prossimo `/method` locale può ripristinare l'esito.
 procedura dell'osservatorio, non una ricetta da recepire, e vive fra le
 procedure di `o3/prescriptions.md`, richiamata da `/adottanti`. Il collaudo
 con `baserow` è in `i2/ingresso-adottante.md`; la prima verifica nell'uso
-resta al battito del 01/11.
+resta all'audit del 01/11.
 
 `pull-autonomo` è chiusa lo stesso giorno, recepita dai sette su `origin`:
 `economia`, `salute`, `crm` e `baserow` a `8796425`, `bi` a `1f0e55a`
@@ -198,24 +198,24 @@ righe nel corpo, senza riscrivere la storia.
 ## Tensioni aperte
 
 - `aligned` e file: coincidono da tre giri (2026-09-25, 2026-09-30,
-  2026-10-01). Finché non è confermato, il battito verifica le prescrizioni
+  2026-10-01). Finché non è confermato, il ciclo autonomo verifica le prescrizioni
   nei file e non nei marker; se il 2026-11-01 coincidono ancora, la verifica
   d'insieme si alleggerisce;
 - `revisione-bootstrap-adottante`: completare il confronto fra gli esiti
   dichiarati e il contratto della revisione coordinata; i marker da soli
   non equivalgono alla rilettura qualitativa dei quartetti. Il task
   `Goal senza fotografia` ha aggiornato il contratto di questa prescrizione;
-- ripetibilità: il quarto battito è arrivato in tempo, ma lo ha ricordato
+- ripetibilità: il quarto audit è arrivato in tempo, ma lo ha ricordato
   l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
-  cella runtime-o1 resta D finché il battito non parte da un innesco;
+  cella runtime-o1 resta D finché il ciclo autonomo non parte da un innesco;
 - `crm`: 41 giorni di plan fermo con 9 task dev. Al prossimo giro: riprende
   il dominio, o la struttura adottata è scaffolding intorno a un lavoro che
   vive altrove? La domanda è per `crm`, non per il canone;
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
-- la clausola di uscita delle skill per arco: il battito del 2026-11-01
+- la clausola di uscita delle skill per arco: l'audit del 2026-11-01
   conta gli esiti per stadio e per repository;
-- `baserow`, prima verifica nell'uso al battito del 2026-11-01: il segnale
+- `baserow`, prima verifica nell'uso all'audit del 2026-11-01: il segnale
   è lo stato del backup raccolto dai suoi `/eval perceive`. Un timer attivo
   con restore provato chiude il primo fronte. Su `origin` al 2026-10-07 il
   restore è provato (`9f69920`) e strumenti e timer sono versionati
@@ -237,7 +237,7 @@ righe nel corpo, senza riscrivere la storia.
   (`fb8509c`, collaudo LAN in `ec881e8`, da casa in `41453cc`): verificato
   qui dall'indirizzo LAN di `svezia`, 200 coi titoli giusti, 404 su `/.env`.
   Per `danea2` c'è solo il collaudo riportato dall'istanza di `danea-auto`,
-  ora pubblicato su `origin` ma non verificato da qui; lo legge il battito
+  ora pubblicato su `origin` ma non verificato da qui; lo legge il ciclo autonomo
   del 2026-11-01;
 - `origin` resta indietro quando un adottante non pubblica i suoi commit.
   Il 2026-10-05 `danea-auto` aveva recepito `migrazione-viste` a `f21594b`

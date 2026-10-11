@@ -1,0 +1,99 @@
+---
+data: 2026-10-11
+stato: attiva
+ciclo: runtime
+target: salute, nixos, bi, economia, crm, danea-auto, baserow
+---
+
+# Il ciclo autonomo: skill `/cycle`, vista e permessi
+
+## Cosa e perché
+
+Dal 2026-10-11 il ciclo autonomo di runtime è direzione costitutiva del metodo
+(`goal.md` di `metodo`, Goal di sviluppo): ogni repo ci arriva, gradualmente,
+con un ambito di autonomia dichiarato e strumenti rigorosi di tracciabilità,
+controllo e verifica. Il primo giro reale (`salute` su `deck`, gradino 0) ha
+retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
+
+1. **Il nome.** «Battito» era una metafora scollegata dalla teoria. Il giro
+   `eval → exec → commit` è il **ciclo congiunto** di `autonomy.md`, un
+   passaggio completo del ciclo d'azione; quando gira senza custode è il
+   **ciclo autonomo**. La skill che lo compone è `/cycle`, in sintonia con
+   `/eval` ed `/exec`.
+2. **La vista.** Il ciclo autonomo si vede nella home, **in parallelo** al
+   ciclo stesso: ultimi cinque tentativi col semaforo (verde riuscito, giallo
+   da guardare, rosso bloccato) e da ogni riga la pagina del giro. Lo stato si
+   legge a richiesta, fuori dalla release (`kb/view.md`, «Stato operativo
+   letto a richiesta»). Un repo senza ciclo autonomo lo dichiara.
+3. **I permessi.** Le sonde del 2026-10-11 hanno mostrato che con
+   `--setting-sources project` il ciclo autonomo eredita allow e deny di
+   `.claude/settings.json`, e che senza fonti di progetto perde `CLAUDE.md` e
+   le skill. Il recinto vero è l'unità dell'host; i permessi dell'harness sono
+   il secondo, e vanno tenuti larghi sulla lettura e stretti sugli atti.
+
+## Ricetta per il /method locale
+
+**Per tutti.**
+
+1. Forkare la skill `cycle` (`.claude/skills/cycle/SKILL.md` e il wrapper
+   Codex), parametrizzando verifiche e criteri del repo; elencarla in
+   `CLAUDE.md` accanto a `eval` ed `exec`.
+2. Allineare `o3/view/` al canone: `ciclo.py`, `serve.py` (opzione
+   `--ciclo-state`, rotte `/_ciclo/`), `build_system_image.py` (sezione in
+   cima alla home, o `ciclo.home_section()` in un builder di dominio),
+   `sources.py` (rotte servite a richiesta nel presidio del compartimento),
+   `assets/system-image.css`; test in `tests/test_ciclo.py` se il repo tiene
+   i test delle viste.
+3. Chi aveva recepito `battito-nella-home` rinomina invece di aggiungere:
+   `battito.py` → `ciclo.py`, `test_battito.py` → `test_ciclo.py`, classi CSS
+   `battito-*` → `ciclo-*`, «battito» → «ciclo autonomo» nei testi vivi.
+4. Verificare con `python3 o3/view/build.py --check` e i test; aperta come
+   file, la home dice che il ciclo autonomo si legge dalla vista servita.
+
+**Solo nei repo con un ciclo autonomo** (oggi `salute`):
+
+5. File del repo: `.claude/ciclo.json` (permessi del solo ciclo autonomo) e
+   `.claude/ciclo-prompt.md` (il prompt dell'unità). Il prompt si riduce a
+   «esegui `/cycle autonomo`» più ciò che è solo locale: criterio di
+   copertura e trailer del gradino, host, verifiche, atti sul Mondo.
+6. Criterio in `autonomy.md`: `ciclo-autonomo` (il perimetro del giro senza
+   custode), distinto da `ciclo-delegato` (il ciclo avviato dal custode).
+7. Permessi, regola comune:
+   - gli allow di `.claude/settings.json` stanno dentro quelli di
+     `.claude/ciclo.json`; i deny si aggiungono liberamente, perché valgono
+     anche nel ciclo autonomo;
+   - la lettura è larga: oltre a `cat`, `head`, `tail`, `grep`, `jq` e
+     `sed -n`, anche `sort`, `uniq`, `cut`, `tr`, `diff`. Un comando composto con
+     un solo pezzo non concesso è negato per intero e costa turni (due casi
+     nel primo giro di `salute`);
+   - il checkout di `method` letto dal repo (symlink `method/`) si concede in
+     lettura con `additionalDirectories`: fuori dalla cartella di lavoro il
+     modo non interattivo nega anche la lettura. La scrittura resta
+     impossibile perché l'unità rende la home in sola lettura;
+   - gli atti sul Mondo si concedono per nome e oggetto, mai per famiglia
+     intera; gli invii verso persone esterne restano al custode, con un
+     wrapper nell'unità dove l'harness non basta (es.
+     `gog --gmail-no-send`).
+8. Registrare nel marker il recepimento o l'adattamento motivato.
+
+Lato host, in `nixos` (non è un passo dell'adottante): modulo `cicli`
+(`o3/cicli.nix`, unità `ciclo-<repo>` e `ciclo-<repo>-sonda`, stato in
+`~/.local/state/ciclo/<repo>/`) e `--ciclo-state` passato alla vista del repo
+servita dallo stesso host.
+
+## Indizi da verificare sul posto
+
+- **salute**: ha `battito.json`, `battito-prompt.md`, il criterio
+  `battito-delegato` e la vista col battito: rinomina tutto (passi 3, 5, 6) e
+  applica i permessi del passo 7. Il secondo giro manuale è previsto per il
+  2026-10-12.
+- **economia**: ha recepito `battito-nella-home` (`05c2f6d`): passo 3, più
+  la skill.
+- **nixos**: oltre al recepimento, il modulo dei cicli autonomi e le
+  presentazioni sono suoi; `/manutenzione` resta una skill di dominio a sé.
+- **danea-auto**: servito da Windows, senza `decisioni.json`: la home dirà
+  «nessun ciclo autonomo dichiarato» finché il Task Scheduler non scrive uno
+  stato nella stessa forma.
+- **bi**, **crm**, **baserow**: home canonica o di dominio da verificare; in
+  `bi` il push resta su richiesta quando i commit toccano il codice eseguito
+  dal ciclo.

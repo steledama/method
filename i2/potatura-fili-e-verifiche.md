@@ -35,7 +35,7 @@ verifica.
   `i3/audit-adottanti.md`; `vista-derivata-e-verificata` in `kb/view.md`
   («Freschezza», con l'escalation); `igiene-stadi-output` in `kb/plan.md`
   (`Ob.`, chiave `S`), con la contraddizione di `economia` sciolta;
-  `protocollo-post-evento` e `ricorrenza-per-battito` in `kb/skill.md` e
+  `protocollo-post-evento` e `ricorrenza-per-ciclo autonomo` in `kb/skill.md` e
   `kb/plan.md`.
 - **Verifiche orfane** dentro le risalite (3): l'email come superficie i1
   attende ancora la seconda istanza, `acquisti@` di `bi`, che il suo task

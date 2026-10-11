@@ -1,9 +1,9 @@
 ---
-sintesi: "La prima delega è operativa in autonomy.md e nelle skill: ciclo avviato dal custode senza conferme ordinarie. Restano criteri per il battito schedulato, resa nella home e collaudo delle proposte."
+sintesi: "La prima delega è operativa in autonomy.md e nelle skill: ciclo avviato dal custode senza conferme ordinarie. Restano criteri per il ciclo autonomo schedulato, resa nella home e collaudo delle proposte."
 ciclo: dev
 ---
 
-# Criteri del battito schedulato
+# Criteri del ciclo autonomo schedulato
 
 Il trittico è materializzato in root: `goal.md` dichiara gli scopi,
 `world.md` il territorio, [autonomy.md](../autonomy.md) le condizioni della
@@ -23,7 +23,7 @@ adottanti (prescrizione `delega-ciclo`, chiusa il 2026-10-09), ciascuno col
 proprio perimetro; la raccolta dei casi vive in `eval perceive` e il loro
 riesame in `/adottanti`.
 
-## Lavoro residuo prima del battito schedulato
+## Lavoro residuo prima del ciclo autonomo schedulato
 
 - Concordare quali atti il pilota possa compiere quando manca anche
   l'avvio del custode, e come sospenda o riprenda i punti riservati.

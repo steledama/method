@@ -12,7 +12,7 @@ target: nixos, bi, economia, salute, crm, danea-auto
 La clausola di uscita della tripartizione `eval`/`exec` giudica la divisione
 in stadi soprattutto sugli **esiti nulli**: uno stadio che chiude vuoto in
 tutti i repository per tre giri direbbe che la divisione è «troppo». Il
-battito del 2026-09-24 ha mostrato che questa misura non esiste: un esito
+ciclo autonomo del 2026-09-24 ha mostrato che questa misura non esiste: un esito
 vuoto viene restituito solo in conversazione e non lascia traccia, così un
 giro senza materia è indistinguibile da un giro mai fatto
 (`i3/skill-per-arco-tripartito.md`, verdetto del 2026-09-24).
@@ -43,7 +43,7 @@ file nuovo: il log è git.
 ## Verifica
 
 `git log --since=<data> --format='%(trailers:key=Esiti,valueonly)'` restituisce
-una riga per giro. Il battito `/adottanti` del 2026-11-01 la usa per contare
+una riga per giro. L'audit `/adottanti` del 2026-11-01 la usa per contare
 gli esiti per stadio e per repository. Un repository senza nessuna riga dopo
 il recepimento non ha fatto giri, oppure non registra: la distinzione si fa
 leggendo il resto del `git log`.

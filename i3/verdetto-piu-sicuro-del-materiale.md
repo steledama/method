@@ -29,14 +29,14 @@ direzione, verso la lettura più raccontabile — è nel nodo e in git.
   sale a canone se un secondo adottante la sviluppa da sé.
 
 Nessuna delle due ha una data: le porta in superficie lo scope `compare`
-degli adottanti, e il battito `/adottanti` le cerca nei loro fili `i3/`.
+degli adottanti, e l'audit `/adottanti` le cerca nei loro fili `i3/`.
 
-## Rilevanza per il battito autonomo
+## Rilevanza per il ciclo autonomo
 
 La delega del ciclo in [autonomy.md](../autonomy.md), già operativa per
 i giri avviati dal custode, incontra questa tensione: riordinare il lavoro su fatti verificati
 e introdurre una tesi nuova non hanno la stessa delegabilità. Il pilota del
-[battito autonomo](battito-autonomo.md) deve rileggere un campione di
+[ciclo autonomo](ciclo-autonomo.md) deve rileggere un campione di
 ricostruzioni contro le fonti, oltre a verificare impatto e motivo. La
 supervisione a posteriori va valutata anche per gli errori che riesce a
 intercettare e il lavoro che richiede; la proposta di autonomia non risolve

@@ -1,11 +1,11 @@
 ---
-sintesi: "Il battito gira da un timer systemd dichiarato in un unico modulo nixos, con Claude Code non interattivo: un file di decisioni per repo e un meccanismo generico. Resta da costruire e collaudare al gradino 0."
+sintesi: "Il ciclo autonomo gira da un timer systemd dichiarato in un unico modulo nixos, con Claude Code non interattivo: un file di decisioni per repo e un meccanismo generico. Resta da costruire e collaudare al gradino 0."
 ciclo: dev
 ---
 
-# Dove gira il battito
+# Dove gira il ciclo autonomo
 
-Il battito è un giro `eval all` → `exec all` che chiude con un commit e il
+Il ciclo autonomo è un giro `eval all` → `exec all` che chiude con un commit e il
 push, senza custode.
 
 ## Scelta
@@ -21,7 +21,7 @@ Decisa dal custode il 2026-10-11.
   complicava senza beneficio. Se servirà cambiare, si valuteranno le opzioni
   di quel momento.
 - **Prova**: su repo reali con il servizio reale, non su cloni usa e getta.
-  La gradualità sta nei gradini del [pilota](pilota-battito.md), non in un
+  La gradualità sta nei gradini del [pilota](pilota-ciclo-autonomo.md), non in un
   ambiente di prova separato.
 
 ## Forma del modulo
@@ -31,7 +31,7 @@ Un unico modulo in `nixos`, con le decisioni separate dal meccanismo:
 - **File delle decisioni**: per ogni repo host, cadenza, orario, tempo
   massimo e stato (`manuale`: unità presente, avvio solo a mano; `timer`:
   schedulato). Il campo `host` ha un solo valore: «un solo host tiene il
-  battito di un repo» vale per costruzione. `danea-auto` vi compare come voce
+  ciclo autonomo di un repo» vale per costruzione. `danea-auto` vi compare come voce
   dichiarata «fuori nixos (Task Scheduler)», così il quadro resta completo.
 - **Meccanismo generico**: su ogni host genera le unità dei soli repo
   assegnati a lui. Tiene in un posto l'invocazione, il tempo massimo
@@ -41,7 +41,7 @@ Un unico modulo in `nixos`, con le decisioni separate dal meccanismo:
   locale.
 
 Confine: `nixos` decide **dove e quando**, il repo decide **cosa**. Prompt
-del giro, permessi del battito e perimetro degli atti (`autonomy.md`) vivono
+del giro, permessi del ciclo autonomo e perimetro degli atti (`autonomy.md`) vivono
 nel repo; il modulo invoca senza sapere cosa fa il giro (cfr.
 `kb/method-development.md`, «dichiara e taci»). La scelta qui non attiva lo
 scheduler: l'attivazione vive in `nixos`.
@@ -51,11 +51,11 @@ Due recinti, in quest'ordine (ricognizione di `salute`, 2026-10-11):
 - **L'unità** è il recinto vero: percorsi in sola lettura o inaccessibili
   (`ReadOnlyPaths`, `InaccessiblePaths`), lock, tempo massimo. Le regole Bash
   dell'harness non coprono redirect e sottoprocessi.
-- **I permessi dell'harness** sono il secondo: un file del solo battito,
+- **I permessi dell'harness** sono il secondo: un file del solo ciclo autonomo,
   versionato nel repo e passato all'unità con `--settings`, non
   `.claude/settings.json`, che vale anche per le sessioni interattive. Con
   `--setting-sources project` l'unità esclude `settings.local.json` e le
-  impostazioni utente, che possono concedere atti non voluti nel battito (in
+  impostazioni utente, che possono concedere atti non voluti nel ciclo autonomo (in
   `salute` su `deck`, cancellazioni su Drive e calendario).
 
 ## Invocazione
@@ -82,7 +82,7 @@ Da verificare al gradino 0, non leggibile dall'help:
 - La strategia di sincronizzazione va scelta esplicitamente: `pull --rebase`
   è un candidato, non un prerequisito già deciso. Un push rifiutato non si
   forza e rende visibile l'arresto (caso reale in `method` il 2026-10-08).
-- Dove un push innesca un rilascio (`bi`), il battito eredita la scelta
+- Dove un push innesca un rilascio (`bi`), il ciclo autonomo eredita la scelta
   locale: in `bi` il push resta su richiesta quando i commit toccano il
   codice eseguito dal ciclo.
 
@@ -90,7 +90,7 @@ Da verificare al gradino 0, non leggibile dall'help:
 
 La proposta operativa deve precisare comportamento e arresto per checkout
 sporco, conflitto, timeout, sessioni sovrapposte e push rifiutato, senza
-chiedere un consenso interattivo che nel battito non può arrivare.
+chiedere un consenso interattivo che nel ciclo autonomo non può arrivare.
 
 Definire una fonte dello stato dei tentativi leggibile dalla home: partenza,
 chiusura, arresto e mancata partenza rispetto alla cadenza attesa; distinguere

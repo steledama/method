@@ -1,17 +1,17 @@
-"""Il battito nella vista: lo stato dei tentativi letto a richiesta.
+"""Il ciclo autonomo nella vista: lo stato dei tentativi letto a richiesta.
 
-La release si costruisce dal commit; il battito cambia anche senza commit,
+La release si costruisce dal commit; il ciclo autonomo cambia anche senza commit,
 quindi non entra nella release ma si legge quando la si chiede, come
-`/_stato` rende `status.json`. `serve.py --battito-state DIR` passa la
-cartella di stato che il modulo `battiti` di `nixos` scrive per il repo
-(`~/.local/state/battito/<repo>/`) e risponde sotto `/_battito/`:
+`/_stato` rende `status.json`. `serve.py --ciclo-state DIR` passa la
+cartella di stato che il modulo `cicli` di `nixos` scrive per il repo
+(`~/.local/state/ciclo/<repo>/`) e risponde sotto `/_ciclo/`:
 
-- `/_battito/ultimi.json`: gli ultimi tentativi col semaforo, letti dallo
+- `/_ciclo/ultimi.json`: gli ultimi tentativi col semaforo, letti dallo
   script della home;
-- `/_battito/`: tutti i tentativi conservati;
-- `/_battito/<id>`: la pagina del giro; `/_battito/<id>.jsonl`: lo stream.
+- `/_ciclo/`: tutti i tentativi conservati;
+- `/_ciclo/<id>`: la pagina del giro; `/_ciclo/<id>.jsonl`: lo stream.
 
-Contratto in `o2/home-fatto-da-fare.md` («Contratto del battito nella
+Contratto in `o2/home-fatto-da-fare.md` («Contratto del ciclo autonomo nella
 vista»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
 alza, non abbassa. Solo libreria standard, come `serve.py`.
 """
@@ -29,7 +29,7 @@ from pathlib import Path
 import project
 from sources import inline_markdown
 
-PREFIX = "_battito/"
+PREFIX = "_ciclo/"
 HOME_ROWS = 5
 # Oltre l'orario atteso, quanto aspettare prima di dichiarare la partenza
 # mancata; e oltre il tempo massimo, quanto prima di dichiarare un giro
@@ -41,15 +41,15 @@ ATTENTION = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
 
 LABELS = {
     "it": {
-        "title": "Battito",
+        "title": "Ciclo autonomo",
         "all": "Tutti i tentativi",
         "back": "Home",
         "read": "Letto alle",
-        "none": "Nessun battito dichiarato per questo repo.",
-        "external": "Battito fuori nixos",
-        "never": "Battito dichiarato, nessun tentativo ancora.",
-        "unreadable": "Fonte del battito non leggibile",
-        "offline": "Il battito si legge dalla vista servita, non dal file aperto.",
+        "none": "Nessun ciclo autonomo dichiarato per questo repo.",
+        "external": "Ciclo autonomo fuori nixos",
+        "never": "Ciclo autonomo dichiarato, nessun tentativo ancora.",
+        "unreadable": "Fonte del ciclo autonomo non leggibile",
+        "offline": "Il ciclo autonomo si legge dalla vista servita, non dal file aperto.",
         "verde": "riuscito",
         "giallo": "riuscito, da guardare",
         "rosso": "bloccato",
@@ -68,15 +68,15 @@ LABELS = {
         "meta": "Tentativo",
     },
     "en": {
-        "title": "Heartbeat",
+        "title": "Autonomous cycle",
         "all": "All attempts",
         "back": "Home",
         "read": "Read at",
-        "none": "No heartbeat declared for this repo.",
-        "external": "Heartbeat outside nixos",
-        "never": "Heartbeat declared, no attempt yet.",
-        "unreadable": "Heartbeat source not readable",
-        "offline": "The heartbeat is read from the served view, not the opened file.",
+        "none": "No autonomous cycle declared for this repo.",
+        "external": "Autonomous cycle outside nixos",
+        "never": "Autonomous cycle declared, no attempt yet.",
+        "unreadable": "Autonomous cycle source not readable",
+        "offline": "The autonomous cycle is read from the served view, not the opened file.",
         "verde": "succeeded",
         "giallo": "succeeded, needs a look",
         "rosso": "blocked",
@@ -216,7 +216,7 @@ def expected_start(decision: dict, now: datetime) -> datetime | None:
 
 
 def load(state: Path | None, now: datetime | None = None) -> dict:
-    """Lo stato del battito: `stato` dice perché mancano tentativi, se mancano."""
+    """Lo stato del ciclo autonomo: `stato` dice perché mancano tentativi, se mancano."""
     now = now or datetime.now().astimezone()
     view = {"letto": now.isoformat(timespec="seconds"), "stato": "ok", "tentativi": []}
     if state is None:
@@ -310,7 +310,7 @@ def page(title: str, body: str) -> bytes:
     <link rel="stylesheet" href="/assets/theme.css" />
   </head>
   <body>
-    <main class="pole battito-pagina">
+    <main class="pole ciclo-pagina">
       <p><a href="/">{label("back")}</a> · <a href="/{PREFIX}">{label("all")}</a></p>
 {body}
     </main>
@@ -323,7 +323,7 @@ def row_html(attempt: Attempt) -> str:
     when = html.escape(attempt.when.replace("T", " ")[:16])
     text = html.escape(label(attempt.color) if not attempt.missed else label("missed"))
     reasons = html.escape(" · ".join(r for r in attempt.reasons if r != label("missed")))
-    detail = f' <span class="battito-motivi">{reasons}</span>' if reasons else ""
+    detail = f' <span class="ciclo-motivi">{reasons}</span>' if reasons else ""
     head = f'<span class="semaforo {attempt.color}" aria-hidden="true"></span>'
     if attempt.id:
         return f'<li>{head}<a href="/{PREFIX}{attempt.id}">{when} · {text}</a>{detail}</li>'
@@ -336,9 +336,9 @@ def list_page(state: Path | None) -> bytes:
     note = status_text(view)
     body = (
         f"      <h1>{label('title')}</h1>\n"
-        f'      <p class="battito-letto">{label("read")} {html.escape(view["letto"])}</p>\n'
+        f'      <p class="ciclo-letto">{label("read")} {html.escape(view["letto"])}</p>\n'
         + (f"      <p>{html.escape(note)}</p>\n" if note else "")
-        + f'      <ol class="battito-righe">{rows}</ol>'
+        + f'      <ol class="ciclo-righe">{rows}</ol>'
     )
     return page(label("title"), body)
 
@@ -476,7 +476,7 @@ def attempt_page(state: Path | None, attempt_id: str) -> bytes | None:
 
 
 def respond(path: str, state: Path | None) -> tuple[str, bytes] | None:
-    """La risposta a un path sotto `/_battito/`: tipo e corpo, o None per il 404."""
+    """La risposta a un path sotto `/_ciclo/`: tipo e corpo, o None per il 404."""
     rest = path[len("/" + PREFIX) :]
     if rest == "ultimi.json":
         return "application/json; charset=utf-8", latest_json(state)
@@ -494,14 +494,14 @@ def respond(path: str, state: Path | None) -> tuple[str, bytes] | None:
 
 def home_section() -> str:
     """La sezione della home: le righe arrivano dallo script, il link resta comunque."""
-    return f"""      <section class="pole battito">
+    return f"""      <section class="pole ciclo autonomo">
         <h2><a href="{PREFIX}">{label("title")}</a></h2>
-        <ol class="battito-righe" id="battito-righe">
-          <li class="battito-vuoto">{html.escape(label("offline"))}</li>
+        <ol class="ciclo-righe" id="ciclo-righe">
+          <li class="ciclo-vuoto">{html.escape(label("offline"))}</li>
         </ol>
         <script>
           (async () => {{
-            const list = document.getElementById("battito-righe");
+            const list = document.getElementById("ciclo-righe");
             try {{
               const response = await fetch("{PREFIX}ultimi.json", {{ cache: "no-store" }});
               if (!response.ok) return;
@@ -509,7 +509,7 @@ def home_section() -> str:
               list.replaceChildren();
               const item = (text) => {{
                 const li = document.createElement("li");
-                li.className = "battito-vuoto";
+                li.className = "ciclo-vuoto";
                 li.textContent = text;
                 list.append(li);
               }};
@@ -528,7 +528,7 @@ def home_section() -> str:
                 }} else li.append(text);
                 if (t.motivi.length) {{
                   const span = document.createElement("span");
-                  span.className = "battito-motivi";
+                  span.className = "ciclo-motivi";
                   span.textContent = " " + t.motivi.join(" · ");
                   li.append(span);
                 }}

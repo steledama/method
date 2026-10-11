@@ -41,7 +41,7 @@ l'osservazione.
    riesaminare le ipotesi raggiungibili anche senza nuovi eventi, seguendo
    indici, fili e scadenze del progetto. Correggere l'eventuale rinvio al
    solo `stato` del nodo in `compare`.
-2. Dove il presidio manca, dichiarare l'orizzonte (data, evento o battito),
+2. Dove il presidio manca, dichiarare l'orizzonte (data, evento o ciclo autonomo),
    il riscontro atteso e la fonte; renderli raggiungibili dal giro `eval`.
    Preservare i presidi già sufficienti e i contratti runtime di dominio.
    Dati mancanti o data di riesame trascorsa non risolvono l'ipotesi.
@@ -85,6 +85,6 @@ Fotografie della prova del 2026-10-05, da confrontare con i file correnti:
 Il `/method` locale verifica sui file che ogni ipotesi in attesa incontrata
 abbia orizzonte, riscontro con fonte e un percorso effettivamente letto da
 `eval`; dichiara anche il caso senza ipotesi e i presidi già sufficienti.
-Il battito `/adottanti` controlla marker e file su `origin`, compreso il
+L'audit `/adottanti` controlla marker e file su `origin`, compreso il
 seguito sul deck di `nixos`. La prescrizione resta fino al recepimento dei
 sette e alla chiusura di quel seguito, senza governarne le code locali.

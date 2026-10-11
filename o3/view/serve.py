@@ -19,9 +19,9 @@ versione valida il server non parte, dice perché ed esce con il codice 3,
 distinto dagli altri errori; `--check` fa solo questo controllo (0 o 3), per
 esempio come `ExecCondition` di un servizio.
 
-Con `--battito-state DIR` serve anche `/_battito/`, lo stato dei tentativi
-del battito letto a ogni richiesta (`battito.py`); senza, `/_battito/`
-dichiara che il repo non ha un battito.
+Con `--ciclo-state DIR` serve anche `/_ciclo/`, lo stato dei tentativi
+del ciclo autonomo letto a ogni richiesta (`ciclo.py`); senza, `/_ciclo/`
+dichiara che il repo non ha un ciclo autonomo.
 """
 
 from __future__ import annotations
@@ -36,7 +36,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-import battito
+import ciclo
 
 VIEW = Path(__file__).resolve().parents[2] / "view"
 PORT = 8000
@@ -45,19 +45,19 @@ NO_VALID_VERSION = 3
 
 
 class ViewHandler(SimpleHTTPRequestHandler):
-    battito_state: Path | None = None
+    ciclo_state: Path | None = None
 
     def send_head(self):
         path = unquote(urlsplit(self.path).path)
         if any(part.startswith(".") for part in path.split("/") if part):
             self.send_error(HTTPStatus.NOT_FOUND)
             return None
-        if path.startswith("/" + battito.PREFIX):
-            return self.send_battito(path)
+        if path.startswith("/" + ciclo.PREFIX):
+            return self.send_ciclo(path)
         return super().send_head()
 
-    def send_battito(self, path: str):
-        answer = battito.respond(path, self.battito_state)
+    def send_ciclo(self, path: str):
+        answer = ciclo.respond(path, self.ciclo_state)
         if answer is None:
             self.send_error(HTTPStatus.NOT_FOUND)
             return None
@@ -151,12 +151,12 @@ def main() -> None:
         help=f"con --publish-root: esce con 0 se c'è una versione valida, {NO_VALID_VERSION} se no",
     )
     parser.add_argument(
-        "--battito-state",
+        "--ciclo-state",
         type=Path,
-        help="cartella di stato del battito del repo (~/.local/state/battito/<repo>)",
+        help="cartella di stato del ciclo autonomo del repo (~/.local/state/ciclo/<repo>)",
     )
     args = parser.parse_args()
-    state = args.battito_state.expanduser().resolve() if args.battito_state else None
+    state = args.ciclo_state.expanduser().resolve() if args.ciclo_state else None
 
     if args.check and not args.publish_root:
         parser.error("--check richiede --publish-root")
@@ -166,13 +166,13 @@ def main() -> None:
         if args.check:
             print(f"serve: versione valida {folder.name}")
             return
-        handler = type("Handler", (PublishedHandler,), {"root": root, "battito_state": state})
+        handler = type("Handler", (PublishedHandler,), {"root": root, "ciclo_state": state})
     else:
         folder = VIEW
         if not (VIEW / "index.html").exists():
             raise SystemExit("serve: view/index.html assente, esegui prima build.py")
         handler = partial(
-            type("Handler", (ViewHandler,), {"battito_state": state}), directory=str(VIEW)
+            type("Handler", (ViewHandler,), {"ciclo_state": state}), directory=str(VIEW)
         )
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         hosts = ["localhost"]

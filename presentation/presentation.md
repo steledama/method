@@ -91,7 +91,7 @@ La KB trattiene ciò che deve sopravvivere al singolo giro.
 
 ## Verificare la maturità
 
-- una coda vuota e un battito automatico sono indizi: servono esiti runtime e
+- una coda vuota e un ciclo autonomo sono indizi: servono esiti runtime e
   segnali aggiornati
 - attendere o rinunciare può essere una decisione informata; l'inazione da sola
   non prova un difetto

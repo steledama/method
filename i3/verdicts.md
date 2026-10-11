@@ -24,15 +24,15 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   `d8a88e7` il 2026-10-10, `delega-nel-checkout-servito` chiusa; `goal-senza-fotografia` e `delega-ciclo` chiuse,
   recepite dai sette. Il 2026-10-08
   `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
-  recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
+  recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. L'audit del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
   prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
-- [battito-autonomo.md](battito-autonomo.md) — direzione costitutiva dal
+- [ciclo-autonomo.md](ciclo-autonomo.md) — direzione costitutiva dal
   2026-10-11: con quali garanzie ogni repo arriva al giro `eval` → `exec` →
   commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e
   prescritto ai sette; delega dei cicli avviati dal custode ratificata in
   `autonomy.md`, con Goal aggiornato; primi 18 casi della delega da tre
-  adottanti, residuo nel checkout servito; il battito schedulato resta da collaudare. Riesame il 2026-11-01,
+  adottanti, residuo nel checkout servito; il ciclo autonomo schedulato resta da collaudare. Riesame il 2026-11-01,
   verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
   e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la

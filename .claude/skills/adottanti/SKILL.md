@@ -59,7 +59,7 @@ Leggi `o1/plan.md` dell'adottante e fotografa la composizione (cfr.
   orologio fermo);
 - ricorrenza a evento: skill di dominio senza riga (legittima, non un buco).
 
-La firma del telos: tabella dev che si svuota, battito ricorrente visibile,
+La firma del telos: tabella dev che si svuota, ciclo autonomo ricorrente visibile,
 quota schedulata che cresce — sempre pesata sulla gradualità del dominio.
 
 ### 4. Inventario skill

@@ -16,7 +16,7 @@ scritture e invocazioni, con la sua clausola di uscita e il task `p1`
 ## Verdetto della rivalutazione (custode, 2026-09-24)
 
 **La tripartizione resta com'è. Si corregge la clausola, non il taglio.** Il
-materiale viene dal terzo battito `/adottanti` (eseguito il 2026-09-24,
+materiale viene dal terzo audit `/adottanti` (eseguito il 2026-09-24,
 arretrato dal 1° settembre), misurato
 per commit sui sette repository dal 2026-08-01:
 
@@ -86,7 +86,7 @@ averla promessa:
 - **cosa si snellisce per primo**, se si snellisce: gli scope, non gli stadi —
   si accorpa l'invocazione, non si smette di distinguere i passi.
 
-## Lettura della misura con un battito programmato
+## Lettura della misura con un ciclo autonomo programmato
 
 Il risveglio resta il 2026-11-01. Se iniziano giri periodici, il loro
 innesco va distinto, quando documentabile, dai giri richiesti da eventi o
@@ -95,4 +95,4 @@ provare che gli stadi siano superflui. Dove la fonte non discrimina,
 dichiarare il limite. L'integrità del conteggio si controlla confrontando
 trailer riconosciuti e righe nel corpo, recuperando senza duplicazioni il
 caso noto di `baserow`. Un tentativo interrotto prima del commit resta fuori
-da questa misura e richiede la fonte dell'esecutore del battito.
+da questa misura e richiede la fonte dell'esecutore del ciclo autonomo.

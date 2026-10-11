@@ -41,8 +41,8 @@ ha tre cose:
 - un **obiettivo** di `goal.md` contro cui la tensione si misura, dichiarato
   nel frontmatter con la sua chiave (`obiettivo: 1`, `S`, più chiavi separate
   da virgola) al livello dell'obiettivo, non del suo indicatore;
-- una **condizione di chiusura** che il ciclo può vedere arrivare: una data, un
-  battito, un dato che qualcuno raccoglie.
+- una **condizione di chiusura** che il ciclo può vedere arrivare: una data, una
+  ricorrenza, un dato che qualcuno raccoglie.
 
 Ciò che non ha le tre cose non è un verdetto, e va dove il suo genere vive:
 

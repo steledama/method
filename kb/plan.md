@@ -87,15 +87,15 @@ codice del fork, non si deduce dalla presenza di questo nodo.
 
 ## Tempo e fonti
 
-`## Scadenze` contiene solo date esogene o battiti che possono cambiare l'ordine
+`## Scadenze` contiene solo date esogene o ricorrenze che possono cambiare l'ordine
 della coda, in tre specie. La **prima** è la data esogena: il Mondo la impone e
 la coda le si adatta. La **seconda** è l'orologio nostro, e allora la data non
-sta qui ma nella condizione di risveglio di un `pause`. La **terza** è il
-battito ricorrente di uno scheduler: la riga indica cadenza e configurazione —
+sta qui ma nella condizione di risveglio di un `pause`. La **terza** è la
+ricorrenza di uno scheduler: la riga indica cadenza e configurazione —
 la fonte di verità è la config versionata — senza replicare ogni prossima data.
 Calendari che non muovono la coda restano nel dominio.
 
-Il battito e la composizione della coda sono indizi della forma del runtime, da
+La cadenza e la composizione della coda sono indizi della forma del runtime, da
 leggere insieme a esiti e copertura dei segnali (`development-goal`). Una
 tabella dev vuota non prova da sola la maturità dell'artefatto.
 

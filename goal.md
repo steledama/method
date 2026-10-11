@@ -40,14 +40,14 @@ i2/i3 invece di incidere il canone di straforo.
 Posizione auspicata lungo le dimensioni candidate comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
 dell'adottante, **governo operativo delegato all'agente, in direzione di un
-battito autonomo di runtime in ogni repo**: un ambito di autonomia dichiarato,
+ciclo autonomo di runtime in ogni repo**: un ambito di autonomia dichiarato,
 con strumenti rigorosi di tracciabilità, controllo e verifica, esteso in modo
 graduale e misurato. Restano al custode la supervisione degli esiti e la
 decisione su scopi, territorio e deleghe ([autonomia](autonomy.md)); **basso attrito di lettura** (bussola
 snella, viste facilmente consultabili e riproducibili dalle fonti), KB riflessiva coerente, loop di
 propagazione che si chiude.
 
-Segnali: [battito autonomo](i3/battito-autonomo.md),
+Segnali: [ciclo autonomo](i3/ciclo-autonomo.md),
 [ricostruzione delegabile](i3/verdetto-piu-sicuro-del-materiale.md),
 [toolchain delle viste](i3/toolchain-builder-presentazione.md), audit e build
 `o3/view/build.py --check`. Il lavoro è raggiungibile dalla colonna `Ob. S`

@@ -83,10 +83,10 @@ che il custode ha giudicato corretto.
   Eccezioni nominate: pull su richiesta in `baserow`; push del codice a
   suite verde in `bi`; pull fuori dagli slot in `danea-auto`; push su
   richiesta in `nixos` solo se un ciclo automatico eseguisse dal checkout.
-  **Orizzonte**: il battito `/adottanti` del 2026-11-01. **Riscontro**: i
+  **Orizzonte**: l'audit `/adottanti` del 2026-11-01. **Riscontro**: i
   casi inoltrati entro quella data e le eccezioni scritte nei sette
   `autonomy.md` su `origin`. La smentisce un atto del ciclo su un checkout
   servito che il custode giudica da riservare senza che un'eccezione lo
   nominasse; la rafforza un mese di cicli senza casi di quel tipo.
-- I temi di un solo adottante si riesaminano allo stesso battito; senza un
+- I temi di un solo adottante si riesaminano allo stesso audit; senza un
   secondo adottante restano adattamenti locali.

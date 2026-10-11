@@ -16,8 +16,8 @@ curato dell'artefatto vive in `presentation/` (`presentation`). Un nodo KB in st
 automaticamente.
 
 Ogni ipotesi in attesa dichiara **orizzonte e riscontro con fonte**, ed è
-raggiungibile da `eval`. L'orizzonte può essere una data, un evento o un
-battito di riesame; il riscontro dichiara cosa osservare e dove verificarlo,
+raggiungibile da `eval`. L'orizzonte può essere una data, un evento o una
+ricorrenza di riesame; il riscontro dichiara cosa osservare e dove verificarlo,
 anche quando non è ancora disponibile. Il riesame resta dovuto anche senza
 nuovi segnali; una data trascorsa non risolve da sola l'ipotesi.
 

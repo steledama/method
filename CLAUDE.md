@@ -30,16 +30,17 @@ Leggere [`autonomy.md`](autonomy.md) prima di operare: il ciclo avviato dal
 custode prosegue entro la delega fino a verifiche, commit e push autorizzato,
 senza conferme intermedie sugli esiti ordinari. Chiedere sui punti riservati
 e continuare il lavoro indipendente. La presenza in chat non è ratifica
-preventiva delle decisioni dell'agente. Il battito schedulato resta da autorizzare.
+preventiva delle decisioni dell'agente. Il ciclo autonomo schedulato resta da autorizzare.
 
 ## Skill
 
-Il quartetto operativo del metodo e la skill di allineamento vivono versionati anche
+Il quartetto operativo del metodo, `/cycle` che ne compone il giro e la skill di allineamento vivono versionati anche
 qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 `.claude/skills/` con wrapper Codex in `.codex/skills/`.
 
 - `/eval [perceive|interpret|compare|all]` — il braccio di valutazione: raccolta del grezzo (i1), sintesi con provenienza e cascata (i2), verdetto dei fili contro `goal.md` e bonifica del plan (i3)
 - `/exec [plan|specify|perform|all]` — il braccio di esecuzione: coda e priorità (o1), qualità interna dei task (o2), supervisione della collezione e atti autorizzati (o3)
+- `/cycle [autonomo]` — il ciclo congiunto: `eval all` → `exec all` → `/commit`, in sessione o come ciclo autonomo senza custode (resoconto con la riga `Attenzione:`)
 - `/kb [audit|review]` — audit deterministico o revisione semantica profonda
   della KB (diagnosi, non corregge; capacità trasversale ai due archi)
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia

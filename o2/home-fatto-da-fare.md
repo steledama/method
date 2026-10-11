@@ -1,5 +1,5 @@
 ---
-sintesi: "La home della vista apre con «fatto», «da fare» e il battito: una riga per tentativo col semaforo verde, giallo o rosso che porta alla pagina del giro; proposte pendenti e tentativi restano visibili."
+sintesi: "La home della vista apre con «fatto», «da fare» e il ciclo autonomo: una riga per tentativo col semaforo verde, giallo o rosso che porta alla pagina del giro; proposte pendenti e tentativi restano visibili."
 ciclo: dev
 ---
 
@@ -27,14 +27,14 @@ home, prima dei poli Goal e World.
 - La pubblicazione costruisce da `git archive`: verificare come il builder
   legge la storia senza rompere il contratto del commit pulito.
 
-## Il battito nella home
+## Il ciclo autonomo nella home
 
 Decisione del custode del 2026-10-11, dopo il primo giro reale (`salute`,
-gradino 0): la manifestazione del battito nella vista va **in parallelo** al
-battito stesso, non dopo. È la punta degli strumenti di controllo e verifica,
+gradino 0): la manifestazione del ciclo autonomo nella vista va **in parallelo** al
+ciclo autonomo stesso, non dopo. È la punta degli strumenti di controllo e verifica,
 la gamba che fa da bilancia all'autonomia: senza, il giro autonomo apre un
 golfo di valutazione ([action-cycle](../kb/action-cycle.md), visibilità e
-feedback). È prerequisito del gradino 1 del [pilota](pilota-battito.md).
+feedback). È prerequisito del gradino 1 del [pilota](pilota-ciclo-autonomo.md).
 
 - **Riga di log nella home**, una per tentativo recente, col semaforo:
   - **verde**: giro riuscito, commit e push, niente che chieda attenzione;
@@ -48,25 +48,25 @@ feedback). È prerequisito del gradino 1 del [pilota](pilota-battito.md).
   Mondo, proposte, metadati del tentativo (durata, costo, codice, commit e
   push) e il percorso allo stream dei comandi.
 
-### Contratto del battito nella vista
+### Contratto del ciclo autonomo nella vista
 
 Ratificato dal custode il 2026-10-11; si implementa nel canone
-(`o3/view/`) e si prescrive a tutti. Un repo senza battito rende la sezione
+(`o3/view/`) e si prescrive a tutti. Un repo senza ciclo autonomo rende la sezione
 vuota con la sua ragione: la direzione è comune, i tempi no.
 
 **Due strati.** La release resta costruita dal commit (`build.py --publish`,
-provenienza = hash). Il battito è stato operativo che cambia anche senza
+provenienza = hash). Il ciclo autonomo è stato operativo che cambia anche senza
 commit: un tentativo fermato prima del commit non innesca nessuna
 pubblicazione. Non entra quindi nella release ma si legge **a richiesta**,
 come `/_stato` rende già `status.json`: `serve.py` riceve la cartella di
-stato (`--battito-state`, passata dal modulo `presentations` di `nixos`) e
-rende `/_battito/` e `/_battito/<id>`. Ogni lettura dichiara il proprio
-momento, distinto dalla revisione della release. Battito e pubblicazione di
+stato (`--ciclo-state`, passata dal modulo `presentations` di `nixos`) e
+rende `/_ciclo/` e `/_ciclo/<id>`. Ogni lettura dichiara il proprio
+momento, distinto dalla revisione della release. Ciclo autonomo e pubblicazione di
 un repo stanno quindi sullo stesso host: in `nixos` diventa un vincolo fra
-`battiti.nix` e `presentations.nix`.
+`cicli.nix` e `presentations.nix`.
 
-**Fonte**, contratto col modulo `battiti` di `nixos`
-(`~/.local/state/battito/<repo>/`):
+**Fonte**, contratto col modulo `cicli` di `nixos`
+(`~/.local/state/ciclo/<repo>/`):
 
 - `tentativi.jsonl`: una riga `partenza` e una `chiusura` per tentativo,
   stesso `id` (`INVOCATION_ID`); la chiusura porta esito, motivo, codice,
@@ -75,10 +75,10 @@ un repo stanno quindi sullo stesso host: in `nixos` diventa un vincolo fra
   del repo, per calcolare le partenze mancate.
 
 **Righe nella home**: gli ultimi cinque tentativi, dal più recente, caricati
-da uno script inline che legge `/_battito/` (se lo script non gira resta il
+da uno script inline che legge `/_ciclo/` (se lo script non gira resta il
 collegamento alla pagina), con data e ora,
 semaforo, esito in parole e collegamento alla pagina del giro. Stati senza
-tentativi, distinti fra loro: «nessun battito dichiarato» (repo assente da
+tentativi, distinti fra loro: «nessun ciclo autonomo dichiarato» (repo assente da
 `decisioni.json`), «fuori nixos» (stato `esterno`), «mai partito», «fonte
 non leggibile» (stato dichiarato ma cartella assente o illeggibile).
 
@@ -93,7 +93,7 @@ non abbassa:
 - **verde**: riuscito, commit e push, nessun permesso negato,
   `attenzione` nulla. Un giro tutto vuoto è verde.
 
-`attenzione` viene dal resoconto dell'agente: il prompt del battito lo fa
+`attenzione` viene dal resoconto dell'agente: il prompt del ciclo autonomo lo fa
 chiudere con una riga `Attenzione: nessuna` oppure `Attenzione: <voci>`
 (proposte «da decidere», incertezze, errori dichiarati), che lo script di
 chiusura estrae. La riga mancante vale giallo: l'assenza di un segnale non è
@@ -108,22 +108,22 @@ dati sanitari, serviti in LAN come il resto.
 
 **Percorso**: contratto ratificato → implementazione nel canone `o3/view/`
 (`serve.py`, home) con verifiche su uno stato di prova → modulo
-`presentations` e chiusura del battito in `nixos` (`--battito-state`, campo
+`presentations` e chiusura del ciclo autonomo in `nixos` (`--ciclo-state`, campo
 `attenzione`) → prescrizione `o3/` ai sette, `salute` per primo perché ha un
-battito vero da mostrare.
+ciclo autonomo vero da mostrare.
 
 ## Contratto di supervisione e riuscita
 
 La home deve rendere distinguibili l'ultimo commit riuscito e l'ultimo
-tentativo del battito: un giro interrotto prima del commit, un push rifiutato
+tentativo del ciclo autonomo: un giro interrotto prima del commit, un push rifiutato
 o una partenza mancata non diventano un successo per assenza di nuovi commit.
-Il task [Dove gira il battito](dove-gira-il-battito.md) definisce fonte,
+Il task [Dove gira il ciclo autonomo](dove-gira-il-ciclo-autonomo.md) definisce fonte,
 freschezza e stati dei tentativi; qui si definisce come leggerli. Finché la
 fonte non esiste, la vista dichiara il dato non disponibile.
 
 - «Fatto» conserva gli ultimi cinque commit; le proposte ancora da decidere
   restano raggiungibili anche quando escono da quel campione. La loro fonte
-  e il loro consumo sono definiti in [Criteri del battito schedulato](criteri-autonomia.md).
+  e il loro consumo sono definiti in [Criteri del ciclo autonomo schedulato](criteri-autonomia.md).
 - «Da fare» rende anche la prossima mossa pronta senza data, rispettando
   l'ordine del plan. Le attese senza data restano tali, senza date inventate.
 - La storia estratta per la pubblicazione termina al commit esportato con

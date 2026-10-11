@@ -37,5 +37,5 @@ dominio.
 
 La maturità di `kb/plan.md` non dice nulla su questa parte del nodo. Finché
 manca un caso reale, la distinzione deperibile/urgente è un'ipotesi incisa,
-non una regola provata sotto pressione. Il riesame spetta al battito
+non una regola provata sotto pressione. Il riesame spetta all'audit
 `/adottanti` o a un segnale i1 da un adottante che incontri una finestra.

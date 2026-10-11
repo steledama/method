@@ -1,12 +1,12 @@
 ---
-sintesi: "Il giudizio di settembre (2026-09-24) ha mantenuto la tripartizione eval/exec e corretto la clausola: ogni giro registra l'esito per stadio nel commit (trailer Esiti:). Il task resta pause fino al battito /adottanti del 2026-11-01, che conta gli esiti registrati dopo il recepimento. I sintomi vivono nella clausola del filo i3/skill-per-arco-tripartito.md; qui vivono condizione, data e materiale."
+sintesi: "Il giudizio di settembre (2026-09-24) ha mantenuto la tripartizione eval/exec e corretto la clausola: ogni giro registra l'esito per stadio nel commit (trailer Esiti:). Il task resta pause fino al ciclo autonomo /adottanti del 2026-11-01, che conta gli esiti registrati dopo il recepimento. I sintomi vivono nella clausola del filo i3/skill-per-arco-tripartito.md; qui vivono condizione, data e materiale."
 ciclo: dev
 ---
 
 # Rivalutazione clausola di uscita skill per arco
 
 Task `pause`. Il giudizio anticipato a settembre è stato preso il
-**2026-09-24**, dopo il battito `/adottanti` arretrato: la tripartizione
+**2026-09-24**, dopo l'audit `/adottanti` arretrato: la tripartizione
 resta, la clausola si corregge (verdetto nel filo
 [`i3/skill-per-arco-tripartito.md`](../i3/skill-per-arco-tripartito.md)). Il
 fallback del **2026-11-01** è riattivato, con l'evidenza mancante dichiarata:

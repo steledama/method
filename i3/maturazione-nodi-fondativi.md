@@ -30,5 +30,5 @@ I limiti delle fonti restano dichiarati nel register `world.md`. Il filo si
 chiude quando le tre ipotesi sono decise, oppure quando il loro presidio è
 trasferito in una destinazione raggiungibile da `eval`, con orizzonte e
 riscontro con fonte. Il solo `stato` dei nodi non conserva la verifica. Il
-battito `/adottanti` riesamina i casi attesi; l'assenza di un caso nuovo non
+audit `/adottanti` riesamina i casi attesi; l'assenza di un caso nuovo non
 conferma le ipotesi.

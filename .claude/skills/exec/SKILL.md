@@ -100,7 +100,7 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   register `goal.md` (un task senza obiettivo è un candidato al taglio);
   lo stato del lavoro resta nel plan e nei fili, senza ricopiarlo nel register. La
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
-- `## Scadenze` e finestre tattiche: battiti in arrivo, righe scadute o
+- `## Scadenze` e finestre tattiche: ricorrenze in arrivo, righe scadute o
   consumate
 
 **3. Rivaluta stato, dipendenze e priorità**

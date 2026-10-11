@@ -62,7 +62,7 @@ il lavoro che accorcia quella distanza.
 ## Il punto asintotico: l'artefatto invisibile
 
 Per un runtime delegabile, il metodo propone un punto di fuga: meno lavoro dev
-correttivo e un battito che richiede meno interventi manuali. È il telos
+correttivo e un ciclo autonomo che richiede meno interventi manuali. È il telos
 candidato dell'**artefatto invisibile** — sostiene i goal senza aggiungere
 attrito — accostato all'idea di Weiser delle tecnologie che si integrano nella
 pratica fino a sottrarsi all'attenzione (1991).
@@ -79,7 +79,7 @@ e runtime ricorrente possono segnalare minore attrito. Non bastano a misurare la
 maturità. Una coda vuota può anche indicare abbandono o problemi non percepiti;
 un nuovo task dev può essere la risposta sana a un dominio che cambia. La
 lettura va accompagnata da esiti runtime, segnali aggiornati e copertura degli
-obiettivi. Cadenza e scheduler sono fonti del battito, non prove della sua
+obiettivi. Cadenza e scheduler sono fonti del ciclo autonomo, non prove della sua
 efficacia (`plan`, `skill`).
 
 ## Gradualità di dominio e posizione auspicata
@@ -89,7 +89,7 @@ forzare il dominio ad adottare una forma unica. Due contrasti ne mostrano l'uso.
 Dove il motivo non è esternalizzabile la supervisione è permanente per
 costituzione — il loop è quotidiano e l'umano resta profondamente _in-the-loop_.
 Dove il motivo è codificabile l'umano si sposta _on-the-loop_ e sorveglia un
-battito schedulato che gira da solo. Tra i due estremi stanno i cicli episodici,
+ciclo autonomo schedulato che gira da solo. Tra i due estremi stanno i cicli episodici,
 che non hanno cadenza fissa ma si aprono su un evento: un set-and-review di
 configurazione, una decisione a posta alta, il segnale di un adottante.
 

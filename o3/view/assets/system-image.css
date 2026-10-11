@@ -235,14 +235,14 @@ h2 {
   }
 }
 
-/* --- Battito: righe dei tentativi col semaforo (o3/view/battito.py) --- */
-.battito-righe {
+/* --- Ciclo autonomo: righe dei tentativi col semaforo (o3/view/ciclo.py) --- */
+.ciclo-righe {
   list-style: none;
   margin: 0.4rem 0;
   padding: 0;
 }
 
-.battito-righe li {
+.ciclo-righe li {
   align-items: baseline;
   display: flex;
   flex-wrap: wrap;
@@ -250,9 +250,9 @@ h2 {
   padding: 0.2rem 0;
 }
 
-.battito-vuoto,
-.battito-motivi,
-.battito-letto {
+.ciclo-vuoto,
+.ciclo-motivi,
+.ciclo-letto {
   color: var(--muted);
 }
 
@@ -280,19 +280,19 @@ h2 {
   background: var(--line);
 }
 
-.battito-pagina dl {
+.ciclo-pagina dl {
   display: grid;
   gap: 0.2rem 1rem;
   grid-template-columns: max-content 1fr;
 }
 
-.battito-pagina dd {
+.ciclo-pagina dd {
   margin: 0;
   overflow-wrap: anywhere;
 }
 
-.battito-pagina pre,
-.battito-pagina code {
+.ciclo-pagina pre,
+.ciclo-pagina code {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }

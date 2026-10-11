@@ -38,7 +38,7 @@ ove autorizzati, senza conferme intermedie. Scopi, territorio, delega, atti
 non autorizzati e incertezze decisive non risolvibili dalle fonti tornano
 al custode; il lavoro indipendente prosegue. Il resoconto espone decisioni,
 motivi, incertezze e proposte. La delega di un ciclo avviato dall'umano non
-autorizza da sola un battito schedulato.
+autorizza da sola un ciclo autonomo schedulato.
 
 Il contenuto delegato non decide da solo il momento del commit. Nella
 sessione interattiva le decisioni restano aperte finché il custode le
