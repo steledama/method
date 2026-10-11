@@ -21,6 +21,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   concorda](momento-del-commit.md) — l'agente propone il commit quando un
   punto si è fermato, lo prende da sé solo per un lettore fuori dalla
   sessione; il push resta automatico. Prescritta ai sette il 2026-10-11.
+- [Il battito si vede nella home](battito-nella-home.md) — ultimi cinque
+  tentativi col semaforo in cima alla home e pagina del giro, letti a
+  richiesta da `serve.py`; i repo senza battito lo dichiarano. Prescritta ai
+  sette il 2026-10-11, `salute` per primo.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

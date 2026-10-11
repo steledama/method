@@ -149,7 +149,8 @@ la barra va in orizzontale e le tabelle scorrono da sole.
 
 ## Compartimento stagno
 
-`view/` si apre e si serve da sola: nessun URL emesso esce dalla cartella.
+`view/` si apre e si serve da sola: nessun URL emesso esce dalla cartella,
+salvo le rotte servite a richiesta che la home nomina (il battito, sotto).
 Restano link le ancore, i file della cartella e gli URL web o mail; `file:` e i
 path di un disco locale non sono esterni e restano etichetta. La cartella è
 tutta generata: ciò che la build non produce più si rimuove, così una fonte
@@ -252,6 +253,29 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   remoto aggiornato, raggiungibilità della porta. Hash uguali non provano un
   rendering corretto; una porta irraggiungibile è «non verificata», non fresca
   per presunzione.
+
+## Stato operativo letto a richiesta: il battito
+
+Ciò che cambia senza commit non entra nella release: la contraddirebbe,
+perché la provenienza della release è l'hash. Il battito dell'artefatto (il
+giro `eval` → `exec` → commit senza custode) è il caso tipo: un tentativo
+fermato prima del commit non innesca nessuna pubblicazione, eppure è proprio
+quello che il custode deve vedere. Il server lo legge a ogni richiesta dalla
+cartella di stato dell'host (`serve.py --battito-state`, rotte `/_battito/`)
+e ogni lettura dichiara il proprio momento, distinto dalla revisione servita.
+
+La home ne rende gli ultimi tentativi col semaforo (verde riuscito, giallo
+da guardare, rosso bloccato, calcolato da campi espliciti: il giudizio
+dell'agente alza, non abbassa) e ogni riga porta alla pagina del giro. Le
+righe arrivano da uno script: aperta come file, la home dice che il battito
+si legge dalla vista servita. Un repo senza battito lo dichiara invece di
+mostrare un vuoto muto. È l'eccezione dichiarata al compartimento stagno:
+le rotte servite a richiesta sono nominate nel builder e solo la home le
+cita. Contratto e regola del semaforo in `o3/view/battito.py`.
+
+È visibilità e feedback nel senso del ciclo d'azione (`action-cycle`): un
+ambito di autonomia senza uno strumento che lo renda valutabile apre il
+golfo di valutazione che l'artefatto dovrebbe chiudere.
 
 Connessioni:
 

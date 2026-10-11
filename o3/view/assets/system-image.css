@@ -234,3 +234,65 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Battito: righe dei tentativi col semaforo (o3/view/battito.py) --- */
+.battito-righe {
+  list-style: none;
+  margin: 0.4rem 0;
+  padding: 0;
+}
+
+.battito-righe li {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+}
+
+.battito-vuoto,
+.battito-motivi,
+.battito-letto {
+  color: var(--muted);
+}
+
+.semaforo {
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.semaforo.verde {
+  background: #15803d;
+}
+
+.semaforo.giallo {
+  background: #ca8a04;
+}
+
+.semaforo.rosso {
+  background: #b91c1c;
+}
+
+.semaforo.in-corso {
+  background: var(--line);
+}
+
+.battito-pagina dl {
+  display: grid;
+  gap: 0.2rem 1rem;
+  grid-template-columns: max-content 1fr;
+}
+
+.battito-pagina dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.battito-pagina pre,
+.battito-pagina code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

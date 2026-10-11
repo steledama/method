@@ -14,6 +14,7 @@ import re
 from pathlib import Path
 
 import project
+from battito import home_section
 from sources import goal_anchor, goal_titles, inline_markdown, label, register_intro
 
 # --- CONFIG specifico del repo ------------------------------------------------
@@ -211,6 +212,7 @@ def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> 
     </header>
 
     <main>
+{home_section()}
 {goal_pole_html(root)}
 {cycle_html()}
 {world_pole_html(root)}
