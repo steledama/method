@@ -7,7 +7,7 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 Il percorso verso il battito autonomo, secondo le priorità del plan:
 
 - [criteri-autonomia.md](criteri-autonomia.md) — prima delega operativa; restano criteri per il battito schedulato e collaudo delle proposte nella home.
-- [home-fatto-da-fare.md](home-fatto-da-fare.md) — commit, proposte pendenti, lavoro pronto e stato dei tentativi per la supervisione.
+- [home-fatto-da-fare.md](home-fatto-da-fare.md) — commit, proposte pendenti, lavoro pronto e il battito col semaforo e la pagina del giro, in parallelo al battito stesso.
 - [dove-gira-il-battito.md](dove-gira-il-battito.md) — scelto il timer systemd da un unico modulo `nixos` con Claude Code; restano modulo, arresti e fonte di stato per la home.
 - [pilota-battito.md](pilota-battito.md) — due piloti in parallelo, `salute` su `deck` e `crm` su `svezia`, a gradini: avvio manuale, poi timer, poi gli altri repo.
 

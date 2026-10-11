@@ -17,8 +17,11 @@ articolano i loop di dominio.
   deve vedere i giri prima di toglierne la conferma.
 - Criteri per il battito schedulato concordati nel register: la delega
   corrente copre solo cicli avviati dal custode.
-- La scelta di dove gira il battito: timer systemd da un modulo `nixos`, con
-  Claude Code (2026-10-11); modulo da costruire e collaudare al gradino 0.
+- La scelta di dove gira il battito: timer systemd dal modulo `battiti` di
+  `nixos` (`6a6a7ed`), con Claude Code; collaudato al gradino 0 di `salute`.
+- Il battito visibile nella home, con semaforo e pagina del giro
+  ([home](home-fatto-da-fare.md)): va in parallelo al battito, prima del
+  gradino 1.
 
 ## Scelta del pilota e gradini
 
@@ -45,6 +48,21 @@ non apre la scala: il battito toccherebbe il proprio scheduler e il repo che
 governa gli host, con più sessioni concorrenti. `baserow` farebbe soprattutto
 giri vuoti; `bi` ha ogni push come rilascio; in `method` un errore autonomo
 arriva agli adottanti via symlink.
+
+## Andamento
+
+- **`salute`, gradino 0, 2026-10-11** (`deck`): primo giro avviato a mano,
+  riuscito con commit `2eb8a69` e push, 4,5 minuti, 77 turni, 1,85 USD
+  dichiarati. Skill `eval`, `exec` e `commit` invocate dal tool Skill;
+  Calendar via `gog` e push via ssh senza agent funzionano nell'unità. Due
+  permessi negati su comandi composti, rifatti spezzati. Il giro ha
+  corretto da sé un errore di `o3/health_data.py` che annullava una
+  decisione del custode, con test: è il primo caso del campione da rileggere
+  contro le fonti. Restano da provare la sessione concorrente (stop 15), il
+  recinto sui mount FUSE e l'eredità dei deny di `.claude/settings.json`.
+  Il custode ha deciso di togliere da `deck` il Drive di Letizia invece di
+  recintarlo.
+- **`crm`, `svezia`**: sospeso fino alla presenza del custode sull'host.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

@@ -36,12 +36,21 @@ La tensione si misura contro due obiettivi:
 
 ## Lo stato del verdetto
 
-Il battito schedulato non è ancora misurabile. La prima delega è invece
+Il battito schedulato non è ancora misurabile; il primo giro non
+interattivo sì. La prima delega è invece
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova
 la fedeltà delle ricostruzioni. I fatti ulteriori:
 
+- **Primo giro reale**, 2026-10-11: `salute` su `deck`, gradino 0 avviato
+  a mano dall'unità del modulo `battiti` di `nixos`. Riuscito con commit e
+  push, materia in tutti gli stadi, una proposta lasciata al custode, un
+  errore di strumento corretto con test, errori minori dichiarati
+  dall'agente. Dettaglio e punti aperti in `o2/pilota-battito.md`. Il
+  custode ha giudicato ottimo il test; la fedeltà resta da misurare sul
+  campione. Il custode ha posto la visibilità del battito nella home come
+  condizione parallela, non successiva (`o2/home-fatto-da-fare.md`).
 - **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
   sette lo stesso giorno e prescrizione chiusa (dettaglio in
   `i3/audit-adottanti.md`); `bi` lo esclude per i commit che toccano il

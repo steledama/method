@@ -1,5 +1,5 @@
 ---
-sintesi: "La home della vista apre con due sezioni: «fatto», gli ultimi commit con autonomia, impatto e motivo, e «da fare», lavoro pronto e attese; proposte pendenti e tentativi restano visibili."
+sintesi: "La home della vista apre con «fatto», «da fare» e il battito: una riga per tentativo col semaforo verde, giallo o rosso che porta alla pagina del giro; proposte pendenti e tentativi restano visibili."
 ciclo: dev
 ---
 
@@ -26,6 +26,40 @@ home, prima dei poli Goal e World.
   `Esiti:` e i trailer `Autonomia:`/`Impatto:` dove ci sono, già in `/commit`.
 - La pubblicazione costruisce da `git archive`: verificare come il builder
   legge la storia senza rompere il contratto del commit pulito.
+
+## Il battito nella home
+
+Decisione del custode del 2026-10-11, dopo il primo giro reale (`salute`,
+gradino 0): la manifestazione del battito nella vista va **in parallelo** al
+battito stesso, non dopo. È la punta degli strumenti di controllo e verifica,
+la gamba che fa da bilancia all'autonomia: senza, il giro autonomo apre un
+golfo di valutazione ([action-cycle](../kb/action-cycle.md), visibilità e
+feedback). È prerequisito del gradino 1 del [pilota](pilota-battito.md).
+
+- **Riga di log nella home**, una per tentativo recente, col semaforo:
+  - **verde**: giro riuscito, commit e push, niente che chieda attenzione;
+  - **giallo**: giro riuscito ma con qualcosa per il custode (proposte «da
+    decidere», permessi negati, incertezze o errori dichiarati, commit senza
+    push);
+  - **rosso**: blocco — arresto all'avvio, errore, timeout, push rifiutato,
+    partenza mancata rispetto alla cadenza.
+- **Pagina del giro**: cliccando la riga si atterra su una pagina HTML col
+  report completo: resoconto finale dell'agente, esiti per stadio, atti sul
+  Mondo, proposte, metadati del tentativo (durata, costo, codice, commit e
+  push) e il percorso allo stream dei comandi.
+
+Vincoli da risolvere nel progetto:
+
+- La fonte è lo stato host-locale dell'unità (`~/.local/state/battito/<repo>/`,
+  modulo `battiti` di `nixos`), non la storia git: il builder la legge
+  dall'host che pubblica. Pubblicazione e battito devono stare sullo stesso
+  host, oppure lo stato deve viaggiare.
+- Un tentativo fermato prima del commit non innesca la pubblicazione: la
+  chiusura dell'unità deve aggiornare la vista anche senza commit.
+- Il semaforo si calcola da campi espliciti della riga di chiusura e del
+  resoconto, non da un giudizio sul testo; la regola va scritta.
+- Il report eredita il compartimento della vista del repo: in `salute` sono
+  dati sanitari, serviti in LAN come il resto della vista.
 
 ## Contratto di supervisione e riuscita
 
