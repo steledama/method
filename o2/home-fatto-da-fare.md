@@ -48,18 +48,69 @@ feedback). È prerequisito del gradino 1 del [pilota](pilota-battito.md).
   Mondo, proposte, metadati del tentativo (durata, costo, codice, commit e
   push) e il percorso allo stream dei comandi.
 
-Vincoli da risolvere nel progetto:
+### Contratto del battito nella vista
 
-- La fonte è lo stato host-locale dell'unità (`~/.local/state/battito/<repo>/`,
-  modulo `battiti` di `nixos`), non la storia git: il builder la legge
-  dall'host che pubblica. Pubblicazione e battito devono stare sullo stesso
-  host, oppure lo stato deve viaggiare.
-- Un tentativo fermato prima del commit non innesca la pubblicazione: la
-  chiusura dell'unità deve aggiornare la vista anche senza commit.
-- Il semaforo si calcola da campi espliciti della riga di chiusura e del
-  resoconto, non da un giudizio sul testo; la regola va scritta.
-- Il report eredita il compartimento della vista del repo: in `salute` sono
-  dati sanitari, serviti in LAN come il resto della vista.
+Ratificato dal custode il 2026-10-11; si implementa nel canone
+(`o3/view/`) e si prescrive a tutti. Un repo senza battito rende la sezione
+vuota con la sua ragione: la direzione è comune, i tempi no.
+
+**Due strati.** La release resta costruita dal commit (`build.py --publish`,
+provenienza = hash). Il battito è stato operativo che cambia anche senza
+commit: un tentativo fermato prima del commit non innesca nessuna
+pubblicazione. Non entra quindi nella release ma si legge **a richiesta**,
+come `/_stato` rende già `status.json`: `serve.py` riceve la cartella di
+stato (`--battito-state`, passata dal modulo `presentations` di `nixos`) e
+rende `/_battito/` e `/_battito/<id>`. Ogni lettura dichiara il proprio
+momento, distinto dalla revisione della release. Battito e pubblicazione di
+un repo stanno quindi sullo stesso host: in `nixos` diventa un vincolo fra
+`battiti.nix` e `presentations.nix`.
+
+**Fonte**, contratto col modulo `battiti` di `nixos`
+(`~/.local/state/battito/<repo>/`):
+
+- `tentativi.jsonl`: una riga `partenza` e una `chiusura` per tentativo,
+  stesso `id` (`INVOCATION_ID`); la chiusura porta esito, motivo, codice,
+  commit, push, tree sporco, permessi negati, costo, durata, `attenzione`;
+- `giri/<id>.jsonl`: lo stream del giro; `decisioni.json`: stato e cadenza
+  del repo, per calcolare le partenze mancate.
+
+**Righe nella home**: gli ultimi cinque tentativi, dal più recente, caricati
+da uno script inline che legge `/_battito/` (se lo script non gira resta il
+collegamento alla pagina), con data e ora,
+semaforo, esito in parole e collegamento alla pagina del giro. Stati senza
+tentativi, distinti fra loro: «nessun battito dichiarato» (repo assente da
+`decisioni.json`), «fuori nixos» (stato `esterno`), «mai partito», «fonte
+non leggibile» (stato dichiarato ma cartella assente o illeggibile).
+
+**Semaforo**, calcolato da campi espliciti; il giudizio dell'agente alza,
+non abbassa:
+
+- **rosso**: esito diverso da riuscito (arresto, errore, timeout); commit
+  senza push; partenza senza chiusura oltre il tempo massimo; con stato
+  `timer`, nessuna partenza entro la cadenza più una tolleranza;
+- **giallo**: riuscito, ma con permessi negati, oppure `attenzione` non
+  nulla o assente;
+- **verde**: riuscito, commit e push, nessun permesso negato,
+  `attenzione` nulla. Un giro tutto vuoto è verde.
+
+`attenzione` viene dal resoconto dell'agente: il prompt del battito lo fa
+chiudere con una riga `Attenzione: nessuna` oppure `Attenzione: <voci>`
+(proposte «da decidere», incertezze, errori dichiarati), che lo script di
+chiusura estrae. La riga mancante vale giallo: l'assenza di un segnale non è
+un via libera.
+
+**Pagina del giro**: metadati del tentativo (inizio, durata, costo, codice,
+motivo, commit con i trailer, push), il resoconto finale reso come pagina,
+le voci di `attenzione`, gli atti sul Mondo e l'elenco dei comandi e degli
+strumenti invocati ricavato dallo stream; lo stream completo resta
+scaricabile. Eredita il compartimento della vista del repo: in `salute`
+dati sanitari, serviti in LAN come il resto.
+
+**Percorso**: contratto ratificato → implementazione nel canone `o3/view/`
+(`serve.py`, home) con verifiche su uno stato di prova → modulo
+`presentations` e chiusura del battito in `nixos` (`--battito-state`, campo
+`attenzione`) → prescrizione `o3/` ai sette, `salute` per primo perché ha un
+battito vero da mostrare.
 
 ## Contratto di supervisione e riuscita
 

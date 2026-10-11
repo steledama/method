@@ -58,10 +58,18 @@ arriva agli adottanti via symlink.
   permessi negati su comandi composti, rifatti spezzati. Il giro ha
   corretto da sé un errore di `o3/health_data.py` che annullava una
   decisione del custode, con test: è il primo caso del campione da rileggere
-  contro le fonti. Restano da provare la sessione concorrente (stop 15), il
-  recinto sui mount FUSE e l'eredità dei deny di `.claude/settings.json`.
-  Il custode ha deciso di togliere da `deck` il Drive di Letizia invece di
-  recintarlo.
+  contro le fonti. Il custode ha deciso di togliere da `deck` il Drive di
+  Letizia, gli altri remote non suoi e la chiave GitHub di Letizia invece di
+  recintarli (`nixos` `74b1328`).
+- **Sonde del recinto, 2026-10-11** (unità `battito-<repo>-sonda`, senza
+  Claude): sola lettura sui mount FUSE superata. Lo stop per sessione
+  concorrente taceva, perché dal namespace dell'unità `/proc/<pid>/cwd` è
+  illeggibile: spostato in un `ExecStartPre=+` fuori dal namespace, ora
+  ferma con 15. Con `--setting-sources project` i deny di
+  `.claude/settings.json` valgono anche nel battito e i suoi allow si
+  ereditano nei workspace fidati; senza fonti il giro perde `CLAUDE.md` e
+  skill. Regola da prescrivere: gli allow di `settings.json` stanno dentro
+  quelli del file del battito, i deny sono liberi.
 - **`crm`, `svezia`**: sospeso fino alla presenza del custode sull'host.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
