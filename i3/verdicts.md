@@ -27,8 +27,9 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. Il battito del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
   prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
-- [battito-autonomo.md](battito-autonomo.md) — l'artefatto regge un giro
-  `eval` → `exec` → commit senza custode? Push autonomo in `method` e
+- [battito-autonomo.md](battito-autonomo.md) — direzione costitutiva dal
+  2026-10-11: con quali garanzie ogni repo arriva al giro `eval` → `exec` →
+  commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e
   prescritto ai sette; delega dei cicli avviati dal custode ratificata in
   `autonomy.md`, con Goal aggiornato; primi 18 casi della delega da tre
   adottanti, residuo nel checkout servito; il battito schedulato resta da collaudare. Riesame il 2026-11-01,

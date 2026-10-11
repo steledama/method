@@ -39,9 +39,11 @@ i2/i3 invece di incidere il canone di straforo.
 
 Posizione auspicata lungo le dimensioni candidate comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
-dell'adottante, **governo operativo delegato all'agente nei cicli avviati dal
-custode**, con supervisione degli esiti e decisione umana su scopi, territorio
-e deleghe ([autonomia](autonomy.md)), **basso attrito di lettura** (bussola
+dell'adottante, **governo operativo delegato all'agente, in direzione di un
+battito autonomo di runtime in ogni repo**: un ambito di autonomia dichiarato,
+con strumenti rigorosi di tracciabilità, controllo e verifica, esteso in modo
+graduale e misurato. Restano al custode la supervisione degli esiti e la
+decisione su scopi, territorio e deleghe ([autonomia](autonomy.md)); **basso attrito di lettura** (bussola
 snella, viste facilmente consultabili e riproducibili dalle fonti), KB riflessiva coerente, loop di
 propagazione che si chiude.
 

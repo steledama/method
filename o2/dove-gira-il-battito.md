@@ -1,104 +1,84 @@
 ---
-sintesi: "Un confronto con pro e contro delle soluzioni per far girare il battito eval → exec a intervalli, da cui il custode sceglie quella per il pilota."
+sintesi: "Il battito gira da un timer systemd dichiarato in un unico modulo nixos, con Claude Code non interattivo: un file di decisioni per repo e un meccanismo generico. Resta da costruire e collaudare al gradino 0."
 ciclo: dev
 ---
 
 # Dove gira il battito
 
 Il battito è un giro `eval all` → `exec all` che chiude con un commit e il
-push, senza custode. Dove e come lo si esegue è aperto: il custode vuole
-confrontare le soluzioni prima di scegliere.
+push, senza custode.
 
-## Opzioni da approfondire
+## Scelta
 
-- **Timer sull'host dichiarato in `nixos`**, che lancia Claude Code in modo
-  non interattivo. Versionato e riproducibile, sopravvive ai riavvii, vede
-  checkout, `gdrive` e superfici ssh. Da capire: credenziali sull'host,
-  permessi in allowlist, log degli esiti.
-- **Sessione permanente di Claude Code con `/loop`**. Nessuna
-  infrastruttura. Da verificare: quanto vivono i loop di sessione, cosa
-  succede a chiusura del terminale o al riavvio, crescita del contesto. Una
-  schedulazione che vive solo nella sessione non è versionata.
-- **Routine cloud (`/schedule`)**. Nessun host da tenere acceso. Gira su un
-  clone dal remoto: non vede i checkout locali né le superfici private.
-- **Task Scheduler di Windows** per `danea-auto`, l'unico adottante fuori da
-  Linux, che lo usa già per i suoi giri di dominio.
+Decisa dal custode il 2026-10-11.
 
-## Modo non interattivo dei tre harness
+- **Scheduler**: timer systemd sull'host, dichiarato in `nixos`. Versionato e
+  riproducibile, sopravvive ai riavvii, vede checkout, `gdrive` e superfici
+  ssh. Scartati `/loop` (vive nella sessione, non versionato) e le routine
+  cloud (un clone dal remoto non vede checkout locali né superfici private).
+- **Harness**: solo Claude Code, `claude -p`. Il confronto con Codex e pi
+  nasceva dal timore di dipendere da un solo fornitore; in questa fase
+  complicava senza beneficio. Se servirà cambiare, si valuteranno le opzioni
+  di quel momento.
+- **Prova**: su repo reali con il servizio reale, non su cloni usa e getta.
+  La gradualità sta nei gradini del [pilota](pilota-battito.md), non in un
+  ambiente di prova separato.
 
-Verificato il 2026-10-11 sull'help delle versioni installate dal profilo
-`nixos` su `deck`: Claude Code 2.1.292, Codex CLI 0.161.0, pi 1.0.4.
+## Forma del modulo
 
-- **Claude Code**: `claude -p` (`--print`), «non-interactive output».
-  Sessione non salvata con `--no-session-persistence`, tetto di spesa con
-  `--max-budget-usd`, permessi con `--permission-mode`
-  (`dontAsk`, `acceptEdits`, `auto`, `bypassPermissions`…) e
-  `--allowedTools`/`--disallowedTools`, esito con `--output-format json`.
-- **Codex**: `codex exec`, «Run Codex non-interactively». Sessione non
-  salvata con `--ephemeral`, sandbox `read-only`, `workspace-write` o
-  `danger-full-access`, approvazioni instradate a una revisione automatica
-  con `--approve-for-me`, eventi JSONL con `--json`, ultimo messaggio su
-  file con `-o`. Nessun tetto di spesa fra le opzioni.
-- **pi**: `pi -p`, «process prompt and exit». Sessione non salvata con
-  `--no-session`, allowlist e denylist degli strumenti con `--tools` ed
-  `--exclude-tools`, esito JSON con `--mode json`. Nell'help non compare un
-  sistema di permessi né un tetto di spesa; `--approve` riguarda la fiducia
-  nei file di progetto.
+Un unico modulo in `nixos`, con le decisioni separate dal meccanismo:
 
-In tutti e tre il processo termina quando l'agente chiude il turno finale:
-lo scheduler vede l'uscita e il codice di ritorno. La chiusura non è
-garantita se un comando resta appeso (ssh senza risposta, un prompt
-interattivo, un pager): serve un tempo massimo imposto dallo scheduler,
-per esempio `RuntimeMaxSec` nell'unità systemd, e il tempo scaduto è un
-arresto da rendere visibile.
+- **File delle decisioni**: per ogni repo host, cadenza, orario, tempo
+  massimo e stato (`manuale`: unità presente, avvio solo a mano; `timer`:
+  schedulato). Il campo `host` ha un solo valore: «un solo host tiene il
+  battito di un repo» vale per costruzione. `danea-auto` vi compare come voce
+  dichiarata «fuori nixos (Task Scheduler)», così il quadro resta completo.
+- **Meccanismo generico**: su ogni host genera le unità dei soli repo
+  assegnati a lui. Tiene in un posto l'invocazione, il tempo massimo
+  (`RuntimeMaxSec`), il lock contro sessioni sovrapposte sullo stesso
+  checkout, il log dei tentativi e la fonte di stato per la home. Il registro
+  di cadenza di `/manutenzione` non è un lock fra sessioni: serve un lock
+  locale.
 
-Da provare con un giro reale, non leggibile dall'help:
+Confine: `nixos` decide **dove e quando**, il repo decide **cosa**. Prompt
+del giro, permessi del battito e perimetro degli atti (`autonomy.md`) vivono
+nel repo; il modulo invoca senza sapere cosa fa il giro (cfr.
+`kb/method-development.md`, «dichiara e taci»). La scelta qui non attiva lo
+scheduler: l'attivazione vive in `nixos`.
 
-- che `/eval` e `/exec` si invochino nel modo non interattivo: le skill
-  vivono in `.claude/skills/` con wrapper in `.codex/skills/`; pi le carica
-  con `--skill` e la scoperta automatica nel progetto non è verificata;
-- cosa succede a una richiesta di permesso non coperta: rifiuto e
-  prosecuzione, oppure arresto;
-- se `workspace-write` di Codex consente la rete, che servono a push e ssh;
-- l'autenticazione headless sull'host scelto per ciascun harness.
+Due recinti, in quest'ordine (ricognizione di `salute`, 2026-10-11):
 
-## Protocollo della prova dei tre harness
+- **L'unità** è il recinto vero: percorsi in sola lettura o inaccessibili
+  (`ReadOnlyPaths`, `InaccessiblePaths`), lock, tempo massimo. Le regole Bash
+  dell'harness non coprono redirect e sottoprocessi.
+- **I permessi dell'harness** sono il secondo: un file del solo battito,
+  versionato nel repo e passato all'unità con `--settings`, non
+  `.claude/settings.json`, che vale anche per le sessioni interattive. Con
+  `--setting-sources project` l'unità esclude `settings.local.json` e le
+  impostazioni utente, che possono concedere atti non voluti nel battito (in
+  `salute` su `deck`, cancellazioni su Drive e calendario).
 
-Concordato il 2026-10-11, da eseguire su `deck` in una sessione interattiva
-nuova: l'agente che la conduce lancia i tre harness non interattivi e ne
-legge gli esiti. La prova risponde ai quattro punti sopra; non è il pilota
-e non sceglie l'esecutore.
+## Invocazione
 
-- **Isolamento**: ogni harness lavora su un clone usa e getta di `method`
-  nello scratchpad della sessione (`git clone ~/method <dir>`), mai sul
-  checkout vero. Nessun commit, nessun push; il clone si butta a fine prova.
-  Le letture degli adottanti si fermano a `fetch` e `origin`.
-- **Limiti**: ogni giro sotto `timeout 900`; in Claude Code anche
-  `--max-budget-usd 1`; sessione non salvata (`--no-session-persistence`,
-  `--ephemeral`, `--no-session`). Output su file nello scratchpad
-  (`--output-format json`, `--json` con `-o`, `--mode json`).
-- **Giro 1, skill**: richiesta `/eval perceive` con l'istruzione di
-  restituire solo il resoconto senza scrivere file. Riuscito se il
-  resoconto segue gli stadi della skill e cita i marker degli adottanti.
-  Per pi, prima senza `--skill`, poi con `--skill .claude/skills/eval`.
-- **Giro 2, permesso negato**: richiesta di scrivere un file nel clone con
-  permessi che non lo consentono (Claude Code `--permission-mode dontAsk`
-  senza `Write`/`Edit` fra gli `--allowedTools`; Codex `--sandbox
-read-only`; pi `--exclude-tools write,edit`). Annotare se rifiuta e
-  prosegue, si arresta o aggira il divieto (per esempio via shell), e il
-  codice di uscita.
-- **Giro 3, rete**: solo Codex con `--sandbox workspace-write`, richiesta di
-  eseguire `git ls-remote origin` nel clone. Annotare se la rete passa.
-- **Autenticazione**: annotare per ciascun harness se il giro parte senza
-  login interattivo.
+Verificato sull'help il 2026-10-11 (Claude Code 2.1.295): `claude -p` con
+`--permission-mode dontAsk` (ogni permesso non concesso è negato senza
+chiedere), `--no-session-persistence`, `--max-budget-usd`,
+`--output-format json`. L'ambiente dell'unità evita i blocchi interattivi:
+stdin da `/dev/null`, `GIT_TERMINAL_PROMPT=0`,
+`GIT_SSH_COMMAND="ssh -o BatchMode=yes"`, `PAGER=cat`.
 
-Esiti in questo file, in una sezione che sostituisce l'elenco «Da provare»:
-per harness e giro, comando, codice di uscita, durata, costo se dichiarato
-ed esito. Il commit si concorda col custode a fine prova.
+Da verificare al gradino 0, non leggibile dall'help:
+
+- che `/eval` e `/exec` si invochino da `claude -p` con la skill del repo;
+- cosa riporta il JSON d'uscita su permessi negati ed errori (`is_error`,
+  `permission_denials`) e con quale codice di uscita: il solo codice non
+  basta a distinguere un giro riuscito;
+- l'autenticazione di Claude e di ssh (GitHub, host remoti) nell'ambiente
+  dell'unità, senza shell interattiva né ssh-agent di sessione;
+- l'arresto per `RuntimeMaxSec` e la sua traccia nel journal.
 
 ## Vincoli comuni
 
-- Un solo host tiene il battito di un repo.
 - La strategia di sincronizzazione va scelta esplicitamente: `pull --rebase`
   è un candidato, non un prerequisito già deciso. Un push rifiutato non si
   forza e rende visibile l'arresto (caso reale in `method` il 2026-10-08).
@@ -106,18 +86,11 @@ ed esito. Il commit si concorda col custode a fine prova.
   locale: in `bi` il push resta su richiesta quando i commit toccano il
   codice eseguito dal ciclo.
 
-## Confronto e risultato richiesti
+## Arresti e fonte di stato
 
-Le capacità delle opzioni sopra sono ipotesi da verificare sulle fonti
-correnti durante la ricerca. Confrontarle sullo stesso bisogno: accesso alle
-fonti dichiarate in World, durata e costo, credenziali, ambiente riproducibile,
-isolamento del lavoro, concorrenza e recupero. La ricerca può partire subito;
-la scelta esecutiva deve rispettare i criteri concordati per il pilota.
-
-Un solo host non impedisce due sessioni sullo stesso checkout. La proposta
-operativa deve precisare comportamento e arresto per checkout sporco,
-conflitto, timeout, sessioni sovrapposte e push rifiutato, senza chiedere un
-consenso interattivo che nel battito non può arrivare.
+La proposta operativa deve precisare comportamento e arresto per checkout
+sporco, conflitto, timeout, sessioni sovrapposte e push rifiutato, senza
+chiedere un consenso interattivo che nel battito non può arrivare.
 
 Definire una fonte dello stato dei tentativi leggibile dalla home: partenza,
 chiusura, arresto e mancata partenza rispetto alla cadenza attesa; distinguere
@@ -125,7 +98,8 @@ commit creato, push e pubblicazione. Il solo `git log` non misura un tentativo
 interrotto prima del commit. `o3/view/publish.py` e il suo `status.json`
 misurano la pubblicazione, non l'esecuzione di `eval`/`exec`.
 
-Chiusura: confronto documentato e scelta del custode per il pilota, protocollo
-dei casi di arresto, contratto della fonte per la home e prescrizione di
-attivazione locale. L'host è governato dal suo repository: la scelta qui non
-attiva uno scheduler né modifica gli adottanti.
+## Chiusura
+
+Modulo dichiarato in `nixos` e collaudato al gradino 0 sui due host,
+protocollo dei casi di arresto, contratto della fonte per la home e
+prescrizione di attivazione locale per gli adottanti.

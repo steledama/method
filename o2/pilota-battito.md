@@ -17,16 +17,39 @@ articolano i loop di dominio.
   deve vedere i giri prima di toglierne la conferma.
 - Criteri per il battito schedulato concordati nel register: la delega
   corrente copre solo cicli avviati dal custode.
-- La scelta di dove gira il battito.
+- La scelta di dove gira il battito: timer systemd da un modulo `nixos`, con
+  Claude Code (2026-10-11); modulo da costruire e collaudare al gradino 0.
 
-## Scelta del pilota (aperta, da fare insieme)
+## Scelta del pilota e gradini
 
-- Esclusi `bi` (il più complesso, e ogni push è un rilascio) e `method` (i
-  nodi arrivano agli adottanti via symlink, un errore autonomo si propaga).
-- Candidato: `nixos`, perché `/manutenzione` committa e pusha già da sola con
-  un lock condiviso tra host. Limite: è il repo che governa gli host.
-- Alternative: `baserow` (semplice, ma con pochi cambi farebbe soprattutto
-  giri vuoti), `salute`, `economia`.
+Decisa dal custode il 2026-10-11: due piloti in parallelo, uno per host,
+`salute` su `deck` e `crm` su `svezia`. Il battito autonomo di runtime è
+direzione costitutiva del metodo (`goal.md`): tutti i repo ci arrivano,
+gradualmente, ciascuno con i propri limiti da analizzare.
+
+- **Gradino 0**: l'unità vera avviata a mano dal custode (`systemctl start`).
+  È un ciclo avviato dal custode, coperto da `ciclo-delegato`; prova ambiente
+  dell'unità, credenziali, permessi, push e tempo massimo.
+- **Gradino 1**: timer acceso, cadenza bassa. È il battito schedulato e
+  attende i [criteri](criteri-autonomia.md).
+- **Gradini successivi**, un repo alla volta per host: su `deck` poi
+  `economia`; su `svezia` poi `nixos`, quando il modulo ha retto i primi giri,
+  quindi `baserow` e `bi`; `method` quando il canone ha visto girare il
+  battito negli adottanti; `danea-auto` per ultimo, fuori `nixos`.
+
+Perché questi due: `salute` ha checkout solo su `deck`, pochi cambi e nessun
+rilascio legato al push, ma dati personali da tenere fuori dalle letture
+automatiche verso l'esterno. `crm` dà giri con materia e il suo confine
+(checkout che è anche pubblicazione) è già deciso in `autonomy.md`. `nixos`
+non apre la scala: il battito toccherebbe il proprio scheduler e il repo che
+governa gli host, con più sessioni concorrenti. `baserow` farebbe soprattutto
+giri vuoti; `bi` ha ogni push come rilascio; in `method` un errore autonomo
+arriva agli adottanti via symlink.
+
+I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
+atti fuori delega, senza arresti invisibili e con un campione di giri riletto
+contro le fonti; si torna al gradino precedente, per quel repo, alle
+condizioni di sospensione sotto.
 
 ## Da fissare alla partenza
 
@@ -51,7 +74,7 @@ risultati dei tre task: [criteri](criteri-autonomia.md),
 La delega sulla manutenzione dell'artefatto resta distinta dalle azioni di
 dominio. L'esperienza di `/manutenzione` in `nixos` non dimostra da sola la
 delegabilità di `eval compare`; negli altri candidati vale lo stesso esame
-contro il Goal locale. Nessun candidato è ancora scelto.
+contro il Goal locale.
 
 ## Criterio di chiusura
 

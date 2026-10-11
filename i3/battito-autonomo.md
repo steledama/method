@@ -3,7 +3,7 @@ ciclo: dev
 obiettivo: S, 2
 ---
 
-# Il battito autonomo: l'artefatto regge un giro senza custode?
+# Il battito autonomo: con quali garanzie ogni repo ci arriva?
 
 Il custode, 2026-10-08: gli adottanti sono abbastanza maturi da iniziare a
 girare da soli. Le ultime modifiche al canone rendono esplicite, scritte e
@@ -12,6 +12,13 @@ rintracciabili le ipotesi e le interpretazioni dietro decisioni e azioni
 attesa è un **loop agentico di base**, uguale per tutti: un giro `eval` →
 `exec` che chiude con un commit e il push, schedulato da ogni repo e senza
 custode. I loop di dominio si articolano poi su questa base.
+
+Il custode, 2026-10-11: il battito autonomo di runtime è parte costitutiva del
+metodo (`goal.md`, Goal di sviluppo). Ogni repo ci va, gradualmente e con i
+propri limiti; l'artefatto deve avere un ambito di autonomia e strumenti
+rigorosi di tracciabilità, controllo e verifica. La domanda non è più _se_
+l'artefatto regga un giro senza custode, ma _con quali garanzie_ ci arriva
+ciascun repo, e quando un gradino va ritirato.
 
 ## La scommessa
 
@@ -100,5 +107,6 @@ un battito frequente e ben documentato può comunque aumentarlo.
 Riesame al battito `/adottanti` del **2026-11-01**: avanzamento del
 percorso e riscontri sulla prima delega. Il verdetto vero arriva alla fine dell'osservazione del pilota,
 con durata e criterio di riuscita fissati in `o2/pilota-battito.md`. A quel
-punto il loop di base diventa canone e si prescrive, si corregge, oppure si
-torna indietro.
+punto il loop di base diventa canone e si prescrive, oppure si corregge. Il
+ritorno alla modalità assistita resta possibile per il singolo repo o
+gradino, non per la direzione.
