@@ -84,6 +84,16 @@ arriva agli adottanti via symlink.
   `commit` e `cycle`; base git comune nella prescrizione
   [ciclo-autonomo](../o3/ciclo-autonomo.md); `attribution` passato
   dall'unità.
+- **`salute`, gradino 1, deciso il 2026-10-11** (`deck`): timer ogni giorno
+  alle 12:00 dal 2026-10-12 (`nixos` `cd2be2a`), criterio `ciclo-autonomo`
+  ratificato con la regola di sospensione (`salute` `308d4ec`): si torna al
+  manuale dopo un rosso per atto fuori delega o ricostruzione sbagliata,
+  mentre lo stop per sessione aperta, il push rifiutato e il lock occupato
+  sono il sistema che funziona. L'orario segue i dati, non il calendario:
+  alle 12:00 sono arrivati notte, pratica del mattino e invio manuale del
+  custode, perché la sincronizzazione automatica dell'orologio oggi non è
+  affidabile. `Persistent=false`: con `deck` spento il giro salta e la home
+  lo segna rosso, con `deck` sospeso parte alla ripresa.
 - **`crm`, `svezia`**: sospeso fino alla presenza del custode sull'host.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
