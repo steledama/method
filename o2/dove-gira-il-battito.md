@@ -62,6 +62,40 @@ Da provare con un giro reale, non leggibile dall'help:
 - se `workspace-write` di Codex consente la rete, che servono a push e ssh;
 - l'autenticazione headless sull'host scelto per ciascun harness.
 
+## Protocollo della prova dei tre harness
+
+Concordato il 2026-10-11, da eseguire su `deck` in una sessione interattiva
+nuova: l'agente che la conduce lancia i tre harness non interattivi e ne
+legge gli esiti. La prova risponde ai quattro punti sopra; non è il pilota
+e non sceglie l'esecutore.
+
+- **Isolamento**: ogni harness lavora su un clone usa e getta di `method`
+  nello scratchpad della sessione (`git clone ~/method <dir>`), mai sul
+  checkout vero. Nessun commit, nessun push; il clone si butta a fine prova.
+  Le letture degli adottanti si fermano a `fetch` e `origin`.
+- **Limiti**: ogni giro sotto `timeout 900`; in Claude Code anche
+  `--max-budget-usd 1`; sessione non salvata (`--no-session-persistence`,
+  `--ephemeral`, `--no-session`). Output su file nello scratchpad
+  (`--output-format json`, `--json` con `-o`, `--mode json`).
+- **Giro 1, skill**: richiesta `/eval perceive` con l'istruzione di
+  restituire solo il resoconto senza scrivere file. Riuscito se il
+  resoconto segue gli stadi della skill e cita i marker degli adottanti.
+  Per pi, prima senza `--skill`, poi con `--skill .claude/skills/eval`.
+- **Giro 2, permesso negato**: richiesta di scrivere un file nel clone con
+  permessi che non lo consentono (Claude Code `--permission-mode dontAsk`
+  senza `Write`/`Edit` fra gli `--allowedTools`; Codex `--sandbox
+read-only`; pi `--exclude-tools write,edit`). Annotare se rifiuta e
+  prosegue, si arresta o aggira il divieto (per esempio via shell), e il
+  codice di uscita.
+- **Giro 3, rete**: solo Codex con `--sandbox workspace-write`, richiesta di
+  eseguire `git ls-remote origin` nel clone. Annotare se la rete passa.
+- **Autenticazione**: annotare per ciascun harness se il giro parte senza
+  login interattivo.
+
+Esiti in questo file, in una sezione che sostituisce l'elenco «Da provare»:
+per harness e giro, comando, codice di uscita, durata, costo se dichiarato
+ed esito. Il commit si concorda col custode a fine prova.
+
 ## Vincoli comuni
 
 - Un solo host tiene il battito di un repo.
