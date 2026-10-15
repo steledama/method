@@ -98,14 +98,28 @@ arriva agli adottanti via symlink.
   custode, perché la sincronizzazione automatica dell'orologio oggi non è
   affidabile. `Persistent=false`: con `deck` spento il giro salta e la home
   lo segna rosso, con `deck` sospeso parte alla ripresa.
-- **`crm`, `svezia`**: ripreso il 2026-10-15, col custode sull'host. Prima
-  del gradino 0, `/method` in `crm` recepisce `519bdc7` e i passi 5–7 della
-  prescrizione [ciclo-autonomo](../o3/ciclo-autonomo.md) rinviati al pilota:
-  `.claude/ciclo.json`, `.claude/ciclo-prompt.md`, criterio `ciclo-autonomo`
-  in `autonomy.md`, base git comune. Poi l'unità `ciclo-crm` (già dichiarata
-  `manuale` in `nixos` `o3/cicli.nix`) si avvia a mano. Il timer arriva dopo
-  un paio di giri manuali puliti. Il prompt dice cosa il giro decide da solo
-  sui 9 task dev fermi dal 2026-08-21 e cosa lascia in proposta.
+- **`crm`, gradino 0, 2026-10-15** (`svezia`): criterio `ciclo-autonomo`
+  ratificato dal custode (`crm` `abaf9c7`). Il giro lavora su artefatto e
+  proposte, non implementa task dev e non tocca codice applicativo,
+  migrazioni, `o3/tools/` (backup in esercizio dal checkout) né `o3/view/`
+  (server riavviato al commit). Il push è automatico e i test Django valgono
+  solo per un giro che tocca codice: l'unità non ha `uv` né un Postgres di
+  test. Allargamenti previsti, uno alla volta: test, poi `o3/view/`.
+  - **Primo giro** (`f4fc1af`, 1,7 minuti, 0,87 USD, giallo): ha ricostruito
+    dalla storia git la coda ferma dal 2026-08-21, e la ricostruzione è
+    verificata. Ha lasciato una proposta A/B/C. La lettura di `~/manager` è
+    stata negata e non aggirata: la domanda del prompt presupponeva fonti
+    fuori perimetro. Il custode ha chiarito che il lavoro è in design
+    condiviso con i colleghi, fuori dai repository.
+  - **Secondo giro** (`301463f`, 1,9 minuti, 0,82 USD, 26 turni, giallo):
+    bozza della scheda per Alessio, con le otto domande del custode rese
+    fedelmente e una nona lasciata in proposta.
+  - Dinieghi innocui in entrambi i giri (`hostname`, `echo rc=$?`), corretti
+    nel canone (`70a5825`, `94d85b7`). Il deny `git add .*` della
+    prescrizione bloccava `.claude/`: corretto in `cb39a4b`.
+- **`crm`, gradino 1, deciso il 2026-10-15**: timer ogni giorno alle 05:30,
+  modifica di `state` chiesta a `nixos`. Il giro si ferma se trova una
+  sessione aperta sul checkout di `svezia`.
 - **`baserow`, `svezia`**: secondo su `svezia`, deciso il 2026-10-15. Prima
   del gradino 0 servono la voce in `nixos` `o3/cicli.nix` e i passi 5–7 della
   prescrizione. Il backup manuale senza restore resta riservato al custode
