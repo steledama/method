@@ -77,7 +77,9 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
      - negli atti `git add *`, `git commit *` (amend compreso), `git push`,
        `git push origin <branch>`;
      - i deny che la recintano, in `.claude/settings.json` perché valgono
-       anche in sessione: `git add -A*`, `--all*`, `.*`, `--no-verify`,
+       anche in sessione: `git add -A*`, `--all*`, `git add .` e
+       `git add . *` (non `git add .*`, che nega anche `.claude/` e
+       `.codex/`, primo caso in `crm` il 2026-10-15), `--no-verify`,
        ogni forma di force push, `git reset`, `rebase`, `clean`, `checkout`,
        `switch`, `restore`, `stash`, `merge`, `config`, e di `git branch` le
        sole forme che cancellano, rinominano o forzano (`-d`, `-D`,
