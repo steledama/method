@@ -109,6 +109,12 @@ class WithoutAttempts(StateCase):
     def test_never_started(self):
         self.assertEqual(ciclo.load(self.state, NOW)["stato"], "never")
 
+    def test_declared_before_first_attempt(self):
+        self.decide({"state": "manuale"})
+        self.assertEqual(ciclo.load(self.root / "mai-partito", NOW)["stato"], "unreadable")
+        (self.root / "decisioni.json").write_text(json.dumps({"mai-partito": {"state": "manuale"}}))
+        self.assertEqual(ciclo.load(self.root / "mai-partito", NOW)["stato"], "never")
+
     def test_unreadable(self):
         self.assertEqual(ciclo.load(self.root / "assente", NOW)["stato"], "unreadable")
 

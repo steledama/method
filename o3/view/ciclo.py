@@ -235,7 +235,9 @@ def load(state: Path | None, now: datetime | None = None) -> dict:
     try:
         records = read_jsonl(state / "tentativi.jsonl")
     except FileNotFoundError:
-        view["stato"] = "never" if state.is_dir() else "unreadable"
+        # La cartella di stato nasce col primo giro: un ciclo dichiarato che
+        # non è mai partito non ha ancora fonte, ma non è illeggibile.
+        view["stato"] = "never" if state.is_dir() or decision else "unreadable"
         records = []
     except OSError:
         view["stato"] = "unreadable"
