@@ -63,9 +63,10 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
      `.claude/ciclo.json`; i deny si aggiungono liberamente, perché valgono
      anche nel ciclo autonomo;
    - la lettura è larga: oltre a `cat`, `head`, `tail`, `grep`, `jq` e
-     `sed -n`, anche `sort`, `uniq`, `cut`, `tr`, `diff`. Un comando composto con
-     un solo pezzo non concesso è negato per intero e costa turni (due casi
-     nel primo giro di `salute`);
+     `sed -n`, anche `sort`, `uniq`, `cut`, `tr`, `diff` e `hostname`. Un
+     comando composto con un solo pezzo non concesso è negato per intero e
+     costa turni (due casi nel primo giro di `salute`, uno nel primo di `crm`
+     per `hostname`);
    - il checkout di `method` letto dal repo (symlink `method/`) si concede in
      lettura con `additionalDirectories`: fuori dalla cartella di lavoro il
      modo non interattivo nega anche la lettura. La scrittura resta
