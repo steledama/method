@@ -36,9 +36,13 @@ gradualmente, ciascuno con i propri limiti da analizzare.
 - **Gradino 1**: timer acceso, cadenza bassa. È il ciclo autonomo schedulato e
   attende i [criteri](criteri-autonomia.md).
 - **Gradini successivi**, un repo alla volta per host: su `deck` poi
-  `economia`; su `svezia` poi `nixos`, quando il modulo ha retto i primi giri,
-  quindi `baserow` e `bi`; `method` quando il canone ha visto girare il
-  ciclo autonomo negli adottanti; `danea-auto` per ultimo, fuori `nixos`.
+  `economia`; su `svezia` poi `baserow`, quindi `nixos`, quando il modulo ha
+  retto i primi giri, e `bi` in coda; `method` quando il canone ha visto
+  girare il ciclo autonomo negli adottanti; `danea-auto` per ultimo, fuori
+  `nixos`. Il custode, 2026-10-15: `baserow` passa davanti a `nixos`, perché ha
+  una manutenzione semplice e il ciclo autonomo di `nixos` toccherebbe il
+  proprio scheduler. Su `svezia` un solo timer acceso alla volta: `baserow`
+  entra al gradino 1 dopo che `crm` ha retto il suo.
 
 Perché questi due: `salute` ha checkout solo su `deck`, pochi cambi e nessun
 rilascio legato al push, ma dati personali da tenere fuori dalle letture
@@ -94,7 +98,18 @@ arriva agli adottanti via symlink.
   custode, perché la sincronizzazione automatica dell'orologio oggi non è
   affidabile. `Persistent=false`: con `deck` spento il giro salta e la home
   lo segna rosso, con `deck` sospeso parte alla ripresa.
-- **`crm`, `svezia`**: sospeso fino alla presenza del custode sull'host.
+- **`crm`, `svezia`**: ripreso il 2026-10-15, col custode sull'host. Prima
+  del gradino 0, `/method` in `crm` recepisce `519bdc7` e i passi 5–7 della
+  prescrizione [ciclo-autonomo](../o3/ciclo-autonomo.md) rinviati al pilota:
+  `.claude/ciclo.json`, `.claude/ciclo-prompt.md`, criterio `ciclo-autonomo`
+  in `autonomy.md`, base git comune. Poi l'unità `ciclo-crm` (già dichiarata
+  `manuale` in `nixos` `o3/cicli.nix`) si avvia a mano. Il timer arriva dopo
+  un paio di giri manuali puliti. Il prompt dice cosa il giro decide da solo
+  sui 9 task dev fermi dal 2026-08-21 e cosa lascia in proposta.
+- **`baserow`, `svezia`**: secondo su `svezia`, deciso il 2026-10-15. Prima
+  del gradino 0 servono la voce in `nixos` `o3/cicli.nix` e i passi 5–7 della
+  prescrizione. Il backup manuale senza restore resta riservato al custode
+  nel suo criterio `ciclo-autonomo`.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
