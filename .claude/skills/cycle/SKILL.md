@@ -35,7 +35,10 @@ skill li ricontrolla prima di ogni atto (`git status --short` vuoto,
 `git pull --ff-only` riuscito). Se una condizione manca, non toccare nulla e
 chiudi con il resoconto e lo stop. I comandi git partono dalla cartella
 del repo, senza `git -C`: i permessi riconoscono il comando dal suo inizio, e
-un comando composto con un pezzo non concesso è negato per intero.
+un comando composto con un pezzo non concesso è negato per intero. Le
+verifiche si lanciano una per comando: l'harness riporta già il codice di
+uscita, e un `echo rc=$?` aggiunto le fa negare tutte (primi due giri di
+`crm`, 2026-10-15).
 
 **Durante il giro.** Non fare domande. Ogni punto che in sessione
 chiederesti al custode, e ogni punto riservato da `confine-delega`, diventa
