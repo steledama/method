@@ -248,6 +248,13 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   infine pubblicato, anche dopo una build fallita. Senza alcuna versione valida
   il server non parte, dice perché ed esce con un codice proprio; se una
   versione c'è, continua a servirla e rende consultabile l'errore (`/_stato`);
+- **lo scambio ricarica le viste, non il server**: il processo che serve tiene
+  il codice caricato all'avvio. Un commit che cambia `serve.py` o i moduli
+  locali che importa (oggi `ciclo`, `project`, `sources`) arriva in
+  esercizio solo dopo un riavvio, e l'innesco dell'host deve prevederlo: per
+  esempio un riavvio quando cambia l'impronta del codice di `o3/view/`
+  rispetto a quella caricata. Senza, una rotta nuova risponde 404 finché un
+  riavvio a mano non la porta in esercizio;
 - **verifica distinta dalla freschezza**: un audit controlla separatamente
   build e contratti sulle fonti, revisione servita rispetto al riferimento
   remoto aggiornato, raggiungibilità della porta. Hash uguali non provano un
