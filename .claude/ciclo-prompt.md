@@ -33,6 +33,11 @@ di `deck`: quelli dei repo di `svezia` possono essere indietro rispetto a
 `origin`, e `ssh` non è concesso. Dichiara il limite, senza dedurre uno stato
 che il checkout non mostra.
 
+Dei repo con ciclo autonomo su `deck` (`salute`, `economia`, `nixos`) leggi
+i soli `~/.local/state/ciclo/<repo>/tentativi.jsonl`, con il tool Read: esito,
+commit, push e dinieghi dei giri del giorno. I trascritti in `giri/` restano
+fuori, perché portano i dati di `salute` ed `economia`.
+
 ## Host e verifiche
 
 L'host è `deck`, il checkout servito: il commit ripubblica le viste di

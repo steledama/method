@@ -192,9 +192,10 @@ arriva agli adottanti via symlink.
     dichiarati: il ciclo `for` sui marker (ripiegato su Read), `git log` e
     reflog di `salute`, `tentativi.jsonl` di `salute`. Il perimetro concede
     solo i marker, mentre l'orario delle 15:00 è motivato dai giri degli
-    adottanti del giorno: da decidere se concedere la lettura dei soli
-    `tentativi.jsonl` dei repo di `deck` (non `giri/`, che porta i dati di
-    `salute` ed `economia`).
+    adottanti del giorno: il custode concede la lettura dei soli
+    `tentativi.jsonl` dei repo di `deck`, non di `giri/`, che porta i dati
+    di `salute` ed `economia` (2026-10-16). Il timer di `method` attende il
+    primo giro schedulato di `economia` e un secondo giro manuale pulito.
   - **`economia`, gradino 1, deciso il 2026-10-16**: timer ogni giorno alle
     13:00 dallo stesso giorno (`nixos` `5f127c7`), dopo quattro giri
     manuali, gli ultimi due puliti. È il secondo timer su `deck`, un'ora
