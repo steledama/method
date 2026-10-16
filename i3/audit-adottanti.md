@@ -28,9 +28,9 @@ di ogni file né il runtime. L'ultimo audit mensile resta quello del 01/10.
 
 Lettura dei soli checkout locali di `deck` il 2026-10-16, senza `fetch` né
 `ssh` (giro autonomo di `method`): sei marker sono oltre `d8a88e7`, tutti
-`aligned` — `crm` a `cb39a4b`, `nixos` a `519bdc7`, `bi` e `baserow` a
-`6105c8a` (revisioni del 2026-10-15), `economia` a `ce4ac52` e `salute` a
-`e5a57bb` (2026-10-11). `danea-auto` resta a `d8a88e7`: il suo checkout
+`aligned` — `baserow` a `735d7f7` (2026-10-16), `crm` a `cb39a4b`, `nixos`
+a `519bdc7`, `bi` a `6105c8a` (revisioni del 2026-10-15), `economia` a
+`ce4ac52` e `salute` a `e5a57bb` (2026-10-11). `danea-auto` resta a `d8a88e7`: il suo checkout
 qui può essere indietro rispetto al clone Windows. I corpi di `economia`,
 `salute` e `crm` dichiarano recepite `momento-del-commit` e
 `ciclo-autonomo`. Il dato su `origin` lo dà l'audit del 2026-11-01.

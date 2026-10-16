@@ -46,7 +46,11 @@ schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
 per il Drive irraggiungibile, senza riga nello stato, ora registrato da
-`ciclo-namespace` (`nixos` `kb/cicli.md`). La prima delega resta
+`ciclo-namespace` (`nixos` `kb/cicli.md`). Il 2026-10-16 (`tentativi.jsonl`
+letti dal giro di `method`) sono riusciti con commit e push il giro
+schedulato di `salute` alle 12:00 (`aa56ddf`, 1,8 minuti, 0,75 USD) e il
+primo di `economia` alle 13:00 (`e51265b`, 1,6 minuti, 0,68 USD); ogni
+giro del giorno, schedulato o manuale, registra da uno a due dinieghi. La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova
