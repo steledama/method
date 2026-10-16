@@ -142,8 +142,57 @@ arriva agli adottanti via symlink.
   - `method`: `kb/` modificabile, prescrizioni, strumenti e skill in
     proposta, `/adottanti` e `/method` fuori dal giro, marker letti dai
     checkout locali di `deck`.
-    Il timer si accende un repo alla volta, dopo un paio di giri manuali
-    puliti.
+
+  Il timer si accende un repo alla volta, dopo un paio di giri manuali
+  puliti. Commit di attivazione: `nixos` `4322077` (voci in `o3/cicli.nix`,
+  `homeWritable`, `X-RestartIfChanged=false` su ogni unità `ciclo-*`, perché
+  un bump di Claude Code non interrompa un giro in corso), `economia`
+  `986ade1`, `method` `118c276`. Sonde superate su `economia` e `nixos`;
+  quella di `method` ferma per la sessione del custode aperta su
+  `~/method`, cioè il controllo che funziona.
+  - **`nixos`, primo giro** (`98e48cf`, 1,4 minuti, 1,20 USD, 39 turni):
+    `/manutenzione` senza rami dovuti, quindi né bump né switch: la parte
+    rischiosa del perimetro resta da collaudare. Due bonifiche di testo sul
+    ramo `home-manager` in plan e prescrizioni. Segnalata la sonda di
+    `method` rimasta fallita: da qui `31ef62d`, la sonda usa
+    `ExecCondition` e con una sessione aperta viene saltata, non fallita.
+  - **`economia`, primo giro** (`368bf9a`, 2,6 minuti, 1,21 USD): risposta
+    del notaio e proposta Albatros viste in Gmail ma non catturate, perché
+    `posta` era fuori dal giro. Il custode ha deciso lo stesso giorno: il
+    giro esegue `posta` dentro `perceive` e salva gli allegati pertinenti in
+    `gdrive/<dominio>/` senza sovrascrivere né cancellare; Drive `economia`
+    scrivibile nell'unità, il resto in sola lettura (`a05e72e`, `31ef62d`).
+  - **`economia`, secondo giro** (`2430f5a`, 8,2 minuti, 2,96 USD, 100
+    turni): 14 segnali catturati, proposta Albatros salvata e letta con
+    `pandoc`, sollecito a Caprioli in bozza Gmail (verificata, non
+    inviata). Un errore dichiarato dall'agente: un conto WindTre di Tigli
+    archiviato fra le bollette di via Romana, doppione. Il custode ha
+    controllato il codice cliente, confermato la correzione e tolto il
+    doppione (cestino di Drive); il prompt ora chiede intestatario e ricerca
+    dei doppioni in tutto `gdrive/` prima di salvare (`cda8da0`). Costo più
+    che doppio per la posta, sotto il tetto di 5 USD.
+  - **Potatura**: il custode concede `git rm` su bozze e canovacci di `o3/`,
+    task `o2/` chiusi e catture `i1/` superate; restano negati `rm`,
+    `git rm -r`, gli indici e ogni cancellazione su Drive (`660eb7a`). Il
+    terzo giro (`882601a`, vuoto) non l'ha usato: senza segnali nuovi
+    nessuno stadio tornava sui file consumati. Il prompt ora la chiede come
+    controllo fisso di `exec` (`7e55e53`).
+  - **`economia`, quarto giro** (`086f13b`, 2 minuti, 0,73 USD): tolte la
+    bozza ad Arsini (inviata il 10/10, risposta del 12/10) e quella ad
+    Albatros (superata dalla telefonata del 15/10), con riferimenti
+    aggiornati; lasciati i file non ancora consumati.
+  - Dinieghi in tutti i giri, innocui: il comando composto d'avvio (in
+    `nixos` con `git -C`), una bozza Gmail con quoting `$'…'`, `git rm -q`
+    su due file; ogni volta rifatti nella forma ammessa. Il primo comando
+    composto ricorre in ogni giro: candidato a una correzione della skill
+    `cycle` canonica.
+  - **Prossimi passi** decisi dal custode: sonda e primo giro di `method`
+    lanciati da terminale senza sessione Claude su `~/method`; poi i timer
+    su `deck` in `nixos` `o3/cicli.nix`, uno alla volta (`economia` ha
+    quattro giri, `nixos` uno senza switch, `method` nessuno); poi `bi` e
+    `baserow` su `svezia`, dove resta la regola di un timer alla volta
+    (oggi `crm`), il push di `bi` è un rilascio quando tocca il codice del
+    ciclo e il backup di `baserow` è riservato al custode.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
