@@ -125,6 +125,26 @@ arriva agli adottanti via symlink.
   prescrizione. Il backup manuale senza restore resta riservato al custode
   nel suo criterio `ciclo-autonomo`.
 
+- **`economia`, `nixos` e `method`, gradino 0, deciso il 2026-10-16**
+  (`deck`): il custode allarga il ciclo autonomo ai quattro repo gestiti da
+  `deck`, dopo i giri di `salute` e `crm`. Anticipa `method`, che la scala
+  metteva dopo gli adottanti, e porta `nixos` su `deck`, dove la sua vista è
+  già servita (il modulo vuole ciclo e vista sullo stesso host). Unità in
+  stato `manuale`, orari predisposti un'ora dopo l'altra: `salute` 12:00,
+  `economia` 13:00, `nixos` 14:00, `method` 15:00, l'ultimo perché il suo
+  perceive trovi i giri degli adottanti del giorno. Perimetri:
+  - `economia`: manutenzione dell'artefatto, Gmail, Calendar e Drive in
+    lettura, bozze Gmail senza ok preventivo sul testo, mai l'invio;
+  - `nixos`: `/manutenzione` al centro, con bump e switch di `ia` e
+    `home-manager` dentro il giro; per lo switch la home dell'unità è
+    scrivibile (`homeWritable`) e il recinto resta solo l'harness, scelta
+    fatta dal custode sapendolo;
+  - `method`: `kb/` modificabile, prescrizioni, strumenti e skill in
+    proposta, `/adottanti` e `/method` fuori dal giro, marker letti dai
+    checkout locali di `deck`.
+    Il timer si accende un repo alla volta, dopo un paio di giri manuali
+    puliti.
+
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
 contro le fonti; si torna al gradino precedente, per quel repo, alle

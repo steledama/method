@@ -50,7 +50,8 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
 4. Verificare con `python3 o3/view/build.py --check` e i test; aperta come
    file, la home dice che il ciclo autonomo si legge dalla vista servita.
 
-**Solo nei repo con un ciclo autonomo** (oggi `salute`):
+**Solo nei repo con un ciclo autonomo** (oggi `salute`, `crm`, `economia`,
+`nixos` e `method`):
 
 5. File del repo: `.claude/ciclo.json` (permessi del solo ciclo autonomo) e
    `.claude/ciclo-prompt.md` (il prompt dell'unità). Il prompt si riduce a
@@ -108,7 +109,11 @@ dall'ultimo paragrafo), lo passa l'unità dell'host.
 Lato host, in `nixos` (non è un passo dell'adottante): modulo `cicli`
 (`o3/cicli.nix`, unità `ciclo-<repo>` e `ciclo-<repo>-sonda`, stato in
 `~/.local/state/ciclo/<repo>/`) e `--ciclo-state` passato alla vista del repo
-servita dallo stesso host.
+servita dallo stesso host. Le unità non si riavviano a uno switch
+(`X-RestartIfChanged=false`): un bump di Claude Code cambia tutte le unità e
+interromperebbe i giri in corso. Un repo il cui giro fa `home-manager switch`
+dichiara `homeWritable`: la home resta scrivibile e il recinto è solo
+l'harness (oggi `nixos`, scelta del custode del 2026-10-16).
 
 ## Indizi da verificare sul posto
 

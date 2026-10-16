@@ -40,6 +40,35 @@ può alzarlo. Nel resoconto finale compaiono decisioni, motivazioni, verifiche,
 incertezze e questioni lasciate al custode. La presenza umana in chat non
 trasforma una decisione dell'agente in una decisione concordata.
 
+## Ciclo autonomo senza custode
+
+Criterio `ciclo-autonomo`, deciso il 2026-10-16 da Stefano, gradino 0.
+
+Il ciclo autonomo è il ciclo congiunto senza custode, la skill `/cycle
+autonomo`: lo avvia su `deck` l'unità `ciclo-method` del modulo `cicli` di
+`nixos`, con `.claude/ciclo-prompt.md` e i permessi di `.claude/ciclo.json`.
+Nessuno risponde durante il giro, e ciò che in sessione si chiederebbe
+diventa proposta nel task `o2/` pertinente. Resta fuori da
+`momento-del-commit`: un commit per giro, con `Esiti`, `Autonomia: agente`,
+impatto almeno **medio** e `Impatto-motivo:` col criterio e il gradino
+dichiarati dal prompt. Al gradino 0 ogni giro è avviato a mano dal custode;
+il timer arriva dopo un paio di giri puliti, e lo decide il custode. Tetto per
+giro, 45 minuti e 5 USD, nell'unità.
+
+Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Un
+nodo arriva subito agli adottanti via symlink: si corregge solo su una fonte
+verificata e il resoconto dichiara ogni nodo toccato. Restano proposte le
+prescrizioni e gli strumenti in `o3/`, le skill canoniche, `presentation/`,
+`CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/adottanti` e
+`/method` non girano nel giro. Gli adottanti si leggono dai marker nei
+checkout locali di `deck`, senza `ssh`. Il divieto sta nei deny del solo
+`.claude/ciclo.json`; nelle sessioni col custode restano le regole di sopra.
+
+Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un
+nodo `kb/` che altera il senso del canone senza fonte o per una ricostruzione
+sbagliata che altera una decisione. Lo stop per sessione aperta, il push
+rifiutato e il lock occupato sono il sistema che funziona.
+
 ## Decisioni riservate e arresto parziale
 
 Criterio `confine-delega`: restano in proposta cambi di scopi, territorio o
@@ -75,9 +104,9 @@ dell'attrito, non certifica la qualità. I riesami a campione confrontano le
 ricostruzioni con le fonti, secondo il filo
 [ricostruzione delegabile](i3/verdetto-piu-sicuro-del-materiale.md).
 
-Questa delega riguarda cicli avviati dal custode. Non copre `/method`: il
+`ciclo-delegato` riguarda i cicli avviati dal custode, `ciclo-autonomo` il
+giro senza custode nei limiti sopra. Nessuno dei due copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
-Il ciclo autonomo schedulato,
-la sua visibilità anche senza commit e l'estensione dei criteri attendono
-il [percorso del pilota](o2/pilota-ciclo-autonomo.md). Il custode può restringere o
+I gradini successivi seguono il
+[percorso del pilota](o2/pilota-ciclo-autonomo.md). Il custode può restringere o
 revocare la delega; il register e Git ne conservano lo stato e la storia.

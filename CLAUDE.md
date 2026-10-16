@@ -30,7 +30,8 @@ Leggere [`autonomy.md`](autonomy.md) prima di operare: il ciclo avviato dal
 custode prosegue entro la delega fino a verifiche, commit e push autorizzato,
 senza conferme intermedie sugli esiti ordinari. Chiedere sui punti riservati
 e continuare il lavoro indipendente. La presenza in chat non è ratifica
-preventiva delle decisioni dell'agente. Il ciclo autonomo schedulato resta da autorizzare.
+preventiva delle decisioni dell'agente. Il giro senza custode segue il criterio
+`ciclo-autonomo` di `autonomy.md` (gradino 0 su `deck` dal 2026-10-16).
 
 ## Skill
 
