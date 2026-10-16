@@ -36,8 +36,13 @@ La tensione si misura contro due obiettivi:
 
 ## Lo stato del verdetto
 
-Il ciclo autonomo schedulato non è ancora misurabile; il primo giro non
-interattivo sì. La prima delega è invece
+Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
+misurabile: manca il campione riletto contro le fonti. Il criterio
+`ciclo-autonomo` è ratificato in `salute`, `crm` e `method`; il timer è
+acceso in `salute` dal 2026-10-12 e deciso in `crm` dal 2026-10-15;
+`economia`, `nixos` e `method` sono al gradino 0 dal 2026-10-16
+(`o2/pilota-ciclo-autonomo.md`, «Andamento»). I giri schedulati di `salute`
+non sono verificati da questo checkout. La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova
@@ -87,8 +92,9 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   che altera una decisione, arresti o partenze mancate invisibili, oppure
   maggiore lavoro di supervisione senza beneficio dimostrato. Criteri che
   crescono più in fretta dei casi concreti restano un segnale negativo.
-- **Da decidere prima del pilota**: estensione della delega all'avvio
-  schedulato e condizioni del pilota, nel residuo di `o2/criteri-autonomia.md`.
+- **Ancora da fissare**: campione da rileggere, misura del costo di
+  supervisione e confronto assistito, in `o2/pilota-ciclo-autonomo.md` («Da
+  fissare alla partenza»), mentre i gradini avanzano già.
 
 ## Il percorso
 
@@ -99,10 +105,9 @@ commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
 stato in `method` e nei sette adottanti (`goal-senza-fotografia`, chiusa
 il 2026-10-09). I passi restanti sono task in `o1/plan.md`:
 criteri del ciclo autonomo schedulato, home con fatto e da fare,
-scelta dell'esecutore e pilota. La
-ricerca sull'esecutore può partire indipendentemente; il pilota attende
-criteri, home ed esecutore. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
-Prima del ciclo autonomo schedulato la home deve includere i tentativi senza commit.
+esecutore e pilota. Esecutore, criterio e semaforo dei tentativi nella home
+sono in uso nei giri; dei primi tre task restano i residui scritti nei loro
+file `o2/`. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
 
 Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
 impedisce di equiparare un motivo leggibile a una ricostruzione fedele.

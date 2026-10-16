@@ -1,5 +1,5 @@
 ---
-sintesi: "La prima delega è operativa in autonomy.md e nelle skill: ciclo avviato dal custode senza conferme ordinarie. Restano criteri per il ciclo autonomo schedulato, resa nella home e collaudo delle proposte."
+sintesi: "La prima delega è operativa in autonomy.md e nelle skill: ciclo avviato dal custode senza conferme ordinarie. Il criterio ciclo-autonomo è ratificato; restano resa del register e delle proposte nella home e collaudo sui casi."
 ciclo: dev
 ---
 
@@ -25,8 +25,9 @@ riesame in `/adottanti`.
 
 ## Lavoro residuo prima del ciclo autonomo schedulato
 
-- Concordare quali atti il pilota possa compiere quando manca anche
-  l'avvio del custode, e come sospenda o riprenda i punti riservati.
+- Gli atti senza avvio del custode e la sospensione sono concordati nel
+  criterio `ciclo-autonomo` di `autonomy.md` (in `method` dal 2026-10-16,
+  prima in `salute` e `crm`); ogni repo lo ratifica col proprio perimetro.
 - Collegare la home al register e alle proposte pendenti nei task `o2/`:
   verificarne raggiungibilità, decisione e consumo. Decidere la resa del
   terzo register senza trattarlo come un nuovo stadio del ciclo.

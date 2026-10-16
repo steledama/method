@@ -32,7 +32,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e
   prescritto ai sette; delega dei cicli avviati dal custode ratificata in
   `autonomy.md`, con Goal aggiornato; primi 18 casi della delega da tre
-  adottanti, residuo nel checkout servito; il ciclo autonomo schedulato resta da collaudare. Riesame il 2026-11-01,
+  adottanti, residuo nel checkout servito; timer acceso in `salute`, deciso
+  in `crm`, `economia`, `nixos` e `method` al gradino 0. Riesame il 2026-11-01,
   verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
   e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la

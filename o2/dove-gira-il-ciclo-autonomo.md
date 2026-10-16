@@ -1,5 +1,5 @@
 ---
-sintesi: "Il ciclo autonomo gira da un timer systemd dichiarato in un unico modulo nixos, con Claude Code non interattivo: un file di decisioni per repo e un meccanismo generico. Resta da costruire e collaudare al gradino 0."
+sintesi: "Il ciclo autonomo gira da un timer systemd dichiarato in un unico modulo nixos, con Claude Code non interattivo: un file di decisioni per repo e un meccanismo generico. Costruito e collaudato al gradino 0 su deck e svezia; resta da osservare l'arresto per tempo massimo."
 ciclo: dev
 ---
 
@@ -67,20 +67,17 @@ chiedere), `--no-session-persistence`, `--max-budget-usd`,
 stdin da `/dev/null`, `GIT_TERMINAL_PROMPT=0`,
 `GIT_SSH_COMMAND="ssh -o BatchMode=yes"`, `PAGER=cat`.
 
-Da verificare al gradino 0, non leggibile dall'help:
-
-- che `/eval` e `/exec` si invochino da `claude -p` con la skill del repo;
-- cosa riporta il JSON d'uscita su permessi negati ed errori (`is_error`,
-  `permission_denials`) e con quale codice di uscita: il solo codice non
-  basta a distinguere un giro riuscito;
-- l'autenticazione di Claude e di ssh (GitHub, host remoti) nell'ambiente
-  dell'unità, senza shell interattiva né ssh-agent di sessione;
-- l'arresto per `RuntimeMaxSec` e la sua traccia nel journal.
+Verificato ai gradini 0 di `salute` (2026-10-11) e `crm` (2026-10-15),
+cfr. [pilota](pilota-ciclo-autonomo.md): le skill del repo si invocano da
+`claude -p`, i permessi negati arrivano alla chiusura e ingialliscono il
+semaforo, Claude e il push via ssh si autenticano nell'unità senza agent.
+Resta da osservare l'arresto per `RuntimeMaxSec` e la sua traccia nel
+journal: nessun giro ha ancora toccato il tempo massimo.
 
 ## Vincoli comuni
 
-- La strategia di sincronizzazione va scelta esplicitamente: `pull --rebase`
-  è un candidato, non un prerequisito già deciso. Un push rifiutato non si
+- Sincronizzazione: la skill `cycle` fa `git pull --ff-only` a working tree
+  pulito prima di ogni atto e si ferma se fallisce. Un push rifiutato non si
   forza e rende visibile l'arresto (caso reale in `method` il 2026-10-08).
 - Dove un push innesca un rilascio (`bi`), il ciclo autonomo eredita la scelta
   locale: in `bi` il push resta su richiesta quando i commit toccano il

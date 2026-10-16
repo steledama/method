@@ -15,8 +15,10 @@ articolano i loop di dominio.
 - Trailer di autonomia e impatto (in `/commit` dal 2026-10-08) e sezione
   «fatto» della home: il custode
   deve vedere i giri prima di toglierne la conferma.
-- Criteri per il ciclo autonomo schedulato concordati nel register: la delega
-  corrente copre solo cicli avviati dal custode.
+- Criteri per il ciclo autonomo schedulato concordati nel register:
+  soddisfatto dal criterio `ciclo-autonomo`, ratificato repo per repo
+  (`method` il 2026-10-16); resta il residuo di
+  [criteri](criteri-autonomia.md).
 - La scelta di dove gira il ciclo autonomo: timer systemd dal modulo `cicli` di
   `nixos` (`6a6a7ed`), con Claude Code; collaudato al gradino 0 di `salute`.
 - Il ciclo autonomo visibile nella home, con semaforo e pagina del giro
