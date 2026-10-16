@@ -216,7 +216,12 @@ arriva agli adottanti via symlink.
     manuali, gli ultimi due puliti. È il secondo timer su `deck`, un'ora
     dopo `salute`; il rischio noto è il Drive scrivibile, che con il mount
     irraggiungibile ferma l'unità come `salute` il 2026-10-14, ora
-    registrato da `ciclo-namespace`.
+    registrato da `ciclo-namespace`. Primo giro schedulato (`e51265b`,
+    13:00, 1,7 minuti, 0,68 USD, vuoto): riuscito, ma il trailer dichiara
+    «gradino 0 (avvio manuale del custode)», perché prompt e `autonomy.md`
+    di `economia` non sono passati al gradino 1 con il timer. Regola per
+    i prossimi: la voce `timer` in `nixos` va insieme al gradino 1 nel
+    prompt e nel criterio del repo, sul modello di `salute`.
   - Dinieghi in tutti i giri, innocui: il comando composto d'avvio (in
     `nixos` con `git -C`), una bozza Gmail con quoting `$'…'`, `git rm -q`
     su due file; ogni volta rifatti nella forma ammessa. Il primo comando
