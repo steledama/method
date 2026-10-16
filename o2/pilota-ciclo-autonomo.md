@@ -227,13 +227,25 @@ arriva agli adottanti via symlink.
     su due file; ogni volta rifatti nella forma ammessa. Il primo comando
     composto ricorre in ogni giro: candidato a una correzione della skill
     `cycle` canonica.
-  - **Prossimi passi** decisi dal custode: sonda e primo giro di `method`
-    lanciati da terminale senza sessione Claude su `~/method`; poi i timer
-    su `deck` in `nixos` `o3/cicli.nix`, uno alla volta (`economia` ha
-    quattro giri, `nixos` uno senza switch, `method` nessuno); poi `bi` e
-    `baserow` su `svezia`, dove resta la regola di un timer alla volta
-    (oggi `crm`), il push di `bi` è un rilascio quando tocca il codice del
-    ciclo e il backup di `baserow` è riservato al custode.
+  - **Prossimi passi** al 2026-10-16 pomeriggio, decisi dal custode:
+    - `method`: secondo giro manuale (`systemctl --user start
+ciclo-method`, senza sessioni su `~/method`), il primo con la lettura
+      dei `tentativi.jsonl` (`735d7f7`). Rileggerlo contro le fonti:
+      dinieghi, nodi `kb/` toccati, uso dei tentativi. Se è pulito, timer
+      alle 15:00 in `nixos` e, insieme, gradino 1 in `ciclo-prompt.md` e
+      in `autonomy.md`, sul modello di `salute`;
+    - `economia`: gradino 1 nel prompt e nel criterio, chiesto alla
+      sessione su `economia`; verificarne l'esito e il giro schedulato di
+      domani;
+    - `nixos`: timer dopo `method`, quando un giro ha fatto bump e switch
+      veri;
+    - `baserow`: prima del gradino 1, decidere il pull di `ciclo-avvio` su
+      un checkout indietro, che lì è un rilascio; concedere
+      `prettier --write` sui file del giro; togliere dal prompt
+      `ls -l backup/`; le altre proposte sono in `baserow`
+      `o2/ciclo-autonomo.md`. Il timer attende che `crm` regga il suo;
+    - `bi`: gradino 0 su `svezia`, col push che è un rilascio quando tocca
+      il codice del ciclo.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
