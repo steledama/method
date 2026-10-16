@@ -126,6 +126,21 @@ arriva agli adottanti via symlink.
   del gradino 0 servono la voce in `nixos` `o3/cicli.nix` e i passi 5–7 della
   prescrizione. Il backup manuale senza restore resta riservato al custode
   nel suo criterio `ciclo-autonomo`.
+  - **Gradino 0, 2026-10-16**: criterio ratificato col perimetro del ciclo
+    avviato dal custode, compresi sei comandi ssh esatti sullo standby e tre
+    query SQL aggregate, meno il backup manuale (`baserow` `bc60b09`); voce
+    in `nixos` `ce41bad` con `requiresProduction`. Sonda superata.
+  - **Primo giro** (`e779a40`, 17,8 minuti, 1,62 USD, 71 turni, giallo):
+    Docker, ssh su `norvegia` e query passano dal recinto. Verdetto di
+    `recuperabilita-dati` portato a «sufficiente», con chiusura proposta e
+    non applicata; i fatti del backup (7 coppie per lato, `peer_verified`)
+    sono verificati contro `latest.json` e i due host. Cinque dinieghi:
+    `ls -l backup/` in locale, che il prompt elenca ma il recinto nega, un
+    filtro con `awk`, `git fetch`, `python3 -` e `prettier --write`. Punto
+    da decidere prima del gradino 1: `ciclo-avvio` fa `pull --ff-only` di un
+    checkout indietro, mentre in `baserow` il pull è un rilascio su
+    richiesta del custode (`CLAUDE.md`, «Pull remoto»); col timer
+    diventerebbe automatico.
 
 - **`economia`, `nixos` e `method`, gradino 0, deciso il 2026-10-16**
   (`deck`): il custode allarga il ciclo autonomo ai quattro repo gestiti da
