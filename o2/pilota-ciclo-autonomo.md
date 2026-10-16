@@ -195,6 +195,12 @@ arriva agli adottanti via symlink.
     adottanti del giorno: da decidere se concedere la lettura dei soli
     `tentativi.jsonl` dei repo di `deck` (non `giri/`, che porta i dati di
     `salute` ed `economia`).
+  - **`economia`, gradino 1, deciso il 2026-10-16**: timer ogni giorno alle
+    13:00 dallo stesso giorno (`nixos` `5f127c7`), dopo quattro giri
+    manuali, gli ultimi due puliti. È il secondo timer su `deck`, un'ora
+    dopo `salute`; il rischio noto è il Drive scrivibile, che con il mount
+    irraggiungibile ferma l'unità come `salute` il 2026-10-14, ora
+    registrato da `ciclo-namespace`.
   - Dinieghi in tutti i giri, innocui: il comando composto d'avvio (in
     `nixos` con `git -C`), una bozza Gmail con quoting `$'…'`, `git rm -q`
     su due file; ogni volta rifatti nella forma ammessa. Il primo comando
