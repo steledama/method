@@ -26,8 +26,9 @@ riesame in `/adottanti`.
 ## Lavoro residuo prima del ciclo autonomo schedulato
 
 - Gli atti senza avvio del custode e la sospensione sono concordati nel
-  criterio `ciclo-autonomo` di `autonomy.md` (in `method` dal 2026-10-16,
-  prima in `salute` e `crm`); ogni repo lo ratifica col proprio perimetro.
+  criterio `ciclo-autonomo` di `autonomy.md` (in `economia`, `nixos` e
+  `method` dal 2026-10-16, prima in `salute` e `crm`); ogni repo lo
+  ratifica col proprio perimetro.
 - Collegare la home al register e alle proposte pendenti nei task `o2/`:
   verificarne raggiungibilità, decisione e consumo. Decidere la resa del
   terzo register senza trattarlo come un nuovo stadio del ciclo.

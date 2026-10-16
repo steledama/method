@@ -38,11 +38,15 @@ La tensione si misura contro due obiettivi:
 
 Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
 misurabile: manca il campione riletto contro le fonti. Il criterio
-`ciclo-autonomo` è ratificato in `salute`, `crm` e `method`; il timer è
-acceso in `salute` dal 2026-10-12 e deciso in `crm` dal 2026-10-15;
-`economia`, `nixos` e `method` sono al gradino 0 dal 2026-10-16
-(`o2/pilota-ciclo-autonomo.md`, «Andamento»). I giri schedulati di `salute`
-non sono verificati da questo checkout. La prima delega resta
+`ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos` e
+`method`; il timer è acceso in `salute` dal 2026-10-12 e deciso in `crm`
+dal 2026-10-15; `economia`, `nixos` e `method` sono al gradino 0 dal
+2026-10-16 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
+schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
+`deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
+con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
+per il Drive irraggiungibile, senza riga nello stato, ora registrato da
+`ciclo-namespace` (`nixos` `kb/cicli.md`). La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova

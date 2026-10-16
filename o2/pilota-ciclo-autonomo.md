@@ -183,6 +183,18 @@ arriva agli adottanti via symlink.
     bozza ad Arsini (inviata il 10/10, risposta del 12/10) e quella ad
     Albatros (superata dalla telefonata del 15/10), con riferimenti
     aggiornati; lasciati i file non ancora consumati.
+  - **`method`, primo giro** (`0de0157`, 3,1 minuti, 1,34 USD, 47 turni,
+    giallo), lanciato da terminale senza sessioni su `~/method`, dopo la
+    sonda superata: nessun nodo `kb/` toccato; filo del ciclo autonomo,
+    indice, audit e tre task `o2/` riallineati all'andamento. Marker dei
+    sette verificati contro i checkout. Il filo ometteva la ratifica di
+    `economia` e `nixos`, corretta in sessione. Quattro dinieghi, tre
+    dichiarati: il ciclo `for` sui marker (ripiegato su Read), `git log` e
+    reflog di `salute`, `tentativi.jsonl` di `salute`. Il perimetro concede
+    solo i marker, mentre l'orario delle 15:00 è motivato dai giri degli
+    adottanti del giorno: da decidere se concedere la lettura dei soli
+    `tentativi.jsonl` dei repo di `deck` (non `giri/`, che porta i dati di
+    `salute` ed `economia`).
   - Dinieghi in tutti i giri, innocui: il comando composto d'avvio (in
     `nixos` con `git -C`), una bozza Gmail con quoting `$'…'`, `git rm -q`
     su due file; ogni volta rifatti nella forma ammessa. Il primo comando
