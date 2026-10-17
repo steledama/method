@@ -32,6 +32,9 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
   primo giro locale dopo il 13/10, trailer `Esiti:` e diff del filo pubblicati;
   fonte del precursore `o3/stats.ps1`. Nessuna sollecitazione all'adottante;
   se giro o copertura mancano, dichiarare il limite e il prossimo riesame.
+  Il giro autonomo del 2026-10-17 su `deck` non ne legge i commit (solo il
+  marker locale, a `d8a88e7`, senza `ssh`): riesame alla prima sessione col
+  custode che legga `origin` di `danea-auto`, al più tardi il 2026-11-01.
   Chiusa l'osservazione, sollecitare `danea-auto` a recepire
   `presidio-ipotesi`, rinviata nel suo marker fino a quella sollecitazione.
 

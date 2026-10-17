@@ -41,7 +41,8 @@ misurabile: manca il campione riletto contro le fonti. Il criterio
 `ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos` e
 `method`; il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
 2026-10-16, in `nixos` e `method` dal 2026-10-17 (`nixos` `7fad7d2`),
-deciso in `crm` dal 2026-10-15 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
+in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), deciso in `crm` dal
+2026-10-15 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
 schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
@@ -49,8 +50,14 @@ per il Drive irraggiungibile, senza riga nello stato, ora registrato da
 `ciclo-namespace` (`nixos` `kb/cicli.md`). Il 2026-10-16 (`tentativi.jsonl`
 letti dal giro di `method`) sono riusciti con commit e push il giro
 schedulato di `salute` alle 12:00 (`aa56ddf`, 1,8 minuti, 0,75 USD) e il
-primo di `economia` alle 13:00 (`e51265b`, 1,6 minuti, 0,68 USD); ogni
-giro del giorno, schedulato o manuale, registra da uno a due dinieghi. La prima delega resta
+primo di `economia` alle 13:00 (`e51265b`, 1,6 minuti, 0,68 USD). Il
+2026-10-17, stessa fonte, i tre giri schedulati di `deck` sono riusciti con
+commit e push: `salute` alle 12:00 (`0ac750d`, 2,2 minuti, 0,62 USD),
+`economia` alle 13:00 (`53ea575`, 1,4 minuti, 0,87 USD) e il primo di
+`nixos` alle 14:00 (`861f7d8`, 2,3 minuti, 1,19 USD). I dinieghi per giro
+restano da uno a due, salvo `nixos` del 17 con quattro e il giro manuale di
+`bi` con tre (`i1/casi-delega-bi-2026-10-17.md`); il conteggio non dice
+quali comandi, che stanno nei trascritti fuori dalla lettura del giro. La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova

@@ -245,7 +245,10 @@ arriva agli adottanti via symlink.
     - `nixos`: timer alle 14:00 senza attendere un giro con bump e switch
       veri; la parte rischiosa del perimetro si collauda al primo giro che
       li trova dovuti (gradino 1 in prompt e criterio di `nixos`,
-      `7fad7d2`);
+      `7fad7d2`). Primo giro schedulato riuscito il 2026-10-17 alle 14:00
+      (`861f7d8`, commit e push, quattro dinieghi, da `tentativi.jsonl`);
+      se abbia trovato bump e switch dovuti, e quali comandi siano stati
+      negati, il giro di `method` non lo legge;
     - `baserow`: il giro fa il `pull --ff-only` d'avvio, sapendo che lì è
       un rilascio; `ls -l backup/` esce dal prompt. Il timer alle 06:30 segue
       la verifica su `svezia` dei giri schedulati di `crm`, perché su
@@ -258,8 +261,10 @@ arriva agli adottanti via symlink.
       Prompt e criterio al gradino 1 in `bi` `86cf2804`, timer alle 07:30
       in `nixos` `d1c4346`, switch su `svezia` riuscito. Il caso del marker
       di ruolo è in `i1/casi-delega-bi-2026-10-17.md`;
-    - `economia`: resta da verificare il gradino 1 nel prompt e nel criterio
-      e il giro schedulato del 2026-10-17.
+    - `economia`: giro schedulato del 2026-10-17 riuscito alle 13:00
+      (`53ea575`, commit e push, da `tentativi.jsonl`); resta da verificare
+      il gradino 1 nel prompt e nel criterio, che il giro di `method` non
+      legge.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

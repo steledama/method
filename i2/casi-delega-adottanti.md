@@ -7,7 +7,9 @@ ciclo: runtime
 La prima lettura dei casi della delega arrivati dagli adottanti dopo la
 ratifica di `delega-ciclo` (2026-10-09). Il materiale sono le catture `i1/`
 acquisite fino al 2026-10-10: quattro giri di `bi` del 9 ottobre, il primo
-ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`.
+ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. Il
+caso del primo giro autonomo di `bi` (2026-10-17) è letto a parte, fra i
+temi di un solo adottante, e non entra nei conteggi sotto.
 `nixos`, `economia`, `salute` e `danea-auto` non hanno inoltrato casi;
 `salute` e `danea-auto` lo dichiarano nei propri indici `i1/`. L'assenza
 non è un esito: la skill chiede di non produrre casi per completare il giro.
@@ -73,6 +75,14 @@ che il custode ha giudicato corretto.
   [interpret](../kb/interpret.md) ed è un riscontro di segno favorevole per il
   filo [verdetto più sicuro del materiale](../i3/verdetto-piu-sicuro-del-materiale.md);
   per il canone resta un caso singolo.
+- **Chi riconosce l'host nel giro autonomo** (`bi`, primo giro autonomo,
+  [cattura](../i1/casi-delega-bi-2026-10-17.md)): il bootstrap locale chiede
+  di rileggere il marker di ruolo che l'unità impone già con
+  `ConditionPathExists`; il permesso del giro nega la lettura, l'agente non
+  aggira il diniego, deduce il ruolo da `hostname` e prompt e lo dichiara.
+  Tocca l'ipotesi sotto: nel giro autonomo il riconoscimento prima del primo
+  atto può stare nell'unità e non nell'agente. Secondo la cattura `crm` e
+  `baserow` hanno la stessa condizione senza ripeterla nel bootstrap.
 
 ## Ipotesi in attesa
 
