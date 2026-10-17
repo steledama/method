@@ -40,8 +40,8 @@ Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
 misurabile: manca il campione riletto contro le fonti. Il criterio
 `ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos` e
 `method`; il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
-2026-10-16, deciso in `crm` dal 2026-10-15; `nixos` e `method` sono al
-gradino 0 dal 2026-10-16 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
+2026-10-16, deciso in `crm` dal 2026-10-15 e in `method` dal 2026-10-17;
+`nixos` è al gradino 0 dal 2026-10-16, col timer deciso il 2026-10-17 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
 schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace

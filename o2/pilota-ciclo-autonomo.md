@@ -227,25 +227,32 @@ arriva agli adottanti via symlink.
     su due file; ogni volta rifatti nella forma ammessa. Il primo comando
     composto ricorre in ogni giro: candidato a una correzione della skill
     `cycle` canonica.
-  - **Prossimi passi** al 2026-10-16 pomeriggio, decisi dal custode:
-    - `method`: secondo giro manuale (`systemctl --user start
-ciclo-method`, senza sessioni su `~/method`), il primo con la lettura
-      dei `tentativi.jsonl` (`735d7f7`). Rileggerlo contro le fonti:
-      dinieghi, nodi `kb/` toccati, uso dei tentativi. Se è pulito, timer
-      alle 15:00 in `nixos` e, insieme, gradino 1 in `ciclo-prompt.md` e
-      in `autonomy.md`, sul modello di `salute`;
-    - `economia`: gradino 1 nel prompt e nel criterio, chiesto alla
-      sessione su `economia`; verificarne l'esito e il giro schedulato di
-      domani;
-    - `nixos`: timer dopo `method`, quando un giro ha fatto bump e switch
-      veri;
-    - `baserow`: prima del gradino 1, decidere il pull di `ciclo-avvio` su
-      un checkout indietro, che lì è un rilascio; concedere
-      `prettier --write` sui file del giro; togliere dal prompt
-      `ls -l backup/`; le altre proposte sono in `baserow`
-      `o2/ciclo-autonomo.md`. Il timer attende che `crm` regga il suo;
-    - `bi`: gradino 0 su `svezia`, col push che è un rilascio quando tocca
-      il codice del ciclo.
+  - **`method`, secondo giro** (`b8b26f5`, 2,1 minuti, 0,82 USD, 38 turni),
+    avviato a mano il 2026-10-16 alle 13:35 senza sessioni su `~/method`:
+    il primo con la lettura dei `tentativi.jsonl` (`735d7f7`). Nessun nodo
+    `kb/` toccato; i giri del 16/10 di `salute` ed `economia` scritti nel
+    filo combaciano con `tentativi.jsonl` e journal, riletti in sessione col
+    custode il 2026-10-17. Un diniego innocuo, `ls -d` sui checkout degli
+    adottanti.
+  - **`method`, gradino 1, deciso il 2026-10-17**: timer ogni giorno alle
+    15:00, insieme al gradino 1 in `.claude/ciclo-prompt.md` e in
+    `autonomy.md`; la voce `timer` in `nixos` è chiesta alla sessione su
+    `nixos`.
+  - **Decisioni del 2026-10-17** del custode, per portare il timer su tutti i
+    repo:
+    - `nixos`: timer alle 14:00 senza attendere un giro con bump e switch
+      veri; la parte rischiosa del perimetro si collauda al primo giro che
+      li trova dovuti;
+    - `baserow`: il giro fa il `pull --ff-only` d'avvio, sapendo che lì è
+      un rilascio; `ls -l backup/` esce dal prompt. Il timer alle 06:30 segue
+      la verifica su `svezia` dei giri schedulati di `crm`, perché su
+      `origin` manca il giro del 2026-10-17 alle 05:30 e quello del 16 si
+      firma gradino 0: il prompt e il criterio di `crm` non sono passati al
+      gradino 1 con il timer, come in `economia`;
+    - `bi`: gradino 0 su `svezia`, criterio e voce in `nixos` da preparare
+      nella sessione su `bi`;
+    - `economia`: resta da verificare il gradino 1 nel prompt e nel criterio
+      e il giro schedulato del 2026-10-17.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

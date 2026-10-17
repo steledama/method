@@ -42,7 +42,8 @@ trasforma una decisione dell'agente in una decisione concordata.
 
 ## Ciclo autonomo senza custode
 
-Criterio `ciclo-autonomo`, deciso il 2026-10-16 da Stefano, gradino 0.
+Criterio `ciclo-autonomo`, deciso il 2026-10-16 da Stefano, gradino 0;
+gradino 1 deciso il 2026-10-17: il timer lancia un giro ogni giorno alle 15:00.
 
 Il ciclo autonomo è il ciclo congiunto senza custode, la skill `/cycle
 autonomo`: lo avvia su `deck` l'unità `ciclo-method` del modulo `cicli` di
@@ -51,8 +52,8 @@ Nessuno risponde durante il giro, e ciò che in sessione si chiederebbe
 diventa proposta nel task `o2/` pertinente. Resta fuori da
 `momento-del-commit`: un commit per giro, con `Esiti`, `Autonomia: agente`,
 impatto almeno **medio** e `Impatto-motivo:` col criterio e il gradino
-dichiarati dal prompt. Al gradino 0 ogni giro è avviato a mano dal custode;
-il timer arriva dopo un paio di giri puliti, e lo decide il custode. Tetto per
+dichiarati dal prompt. Al gradino 1 il timer di `nixos` avvia il giro; un
+avvio a mano dell'unità resta coperto da questo criterio. Tetto per
 giro, 45 minuti e 5 USD, nell'unità.
 
 Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Un

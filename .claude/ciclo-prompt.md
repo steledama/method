@@ -6,15 +6,17 @@ locale.
 
 ## Copertura
 
-Sei al gradino 0: ogni giro è avviato a mano dal custode con
-`systemctl --user start ciclo-method` su `deck`, e il timer non è acceso. Il
-perimetro è quello del criterio `ciclo-autonomo` di `autonomy.md`; i permessi
-sono quelli di `.claude/ciclo.json`.
+Sei al gradino 1: il timer lancia l'unità `ciclo-method` su `deck` ogni
+giorno alle 15:00, un'ora dopo `nixos`, perché il perceive trovi i giri degli
+adottanti del giorno; il giro è coperto da `ciclo-autonomo`. Un avvio a mano
+dell'unità resta coperto dallo stesso criterio. Il perimetro è quello del
+criterio `ciclo-autonomo` di `autonomy.md`, regola di sospensione compresa; i
+permessi sono quelli di `.claude/ciclo.json`.
 
 Trailer di copertura nel commit del giro:
 
 ```
-Impatto-motivo: ciclo-autonomo, gradino 0 (avvio manuale del custode)
+Impatto-motivo: ciclo-autonomo (autonomy.md, ciclo schedulato)
 ```
 
 ## Perimetro
