@@ -252,8 +252,12 @@ arriva agli adottanti via symlink.
       `origin` manca il giro del 2026-10-17 alle 05:30 e quello del 16 si
       firma gradino 0: il prompt e il criterio di `crm` non sono passati al
       gradino 1 con il timer, come in `economia`;
-    - `bi`: gradino 0 su `svezia`, criterio e voce in `nixos` da preparare
-      nella sessione su `bi`;
+    - `bi`: gradino 0 su `svezia` (`nixos` `d55da57`), poi gradino 1 in
+      giornata dopo un solo giro manuale riuscito (`bi` `e423e8b1`: commit e
+      push, 3,18 USD su 5, scritture Baserow fino a esaurimento delle code).
+      Prompt e criterio al gradino 1 in `bi` `86cf2804`, timer alle 07:30
+      in `nixos` `d1c4346`, switch su `svezia` riuscito. Il caso del marker
+      di ruolo è in `i1/casi-delega-bi-2026-10-17.md`;
     - `economia`: resta da verificare il gradino 1 nel prompt e nel criterio
       e il giro schedulato del 2026-10-17.
 
