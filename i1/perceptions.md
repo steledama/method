@@ -17,6 +17,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   i register di collezione (non solo `i1`) meritino una tassonomia dichiarata
   delle nature dei file che ospitano. Un solo caso: resta aperta, attende un
   secondo segnale prima di generalizzare.
+- [Casi della delega: primo giro autonomo di `bi` su
+  `svezia`](casi-delega-bi-2026-10-17.md) — da `bi` `e423e8b1`: il bootstrap
+  locale chiede di rileggere il marker di ruolo, `ciclo.json` ne nega la
+  lettura mentre l'unità l'ha già verificato con `requiresProduction`; solo
+  `bi` su tre adottanti con la condizione lo ripete.
 - [Casi della delega: primo ciclo di `crm` su
   `svezia`](casi-delega-crm-2026-10-10.md) — da `crm` `ca59b1e`: pull prima
   di riconoscere l'host, commit del ciclo che pubblica le viste di
