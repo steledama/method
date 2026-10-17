@@ -236,13 +236,16 @@ arriva agli adottanti via symlink.
     adottanti.
   - **`method`, gradino 1, deciso il 2026-10-17**: timer ogni giorno alle
     15:00, insieme al gradino 1 in `.claude/ciclo-prompt.md` e in
-    `autonomy.md`; la voce `timer` in `nixos` è chiesta alla sessione su
-    `nixos`.
+    `autonomy.md`. Timer acceso dallo stesso giorno insieme a quello di
+    `nixos` (`nixos` `7fad7d2`, switch su `deck` riuscito): su `deck` girano
+    quattro timer, `salute` 12:00, `economia` 13:00, `nixos` 14:00,
+    `method` 15:00.
   - **Decisioni del 2026-10-17** del custode, per portare il timer su tutti i
     repo:
     - `nixos`: timer alle 14:00 senza attendere un giro con bump e switch
       veri; la parte rischiosa del perimetro si collauda al primo giro che
-      li trova dovuti;
+      li trova dovuti (gradino 1 in prompt e criterio di `nixos`,
+      `7fad7d2`);
     - `baserow`: il giro fa il `pull --ff-only` d'avvio, sapendo che lì è
       un rilascio; `ls -l backup/` esce dal prompt. Il timer alle 06:30 segue
       la verifica su `svezia` dei giri schedulati di `crm`, perché su
