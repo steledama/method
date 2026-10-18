@@ -47,17 +47,16 @@ schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
 per il Drive irraggiungibile, senza riga nello stato, ora registrato da
-`ciclo-namespace` (`nixos` `kb/cicli.md`). Il 2026-10-16 (`tentativi.jsonl`
-letti dal giro di `method`) sono riusciti con commit e push il giro
-schedulato di `salute` alle 12:00 (`aa56ddf`, 1,8 minuti, 0,75 USD) e il
-primo di `economia` alle 13:00 (`e51265b`, 1,6 minuti, 0,68 USD). Il
-2026-10-17, stessa fonte, i tre giri schedulati di `deck` sono riusciti con
-commit e push: `salute` alle 12:00 (`0ac750d`, 2,2 minuti, 0,62 USD),
-`economia` alle 13:00 (`53ea575`, 1,4 minuti, 0,87 USD) e il primo di
-`nixos` alle 14:00 (`861f7d8`, 2,3 minuti, 1,19 USD). I dinieghi per giro
-restano da uno a due, salvo `nixos` del 17 con quattro e il giro manuale di
-`bi` con tre (`i1/casi-delega-bi-2026-10-17.md`); il conteggio non dice
-quali comandi, che stanno nei trascritti fuori dalla lettura del giro. La prima delega resta
+`ciclo-namespace` (`nixos` `kb/cicli.md`). Dal 2026-10-16 al 2026-10-18
+(`tentativi.jsonl`, misurati, letti dai giri di `method`) ogni giro
+schedulato di `deck` è riuscito con commit e push: `salute` tre su tre
+(0,62–0,92 USD), `economia` tre su tre (0,68–0,87 USD), `nixos` due su due
+(1,19 e 1,95 USD). Il giro di `nixos` del 18 è il più lungo finora
+(`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD;
+perché, il giro di `method` non lo legge. I dinieghi per giro vanno da uno
+a quattro (`bi`, giro manuale: tre, `i1/casi-delega-bi-2026-10-17.md`); il
+conteggio non dice quali comandi, che stanno nei trascritti fuori dalla
+lettura del giro. La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova
