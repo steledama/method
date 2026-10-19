@@ -39,13 +39,14 @@ toccare il working tree. `ssh` non è concesso; se il fetch fallisce, dichiara
 il limite senza dedurre uno stato che il checkout non mostra.
 
 Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
-dichiara (campo `giri` in `o3/cicli.nix` di `nixos`; `method` dal 2026-10-19),
+dichiara (campo `giri` in `o3/cicli.nix` di `nixos`, per tutti i repo man mano
+che recepiscono la decisione del 2026-10-19),
 altrimenti in `~/.local/state/ciclo/<repo>/`: `tentativi.jsonl` e
 `ultimo.json`, da leggere con il tool Read: esito, commit, push e dinieghi. La riga `chiusura` porta
 `oggetto` (prima riga del commit del giro, o null) e `dinieghi` (lista di
 `{tool, input}`, input troncato), oltre al conteggio `permission_denials`;
 le chiusure scritte da `ciclo-namespace` e quelle anteriori al 2026-10-19
-non hanno i due campi. I trascritti `giri/*.jsonl` degli adottanti restano
+non hanno i due campi. I trascritti `giri/giri/*.jsonl` degli adottanti restano
 fuori, perché portano i dati di `salute` ed `economia`; quelli di `method` in
 `i1/giri/` si aprono solo per il dettaglio di una riga di `tentativi.jsonl`, e
 una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
