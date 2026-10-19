@@ -62,7 +62,10 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
    `git mv` e lo stesso giorno, in `nixos`, dichiara i due path nei campi
    `settings` e `prompt` della propria voce in `o3/cicli.nix`: finché i
    default del modulo restano quelli vecchi, un giro senza i campi si ferma
-   con exit 14. Il prompt si riduce a
+   con exit 14. `o3/ciclo` è di sola lettura nell'unità: se il pull d'avvio la
+   cambierebbe, il giro si ferma con exit 13 (`pull-in-sola-lettura`, `nixos`
+   `9e9e5e1`). Ogni modifica a prompt o permessi si tira giù quindi con un pull
+   in sessione sull'host del giro, prima del giro successivo. Il prompt si riduce a
    «esegui `/cycle autonomo`» più ciò che è solo locale: criterio di
    copertura e trailer del gradino, host, verifiche, atti sul Mondo.
    Ogni comando che il prompt nomina sta in `o3/ciclo/permessi.json` scritto
