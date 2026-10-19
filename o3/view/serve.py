@@ -21,7 +21,8 @@ esempio come `ExecCondition` di un servizio.
 
 Con `--ciclo-state DIR` serve anche `/_ciclo/`, lo stato dei tentativi
 del ciclo autonomo letto a ogni richiesta (`ciclo.py`); senza, `/_ciclo/`
-dichiara che il repo non ha un ciclo autonomo.
+dichiara che il repo non ha un ciclo autonomo. `--ciclo-unita DIR` indica la
+cartella dell'unità quando i tentativi stanno nel repo (`i1/giri`).
 """
 
 from __future__ import annotations
@@ -46,6 +47,7 @@ NO_VALID_VERSION = 3
 
 class ViewHandler(SimpleHTTPRequestHandler):
     ciclo_state: Path | None = None
+    ciclo_unit: Path | None = None
 
     def send_head(self):
         path = unquote(urlsplit(self.path).path)
@@ -57,7 +59,7 @@ class ViewHandler(SimpleHTTPRequestHandler):
         return super().send_head()
 
     def send_ciclo(self, path: str):
-        answer = ciclo.respond(path, self.ciclo_state)
+        answer = ciclo.respond(path, self.ciclo_state, self.ciclo_unit)
         if answer is None:
             self.send_error(HTTPStatus.NOT_FOUND)
             return None
@@ -153,10 +155,19 @@ def main() -> None:
     parser.add_argument(
         "--ciclo-state",
         type=Path,
-        help="cartella di stato del ciclo autonomo del repo (~/.local/state/ciclo/<repo>)",
+        help="cartella dei tentativi del ciclo autonomo (i1/giri del repo, o lo stato dell'unità)",
+    )
+    parser.add_argument(
+        "--ciclo-unita",
+        type=Path,
+        help="cartella di stato dell'unità (~/.local/state/ciclo/<repo>), se diversa da --ciclo-state",
     )
     args = parser.parse_args()
     state = args.ciclo_state.expanduser().resolve() if args.ciclo_state else None
+    unit = args.ciclo_unita.expanduser().resolve() if args.ciclo_unita else None
+    if unit and not state:
+        parser.error("--ciclo-unita richiede --ciclo-state")
+    cycle = {"ciclo_state": state, "ciclo_unit": unit}
 
     if args.check and not args.publish_root:
         parser.error("--check richiede --publish-root")
@@ -166,14 +177,12 @@ def main() -> None:
         if args.check:
             print(f"serve: versione valida {folder.name}")
             return
-        handler = type("Handler", (PublishedHandler,), {"root": root, "ciclo_state": state})
+        handler = type("Handler", (PublishedHandler,), {"root": root, **cycle})
     else:
         folder = VIEW
         if not (VIEW / "index.html").exists():
             raise SystemExit("serve: view/index.html assente, esegui prima build.py")
-        handler = partial(
-            type("Handler", (ViewHandler,), {"ciclo_state": state}), directory=str(VIEW)
-        )
+        handler = partial(type("Handler", (ViewHandler,), cycle), directory=str(VIEW))
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         hosts = ["localhost"]
         if args.bind in {"0.0.0.0", ""}:

@@ -42,7 +42,8 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
    `--ciclo-state`, rotte `/_ciclo/`), `build_system_image.py` (sezione in
    cima alla home, o `ciclo.home_section()` in un builder di dominio),
    `sources.py` (rotte servite a richiesta nel presidio del compartimento),
-   `assets/system-image.css`; test in `tests/test_ciclo.py` se il repo tiene
+   `assets/system-image.css`; `serve.py` con `--ciclo-unita` per i tentativi in
+   `i1/giri`; test in `tests/test_ciclo.py` se il repo tiene
    i test delle viste.
 3. Chi aveva recepito `battito-nella-home` rinomina invece di aggiungere:
    `battito.py` → `ciclo.py`, `test_battito.py` → `test_ciclo.py`, classi CSS
@@ -145,9 +146,13 @@ porta in quella cartella `tentativi.jsonl`, `ultimo.json` e `giri/`, mentre
 lock, `corrente.json`, `sonde.jsonl` e il settings fuso restano nello stato
 dell'unità; prima della prima scrittura `ciclo-avvio` verifica con
 `git check-ignore -q` che la cartella sia ignorata e altrimenti si ferma con
-exit 14; `--ciclo-state` della vista punta alla nuova cartella. La vista
-legge solo `tentativi.jsonl` e `giri/`, non `corrente.json`: `o3/view/ciclo.py`
-non cambia.
+exit 14; la vista riceve `--ciclo-state <checkout>/i1/giri` e
+`--ciclo-unita ~/.local/state/ciclo/<repo>`, perché le decisioni
+(`decisioni.json`, alla chiave del repo) restano accanto alla cartella
+dell'unità. L'opzione entra con `serve.py` e `ciclo.py` del 2026-10-19 (caso
+segnalato da `bi`): il repo la recepisce prima che `nixos` sposti
+`--ciclo-state`, altrimenti la vista perde decisione, partenza attesa e stato
+`external`.
 Già in esercizio: modulo `cicli`
 (`o3/cicli.nix`, unità `ciclo-<repo>` e `ciclo-<repo>-sonda`, stato in
 `~/.local/state/ciclo/<repo>/`) e `--ciclo-state` passato alla vista del repo

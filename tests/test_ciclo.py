@@ -118,6 +118,18 @@ class WithoutAttempts(StateCase):
     def test_unreadable(self):
         self.assertEqual(ciclo.load(self.root / "assente", NOW)["stato"], "unreadable")
 
+    def test_attempts_outside_the_unit(self):
+        # Il repo dichiara giri (es. i1/giri): i tentativi stanno lì, le
+        # decisioni accanto alla cartella dell'unità, alla chiave del repo.
+        giri = self.root / "repo" / "i1" / "giri"
+        (giri / "giri").mkdir(parents=True)
+        self.decide({"state": "esterno", "note": "fuori nixos"})
+        self.assertEqual(ciclo.load(giri, NOW, unit=self.state)["stato"], "external")
+        self.decide({"state": "manuale"})
+        self.assertEqual(ciclo.load(giri, NOW, unit=self.state)["stato"], "never")
+        kind, _ = ciclo.respond("/_ciclo/ultimi.json", giri, self.state)
+        self.assertTrue(kind.startswith("application/json"))
+
 
 class Routes(StateCase):
     def test_latest_and_attempt_page(self):

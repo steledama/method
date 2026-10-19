@@ -3,8 +3,11 @@
 La release si costruisce dal commit; il ciclo autonomo cambia anche senza commit,
 quindi non entra nella release ma si legge quando la si chiede, come
 `/_stato` rende `status.json`. `serve.py --ciclo-state DIR` passa la
-cartella di stato che il modulo `cicli` di `nixos` scrive per il repo
-(`~/.local/state/ciclo/<repo>/`) e risponde sotto `/_ciclo/`:
+cartella dei tentativi (`tentativi.jsonl` e `giri/`) e `--ciclo-unita DIR`
+la cartella di stato dell'unità che il modulo `cicli` di `nixos` scrive per il
+repo (`~/.local/state/ciclo/<repo>/`), accanto a `decisioni.json`. Le due
+coincidono finché il repo non dichiara `giri` (es. `i1/giri`, `kb/perceive.md`);
+senza `--ciclo-unita` vale la prima. Risponde sotto `/_ciclo/`:
 
 - `/_ciclo/ultimi.json`: gli ultimi tentativi col semaforo, letti dallo
   script della home;
@@ -215,17 +218,22 @@ def expected_start(decision: dict, now: datetime) -> datetime | None:
     return expected
 
 
-def load(state: Path | None, now: datetime | None = None) -> dict:
-    """Lo stato del ciclo autonomo: `stato` dice perché mancano tentativi, se mancano."""
+def load(state: Path | None, now: datetime | None = None, unit: Path | None = None) -> dict:
+    """Lo stato del ciclo autonomo: `stato` dice perché mancano tentativi, se mancano.
+
+    `state` tiene i tentativi; `unit`, se diversa, è la cartella dell'unità, la
+    cui madre porta `decisioni.json` alla chiave del suo nome (il repo).
+    """
     now = now or datetime.now().astimezone()
     view = {"letto": now.isoformat(timespec="seconds"), "stato": "ok", "tentativi": []}
     if state is None:
         view["stato"] = "none"
         return view
+    unit = unit or state
     decision: dict = {}
     try:
-        decisions = json.loads((state.parent / "decisioni.json").read_text(encoding="utf-8"))
-        decision = decisions.get(state.name) or {}
+        decisions = json.loads((unit.parent / "decisioni.json").read_text(encoding="utf-8"))
+        decision = decisions.get(unit.name) or {}
     except (OSError, json.JSONDecodeError):
         pass
     if decision.get("state") == "esterno":
@@ -287,8 +295,8 @@ def status_text(view: dict) -> str:
     return label(stato) if stato in {"none", "never", "unreadable"} else ""
 
 
-def latest_json(state: Path | None) -> bytes:
-    view = load(state)
+def latest_json(state: Path | None, unit: Path | None = None) -> bytes:
+    view = load(state, unit=unit)
     data = {
         "letto": view["letto"],
         "stato": view["stato"],
@@ -332,8 +340,8 @@ def row_html(attempt: Attempt) -> str:
     return f"<li>{head}{when} · {text}{detail}</li>"
 
 
-def list_page(state: Path | None) -> bytes:
-    view = load(state)
+def list_page(state: Path | None, unit: Path | None = None) -> bytes:
+    view = load(state, unit=unit)
     rows = "\n".join(row_html(a) for a in view["tentativi"])
     note = status_text(view)
     body = (
@@ -423,10 +431,10 @@ def commit_message(close: dict) -> str | None:
         return None
 
 
-def attempt_page(state: Path | None, attempt_id: str) -> bytes | None:
+def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) -> bytes | None:
     if state is None or not ID.match(attempt_id):
         return None
-    view = load(state)
+    view = load(state, unit=unit)
     attempt = next((a for a in view["tentativi"] if a.id == attempt_id), None)
     if attempt is None:
         return None
@@ -477,17 +485,17 @@ def attempt_page(state: Path | None, attempt_id: str) -> bytes | None:
     return page(f"{label('title')} {attempt.when[:16]}", "\n".join(sections))
 
 
-def respond(path: str, state: Path | None) -> tuple[str, bytes] | None:
+def respond(path: str, state: Path | None, unit: Path | None = None) -> tuple[str, bytes] | None:
     """La risposta a un path sotto `/_ciclo/`: tipo e corpo, o None per il 404."""
     rest = path[len("/" + PREFIX) :]
     if rest == "ultimi.json":
-        return "application/json; charset=utf-8", latest_json(state)
+        return "application/json; charset=utf-8", latest_json(state, unit)
     if rest == "":
-        return "text/html; charset=utf-8", list_page(state)
+        return "text/html; charset=utf-8", list_page(state, unit)
     if rest.endswith(".jsonl") and state is not None and ID.match(rest[:-6]):
         stream = state / "giri" / rest
         return ("application/x-ndjson", stream.read_bytes()) if stream.is_file() else None
-    body = attempt_page(state, rest)
+    body = attempt_page(state, rest, unit)
     return ("text/html; charset=utf-8", body) if body else None
 
 
