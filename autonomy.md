@@ -62,7 +62,8 @@ verificata e il resoconto dichiara ogni nodo toccato. Restano proposte le
 prescrizioni e gli strumenti in `o3/`, le skill canoniche, `presentation/`,
 `CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/adottanti` e
 `/method` non girano nel giro. Gli adottanti si leggono dai marker nei
-checkout locali di `deck`, senza `ssh`. Il divieto sta nei deny del solo
+checkout locali di `deck`, o da `origin` via `fetch` per quelli di `svezia`,
+senza `ssh`; lo stato dei giri da `~/.local/state/ciclo/`, trascritti esclusi. Il divieto sta nei deny del solo
 `.claude/ciclo.json`; nelle sessioni col custode restano le regole di sopra.
 
 Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un

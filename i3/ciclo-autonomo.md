@@ -52,11 +52,17 @@ per il Drive irraggiungibile, senza riga nello stato, ora registrato da
 schedulato di `deck` è riuscito con commit e push: `salute` tre su tre
 (0,62–0,92 USD), `economia` tre su tre (0,68–0,87 USD), `nixos` due su due
 (1,19 e 1,95 USD). Il giro di `nixos` del 18 è il più lungo finora
-(`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD;
-perché, il giro di `method` non lo legge. I dinieghi per giro vanno da uno
-a quattro (`bi`, giro manuale: tre, `i1/casi-delega-bi-2026-10-17.md`); il
-conteggio non dice quali comandi, che stanno nei trascritti fuori dalla
-lettura del giro. La prima delega resta
+(`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
+manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
+switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
+versioni upstream (trascritto riletto in sessione col custode, 2026-10-19).
+I dinieghi per giro vanno da uno a quattro (`bi`, giro manuale: tre,
+`i1/casi-delega-bi-2026-10-17.md`). Dal 2026-10-19 il giro di `method` legge
+tutto `~/.local/state/ciclo/` tranne `giri/`, `method` compreso, gli
+`autonomy.md` e i prompt del ciclo degli adottanti, e i marker di `svezia` da
+`origin` via `fetch`; il dettaglio dei dinieghi in `tentativi.jsonl` è
+chiesto a `nixos` (`ciclo-chiusura.sh`), coi controlli `gh` in sola lettura
+nel suo giro. La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova

@@ -31,14 +31,19 @@ girano nel giro.
 ## Adottanti
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
-di `deck`: quelli dei repo di `svezia` possono essere indietro rispetto a
-`origin`, e `ssh` non è concesso. Dichiara il limite, senza dedurre uno stato
-che il checkout non mostra.
+di `deck`. Per i repo di `svezia` (`bi`, `crm`, `baserow`, `danea-auto`) il
+checkout locale può essere indietro: aggiorna i riferimenti remoti con
+`git -C /home/stele/<repo> fetch --quiet origin` e leggi il marker con
+`git -C /home/stele/<repo> show origin/main:i3/allineamento-metodo.md`, senza
+toccare il working tree. `ssh` non è concesso; se il fetch fallisce, dichiara
+il limite senza dedurre uno stato che il checkout non mostra.
 
-Dei repo con ciclo autonomo su `deck` (`salute`, `economia`, `nixos`) leggi
-i soli `~/.local/state/ciclo/<repo>/tentativi.jsonl`, con il tool Read: esito,
-commit, push e dinieghi dei giri del giorno. I trascritti in `giri/` restano
-fuori, perché portano i dati di `salute` ed `economia`.
+Lo stato dei giri autonomi, `method` compreso, sta in
+`~/.local/state/ciclo/<repo>/` (`tentativi.jsonl`, `ultimo.json`), da leggere
+con il tool Read: esito, commit, push e dinieghi. I trascritti in `giri/`
+restano fuori, perché portano i dati di `salute` ed `economia`. Il gradino di
+un adottante si verifica nel suo `autonomy.md` e nel suo
+`.claude/ciclo-prompt.md`.
 
 ## Host e verifiche
 
