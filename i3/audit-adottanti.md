@@ -12,7 +12,10 @@ letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
 `deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`. `baserow`, settimo
 adottante, è entrato il 2026-10-05 fuori giro: le letture qui sotto che
 contano «i sei» lo precedono, e la sua baseline fondativa è nella fotografia
-delle code.
+delle code. Il 2026-10-19 il custode ha tolto `crm` dal ciclo autonomo:
+va verso la dismissione, e al suo posto è atteso un nuovo adottante,
+`abbinamenti`. Il prossimo audit legge `crm` finché esiste e dà la baseline
+fondativa di `abbinamenti` quando entra.
 
 ## Verdetto
 

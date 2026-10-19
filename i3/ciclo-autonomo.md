@@ -38,12 +38,13 @@ La tensione si misura contro due obiettivi:
 
 Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
 misurabile: manca il campione riletto contro le fonti. Il criterio
-`ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos`,
-`method`, `bi` e `baserow`; il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
+`ciclo-autonomo` è ratificato in `salute`, `economia`, `nixos`,
+`method`, `bi` e `baserow`; `crm` ne è uscito il 2026-10-19 per decisione del
+custode, verso la dismissione (`nixos` `1be1e2d`); il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
 2026-10-16, in `nixos` e `method` dal 2026-10-17 (`nixos` `7fad7d2`),
 in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), in `baserow` su
-`svezia` dal 2026-10-17 (`nixos` `e3f463a`), deciso in `crm` dal
-2026-10-15 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
+`svezia` dal 2026-10-17 (`nixos` `e3f463a`)
+(`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
 schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace

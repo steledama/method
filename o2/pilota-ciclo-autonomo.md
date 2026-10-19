@@ -122,6 +122,12 @@ arriva agli adottanti via symlink.
 - **`crm`, gradino 1, deciso il 2026-10-15**: timer ogni giorno alle 05:30,
   modifica di `state` chiesta a `nixos`. Il giro si ferma se trova una
   sessione aperta sul checkout di `svezia`.
+- **`crm`, uscito dal ciclo autonomo il 2026-10-19**: decisione del custode,
+  `nixos` `1be1e2d` con switch su `svezia`. Unità e timer rimossi, voce tolta
+  da `decisioni.json`; la vista resta servita senza ciclo autonomo. Lo storico
+  dei tentativi resta in `~/.local/state/ciclo/crm/` su `svezia`. `crm` va
+  verso la dismissione; al suo posto è atteso un nuovo adottante,
+  `abbinamenti`.
 - **`baserow`, `svezia`**: secondo su `svezia`, deciso il 2026-10-15. Prima
   del gradino 0 servono la voce in `nixos` `o3/cicli.nix` e i passi 5–7 della
   prescrizione. Il backup manuale senza restore resta riservato al custode

@@ -51,8 +51,8 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
 4. Verificare con `python3 o3/view/build.py --check` e i test; aperta come
    file, la home dice che il ciclo autonomo si legge dalla vista servita.
 
-**Solo nei repo con un ciclo autonomo** (oggi `salute`, `crm`, `economia`,
-`nixos` e `method`):
+**Solo nei repo con un ciclo autonomo** (oggi `salute`, `economia`, `nixos`,
+`method`, `bi` e `baserow`; `crm` ne è uscito il 2026-10-19):
 
 5. File del repo: `o3/ciclo/permessi.json` (permessi del solo ciclo
    autonomo) e `o3/ciclo/prompt.md` (il prompt dell'unità), versionati come
