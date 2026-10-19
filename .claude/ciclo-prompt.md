@@ -40,7 +40,11 @@ il limite senza dedurre uno stato che il checkout non mostra.
 
 Lo stato dei giri autonomi, `method` compreso, sta in
 `~/.local/state/ciclo/<repo>/` (`tentativi.jsonl`, `ultimo.json`), da leggere
-con il tool Read: esito, commit, push e dinieghi. I trascritti in `giri/`
+con il tool Read: esito, commit, push e dinieghi. La riga `chiusura` porta
+`oggetto` (prima riga del commit del giro, o null) e `dinieghi` (lista di
+`{tool, input}`, input troncato), oltre al conteggio `permission_denials`;
+le chiusure scritte da `ciclo-namespace` e quelle anteriori al 2026-10-19
+non hanno i due campi. I trascritti in `giri/`
 restano fuori, perché portano i dati di `salute` ed `economia`. Il gradino di
 un adottante si verifica nel suo `autonomy.md` e nel suo
 `.claude/ciclo-prompt.md`.

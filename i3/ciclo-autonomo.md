@@ -60,9 +60,9 @@ I dinieghi per giro vanno da uno a quattro (`bi`, giro manuale: tre,
 `i1/casi-delega-bi-2026-10-17.md`). Dal 2026-10-19 il giro di `method` legge
 tutto `~/.local/state/ciclo/` tranne `giri/`, `method` compreso, gli
 `autonomy.md` e i prompt del ciclo degli adottanti, e i marker di `svezia` da
-`origin` via `fetch`; il dettaglio dei dinieghi in `tentativi.jsonl` è
-chiesto a `nixos` (`ciclo-chiusura.sh`), coi controlli `gh` in sola lettura
-nel suo giro. La prima delega resta
+`origin` via `fetch`; `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
+2026-10-19 (`nixos` `60c2314`), e i controlli `gh` in sola lettura erano già
+concessi al giro di `nixos` dal 18 sera (`nixos` `7eb86ac`). La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova
