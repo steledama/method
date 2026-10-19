@@ -57,6 +57,14 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
    `.claude/ciclo-prompt.md` (il prompt dell'unità). Il prompt si riduce a
    «esegui `/cycle autonomo`» più ciò che è solo locale: criterio di
    copertura e trailer del gradino, host, verifiche, atti sul Mondo.
+   Ogni comando che il prompt nomina sta in `.claude/ciclo.json` scritto
+   alla lettera: prompt e permessi sono due elenchi dello stesso perimetro,
+   e al primo giro divergono (`bi` e `baserow`, 2026-10-16/17, in
+   `i2/casi-delega-adottanti.md` di `metodo`). Il confronto è il giro di
+   prova: il gradino 0 passa al gradino 1 solo quando un giro non ha
+   dinieghi sui comandi del prompt, letti nel campo `dinieghi` di
+   `tentativi.jsonl` o nel resoconto. Un diniego si corregge in una sessione
+   col custode, nel prompt o in `ciclo.json`, mai nel giro.
 6. Criterio in `autonomy.md`: `ciclo-autonomo` (il perimetro del giro senza
    custode), distinto da `ciclo-delegato` (il ciclo avviato dal custode).
 7. Permessi, regola comune:

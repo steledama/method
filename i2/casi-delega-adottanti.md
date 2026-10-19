@@ -79,7 +79,11 @@ nel prompt l'elenco che `ciclo.json` già contiene. Interpretazione di questa
 lettura: due testi scritti a mano dello stesso perimetro divergono al primo
 giro, e il primo giro di prova è oggi il solo confronto. Dal 2026-10-19
 `tentativi.jsonl` conta i `dinieghi` per giro (`nixos` `60c2314`), una misura
-della divergenza leggibile senza trascritto.
+della divergenza leggibile senza trascritto. Il custode ha deciso il 2026-10-19 due
+correzioni del canone: la prescrizione [ciclo-autonomo](../o3/ciclo-autonomo.md)
+chiede i comandi del prompt alla lettera in `ciclo.json` e un giro di prova
+senza dinieghi su di essi prima del gradino 1; la skill `cycle` salta il pull
+d'avvio dove `autonomy.md` lo riserva al custode.
 
 ## Temi di un solo adottante, in attesa
 

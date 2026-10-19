@@ -32,7 +32,10 @@ un ostacolo da aggirare.
 
 **Avvio.** L'unità ha già controllato host, lock, branch e working tree; la
 skill li ricontrolla prima di ogni atto (`git status --short` vuoto,
-`git pull --ff-only` riuscito). Se una condizione manca, non toccare nulla e
+`git pull --ff-only` riuscito). Se `autonomy.md` riserva al custode il pull
+del checkout, per esempio perché il checkout è servito e il pull è un
+rilascio, basta `git status --short` (primo giro autonomo di `baserow`,
+2026-10-16). Se una condizione manca, non toccare nulla e
 chiudi con il resoconto e lo stop. I comandi git partono dalla cartella
 del repo, senza `git -C`: i permessi riconoscono il comando dal suo inizio, e
 un comando composto con un pezzo non concesso è negato per intero. Le
