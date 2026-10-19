@@ -102,8 +102,6 @@
       "Edit(//home/stele/salute/**)",
       "Edit(//home/stele/economia/**)",
       "Edit(//home/stele/nixos/**)",
-      "Read(//home/stele/salute/i2/**)",
-      "Read(//home/stele/economia/i2/**)",
       "Read(//home/stele/.local/state/ciclo/*/giri/**)",
       "Read(//home/stele/salute/i1/giri/giri/**)",
       "Read(//home/stele/economia/i1/giri/giri/**)",
