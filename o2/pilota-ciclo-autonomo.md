@@ -140,7 +140,24 @@ arriva agli adottanti via symlink.
     da decidere prima del gradino 1: `ciclo-avvio` fa `pull --ff-only` di un
     checkout indietro, mentre in `baserow` il pull è un rilascio su
     richiesta del custode (`CLAUDE.md`, «Pull remoto»); col timer
-    diventerebbe automatico.
+    diventerebbe automatico. Casi in
+    [`i1/casi-delega-baserow-2026-10-16.md`](../i1/casi-delega-baserow-2026-10-16.md).
+  - **Gradino 1, 2026-10-17**: pull d'avvio concesso al giro come eccezione
+    al checkout servito e `ls -l backup/` fuori dal prompt (`baserow`
+    `1d8b20c`); timer alle 06:30 acceso da `nixos` `e3f463a`. Giri
+    schedulati del 18 e 19 partiti sul timer, pull d'avvio senza commit da
+    rilasciare (dal task `o2/ciclo-autonomo.md` di `baserow`). Il 2026-10-19
+    il prompt dichiara i filtri ammessi in pipe, allineati a mano a
+    `ciclo.json` (`e24d585`).
+  - **Standby, deciso il 2026-10-19** (`437b11b`): dopo un push riuscito il
+    giro porta il checkout di `norvegia` allo stesso commit, con tre comandi
+    SSH esatti, guardie su marker di ruolo assente e working tree pulito,
+    `pull --ff-only` e verifica dell'hash; guardia fallita, nessun altro
+    tentativo e voce in `Attenzione:`. È il primo atto di un giro autonomo
+    su un host diverso da quello dell'unità, e anche lì il pull è un
+    rilascio (script del controllo di freschezza). Da rileggere ai primi
+    esercizi, dal giro del 2026-10-20: guardie eseguite, hash coincidente,
+    rilascio dichiarato nel resoconto.
 
 - **`economia`, `nixos` e `method`, gradino 0, deciso il 2026-10-16**
   (`deck`): il custode allarga il ciclo autonomo ai quattro repo gestiti da

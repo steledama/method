@@ -7,10 +7,11 @@ ciclo: runtime
 La prima lettura dei casi della delega arrivati dagli adottanti dopo la
 ratifica di `delega-ciclo` (2026-10-09). Il materiale sono le catture `i1/`
 acquisite fino al 2026-10-10: quattro giri di `bi` del 9 ottobre, il primo
-ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. Il
-caso del primo giro autonomo di `bi` (2026-10-17) e quello di
-`danea-auto` del 2026-10-15, inoltrato il 2026-10-19, sono letti a parte,
-fra i temi di un solo adottante, e non entrano nei conteggi sotto.
+ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. I
+casi dei primi giri autonomi di `bi` (2026-10-17) e di `baserow`
+(2026-10-16, inoltrati il 2026-10-19) e quello di `danea-auto` del
+2026-10-15, inoltrato il 2026-10-19, sono letti a parte, sotto, e non
+entrano nei conteggi.
 `nixos`, `economia` e `salute` non hanno inoltrato casi; `salute` lo
 dichiara nel proprio indice `i1/`. L'assenza
 non è un esito: la skill chiede di non produrre casi per completare il giro.
@@ -60,7 +61,35 @@ danno. Gli errori dichiarati sono due: il dry-run concatenato alla
 scrittura in `bi`, senza difformità alla rilettura, e il pull di `crm`,
 che il custode ha giudicato corretto.
 
+## Nel giro autonomo: il testo del giro chiede ciò che il recinto nega
+
+Quattro casi in due adottanti, tutti al primo giro autonomo: in `bi` il
+bootstrap chiede di rileggere il marker di ruolo e `ciclo.json` ne nega la
+lettura ([cattura](../i1/casi-delega-bi-2026-10-17.md)); in `baserow` il
+prompt elencava `ls -l backup/` che l'allowlist negava, la skill canonica
+chiedeva il pull d'avvio che prompt e register riservavano al custode, e un
+filtro in pipe è stato negato a pezzi
+([cattura](../i1/casi-delega-baserow-2026-10-16.md)). Accanto, senza caso
+inoltrato, il primo giro di `method` ha avuto letture motivate dal prompt e
+negate dal perimetro (`o2/pilota-ciclo-autonomo.md`). In ogni caso l'agente
+ha preso il diniego come confine e l'ha dichiarato; il costo è stato in turni
+e in letture perse, non in atti fuori delega. Le correzioni sono tutte
+locali e a mano: togliere dal prompt, concedere in `ciclo.json`, dichiarare
+nel prompt l'elenco che `ciclo.json` già contiene. Interpretazione di questa
+lettura: due testi scritti a mano dello stesso perimetro divergono al primo
+giro, e il primo giro di prova è oggi il solo confronto. Dal 2026-10-19
+`tentativi.jsonl` conta i `dinieghi` per giro (`nixos` `60c2314`), una misura
+della divergenza leggibile senza trascritto.
+
 ## Temi di un solo adottante, in attesa
+
+- **Un atto del giro su un secondo host** (`baserow`,
+  [cattura](../i1/casi-delega-baserow-2026-10-16.md), fatti accanto): dal
+  2026-10-19 il giro allinea il checkout dello standby dopo il push, con
+  guardie sul posto (marker di ruolo assente, working tree pulito) e verifica
+  dell'hash. Anche lo standby è un checkout servito: il pull rilascia lì gli
+  script del controllo di freschezza. Nessun esercizio ancora; per il canone
+  resta un caso singolo.
 
 - **Tracciabilità e secondo ordine** (`bi`, cinque casi): la verifica
   dell'atto guarda la riga, mentre l'effetto sta nel consumatore; una

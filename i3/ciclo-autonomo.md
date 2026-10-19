@@ -38,10 +38,11 @@ La tensione si misura contro due obiettivi:
 
 Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
 misurabile: manca il campione riletto contro le fonti. Il criterio
-`ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos` e
-`method`; il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
+`ciclo-autonomo` è ratificato in `salute`, `crm`, `economia`, `nixos`,
+`method`, `bi` e `baserow`; il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
 2026-10-16, in `nixos` e `method` dal 2026-10-17 (`nixos` `7fad7d2`),
-in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), deciso in `crm` dal
+in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), in `baserow` su
+`svezia` dal 2026-10-17 (`nixos` `e3f463a`), deciso in `crm` dal
 2026-10-15 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
 schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
@@ -88,6 +89,14 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   rebase ha chiesto la cancellazione di due file, e il permesso dell'harness
   l'ha fermata. Un ciclo autonomo senza custode incontrerà lo stesso caso e non
   potrà chiedere.
+- **Il testo del giro contro il recinto**, 2026-10-16/17: al primo giro
+  autonomo di `bi` e di `baserow` bootstrap, prompt o skill chiedevano letture
+  e un pull che `ciclo.json` o il register negavano
+  (`i2/casi-delega-adottanti.md`). Diniego preso come confine e dichiarato in
+  ogni caso, nessun atto fuori delega; correzioni locali e a mano. Il
+  2026-10-19 `baserow` estende il giro al pull dello standby su un secondo
+  host, con guardie e verifica dell'hash (`437b11b`): da rileggere ai primi
+  esercizi.
 - **Primi riscontri sulla prima delega**, 2026-10-09/10: 18 casi inoltrati
   da `bi`, `crm` e `baserow` (`i2/casi-delega-adottanti.md`). Nessuna
   autonomia rivelatasi sbagliata con danno; due errori dichiarati

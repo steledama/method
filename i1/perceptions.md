@@ -24,6 +24,14 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   `bi` su tre adottanti con la condizione lo ripete. Letto in
   [casi della delega](../i2/casi-delega-adottanti.md) fra i temi di un solo
   adottante.
+- [Casi della delega: primo giro autonomo di `baserow` su
+  `svezia`](casi-delega-baserow-2026-10-16.md) — da `baserow` `e779a40`,
+  stato al 19/10 nell'inoltro: un comando del prompt negato dall'allowlist,
+  il pull d'avvio della skill contro la riserva del checkout servito, pipe
+  negate a pezzi; tutti risolti in locale. Accanto, il primo atto del giro
+  su un secondo host (pull dello standby, `437b11b`). Letto in
+  [casi della delega](../i2/casi-delega-adottanti.md) con il caso di `bi`
+  del 17/10.
 - [Caso della delega: chiusura preventiva di LibreOffice in
   `danea-auto`](casi-delega-danea-auto-2026-10-15.md) — da `danea-auto`
   `18e95bf`, riscontro aggiornato al 19/10 nell'inoltro: confine delegato
