@@ -24,6 +24,14 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   `bi` su tre adottanti con la condizione lo ripete. Letto in
   [casi della delega](../i2/casi-delega-adottanti.md) fra i temi di un solo
   adottante.
+- [Caso della delega: chiusura preventiva di LibreOffice in
+  `danea-auto`](casi-delega-danea-auto-2026-10-15.md) — da `danea-auto`
+  `18e95bf`, riscontro aggiornato al 19/10 nell'inoltro: confine delegato
+  per LibreOffice «incastrato» davanti a un degrado misurato dal precursore;
+  l'agente ha chiesto, il custode ha scelto la chiusura. Questione: l'atto
+  delegato per il guasto copre la prevenzione? Letto in
+  [casi della delega](../i2/casi-delega-adottanti.md) fra i temi di un solo
+  adottante.
 - [Casi della delega: primo ciclo di `crm` su
   `svezia`](casi-delega-crm-2026-10-10.md) — da `crm` `ca59b1e`: pull prima
   di riconoscere l'host, commit del ciclo che pubblica le viste di

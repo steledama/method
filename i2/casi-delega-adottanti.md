@@ -8,10 +8,11 @@ La prima lettura dei casi della delega arrivati dagli adottanti dopo la
 ratifica di `delega-ciclo` (2026-10-09). Il materiale sono le catture `i1/`
 acquisite fino al 2026-10-10: quattro giri di `bi` del 9 ottobre, il primo
 ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. Il
-caso del primo giro autonomo di `bi` (2026-10-17) è letto a parte, fra i
-temi di un solo adottante, e non entra nei conteggi sotto.
-`nixos`, `economia`, `salute` e `danea-auto` non hanno inoltrato casi;
-`salute` e `danea-auto` lo dichiarano nei propri indici `i1/`. L'assenza
+caso del primo giro autonomo di `bi` (2026-10-17) e quello di
+`danea-auto` del 2026-10-15, inoltrato il 2026-10-19, sono letti a parte,
+fra i temi di un solo adottante, e non entrano nei conteggi sotto.
+`nixos`, `economia` e `salute` non hanno inoltrato casi; `salute` lo
+dichiara nel proprio indice `i1/`. L'assenza
 non è un esito: la skill chiede di non produrre casi per completare il giro.
 
 ## Provenienza
@@ -83,6 +84,17 @@ che il custode ha giudicato corretto.
   Tocca l'ipotesi sotto: nel giro autonomo il riconoscimento prima del primo
   atto può stare nell'unità e non nell'agente. Secondo la cattura `crm` e
   `baserow` hanno la stessa condizione senza ripeterla nel bootstrap.
+- **Un atto delegato per il guasto davanti al suo precursore**
+  (`danea-auto`, [cattura](../i1/casi-delega-danea-auto-2026-10-15.md)):
+  la delega copre la chiusura di LibreOffice «incastrato»; con un degrado
+  misurato dal precursore l'atto era lo stesso e la condizione no. L'agente
+  ha chiesto raccomandando la chiusura e ha proseguito il resto del ciclo;
+  il custode ha scelto la chiusura. L'adottante propone un'ipotesi (copre,
+  se l'atto è identico, fuori slot e con soglia scritta in uno strumento),
+  non una regola. Il riscontro sull'utilità della prevenzione è locale e
+  aperto fino al 27/10 circa; per il canone resta un caso singolo, in
+  linea con [consent](../kb/consent.md): chiedere sul confine, poi allargare
+  il criterio coi casi.
 
 ## Ipotesi in attesa
 
