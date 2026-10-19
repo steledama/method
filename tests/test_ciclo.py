@@ -140,6 +140,14 @@ class Routes(StateCase):
         kind, body = ciclo.respond(f"/_ciclo/{ident('a')}", self.state)
         self.assertIn("<li>uno</li>", body.decode())
 
+    def test_attempt_page_shows_subject_and_counts_denials(self):
+        denied = [{"tool": "Bash", "input": "gh release list --repo x/y"}]
+        close = {**OK, "oggetto": "fix: <uno>", "permission_denials": 1, "dinieghi": denied}
+        self.attempt("b", "2026-10-11T05:30:00+02:00", close, "Attenzione: nessuna")
+        page = ciclo.respond(f"/_ciclo/{ident('b')}", self.state)[1].decode()
+        self.assertIn("<dt>oggetto</dt><dd>fix: &lt;uno&gt;</dd>", page)
+        self.assertEqual(self.colors()[0][0], "giallo")
+
     def test_rejects_paths_outside_the_ids(self):
         self.assertIsNone(ciclo.respond("/_ciclo/../tentativi.jsonl", self.state))
         self.assertIsNone(ciclo.respond("/_ciclo/zzz.jsonl", self.state))

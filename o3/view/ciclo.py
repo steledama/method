@@ -441,7 +441,8 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
     record = {**(attempt.start or {}), **(attempt.close or {})}
     keys = [
         "ts", "esito", "motivo", "head_prima", "head_dopo", "commit", "push",
-        "tree_sporco_dopo", "permission_denials", "costo_usd", "turni", "durata_ms",
+        "oggetto", "tree_sporco_dopo", "permission_denials", "costo_usd", "turni",
+        "durata_ms",
         "exit_status", "service_result",
     ]  # fmt: skip
     meta = "".join(
