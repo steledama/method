@@ -24,3 +24,8 @@ gdrive
 # stato host-local dell'harness (settings locali e loro temporanei)
 .claude/settings.local.json
 .claude/settings.local.json.tmp.*
+
+# grezzo del ciclo autonomo: tentativi, esiti e trascrizioni dei giri, scritti
+# dall'unità ciclo-method (campo giri in nixos o3/cicli.nix); locale all'host,
+# mai versionato né pubblicato (kb/perceive.md)
+/i1/giri/

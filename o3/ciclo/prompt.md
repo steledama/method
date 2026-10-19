@@ -11,7 +11,7 @@ giorno alle 15:00, un'ora dopo `nixos`, perché il perceive trovi i giri degli
 adottanti del giorno; il giro è coperto da `ciclo-autonomo`. Un avvio a mano
 dell'unità resta coperto dallo stesso criterio. Il perimetro è quello del
 criterio `ciclo-autonomo` di `autonomy.md`, regola di sospensione compresa; i
-permessi sono quelli di `.claude/ciclo.json`.
+permessi sono quelli di `o3/ciclo/permessi.json`, che il giro non modifica.
 
 Trailer di copertura nel commit del giro:
 
@@ -38,16 +38,20 @@ checkout locale può essere indietro: aggiorna i riferimenti remoti con
 toccare il working tree. `ssh` non è concesso; se il fetch fallisce, dichiara
 il limite senza dedurre uno stato che il checkout non mostra.
 
-Lo stato dei giri autonomi, `method` compreso, sta in
-`~/.local/state/ciclo/<repo>/` (`tentativi.jsonl`, `ultimo.json`), da leggere
-con il tool Read: esito, commit, push e dinieghi. La riga `chiusura` porta
+Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
+dichiara (campo `giri` in `o3/cicli.nix` di `nixos`; `method` dal 2026-10-19),
+altrimenti in `~/.local/state/ciclo/<repo>/`: `tentativi.jsonl` e
+`ultimo.json`, da leggere con il tool Read: esito, commit, push e dinieghi. La riga `chiusura` porta
 `oggetto` (prima riga del commit del giro, o null) e `dinieghi` (lista di
 `{tool, input}`, input troncato), oltre al conteggio `permission_denials`;
 le chiusure scritte da `ciclo-namespace` e quelle anteriori al 2026-10-19
-non hanno i due campi. I trascritti in `giri/`
-restano fuori, perché portano i dati di `salute` ed `economia`. Il gradino di
-un adottante si verifica nel suo `autonomy.md` e nel suo
-`.claude/ciclo-prompt.md`.
+non hanno i due campi. I trascritti `giri/*.jsonl` degli adottanti restano
+fuori, perché portano i dati di `salute` ed `economia`; quelli di `method` in
+`i1/giri/` si aprono solo per il dettaglio di una riga di `tentativi.jsonl`, e
+una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
+(`kb/perceive.md`). Il gradino di un adottante si verifica nel suo
+`autonomy.md` e nel suo prompt del ciclo (`o3/ciclo/prompt.md`, o
+`.claude/ciclo-prompt.md` finché non ha migrato).
 
 ## Host e verifiche
 

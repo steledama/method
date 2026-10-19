@@ -28,7 +28,11 @@
       "Bash(git add -A*)",
       "Bash(git add --all*)",
       "Bash(git add .)",
-      "Bash(git add . *)"
+      "Bash(git add . *)",
+      "Bash(git add -f*)",
+      "Bash(git add --force*)",
+      "Bash(git add * -f*)",
+      "Bash(git add * --force*)"
     ]
   }
 }

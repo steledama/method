@@ -47,7 +47,7 @@ gradino 1 deciso il 2026-10-17: il timer lancia un giro ogni giorno alle 15:00.
 
 Il ciclo autonomo è il ciclo congiunto senza custode, la skill `/cycle
 autonomo`: lo avvia su `deck` l'unità `ciclo-method` del modulo `cicli` di
-`nixos`, con `.claude/ciclo-prompt.md` e i permessi di `.claude/ciclo.json`.
+`nixos`, con `o3/ciclo/prompt.md` e i permessi di `o3/ciclo/permessi.json`.
 Nessuno risponde durante il giro, e ciò che in sessione si chiederebbe
 diventa proposta nel task `o2/` pertinente. Resta fuori da
 `momento-del-commit`: un commit per giro, con `Esiti`, `Autonomia: agente`,
@@ -63,8 +63,8 @@ prescrizioni e gli strumenti in `o3/`, le skill canoniche, `presentation/`,
 `CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/adottanti` e
 `/method` non girano nel giro. Gli adottanti si leggono dai marker nei
 checkout locali di `deck`, o da `origin` via `fetch` per quelli di `svezia`,
-senza `ssh`; lo stato dei giri da `~/.local/state/ciclo/`, trascritti esclusi. Il divieto sta nei deny del solo
-`.claude/ciclo.json`; nelle sessioni col custode restano le regole di sopra.
+senza `ssh`; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti degli adottanti esclusi. Il divieto sta nei deny del solo
+`o3/ciclo/permessi.json`; nelle sessioni col custode restano le regole di sopra.
 
 Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un
 nodo `kb/` che altera il senso del canone senza fonte o per una ricostruzione
