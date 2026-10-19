@@ -27,6 +27,19 @@ alta posta restano anche quando rendono il file esteso.
 CLAUDE → nodo pertinente` e non duplica regole. Non richiede un nodo concettuale
 autonomo.
 
+## File dell'harness
+
+I file che l'harness cerca in `.claude/` sono binding, non sede del contenuto.
+Prompt e permessi del ciclo autonomo sono prescrizioni dell'atto e vivono in
+`o3/ciclo/`, versionati e leggibili da ogni harness; `.claude/settings.json`
+resta dov'è perché l'harness della sessione lo legge solo da lì.
+
+`.claude/settings.local.json` è un'area di transito, non versionata e legata
+all'host. Periodicamente ciò che è durevole si promuove in `settings.json` e il
+resto si scarta. Il giro autonomo eredita gli allow di `settings.json`: una
+promozione allarga anche il perimetro senza custode, quindi si promuove solo ciò
+che il giro può fare da solo.
+
 ## Criteri di revisione
 
 - ogni regola cambia davvero un'azione dell'agente?

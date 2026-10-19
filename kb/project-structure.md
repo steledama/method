@@ -38,7 +38,14 @@ del ciclo e forniscono alla home le rispettive intro. `autonomy.md` è il
 register dell'autorità: si legge prima di agire e non aggiunge uno stadio. `method/` espone negli
 adottanti i nodi canonici tramite symlink. Le superfici esterne concrete
 (`gdrive/`, mount, sync, servizi) sono dichiarate in `world.md`, gitignorate
-quando locali e chiamate per ciò che sono.
+quando locali e chiamate per ciò che sono. Il grezzo di percezione senza
+significato fuori dal ciclo resta invece in `i1/`, gitignorato (cfr. `perceive`).
+
+I file che un harness legge da un path suo (`.claude/`, `.codex/`) sono binding,
+non sede: il contenuto vive nello stadio che gli spetta e il file dell'harness
+vi punta o scompare. Le skill hanno la sorgente in `.claude/skills/` e i wrapper
+in `.codex/skills/`; prompt e permessi del ciclo autonomo vivono in
+`o3/ciclo/`.
 
 ## Criterio di collocazione
 

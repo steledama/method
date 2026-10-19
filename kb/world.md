@@ -16,7 +16,8 @@ descrivono il supporto, non decidono il ruolo nel ciclo.
 
 La cerniera bassa ha tre elementi distinti. L'atto e il grezzo stanno in
 `world`; o3 e i1 sono i due riflessi versionati che baciano la membrana dal lato
-dell'artefatto. o3 prescrive in avanti il Perform; i1 registra all'indietro il
+dell'artefatto (i1 può tenere accanto il proprio grezzo locale, ignorato da git:
+cfr. `perceive`). o3 prescrive in avanti il Perform; i1 registra all'indietro il
 Perceive. Il riflesso non è obbligatorio: si crea **on-demand**, quando l'atto o
 il segnale richiede precisione, revisione o durata. Un canovaccio per un
 incontro ad alta posta è o3; l'incontro è `world`; una trascrizione ripulita per
@@ -35,7 +36,10 @@ cattura (cfr. `action-cycle`).
   filtrata per rilevanza appartiene a `i1/`. Una fonte già persistente e
   accessibile non va duplicata: se ne registra la provenienza in `world.md`. Le
   fonti possono vivere su Drive, in un altro repository o in un sistema esterno;
-  il loro versionamento non le trasforma in i1 del ciclo osservante.
+  il loro versionamento non le trasforma in i1 del ciclo osservante. Una
+  cattura che ha senso solo per il ciclo che la legge (snapshot di un feed,
+  log, trascrizione di un giro) non è Mondo: è grezzo di i1, versionato solo
+  nella sua forma filtrata.
 - **i1 vs i2** — il confine è l'attribuzione di significato. Una selezione o
   trascrizione può restare i1 anche se non riproduce ogni dettaglio; spiegare
   relazioni, cause o implicazioni è i2. Entrambi sospendono la valenza rispetto

@@ -15,6 +15,17 @@ richiedono un riflesso stabile. Quando il segnale è stato interpretato e il suo
 contenuto è risalito, la copia consumata si elimina dall'indice e dalla
 collezione.
 
+Il grezzo che serve alla percezione ma non va versionato può stare in `i1/`,
+ignorato da git: snapshot di feed, code di elaborazione, log, trascrizioni dei
+giri del ciclo autonomo. È locale all'host che lo produce, tenuto con una
+retention, e non si pubblica: la vista serve solo i `.md` versionati. Versionata
+resta la cattura filtrata, scritta on-demand quando il grezzo porta un segnale
+che deve durare. La regola `.gitignore` precede la prima scrittura, perché un
+file non ignorato sporca il working tree e ferma il giro successivo. Il grezzo
+già persistente e raggiungibile altrove non si sposta: si sposta in `i1/` quando
+lì lo raggiunge chi percepisce, per esempio il giro, che fuori dalla cartella di
+lavoro non legge.
+
 Connessioni:
 
 - [input](input.md)

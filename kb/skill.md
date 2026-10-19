@@ -49,7 +49,9 @@ sì.
 
 La directory delle skill è l'inventario eseguibile. `CLAUDE.md` ne offre il
 router iniziale e i wrapper di altri harness ne assicurano la discovery senza
-duplicare la procedura canonica. Ogni skill dichiara scope, limiti,
+duplicare la procedura canonica. Vale per ogni file letto da un harness: è un
+binding verso il contenuto, che vive versionato nello stadio che gli spetta
+(cfr. `claude`, «File dell'harness»). Ogni skill dichiara scope, limiti,
 autorizzazioni ed esito atteso, e preferisce script versionati a logica fragile
 riscritta nel prompt.
 

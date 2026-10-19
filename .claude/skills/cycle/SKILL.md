@@ -18,8 +18,9 @@ L'argomento sceglie il modo:
   valide le regole della sessione interattiva, compreso `momento-del-commit`
   per ciò che segue il giro;
 - `autonomo`, **ciclo autonomo**: nessuno risponde. Lo avvia l'unità del
-  modulo `cicli` dell'host, con il prompt del repo (`.claude/ciclo-prompt.md`)
-  e i permessi del solo ciclo autonomo (`.claude/ciclo.json`). Valgono le
+  modulo `cicli` dell'host, con il prompt del repo e i permessi del solo
+  ciclo autonomo (`o3/ciclo/prompt.md` e `o3/ciclo/permessi.json`, o i path
+  ancora dichiarati nell'unità durante la migrazione). Valgono le
   sezioni sotto.
 
 ## Ciclo autonomo

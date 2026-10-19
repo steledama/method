@@ -97,6 +97,13 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   2026-10-19 `baserow` estende il giro al pull dello standby su un secondo
   host, con guardie e verifica dell'hash (`437b11b`): da rileggere ai primi
   esercizi.
+- **File e tracce del giro nell'artefatto**, 2026-10-19: proposta di `bi`,
+  decisa dal custode. Prompt e permessi del giro vanno in `o3/ciclo/`,
+  versionati, e non si modificano nel giro. Le trascrizioni e gli esiti vanno
+  in `i1/giri/`, ignorati da git, dove `eval perceive` li legge
+  (`kb/perceive.md`, `o3/ciclo-autonomo.md`). Le frizioni del giro
+  rientrano così nel ciclo senza una sessione col custode. Migrazione da
+  coordinare con `nixos` (path e campo `giri` in `o3/cicli.nix`).
 - **Primi riscontri sulla prima delega**, 2026-10-09/10: 18 casi inoltrati
   da `bi`, `crm` e `baserow` (`i2/casi-delega-adottanti.md`). Nessuna
   autonomia rivelatasi sbagliata con danno; due errori dichiarati

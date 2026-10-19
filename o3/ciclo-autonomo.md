@@ -1,5 +1,5 @@
 ---
-data: 2026-10-11
+data: 2026-10-19
 stato: attiva
 ciclo: runtime
 target: salute, nixos, bi, economia, crm, danea-auto, baserow
@@ -53,23 +53,30 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
 **Solo nei repo con un ciclo autonomo** (oggi `salute`, `crm`, `economia`,
 `nixos` e `method`):
 
-5. File del repo: `.claude/ciclo.json` (permessi del solo ciclo autonomo) e
-   `.claude/ciclo-prompt.md` (il prompt dell'unità). Il prompt si riduce a
+5. File del repo: `o3/ciclo/permessi.json` (permessi del solo ciclo
+   autonomo) e `o3/ciclo/prompt.md` (il prompt dell'unità), versionati come
+   prescrizioni dell'atto e non in `.claude/`, che è il binding dell'harness
+   (`kb/claude.md`, «File dell'harness»; decisione del 2026-10-19). Chi ha
+   ancora `.claude/ciclo.json` e `.claude/ciclo-prompt.md` li sposta con
+   `git mv` e lo stesso giorno, in `nixos`, dichiara i due path nei campi
+   `settings` e `prompt` della propria voce in `o3/cicli.nix`: finché i
+   default del modulo restano quelli vecchi, un giro senza i campi si ferma
+   con exit 14. Il prompt si riduce a
    «esegui `/cycle autonomo`» più ciò che è solo locale: criterio di
    copertura e trailer del gradino, host, verifiche, atti sul Mondo.
-   Ogni comando che il prompt nomina sta in `.claude/ciclo.json` scritto
+   Ogni comando che il prompt nomina sta in `o3/ciclo/permessi.json` scritto
    alla lettera: prompt e permessi sono due elenchi dello stesso perimetro,
    e al primo giro divergono (`bi` e `baserow`, 2026-10-16/17, in
    `i2/casi-delega-adottanti.md` di `metodo`). Il confronto è il giro di
    prova: il gradino 0 passa al gradino 1 solo quando un giro non ha
    dinieghi sui comandi del prompt, letti nel campo `dinieghi` di
    `tentativi.jsonl` o nel resoconto. Un diniego si corregge in una sessione
-   col custode, nel prompt o in `ciclo.json`, mai nel giro.
+   col custode, nel prompt o in `permessi.json`, mai nel giro.
 6. Criterio in `autonomy.md`: `ciclo-autonomo` (il perimetro del giro senza
    custode), distinto da `ciclo-delegato` (il ciclo avviato dal custode).
 7. Permessi, regola comune:
    - gli allow di `.claude/settings.json` stanno dentro quelli di
-     `.claude/ciclo.json`; i deny si aggiungono liberamente, perché valgono
+     `o3/ciclo/permessi.json`; i deny si aggiungono liberamente, perché valgono
      anche nel ciclo autonomo;
    - la lettura è larga: oltre a `cat`, `head`, `tail`, `grep`, `jq` e
      `sed -n`, anche `sort`, `uniq`, `cut`, `tr`, `diff` e `hostname`. Un
@@ -101,20 +108,47 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
        possa correggere un trailer sbagliato. Corregge solo il commit non
        ancora pubblicato: il force push resta negato, e un amend dopo il push
        lascerebbe il branch divergente e fermerebbe il giro successivo;
+   - i file del giro non si modificano nel giro: deny su
+     `Edit(./o3/ciclo/**)` e `Write(./o3/ciclo/**)` in
+     `o3/ciclo/permessi.json`, che valgono solo senza custode (la sessione
+     legge `.claude/settings.json` e lì il custode e l'agente li modificano in
+     modo concordato); nessun comando concesso scrive file per via indiretta
+     (`sed -i`, `tee`, redirezioni). Il recinto vero è l'unità, che rende
+     `o3/ciclo` di sola lettura;
+   - `git add -f*` e `git add --force*` sono negati in `.claude/settings.json`:
+     il grezzo ignorato di `i1/` non entra nella storia;
    - restano di dominio, per nome e oggetto, gli script del repo e gli
      strumenti sul Mondo (`rclone`, `gog` e simili);
    - gli atti sul Mondo si concedono per nome e oggetto, mai per famiglia
      intera; gli invii verso persone esterne restano al custode, con un
      wrapper nell'unità dove l'harness non basta (es.
      `gog --gmail-no-send`).
-8. Registrare nel marker il recepimento o l'adattamento motivato.
+8. Tracce del giro in `i1/giri/`, ignorate da git (`kb/perceive.md`): la
+   regola `.gitignore` entra in un commit **prima** del primo giro che vi
+   scrive, altrimenti il giro successivo trova il working tree sporco e si
+   ferma (exit 10). `eval perceive` legge `tentativi.jsonl` del giro
+   precedente (dinieghi, errori, costo, durata) e apre la trascrizione solo
+   per il dettaglio; una frizione che deve durare diventa una cattura `.md`
+   versionata in `i1/`.
+9. Registrare nel marker il recepimento o l'adattamento motivato.
 
 Il ciclo autonomo non legge `~/.claude/settings.json`: ciò che lì vale per
 tutte le sessioni, come le variabili d'ambiente e `attribution` vuoto (niente
 `Co-Authored-By`, che nel secondo giro di `salute` ha staccato i trailer
 dall'ultimo paragrafo), lo passa l'unità dell'host.
 
-Lato host, in `nixos` (non è un passo dell'adottante): modulo `cicli`
+Lato host, in `nixos` (non è un passo dell'adottante), per la decisione del
+2026-10-19: default di `settings` e `prompt` portati a `o3/ciclo/` quando
+tutti i repo con ciclo autonomo hanno spostato i file; `o3/ciclo` del checkout
+in `readOnlyPaths` dell'unità; un campo per repo (es. `giri = "i1/giri"`) che
+porta in quella cartella `tentativi.jsonl`, `ultimo.json` e `giri/`, mentre
+lock, `corrente.json`, `sonde.jsonl` e il settings fuso restano nello stato
+dell'unità; prima della prima scrittura `ciclo-avvio` verifica con
+`git check-ignore -q` che la cartella sia ignorata e altrimenti si ferma con
+exit 14; `--ciclo-state` della vista punta alla nuova cartella. La vista
+legge solo `tentativi.jsonl` e `giri/`, non `corrente.json`: `o3/view/ciclo.py`
+non cambia.
+Già in esercizio: modulo `cicli`
 (`o3/cicli.nix`, unità `ciclo-<repo>` e `ciclo-<repo>-sonda`, stato in
 `~/.local/state/ciclo/<repo>/`) e `--ciclo-state` passato alla vista del repo
 servita dallo stesso host. Le unità non si riavviano a uno switch
