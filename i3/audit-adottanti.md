@@ -128,9 +128,10 @@ alle intestazioni del rispettivo `goal.md`.
   con l'esito nel marker. Il seguito sul deck di `nixos` è chiuso: la
   lettura causale vive in `i2/ipotesi-boot-server.md` e il filo
   `affidabilita-boot-server` la raggiunge, col riesame al 2026-12-31.
-  `danea-auto` non l'ha ancora revisionata ed è osservato senza
-  sollecitazione (`i2/presidio-ipotesi-adottanti.md`, riesame dal
-  2026-10-13);
+  `danea-auto` non l'ha ancora revisionata: l'osservazione senza
+  sollecitazione è chiusa il 2026-10-20 (scadenza emersa da sola, ipotesi
+  rafforzata, `i2/presidio-ipotesi-adottanti.md`) e il recepimento è
+  sollecitato lo stesso giorno;
 
 **Il passo «Rileggi le prescrizioni aperte» di `/method` ha girato in tutti
 e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto

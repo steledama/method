@@ -10,6 +10,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Giri autonomi: ipotesi implicite e prossimo task non
+  registrato](giri-ipotesi-implicite-e-prossimo-task-2026-10-20.md) — dal
+  custode, sui giri dei sette: in `bi` una tesi causale nasce e cade in due
+  giri con `interpret=vuoto`; il prossimo task di `/exec plan` non arriva al
+  resoconto né alla vista, e `plan=vuoto` non distingue conferma da
+  omissione.
 - [Un registro perpetuo è una specie di i1, e i register non tassonomizzano
   le nature dei file](registro-perpetuo-vs-cattura-singola.md) — da nixos:
   `i1/manutenzione.json` non segue il ciclo consuma-poi-elimina (registro

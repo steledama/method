@@ -194,7 +194,37 @@ pur dichiarando copertura dal 14/08, aveva perso la risposta di Teresa e
 Maurizio del 14/08 su cui poggiava P7; la cattura è arrivata il 2026-10-05
 (`97c644f`). La finestra dichiarata di un giro non certifica la copertura.
 
-## Osservazione aperta: danea-auto
+## Osservazione chiusa: danea-auto
+
+**Esito, riesaminato il 2026-10-20** in sessione col custode, sui commit
+pubblicati di `danea-auto` fino a `6321822`: la scadenza **è emersa da sola**
+e l'ipotesi **si rafforza**.
+
+- La previsione era scritta nel filo prima del dato: «arriva all'età della
+  rampa intorno al 13/10» (`i3/rallentamento-libreoffice.md` a `230f1e2`,
+  con criterio di rafforzamento e di caduta).
+- Il primo giro dopo il 13/10 (`5658ff1`, 15/10, `Esiti:` con
+  `interpret=materia`) l'ha riconosciuta senza che nessuno la nominasse:
+  «Rampa del precursore LibreOffice al 13/10 come previsto dal filo». Righe
+  `^+s` sopra soglia con l'istanza a 12–14 giorni (1 il 12/10, poi 43, 75,
+  39): è il ramo «l'ipotesi si rafforza» fissato sotto. La corroborazione
+  resta sul precursore e non prova la causa.
+- La conseguenza proposta è arrivata come previsto: task del riavvio di
+  LibreOffice (`p4` di `danea-auto`). La chiusura del 15/10, decisa dal
+  custode, ha rinnovato l'istanza e apre una seconda previsione locale (rampa
+  di nuovo verso il 27/10), che tocca alle `/eval` di `danea-auto`.
+- Limiti: le contaminazioni dichiarate sotto (recepimenti del 09/10 e
+  indizio letto forse da `/method` fino al 09/10), e un giro avviato dal
+  custode presente, non un giro autonomo. Il caso misura che la pratica
+  corrente fa emergere un'ipotesi **già scritta con data e criterio**; non
+  misura se un giro riconosce un'ipotesi **non dichiarata** (cfr. il caso
+  `bi` del 19–20/10 in
+  `i1/giri-ipotesi-implicite-e-prossimo-task-2026-10-20.md`).
+
+Chiusa l'osservazione, cade il vincolo di non sollecitare `danea-auto`: può
+recepire `presidio-ipotesi` e il resto del canone col suo `/method`.
+
+Testo dell'osservazione come fissato, per la provenienza:
 
 **Presidio in attesa.** Orizzonte dal **2026-10-13**, con osservazione
 valutabile almeno fino al **2026-10-17** per l'assenza del precursore.
