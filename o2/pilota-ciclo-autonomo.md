@@ -364,6 +364,16 @@ arriva agli adottanti via symlink.
     arresto lascia un tentativo, lock compreso. Restano gli undici atti del
     custode in fondo al task di `danea-auto`, poi la ratifica del criterio e
     il primo giro.
+  - **D1 rivista dal custode lo stesso giorno**: niente utente separato, il
+    giro gira come `danea`. Pesa la semplicità: un trasferimento di `danea2`
+    non deve dover ricreare utenti, ACL e credenziali. Rischio accettato
+    sapendolo: il recinto è solo l'harness, come in `nixos` con
+    `homeWritable`, e Danea, Windows e Controlp restano fuori per permessi e
+    prompt, non per il sistema. Il task gira «indipendentemente dalla
+    connessione dell'utente», con la password salvata: senza desktop, così
+    nessuna finestra ruba il primo piano agli slot. Restano il clone proprio
+    (D4) e il rilascio protetto. Autenticazione di Claude e push di `danea`
+    fuori dal desktop si provano al primo giro.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
