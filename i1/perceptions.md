@@ -89,4 +89,5 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 - [Il giro di `method` del 2026-10-20 contro il suo
   prompt](giro-method-2026-10-20.md) — dal giro autonomo: il fetch dei repo
   di `svezia` fallisce nel recinto in sola lettura dell'unità, e il timer di
-  `nixos` parte alle 04:30, non alle 14:00 del prompt. Proposta nel pilota.
+  `nixos` parte alle 04:30, non alle 14:00 del prompt. Decisa l'alternativa
+  3, fetch in un passo dell'unità: riuscito al giro delle 15:00.

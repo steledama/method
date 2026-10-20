@@ -57,7 +57,13 @@ schedulato di `deck` partito per intero è riuscito con commit e push:
 più alle 14:00). Due arresti visibili per sessione aperta, cioè il sistema
 che funziona: `method` il 2026-10-19 alle 15:00 e `nixos` il 2026-10-20
 alle 04:30, entrambi ripartiti alle 07:17 del 20, avviati a mano dal
-custode (confermato in sessione). Il giro di `nixos` del 18 è il più lungo finora
+custode (confermato in sessione). Il 2026-10-20 la serie si incrina:
+`salute` riuscito alle 08:30 con commit e push (1,35 USD), `economia` alle
+13:00 chiuso dall'unità come `riuscito` ma senza commit, con tree sporco
+dopo il giro e due dinieghi, uno su `git rm` di due file `o3/`. La home lo
+mostra giallo, quindi non è un arresto invisibile; la causa non si legge
+senza il trascritto, escluso dal giro. Se il tree resta sporco, il controllo
+d'avvio dell'unità ferma il giro successivo. Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
@@ -66,8 +72,10 @@ I dinieghi per giro vanno da uno a quattro (`bi`, giro manuale: tre,
 `i1/casi-delega-bi-2026-10-17.md`). Dal 2026-10-19 il giro di `method` legge
 tutto `~/.local/state/ciclo/` tranne `giri/`, `method` compreso, gli
 `autonomy.md` e i prompt del ciclo degli adottanti, e i marker di `svezia` da
-`origin` via `fetch`, che però nel recinto in sola lettura dell'unità
-fallisce (`i1/giro-method-2026-10-20.md`); `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
+`origin` aggiornato dal passo `ciclo-fetch` dell'unità prima del giro: nel
+recinto in sola lettura il fetch dal giro falliva
+(`i1/giro-method-2026-10-20.md`), dal passo il primo giro schedulato del
+2026-10-20 trova i quattro fetch riusciti (`fetch.json`); `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
 2026-10-19 (`nixos` `60c2314`), e i controlli `gh` in sola lettura erano già
 concessi al giro di `nixos` dal 18 sera (`nixos` `7eb86ac`). La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente

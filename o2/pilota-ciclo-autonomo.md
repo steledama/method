@@ -318,8 +318,9 @@ arriva agli adottanti via symlink.
     checkout e `TimeoutStartSec` di 90 s più 15 per checkout, perché un remote
     appeso non faccia fallire l'avvio; in `fetch.json` il campo
     `ultimo_riuscito`, che il prompt usa come età dell'`origin` a fetch
-    fallito. Resta da vedere il primo giro schedulato dopo lo switch di
-    `deck`.
+    fallito. Primo giro schedulato dopo lo switch, 2026-10-20 alle 15:00:
+    quattro fetch riusciti, `id` di `fetch.json` uguale a quello della
+    partenza, nessun `git fetch` tentato dal giro.
 
 - **`danea-auto`, esecutore su Windows, deciso il 2026-10-20**: il custode
   mette in cantiere il suo ciclo autonomo. Un adottante senza ciclo autonomo

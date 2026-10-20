@@ -43,4 +43,6 @@ non ne deduce uno stato.
 Proposta al custode in `o2/pilota-ciclo-autonomo.md`, «Andamento»: il prompt
 e il recinto vanno corretti in `o3/ciclo/` e in `nixos`, fuori dal giro.
 Deciso il 2026-10-20 in sessione: fetch in un passo dell'unità prima del
-giro (alternativa 3), prompt corretto anche sull'orario.
+giro (alternativa 3), prompt corretto anche sull'orario. Al giro
+schedulato delle 15:00 dello stesso giorno i quattro fetch del passo sono
+riusciti (`~/.local/state/ciclo/method/fetch.json`).
