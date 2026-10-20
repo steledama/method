@@ -348,7 +348,22 @@ arriva agli adottanti via symlink.
 
   Un giro autonomo quotidiano di `/eval` darebbe da solo la cadenza di guardia
   della rampa di LibreOffice; fino al 27/10 la guardia resta manuale (22 e
-  24/10, poi ogni giorno). Avvio del task col `/method` del 22/10 su `danea2`.
+  24/10, poi ogni giorno).
+  - **Gradino 0 preparato lo stesso giorno** (`danea-auto` `96ae950`,
+    `4ace513`, `63d51f0`), senza task registrati. Decisioni del custode: D1
+    utente `danea-ciclo` non interattivo con ACL, D2 `pythonw.exe` con
+    interprete esplicito, D3 07:05, D4 clone proprio e `--rilascio` del
+    checkout servito come `danea`, D5 semaforo subito. Il lanciatore
+    `o3/scheduler/ciclo_autonomo.py` segue la sequenza degli script
+    dell'unità, riscontrata in sessione da `method`. Le differenze: arresto
+    per qualunque `claude.exe` vivo, perché su Windows la cwd di un altro
+    processo non si legge; slot letti dal log dell'export (16); timeout
+    locale (22). Il rilascio non porta mai diff su produzione o recinto
+    (`o3/runtime/`, `o3/scheduler/`, `o3/ciclo/`, `.claude/`,
+    `autonomy.md`, `CLAUDE.md`: 17); al gradino 1 gira alle 08:10. Ogni
+    arresto lascia un tentativo, lock compreso. Restano gli undici atti del
+    custode in fondo al task di `danea-auto`, poi la ratifica del criterio e
+    il primo giro.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
