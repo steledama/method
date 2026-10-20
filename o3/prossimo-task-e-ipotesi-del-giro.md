@@ -49,6 +49,14 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
    che elenca le ipotesi nate, confermate o smentite. Mappare il presidio sul
    repo: la sintesi `i2/` pertinente, il registro delle ipotesi se esiste, o
    un filo con criterio. Nessun contenitore nuovo se uno esistente basta.
+   Mai il task `o2/`: può rimandare all'ipotesi, non ospitarla (correzione
+   di `bi`, `14eee710`).
+   **Ritocco del 2026-10-20** (da `bi`, `f28e3ca0`): il giro rilegge ciò che
+   ha scritto **o toccato**, quindi anche le ipotesi già presenti nei file
+   che attraversa; e distingue la **derivazione** (un «quindi» che è
+   aritmetica su misure, dichiarato «derivato») dall'**ipotesi** (che
+   aggiunge un'assunzione). Chi ha già recepito la prescrizione aggiorna il
+   paragrafo al prossimo `/method`.
 3. **`cycle` e `commit`**: le due voci nuove del resoconto finale e
    `Prossimo:` fra i trailer. Se il prompt locale del ciclo autonomo elenca
    il contenuto del resoconto o i trailer, allinearlo.
@@ -62,10 +70,11 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
 
 ## Indizi da verificare sul posto
 
-- **bi**: il caso del 19–20/10 in `o2/diagnosi-crescita-orfani.md`
-  (`6a0bc3d1`, `8635f663`) è materiale per il primo giro: la tesi smentita
-  può entrare nel presidio come ipotesi caduta, con la formulazione
-  originale.
+- **bi**: recepita e applicata al caso d'origine: la tesi smentita del
+  19/10 e l'ipotesi del «Primo indizio» vivono in
+  `i2/ipotesi-uscita-orfani.md` con la formulazione originale, e il riesame
+  del 27/10 dichiara «dati mancanti» senza la serie storica (`14eee710`,
+  `f28e3ca0`). È il primo esempio completo della regola.
 - **economia**: `i2/angolo-nostradamus.md` è già un registro di previsioni;
   probabile destinazione naturale delle ipotesi formate nel giro.
 - **danea-auto**: non ha ancora `/cycle` (`ciclo-autonomo`, prescritta il

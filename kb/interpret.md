@@ -29,10 +29,14 @@ una sua ipotesi ancora in attesa.
 
 Le ipotesi più insidiose sono quelle **non dichiarate**: un «perché», un
 «quindi», una previsione o una generalizzazione da pochi casi scritti come
-fatti, dentro un task, un filo o un messaggio di commit. Si riconoscono dalla
-forma, non dall'introspezione: ogni spiegazione causale o attesa sul futuro
-formata in un giro è un'ipotesi, e va nel presidio con affermazione,
-provenienza, cosa la smentirebbe e orizzonte. Quando cade si cita la
+fatti, dentro un task, un filo o un messaggio di commit. Si cercano dalla
+forma, non dall'introspezione, in ciò che un giro scrive o tocca: la forma
+segnala il candidato, la prova è se l'affermazione va oltre i dati. Un
+«quindi» che è aritmetica su misure è una derivazione e dichiara solo la
+provenienza; una spiegazione causale, un'attesa sul futuro o una conclusione
+che aggiunge un'assunzione è un'ipotesi, e va nel presidio con affermazione,
+provenienza, cosa la smentirebbe e orizzonte. Un task può rimandare a
+un'ipotesi ma non ospitarla: il riesame di `interpret` non lo rilegge. Quando cade si cita la
 formulazione e la si segna smentita, senza riscriverla in silenzio: la
 smentita è informazione sul modello, non solo sul dato. Il caso tipo è una
 tesi causale scritta in un task come spiegazione ovvia e smentita dal dato
