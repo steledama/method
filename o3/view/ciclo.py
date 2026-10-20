@@ -230,12 +230,14 @@ def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
     current = trailer_next(head)
     if current is None:
         return
+    before = trailer_next(f"{head}^", limit=200)
     if not current:
-        reasons.append(label("no-next"))
+        # Prima del recepimento la storia non ha trailer: nessun giallo retroattivo.
+        if before:
+            reasons.append(label("no-next"))
         return
     task, declared, was = task_of(current)
     attempt.next_task = task
-    before = trailer_next(f"{head}^", limit=200)
     previous = task_of(before)[0] if before else was
     attempt.previous_task = previous
     if previous and not same(previous, task):

@@ -194,7 +194,12 @@ class NextTask(StateCase):
         attempt = self.round("a", self.commit("Prossimo: Diagnosi orfani (confermato)"))
         self.assertEqual((attempt.color, attempt.next_task), ("verde", "Diagnosi orfani"))
 
+    def test_rounds_before_adoption_are_not_judged(self):
+        attempt = self.round("a", self.commit("Autonomia: agente"))
+        self.assertEqual((attempt.color, attempt.next_task), ("verde", None))
+
     def test_missing_trailer_is_yellow(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
         attempt = self.round("a", self.commit("Autonomia: agente"))
         self.assertEqual((attempt.color, attempt.reasons), ("giallo", [ciclo.label("no-next")]))
 

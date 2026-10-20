@@ -89,9 +89,9 @@ non abbassa:
   senza push; partenza senza chiusura oltre il tempo massimo; con stato
   `timer`, nessuna partenza entro la cadenza più una tolleranza;
 - **giallo**: riuscito, ma con permessi negati, oppure `attenzione` non
-  nulla o assente, oppure trailer `Prossimo:` assente o diverso da quello
-  precedente nella storia (cambio di priorità, anche se dichiarato
-  confermato);
+  nulla o assente, oppure trailer `Prossimo:` assente dopo il recepimento o
+  diverso da quello precedente nella storia (cambio di priorità, anche se
+  dichiarato confermato);
 - **verde**: riuscito, commit e push, nessun permesso negato,
   `attenzione` nulla. Un giro tutto vuoto è verde.
 
