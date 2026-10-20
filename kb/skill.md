@@ -33,6 +33,15 @@ porta una parola per stadio, `materia` o `vuoto`, anche quando non ha cambiato
 file. Senza questa traccia una chiusura vuota non si distingue da uno stadio mai
 invocato, e il giudizio sulla divisione in stadi perde la sua sola misura.
 
+Il giro che passa da `exec plan` lascia nello stesso commit anche il suo
+punto d'arrivo: il **prossimo task**, confermato o cambiato rispetto a quello
+precedente (trailer `Prossimo:`). È lo sbocco della catena del ciclo, nuove
+percezioni → interpretazioni → verdetto contro il Goal → dipendenze e
+priorità, e la rende verificabile: una conferma è un atto registrato, non un
+silenzio, e un cambio di priorità si vede confrontando due giri senza
+dipendere dal giudizio dell'agente. `plan=vuoto` con `Prossimo: … (confermato)`
+dice che la coda è stata riesaminata e regge.
+
 ## Skill di dominio
 
 Una capacità dipendente dal dominio vive nel repository che la usa. Può restare

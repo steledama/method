@@ -16,7 +16,10 @@ senza `--ciclo-unita` vale la prima. Risponde sotto `/_ciclo/`:
 
 Contratto in `o2/home-fatto-da-fare.md` («Contratto del ciclo autonomo nella
 vista»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
-alza, non abbassa. Solo libreria standard, come `serve.py`.
+alza, non abbassa. Il prossimo task arriva dal trailer `Prossimo:` del commit
+del giro e si confronta con quello precedente nella storia: un cambio di
+priorità porta il giro a giallo, anche se l'agente lo dichiara confermato.
+Solo libreria standard, come `serve.py`.
 """
 
 from __future__ import annotations
@@ -41,6 +44,9 @@ LATE_START = timedelta(hours=1)
 LATE_CLOSE = timedelta(minutes=10)
 ID = re.compile(r"^[0-9a-f]{32}$")
 ATTENTION = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
+# `<task> (confermato)`, `<task> (cambiato, era <task>; motivo)`, `nessuno (motivo)`.
+NEXT = re.compile(r"^(.*?)\s*\((confermato|cambiato)\b(?:,\s*era\s+([^;)]*))?[^)]*\)\s*$")
+REPO = Path(__file__).resolve().parents[2]
 
 LABELS = {
     "it": {
@@ -63,6 +69,11 @@ LABELS = {
         "no-commit": "nessun commit",
         "denials": "permessi negati",
         "no-attention": "riga «Attenzione» assente",
+        "no-next": "prossimo task assente",
+        "changed": "priorità cambiata",
+        "undeclared": "dichiarata confermata",
+        "next": "Prossimo task",
+        "previous": "prima",
         "report": "Resoconto",
         "attention": "Attenzione",
         "actions": "Comandi e strumenti",
@@ -90,6 +101,11 @@ LABELS = {
         "no-commit": "no commit",
         "denials": "permissions denied",
         "no-attention": "«Attenzione» line missing",
+        "no-next": "next task missing",
+        "changed": "priority changed",
+        "undeclared": "declared as confirmed",
+        "next": "Next task",
+        "previous": "before",
         "report": "Report",
         "attention": "Attention",
         "actions": "Commands and tools",
@@ -113,6 +129,8 @@ class Attempt:
     reasons: list[str] = field(default_factory=list)
     attention: str | None = None
     missed: bool = False
+    next_task: str | None = None
+    previous_task: str | None = None
 
     @property
     def when(self) -> str:
@@ -170,6 +188,63 @@ def attention_of(close: dict, result: dict | None) -> str | None:
     return None
 
 
+def git(*args: str) -> str | None:
+    """L'output di git nel repo della vista, None se git non risponde."""
+    try:
+        return subprocess.run(
+            ["git", "-C", str(REPO), *args],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=10,
+        ).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def trailer_next(rev: str, limit: int = 1) -> str | None:
+    """Il primo trailer `Prossimo:` da `rev` all'indietro, `""` se non c'è."""
+    out = git("log", f"-{limit}", "--format=%(trailers:key=Prossimo,valueonly,separator=%x0A)", rev)
+    if out is None:
+        return None
+    return next((line.strip() for line in out.splitlines() if line.strip()), "")
+
+
+def task_of(value: str) -> tuple[str, str | None, str | None]:
+    """Task, dichiarazione (`confermato`/`cambiato`/None) e task precedente dichiarato."""
+    match = NEXT.match(value)
+    if not match:
+        return value.split(" (")[0].strip(), None, None
+    return match.group(1).strip(), match.group(2), (match.group(3) or "").strip() or None
+
+
+def same(a: str, b: str) -> bool:
+    return " ".join(a.split()).casefold() == " ".join(b.split()).casefold()
+
+
+def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
+    """Prossimo task del giro e confronto col precedente; senza git, nessun giudizio."""
+    head = close.get("head_dopo")
+    if not close.get("commit") or not head:
+        return
+    current = trailer_next(head)
+    if current is None:
+        return
+    if not current:
+        reasons.append(label("no-next"))
+        return
+    task, declared, was = task_of(current)
+    attempt.next_task = task
+    before = trailer_next(f"{head}^", limit=200)
+    previous = task_of(before)[0] if before else was
+    attempt.previous_task = previous
+    if previous and not same(previous, task):
+        note = f"{label('changed')}: {previous} → {task}"
+        if declared == "confermato":
+            note += f" ({label('undeclared')})"
+        reasons.append(note)
+
+
 def judge(attempt: Attempt, state: Path, decision: dict, now: datetime) -> None:
     close = attempt.close
     if close is None:
@@ -197,6 +272,7 @@ def judge(attempt: Attempt, state: Path, decision: dict, now: datetime) -> None:
         reasons.append(label("no-attention"))
     elif attempt.attention:
         reasons.append(attempt.attention)
+    judge_next(attempt, close, reasons)
     attempt.color = "giallo" if reasons else "verde"
     attempt.reasons = reasons
 
@@ -285,6 +361,7 @@ def summary(attempt: Attempt) -> dict:
         "commit": close.get("head_dopo") if close.get("commit") else None,
         "durata_s": round(close["durata_ms"] / 1000) if close.get("durata_ms") else None,
         "costo_usd": close.get("costo_usd"),
+        "prossimo": attempt.next_task,
     }
 
 
@@ -334,6 +411,9 @@ def row_html(attempt: Attempt) -> str:
     text = html.escape(label(attempt.color) if not attempt.missed else label("missed"))
     reasons = html.escape(" · ".join(r for r in attempt.reasons if r != label("missed")))
     detail = f' <span class="ciclo-motivi">{reasons}</span>' if reasons else ""
+    if attempt.next_task:
+        detail += f' <span class="ciclo-prossimo">→ {html.escape(attempt.next_task)}</span>'
+
     head = f'<span class="semaforo {attempt.color}" aria-hidden="true"></span>'
     if attempt.id:
         return f'<li>{head}<a href="/{PREFIX}{attempt.id}">{when} · {text}</a>{detail}</li>'
@@ -411,24 +491,8 @@ def commit_message(close: dict) -> str | None:
     head = close.get("head_dopo")
     if not close.get("commit") or not head:
         return None
-    try:
-        return subprocess.run(
-            [
-                "git",
-                "-C",
-                str(Path(__file__).resolve().parents[2]),
-                "log",
-                "-1",
-                "--format=%B",
-                head,
-            ],
-            capture_output=True,
-            text=True,
-            check=True,
-            timeout=10,
-        ).stdout.strip()
-    except (OSError, subprocess.SubprocessError):
-        return None
+    out = git("log", "-1", "--format=%B", head)
+    return out.strip() if out is not None else None
 
 
 def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) -> bytes | None:
@@ -461,6 +525,16 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
         + "</p>",
         f"      <h2>{label('meta')}</h2>\n      <dl>{meta}</dl>",
     ]
+    if attempt.next_task:
+        previous = (
+            f" <small>({label('previous')}: {html.escape(attempt.previous_task)})</small>"
+            if attempt.previous_task and not same(attempt.previous_task, attempt.next_task)
+            else ""
+        )
+        sections.append(
+            f"      <h2>{label('next')}</h2>\n"
+            f"      <p>{html.escape(attempt.next_task)}{previous}</p>"
+        )
     message = commit_message(attempt.close or {})
     if message:
         sections.append(
@@ -541,6 +615,12 @@ def home_section() -> str:
                   const span = document.createElement("span");
                   span.className = "ciclo-motivi";
                   span.textContent = " " + t.motivi.join(" · ");
+                  li.append(span);
+                }}
+                if (t.prossimo) {{
+                  const span = document.createElement("span");
+                  span.className = "ciclo-prossimo";
+                  span.textContent = " → " + t.prossimo;
                   li.append(span);
                 }}
                 list.append(li);

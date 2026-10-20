@@ -22,6 +22,15 @@ Un giro senza file cambiati si chiude con `git commit --allow-empty` e lo
 stesso trailer. Il conteggio è
 `git log --format='%(trailers:key=Esiti,valueonly)'`.
 
+Un giro che invoca `plan` registra nello stesso commit anche il prossimo task
+(passo 4 di `plan`), con il titolo della riga del plan:
+
+```
+Prossimo: <task> (confermato)
+Prossimo: <task> (cambiato, era <task>; <causa in poche parole>)
+Prossimo: nessuno (<motivo>)
+```
+
 È la skill simmetrica di `eval`: questa tiene onesta l'esecuzione, quella la
 valutazione; il register `goal.md` è la cerniera che entrambe controllano da
 versanti opposti. Usala a inizio sessione quando bisogna scegliere cosa
@@ -149,9 +158,20 @@ con azione (aggiungi/modifica/rimuovi), priorità e motivo:
 - **<task>** — <azione>; priorità <…>; <motivo>
 
 Se non ci sono modifiche da proporre, dillo esplicitamente. Chiudi indicando
-il task consigliato per la sessione corrente, motivandolo con urgenza,
-dipendenze e costo/opportunità. Applica a `o1/plan.md` e `o2/` entro la
-delega del gate comune; chiedi solo sui punti che ne superano il confine.
+il task consigliato, motivandolo con urgenza, dipendenze e costo/opportunità,
+e confrontalo con l'ultimo trailer `Prossimo:` della storia
+(`git log --format='%(trailers:key=Prossimo,valueonly)' | grep -m1 .`):
+
+- **confermato**: dì in una riga cosa hai riesaminato e perché regge;
+- **cambiato**: nomina il task precedente e la causa, risalendo la catena
+  fino al punto che l'ha mossa (percezione nuova, ipotesi smentita o
+  confermata in `i2/`, verdetto di un filo, obiettivo corretto in
+  `goal.md`, dipendenza sciolta). Un cambio senza causa nominata è un
+  riordino arbitrario.
+
+Il trailer `Prossimo:` va nel commit che chiude il giro. Applica a
+`o1/plan.md` e `o2/` entro la delega del gate comune; chiedi solo sui punti
+che ne superano il confine.
 
 **5. Chiudi con l'handoff inverso «verdetti da rivalutare»**
 

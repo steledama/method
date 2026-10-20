@@ -28,7 +28,8 @@ Recepita da sei destinatari su sette, verificato nei marker e nei file su
 `baserow` a `35a08d5`, ciascuno con l'esito nel marker. Il seguito sul deck
 di `nixos` è chiuso: la lettura causale vive in `i2/ipotesi-boot-server.md`,
 raggiunta dal filo `affidabilita-boot-server`. Resta `danea-auto`, a
-`a344f64`, osservato senza sollecitazione fino al riesame dal 2026-10-13.
+`a344f64`, osservato senza sollecitazione fino al riesame dal 2026-10-13;
+l'osservazione è chiusa il 2026-10-20 e il recepimento è sollecitato.
 Il rinvio è voluto: dal 2026-10-08 il suo marker può avanzare con una riga
 neutra che rimanda il recepimento alla sollecitazione di `metodo`, senza
 nominare ipotesi né filo; la sollecitazione parte dalla scadenza del plan a

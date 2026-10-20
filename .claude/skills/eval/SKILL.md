@@ -112,8 +112,20 @@ con criterio, conteggio e data può già bastare. Non introdurre facet,
 contenitori o ipotesi per completare una collezione vuota. Dichiara quali
 ipotesi hai riesaminato e ciò che resta non verificato.
 
+**Ipotesi formate nel giro** (cfr. `kb/interpret.md`): rileggi ciò che il
+giro ha scritto, in qualunque file e nel messaggio di commit che stai
+preparando, cercando la forma, non l'intenzione: un «perché», un «quindi»,
+una previsione, una generalizzazione da pochi casi. Ognuna è un'ipotesi.
+Portala nel presidio (sintesi `i2/` pertinente, registro delle ipotesi del
+progetto o filo con criterio) con affermazione, provenienza, cosa la
+smentirebbe e orizzonte. Un'ipotesi smentita si cita e si segna smentita,
+con il dato che la smentisce; non si riscrive in silenzio. Un giro che forma,
+conferma o smentisce un'ipotesi registra `interpret=materia`, anche se il
+testo nasce altrove.
+
 Esito: quali sintesi sono nate o cambiate, contro quale materiale sono state
-verificate, quali affermazioni restano non verificate e sono dichiarate tali.
+verificate, quali ipotesi sono nate, confermate o smentite, quali
+affermazioni restano non verificate e sono dichiarate tali.
 
 ## `compare` — il verdetto contro il Goal
 

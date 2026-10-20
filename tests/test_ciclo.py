@@ -156,5 +156,70 @@ class Routes(StateCase):
         self.assertNotIn("<script>", ciclo.report_html("<script>x</script>"))
 
 
+class NextTask(StateCase):
+    """Il trailer `Prossimo:` letto dal commit del giro, contro il precedente."""
+
+    def setUp(self):
+        super().setUp()
+        self.repo = self.root / "repo"
+        self.repo.mkdir()
+        self.run_git("init", "-q")
+        self.saved, ciclo.REPO = ciclo.REPO, self.repo
+
+    def tearDown(self):
+        ciclo.REPO = self.saved
+        super().tearDown()
+
+    def run_git(self, *args: str) -> str:
+        import os
+        import subprocess
+
+        env = {**os.environ, "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+               "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}  # fmt: skip
+        return subprocess.run(["git", "-C", str(self.repo), *args], env=env,
+                              capture_output=True, text=True, check=True).stdout.strip()  # fmt: skip
+
+    def commit(self, trailers: str) -> str:
+        self.run_git("commit", "-q", "--allow-empty", "-m", "giro", "-m", trailers)
+        return self.run_git("rev-parse", "HEAD")
+
+    def round(self, char: str, head: str) -> ciclo.Attempt:
+        self.attempt(
+            char, "2026-10-11T05:30:00+02:00", {**OK, "head_dopo": head}, "Attenzione: nessuna"
+        )
+        return next(a for a in ciclo.load(self.state, NOW)["tentativi"] if a.id == ident(char))
+
+    def test_confirmed_task_stays_green(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        attempt = self.round("a", self.commit("Prossimo: Diagnosi orfani (confermato)"))
+        self.assertEqual((attempt.color, attempt.next_task), ("verde", "Diagnosi orfani"))
+
+    def test_missing_trailer_is_yellow(self):
+        attempt = self.round("a", self.commit("Autonomia: agente"))
+        self.assertEqual((attempt.color, attempt.reasons), ("giallo", [ciclo.label("no-next")]))
+
+    def test_declared_change_is_highlighted(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        attempt = self.round(
+            "a", self.commit("Prossimo: Serie storica (cambiato, era Diagnosi orfani; smentita)")
+        )
+        self.assertEqual(attempt.color, "giallo")
+        self.assertEqual(
+            attempt.reasons, [f"{ciclo.label('changed')}: Diagnosi orfani → Serie storica"]
+        )
+
+    def test_undeclared_change_is_caught(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        self.run_git("commit", "-q", "--allow-empty", "-m", "sessione senza trailer")
+        attempt = self.round("a", self.commit("Prossimo: Serie storica (confermato)"))
+        self.assertIn(ciclo.label("undeclared"), attempt.reasons[0])
+        page = ciclo.respond(f"/_ciclo/{ident('a')}", self.state)[1].decode()
+        self.assertIn(
+            f"Serie storica <small>({ciclo.label('previous')}: Diagnosi orfani)</small>", page
+        )
+        latest = json.loads(ciclo.respond("/_ciclo/ultimi.json", self.state)[1])
+        self.assertEqual(latest["tentativi"][0]["prossimo"], "Serie storica")
+
+
 if __name__ == "__main__":
     unittest.main()

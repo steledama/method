@@ -57,7 +57,7 @@ toccati nel giro: un file modificato che non hai toccato vuol dire una
 sessione concorrente, e allora non committi e chiudi con lo stop. Le
 verifiche del repo devono passare; se una fallisce, niente commit e working
 tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
-con `Esiti:`, `Autonomia: agente`, `Impatto` almeno medio e
+con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 `Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
 senza trailer di coautoria. Prima del push rileggi i trailer
 (`git log -1 --format='%(trailers)'`) e correggi con `git commit --amend` se
@@ -72,6 +72,10 @@ a richiesta»). Contiene:
 - esito dell'avvio, SHA del commit ed esito del push, oppure lo stop e il
   suo motivo;
 - per stadio, `materia` o `vuoto` e cosa è cambiato;
+- ipotesi nate, confermate o smentite nel giro, e dove vivono;
+- prossimo task, confermato o cambiato rispetto al precedente, con la causa
+  del cambio o il motivo della conferma (stesso valore del trailer
+  `Prossimo:`);
 - decisioni prese entro la delega, con motivo e fonte;
 - atti sul Mondo compiuti;
 - proposte lasciate al custode e dove vivono;

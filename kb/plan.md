@@ -103,8 +103,10 @@ Un ingest semplice può restare una riga del plan; `## Fonti da elaborare` tiene
 eventuali path lunghi. Quando servono decisioni, vincoli o più passaggi, nasce
 un file `o2/`.
 
-La skill `exec plan` controlla coerenza, priorità e rapporto task→obiettivo; il
-generatore verifica il contratto tra tabella, indice e file `o2/`.
+La skill `exec plan` controlla coerenza, priorità e rapporto task→obiettivo, e
+chiude col prossimo task, confermato o cambiato, nel trailer `Prossimo:` del
+commit (`skill`); il generatore verifica il contratto tra tabella, indice e
+file `o2/`.
 
 Connessioni:
 

@@ -273,7 +273,9 @@ e ogni lettura dichiara il proprio momento, distinto dalla revisione servita.
 
 La home ne rende gli ultimi tentativi col semaforo (verde riuscito, giallo
 da guardare, rosso bloccato, calcolato da campi espliciti: il giudizio
-dell'agente alza, non abbassa) e ogni riga porta alla pagina del giro. Le
+dell'agente alza, non abbassa) e il prossimo task del giro; un cambio di
+priorità rispetto al giro precedente è giallo. Ogni riga porta alla pagina
+del giro. Le
 righe arrivano da uno script: aperta come file, la home dice che il ciclo autonomo
 si legge dalla vista servita. Un repo senza ciclo autonomo lo dichiara invece di
 mostrare un vuoto muto. È l'eccezione dichiarata al compartimento stagno:
