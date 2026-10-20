@@ -41,7 +41,7 @@ gradualmente, ciascuno con i propri limiti da analizzare.
   `economia`; su `svezia` poi `baserow`, quindi `nixos`, quando il modulo ha
   retto i primi giri, e `bi` in coda; `method` quando il canone ha visto
   girare il ciclo autonomo negli adottanti; `danea-auto` per ultimo, fuori
-  `nixos`. Il custode, 2026-10-15: `baserow` passa davanti a `nixos`, perché ha
+  `nixos`, in cantiere dal 2026-10-20 (voce sotto). Il custode, 2026-10-15: `baserow` passa davanti a `nixos`, perché ha
   una manutenzione semplice e il ciclo autonomo di `nixos` toccherebbe il
   proprio scheduler. Su `svezia` un solo timer acceso alla volta: `baserow`
   entra al gradino 1 dopo che `crm` ha retto il suo.
@@ -320,6 +320,35 @@ arriva agli adottanti via symlink.
     `ultimo_riuscito`, che il prompt usa come età dell'`origin` a fetch
     fallito. Resta da vedere il primo giro schedulato dopo lo switch di
     `deck`.
+
+- **`danea-auto`, esecutore su Windows, deciso il 2026-10-20**: il custode
+  mette in cantiere il suo ciclo autonomo. Un adottante senza ciclo autonomo
+  non è pienamente tale (`goal.md`, «ciclo autonomo di runtime in ogni
+  repo»): «per ultimo» resta l'ordine nella scala, non un rinvio senza data.
+  Stato al 2026-10-20: `/cycle` recepita solo in sessione (`dcd5deb`);
+  `autonomy.md` locale dichiara che nessun giro gira senza custode e la home
+  lo mostra. Manca l'esecutore, che il modulo `cicli` di `nixos` dà agli altri
+  sei e che qui va costruito fuori `nixos`, col Task Scheduler. Il **cosa**
+  vive in un task `o2/` di `danea-auto` (lanciatore, slot, criterio); qui la
+  scala. Punti propri di Windows, da risolvere lì:
+  - **lanciatore** in `o3/scheduler/`, con i passi dell'unità (sessione
+    aperta, lock, branch e tree, prompt e permessi del repo, tempo massimo,
+    chiusura) e `i1/giri/tentativi.jsonl` nella stessa forma, perché la home
+    canonica dia il semaforo senza modifiche;
+  - **recinto più debole**: senza un equivalente semplice della home in sola
+    lettura resta l'harness, come in `nixos` con `homeWritable`; da accettare
+    sapendolo o da compensare;
+  - **slot dell'export**: gli script AHK pilotano la GUI ogni ora, e un giro
+    che apre una console durante uno slot ruba il primo piano. Il giro sta
+    fra la FINE di un run e lo slot successivo, con tempo massimo più corto e
+    comandi senza finestra (`2eeeb5e` lo fa già per la vista);
+  - **criterio `ciclo-autonomo`** in `autonomy.md` da ratificare, con Danea,
+    Windows e Controlp sempre fuori; poi gradino 0 avviato a mano, timer
+    dopo un paio di giri puliti.
+
+  Un giro autonomo quotidiano di `/eval` darebbe da solo la cadenza di guardia
+  della rampa di LibreOffice; fino al 27/10 la guardia resta manuale (22 e
+  24/10, poi ogni giorno). Avvio del task col `/method` del 22/10 su `danea2`.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
