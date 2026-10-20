@@ -49,11 +49,15 @@ schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
 con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
 per il Drive irraggiungibile, senza riga nello stato, ora registrato da
-`ciclo-namespace` (`nixos` `kb/cicli.md`). Dal 2026-10-16 al 2026-10-18
+`ciclo-namespace` (`nixos` `kb/cicli.md`). Dal 2026-10-16 al 2026-10-19
 (`tentativi.jsonl`, misurati, letti dai giri di `method`) ogni giro
-schedulato di `deck` è riuscito con commit e push: `salute` tre su tre
-(0,62–0,92 USD), `economia` tre su tre (0,68–0,87 USD), `nixos` due su due
-(1,19 e 1,95 USD). Il giro di `nixos` del 18 è il più lungo finora
+schedulato di `deck` partito per intero è riuscito con commit e push:
+`salute` quattro su quattro (0,62–1,52 USD), `economia` quattro su quattro
+(0,66–0,87 USD), `nixos` tre su tre (1,19–1,95 USD; il 19 alle 04:30, non
+più alle 14:00). Due arresti visibili per sessione aperta, cioè il sistema
+che funziona: `method` il 2026-10-19 alle 15:00 e `nixos` il 2026-10-20
+alle 04:30, entrambi ripartiti alle 07:17 del 20, fuori orario, quindi
+presumibilmente a mano. Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
@@ -62,7 +66,8 @@ I dinieghi per giro vanno da uno a quattro (`bi`, giro manuale: tre,
 `i1/casi-delega-bi-2026-10-17.md`). Dal 2026-10-19 il giro di `method` legge
 tutto `~/.local/state/ciclo/` tranne `giri/`, `method` compreso, gli
 `autonomy.md` e i prompt del ciclo degli adottanti, e i marker di `svezia` da
-`origin` via `fetch`; `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
+`origin` via `fetch`, che però nel recinto in sola lettura dell'unità
+fallisce (`i1/giro-method-2026-10-20.md`); `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
 2026-10-19 (`nixos` `60c2314`), e i controlli `gh` in sola lettura erano già
 concessi al giro di `nixos` dal 18 sera (`nixos` `7eb86ac`). La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente

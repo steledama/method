@@ -291,6 +291,25 @@ arriva agli adottanti via symlink.
       (`53ea575`, commit e push, da `tentativi.jsonl`); resta da verificare
       il gradino 1 nel prompt e nel criterio, che il giro di `method` non
       legge.
+  - **Prompt di `method` contro il recinto, da decidere** (giro del
+    2026-10-20, `i1/giro-method-2026-10-20.md`). Il fetch dei quattro repo di
+    `svezia` fallisce, perché nell'unità i loro checkout sono in sola lettura
+    e il fetch scrive in `.git/`. In più il timer di `nixos` parte alle
+    04:30 dal 2026-10-19 (`tentativi.jsonl`), e quindi il «un'ora dopo
+    `nixos`» del prompt e l'elenco dei quattro orari qui sopra non valgono
+    più. Le alternative:
+    1. rendere scrivibili nell'unità i soli `.git/` dei quattro checkout
+       (`readOnlyPaths` in `nixos` `o3/cicli.nix`), sapendo che il fetch
+       tocca checkout dove lavora un'altra sessione;
+    2. togliere il fetch dal prompt e leggere `origin` noto, dichiarandone
+       l'età, con il fetch lasciato alle sessioni col custode;
+    3. far fare il fetch a un passo dell'unità prima del giro, fuori
+       dall'harness.
+
+    Motivo: oggi il giro legge marker di `svezia` di età ignota, mentre il
+    prompt dice il contrario. Decisione richiesta: quale alternativa
+    scegliere, e se ritoccare in `o3/ciclo/prompt.md` il motivo dell'orario
+    delle 15:00.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

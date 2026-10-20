@@ -80,3 +80,7 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   `%(trailers)`; la skill canonica ora richiede l'ultimo paragrafo unico; `baserow` e
   `danea-auto` ne presidiano la posizione. Un solo caso di perdita documentato;
   cattura mantenuta per il recupero nel conteggio del 2026-11-01.
+- [Il giro di `method` del 2026-10-20 contro il suo
+  prompt](giro-method-2026-10-20.md) — dal giro autonomo: il fetch dei repo
+  di `svezia` fallisce nel recinto in sola lettura dell'unità, e il timer di
+  `nixos` parte alle 04:30, non alle 14:00 del prompt. Proposta nel pilota.
