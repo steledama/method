@@ -71,6 +71,7 @@ LABELS = {
         "no-attention": "riga «Attenzione» assente",
         "no-next": "prossimo task assente",
         "no-history": "storia git non leggibile, prossimo task non verificato",
+        "not-released": "commit del giro non ancora nel checkout servito",
         "changed": "priorità cambiata",
         "undeclared": "dichiarata confermata",
         "next": "Prossimo task",
@@ -104,6 +105,7 @@ LABELS = {
         "no-attention": "«Attenzione» line missing",
         "no-next": "next task missing",
         "no-history": "git history unreadable, next task not checked",
+        "not-released": "round commit not yet in the served checkout",
         "changed": "priority changed",
         "undeclared": "declared as confirmed",
         "next": "Next task",
@@ -237,7 +239,10 @@ def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
     current = trailer_next(head)
     if current is None:
         # Una vista servita da una copia senza `.git` non tace: il confronto manca.
-        reasons.append(label("no-history"))
+        # Con la storia leggibile manca solo il commit: il giro ha lavorato in un
+        # clone e il checkout servito non l'ha ancora tirato (`danea-auto`).
+        readable = git("rev-parse", "--git-dir") is not None
+        reasons.append(label("not-released" if readable else "no-history"))
         return
     before = trailer_next(f"{head}^", limit=200)
     if not current:

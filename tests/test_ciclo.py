@@ -200,6 +200,11 @@ class NextTask(StateCase):
         attempt = self.round("a", "0" * 40)
         self.assertEqual((attempt.color, attempt.reasons), ("giallo", [ciclo.label("no-history")]))
 
+    def test_commit_not_yet_released_is_declared(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        attempt = self.round("a", "f" * 40)
+        self.assertEqual(attempt.reasons, [ciclo.label("not-released")])
+
     def test_rounds_before_adoption_are_not_judged(self):
         attempt = self.round("a", self.commit("Autonomia: agente"))
         self.assertEqual((attempt.color, attempt.next_task), ("verde", None))
