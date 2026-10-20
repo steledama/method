@@ -195,6 +195,11 @@ class NextTask(StateCase):
         attempt = self.round("a", self.commit("Prossimo: Diagnosi orfani (confermato)"))
         self.assertEqual((attempt.color, attempt.next_task), ("verde", "Diagnosi orfani"))
 
+    def test_unreadable_history_is_declared(self):
+        ciclo.REPO = self.root / "senza-git"
+        attempt = self.round("a", "0" * 40)
+        self.assertEqual((attempt.color, attempt.reasons), ("giallo", [ciclo.label("no-history")]))
+
     def test_rounds_before_adoption_are_not_judged(self):
         attempt = self.round("a", self.commit("Autonomia: agente"))
         self.assertEqual((attempt.color, attempt.next_task), ("verde", None))

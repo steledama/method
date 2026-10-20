@@ -70,6 +70,7 @@ LABELS = {
         "denials": "permessi negati",
         "no-attention": "riga «Attenzione» assente",
         "no-next": "prossimo task assente",
+        "no-history": "storia git non leggibile, prossimo task non verificato",
         "changed": "priorità cambiata",
         "undeclared": "dichiarata confermata",
         "next": "Prossimo task",
@@ -102,6 +103,7 @@ LABELS = {
         "denials": "permissions denied",
         "no-attention": "«Attenzione» line missing",
         "no-next": "next task missing",
+        "no-history": "git history unreadable, next task not checked",
         "changed": "priority changed",
         "undeclared": "declared as confirmed",
         "next": "Next task",
@@ -223,12 +225,14 @@ def same(a: str, b: str) -> bool:
 
 
 def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
-    """Prossimo task del giro e confronto col precedente; senza git, nessun giudizio."""
+    """Prossimo task del giro e confronto col precedente; senza git lo dichiara."""
     head = close.get("head_dopo")
     if not close.get("commit") or not head:
         return
     current = trailer_next(head)
     if current is None:
+        # Una vista servita da una copia senza `.git` non tace: il confronto manca.
+        reasons.append(label("no-history"))
         return
     before = trailer_next(f"{head}^", limit=200)
     if not current:
