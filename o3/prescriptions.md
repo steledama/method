@@ -32,6 +32,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   confermato o cambiato con la causa, confronto meccanico nella vista (cambio
   di priorità in giallo), ipotesi formate nel giro riconosciute dalla forma e
   portate nel presidio. Prescritta ai sette il 2026-10-20.
+- [Le sessioni si parlano con Herdr, protocollo nel
+  canone](comunicazione-fra-sessioni.md) — fra sessioni d'agente si usa
+  Herdr, non la messaggistica interna dell'harness; il protocollo vive nel
+  nodo `session-messaging` e `CLAUDE.md` tiene solo rimando e clausola
+  locale sulla delega. Prescritta ai sette il 2026-10-20.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

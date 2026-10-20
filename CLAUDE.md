@@ -35,33 +35,16 @@ preventiva delle decisioni dell'agente. Il giro senza custode segue il criterio
 
 ## Comunicazione fra sessioni con Herdr
 
-Quando il custode chiede di passare un messaggio a un'altra sessione aperta
-in Herdr, usa il canale di Herdr. Non serve avviare il daemon Codex o
-riaprire le sessioni; gli ID delle conversazioni Codex e i pane ID di Herdr
-sono identificatori distinti.
-
-- Verifica prima `test "${HERDR_ENV:-}" = 1`: se fallisce, fermati sul
-  collegamento e riferisci che questa sessione non è dentro Herdr.
-- Leggi `herdr --skill` una volta per sessione e consulta l'help della CLI
-  installata per la sintassi corrente.
-- Esegui `herdr agent list` e ricava il destinatario dal JSON, verificando
-  directory, agente e stato. Non conservare pane ID fissi nelle istruzioni.
-- Leggi `herdr agent read <pane-id> --source visible` per verificare che il
-  destinatario sia quello richiesto e pronto a ricevere; se il custode ha
-  fornito un ID Codex, confrontalo quando visibile. Un agente `blocked`
-  richiede di leggere il dialogo e tornare al custode, senza approvarlo al
-  suo posto.
-- Invia con `herdr agent prompt <pane-id> "<messaggio>"`. Per verificare
-  anche l'avvio di un turno su un agente inattivo, aggiungi
-  `--wait --until working --timeout 10000`; una conferma d'invio da sola
-  non prova che il lavoro sia iniziato. Dopo timeout o errore di attesa,
-  rileggi stato e pannello prima di ritentare, per evitare invii doppi.
+Quando il custode chiede di passare un messaggio a un'altra sessione aperta,
+usa Herdr, non gli strumenti di messaggistica interni all'harness: il canale
+resta agnostico rispetto a harness e modello. Protocollo (verifica
+dell'ambiente, scelta del destinatario, invio e conferma del turno) in
+[session-messaging](kb/session-messaging.md).
 
 L'invio richiede la richiesta esplicita del custode; identifica il messaggio
 come inoltrato dalla sessione method e conserva regole e autorizzazioni della
 sessione destinataria. Il collegamento non estende la delega sugli adottanti,
-su altri repo o sulla configurazione degli host. Se la sandbox blocca il
-socket Herdr, richiedi l'escalation per il comando necessario.
+su altri repo o sulla configurazione degli host.
 
 ## Skill
 

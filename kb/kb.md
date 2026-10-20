@@ -98,6 +98,9 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 
 - [method-development](method-development.md) — I due movimenti (bottom-up e
   top-down) in alternanza e contraddittorio
+- [session-messaging](session-messaging.md) — Canale fra sessioni d'agente
+  agnostico rispetto a harness e modello: Herdr, protocollo d'invio e confini
+  della delega
 - [consent](consent.md) — Riconoscere l'autorità già concessa, chiedere consenso
   quando manca e rispettarne lo scope; gemello sul lato verifica
 
