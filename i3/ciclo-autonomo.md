@@ -70,7 +70,7 @@ quattro file non suoi e si è fermato prima del commit, come prescrive la
 skill; i dinieghi erano un `for` composto e `git rm -q`, fuori pattern,
 entrambi aggirati. Il tree è tornato pulito con `deba9f5` e `c2e70a4`,
 commit delle due sessioni Codex che contengono anche il lavoro del giro. La
-correzione di `ciclo-sessioni` sui rollout Codex è in preparazione in `nixos`. Il giro di `nixos` del 18 è il più lungo finora
+correzione di `ciclo-sessioni` sui rollout Codex è in `nixos` `101e32b`, attiva su `deck` dallo switch del 2026-10-20: un rollout con la cwd nel checkout scritto nell'ultima ora ferma il giro col codice 15. Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
