@@ -37,6 +37,10 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+# Lanciato con `runpy` (il servizio di `danea-auto` su Windows) la cartella
+# dello script non è in `sys.path`, e `ciclo` non si troverebbe.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 import ciclo
 
 VIEW = Path(__file__).resolve().parents[2] / "view"

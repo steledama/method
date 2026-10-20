@@ -191,7 +191,11 @@ def attention_of(close: dict, result: dict | None) -> str | None:
 
 
 def git(*args: str) -> str | None:
-    """L'output di git nel repo della vista, None se git non risponde."""
+    """L'output di git nel repo della vista, None se git non risponde.
+
+    Su Windows senza finestra: una console aperta durante uno slot ruberebbe il
+    primo piano all'automazione della GUI (`danea-auto`).
+    """
     try:
         return subprocess.run(
             ["git", "-C", str(REPO), *args],
@@ -199,6 +203,7 @@ def git(*args: str) -> str | None:
             text=True,
             check=True,
             timeout=10,
+            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
         ).stdout
     except (OSError, subprocess.SubprocessError):
         return None
