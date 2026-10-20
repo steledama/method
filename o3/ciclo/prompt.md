@@ -7,8 +7,9 @@ locale.
 ## Copertura
 
 Sei al gradino 1: il timer lancia l'unità `ciclo-method` su `deck` ogni
-giorno alle 15:00, un'ora dopo `nixos`, perché il perceive trovi i giri degli
-adottanti del giorno; il giro è coperto da `ciclo-autonomo`. Un avvio a mano
+giorno alle 15:00, ultimo dei giri di `deck` (`nixos` 04:30, `salute` 08:30,
+`economia` 13:00), perché il perceive trovi i giri degli adottanti del
+giorno; il giro è coperto da `ciclo-autonomo`. Un avvio a mano
 dell'unità resta coperto dallo stesso criterio. Il perimetro è quello del
 criterio `ciclo-autonomo` di `autonomy.md`, regola di sospensione compresa; i
 permessi sono quelli di `o3/ciclo/permessi.json`, che il giro non modifica.
@@ -32,11 +33,18 @@ girano nel giro.
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
 di `deck`. Per i repo di `svezia` (`bi`, `crm`, `baserow`, `danea-auto`) il
-checkout locale può essere indietro: aggiorna i riferimenti remoti con
-`git -C /home/stele/<repo> fetch --quiet origin` e leggi il marker con
+checkout locale può essere indietro. Il fetch lo fa l'unità prima del giro,
+fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
+`o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
+checkout sono in sola lettura. L'esito sta in
+`~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read: per
+ogni checkout `esito`, `ts` e `origin_main`. Leggi il marker con
 `git -C /home/stele/<repo> show origin/main:i3/allineamento-metodo.md`, senza
-toccare il working tree. `ssh` non è concesso; se il fetch fallisce, dichiara
-il limite senza dedurre uno stato che il checkout non mostra.
+toccare il working tree. `ssh` non è concesso. Se un fetch non è
+`riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
+dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
+e l'età dell'`origin` letto, senza dedurre uno stato che il checkout non
+mostra.
 
 Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
 dichiara (campo `giri` in `o3/cicli.nix` di `nixos`, per tutti i repo man mano

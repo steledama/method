@@ -163,7 +163,13 @@ servita dallo stesso host. Le unità non si riavviano a uno switch
 (`X-RestartIfChanged=false`): un bump di Claude Code cambia tutte le unità e
 interromperebbe i giri in corso. Un repo il cui giro fa `home-manager switch`
 dichiara `homeWritable`: la home resta scrivibile e il recinto è solo
-l'harness (oggi `nixos`, scelta del custode del 2026-10-16).
+l'harness (oggi `nixos`, scelta del custode del 2026-10-16). Un repo il cui
+giro legge `origin` di altri checkout li dichiara in `fetch`: `ciclo-fetch`
+li aggiorna prima del giro, fuori dal recinto e dopo il controllo delle
+sessioni, senza toccare il working tree, e scrive l'esito in `fetch.json`
+nello stato dell'unità; un fetch fallito non ferma il giro, che dichiara il
+limite (oggi `method` sui quattro repo di `svezia`, scelta del custode del
+2026-10-20).
 
 ## Indizi da verificare sul posto
 

@@ -291,7 +291,7 @@ arriva agli adottanti via symlink.
       (`53ea575`, commit e push, da `tentativi.jsonl`); resta da verificare
       il gradino 1 nel prompt e nel criterio, che il giro di `method` non
       legge.
-  - **Prompt di `method` contro il recinto, da decidere** (giro del
+  - **Prompt di `method` contro il recinto, deciso: alternativa 3** (giro del
     2026-10-20, `i1/giro-method-2026-10-20.md`). Il fetch dei quattro repo di
     `svezia` fallisce, perché nell'unità i loro checkout sono in sola lettura
     e il fetch scrive in `.git/`. In più il timer di `nixos` parte alle
@@ -307,9 +307,14 @@ arriva agli adottanti via symlink.
        dall'harness.
 
     Motivo: oggi il giro legge marker di `svezia` di età ignota, mentre il
-    prompt dice il contrario. Decisione richiesta: quale alternativa
-    scegliere, e se ritoccare in `o3/ciclo/prompt.md` il motivo dell'orario
-    delle 15:00.
+    prompt dice il contrario. Il custode ha scelto la 3 il 2026-10-20: campo
+    `fetch` e passo `ciclo-fetch` in `nixos` (`ExecStartPre=+` dopo
+    `ciclo-sessioni`, esito in `~/.local/state/ciclo/method/fetch.json`);
+    il prompt non tenta più il fetch, legge quell'esito e motiva le 15:00 come
+    ultimo giro di `deck`; via da `o3/ciclo/permessi.json` i quattro
+    `git fetch`. Provato a mano fuori dall'unità: quattro fetch riusciti,
+    tutti con `origin/main` più avanti di quello letto dal giro. Resta da
+    vedere il primo giro schedulato dopo lo switch di `deck`.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
