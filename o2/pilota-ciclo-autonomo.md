@@ -313,8 +313,13 @@ arriva agli adottanti via symlink.
     il prompt non tenta più il fetch, legge quell'esito e motiva le 15:00 come
     ultimo giro di `deck`; via da `o3/ciclo/permessi.json` i quattro
     `git fetch`. Provato a mano fuori dall'unità: quattro fetch riusciti,
-    tutti con `origin/main` più avanti di quello letto dal giro. Resta da
-    vedere il primo giro schedulato dopo lo switch di `deck`.
+    tutti con `origin/main` più avanti di quello letto dal giro. Rivisto in
+    sessione lo stesso giorno (`nixos` `75011be`): fetch limitato a 15 s per
+    checkout e `TimeoutStartSec` di 90 s più 15 per checkout, perché un remote
+    appeso non faccia fallire l'avvio; in `fetch.json` il campo
+    `ultimo_riuscito`, che il prompt usa come età dell'`origin` a fetch
+    fallito. Resta da vedere il primo giro schedulato dopo lo switch di
+    `deck`.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

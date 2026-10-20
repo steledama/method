@@ -39,12 +39,13 @@ fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 `o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
 checkout sono in sola lettura. L'esito sta in
 `~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read: per
-ogni checkout `esito`, `ts` e `origin_main`. Leggi il marker con
+ogni checkout `esito`, `ts`, `origin_main` e `ultimo_riuscito`, il momento
+dell'ultimo fetch andato a buon fine (`null` se non ce n'è uno noto). Leggi il marker con
 `git -C /home/stele/<repo> show origin/main:i3/allineamento-metodo.md`, senza
 toccare il working tree. `ssh` non è concesso. Se un fetch non è
 `riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
 dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
-e l'età dell'`origin` letto, senza dedurre uno stato che il checkout non
+e l'età dell'`origin` letto, presa da `ultimo_riuscito` (ignota se `null`), senza dedurre uno stato che il checkout non
 mostra.
 
 Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
