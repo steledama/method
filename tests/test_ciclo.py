@@ -174,10 +174,11 @@ class NextTask(StateCase):
         import os
         import subprocess
 
-        env = {**os.environ, "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
-               "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}  # fmt: skip
-        return subprocess.run(["git", "-C", str(self.repo), *args], env=env,
-                              capture_output=True, text=True, check=True).stdout.strip()  # fmt: skip
+        names = ("GIT_AUTHOR_NAME", "GIT_AUTHOR_EMAIL", "GIT_COMMITTER_NAME", "GIT_COMMITTER_EMAIL")
+        env = {**os.environ, **dict.fromkeys(names, "t")}
+        command = ["git", "-C", str(self.repo), *args]
+        result = subprocess.run(command, env=env, capture_output=True, text=True, check=True)
+        return result.stdout.strip()
 
     def commit(self, trailers: str) -> str:
         self.run_git("commit", "-q", "--allow-empty", "-m", "giro", "-m", trailers)
