@@ -56,8 +56,8 @@ schedulato di `deck` partito per intero è riuscito con commit e push:
 (0,66–0,87 USD), `nixos` tre su tre (1,19–1,95 USD; il 19 alle 04:30, non
 più alle 14:00). Due arresti visibili per sessione aperta, cioè il sistema
 che funziona: `method` il 2026-10-19 alle 15:00 e `nixos` il 2026-10-20
-alle 04:30, entrambi ripartiti alle 07:17 del 20, fuori orario, quindi
-presumibilmente a mano. Il giro di `nixos` del 18 è il più lungo finora
+alle 04:30, entrambi ripartiti alle 07:17 del 20, avviati a mano dal
+custode (confermato in sessione). Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le

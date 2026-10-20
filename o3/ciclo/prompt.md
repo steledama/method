@@ -7,9 +7,10 @@ locale.
 ## Copertura
 
 Sei al gradino 1: il timer lancia l'unità `ciclo-method` su `deck` ogni
-giorno alle 15:00, ultimo dei giri di `deck` (`nixos` 04:30, `salute` 08:30,
-`economia` 13:00), perché il perceive trovi i giri degli adottanti del
-giorno; il giro è coperto da `ciclo-autonomo`. Un avvio a mano
+giorno alle 15:00, ultimo dei giri di `deck`, perché il perceive trovi i giri
+degli adottanti del giorno. Gli orari degli altri timer cambiano e qui non si
+elencano: se servono, si leggono dalle righe `partenza` dei loro
+`tentativi.jsonl`. Il giro è coperto da `ciclo-autonomo`. Un avvio a mano
 dell'unità resta coperto dallo stesso criterio. Il perimetro è quello del
 criterio `ciclo-autonomo` di `autonomy.md`, regola di sospensione compresa; i
 permessi sono quelli di `o3/ciclo/permessi.json`, che il giro non modifica.

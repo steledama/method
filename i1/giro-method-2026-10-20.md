@@ -16,7 +16,7 @@ Due righe del prompt `o3/ciclo/prompt.md` non reggono nell'esercizio.
   `git -C /home/stele/<repo> fetch --quiet origin` per `bi`, `crm`,
   `baserow` e `danea-auto`. I permessi lo concedono, ma tutti e quattro
   falliscono con `error: impossibile aprire '.git/FETCH_HEAD': File system in
-  sola lettura` (codice 255): nel recinto dell'unità i checkout degli altri
+sola lettura` (codice 255): nel recinto dell'unità i checkout degli altri
   repo sono in sola lettura, e il fetch deve scrivere in `.git/`. È il primo
   giro che esegue la riga, aggiunta il 2026-10-19: il giro del 19 si era
   fermato per la sessione aperta. `git show origin/main:…` funziona, ma
@@ -27,7 +27,8 @@ Due righe del prompt `o3/ciclo/prompt.md` non reggono nell'esercizio.
   partenze schedulate del 2026-10-19 e del 2026-10-20 alle 04:30. Il
   2026-10-19 il giro è riuscito, con commit e push. Il 2026-10-20 si è
   fermato perché c'era una sessione aperta, e poi è ripartito alle 07:17,
-  insieme a quello di `method`: fuori orario, quindi presumibilmente a mano. Il commit che ha spostato l'orario non è
+  insieme a quello di `method`: fuori orario, avviati a mano dal custode
+  (confermato in sessione il 2026-10-20). Il commit che ha spostato l'orario non è
   verificato: la lettura di `nixos` `o3/cicli.nix` è negata nel giro.
 
 ## Cosa resta fuori
