@@ -46,17 +46,25 @@ lo richiamano.
 
 ## Indizi da verificare sul posto
 
-- **nixos**: ha la copia integrale (sezione con sei passi e clausola
-  «altri repo, host, sudo o rebuild»); va ridotta al rimando tenendo la
-  clausola.
-- **bi**: recepita nella sessione della decisione, con la clausola su
-  produzione e rilasci, scritture di dominio, invii e ordini.
-- **baserow**: la clausola deve nominare l'infrastruttura Docker e il
-  checkout servito su `svezia`.
-- **crm**: verso la dismissione; recepisce se resta in uso con sessioni
-  aperte in Herdr.
-- **economia**, **salute**, **danea-auto**: nessun protocollo oggi; sezione
-  nuova.
+- **nixos**: recepita (`228e8b2`), copia integrale ridotta al rimando con
+  la clausola su altri repo, host, sudo e rebuild.
+- **bi**: recepita (`601acd48`) nella sessione della decisione, con la
+  clausola su produzione e rilasci, scritture di dominio, invii e ordini.
+- **baserow**: recepita (`2eda4d5`), clausola su infrastruttura Docker,
+  checkout servito su `svezia`, standby `norvegia`, host e altri repository.
+- **danea-auto**: Herdr gira anche su `danea2`. Il custode l'ha collaudato il
+  2026-10-20 dal pacchetto Chocolatey `herdr`: comunitario, ma scarica lo zip
+  ufficiale delle release `herdrdev/herdr` con checksum. Il canale collega
+  le sessioni dello stesso host, per esempio `danea-auto` e il clone di
+  `method` su `danea2`, e attenua la differenza fra Windows e Linux. La
+  clausola nomina i riservati del repo (scheduler, export Danea, `controlp`).
+  Dove il repo documenta i pacchetti Chocolatey dell'host, aggiungere
+  `herdr`. Su Windows il riconoscimento degli agenti è meno preciso che su
+  Linux e la directory corrente in PowerShell può non aggiornarsi: il
+  destinatario si conferma sempre leggendo il pannello.
+- **economia**, **salute**: nessun protocollo oggi; sezione nuova.
+- **crm**: in sospeso. È verso la dismissione e il custode attende la
+  conferma di un collega per toglierlo dai target.
 
 ## Verifica
 
