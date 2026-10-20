@@ -61,9 +61,16 @@ custode (confermato in sessione). Il 2026-10-20 la serie si incrina:
 `salute` riuscito alle 08:30 con commit e push (1,35 USD), `economia` alle
 13:00 chiuso dall'unità come `riuscito` ma senza commit, con tree sporco
 dopo il giro e due dinieghi, uno su `git rm` di due file `o3/`. La home lo
-mostra giallo, quindi non è un arresto invisibile; la causa non si legge
-senza il trascritto, escluso dal giro. Se il tree resta sporco, il controllo
-d'avvio dell'unità ferma il giro successivo. Il giro di `nixos` del 18 è il più lungo finora
+mostra giallo, quindi non è un arresto invisibile. Causa letta in sessione
+col custode dal trascritto: alle 12:59 il custode lavorava in `economia`
+con una sessione Codex (`/method`), che `ciclo-sessioni` non vede perché
+cerca solo processi Claude con la cwd nel checkout, e le sessioni Codex
+sono thread di un daemon `app-server` con la cwd altrove. Il giro ha visto
+quattro file non suoi e si è fermato prima del commit, come prescrive la
+skill; i dinieghi erano un `for` composto e `git rm -q`, fuori pattern,
+entrambi aggirati. Il tree è tornato pulito con `deba9f5` e `c2e70a4`,
+commit delle due sessioni Codex che contengono anche il lavoro del giro. La
+correzione di `ciclo-sessioni` sui rollout Codex è in preparazione in `nixos`. Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
