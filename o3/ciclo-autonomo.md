@@ -108,7 +108,8 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
        aggirerebbe i pattern: la skill lavora dalla cartella del repo, senza
        eccezioni. La storia del canone si legge con
        `python3 method/../o3/canone.py` (`log [--da SHA]`, `distanza --da
-SHA`), concesso per nome: legge solo il checkout di `method`, non gli
+SHA`; su Windows dal path del clone, cfr. `progettazione-skill.md`),
+       concesso per nome: legge solo il checkout di `method`, non gli
        altri adottanti;
      - l'amend è concesso dove è concesso il commit, perché chi committa
        possa correggere un trailer sbagliato. Corregge solo il commit non

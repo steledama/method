@@ -37,7 +37,10 @@ class ProfileTests(unittest.TestCase):
             text = "---\nstato: maturo\n---\n# Nodo\n"
             for name in ("a.md", "kb.md", ".hidden.md", ".hidden/x.md", "nested/b.md"):
                 (kb / name).write_text(text)
-            (kb / "alias.md").symlink_to(kb / "a.md")
+            try:
+                (kb / "alias.md").symlink_to(kb / "a.md")
+            except OSError:
+                self.skipTest("symlink non consentiti (Windows senza privilegio)")
             (kb / "outside").symlink_to(kb / "nested", target_is_directory=True)
             result = MODULE.profile(root, STATES)
             self.assertEqual(result["nodes_total"], 2)

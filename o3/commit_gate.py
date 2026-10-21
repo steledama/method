@@ -32,7 +32,17 @@ COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORE
 
 
 def run(args: list[str], root: Path) -> subprocess.CompletedProcess:
-    return subprocess.run(args, cwd=root, capture_output=True, text=True, check=False)
+    """Lancia col path risolto: su Windows CreateProcess non trova `prettier.cmd`,
+    e l'uscita dei comandi di sistema può non essere UTF-8."""
+    eseguibile = shutil.which(args[0]) or args[0]
+    return subprocess.run(
+        [eseguibile, *args[1:]],
+        cwd=root,
+        capture_output=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
 
 
 def cambiati(root: Path) -> list[str]:
@@ -75,6 +85,10 @@ def prima(root: Path) -> int:
         quando = ctrl.get("quando")
         if quando and not any(fnmatch.fnmatch(f, quando) for f in files):
             print(f"controllo {' '.join(ctrl['comando'])}: non dovuto ({quando} invariato)")
+            continue
+        if shutil.which(ctrl["comando"][0]) is None:
+            falliti += 1
+            print(f"controllo {' '.join(ctrl['comando'])}: non disponibile, FALLITO")
             continue
         esito = run(ctrl["comando"], root)
         uscita = esito.stdout + esito.stderr

@@ -1,7 +1,7 @@
 """Lettura della storia del canone per gli adottanti, dal giro o in sessione.
 
-Un adottante lo lancia dal checkout del canone, `python3 method/../o3/canone.py`,
-al posto di `git -C <method> log`: il giro non concede `git -C`, che aggirerebbe
+Un adottante lo lancia dal checkout del canone, `python3 method/../o3/canone.py`
+(su Windows `~/method/o3/canone.py`: lì il `..` si toglie prima del symlink), al posto di `git -C <method> log`: il giro non concede `git -C`, che aggirerebbe
 i pattern dei permessi (`kb/agent-as-user.md`). Legge solo il checkout di
 `method`, mai gli altri adottanti, ed è di sola lettura per costruzione.
 """

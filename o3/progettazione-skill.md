@@ -80,6 +80,13 @@ Il guardiano delle skill parte dalla root del repo:
 senza copiarlo. I punti 2-4 partono dalla sua uscita; il profilo locale di
 `/kb` (`domain.md`) lo dichiara fra i comandi dell'audit.
 
+Su Windows `method/../o3` non arriva al canone: Python, cmd e PowerShell
+tolgono il `..` dal testo del path prima di seguire il symlink, e aprono l'`o3`
+dell'adottante. Lì gli strumenti si lanciano dal path del clone,
+`python ~/method/o3/<script>.py` dal Bash dell'agente, e con quel nome si
+concedono nei permessi; `ls method/../o3` in Git Bash segue il link e non lo
+dimostra. Verificato su `danea2` il 2026-10-21.
+
 ## Note per repo, da verificare in loco
 
 - `nixos`: primo adottante. Le parti di `/manutenzione` (ia, home-manager,

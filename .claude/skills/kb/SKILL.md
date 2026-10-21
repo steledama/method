@@ -48,7 +48,7 @@ qualità o obblighi di creare nodi.
 
 Il profilo dichiara anche il guardiano delle skill, `skill_tools.py audit`,
 lanciato dal checkout del canone (`method/../o3/skill_tools.py` in un
-adottante): dimensioni e crescita, rimandi, comandi scritti contro i permessi
+adottante, `~/method/o3/skill_tools.py` su Windows): dimensioni e crescita, rimandi, comandi scritti contro i permessi
 di sessione e giro, divieti scritti con o senza deny, chiamate fra skill,
 divergenza dalle copie canoniche. Sono candidati: la classificazione resta un
 giudizio (`kb/agent-as-user.md`, `kb/skill-composition.md`).

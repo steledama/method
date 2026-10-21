@@ -77,6 +77,20 @@ class PrimaTests(unittest.TestCase):
         self.assertIn("FALLITO", uscita.getvalue())
         self.assertIn("non dovuto (kb/* invariato)", uscita.getvalue())
 
+    def test_missing_check_command_fails_without_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            subprocess.run(["git", "init", "-q", str(root)], check=True)
+            (root / "o3").mkdir()
+            (root / "o3" / "commit_gate.toml").write_text(
+                '[[controllo]]\ncomando = ["comando-che-non-esiste-xyz"]\n', encoding="utf-8"
+            )
+            uscita = io.StringIO()
+            with contextlib.redirect_stdout(uscita):
+                esito = MODULE.prima(root)
+        self.assertEqual(esito, 1)
+        self.assertIn("non disponibile, FALLITO", uscita.getvalue())
+
 
 if __name__ == "__main__":
     unittest.main()
