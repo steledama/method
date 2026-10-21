@@ -89,9 +89,14 @@ Alternative:
    possono stare nell'altra cartella.
 
 Motivo: la sola fonte dichiarata deve bastare alla home e al perceive, e
-la 1 lo ottiene senza un secondo lettore. Decisione richiesta: quale
-alternativa, dopo aver letto in `cicli.nix` quale ramo scrive l'arresto
-fuori da `giri` (il giro non lo può leggere).
+la 1 lo ottiene senza un secondo lettore. Il ramo è `ciclo-sessioni`, un
+`ExecStartPre` che gira prima di `ciclo-avvio` (letto il 2026-10-21).
+Decisione del custode, 2026-10-21: nessuna pezza in `nixos`. La sola
+fonte dichiarata resta l'obiettivo, ma la si ottiene portando nel metodo
+la scrittura dei tentativi
+([Da ripensare](dove-gira-il-ciclo-autonomo.md#da-ripensare-il-meccanismo-nel-metodo-non-nellhost)).
+Fino ad allora vale la 3: un arresto prima del giro può stare nella
+cartella dell'unità.
 
 **Righe nella home**: gli ultimi cinque tentativi, dal più recente, caricati
 da uno script inline che legge `/_ciclo/` (se lo script non gira resta il
