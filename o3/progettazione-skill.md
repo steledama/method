@@ -36,6 +36,11 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
      altri deny git (`o3/ciclo-autonomo.md`, punto 7);
    - nella `/commit` locale il cartello «non usare `git add -A`» lascia il
      posto al confronto di `git status` prima dello staging;
+   - il gate deterministico di `/commit`: un profilo locale
+     `o3/commit_gate.toml` con i formatter e i controlli del repo, e la
+     `/commit` locale che lancia `method/../o3/commit_gate.py prima` e
+     `dopo` invece di elencare formatter, controlli e rilettura dei trailer;
+     `/cycle` usa `dopo --giro`. I comandi vanno anche nei permessi del giro;
    - `eval` ed `exec` chiudono col proprio esito e la proposta di commit,
      senza chiamare `/commit`; `/cycle` resta la composta che committa. La
      frase corrispondente di `ciclo-delegato` va riportata nell'`autonomy.md`

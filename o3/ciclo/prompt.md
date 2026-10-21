@@ -72,5 +72,6 @@ una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
 ## Host e verifiche
 
 L'host è `deck`, il checkout servito: il commit ripubblica le viste di
-`method` in LAN. Verifiche: `python3 o3/view/build.py --check` sempre,
-`python3 o3/kb_tools.py audit` con modifiche a `kb/`.
+`method` in LAN. Verifiche: `python3 o3/commit_gate.py prima`, che lancia
+`build.py --check` sempre e l'audit della KB con modifiche a `kb/`
+(profilo in `o3/commit_gate.toml`).

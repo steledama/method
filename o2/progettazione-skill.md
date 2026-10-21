@@ -24,11 +24,11 @@ revisione per repo vive in
    il giro non modifica `o3/`), `git -C` ed `echo rc=$?` in `/cycle` come
    segnali di vincoli veri. Limite: l'estrazione dei comandi è euristica e
    non vede i divieti scritti senza le parole del cartello.
-2. **Gate deterministico di `/commit`:** formatter, controlli,
-   `build.py --check`, audit KB quando cambia `kb/` e verifica dei trailer in
-   uno script di `o3/`, con un profilo locale per i formatter degli
-   adottanti; lanciabile anche da un hook git. In `/commit` restano filing
-   back, messaggio e `Autonomia`.
+2. **Gate deterministico di `/commit`:** fatto il 2026-10-21.
+   `o3/commit_gate.py` (`prima`, `dopo [--giro]`) col profilo locale
+   `o3/commit_gate.toml`; `/commit` e `/cycle` lo lanciano, i permessi del
+   giro lo concedono. Lanciabile anche da un hook git, non ancora installato.
+   Verificato sullo storico: `dopo --giro` passa sull'ultimo giro (`8030882`).
 3. **Prova di `.agents/skills/`:** la cartella della specifica Agent Skills
    è letta da pi 1.3.0 (documentato) e compare in Codex 0.163 e in Claude
    Code 2.1.303. Se una prova reale conferma che i tre la caricano, il

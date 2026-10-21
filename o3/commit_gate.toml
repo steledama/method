@@ -1,0 +1,22 @@
+# Profilo locale del gate di /commit (o3/commit_gate.py): formatter e controlli
+# di method. Un adottante tiene il proprio con i suoi strumenti.
+
+[[formatter]]
+glob = "*.md"
+comando = ["prettier", "--write"]
+
+[[formatter]]
+glob = "*.py"
+comando = ["ruff", "format"]
+
+[[controllo]]
+comando = ["python3", "o3/view/build.py", "--check"]
+
+[[controllo]]
+quando = "kb/*"
+comando = ["python3", "o3/kb_tools.py", "audit"]
+fallisce_se = '^- [1-9]\d* (problemi strutturali|link rotti fuori dai nodi)'
+
+[[controllo]]
+quando = "*.py"
+comando = ["python3", "-m", "unittest", "discover", "tests"]

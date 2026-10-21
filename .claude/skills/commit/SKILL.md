@@ -4,8 +4,11 @@ user-invocable: true
 ---
 
 Crea un git commit seguendo le convenzioni del progetto. Questa è la copia
-canonica della skill: gli adottanti la forkano e la parametrizzano sui propri
-formatter e fonti di verità.
+canonica della skill: gli adottanti la forkano e la parametrizzano sulle
+proprie fonti di verità. È una base (`kb/skill-composition.md`): dal working
+tree a un commit verificato e pubblicato. La parte deterministica è lo
+strumento `o3/commit_gate.py`, col profilo locale `o3/commit_gate.toml`
+(formatter e controlli del repo); qui resta il giudizio.
 
 ## Pre-commit: controlli e confini della delega
 
@@ -15,13 +18,11 @@ nuova conferma. Chiedi solo per cambi di scopi, territorio o delega, atti non
 autorizzati o incertezze decisive non risolvibili dalle fonti. Un punto
 sospeso non blocca modifiche indipendenti e verificabili.
 
-**1. Audit KB** — Se le modifiche toccano un numero significativo di nodi
-(aggiunte, rinominamenti, ristrutturazioni), esegui `python3 o3/kb_tools.py audit`
-e risolvi i problemi pertinenti entro il mandato. Per modifiche minori scegli
-i controlli appropriati. Non avviare implicitamente `kb review`, revisione
-semantica profonda separata dal gate ordinario.
-
-**1b. Formato nodo** — Per ogni nodo nuovo o pesantemente modificato in `kb/`: verifica che abbia (a) frontmatter con `stato:` in cima e (b) sezione `Connessioni:` in fondo. Se mancano entrambi, segnalalo prima di committare.
+**1. Controlli deterministici** — Formatter, audit KB quando cambia `kb/`
+(frontmatter, `Connessioni:`, link e catalogo), verifica delle viste e test
+li lancia il gate al passo 2 della procedura. Risolvi entro il mandato ciò che
+segnala; non avviare implicitamente `kb review`, revisione semantica profonda
+separata dal gate ordinario.
 
 **1c. Portabilità del nodo** — Per ogni nodo nuovo in `kb/`: verifica che sia metodologico e applicabile ad almeno due progetti diversi. Un concetto specifico di un singolo dominio non appartiene alla `kb/` del `metodo`.
 
@@ -37,22 +38,18 @@ un aggiornamento rituale del filo.
 
 **3. I due check del ciclo di valutazione (i2/i3)** — Verifiche da eseguire; eventuali decisioni seguono il confine della delega.
 
-- **i2 — le viste sono ancora vere?** Non è una domanda di giudizio: esegui la verifica della build, uguale in ogni repo (`python3 o3/view/build.py --check`). Contratti fra le fonti e presidio del compartimento stagno devono passare; un errore si corregge nelle fonti prima del commit. L'output non entra nel commit: `view/` è ignorata da git e la vista pubblicata la ricostruisce l'host dal commit (cfr. `kb/view.md`, «Freschezza»). Il giudizio resta solo su ciò che la build non copre: un artefatto di sintesi (`i2/`) il cui _significato_ è cambiato va ripensato, non solo ri-derivato — è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
+- **i2 — le viste sono ancora vere?** Non è una domanda di giudizio: la verifica della build (`python3 o3/view/build.py --check`) la lancia il gate. Contratti fra le fonti e presidio del compartimento stagno devono passare; un errore si corregge nelle fonti prima del commit. L'output non entra nel commit: `view/` è ignorata da git e la vista pubblicata la ricostruisce l'host dal commit (cfr. `kb/view.md`, «Freschezza»). Il giudizio resta solo su ciò che la build non copre: un artefatto di sintesi (`i2/`) il cui _significato_ è cambiato va ripensato, non solo ri-derivato — è il presidio della fedeltà cognitiva (un'assunzione che cambia significato senza essere ri-valutata esplode più tardi).
 - **i3 — il verdetto cambia?** Ciò che è cambiato altera il verdetto su un filo aperto rispetto agli obiettivi, o poggia su un'assunzione che merita di essere scritta? Se sì, è il momento di aggiornare il file-filo in `i3/` (punto 2). Il caso-tipo: un rename o un refactor che rompe un consumatore a valle — la domanda «va bene?» lo intercetta prima del commit. Se il verdetto cambia, verifica anche: _si propaga a `o1/plan.md`/`o2/` (priorità, dipendenze, nuovi task — `/exec plan`), ai puntatori ai segnali di `goal.md` (copertura da mantenere, senza ricopiare lo stato) o al Goal stesso (filo di formazione-goal, non di verdetto su un goal noto)?_
 
 Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
-1. Esegui in parallelo per capire lo stato attuale:
-   - `git status` per vedere i file modificati/non tracciati
-   - `git diff` per vedere le modifiche non in staging
-   - `git diff --cached` per vedere le modifiche in staging
-   - `git log --oneline -5` per vedere lo stile dei commit recenti
+1. Leggi lo stato: `git status`, `git diff`, `git diff --cached` e
+   `git log --oneline -5` per lo stile dei messaggi recenti.
 
-2. Formatta i file modificati con gli strumenti disponibili:
-   - Markdown: `prettier --write "**/*.md"`
-   - Python: `ruff format o3/*.py` se ci sono script Python modificati
-
-   Se un formatter non è disponibile, segnalalo e continua senza inventare alternative.
+2. Lancia `python3 o3/commit_gate.py prima`: formatta i file cambiati e
+   lancia i controlli del profilo, ciascuno solo quando è dovuto. Un
+   controllo fallito ferma il commit finché non è corretto; un formatter
+   assente è segnalato e saltato.
 
 3. Confronta `git status` con la modifica: ogni file modificato o non tracciato deve appartenerle. Un file estraneo, di un'altra sessione o uno scarto, ferma il commit: non lo includi e lo riferisci. Poi fai lo staging, anche intero (`git add -A`).
 
@@ -101,9 +98,9 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    Impatto-motivo: ciclo-delegato (autonomy.md, verdetto corretto su fonte verificata)"
    ```
 
-6. Esegui `git status` per confermare che il commit sia andato a buon fine,
-   e rileggi i trailer con `git log -1 --format='%(trailers)'`: devono
-   comparire tutti quelli scritti. Se mancano o sono sbagliati, correggi con
+6. Lancia `python3 o3/commit_gate.py dopo` (`dopo --giro` nel ciclo
+   autonomo): verifica i trailer dell'ultimo commit, compresi quelli di
+   coautoria che non vanno aggiunti. Se segnala un errore, correggi con
    `git commit --amend` finché il commit non è pubblicato; dopo il push non
    si riscrive la storia, si dichiara l'errore.
 

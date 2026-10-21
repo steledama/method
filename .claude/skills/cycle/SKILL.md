@@ -57,13 +57,13 @@ non si indovina.
 **Commit.** Prima dello staging confronta `git status --short` con i file
 toccati nel giro: un file modificato che non hai toccato vuol dire una
 sessione concorrente, e allora non committi e chiudi con lo stop. Le
-verifiche del repo devono passare; se una fallisce, niente commit e working
-tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
+verifiche del repo, `python3 o3/commit_gate.py prima`, devono passare; se una
+fallisce, niente commit e working tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
 con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 `Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
-senza trailer di coautoria. Prima del push rileggi i trailer
-(`git log -1 --format='%(trailers)'`) e correggi con `git commit --amend` se
-mancano: dopo il push la storia non si riscrive, l'errore si dichiara nel
+senza trailer di coautoria. Prima del push verifica i trailer con
+`python3 o3/commit_gate.py dopo --giro` e correggi con `git commit --amend`
+se segnala un errore: dopo il push la storia non si riscrive, l'errore si dichiara nel
 resoconto. Poi il push: se è rifiutato, niente force, rebase o merge; il
 commit resta locale e lo dichiari.
 

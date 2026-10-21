@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash(python3 o3/adottanti.py *)", "Bash(python3 o3/skill_tools.py *)"],
+    "allow": ["Bash(python3 o3/adottanti.py *)", "Bash(python3 o3/skill_tools.py *)", "Bash(python3 o3/commit_gate.py *)"],
     "deny": [
       "Bash(git push --force*)",
       "Bash(git push -f*)",
