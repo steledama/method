@@ -74,6 +74,25 @@ un repo stanno quindi sullo stesso host: in `nixos` diventa un vincolo fra
 - `giri/<id>.jsonl`: lo stream del giro; `decisioni.json`: stato e cadenza
   del repo, per calcolare le partenze mancate.
 
+**Da decidere, dal giro di `method` del 2026-10-21**
+([cattura](../i1/arresto-economia-fuori-giri-2026-10-21.md)): con `giri`
+dichiarato, l'arresto per sessione aperta di `economia` delle 13:00 è stato
+scritto solo nella cartella dell'unità. La vista legge `i1/giri` e lo rende
+come partenza mancata. Il colore resta rosso, ma il motivo è sbagliato.
+Alternative:
+
+1. in `nixos`, ogni riga del tentativo va nella cartella `giri` dichiarata,
+   arresti prima del giro compresi;
+2. in `o3/view/ciclo.py`, la vista unisce i tentativi delle due cartelle
+   per `id`;
+3. lasciare com'è e dichiarare nel contratto che gli arresti dell'unità
+   possono stare nell'altra cartella.
+
+Motivo: la sola fonte dichiarata deve bastare alla home e al perceive, e
+la 1 lo ottiene senza un secondo lettore. Decisione richiesta: quale
+alternativa, dopo aver letto in `cicli.nix` quale ramo scrive l'arresto
+fuori da `giri` (il giro non lo può leggere).
+
 **Righe nella home**: gli ultimi cinque tentativi, dal più recente, caricati
 da uno script inline che legge `/_ciclo/` (se lo script non gira resta il
 collegamento alla pagina), con data e ora,

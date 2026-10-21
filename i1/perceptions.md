@@ -91,3 +91,8 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   di `svezia` fallisce nel recinto in sola lettura dell'unità, e il timer di
   `nixos` parte alle 04:30, non alle 14:00 del prompt. Decisa l'alternativa
   3, fetch in un passo dell'unità: riuscito al giro delle 15:00.
+- [L'arresto di `economia` del 2026-10-21 fuori da
+  `i1/giri`](arresto-economia-fuori-giri-2026-10-21.md) — dal giro
+  autonomo: l'arresto per sessione aperta delle 13:00 sta nella cartella
+  dell'unità, non in `i1/giri` dichiarato dal repo. La vista lo mostra come
+  partenza mancata. Proposta in `o2/home-fatto-da-fare.md`.
