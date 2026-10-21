@@ -156,7 +156,7 @@ def dopo(root: Path, giro: bool) -> int:
     pubblicato = run(["git", "log", "--oneline", "@{u}..HEAD"], root)
     if errori:
         if pubblicato.returncode == 0 and pubblicato.stdout.strip():
-            print("commit non ancora pubblicato: correggibile con git commit --amend")
+            print("commit non pubblicato: correggibile prima del push, con l'amend dove è concesso")
         else:
             print("commit già pubblicato o senza upstream: non si riscrive, si dichiara")
         return 1
