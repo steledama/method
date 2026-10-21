@@ -40,9 +40,14 @@ fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 checkout sono in sola lettura. L'esito sta in
 `~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read: per
 ogni checkout `esito`, `ts`, `origin_main` e `ultimo_riuscito`, il momento
-dell'ultimo fetch andato a buon fine (`null` se non ce n'è uno noto). Leggi il marker con
-`git -C /home/stele/<repo> show origin/main:i3/allineamento-metodo.md`, senza
-toccare il working tree. `ssh` non è concesso. Se un fetch non è
+dell'ultimo fetch andato a buon fine (`null` se non ce n'è uno noto).
+
+Gli adottanti si leggono con `python3 o3/adottanti.py`, di sola lettura:
+`stato` dà per tutti HEAD, `origin/main`, distanza e working tree; `log
+<repo> [-n N] [--ref origin/main]` gli ultimi commit coi trailer; `show <repo>
+<path> [--ref origin/main]` un file dell'interfaccia col canone (marker,
+`CLAUDE.md`, `autonomy.md`, prompt e permessi del ciclo, skill), elencati da
+`--help`. Per i repo di `svezia` usa `--ref origin/main`. `ssh` non è concesso. Se un fetch non è
 `riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
 dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
 e l'età dell'`origin` letto, presa da `ultimo_riuscito` (ignota se `null`), senza dedurre uno stato che il checkout non

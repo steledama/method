@@ -30,13 +30,25 @@ controlla quattro cose:
 
 Ordine, dall'evidenza raccolta il 2026-10-21 dai log locali di `deck`:
 
-1. `method`: 12 dinieghi in due giri, tutti letture degli adottanti
-   (`git -C <adottante> log|show`, `grep` e `Read` fuori dalla cartella). È
-   una lacuna: il prompt chiede lo stato degli adottanti e i permessi
-   concedono solo i marker. Proposta: uno script di sola lettura in `o3/`,
-   consentito in `o3/ciclo/permessi.json`, che restituisce per adottante
-   marker, ultimo commit locale e di `origin`; poi il censimento delle skill
-   canoniche (`eval` 245 righe, `exec` 235).
+1. `method`: 12 dinieghi in due giri (2026-10-20, 07:20 e 15:03).
+   Classificazione:
+   - lacuna, dieci: letture di storia e interfaccia degli adottanti
+     (`git -C <adottante> log|show`, `grep` su `CLAUDE.md`, `tail` del
+     reflog, `ls` fuori dalla cartella). Chiusa il 2026-10-21 in sessione
+     col custode con `o3/adottanti.py` (`stato`, `log`, `show`), di sola
+     lettura e consentito nel giro e in sessione; tolti dagli allow i
+     quattro `git -C … show origin/main:i3/allineamento-metodo.md`, ora
+     coperti da `show`. `show` legge solo l'interfaccia col canone: il resto
+     del dominio degli adottanti resta un vincolo voluto, segnalato
+     dall'uscita dello script;
+   - vincolo voluto, due: `grep` e `Read` di `o3/cicli.nix` di `nixos` per
+     l'orario dei timer. Il prompt indica già la fonte nel perimetro, le
+     righe `partenza` di `tentativi.jsonl`.
+
+   Resta da verificare sul primo giro dopo il pull: nessun diniego di
+   lettura sugli adottanti. Poi il censimento delle skill canoniche (`eval`
+   245 righe, `exec` 235) e dei cartelli.
+
 2. `nixos`: pilota in corso, task `o2/design-agent-as-user.md`.
 3. `salute`: 10 dinieghi in tre giri; `eval` 415 righe.
 4. `economia`: 3 dinieghi in due giri; `eval` 676 righe.
