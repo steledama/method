@@ -31,6 +31,14 @@ L'agente non è un lettore umano più veloce. Quattro tratti cambiano il design:
 - nel giro senza custode nessuno risponde: i segnali devono bastare senza
   chiedere, e un'ambiguità si risolve con un'inferenza o con una rinuncia.
 
+Un segnale reso solo per l'occhio umano è muto per l'agente che legge testo.
+Il colore, il grigio attenuato di un suggerimento, la posizione su uno schermo
+spariscono nella forma testuale: un suggerimento dell'harness nel campo di
+input si confonde allora con un messaggio scritto e non inviato. Il segnale
+va cercato nella forma che lo conserva, per esempio i codici ANSI di un
+terminale, oppure reso esplicito; dove non lo si percepisce vale la lettura
+prudente (`session-messaging`).
+
 ## Il diniego è una percezione
 
 Un diniego dei permessi è il feedback che l'agente riceve dallo strumento, nel
@@ -110,3 +118,4 @@ Connessioni:
 - [system-image](system-image.md)
 - [cognitive-system](cognitive-system.md)
 - [skill-composition](skill-composition.md)
+- [session-messaging](session-messaging.md)

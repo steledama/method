@@ -43,6 +43,16 @@ destinatario a un dialogo di approvazione.
   conversazione dell'harness e i pane ID di Herdr sono identificatori
   distinti, e un ID di conversazione fornito dal custode si confronta quando
   visibile;
+- se il campo di input del destinatario non è vuoto, il testo può essere un
+  messaggio scritto e non ancora inviato, del custode o di un altro mittente:
+  un invio lo unirebbe al messaggio o lo farebbe partire. In forma testuale non
+  si distingue da un suggerimento dell'harness, che un invio sostituisce. Si
+  rilegge il pannello con `--format ansi`. Dove la resa del suggerimento è
+  verificata per l'harness e la versione del destinatario, un testo con quella
+  resa è un suggerimento e si invia; ogni altro testo ferma l'invio e si torna
+  al custode. La resa verificata oggi è quella di Claude Code 2.1.303: il
+  suggerimento è preceduto da `ESC[2m`, l'attributo dim. Senza verifica vale
+  la regola prudente: qualunque testo nel campo di input ferma l'invio;
 - un agente `blocked` ha un dialogo aperto: lo si legge e si torna al
   custode, senza approvarlo;
 - invia con `herdr agent prompt <pane-id> "<messaggio>"`; su un agente
@@ -67,3 +77,4 @@ Connessioni:
 - [cognitive-system](cognitive-system.md)
 - [tasks](tasks.md)
 - [verdict](verdict.md)
+- [agent-as-user](agent-as-user.md)
