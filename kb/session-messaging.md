@@ -53,7 +53,7 @@ destinatario a un dialogo di approvazione.
   rilegge il pannello con `--format ansi`. Dove la resa del suggerimento è
   verificata per l'harness e la versione del destinatario, un testo con quella
   resa è un suggerimento e si invia; ogni altro testo ferma l'invio e si torna
-  al custode. La resa verificata oggi è quella di Claude Code 2.1.303: il
+  al custode. La resa verificata oggi è quella di Claude Code 2.1.303 e 2.1.306: il
   suggerimento è preceduto da `ESC[2m`, l'attributo dim. Senza verifica vale
   la regola prudente: qualunque testo nel campo di input ferma l'invio;
 - un agente `blocked` ha un dialogo aperto: lo si legge e si torna al
