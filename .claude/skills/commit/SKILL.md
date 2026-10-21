@@ -65,7 +65,8 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
    `vuoto`). Un giro senza file cambiati si committa comunque, con
    `--allow-empty` (cfr. `kb/skill.md`). Se il giro ha invocato `exec plan`,
    aggiungi anche `Prossimo:` col prossimo task, `(confermato)` o
-   `(cambiato, era <task>; <causa>)`, come lo chiude `plan`.
+   `(cambiato, era <task>; <causa>)`, oppure `nessuno (<motivo>)`, come lo
+   chiude `plan`.
 
    Ogni commit dichiara chi l'ha deciso (cfr. `kb/consent.md`, consenso
    differito):

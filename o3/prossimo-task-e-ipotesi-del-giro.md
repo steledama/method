@@ -29,7 +29,9 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
 - il trailer **`Prossimo:`** nel commit di ogni giro che invoca `exec plan`:
   `<task> (confermato)`, `<task> (cambiato, era <task>; <causa>)` oppure
   `nessuno (<motivo>)`, col titolo della riga del plan. Un cambio nomina la
-  causa risalendo la catena; una conferma dice cosa è stato riesaminato;
+  causa risalendo la catena; una conferma dice cosa è stato riesaminato nel
+  corpo del commit e nel resoconto, non nel trailer, che il gate vuole nella
+  forma esatta;
 - in `eval interpret`, il riconoscimento delle **ipotesi formate nel giro**
   dalla forma («perché», «quindi», previsioni, generalizzazioni da pochi
   casi), portate nel presidio con affermazione, provenienza, criterio di

@@ -122,6 +122,25 @@ class AuditTests(unittest.TestCase):
         self.assertIn("cycle: composta che chiama skill non dichiarate → method (riga 6)", report)
         self.assertIn("eval: base che chiama altre skill → commit (riga 5)", report)
 
+    def test_next_task_examples_against_gate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            gate = Path(__file__).resolve().parents[1] / "o3" / "commit_gate.py"
+            scrivi(root, "o3/commit_gate.py", gate.read_text(encoding="utf-8"))
+            scrivi(
+                root,
+                ".claude/skills/exec/SKILL.md",
+                "```\nProssimo: <task> (confermato)\nProssimo: nessuno (<motivo>)\n```\n"
+                "Con `Prossimo: <task> (confermato; <riesame>)` nel commit.\n",
+            )
+            scrivi(root, "o3/ciclo/prompt.md", "```\nProssimo: <task>\n```\n")
+            report = MODULE.audit(root)
+        self.assertIn("exec:5 `Prossimo: <task> (confermato; <riesame>)` — il gate", report)
+        self.assertIn("o3/ciclo/prompt.md:2 `Prossimo: <task>` — il gate", report)
+        self.assertNotIn("exec:2", report)
+        self.assertNotIn("exec:3", report)
+        self.assertNotIn("exec:4", report)
+
     def test_undeclared_cycle_checks_only_itself(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

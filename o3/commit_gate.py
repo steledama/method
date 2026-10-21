@@ -27,7 +27,7 @@ from pathlib import Path
 PROFILO = Path("o3/commit_gate.toml")
 STADI = {"perceive", "interpret", "compare", "plan", "specify", "perform"}
 IMPATTI = ["basso", "medio", "alto"]
-PROSSIMO = re.compile(r".+ \((confermato|cambiato, era .+; .+)\)$")
+PROSSIMO = re.compile(r"nessuno \(.+\)$|.+ \((confermato|cambiato, era .+; .+)\)$")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
 
 
@@ -137,7 +137,9 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
                 errori.append(f"voce di Esiti non valida: {voce}")
     for prossimo in valori.get("Prossimo", []):
         if not PROSSIMO.match(prossimo):
-            errori.append(f"Prossimo senza (confermato) o (cambiato, era …; …): {prossimo}")
+            errori.append(
+                f"Prossimo senza (confermato), (cambiato, era …; …) o nessuno (…): {prossimo}"
+            )
     if giro:
         for richiesto in ("Esiti", "Prossimo", "Impatto-motivo"):
             if not valori.get(richiesto):

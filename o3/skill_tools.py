@@ -27,6 +27,8 @@ from pathlib import Path
 SKILLS = Path(".claude/skills")
 SETTINGS = Path(".claude/settings.json")
 PERMESSI_GIRO = Path("o3/ciclo/permessi.json")
+PROMPT_GIRO = Path("o3/ciclo/prompt.md")
+GATE = Path("o3/commit_gate.py")
 GIORNI = 30
 
 SPAN = re.compile(r"`([^`\n]+)`")
@@ -52,6 +54,7 @@ VERBO_CHIAMATA = re.compile(
     r"\b(esegui|invoca|chiama|lancia|avvia|segui|seguendo)\b", re.IGNORECASE
 )
 RIMANDO = re.compile(r"(?<![\w.])(?:\.\./)*(?:kb|o3|method)/[\w./-]+")
+ESEMPIO_PROSSIMO = re.compile(r"^Prossimo: (.+)$")
 ESEGUIBILI_SHELL = {"git", "python3", "jq", "sed", "grep", "rg", "ls", "cat", "head", "tail"}
 
 
@@ -233,6 +236,30 @@ def divergenza(skill: Skill, canone: Path | None) -> tuple[int, int] | None:
     return aggiunte, rimosse
 
 
+def gate_prossimo(root: Path, canone: Path | None) -> re.Pattern[str] | None:
+    path = (canone or root) / GATE
+    if not path.exists():
+        return None
+    spec = importlib.util.spec_from_file_location("commit_gate", path)
+    modulo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modulo)
+    return modulo.PROSSIMO
+
+
+def esempi_prossimo(righe: list[str]) -> list[tuple[int, str]]:
+    """Esempi di trailer `Prossimo:` nei blocchi di codice e negli span."""
+    trovati, blocco = [], False
+    for numero, riga in enumerate(righe, 1):
+        if FENCE.match(riga.strip()):
+            blocco = not blocco
+            continue
+        candidati = [riga.strip()] if blocco else SPAN.findall(riga)
+        for testo in candidati:
+            if m := ESEMPIO_PROSSIMO.match(testo.strip()):
+                trovati.append((numero, m.group(1)))
+    return trovati
+
+
 def audit(root: Path) -> str:
     skills = leggi_skill(root)
     nomi = {s.nome for s in skills}
@@ -321,6 +348,24 @@ def audit(root: Path) -> str:
             out.append(f"- {s.nome}:{numero} — {stato}: {riga.strip()[:140]}")
     if not trovati:
         out.append("- nessuno")
+    out.append("")
+
+    out += ["### Esempi di trailer contro il gate", ""]
+    prossimo = gate_prossimo(root, canone)
+    if prossimo is None:
+        out.append(f"- `{GATE}` non trovato nel canone: esempi non controllati")
+    else:
+        fonti = [(s.nome, s.righe) for s in skills]
+        if (root / PROMPT_GIRO).exists():
+            testo = (root / PROMPT_GIRO).read_text(encoding="utf-8")
+            fonti.append((PROMPT_GIRO.as_posix(), testo.splitlines()))
+        fuori = [
+            f"- {nome}:{numero} `Prossimo: {valore}` — il gate lo rifiuta"
+            for nome, righe in fonti
+            for numero, valore in esempi_prossimo(righe)
+            if not prossimo.match(valore)
+        ]
+        out += fuori or ["- tutti gli esempi di `Prossimo:` passano il gate"]
     out.append("")
 
     out += ["### Composizione", ""]

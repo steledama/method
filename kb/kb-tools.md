@@ -40,8 +40,9 @@ attestare che la lettura sia avvenuta.
 `o3/skill_tools.py` è il guardiano quantitativo delle skill, indipendente
 dall'harness come gli altri strumenti: `audit` misura dimensioni, crescita e
 quota di rimandi, confronta i comandi scritti con i permessi di sessione e
-giro, trova i divieti scritti con o senza deny e le chiamate fra skill, e
-misura la divergenza delle copie dal canone; `classifica` ordina le skill di
+giro, trova i divieti scritti con o senza deny e le chiamate fra skill,
+prova gli esempi di trailer `Prossimo:` di skill e prompt del giro contro
+il gate di `commit_gate.py` e misura la divergenza delle copie dal canone; `classifica` ordina le skill di
 `method` e degli adottanti. Non dipende dal dominio, quindi un adottante lo
 lancia dal checkout del canone invece di copiarlo. Il giudizio su atomicità e
 composizione resta alla revisione (`skill-composition`).

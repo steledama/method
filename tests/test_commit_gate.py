@@ -39,6 +39,8 @@ class TrailerTests(unittest.TestCase):
         self.assertEqual(
             MODULE.errori_trailer([*base, ("Prossimo", "Task (cambiato, era Altro; fonte)")]), []
         )
+        self.assertEqual(MODULE.errori_trailer([*base, ("Prossimo", "nessuno (coda vuota)")]), [])
+        self.assertTrue(MODULE.errori_trailer([*base, ("Prossimo", "Task (confermato; riesame)")]))
         self.assertTrue(MODULE.errori_trailer([*base, ("Co-Authored-By", "Qualcuno")]))
 
     def test_giro_requires_its_trailers(self):

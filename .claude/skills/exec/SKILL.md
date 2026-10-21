@@ -165,7 +165,8 @@ il task consigliato, motivandolo con urgenza, dipendenze e costo/opportunità,
 e confrontalo con l'ultimo trailer `Prossimo:` della storia
 (`git log --format='%(trailers:key=Prossimo,valueonly)' | grep -m1 .`):
 
-- **confermato**: dì in una riga cosa hai riesaminato e perché regge;
+- **confermato**: dì in una riga, nel corpo del commit e nel resoconto,
+  cosa hai riesaminato e perché regge; il trailer resta `(confermato)`;
 - **cambiato**: nomina il task precedente e la causa, risalendo la catena
   fino al punto che l'ha mossa (percezione nuova, ipotesi smentita o
   confermata in `i2/`, verdetto di un filo, obiettivo corretto in

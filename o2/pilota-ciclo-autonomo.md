@@ -375,6 +375,25 @@ arriva agli adottanti via symlink.
     nessuna finestra ruba il primo piano agli slot. Restano il clone proprio
     (D4) e il rilascio protetto. Autenticazione di Claude e push di `danea`
     fuori dal desktop si provano al primo giro.
+  - **Gradino 1, deciso dal custode il 2026-10-21** (`danea-auto` `de11b1a`,
+    `85b27f5`): basta il giro `6c90701f` (`5fe03bb`, riuscito, 2,2 minuti,
+    48 turni, 1,13 USD) al posto di due giri puliti, e le correzioni si
+    fanno in campo. Il primo giro (`490fa4a`) si era fermato su un diniego
+    sul comando dei CSV, corretto in `b8ee551`. Task registrato dal custode:
+    ogni giorno alle 08:10, `ExecutionTimeLimit` 50 minuti, tetto del giro
+    40 minuti o le :50; primo giro schedulato il 22/10. Correzioni del giro
+    del 21: il diniego del `Grep` sul gate di `method` si è tolto dal
+    prompt invece di concedere la lettura del checkout; il trailer
+    `Prossimo:` rifiutato nasceva dal fork locale di `exec` e `commit`, che
+    scriveva il riesame nel trailer. Da qui in `method` il gate che accetta
+    `nessuno (<motivo>)`, prima rifiutato pur ammesso da `exec`, e il
+    guardiano delle skill che prova gli esempi di `Prossimo:` contro il
+    gate. Il login claude.ai del giro scade il 24/10 (`refreshTokenExpiresAt`):
+    il lanciatore lo segnala giallo entro tre giorni e rosso (arresto 18)
+    entro il tetto; il custode rinnova a mano, e `claude setup-token` resta
+    da riprendere. Da verificare se la stessa scadenza tocca gli adottanti
+    di `nixos` col login claude.ai. Alle 08:10 nessuna sessione Claude
+    aperta su `danea2`, altrimenti arresto 15.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto
