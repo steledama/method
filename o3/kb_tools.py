@@ -207,7 +207,7 @@ def catalog_path(root: Path) -> Path | None:
 
 
 def node_key(root: Path, path: Path) -> str:
-    return str(path.relative_to(root))
+    return path.relative_to(root).as_posix()
 
 
 def markdown_links(text: str) -> list[str]:
