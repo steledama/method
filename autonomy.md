@@ -17,8 +17,10 @@ di un solo arco non estende automaticamente lo scope all'altro.
 
 La delega comprende catture pertinenti, sintesi e correzioni delle letture,
 verdetti sui goal vigenti, priorità, dipendenze, specifiche dei task e igiene
-delle collezioni. Include gli interventi già autorizzati, i controlli
-necessari e la chiusura con commit e push nei limiti di `CLAUDE.md`.
+delle collezioni. Include gli interventi già autorizzati e i controlli
+necessari. Un arco chiude col proprio esito e la proposta di commit; commit e
+push, nei limiti di `CLAUDE.md`, li compie `/commit` quando li chiede il
+custode o la composta.
 Una voce nel plan non autorizza da sola qualsiasi atto di dominio.
 
 Criterio `momento-del-commit`, deciso il 2026-10-11 da Stefano. Nella

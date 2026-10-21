@@ -7,6 +7,7 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 Priorità primaria del custode:
 
 - [agente-come-utilizzatore.md](agente-come-utilizzatore.md) — il canone tratta l'agente come utilizzatore a pieno titolo; revisione di `method` e degli adottanti, repo per repo.
+- [progettazione-skill.md](progettazione-skill.md) — atomicità, composizione e indipendenza dall'harness nel canone; restano guardiano, gate deterministico di `/commit`, prova di `.agents/skills/` e rinomina unica.
 
 Il percorso verso il ciclo autonomo, secondo le priorità del plan:
 

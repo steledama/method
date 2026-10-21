@@ -19,7 +19,8 @@ L'agente non è un lettore umano più veloce. Quattro tratti cambiano il design:
 - rilegge tutto a ogni run: ogni riga di una skill o di un prompt si paga a
   ogni invocazione, non una volta sola. Una skill lunga è un costo ricorrente;
   la forma adatta è un nucleo breve con i rami in file separati, letti solo
-  quando il ramo è dovuto;
+  quando il ramo è dovuto. Anche l'elenco delle skill si paga: ogni skill
+  disponibile porta la sua descrizione in ogni sessione, usata o no;
 - non ricorda fra le sessioni: ciò che impara in un giro non c'è nel giro
   successivo. Una lezione dura solo se diventa struttura, cioè uno strumento,
   un permesso, uno schema o un test. Un'istruzione scritta va riletta per
@@ -108,3 +109,4 @@ Connessioni:
 - [perceive](perceive.md)
 - [system-image](system-image.md)
 - [cognitive-system](cognitive-system.md)
+- [skill-composition](skill-composition.md)

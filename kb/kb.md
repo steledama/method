@@ -122,5 +122,8 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [git-history](git-history.md) — Storia verificabile dei cambiamenti e dei diff
 - [skill](skill.md) — Capacità ricorrenti invocabili e loro confini rispetto a
   task, nodi e cadenze
+- [skill-composition](skill-composition.md) — Due livelli di composizione
+  delle skill: composta, base e ramo; due regole senza eccezioni, costo
+  dell'elenco e misura
 - [source-of-truth](source-of-truth.md) — Fonti contro cui verificare ciò che la
   KB dice

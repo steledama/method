@@ -7,8 +7,10 @@ Compi un giro completo del ciclo d'azione: `eval all`, poi `exec all`, poi
 `/commit`, seguendo le skill `eval`, `exec` e `commit` del repository. È il
 **ciclo congiunto** di [`autonomy.md`](../../../autonomy.md): la verità prima
 delle priorità, le priorità prima del commit. La skill non aggiunge stadi né
-giudizi: accorpa l'invocazione, e gli stadi restano distinti e contabili nel
-trailer `Esiti:` (cfr. `kb/skill.md`, `kb/action-cycle.md`). Questa è la copia
+giudizi: è la composta (`kb/skill-composition.md`), decide ordine e
+condizioni e passa a `/commit` gli esiti di `eval` ed `exec`, che restano
+distinti e contabili nel trailer `Esiti:` (cfr. `kb/skill.md`,
+`kb/action-cycle.md`). Questa è la copia
 canonica: gli adottanti la forkano e la parametrizzano sul proprio dominio.
 
 L'argomento sceglie il modo:

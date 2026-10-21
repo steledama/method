@@ -38,6 +38,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   nodo `session-messaging` e `CLAUDE.md` tiene solo rimando e clausola
   locale sulla delega. Prescritta ai sette il 2026-10-20;
   recepita da `nixos`, `bi` e `baserow`, `crm` in sospeso.
+- [Skill e permessi progettati per l'agente
+  utilizzatore](progettazione-skill.md) — diniego come percezione, niente
+  cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
+  mappa ed estrazione delle skill prima della composizione. Prescritta ai
+  sette il 2026-10-21.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

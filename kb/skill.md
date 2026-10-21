@@ -21,6 +21,38 @@ Le skill canoniche del metodo sono:
   custode;
 - `method`, allineamento degli adottanti al canone.
 
+## Atomicità: un atto, un contratto
+
+Come un nodo contiene un'idea, una skill compie un atto con un contratto:
+input chiaro, esito dichiarato, strumenti di `o3/` sotto per le parti
+deterministiche, KB come riferimento. Le skill si compongono in due livelli,
+base e composta, e i rami di una composta vivono come file nella sua cartella
+(`skill-composition`).
+
+Una skill è una selezione della KB guidata dallo scopo: `kb/kb.md` è l'indice
+globale, la skill un indice parziale orientato a un atto. Nella skill restano
+obiettivi, vincoli, sequenza, punti di decisione e forma dell'esito; il resto
+vive nei nodi, nei register e negli strumenti, e la skill vi rimanda. Il
+rimando è condizionale, legato al punto in cui serve («se è dovuto il ramo X,
+leggi il nodo Y nella sezione Z»): una lista di letture fisse a ogni run
+costerebbe più del testo che sostituisce (`agent-as-user`). Una skill
+cresciuta si estrae prima di dividerla: ciò che non è procedura va verso
+`kb/`, i register e gli script, e spesso il resto sta in un nucleo breve che
+non chiede più divisione.
+
+## Indipendenza dall'harness
+
+Il contenuto di una skill vive in file neutri, markdown leggibile da qualunque
+agente; gli harness vi si legano con adattatori sottili e sostituibili. Le
+skill seguono la forma condivisa di più harness: una cartella con `SKILL.md`,
+`name` e `description` nel frontmatter, file di supporto accanto. Un'opzione
+propria di un harness si usa solo come ottimizzazione e la sua assenza non
+deve rompere nulla: la struttura funziona anche con un harness che sa solo
+leggere file. Legare il metodo a un harness è lock-in, e vale anche per i nomi:
+un nome generico può collidere domani con un comando integrato.
+
+## Skill canoniche e stadi
+
 Gli scope-stadio corrispondono agli atomi del ciclo. La procedura completa vive
 nelle rispettive `SKILL.md`; il nodo conserva soltanto il modello e i confini.
 Dopo un evento del Mondo l'ordine è `eval` → `exec`: prima si aggiorna ciò che è
@@ -91,4 +123,5 @@ Connessioni:
 - [tasks](tasks.md)
 - [kb-tools](kb-tools.md)
 - [claude](claude.md)
+- [skill-composition](skill-composition.md)
 - [agent-as-user](agent-as-user.md)

@@ -45,8 +45,11 @@ incertezze decisive non risolvibili dalle fonti. Sospendere il solo punto
 che richiede una decisione e continuare il lavoro indipendente. In assenza
 di delega applicabile si propone; il colore dell'impatto non concede autorità.
 
-Chiudere gli scope richiesti con i controlli e `/commit`, incluso il push
-quando autorizzato. Nella sessione interattiva il momento del commit si
+Chiudere gli scope richiesti con i controlli, l'esito per stadio e la
+proposta di commit. Questa skill è una base e non chiama altre skill
+(`kb/skill-composition.md`): commit e push, nei limiti di `CLAUDE.md`, li
+compie `/commit` quando li chiede il custode o la composta `/cycle`, e ne
+scrive i trailer dagli esiti ricevuti. Nella sessione interattiva il momento del commit si
 concorda col custode (`kb/consent.md`): un ciclo chiesto fino al commit lo
 include, gli scambi successivi no. Nel ciclo congiunto l'ordine è `eval → exec → commit`,
 senza conferme obbligatorie fra gli archi; invocare un arco solo non estende

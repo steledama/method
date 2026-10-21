@@ -17,8 +17,9 @@ task `o2/` per repo. Il caso di partenza e il modello del task locale sono in
 
 ## Revisione per repo
 
-Ogni repo apre un task `o2/` proprio, quando `/method` recepisce il nodo, e
-controlla quattro cose:
+Il veicolo è la prescrizione [o3/progettazione-skill.md](../o3/progettazione-skill.md),
+che comprende anche il design delle skill. Ogni repo apre un task `o2/`
+proprio quando la recepisce, e controlla quattro cose:
 
 - dinieghi storici di `i1/giri/tentativi.jsonl` classificati, per contesto,
   come vincolo voluto o lacuna; ogni lacuna chiusa su permesso o strumento;

@@ -32,7 +32,9 @@ autonomo.
 I file che l'harness cerca in `.claude/` sono binding, non sede del contenuto.
 Prompt e permessi del ciclo autonomo sono prescrizioni dell'atto e vivono in
 `o3/ciclo/`, versionati e leggibili da ogni harness; `.claude/settings.json`
-resta dov'è perché l'harness della sessione lo legge solo da lì.
+resta dov'è perché l'harness della sessione lo legge solo da lì. Un'opzione
+propria di un harness si usa solo come ottimizzazione: la sua assenza non deve
+rompere nulla (`skill`, «Indipendenza dall'harness»).
 
 `.claude/settings.local.json` è un'area di transito, non versionata e legata
 all'host. Periodicamente ciò che è durevole si promuove in `settings.json` e il
