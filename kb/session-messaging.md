@@ -43,6 +43,9 @@ destinatario a un dialogo di approvazione.
   conversazione dell'harness e i pane ID di Herdr sono identificatori
   distinti, e un ID di conversazione fornito dal custode si confronta quando
   visibile;
+- la lettura `visible` può non mostrare il campo di input del destinatario:
+  in quel caso lo si verifica con `--source detection`, e un campo che non
+  si riesce a vedere conta come non vuoto;
 - se il campo di input del destinatario non è vuoto, il testo può essere un
   messaggio scritto e non ancora inviato, del custode o di un altro mittente:
   un invio lo unirebbe al messaggio o lo farebbe partire. In forma testuale non
