@@ -45,6 +45,12 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
      (`metadata:` con `compone: eval exec commit`, più le eventuali skill di
      dominio che il giro compone): il guardiano ricava da lì le skill del
      giro;
+   - la `eval` locale legge in `perceive` il giro precedente e ne classifica
+     i dinieghi (passo 4 della `eval` canonica);
+   - la storia del canone si legge dal giro con
+     `python3 method/../o3/canone.py`, concesso per nome in
+     `o3/ciclo/permessi.json`, al posto di `git -C` sul checkout di
+     `method`; `/cycle` resta senza eccezioni alla regola senza `git -C`;
    - `eval` ed `exec` chiudono col proprio esito e la proposta di commit,
      senza chiamare `/commit`; `/cycle` resta la composta che committa. La
      frase corrispondente di `ciclo-delegato` va riportata nell'`autonomy.md`

@@ -105,7 +105,11 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
        `--delete`, `-m`, `-M`, `-f`, `--force`). Un deny vince sempre su un
        allow: `git branch*` intero negava anche `--show-current` (tre
        dinieghi nel secondo giro di `salute`). Non si concede `git -C *`, che
-       aggirerebbe i pattern: la skill lavora dalla cartella del repo;
+       aggirerebbe i pattern: la skill lavora dalla cartella del repo, senza
+       eccezioni. La storia del canone si legge con
+       `python3 method/../o3/canone.py` (`log [--da SHA]`, `distanza --da
+SHA`), concesso per nome: legge solo il checkout di `method`, non gli
+       altri adottanti;
      - l'amend è concesso dove è concesso il commit, perché chi committa
        possa correggere un trailer sbagliato. Corregge solo il commit non
        ancora pubblicato: il force push resta negato, e un amend dopo il push
@@ -137,7 +141,8 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
    regola `.gitignore` entra in un commit **prima** del primo giro che vi
    scrive, altrimenti il giro successivo trova il working tree sporco e si
    ferma (exit 10). `eval perceive` legge `tentativi.jsonl` del giro
-   precedente (dinieghi, errori, costo, durata) e apre la trascrizione solo
+   precedente (passo 4 di `perceive` nella skill `eval`: dinieghi, errori,
+   costo, durata) e apre la trascrizione solo
    per il dettaglio; una frizione che deve durare diventa una cattura `.md`
    versionata in `i1/`. Ogni diniego si classifica, per il contesto del giro,
    come vincolo voluto o lacuna (`kb/agent-as-user.md`). Una lacuna diventa
