@@ -33,6 +33,14 @@ facoltativa, non come il modo in cui il metodo nasconde le basi (`skill`,
 - una composta non contiene procedura di dominio: decide solo ordine,
   condizioni e passaggio degli esiti.
 
+Una composta dichiara nel frontmatter le skill che compone, nel campo
+`metadata` della specifica Agent Skills (`compone: eval exec commit`). La
+composizione si legge allora senza inferirla dal testo, dove un nome può
+comparire anche per escluderlo; il guardiano la segue a cascata e la
+confronta con le chiamate scritte, segnalando la composta che chiama skill
+non dichiarate e la base che chiama altre skill. Un harness che non conosce
+il campo lo ignora senza rompere nulla.
+
 Il canone ne è l'istanza. `cycle` è la composta: compone `eval all`,
 `exec all` e `commit`, e passa a `commit` gli esiti per stadio che diventano
 trailer. `eval` ed `exec` sono basi: chiudono col proprio esito e la proposta

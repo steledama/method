@@ -1,6 +1,8 @@
 ---
 description: Il ciclo congiunto — cycle [autonomo] — un giro completo del ciclo d'azione, eval all → exec all → commit, in sessione o senza custode
 user-invocable: true
+metadata:
+  compone: eval exec commit
 ---
 
 Compi un giro completo del ciclo d'azione: `eval all`, poi `exec all`, poi

@@ -41,6 +41,10 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
      `/commit` locale che lancia `method/../o3/commit_gate.py prima` e
      `dopo` invece di elencare formatter, controlli e rilettura dei trailer;
      `/cycle` usa `dopo --giro`. I comandi vanno anche nei permessi del giro;
+   - la `/cycle` locale dichiara nel frontmatter ciò che compone
+     (`metadata:` con `compone: eval exec commit`, più le eventuali skill di
+     dominio che il giro compone): il guardiano ricava da lì le skill del
+     giro;
    - `eval` ed `exec` chiudono col proprio esito e la proposta di commit,
      senza chiamare `/commit`; `/cycle` resta la composta che committa. La
      frase corrispondente di `ciclo-delegato` va riportata nell'`autonomy.md`

@@ -33,6 +33,16 @@ SPAN = re.compile(r"`([^`\n]+)`")
 FENCE = re.compile(r"^```")
 SEPARATORI = re.compile(r"\s*(?:&&|\|\||;|\|)\s*")
 SEGNAPOSTO = re.compile(r"<[^>]+>|…|\.\.\.")
+VARIABILE = re.compile(r"\$\{?\w+")
+# Un gesto retto da una negazione annuncia un vincolo, non lo esegue: «senza `X`»,
+# «non usare `X`», oppure «`X` … le fa negare».
+ANNUNCIO_PRIMA = re.compile(
+    r"(?<!\w)(né|senza|niente|mai|non usare|non usarl[oa]|non lanciare|non eseguire|non si concede)"
+    r"\s+(?:(?:un|uno|una|il|lo|la|l'|i|gli|le)\s+)?$",
+    re.IGNORECASE,
+)
+ANNUNCIO_DOPO = re.compile(r"^[^.;:]{0,40}\b(negat\w*|negar\w*|vietat\w*)", re.IGNORECASE)
+COMPONE = re.compile(r"^\s+compone:\s*(.+)$")
 CARTELLO = re.compile(
     r"\b(non usare|non usarl[oa]|non è concess[oa]|non sono concessi|è negat[oa]|sono negati"
     r"|vietat[oa]|mai usare|non lanciare|non eseguire)\b",
@@ -52,6 +62,22 @@ class Skill:
     righe: list[str]
     accanto: int = 0
     comandi: list[tuple[int, str]] = field(default_factory=list)
+    compone: list[str] | None = None
+
+
+def composizione(righe: list[str]) -> list[str] | None:
+    """Le skill dichiarate in `metadata: compone:` del frontmatter, o None."""
+    if not righe or righe[0] != "---":
+        return None
+    in_metadata = False
+    for riga in righe[1:]:
+        if riga == "---":
+            break
+        if not riga.startswith((" ", "\t")):
+            in_metadata = riga.startswith("metadata:")
+        elif in_metadata and (match := COMPONE.match(riga)):
+            return match.group(1).replace(",", " ").split()
+    return None
 
 
 def leggi_skill(root: Path) -> list[Skill]:
@@ -65,6 +91,7 @@ def leggi_skill(root: Path) -> list[Skill]:
         )
         skill = Skill(path.parent.name, path, righe, accanto)
         skill.comandi = comandi(righe)
+        skill.compone = composizione(righe)
         trovate.append(skill)
     return trovate
 
@@ -127,13 +154,29 @@ def concesso(comando: str, allow: list[str], deny: list[str]) -> bool:
     return all(any(corrisponde(p, s) for s in allow) for p in pezzi) and not negato(comando, deny)
 
 
-def skill_del_giro(root: Path, nomi: set[str]) -> set[str]:
-    """`cycle`, la composta del giro, e le skill che compone: `/nome` o `nome argomenti`."""
-    cycle = root / SKILLS / "cycle" / "SKILL.md"
-    if not cycle.exists():
-        return set()
-    testo = cycle.read_text(encoding="utf-8")
-    return {"cycle"} | {n for n in nomi if re.search(rf"`/?{re.escape(n)}(?: [^`/]*)?`", testo)}
+def skill_del_giro(skills: list[Skill]) -> set[str]:
+    """`cycle` e, a cascata, ciò che le composte dichiarano di comporre."""
+    per_nome = {s.nome: s for s in skills}
+    giro: set[str] = set()
+    da_visitare = ["cycle"] if "cycle" in per_nome else []
+    while da_visitare:
+        nome = da_visitare.pop()
+        if nome in giro or nome not in per_nome:
+            continue
+        giro.add(nome)
+        da_visitare += per_nome[nome].compone or []
+    return giro
+
+
+def tipo(comando: str, riga: str) -> str:
+    """annuncio di un vincolo, modello con segnaposti, oppure comando."""
+    prima_del_gesto = riga.split(f"`{comando}`")[0] if f"`{comando}`" in riga else ""
+    dopo_il_gesto = riga.split(f"`{comando}`", 1)[-1] if f"`{comando}`" in riga else ""
+    if ANNUNCIO_PRIMA.search(prima_del_gesto) or ANNUNCIO_DOPO.search(dopo_il_gesto):
+        return "annuncio"
+    if SEGNAPOSTO.search(comando) or VARIABILE.search(comando):
+        return "modello"
+    return "comando"
 
 
 def chiamate(skill: Skill, nomi: set[str]) -> list[tuple[int, str]]:
@@ -142,7 +185,8 @@ def chiamate(skill: Skill, nomi: set[str]) -> list[tuple[int, str]]:
         if not VERBO_CHIAMATA.search(riga):
             continue
         for nome in nomi - {skill.nome}:
-            if re.search(rf"`/{re.escape(nome)}\b", riga):
+            match = re.search(rf"`/{re.escape(nome)}\b", riga)
+            if match and not ANNUNCIO_PRIMA.search(riga[: match.start()]):
                 trovate.append((numero, nome))
     return trovate
 
@@ -194,7 +238,7 @@ def audit(root: Path) -> str:
     nomi = {s.nome for s in skills}
     allow_s, deny_s = regole(root / SETTINGS)
     allow_g, deny_g = regole(root / PERMESSI_GIRO)
-    giro = skill_del_giro(root, nomi) if (root / PERMESSI_GIRO).exists() else set()
+    giro = skill_del_giro(skills) if (root / PERMESSI_GIRO).exists() else set()
     canone = canone_di(root)
     out = [f"## Skill di {root.resolve().name}", ""]
 
@@ -217,24 +261,40 @@ def audit(root: Path) -> str:
     out.append("")
 
     out += ["### Comandi contro i permessi", ""]
-    if giro:
-        out.append(f"Skill del giro: {', '.join(sorted(giro))}.")
-    else:
+    cycle = next((s for s in skills if s.nome == "cycle"), None)
+    if not (root / PERMESSI_GIRO).exists():
         out.append("Nessun `o3/ciclo/permessi.json`: controllato solo il contesto di sessione.")
+    elif cycle and cycle.compone is None:
+        out.append("`cycle` non dichiara `metadata: compone:`: nel giro si controlla solo `cycle`.")
+    else:
+        out.append(f"Skill del giro, dalle composizioni dichiarate: {', '.join(sorted(giro))}.")
     out.append("")
-    trovati = 0
+    sezioni: dict[str, list[str]] = {"comando": [], "modello": [], "annuncio": []}
     for s in skills:
         for numero, comando in s.comandi:
-            note = []
-            if negato(comando, deny_s):
-                note.append("negato in sessione")
-            if s.nome in giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s):
-                note.append("non concesso nel giro")
+            nel_giro = s.nome in giro
+            vietato_s = negato(comando, deny_s)
+            fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
+            classe = tipo(comando, s.righe[numero - 1])
+            voce = f"- {s.nome}:{numero} `{comando}`"
+            if classe == "annuncio":
+                if vietato_s or fuori_giro:
+                    continue
+                stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
+                sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
+                continue
+            note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
             if note:
-                trovati += 1
-                out.append(f"- {s.nome}:{numero} `{comando}` — {', '.join(note)}")
-    if not trovati:
-        out.append("- nessun comando scritto fuori dai permessi del suo contesto")
+                sezioni[classe].append(f"{voce} — {', '.join(note)}")
+    out += sezioni["comando"] or ["- nessun comando scritto fuori dai permessi del suo contesto"]
+    out += ["", "### Modelli", ""]
+    out.append("Comandi con segnaposti o variabili: spesso testo descrittivo, a volte eseguiti.")
+    out.append("")
+    out += sezioni["modello"] or ["- nessuno fuori dai permessi"]
+    out += ["", "### Vincoli annunciati", ""]
+    out.append("Gesti nominati in contesto negativo: coerenti se il vincolo c'è, e non elencati.")
+    out.append("")
+    out += sezioni["annuncio"] or ["- tutti con il vincolo dietro"]
     out.append("")
 
     out += ["### Divieti scritti", ""]
@@ -252,26 +312,43 @@ def audit(root: Path) -> str:
                 for t in spans
                 if t.split()
             )
-            stato = "con deny" if retto else "senza deny: vincolo da reggere o lacuna"
+            stato = (
+                "con deny"
+                if retto
+                else "deny non trovato nella stessa grafia: vincolo altrove o lacuna"
+            )
             trovati += 1
             out.append(f"- {s.nome}:{numero} — {stato}: {riga.strip()[:140]}")
     if not trovati:
         out.append("- nessuno")
     out.append("")
 
-    out += ["### Chiamate fra skill", ""]
+    out += ["### Composizione", ""]
+    for s in skills:
+        if s.compone is not None:
+            out.append(f"- {s.nome} compone: {', '.join(s.compone)}")
     trovati = 0
     for s in skills:
-        if lista := chiamate(s, nomi):
+        lista = chiamate(s, nomi)
+        if s.compone is not None:
+            lista = [(n, nome) for n, nome in lista if nome not in s.compone]
+            motivo = "composta che chiama skill non dichiarate"
+        else:
+            motivo = "base che chiama altre skill"
+        if lista:
             trovati += 1
             dove = ", ".join(f"{nome} (riga {numero})" for numero, nome in lista)
-            out.append(f"- {s.nome} → {dove}")
-    if not trovati:
-        out.append("- nessuna")
+            out.append(f"- {s.nome}: {motivo} → {dove}")
+    if not any(s.compone is not None for s in skills) and not trovati:
+        out.append("- nessuna composta dichiarata, nessuna chiamata fra skill")
+    elif not trovati:
+        out.append("- nessuna chiamata fuori dalle composizioni dichiarate")
     out.append("")
     out.append(
         "Limiti: comandi, divieti e chiamate sono candidati estratti dal testo; "
-        "la classificazione (vincolo o lacuna, base o composta) resta un giudizio."
+        "la classificazione (vincolo o lacuna, base o composta) resta un giudizio. "
+        "Sintassi che somiglia a un segnaposto senza esserlo, come `.#user@host` dei "
+        "flake nix, resta fra i comandi."
     )
     return "\n".join(out)
 

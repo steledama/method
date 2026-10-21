@@ -55,8 +55,27 @@ class EstrazioneTests(unittest.TestCase):
         )
 
 
+class ClassificazioneTests(unittest.TestCase):
+    def test_declared_composition_in_frontmatter(self):
+        righe = ["---", "name: cycle", "metadata:", "  compone: eval, exec commit", "---", "x"]
+        self.assertEqual(MODULE.composizione(righe), ["eval", "exec", "commit"])
+        self.assertIsNone(MODULE.composizione(["---", "compone: eval", "---"]))
+        self.assertIsNone(MODULE.composizione(["# senza frontmatter"]))
+
+    def test_announcement_model_and_command(self):
+        self.assertEqual(MODULE.tipo("git -C", "dal repo, senza `git -C`: i permessi"), "annuncio")
+        riga = "un `echo rc=$?` aggiunto le fa negare tutte"
+        self.assertEqual(MODULE.tipo("echo rc=$?", riga), "annuncio")
+        riga = "Un giro senza file cambiati si chiude con `git commit --allow-empty`"
+        self.assertEqual(MODULE.tipo("git commit --allow-empty", riga), "comando")
+        riga = "`git -C <repo> log`"
+        self.assertEqual(MODULE.tipo("git -C <repo> log", riga), "modello")
+        riga = '`git -C "$method_repo" status`'
+        self.assertEqual(MODULE.tipo('git -C "$method_repo" status', riga), "modello")
+
+
 class AuditTests(unittest.TestCase):
-    def test_giro_denials_signs_and_calls(self):
+    def test_giro_from_declared_composition(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             scrivi(
@@ -72,25 +91,46 @@ class AuditTests(unittest.TestCase):
                 json.dumps({"permissions": {"allow": ["Bash(git status*)"], "deny": []}}),
             )
             scrivi(
-                root, ".claude/skills/cycle/SKILL.md", "Compone `eval all`, poi esegui `/commit`.\n"
+                root,
+                ".claude/skills/cycle/SKILL.md",
+                "---\nmetadata:\n  compone: eval commit\n---\n"
+                "Esegui `/eval all`, poi `/commit`; il repo `method` non gira, né `/kb`.\n"
+                "Lancia `/method` quando serve.\n",
             )
             scrivi(
                 root,
                 ".claude/skills/eval/SKILL.md",
                 "Lancia `git status --short` e `jq . x.json`.\n"
                 "Non usare `git reset --hard`.\n"
-                "Non usare `git add -A`.\n",
+                "Non usare `git add -A`.\n"
+                "Lavora senza `jq . y.json` e con `git -C <repo> log`.\n"
+                "Poi esegui `/commit`.\n",
             )
             scrivi(root, ".claude/skills/commit/SKILL.md", "Committa.\n")
-            scrivi(root, ".claude/skills/kb/SKILL.md", "Lancia `jq . y.json`.\n")
+            scrivi(root, ".claude/skills/kb/SKILL.md", "Lancia `jq . z.json`.\n")
+            scrivi(root, ".claude/skills/method/SKILL.md", "Recepisce.\n")
             report = MODULE.audit(root)
-        self.assertIn("Skill del giro: commit, cycle, eval.", report)
+        self.assertIn("dalle composizioni dichiarate: commit, cycle, eval.", report)
         self.assertIn("eval:1 `jq . x.json` — non concesso nel giro", report)
         self.assertNotIn("kb:1", report)
-        self.assertIn("eval:2 `git reset --hard` — negato in sessione", report)
+        self.assertNotIn("eval:2 `git reset --hard`", report)
+        self.assertNotIn("eval:4 `jq . y.json`", report)
+        self.assertIn("eval:4 `git -C <repo> log` — non concesso nel giro", report)
+        self.assertLess(report.index("### Modelli"), report.index("eval:4 `git -C <repo> log`"))
         self.assertIn("eval:2 — con deny", report)
-        self.assertIn("eval:3 — senza deny", report)
-        self.assertIn("cycle → commit (riga 1)", report)
+        self.assertIn("eval:3 — deny non trovato nella stessa grafia", report)
+        self.assertIn("cycle: composta che chiama skill non dichiarate → method (riga 6)", report)
+        self.assertIn("eval: base che chiama altre skill → commit (riga 5)", report)
+
+    def test_undeclared_cycle_checks_only_itself(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            scrivi(root, "o3/ciclo/permessi.json", json.dumps({"permissions": {"allow": []}}))
+            scrivi(root, ".claude/skills/cycle/SKILL.md", "Compone `eval all`.\n")
+            scrivi(root, ".claude/skills/eval/SKILL.md", "Lancia `jq . x.json`.\n")
+            report = MODULE.audit(root)
+        self.assertIn("`cycle` non dichiara `metadata: compone:`", report)
+        self.assertNotIn("eval:1", report)
 
 
 if __name__ == "__main__":
