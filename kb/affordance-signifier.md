@@ -81,6 +81,13 @@ distinzione affordance/signifier dà il criterio per progettare entrambe senza
 confonderle, ed è il completamento naturale delle quattro proprietà cardine già
 usate come criteri di qualità della resa umana.
 
+L'agente non legge solo nodi e viste: usa skill, prompt, permessi e script, e
+anche lì affordance e signifier vanno progettati per lui. Il diniego di un
+permesso è il suo feedback, e la scritta che gli chiede di adattarsi a un
+gesto legittimo negato è un signifier che compensa un'affordance mancante. Le
+specificità di questo utilizzatore e i criteri di revisione vivono in
+`agent-as-user`.
+
 ## Corollario: il nome rende riconoscibile la funzione
 
 Quando un file di output ha un produttore singolo e deterministico, nome,
@@ -112,3 +119,4 @@ Connessioni:
 - [output](output.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [cognitive-artifact-design](cognitive-artifact-design.md)
+- [agent-as-user](agent-as-user.md)

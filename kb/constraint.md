@@ -46,6 +46,13 @@ unico path, un test che fallisce o uno schema. Dove un errore conta, non
 affidarsi alla memoria di un agente: costruire il vincolo che lo rende
 impossibile o rumoroso.
 
+Per l'agente il deny dei permessi è un vincolo fisico, e un divieto scritto
+nella skill è un vincolo culturale: regge solo se viene letto e seguito a ogni
+run, da un lettore che non ricorda il giro precedente. Un deny che scatta è
+quindi una percezione da classificare, vincolo voluto o lacuna, e una lacuna
+si chiude sul permesso o sullo strumento, non con un'istruzione in più
+(`agent-as-user`).
+
 ## Riferimenti
 
 - Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition
@@ -65,3 +72,4 @@ Connessioni:
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [system-image](system-image.md)
 - [view](view.md)
+- [agent-as-user](agent-as-user.md)

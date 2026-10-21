@@ -1,0 +1,105 @@
+---
+stato: bozza
+---
+
+# Agent as user
+
+L'agente è un utilizzatore a pieno titolo dello strumento, quanto il lettore
+umano. Usa skill, prompt, `CLAUDE.md`, permessi dell'harness, script, codici di
+uscita e messaggi d'errore come il custode usa viste e nodi: sono la sua parte
+del system image. I criteri di design di Norman, affordance, signifier,
+vincolo e feedback, si applicano anche a lui, e non solo agli artefatti letti
+dall'umano. Progettare l'artefatto significa progettare anche la superficie su
+cui l'agente agisce, con la stessa cura e con criteri di revisione propri.
+
+## Le specificità dell'agente
+
+L'agente non è un lettore umano più veloce. Quattro tratti cambiano il design:
+
+- rilegge tutto a ogni run: ogni riga di una skill o di un prompt si paga a
+  ogni invocazione, non una volta sola. Una skill lunga è un costo ricorrente;
+  la forma adatta è un nucleo breve con i rami in file separati, letti solo
+  quando il ramo è dovuto;
+- non ricorda fra le sessioni: ciò che impara in un giro non c'è nel giro
+  successivo. Una lezione dura solo se diventa struttura, cioè uno strumento,
+  un permesso, uno schema o un test. Un'istruzione scritta va riletta per
+  sempre e funziona solo se viene letta e seguita ogni volta;
+- paga ogni diniego in turni: un comando negato costa almeno un giro di
+  tentativo e ripiego, e un comando composto con un solo pezzo non concesso è
+  negato per intero;
+- nel giro senza custode nessuno risponde: i segnali devono bastare senza
+  chiedere, e un'ambiguità si risolve con un'inferenza o con una rinuncia.
+
+## Il diniego è una percezione
+
+Un diniego dei permessi è il feedback che l'agente riceve dallo strumento, nel
+senso di Norman: dice che l'azione tentata non è ammessa. Per l'artefatto è
+una percezione del ciclo, non un incidente da assorbire. Ogni diniego si
+classifica in uno di due modi:
+
+- vincolo voluto: il guardrail ha funzionato, l'azione era davvero da
+  impedire. Il vincolo resta; al più si migliora il feedback, con un messaggio
+  più chiaro o un segnale nel punto d'uso che fa risparmiare il turno;
+- lacuna: il gesto era legittimo e lo strumento non l'ha previsto. Si allarga
+  il permesso o si dà uno strumento dedicato, consentito, che compie il gesto
+  in modo sicuro.
+
+La classe dipende dal contesto, non dal comando. L'affordance è una relazione
+tra agente e artefatto, e lo stesso deny può essere vincolo in un contesto e
+lacuna in un altro. Uno staging intero del working tree è da negare in una
+sessione dove un'altra sessione può lasciare file propri, ed è il gesto che
+uno strumento del giro richiede quando la concorrenza è già presidiata a monte.
+La classificazione si fa quindi per contesto d'uso: sessione col custode,
+giro autonomo, agente esecutore.
+
+## Il cartello
+
+Una lacuna non si chiude mai con un cartello nella skill che chiede all'agente
+di adattarsi. Sarebbe la scritta SPINGERE sulla porta: il segnale compensa un
+design che non comunica da sé, e per un lettore senza memoria è il caso
+peggiore, perché si paga a ogni run e regge solo finché viene letto e seguito.
+Il confine è netto. Una riga che annuncia un vincolo voluto, nel punto in cui
+il gesto si compie, è un signifier legittimo: fa risparmiare un turno e ha
+dietro un vincolo vero che regge anche se la riga non viene letta. Un divieto
+scritto senza un vincolo dietro, o un'istruzione che chiede di aggirare un
+gesto legittimo negato, è un cartello e indica una lacuna da chiudere sullo
+strumento.
+
+## Criteri di revisione
+
+Per skill, prompt, permessi e script:
+
+- ogni gesto che la skill o il prompt richiedono è concesso nel contesto in
+  cui la skill gira?
+- ogni divieto scritto ha dietro un vincolo vero, o copre una lacuna?
+- i dinieghi registrati sono classificati, e ciascuno è chiuso sul vincolo o
+  sullo strumento?
+- quanto pesa la skill a ogni run, e quali rami possono vivere in file letti
+  solo quando servono?
+- un gesto ricorrente e fragile, come una scrittura composta su un registro,
+  ha uno script dedicato con nome e uscita che ne segnalano la funzione?
+- il feedback di un vincolo voluto dice all'agente cosa fare invece?
+
+La revisione appartiene a chi progetta l'artefatto, in sessione col custode
+quando tocca permessi o prescrizioni del giro. Il giro senza custode percepisce
+e propone; non allarga da sé il proprio perimetro.
+
+## Riferimenti
+
+- Donald Norman, _The Design of Everyday Things_, Revised and Expanded Edition
+  (Basic Books, 2013), Cap. 1 «The Psychopathology of Everyday Things»: la
+  porta che ha bisogno di un'etichetta per essere usata come segnale di un
+  design che non comunica; signifier e feedback. Cap. 4 «Knowing What to Do:
+  Constraints, Discoverability, and Feedback». Provenienza e limite della
+  copia locale nel register `world.md`.
+
+Connessioni:
+
+- [affordance-signifier](affordance-signifier.md)
+- [constraint](constraint.md)
+- [agent](agent.md)
+- [skill](skill.md)
+- [claude](claude.md)
+- [perceive](perceive.md)
+- [system-image](system-image.md)
+- [cognitive-system](cognitive-system.md)

@@ -26,6 +26,11 @@ già persistente e raggiungibile altrove non si sposta: si sposta in `i1/` quand
 lì lo raggiunge chi percepisce, per esempio il giro, che fuori dalla cartella di
 lavoro non legge.
 
+Fra il grezzo dei giri ci sono i dinieghi dei permessi. Sono il feedback dello
+strumento all'agente e quindi percezioni come le altre: il perceive li legge e
+ciascuno si classifica come vincolo voluto o lacuna, senza assorbirli come
+incidenti del giro (`agent-as-user`).
+
 Connessioni:
 
 - [input](input.md)
@@ -33,3 +38,4 @@ Connessioni:
 - [world](world.md)
 - [goal](goal.md)
 - [source-of-truth](source-of-truth.md)
+- [agent-as-user](agent-as-user.md)

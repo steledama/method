@@ -47,6 +47,8 @@ che il giro può fare da solo.
 - comandi rari o completi possono vivere in un nodo o nello `--help`?
 - README, Goal o World sono duplicati?
 - i guardrail necessari prima di un atto rischioso sono ancora visibili?
+- ogni divieto scritto ha dietro un vincolo vero, e ogni gesto richiesto è
+  concesso nel contesto in cui l'agente lo compie (`agent-as-user`)?
 
 CLAUDE è il livello operativo della divisione «README orienta · CLAUDE istruisce
 · KB approfondisce». Non è una fonte di fatti per audit o fedeltà cognitiva.
@@ -58,3 +60,4 @@ Connessioni:
 - [project-structure](project-structure.md)
 - [skill](skill.md)
 - [kb-tools](kb-tools.md)
+- [agent-as-user](agent-as-user.md)

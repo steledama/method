@@ -133,7 +133,11 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
    ferma (exit 10). `eval perceive` legge `tentativi.jsonl` del giro
    precedente (dinieghi, errori, costo, durata) e apre la trascrizione solo
    per il dettaglio; una frizione che deve durare diventa una cattura `.md`
-   versionata in `i1/`.
+   versionata in `i1/`. Ogni diniego si classifica, per il contesto del giro,
+   come vincolo voluto o lacuna (`kb/agent-as-user.md`). Una lacuna diventa
+   una proposta nel task `o2/` pertinente e si chiude in sessione col custode
+   su `permessi.json` o con uno script consentito, mai con un'istruzione nel
+   prompt o nella skill che chiede al giro di aggirarla.
 9. Registrare nel marker il recepimento o l'adattamento motivato.
 
 Il ciclo autonomo non legge `~/.claude/settings.json`: ciò che lì vale per

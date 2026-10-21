@@ -13,6 +13,7 @@ pianificazione.
 
 | Ciclo | Ob. | Task                                            | Dip.                                                                                           |
 | ----- | --- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| dev   | S   | Agente come utilizzatore                        | —                                                                                              |
 | dev   | S   | Criteri del ciclo autonomo schedulato           | —                                                                                              |
 | dev   | S   | Home con fatto e da fare                        | —                                                                                              |
 | dev   | S   | Dove gira il ciclo autonomo                     | —                                                                                              |

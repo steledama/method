@@ -47,6 +47,9 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   impossibile o rumoroso
 - [agent](agent.md) — L'attore che agisce nell'artefatto: dal binomio umano/LLM
   alla popolazione di agenti
+- [agent-as-user](agent-as-user.md) — L'agente come utilizzatore a pieno
+  titolo di skill, prompt, permessi e script: specificità, diniego come
+  percezione (vincolo o lacuna), divieto del cartello, criteri di revisione
 - [system-image](system-image.md) — Triangolo di Norman: l'intero artefatto
   sostiene la comprensione degli agenti; la KB ne è il nucleo formalizzato
 - [processing-layers](processing-layers.md) — Livelli visceral, behavioral e

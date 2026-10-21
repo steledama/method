@@ -64,6 +64,13 @@ binding verso il contenuto, che vive versionato nello stadio che gli spetta
 autorizzazioni ed esito atteso, e preferisce script versionati a logica fragile
 riscritta nel prompt.
 
+L'agente rilegge la skill a ogni invocazione e non ricorda la precedente: la
+lunghezza è un costo ricorrente, e un nucleo breve con rami letti solo quando
+dovuti è la forma adatta. Ogni gesto che la skill richiede deve essere concesso
+nel contesto in cui gira; un gesto negato si chiude sul permesso o sullo
+strumento, non con un'istruzione che chiede all'agente di adattarsi
+(`agent-as-user`).
+
 Una skill portabile può separare protocollo comune e profilo locale. Il primo
 definisce procedura, evidenza richiesta e forma dell'esito; il secondo dichiara
 fonti, controlli, convenzioni e prove proprie del dominio. Anche il repository
@@ -84,3 +91,4 @@ Connessioni:
 - [tasks](tasks.md)
 - [kb-tools](kb-tools.md)
 - [claude](claude.md)
+- [agent-as-user](agent-as-user.md)
