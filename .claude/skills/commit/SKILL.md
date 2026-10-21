@@ -54,7 +54,7 @@ Dopo aver risolto le pre-check (o averle saltate), procedi con il commit:
 
    Se un formatter non è disponibile, segnalalo e continua senza inventare alternative.
 
-3. Fai lo staging dei file: usa `git add -u` per i file tracciati. Per i file non tracciati che appartengono chiaramente alla modifica, aggiungili individualmente per nome. Non usare `git add -A`.
+3. Confronta `git status` con la modifica: ogni file modificato o non tracciato deve appartenerle. Un file estraneo, di un'altra sessione o uno scarto, ferma il commit: non lo includi e lo riferisci. Poi fai lo staging, anche intero (`git add -A`).
 
 4. Scrivi un messaggio di commit conciso:
    - Usa conventional commits: `type(scope): description`

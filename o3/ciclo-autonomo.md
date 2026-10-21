@@ -98,9 +98,7 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
      - negli atti `git add *`, `git commit *` (amend compreso), `git push`,
        `git push origin <branch>`;
      - i deny che la recintano, in `.claude/settings.json` perché valgono
-       anche in sessione: `git add -A*`, `--all*`, `git add .` e
-       `git add . *` (non `git add .*`, che nega anche `.claude/` e
-       `.codex/`, primo caso in `crm` il 2026-10-15), `--no-verify`,
+       anche in sessione: `--no-verify`,
        ogni forma di force push, `git reset`, `rebase`, `clean`, `checkout`,
        `switch`, `restore`, `stash`, `merge`, `config`, e di `git branch` le
        sole forme che cancellano, rinominano o forzano (`-d`, `-D`,
@@ -121,6 +119,14 @@ retto; il custode ha deciso lo stesso giorno tre cose che valgono per tutti.
      `o3/ciclo` di sola lettura;
    - `git add -f*` e `git add --force*` sono negati in `.claude/settings.json`:
      il grezzo ignorato di `i1/` non entra nella storia;
+   - lo staging intero (`git add -A`, `--all`, `.`) non si nega: un deny sulla
+     grafia non presidia il gesto, perché `git add <cartella>` o un glob
+     mettono in staging gli stessi file, e contraddice gli strumenti che
+     chiedono un tree tutto in staging (`remoto allinea` di `nixos`). Il
+     presidio dei file estranei è il confronto di `git status` prima dello
+     staging, nelle skill `cycle` e `commit`, con `.gitignore` e il deny su
+     `-f` per il grezzo e i segreti (`kb/agent-as-user.md`, decisione del
+     custode del 2026-10-21);
    - restano di dominio, per nome e oggetto, gli script del repo e gli
      strumenti sul Mondo (`rclone`, `gog` e simili);
    - gli atti sul Mondo si concedono per nome e oggetto, mai per famiglia

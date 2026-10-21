@@ -55,6 +55,17 @@ Ordine, dall'evidenza raccolta il 2026-10-21 dai log locali di `deck`:
 5. `bi`: 2141 righe di skill in totale; log dei giri su `svezia`.
 6. Gli altri adottanti.
 
+## Casi decisi nel canone
+
+- Staging intero, 2026-10-21, segnalato da `nixos` (diniego nel giro e
+  cartello in `/manutenzione` e `/commit`): vincolo di basso valore, perché
+  il deny su `git add -A`, `--all`, `.` e `. *` vieta la grafia e non il
+  gesto. Tolto da `.claude/settings.json` e da `o3/ciclo-autonomo.md`
+  punto 7; in `/commit` il cartello lascia il posto al confronto di
+  `git status` prima dello staging. Restano `-f`/`--force` e gli altri deny
+  git. Gli adottanti si allineano con `/method`; `nixos` chiude il punto 1
+  del proprio task.
+
 ## Misura
 
 L'audit `/adottanti` del 2026-11-01 aggiunge per repo due segnali di distanza:

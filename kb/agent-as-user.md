@@ -46,9 +46,8 @@ classifica in uno di due modi:
 
 La classe dipende dal contesto, non dal comando. L'affordance è una relazione
 tra agente e artefatto, e lo stesso deny può essere vincolo in un contesto e
-lacuna in un altro. Uno staging intero del working tree è da negare in una
-sessione dove un'altra sessione può lasciare file propri, ed è il gesto che
-uno strumento del giro richiede quando la concorrenza è già presidiata a monte.
+lacuna in un altro. Un atto sul Mondo negato nel giro, dove nessuno lo vede
+prima che accada, può essere il gesto legittimo di una sessione col custode.
 La classificazione si fa quindi per contesto d'uso: sessione col custode,
 giro autonomo, agente esecutore.
 
@@ -72,6 +71,12 @@ Per skill, prompt, permessi e script:
 - ogni gesto che la skill o il prompt richiedono è concesso nel contesto in
   cui la skill gira?
 - ogni divieto scritto ha dietro un vincolo vero, o copre una lacuna?
+- il deny presidia il gesto o solo una sua grafia? Se una forma equivalente
+  passa, il deny costa dinieghi senza proteggere ed è un cartello travestito
+  da vincolo: si toglie, e il presidio va dove il gesto si decide. Il caso è
+  lo staging intero, negato come `git add -A` e concesso come `git add` di
+  una cartella; il controllo vero è il confronto di `git status` prima dello
+  staging;
 - i dinieghi registrati sono classificati, e ciascuno è chiuso sul vincolo o
   sullo strumento?
 - quanto pesa la skill a ogni run, e quali rami possono vivere in file letti
