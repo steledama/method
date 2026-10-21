@@ -46,6 +46,13 @@ che il suo contratto sia descritto correttamente. Cluster, backlink, dimensioni,
 maturità dichiarata e termini frequenti orientano l'attenzione, senza soglie di
 qualità o obblighi di creare nodi.
 
+Il profilo dichiara anche il guardiano delle skill, `skill_tools.py audit`,
+lanciato dal checkout del canone (`method/../o3/skill_tools.py` in un
+adottante): dimensioni e crescita, rimandi, comandi scritti contro i permessi
+di sessione e giro, divieti scritti con o senza deny, chiamate fra skill,
+divergenza dalle copie canoniche. Sono candidati: la classificazione resta un
+giudizio (`kb/agent-as-user.md`, `kb/skill-composition.md`).
+
 Concludi l'audit con corpus, controlli eseguiti/non eseguiti, anomalie e limiti.
 Non avviare implicitamente la review. I controlli leggeri degli ingressi
 eventualmente richiesti dal profilo restano distinti dalla lettura integrale.
@@ -164,6 +171,16 @@ contenuto ancora utile e i percorsi che vi conducono. Se occorre una nuova
 superficie, proponine la creazione prima della rimozione. Nessuna potatura finché
 la destinazione non esiste ed è fedele. Distingui riferimenti vivi da menzioni
 storiche in i2, i3 o Git: queste ultime non si riscrivono automaticamente.
+
+### Skill
+
+Leggi le skill locali contro `skill.md`, `skill-composition.md` e
+`agent-as-user.md`, partendo dall'uscita del guardiano. Per ciascuna: compie
+un atto con un contratto di esito dichiarato? È base, composta o ramo, e
+rispetta le due regole di composizione? Le sezioni che non sono procedura
+duplicano un nodo o appartengono a `kb/`, a un register o a uno script? I
+rimandi sono condizionali, legati al punto in cui servono? Ogni divieto
+scritto ha un vincolo vero dietro?
 
 ## Esito e intervento
 

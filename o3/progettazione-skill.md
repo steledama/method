@@ -60,8 +60,10 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
    recepimento nel marker; i punti 4-6 possono restare task `o2/` locali
    collegati al plan.
 
-Il guardiano delle skill (`o3/skill_tools.py` di `method`) arriva in un
-commit successivo: quando c'è, il punto 2-4 parte dalla sua uscita.
+Il guardiano delle skill parte dalla root del repo:
+`python3 method/../o3/skill_tools.py audit`, lanciato dal checkout del canone
+senza copiarlo. I punti 2-4 partono dalla sua uscita; il profilo locale di
+`/kb` (`domain.md`) lo dichiara fra i comandi dell'audit.
 
 ## Note per repo, da verificare in loco
 

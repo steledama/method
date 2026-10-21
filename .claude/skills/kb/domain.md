@@ -11,6 +11,8 @@ python3 o3/kb_tools.py audit
 python3 o3/kb_tools.py inventory
 python3 o3/kb_tools.py coverage
 python3 o3/kb_tools.py facets
+python3 o3/skill_tools.py audit
+python3 o3/skill_tools.py classifica
 ```
 
 `kb_profile.py` misura i nodi locali, valida gli stati di maturità e produce
@@ -18,7 +20,9 @@ il manifest per la lettura; non verifica la verità dei contenuti.
 `audit` controlla struttura, catalogo, rete e link nei documenti supportati.
 `inventory` censisce il codice; `coverage` cerca menzioni in README, KB e
 indici di collezione, senza dimostrare sufficienza della documentazione.
-`facets` verifica gli attributi dichiarati. Interpreta i falsi positivi del
+`facets` verifica gli attributi dichiarati. `skill_tools.py` è il guardiano
+quantitativo delle skill, avviato da qui finché la rinomina per atto non gli
+dà la sua skill; `classifica` confronta le skill di `method` e degli adottanti. Interpreta i falsi positivi del
 parser, soprattutto nei template; non confondere presenza di frontmatter con
 validità dei suoi valori.
 

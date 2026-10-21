@@ -17,16 +17,13 @@ revisione per repo vive in
 
 ## Da fare in method
 
-1. **Guardiano quantitativo:** `o3/skill_tools.py` con test, lanciabile da
-   qualunque harness o terminale, provvisoriamente avviato da `/kb audit`;
-   aggiornare il nodo `kb-tools`. Misura dimensioni e crescita nel tempo,
-   quota di rimandi a `kb/` e `o3/`, comandi scritti nelle skill contro i
-   permessi di ogni contesto (`.claude/settings.json` in sessione,
-   `o3/ciclo/permessi.json` nel giro), divieti scritti senza deny, basi che
-   chiamano altre skill, divergenza delle copie dal canone letto via symlink.
-   La parte qualitativa entra in `/kb review`: atomicità, contratto di esito,
-   regole di composizione, rimandi condizionali, sezioni che duplicano un
-   nodo.
+1. **Guardiano:** fatto il 2026-10-21. `o3/skill_tools.py` (`audit`,
+   `classifica`) con test, avviato da `/kb audit` tramite il profilo; la parte
+   qualitativa è la sezione «Skill» di `/kb review`. Prima uscita su `method`:
+   `ruff format` scritto in `/commit` e non concesso nel giro (vincolo voluto:
+   il giro non modifica `o3/`), `git -C` ed `echo rc=$?` in `/cycle` come
+   segnali di vincoli veri. Limite: l'estrazione dei comandi è euristica e
+   non vede i divieti scritti senza le parole del cartello.
 2. **Gate deterministico di `/commit`:** formatter, controlli,
    `build.py --check`, audit KB quando cambia `kb/` e verifica dei trailer in
    uno script di `o3/`, con un profilo locale per i formatter degli
