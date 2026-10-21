@@ -183,6 +183,15 @@ Il lato di lettura è invece già canonico: `o3/view/ciclo.py` è identico in
   metodo, per esempio uno script che genera unità o task? Oppure resta alla
   configurazione dell'host, come il modulo `nixos` e il `.ps1` di
   `danea-auto`?
+- **Cambio d'orario.** Il 2026-10-21 lo switch che spostava `economia`
+  dalle 13:00 alle 14:00 (`nixos` `7c9fd47`) ha riavviato il timer, e il
+  giro è partito subito, alle 16:01, nonostante `Persistent=false`.
+  L'ultimo avvio era delle 13:00 e le 14:00 erano già passate. Il giro si è
+  fermato per sessione aperta. Ogni scheduler ha regole proprie sugli avvii
+  dopo un cambio o un riavvio. Il metodo deve garantire che cambiare
+  l'orario non lanci un giro fuori tempo, per esempio con un controllo
+  dello slot nello script, come fa `danea-auto`? Oppure basta dichiararlo
+  come comportamento noto dell'adattatore?
 - **Controlli locali.** Lo slot di `danea-auto`, `requiresProduction` di
   `bi`, i `fetch` del perceive di `method` e i wrapper `gog` di `economia`
   sono controlli locali. Diventano punti di aggancio del repo? Dove passa la
