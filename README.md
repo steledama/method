@@ -64,7 +64,7 @@ di nodo assunto stabile come punto d'aggancio. Questa è la **sezione README
 canonica** ([readme](kb/readme.md)) — comune agli otto repo: dichiara l'adozione
 e punta ai due poli, che vivono nei register di root — [`goal.md`](goal.md) (il
 nord: obiettivi e puntatori ai segnali) e [`world.md`](world.md) (il
-territorio: i sette adottanti, le superfici della membrana, le fonti) — da cui la
+territorio: i sei adottanti, le superfici della membrana, le fonti) — da cui la
 home ricava i poli Goal e World rendendone l'intro.
 
 ## Orientarsi
@@ -116,7 +116,7 @@ ciclo:
 - **[goal.md](goal.md)** — il polo superiore: il nord declinato in obiettivi,
   ognuno coi puntatori ai segnali che lo misurano; custode
   umano ([goal](kb/goal.md))
-- **[world.md](world.md)** — il polo inferiore: il territorio (i sette adottanti),
+- **[world.md](world.md)** — il polo inferiore: il territorio (i sei adottanti),
   le superfici della membrana e la provenienza delle fonti-mondo autorevoli,
   base dei `## Riferimenti` (i3) ([world](kb/world.md))
 

@@ -12,10 +12,11 @@ letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
 `deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`. `baserow`, settimo
 adottante, è entrato il 2026-10-05 fuori giro: le letture qui sotto che
 contano «i sei» lo precedono, e la sua baseline fondativa è nella fotografia
-delle code. Il 2026-10-19 il custode ha tolto `crm` dal ciclo autonomo:
-va verso la dismissione, e al suo posto è atteso un nuovo adottante,
-`abbinamenti`. Il prossimo audit legge `crm` finché esiste e dà la baseline
-fondativa di `abbinamenti` quando entra.
+delle code. Il 2026-10-19 il custode ha tolto `crm` dal ciclo autonomo e il
+2026-10-22 l'ha dismesso come adottante: dal prossimo audit gli adottanti
+sono sei, e le letture qui sotto che nominano `crm` precedono la
+dismissione. Al suo posto è atteso `abbinamenti`, di cui il prossimo audit
+dà la baseline fondativa quando entra.
 
 ## Verdetto
 
@@ -222,9 +223,6 @@ righe nel corpo, senza riscrivere la storia.
 - ripetibilità: il quarto audit è arrivato in tempo, ma lo ha ricordato
   l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
   cella runtime-o1 resta D finché il ciclo autonomo non parte da un innesco;
-- `crm`: 41 giorni di plan fermo con 9 task dev. Al prossimo giro: riprende
-  il dominio, o la struttura adottata è scaffolding intorno a un lavoro che
-  vive altrove? La domanda è per `crm`, non per il canone;
 - `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
   al segnale i1 sul registro perpetuo;
 - la clausola di uscita delle skill per arco: l'audit del 2026-11-01

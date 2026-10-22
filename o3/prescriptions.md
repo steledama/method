@@ -37,7 +37,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   Herdr, non la messaggistica interna dell'harness; il protocollo vive nel
   nodo `session-messaging` e `CLAUDE.md` tiene solo rimando e clausola
   locale sulla delega. Prescritta ai sette il 2026-10-20;
-  recepita da `nixos`, `bi` e `baserow`, `crm` in sospeso.
+  recepita da `nixos`, `bi` e `baserow`; `crm` dismesso il 2026-10-22 senza
+  recepirla.
 - [Skill e permessi progettati per l'agente
   utilizzatore](progettazione-skill.md) — diniego come percezione, niente
   cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,

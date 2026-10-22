@@ -33,7 +33,7 @@ girano nel giro.
 ## Adottanti
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
-di `deck`. Per i repo di `svezia` (`bi`, `crm`, `baserow`, `danea-auto`) il
+di `deck`. Per i repo di `svezia` (`bi`, `baserow`, `danea-auto`) il
 checkout locale può essere indietro. Il fetch lo fa l'unità prima del giro,
 fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 `o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei

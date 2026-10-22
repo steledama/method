@@ -29,7 +29,7 @@ esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 
 ## Scadenze
 
-- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sette adottanti
+- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
   → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e

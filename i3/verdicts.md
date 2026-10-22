@@ -26,7 +26,8 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
   recepite dai sette e chiuse, `presidio-ipotesi` recepita da sei. L'audit del 2026-11-01 conta i trailer `Esiti:` e decide
   se la verifica delle prescrizioni nei file si alleggerisce; è anche la
-  prima verifica nell'uso di `baserow`, entrato il 2026-10-05.
+  prima verifica nell'uso di `baserow`, entrato il 2026-10-05, e il primo
+  sui sei adottanti dopo la dismissione di `crm` del 2026-10-22.
 - [ciclo-autonomo.md](ciclo-autonomo.md) — direzione costitutiva dal
   2026-10-11: con quali garanzie ogni repo arriva al giro `eval` → `exec` →
   commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e
