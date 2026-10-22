@@ -31,9 +31,10 @@ una proprietà dell'insieme. Quello di `metodo` è `#4338ca`.
   e contratto con `bi` — checkout `~/baserow` su `svezia` (produzione),
   standby su `norvegia`; accento `#0369a1`
 
-`crm` è stato dismesso come adottante il 2026-10-22 (decisione del custode):
-CRM e clienti passano ad Alessio, l'abbinatore a un nuovo adottante atteso,
-`abbinamenti`. La sua storia resta nel repository e in quella di `metodo`.
+`crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
+test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e
+viste compresi. Il repository GitHub resta; l'abbinatore passa a un nuovo
+adottante atteso, `abbinamenti`.
 
 ## Superfici della membrana
 
