@@ -393,7 +393,12 @@ arriva agli adottanti via symlink.
     entro il tetto; il custode rinnova a mano, e `claude setup-token` resta
     da riprendere. Da verificare se la stessa scadenza tocca gli adottanti
     di `nixos` col login claude.ai. Alle 08:10 nessuna sessione Claude
-    aperta su `danea2`, altrimenti arresto 15.
+    aperta su `danea2`, altrimenti arresto 15. Il primo giro schedulato,
+    il 22/10, è riuscito con commit e push su `origin` (`1a6b33f`, 08:11,
+    trailer `ciclo-autonomo`, gradino 1, timer delle 08:10). Il commit
+    concordato `8af2b9e` dello stesso giorno dice nell'oggetto che il login
+    è stato rinnovato il 21/10 e che la scadenza la legge solo il
+    lanciatore. Il giro di `method` non ha letto la nuova data di scadenza.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

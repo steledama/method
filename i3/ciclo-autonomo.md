@@ -40,12 +40,13 @@ Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
 misurabile: manca il campione riletto contro le fonti. Il criterio
 `ciclo-autonomo` è ratificato in `salute`, `economia`, `nixos`,
 `method`, `bi` e `baserow`; `crm` ne è uscito il 2026-10-19 per decisione del
-custode, verso la dismissione (`nixos` `1be1e2d`); il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
+custode (`nixos` `1be1e2d`) ed è dismesso come adottante dal 2026-10-22,
+rimosso da tutti gli host (`a0deb15`, `458eb4b`); il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
 2026-10-16, in `nixos` e `method` dal 2026-10-17 (`nixos` `7fad7d2`),
 in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), in `baserow` su
 `svezia` dal 2026-10-17 (`nixos` `e3f463a`), in `danea-auto` su Windows,
-fuori `nixos`, deciso dal custode il 2026-10-21 col primo giro schedulato il
-22 (`danea-auto` `de11b1a`, `85b27f5`)
+fuori `nixos`, deciso dal custode il 2026-10-21, col primo giro schedulato
+riuscito il 22 (`danea-auto` `de11b1a`, `85b27f5`, `1a6b33f`)
 (`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
 schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
 `deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
@@ -72,7 +73,7 @@ quattro file non suoi e si è fermato prima del commit, come prescrive la
 skill; i dinieghi erano un `for` composto e `git rm -q`, fuori pattern,
 entrambi aggirati. Il tree è tornato pulito con `deba9f5` e `c2e70a4`,
 commit delle due sessioni Codex che contengono anche il lavoro del giro. La
-correzione di `ciclo-sessioni` sui rollout Codex è in `nixos` `101e32b`, attiva su `deck` dallo switch del 2026-10-20: un rollout con la cwd nel checkout scritto nell'ultima ora ferma il giro col codice 15. Il 2026-10-21 (`tentativi.jsonl`, misurati) `nixos` e `salute` sono riusciti con commit e push (1,44 e 1,20 USD, due e cinque dinieghi). `economia` alle 13:00 si è fermato per sessione aperta, col custode al lavoro (`ee5daa3`, 13:11). La riga dell'arresto però sta nella cartella dell'unità, non in `i1/giri` dichiarato dal repo. La vista la rende come partenza mancata: rossa lo stesso, ma col motivo sbagliato (`i1/arresto-economia-fuori-giri-2026-10-21.md`, proposta in `o2/home-fatto-da-fare.md`). I sei dinieghi del giro di `method` del 20 alle 15:00 erano letture dirette degli altri checkout, quindi una lacuna. La chiude `o3/adottanti.py` (`911b120`): il giro del 21 legge gli adottanti con quello, e il suo unico diniego è un `python3 -c`, vincolo voluto, sostituito con Read. Il giro di `nixos` del 18 è il più lungo finora
+correzione di `ciclo-sessioni` sui rollout Codex è in `nixos` `101e32b`, attiva su `deck` dallo switch del 2026-10-20: un rollout con la cwd nel checkout scritto nell'ultima ora ferma il giro col codice 15. Il 2026-10-21 (`tentativi.jsonl`, misurati) `nixos` e `salute` sono riusciti con commit e push (1,44 e 1,20 USD, due e cinque dinieghi). `economia` alle 13:00 si è fermato per sessione aperta, col custode al lavoro (`ee5daa3`, 13:11). La riga dell'arresto però sta nella cartella dell'unità, non in `i1/giri` dichiarato dal repo. La vista la rende come partenza mancata: rossa lo stesso, ma col motivo sbagliato (`i1/arresto-economia-fuori-giri-2026-10-21.md`, proposta in `o2/home-fatto-da-fare.md`). I sei dinieghi del giro di `method` del 20 alle 15:00 erano letture dirette degli altri checkout, quindi una lacuna. La chiude `o3/adottanti.py` (`911b120`): il giro del 21 legge gli adottanti con quello, e il suo unico diniego è un `python3 -c`, vincolo voluto, sostituito con Read. Il 2026-10-22 tutti e sei gli adottanti col timer hanno un giro schedulato riuscito con commit e push: su `deck` `nixos`, `salute` ed `economia` (`tentativi.jsonl`, misurati: 1,46, 1,08 e 1,31 USD, con due, zero e un diniego), su `svezia` `baserow` e `bi` e su Windows `danea-auto` (commit coi trailer `ciclo-autonomo` su `origin`; i loro `tentativi.jsonl` non sono leggibili da `deck`). Il giro di `nixos` del 18 è il più lungo finora
 (`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
 manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
 switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
