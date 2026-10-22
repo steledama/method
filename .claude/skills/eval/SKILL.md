@@ -85,10 +85,15 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    `metodo` non la acquisisce; in `metodo` i casi arrivano come segnali i1
    e si acquisiscono anche dall'audit `/adottanti`. Nessun caso va prodotto
    solo per completare il giro.
-4. Dove il repo ha un ciclo autonomo, leggi l'ultima chiusura in
-   `i1/giri/tentativi.jsonl` (esito, costo, durata, `dinieghi`) e apri la
-   trascrizione solo per il dettaglio. Ogni diniego si classifica, per il
-   contesto del giro, come vincolo voluto o lacuna (`kb/agent-as-user.md`):
+4. Dove il repo ha un ciclo autonomo, leggi l'ultima chiusura con `giro`
+   non nullo in `i1/giri/tentativi.jsonl` (esito, costo, durata,
+   `dinieghi`): un arresto chiude senza trascrizione né dinieghi e non copre
+   il giro che lo precede. Apri la trascrizione solo per il dettaglio. Ogni
+   diniego si classifica, per il contesto del giro, come vincolo voluto o
+   lacuna (`kb/agent-as-user.md`), dopo averne accertato la causa: il comando
+   negato si confronta col tentativo riuscito che lo segue nella
+   trascrizione, e la differenza fra i due è la causa; senza un tentativo
+   riuscito la causa resta un'ipotesi dichiarata. In ogni caso:
    il vincolo voluto è un fatto del giro, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.

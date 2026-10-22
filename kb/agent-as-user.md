@@ -60,6 +60,18 @@ prima che accada, può essere il gesto legittimo di una sessione col custode.
 La classificazione si fa quindi per contesto d'uso: sessione col custode,
 giro autonomo, agente esecutore.
 
+La classe poggia su una causa accertata, non intuita. Il deny scatta su una
+grafia, e la grafia che l'agente crede di aver usato non è sempre quella che
+ha fermato il comando: il riscontro è il tentativo riuscito che segue, e la
+differenza fra il comando negato e quello passato isola la causa. Il caso è
+il giro di nixos del 2026-10-22: un diniego registrato come «`cd` composto,
+errore dell'agente» su un comando senza `cd`, nello stesso giro in cui un
+`cd … &&` era passato; il rilancio riuscito scioglieva nei path la brace
+expansion `{eval,exec,…}` e lasciava il `cat` finale, che è negli allow, e la
+causa probabile è la brace. Una classe data su una causa
+intuita scrive nel task una diagnosi falsa, che il giro dopo legge come
+fatto.
+
 ## Il cartello
 
 Una lacuna non si chiude mai con un cartello nella skill che chiede all'agente
