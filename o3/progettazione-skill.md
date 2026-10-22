@@ -14,7 +14,8 @@ l'agente è un utilizzatore a pieno titolo dello strumento e che le skill si
 progettano con lo stesso rigore della KB. Il canone ora lo dice in tre nodi:
 
 - [agent-as-user](../kb/agent-as-user.md): le specificità dell'agente, il
-  diniego come percezione da classificare (vincolo voluto o lacuna), il
+  diniego come percezione da classificare (vincolo voluto, lacuna o attrito
+  dell'harness), il
   divieto del cartello, il deny che presidia il gesto e non una sua grafia;
 - [skill](../kb/skill.md): atomicità per atto e contratto, la skill come
   indice condizionale della KB, prima estrarre e poi dividere, indipendenza
@@ -56,7 +57,8 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
      frase corrispondente di `ciclo-delegato` va riportata nell'`autonomy.md`
      locale.
 2. **Dinieghi:** classificare quelli registrati in `i1/giri/tentativi.jsonl`,
-   per contesto (sessione, giro), come vincolo voluto o lacuna; chiudere ogni
+   per contesto (sessione, giro), come vincolo voluto, lacuna o attrito
+   dell'harness; chiudere ogni
    lacuna su permesso o strumento, mai con un'istruzione nella skill.
 3. **Cartelli:** censire in skill, prompt e `CLAUDE.md` i divieti scritti
    («non usare», «non è concesso», «è negato»): per ognuno, il deny che lo

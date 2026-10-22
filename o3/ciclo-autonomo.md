@@ -146,7 +146,7 @@ SHA`; su Windows dal path del clone, cfr. `progettazione-skill.md`),
    costo, durata) e apre la trascrizione solo
    per il dettaglio; una frizione che deve durare diventa una cattura `.md`
    versionata in `i1/`. Ogni diniego si classifica, per il contesto del giro,
-   come vincolo voluto o lacuna (`kb/agent-as-user.md`). Una lacuna diventa
+   come vincolo voluto, lacuna o attrito dell'harness (`kb/agent-as-user.md`). Una lacuna diventa
    una proposta nel task `o2/` pertinente e si chiude in sessione col custode
    su `permessi.json` o con uno script consentito, mai con un'istruzione nel
    prompt o nella skill che chiede al giro di aggirarla.

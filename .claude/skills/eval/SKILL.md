@@ -89,12 +89,13 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    non nullo in `i1/giri/tentativi.jsonl` (esito, costo, durata,
    `dinieghi`): un arresto chiude senza trascrizione né dinieghi e non copre
    il giro che lo precede. Apri la trascrizione solo per il dettaglio. Ogni
-   diniego si classifica, per il contesto del giro, come vincolo voluto o
-   lacuna (`kb/agent-as-user.md`), dopo averne accertato la causa: il comando
+   diniego si classifica, per il contesto del giro, come vincolo voluto,
+   lacuna o attrito dell'harness (`kb/agent-as-user.md`), dopo averne accertato la causa: il comando
    negato si confronta col tentativo riuscito che lo segue nella
    trascrizione, e la differenza fra i due è la causa; senza un tentativo
    riuscito la causa resta un'ipotesi dichiarata. In ogni caso:
-   il vincolo voluto è un fatto del giro, la lacuna diventa una proposta nel
+   il vincolo voluto è un fatto del giro, l'attrito si registra col suo
+   costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.
 5. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.

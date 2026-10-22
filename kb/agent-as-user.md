@@ -44,14 +44,23 @@ prudente (`session-messaging`).
 Un diniego dei permessi è il feedback che l'agente riceve dallo strumento, nel
 senso di Norman: dice che l'azione tentata non è ammessa. Per l'artefatto è
 una percezione del ciclo, non un incidente da assorbire. Ogni diniego si
-classifica in uno di due modi:
+classifica in uno di tre modi:
 
 - vincolo voluto: il guardrail ha funzionato, l'azione era davvero da
   impedire. Il vincolo resta; al più si migliora il feedback, con un messaggio
   più chiaro o un segnale nel punto d'uso che fa risparmiare il turno;
 - lacuna: il gesto era legittimo e lo strumento non l'ha previsto. Si allarga
   il permesso o si dà uno strumento dedicato, consentito, che compie il gesto
-  in modo sicuro.
+  in modo sicuro;
+- attrito dell'harness: il gesto era legittimo, ma il deny viene dalla
+  grammatica dei permessi dell'harness, non da una regola del repository, e
+  nessun allow lo apre. Il caso è la brace expansion, che Claude Code in
+  modalità `dontAsk` nega anche quando il comando è negli allow. Non è un
+  vincolo voluto, perché non protegge niente, né una lacuna chiudibile sul
+  permesso. Si registra col suo costo in turni: se il rilancio riesce al
+  primo tentativo il feedback del diniego basta; se ricorre, un segnale nel
+  punto d'uso è legittimo, perché dietro c'è un vincolo vero, oppure lo
+  strumento dedicato rende superflua la grafia che l'harness ferma.
 
 La classe dipende dal contesto, non dal comando. L'affordance è una relazione
 tra agente e artefatto, e lo stesso deny può essere vincolo in un contesto e
@@ -67,8 +76,11 @@ differenza fra il comando negato e quello passato isola la causa. Il caso è
 il giro di nixos del 2026-10-22: un diniego registrato come «`cd` composto,
 errore dell'agente» su un comando senza `cd`, nello stesso giro in cui un
 `cd … &&` era passato; il rilancio riuscito scioglieva nei path la brace
-expansion `{eval,exec,…}` e lasciava il `cat` finale, che è negli allow, e la
-causa probabile è la brace. Una classe data su una causa
+expansion `{eval,exec,…}` e toglieva il `cat` finale, che è negli allow. La
+prova isolata coi soli allow `wc *` e `cat *` (Claude Code 2.1.303,
+`dontAsk`) ha negato i due comandi con le graffe e lasciato passare gli
+altri, con o senza `&& cat`: la causa è la brace, un attrito dell'harness.
+Una classe data su una causa
 intuita scrive nel task una diagnosi falsa, che il giro dopo legge come
 fatto.
 

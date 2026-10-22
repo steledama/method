@@ -49,7 +49,8 @@ impossibile o rumoroso.
 Per l'agente il deny dei permessi è un vincolo fisico, e un divieto scritto
 nella skill è un vincolo culturale: regge solo se viene letto e seguito a ogni
 run, da un lettore che non ricorda il giro precedente. Un deny che scatta è
-quindi una percezione da classificare, vincolo voluto o lacuna, e una lacuna
+quindi una percezione da classificare, vincolo voluto, lacuna o attrito
+dell'harness, e una lacuna
 si chiude sul permesso o sullo strumento, non con un'istruzione in più
 (`agent-as-user`).
 

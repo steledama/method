@@ -28,7 +28,8 @@ lavoro non legge.
 
 Fra il grezzo dei giri ci sono i dinieghi dei permessi. Sono il feedback dello
 strumento all'agente e quindi percezioni come le altre: il perceive li legge e
-ciascuno si classifica come vincolo voluto o lacuna, senza assorbirli come
+ciascuno si classifica come vincolo voluto, lacuna o attrito dell'harness,
+senza assorbirli come
 incidenti del giro (`agent-as-user`).
 
 Connessioni:
