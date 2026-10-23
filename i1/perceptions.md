@@ -10,6 +10,13 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Le verifiche differite di `bi`, ipotesi in attesa nate in
+  sessione](verifiche-differite-bi-2026-10-23.md) — da `bi` `b8ef7257`,
+  inoltro del custode: un'agenda `i2/verifiche-differite.md` passa al giro
+  autonomo le verifiche che la sessione non può chiudere. Prova in corso al
+  giro del 24/10 senza aggancio nel prompt; quattro domande per il metodo
+  (nome in `interpret`, file unico o sintesi, resoconto di `/cycle`,
+  rapporto con `## Scadenze`).
 - [Giri autonomi: ipotesi implicite e prossimo task non
   registrato](giri-ipotesi-implicite-e-prossimo-task-2026-10-20.md) — dal
   custode, sui giri dei sette: in `bi` una tesi causale nasce e cade in due
