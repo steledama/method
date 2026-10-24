@@ -83,6 +83,9 @@ a richiesta»). Contiene:
 - decisioni prese entro la delega, con motivo e fonte;
 - atti sul Mondo compiuti;
 - proposte lasciate al custode e dove vivono;
+- dinieghi del giro, ciascuno come vincolo voluto, lacuna o attrito
+  dell'harness (`kb/agent-as-user.md`) con la causa accertata o l'ipotesi;
+  un gesto abbandonato si dichiara come tale;
 - incertezze, verifiche non eseguite, errori scoperti con la correzione.
 
 L'**ultima riga** è `Attenzione: nessuna` oppure `Attenzione: <voci>`, con

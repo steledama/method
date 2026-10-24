@@ -84,6 +84,21 @@ Una classe data su una causa
 intuita scrive nel task una diagnosi falsa, che il giro dopo legge come
 fatto.
 
+Un gesto abbandonato non ha un tentativo riuscito da cui leggere la causa:
+l'agente prende il diniego e rinuncia. Se il gesto era legittimo, la perdita
+non è il turno ma la percezione che il gesto avrebbe dato, e il diniego vale
+come lacuna probabile, con la causa come ipotesi dichiarata, finché una
+prova isolata non la accerta: nel giro seguente, che ne lancia i pezzi uno
+per volta, o in sessione col custode. Il caso è il giro di nixos del
+2026-10-24: `home-manager generations | head -2; cd … && jq …` negato e mai
+riprovato, mentre la home di `deck` era indietro di un commit e nessun altro
+strumento del giro poteva vederlo.
+
+Anche il resoconto del giro classifica con queste tre classi, con la causa
+accertata o l'ipotesi. Un'etichetta fuori classe, come «errori miei», arriva
+al giro seguente già scritta e prende il posto della diagnosi: la
+percezione la rilegge come ipotesi e riclassifica sulla trascrizione.
+
 ## Il cartello
 
 Una lacuna non si chiude mai con un cartello nella skill che chiede all'agente

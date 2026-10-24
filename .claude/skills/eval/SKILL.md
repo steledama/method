@@ -93,7 +93,11 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    lacuna o attrito dell'harness (`kb/agent-as-user.md`), dopo averne accertato la causa: il comando
    negato si confronta col tentativo riuscito che lo segue nella
    trascrizione, e la differenza fra i due è la causa; senza un tentativo
-   riuscito la causa resta un'ipotesi dichiarata. In ogni caso:
+   riuscito la causa resta un'ipotesi dichiarata. Un gesto legittimo
+   abbandonato dopo il diniego vale come lacuna probabile finché una prova
+   isolata, coi pezzi del comando lanciati uno per volta, non ne accerta la
+   causa. La classe scritta nel resoconto del giro è un'ipotesi da
+   rileggere sulla trascrizione, non un fatto. In ogni caso:
    il vincolo voluto è un fatto del giro, l'attrito si registra col suo
    costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
