@@ -37,10 +37,16 @@ fonti: chi vuole il dettaglio apre le pagine.
 
 Negli adottanti il deck può essere generato dai dati del repo da un builder di
 dominio (`DECK_BUILDER` in `o3/view/project.py`), invece che scritto in
-Markdown (`DECK`). In quel caso conserva la funzione che ha nel dominio: se
-porta anche una lettura del Mondo, quella lettura non scompare cambiando
-cartella, e il confine fra racconto dell'artefatto e interpretazione si decide
-nel repo.
+Markdown (`DECK`). Il vincolo va dalle fonti al deck, mai dal deck alle fonti:
+il builder legge una fonte curata in `presentation/`, i registri di `i1/` per
+le serie e il plan per le scadenze, e non dà forma a una collezione-stadio. Un
+builder che legge `i2/` con un contratto di sezioni o di marcature è il segno
+dell'inversione: la collezione si scrive per il deck, le letture diventano uno
+stampo e i dati si fermano, perché ciò che il deck mostra non si rilegge più
+come lettura. Se il deck porta anche una lettura del Mondo, quella resta in
+`i2/` con provenienza e ipotesi, e la fonte curata vi rimanda. Dove passa il
+confine fra racconto e interpretazione lo decide il repo; la direzione del
+vincolo no.
 
 ## Forma
 
