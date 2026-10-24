@@ -399,6 +399,8 @@ arriva agli adottanti via symlink.
     concordato `8af2b9e` dello stesso giorno dice nell'oggetto che il login
     è stato rinnovato il 21/10 e che la scadenza la legge solo il
     lanciatore. Il giro di `method` non ha letto la nuova data di scadenza.
+    I giri schedulati del 23 e del 24 sono riusciti con commit e push
+    (`e9b89c4`, `c628acb`), quindi il 24 il login era valido.
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
 atti fuori delega, senza arresti invisibili e con un campione di giri riletto

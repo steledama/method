@@ -63,6 +63,14 @@ un'ipotesi già scritta con data e criterio, non che un giro ne riconosca una
 non dichiarata. Qui l'ipotesi è dichiarata, ma in un contenitore nuovo che
 nessuna istruzione nomina.
 
+Il giro di `method` del 2026-10-24 trova su `origin`, dopo il fetch riuscito
+delle 15:00, il giro di `bi` del 24 (`1b408c74`, 07:47) con
+`interpret=materia` e l'oggetto «push catalogo delle 06:30 assente». Il diff
+di `i2/verifiche-differite.md` è fuori dall'interfaccia di
+`o3/adottanti.py`, e il corpo del commit non vi si legge. L'esito della prova
+resta da leggere nell'inoltro della sessione `bi` o in un audit
+`/adottanti`.
+
 ## Le domande dell'adottante
 
 Non sono richieste di modifica immediata.
