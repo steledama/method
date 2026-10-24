@@ -63,9 +63,16 @@ class Skill:
     nome: str
     path: Path
     righe: list[str]
-    accanto: int = 0
-    comandi: list[tuple[int, str]] = field(default_factory=list)
+    rami: list[tuple[str, list[str]]] = field(default_factory=list)
     compone: list[str] | None = None
+
+    @property
+    def accanto(self) -> int:
+        return sum(len(righe) for _, righe in self.rami)
+
+    def testi(self) -> list[tuple[str, list[str]]]:
+        """SKILL.md col nome della skill, poi i file accanto come `skill/file`."""
+        return [(self.nome, self.righe), *self.rami]
 
 
 def composizione(righe: list[str]) -> list[str] | None:
@@ -87,13 +94,17 @@ def leggi_skill(root: Path) -> list[Skill]:
     trovate = []
     for path in sorted((root / SKILLS).glob("*/SKILL.md")):
         righe = path.read_text(encoding="utf-8").splitlines()
-        accanto = sum(
-            len(altro.read_text(encoding="utf-8", errors="replace").splitlines())
-            for altro in path.parent.rglob("*")
+        # I rami portano procedura come SKILL.md: comandi, divieti e trailer si
+        # controllano anche lì, o estrarre un ramo nasconderebbe i suoi gesti.
+        rami = [
+            (
+                f"{path.parent.name}/{altro.relative_to(path.parent).as_posix()}",
+                altro.read_text(encoding="utf-8", errors="replace").splitlines(),
+            )
+            for altro in sorted(path.parent.rglob("*"))
             if altro.is_file() and altro != path and altro.suffix in {".md", ".txt"}
-        )
-        skill = Skill(path.parent.name, path, righe, accanto)
-        skill.comandi = comandi(righe)
+        ]
+        skill = Skill(path.parent.name, path, righe, rami)
         skill.compone = composizione(righe)
         trovate.append(skill)
     return trovate
@@ -182,15 +193,18 @@ def tipo(comando: str, riga: str) -> str:
     return "comando"
 
 
-def chiamate(skill: Skill, nomi: set[str]) -> list[tuple[int, str]]:
+def chiamate(skill: Skill, nomi: set[str]) -> list[tuple[str, str]]:
+    """(dove, skill chiamata): `riga N` in SKILL.md, `skill/file:N` in un ramo."""
     trovate = []
-    for numero, riga in enumerate(skill.righe, 1):
-        if not VERBO_CHIAMATA.search(riga):
-            continue
-        for nome in nomi - {skill.nome}:
-            match = re.search(rf"`/{re.escape(nome)}\b", riga)
-            if match and not ANNUNCIO_PRIMA.search(riga[: match.start()]):
-                trovate.append((numero, nome))
+    for etichetta, righe in skill.testi():
+        for numero, riga in enumerate(righe, 1):
+            if not VERBO_CHIAMATA.search(riga):
+                continue
+            dove = f"riga {numero}" if etichetta == skill.nome else f"{etichetta}:{numero}"
+            for nome in nomi - {skill.nome}:
+                match = re.search(rf"`/{re.escape(nome)}\b", riga)
+                if match and not ANNUNCIO_PRIMA.search(riga[: match.start()]):
+                    trovate.append((dove, nome))
     return trovate
 
 
@@ -298,21 +312,22 @@ def audit(root: Path) -> str:
     out.append("")
     sezioni: dict[str, list[str]] = {"comando": [], "modello": [], "annuncio": []}
     for s in skills:
-        for numero, comando in s.comandi:
-            nel_giro = s.nome in giro
-            vietato_s = negato(comando, deny_s)
-            fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
-            classe = tipo(comando, s.righe[numero - 1])
-            voce = f"- {s.nome}:{numero} `{comando}`"
-            if classe == "annuncio":
-                if vietato_s or fuori_giro:
+        nel_giro = s.nome in giro
+        for etichetta, righe in s.testi():
+            for numero, comando in comandi(righe):
+                vietato_s = negato(comando, deny_s)
+                fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
+                classe = tipo(comando, righe[numero - 1])
+                voce = f"- {etichetta}:{numero} `{comando}`"
+                if classe == "annuncio":
+                    if vietato_s or fuori_giro:
+                        continue
+                    stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
+                    sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
                     continue
-                stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
-                sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
-                continue
-            note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
-            if note:
-                sezioni[classe].append(f"{voce} — {', '.join(note)}")
+                note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
+                if note:
+                    sezioni[classe].append(f"{voce} — {', '.join(note)}")
     out += sezioni["comando"] or ["- nessun comando scritto fuori dai permessi del suo contesto"]
     out += ["", "### Modelli", ""]
     out.append("Comandi con segnaposti o variabili: spesso testo descrittivo, a volte eseguiti.")
@@ -326,14 +341,14 @@ def audit(root: Path) -> str:
 
     out += ["### Divieti scritti", ""]
     trovati = 0
-    for s in skills:
-        for numero, riga in enumerate(s.righe, 1):
+    deny = deny_s + deny_g
+    for etichetta, righe in (t for s in skills for t in s.testi()):
+        for numero, riga in enumerate(righe, 1):
             if not CARTELLO.search(riga):
                 continue
             spans = SPAN.findall(riga)
             if not spans:
                 continue
-            deny = deny_s + deny_g
             retto = any(
                 negato(t, deny) if eseguibile(t.split()[0]) else any(t in d for d in deny)
                 for t in spans
@@ -345,7 +360,7 @@ def audit(root: Path) -> str:
                 else "deny non trovato nella stessa grafia: vincolo altrove o lacuna"
             )
             trovati += 1
-            out.append(f"- {s.nome}:{numero} — {stato}: {riga.strip()[:140]}")
+            out.append(f"- {etichetta}:{numero} — {stato}: {riga.strip()[:140]}")
     if not trovati:
         out.append("- nessuno")
     out.append("")
@@ -355,7 +370,7 @@ def audit(root: Path) -> str:
     if prossimo is None:
         out.append(f"- `{GATE}` non trovato nel canone: esempi non controllati")
     else:
-        fonti = [(s.nome, s.righe) for s in skills]
+        fonti = [t for s in skills for t in s.testi()]
         if (root / PROMPT_GIRO).exists():
             testo = (root / PROMPT_GIRO).read_text(encoding="utf-8")
             fonti.append((PROMPT_GIRO.as_posix(), testo.splitlines()))
@@ -382,7 +397,7 @@ def audit(root: Path) -> str:
             motivo = "base che chiama altre skill"
         if lista:
             trovati += 1
-            dove = ", ".join(f"{nome} (riga {numero})" for numero, nome in lista)
+            dove = ", ".join(f"{nome} ({luogo})" for luogo, nome in lista)
             out.append(f"- {s.nome}: {motivo} → {dove}")
     if not any(s.compone is not None for s in skills) and not trovati:
         out.append("- nessuna composta dichiarata, nessuna chiamata fra skill")

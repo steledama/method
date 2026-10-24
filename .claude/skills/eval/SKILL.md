@@ -21,8 +21,8 @@ un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
 Esiti: perceive=vuoto interpret=materia compare=materia
 ```
 
-Un giro senza file cambiati si chiude con `git commit --allow-empty` e lo
-stesso trailer: il giro tutto vuoto è proprio quello che la misura deve
+Un giro senza file cambiati, quando il commit è chiesto, lo chiude `/commit`
+con `--allow-empty` e lo stesso trailer: il giro tutto vuoto è proprio quello che la misura deve
 contare. Il conteggio è
 `git log --format='%(trailers:key=Esiti,valueonly)'`.
 

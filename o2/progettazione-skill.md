@@ -43,9 +43,38 @@ revisione per repo vive in
    `goal`, `security-review` e una voce `exec` da verificare contro la
    skill omonima.
 
+5. **Stadi di una base in file accanto:** proposta di `nixos` del
+   2026-10-24, nel confronto autorizzato dal custode (`o2/design-agent-as-user.md`
+   e `i1/agent-task-orientation-20261024.md` di `nixos`). Il caso è rivedere
+   un task già scelto: `exec` va letta per intero, ma serve solo `specify`.
+   La forma è un ingresso comune breve, con gate, esiti e trailer, e
+   `plan`, `specify` e `perform` in file accanto, letti solo se lo stadio è
+   dovuto. Le regole restano in una sola copia e non nasce nessuna skill
+   nuova. Il prototipo è nel solo fork, non ancora collaudato su sessioni
+   nuove. Riscontro dato a `nixos`:
+   - si estrae prima di dividere (`kb/skill.md`, punti 4-6 di
+     `o3/progettazione-skill.md`): `plan` pesa circa 120 righe e il passo 3b
+     è soprattutto conoscenza;
+   - la revisione di un task singolo è `specify` con l'oggetto come
+     argomento, `exec specify <task>`. Il canone legge `specify` come una
+     rassegna di tutti i file `o2/`, e un instradamento per intento scritto in
+     prosa non dà lo stesso risultato con ogni agente;
+   - la divisione si prova con la stessa partizione che si proporrebbe al
+     canone. Se la prova regge sulle tre richieste («rivediamo questo task»,
+     «qual è il prossimo task?», `/exec all`), il canone la recepisce, anche
+     per `eval`. Altrimenti ogni recezione con `/method` diventa un'unione a
+     mano.
+     Questione per il canone: `skill-composition` definisce il ramo solo per
+     la composta; servirebbe anche un ramo di stadio dentro una base.
+     Limite segnalato da `nixos`: il guardiano contava le righe dei file
+     accanto ma ne ignorava comandi, divieti, chiamate e trailer. Chiuso il
+     2026-10-24: `skill_tools.py` legge anche i rami e li etichetta
+     `skill/file:riga`, con un test che lo copre. La forma resta da
+     consolidare dopo la prova del fork.
+
 ## Criterio di chiusura
 
-Punti 1-4 chiusi o ricondotti a task propri. Riga del plan, voce in
+Punti 1-5 chiusi o ricondotti a task propri. Riga del plan, voce in
 `o2/tasks.md` e questo file si rimuovono nello stesso commit.
 
 Connessioni:

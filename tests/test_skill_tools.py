@@ -141,6 +141,40 @@ class AuditTests(unittest.TestCase):
         self.assertNotIn("exec:3", report)
         self.assertNotIn("exec:4", report)
 
+    def test_branches_beside_skill_are_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            scrivi(
+                root,
+                ".claude/settings.json",
+                json.dumps({"permissions": {"deny": ["Bash(git reset*)"]}}),
+            )
+            scrivi(
+                root,
+                "o3/ciclo/permessi.json",
+                json.dumps({"permissions": {"allow": ["Bash(git status*)"], "deny": []}}),
+            )
+            scrivi(
+                root,
+                ".claude/skills/cycle/SKILL.md",
+                "---\nmetadata:\n  compone: exec\n---\nEsegui `/exec all`.\n",
+            )
+            scrivi(root, ".claude/skills/exec/SKILL.md", "Leggi `plan.md` se dovuto.\n")
+            scrivi(
+                root,
+                ".claude/skills/exec/plan.md",
+                "Lancia `jq . x.json`.\n"
+                "Non usare `git add -A`.\n"
+                "Poi esegui `/commit`.\n"
+                "```\nProssimo: <task>\n```\n",
+            )
+            scrivi(root, ".claude/skills/commit/SKILL.md", "Committa.\n")
+            report = MODULE.audit(root)
+        self.assertIn("- exec: 1 righe; 6 nei file accanto", report)
+        self.assertIn("exec/plan.md:1 `jq . x.json` — non concesso nel giro", report)
+        self.assertIn("exec/plan.md:2 — deny non trovato nella stessa grafia", report)
+        self.assertIn("exec: base che chiama altre skill → commit (exec/plan.md:3)", report)
+
     def test_undeclared_cycle_checks_only_itself(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

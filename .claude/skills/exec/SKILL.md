@@ -18,8 +18,8 @@ un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
 Esiti: plan=materia specify=vuoto perform=vuoto
 ```
 
-Un giro senza file cambiati si chiude con `git commit --allow-empty` e lo
-stesso trailer. Il conteggio è
+Un giro senza file cambiati, quando il commit è chiesto, lo chiude `/commit`
+con `--allow-empty` e lo stesso trailer. Il conteggio è
 `git log --format='%(trailers:key=Esiti,valueonly)'`.
 
 Un giro che invoca `plan` registra nello stesso commit anche il prossimo task
