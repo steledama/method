@@ -26,6 +26,20 @@ tenere una base in elenco col solo nome: si usa come ottimizzazione
 facoltativa, non come il modo in cui il metodo nasconde le basi (`skill`,
 «Indipendenza dall'harness»).
 
+Anche una base può tenere file accanto: è un supporto, la parte del proprio
+atto letta solo quando serve, per esempio su un solo scope. Non è un ramo e
+non rompe la prima regola, perché non porta un altro atto: resta dentro il
+contratto della base, che ne risponde come del suo SKILL.md. Il criterio di
+scelta è il contratto, non il file:
+
+- il testo prosegue l'atto della base su una condizione: supporto della base;
+- il testo è un atto che serve solo alla composta: ramo della composta;
+- il testo è un atto con un contratto proprio, utile da solo o a più
+  composte: base.
+
+Una base con supporti condizionali resta base: non diventa una composta di
+secondo livello né chiede un terzo livello `cycle → base → supporto`.
+
 ## Le due regole
 
 - una base non chiama altre skill: compie il suo atto e restituisce l'esito.
@@ -37,8 +51,12 @@ Una composta dichiara nel frontmatter le skill che compone, nel campo
 `metadata` della specifica Agent Skills (`compone: eval exec commit`). La
 composizione si legge allora senza inferirla dal testo, dove un nome può
 comparire anche per escluderlo; il guardiano la segue a cascata e la
-confronta con le chiamate scritte, segnalando la composta che chiama skill
-non dichiarate e la base che chiama altre skill. Un harness che non conosce
+confronta con le chiamate scritte in SKILL.md e nei file accanto, segnalando
+la composta che chiama skill non dichiarate e la base che chiama altre skill.
+Quando una base ha bisogno di un'altra skill non la chiama: restituisce
+l'handoff nel proprio esito («l'esito lo segnala per `/exec plan`»), e chi
+compone o il custode decide. Le menzioni senza verbo restano candidati da
+classificare: descrivono il contratto o sono rinvii da riscrivere come handoff. Un harness che non conosce
 il campo lo ignora senza rompere nulla.
 
 Il canone ne è l'istanza. `cycle` è la composta: compone `eval all`,

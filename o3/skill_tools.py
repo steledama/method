@@ -3,7 +3,8 @@
 Il criterio vive nei nodi `skill`, `skill-composition` e `agent-as-user`; qui
 si producono evidenze. Le skill si leggono da `.claude/skills/*/SKILL.md` (i
 wrapper di altri harness rinviano lì); i permessi da `.claude/settings.json`
-(sessione) e `o3/ciclo/permessi.json` (giro). Il canone si trova dal symlink
+(sessione) e `o3/ciclo/permessi.json` (giro). Comandi e divieti si censiscono
+anche in `CLAUDE.md`, `AGENTS.md` (sessione) e nel prompt del giro. Il canone si trova dal symlink
 `method/` dell'adottante; in `method` il canone è il repo stesso.
 
 L'estrazione dei comandi è euristica: legge gli span di codice con almeno un
@@ -28,6 +29,7 @@ SKILLS = Path(".claude/skills")
 SETTINGS = Path(".claude/settings.json")
 PERMESSI_GIRO = Path("o3/ciclo/permessi.json")
 PROMPT_GIRO = Path("o3/ciclo/prompt.md")
+ISTRUZIONI = (Path("CLAUDE.md"), Path("AGENTS.md"))
 GATE = Path("o3/commit_gate.py")
 GIORNI = 30
 
@@ -51,7 +53,10 @@ CARTELLO = re.compile(
     re.IGNORECASE,
 )
 VERBO_CHIAMATA = re.compile(
-    r"\b(esegui|invoca|chiama|lancia|avvia|segui|seguendo)\b", re.IGNORECASE
+    r"\b(esegui|eseguire|eseguendo|invoca|invocare|invocando|chiama|chiamare|chiamando"
+    r"|lancia|lanciare|lanciando|avvia|avviare|avviando|segui|seguire|seguendo"
+    r"|usa|usare|usando|passa a|passare a|delega a|delegare a)\b",
+    re.IGNORECASE,
 )
 RIMANDO = re.compile(r"(?<![\w.])(?:\.\./)*(?:kb|o3|method)/[\w./-]+")
 ESEMPIO_PROSSIMO = re.compile(r"^Prossimo: (.+)$")
@@ -193,19 +198,51 @@ def tipo(comando: str, riga: str) -> str:
     return "comando"
 
 
-def chiamate(skill: Skill, nomi: set[str]) -> list[tuple[str, str]]:
-    """(dove, skill chiamata): `riga N` in SKILL.md, `skill/file:N` in un ramo."""
-    trovate = []
+def chiamate(skill: Skill, nomi: set[str]) -> tuple[list[tuple[str, str]], list[tuple[str, str]]]:
+    """(dove, skill nominata), divise fra chiamate con un verbo e menzioni senza.
+
+    `riga N` in SKILL.md, `skill/file:N` in un ramo. Il verbo si cerca nella riga
+    e nella precedente: un capoverso va a capo prima del nome. Una menzione senza
+    verbo può descrivere il contratto («lo chiude `/commit`») o essere un rinvio
+    imperativo («— `/exec plan`»): resta un candidato da classificare.
+    """
+    con_verbo, senza = [], []
     for etichetta, righe in skill.testi():
         for numero, riga in enumerate(righe, 1):
-            if not VERBO_CHIAMATA.search(riga):
-                continue
+            prima = righe[numero - 2] if numero > 1 else ""
             dove = f"riga {numero}" if etichetta == skill.nome else f"{etichetta}:{numero}"
             for nome in nomi - {skill.nome}:
                 match = re.search(rf"`/{re.escape(nome)}\b", riga)
-                if match and not ANNUNCIO_PRIMA.search(riga[: match.start()]):
-                    trovate.append((dove, nome))
-    return trovate
+                if not match or ANNUNCIO_PRIMA.search(riga[: match.start()]):
+                    continue
+                verbo = VERBO_CHIAMATA.search(riga[: match.start()]) or (
+                    numero > 1 and VERBO_CHIAMATA.search(prima.split(".")[-1])
+                )
+                (con_verbo if verbo else senza).append((dove, nome))
+    return con_verbo, senza
+
+
+def superfici(root: Path, skills: list[Skill], giro: set[str]) -> list[tuple[str, list[str], bool]]:
+    """(etichetta, righe, nel giro): le skill, poi istruzioni di sessione e prompt del giro.
+
+    Le istruzioni del repo si caricano anche nel giro; il prompt vale solo lì.
+    """
+    nel_giro = (root / PERMESSI_GIRO).exists()
+    fonti = [(e, r, s.nome in giro) for s in skills for e, r in s.testi()]
+    for path in ISTRUZIONI:
+        if (root / path).exists() and not (root / path).is_symlink():
+            fonti.append(
+                (path.as_posix(), (root / path).read_text(encoding="utf-8").splitlines(), nel_giro)
+            )
+    if (root / PROMPT_GIRO).exists():
+        fonti.append(
+            (
+                PROMPT_GIRO.as_posix(),
+                (root / PROMPT_GIRO).read_text(encoding="utf-8").splitlines(),
+                True,
+            )
+        )
+    return fonti
 
 
 def storia(root: Path, path: Path) -> tuple[int | None, int | None]:
@@ -311,23 +348,23 @@ def audit(root: Path) -> str:
         out.append(f"Skill del giro, dalle composizioni dichiarate: {', '.join(sorted(giro))}.")
     out.append("")
     sezioni: dict[str, list[str]] = {"comando": [], "modello": [], "annuncio": []}
-    for s in skills:
-        nel_giro = s.nome in giro
-        for etichetta, righe in s.testi():
-            for numero, comando in comandi(righe):
-                vietato_s = negato(comando, deny_s)
-                fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
-                classe = tipo(comando, righe[numero - 1])
-                voce = f"- {etichetta}:{numero} `{comando}`"
-                if classe == "annuncio":
-                    if vietato_s or fuori_giro:
-                        continue
-                    stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
-                    sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
+    fonti = superfici(root, skills, giro)
+    for etichetta, righe, nel_giro in fonti:
+        solo_giro = etichetta == PROMPT_GIRO.as_posix()
+        for numero, comando in comandi(righe):
+            vietato_s = not solo_giro and negato(comando, deny_s)
+            fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
+            classe = tipo(comando, righe[numero - 1])
+            voce = f"- {etichetta}:{numero} `{comando}`"
+            if classe == "annuncio":
+                if vietato_s or fuori_giro:
                     continue
-                note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
-                if note:
-                    sezioni[classe].append(f"{voce} — {', '.join(note)}")
+                stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
+                sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
+                continue
+            note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
+            if note:
+                sezioni[classe].append(f"{voce} — {', '.join(note)}")
     out += sezioni["comando"] or ["- nessun comando scritto fuori dai permessi del suo contesto"]
     out += ["", "### Modelli", ""]
     out.append("Comandi con segnaposti o variabili: spesso testo descrittivo, a volte eseguiti.")
@@ -341,24 +378,30 @@ def audit(root: Path) -> str:
 
     out += ["### Divieti scritti", ""]
     trovati = 0
-    deny = deny_s + deny_g
-    for etichetta, righe in (t for s in skills for t in s.testi()):
+    for etichetta, righe, _ in fonti:
+        # Il prompt vale nel giro; skill e istruzioni anche in sessione, dove i
+        # deny del giro non reggono nulla.
+        deny = deny_g + deny_s if etichetta == PROMPT_GIRO.as_posix() else deny_s
         for numero, riga in enumerate(righe, 1):
             if not CARTELLO.search(riga):
                 continue
             spans = SPAN.findall(riga)
             if not spans:
                 continue
-            retto = any(
-                negato(t, deny) if eseguibile(t.split()[0]) else any(t in d for d in deny)
-                for t in spans
-                if t.split()
-            )
-            stato = (
-                "con deny"
-                if retto
-                else "deny non trovato nella stessa grafia: vincolo altrove o lacuna"
-            )
+
+            def retto(regole: list[str]) -> bool:
+                return any(
+                    negato(t, regole) if eseguibile(t.split()[0]) else any(t in d for d in regole)
+                    for t in spans
+                    if t.split()
+                )
+
+            if retto(deny):
+                stato = "con deny"
+            elif retto(deny_g):
+                stato = "deny solo nei permessi del giro: in sessione manca"
+            else:
+                stato = "deny non trovato nella stessa grafia: vincolo altrove o lacuna"
             trovati += 1
             out.append(f"- {etichetta}:{numero} — {stato}: {riga.strip()[:140]}")
     if not trovati:
@@ -370,13 +413,9 @@ def audit(root: Path) -> str:
     if prossimo is None:
         out.append(f"- `{GATE}` non trovato nel canone: esempi non controllati")
     else:
-        fonti = [t for s in skills for t in s.testi()]
-        if (root / PROMPT_GIRO).exists():
-            testo = (root / PROMPT_GIRO).read_text(encoding="utf-8")
-            fonti.append((PROMPT_GIRO.as_posix(), testo.splitlines()))
         fuori = [
             f"- {nome}:{numero} `Prossimo: {valore}` — il gate lo rifiuta"
-            for nome, righe in fonti
+            for nome, righe, _ in fonti
             for numero, valore in esempi_prossimo(righe)
             if not prossimo.match(valore)
         ]
@@ -388,10 +427,12 @@ def audit(root: Path) -> str:
         if s.compone is not None:
             out.append(f"- {s.nome} compone: {', '.join(s.compone)}")
     trovati = 0
+    menzioni = []
     for s in skills:
-        lista = chiamate(s, nomi)
+        lista, senza = chiamate(s, nomi)
         if s.compone is not None:
             lista = [(n, nome) for n, nome in lista if nome not in s.compone]
+            senza = [(n, nome) for n, nome in senza if nome not in s.compone]
             motivo = "composta che chiama skill non dichiarate"
         else:
             motivo = "base che chiama altre skill"
@@ -399,10 +440,21 @@ def audit(root: Path) -> str:
             trovati += 1
             dove = ", ".join(f"{nome} ({luogo})" for luogo, nome in lista)
             out.append(f"- {s.nome}: {motivo} → {dove}")
+        if senza:
+            menzioni.append(
+                f"- {s.nome}: " + ", ".join(f"{nome} ({luogo})" for luogo, nome in senza)
+            )
     if not any(s.compone is not None for s in skills) and not trovati:
         out.append("- nessuna composta dichiarata, nessuna chiamata fra skill")
     elif not trovati:
-        out.append("- nessuna chiamata fuori dalle composizioni dichiarate")
+        out.append("- nessuna chiamata con verbo fuori dalle composizioni dichiarate")
+    if menzioni:
+        out += [
+            "",
+            "Menzioni senza verbo di chiamata: contratto descritto o rinvio da restituire come handoff.",
+            "",
+        ]
+        out += menzioni
     out.append("")
     out.append(
         "Limiti: comandi, divieti e chiamate sono candidati estratti dal testo; "

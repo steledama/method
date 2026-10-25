@@ -187,7 +187,8 @@ riepilogo finale, **non si scrive in `i3/allineamento-metodo.md`**.
 
 Applica cambiamenti diretti solo dopo conferma esplicita. Per gli adattamenti,
 proponi la forma locale e attendi conferma. Se una voce resta futura, crea o
-aggiorna un task nel repo adottante e usa `/exec plan` per inserirlo nel plan.
+aggiorna un task nel repo adottante e restituisci l'handoff per
+`/exec plan`, che lo inserisce nel plan.
 
 ### 7. Chiudi la revisione
 

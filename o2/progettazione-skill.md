@@ -64,13 +64,22 @@ revisione per repo vive in
      «qual è il prossimo task?», `/exec all`), il canone la recepisce, anche
      per `eval`. Altrimenti ogni recezione con `/method` diventa un'unione a
      mano.
-     Questione per il canone: `skill-composition` definisce il ramo solo per
-     la composta; servirebbe anche un ramo di stadio dentro una base.
+     Questione per il canone, chiusa il 2026-10-25 su rilievo di `salute`:
+     `skill-composition` distingue il supporto condizionale di una base,
+     parte del suo atto letta su uno scope, dal ramo della composta; una base
+     con supporti resta base, senza terzo livello.
      Limite segnalato da `nixos`: il guardiano contava le righe dei file
      accanto ma ne ignorava comandi, divieti, chiamate e trailer. Chiuso il
      2026-10-24: `skill_tools.py` legge anche i rami e li etichetta
      `skill/file:riga`, con un test che lo copre. La forma resta da
      consolidare dopo la prova del fork.
+     Rilievi di `salute` (bfaf406), chiusi il 2026-10-25: le chiamate fra
+     skill si cercano con più verbi (anche «usare») nella riga o nella
+     precedente, e le menzioni senza verbo escono come candidati; comandi e
+     divieti si censiscono anche in `CLAUDE.md`, `AGENTS.md` e prompt del
+     giro; un divieto di sessione retto solo dai deny del giro è segnalato.
+     Lo stesso falso negativo c'era nel canone (`commit` e `method`
+     chiamavano `/exec plan`): ora restituiscono un handoff.
 
 ## Criterio di chiusura
 

@@ -175,6 +175,49 @@ class AuditTests(unittest.TestCase):
         self.assertIn("exec/plan.md:2 — deny non trovato nella stessa grafia", report)
         self.assertIn("exec: base che chiama altre skill → commit (exec/plan.md:3)", report)
 
+    def test_calls_mentions_and_instruction_surfaces(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            scrivi(
+                root,
+                ".claude/settings.json",
+                json.dumps({"permissions": {"deny": ["Bash(git reset*)"]}}),
+            )
+            scrivi(
+                root,
+                "o3/ciclo/permessi.json",
+                json.dumps({"permissions": {"allow": [], "deny": ["Bash(git push --force*)"]}}),
+            )
+            scrivi(root, ".claude/skills/exec/SKILL.md", "Coda.\n")
+            scrivi(
+                root,
+                ".claude/skills/commit/SKILL.md",
+                "Se cambia il plan, usare `/exec plan`.\n"
+                "Per la coda si\n"
+                "lancia `/exec plan`.\n"
+                "Nuovi task — `/exec plan`.\n",
+            )
+            scrivi(root, "CLAUDE.md", "Non usare `git push --force` né `git reset --hard`.\n")
+            scrivi(root, "o3/ciclo/prompt.md", "Non usare `git push --force`.\n")
+            report = MODULE.audit(root)
+        self.assertIn("commit: base che chiama altre skill → exec (riga 1), exec (riga 3)", report)
+        self.assertIn("- commit: exec (riga 4)", report)
+        self.assertIn("CLAUDE.md:1 — con deny", report)
+        self.assertIn("o3/ciclo/prompt.md:1 — con deny", report)
+
+    def test_session_ban_held_only_by_giro_deny(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            scrivi(root, ".claude/settings.json", json.dumps({"permissions": {"deny": []}}))
+            scrivi(
+                root,
+                "o3/ciclo/permessi.json",
+                json.dumps({"permissions": {"allow": [], "deny": ["Bash(git push --force*)"]}}),
+            )
+            scrivi(root, ".claude/skills/commit/SKILL.md", "Non usare `git push --force`.\n")
+            report = MODULE.audit(root)
+        self.assertIn("commit:1 — deny solo nei permessi del giro: in sessione manca", report)
+
     def test_undeclared_cycle_checks_only_itself(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
