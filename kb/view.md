@@ -282,6 +282,12 @@ mostrare un vuoto muto. È l'eccezione dichiarata al compartimento stagno:
 le rotte servite a richiesta sono nominate nel builder e solo la home le
 cita. Contratto e regola del semaforo in `o3/view/ciclo.py`.
 
+Accanto ai tentativi la home elenca le proposte da decidere: i task `o2/`
+col campo `decidere:`, letti dalla release perché versionati, raggiungibili
+anche quando escono dagli ultimi giri. Da lì si apre `autonomy.md`, il
+register della delega, reso come pagina accanto a `goal.md` e `world.md` ma
+senza un polo: non è uno stadio del ciclo.
+
 È visibilità e feedback nel senso del ciclo d'azione (`action-cycle`): un
 ambito di autonomia senza uno strumento che lo renda valutabile apre il
 golfo di valutazione che l'artefatto dovrebbe chiudere.

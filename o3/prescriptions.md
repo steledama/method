@@ -44,6 +44,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
   mappa ed estrazione delle skill prima della composizione. Prescritta ai
   sette il 2026-10-21.
+- [Le proposte da decidere e il register della delega nella
+  home](proposte-e-delega-nella-home.md) — campo `decidere:` nei task `o2/`,
+  sezione «Da decidere» nella home e `autonomy.md` reso come pagina senza
+  polo. Prescritta ai sei il 2026-10-25.
 - [Presidio delle ipotesi in attesa](presidio-ipotesi.md) — orizzonte,
   riscontro con fonte e raggiungibilità da `eval` dove manca il presidio;
   recepita da sei, seguito sul deck di `nixos` chiuso; resta `danea-auto`.

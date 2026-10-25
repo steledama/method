@@ -83,11 +83,15 @@ una proposta che cambia i confini costitutivi; l'incertezza da sola non è
 un'autorizzazione e non richiede di rendere alta ogni altra modifica.
 
 Una proposta persistente vive nel task `o2/` pertinente, indicizzato e
-collegato al plan, con stato «da decidere», alternative, motivo e decisione
-richiesta. Il resoconto la collega. Se serve un task nuovo si applica la forma
+collegato al plan: il campo `decidere:` del frontmatter ne dice la questione
+in una frase, il corpo alternative, motivo e decisione richiesta. La home la
+elenca finché il campo c'è (forma decisa il 2026-10-25 da Stefano). Il
+resoconto la collega. Se serve un task nuovo si applica la forma
 ordinaria di `o2/`; non si aggiunge una collezione. Il commit della proposta
 non applica l'atto. Accettata, entra nel lavoro autorizzato; respinta, si
 consuma conservando il razionale durevole dove pertinente e la storia in Git.
+In entrambi i casi il campo `decidere:` si toglie e il corpo registra la
+decisione con la data.
 
 ## Casi che delimitano il criterio
 

@@ -15,7 +15,14 @@ from pathlib import Path
 
 import project
 from ciclo import home_section
-from sources import goal_anchor, goal_titles, inline_markdown, label, register_intro
+from sources import (
+    goal_anchor,
+    goal_titles,
+    inline_markdown,
+    label,
+    pending_proposals,
+    register_intro,
+)
 
 # --- CONFIG specifico del repo ------------------------------------------------
 
@@ -139,6 +146,29 @@ def world_pole_html(root: Path) -> str:
       </section>"""
 
 
+def proposals_html(root: Path) -> str:
+    """Le proposte in attesa del custode, dalla release: restano raggiungibili
+    anche quando escono dagli ultimi giri, e il register della delega è a un clic."""
+    items = [
+        f'          <li><a href="{html.escape(relative.removesuffix(".md") + ".html", quote=True)}">'
+        f"{html.escape(task.title)}</a> — {inline_markdown(task.decidere)}</li>"
+        for relative, task in pending_proposals(root)
+    ] or [f"          <li>{html.escape(label('no-pending'))}</li>"]
+    links = (
+        pole_links([(label("delegation"), "autonomy.html")], label("delegation"))
+        if (root / "autonomy.md").exists()
+        else ""
+    )
+    body = "\n".join(items)
+    return f"""      <section class="pole proposte">
+        <h2>{html.escape(label("pending"))}</h2>
+        <ul>
+{body}
+        </ul>
+{links}
+      </section>"""
+
+
 def card_html(key: str) -> str:
     href, desc = SLOTS[key]
     return f"""          <div class="cycle-card" data-slot="{key}">
@@ -213,6 +243,7 @@ def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> 
 
     <main>
 {home_section()}
+{proposals_html(root)}
 {goal_pole_html(root)}
 {cycle_html()}
 {world_pole_html(root)}

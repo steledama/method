@@ -1,7 +1,7 @@
 """Rende le fonti del ciclo in pagine HTML 1:1, con la navigazione.
 
-Una pagina per ogni `.md` del perimetro (`goal.md`, `world.md` e le sei
-collezioni), allo stesso path del repo con `.html`: `o1/plan.md` diventa
+Una pagina per ogni `.md` del perimetro (i register `goal.md`, `world.md` e
+`autonomy.md`, e le sei collezioni), allo stesso path del repo con `.html`: `o1/plan.md` diventa
 `view/o1/plan.html`. «1:1» è fedeltà al contenuto e alla struttura della
 fonte (`kb/view.md`): l'intero corpo passa da Pandoc, il frontmatter si rende
 in testa. Un link a un'altra fonte del perimetro diventa il link alla sua
@@ -34,7 +34,9 @@ from sources import (
     split_frontmatter,
 )
 
-REGISTERS = ["goal.md", "world.md"]
+# `autonomy.md` è un register senza polo: la home lo collega dalle proposte,
+# non come stadio del ciclo.
+REGISTERS = ["goal.md", "world.md", "autonomy.md"]
 
 # Le collezioni nell'ordine della home, ciascuna col proprio indice: il nome
 # dell'indice è canone, uguale in ogni repo (`kb/project-structure.md`).

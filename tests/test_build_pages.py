@@ -14,6 +14,7 @@ BUILDERS = Path(__file__).resolve().parents[1] / "o3" / "view"
 sys.path.insert(0, str(BUILDERS))
 
 import build_pages
+import build_system_image
 
 GOAL = """# Goal
 
@@ -103,6 +104,23 @@ class PageTests(unittest.TestCase):
         self.assertIn("goal.md", sources)
         self.assertIn("o2/primo.md", sources)
         self.assertNotIn("kb/node.md", sources)
+
+    def test_autonomy_register_is_a_page_when_present(self):
+        self.assertNotIn("autonomy.md", build_pages.perimeter(self.root))
+        (self.root / "autonomy.md").write_text("# Autonomia\n", encoding="utf-8")
+        self.assertIn("autonomy.md", build_pages.perimeter(self.root))
+
+    def test_home_lists_pending_proposals_and_delegation(self):
+        self.assertIn(build_pages.label("no-pending"), build_system_image.proposals_html(self.root))
+        (self.root / "o2/primo.md").write_text(
+            '---\nsintesi: "s"\nciclo: dev\ndecidere: "dove stanno gli `arresti`"\n---\n\n# Primo task\n',
+            encoding="utf-8",
+        )
+        (self.root / "autonomy.md").write_text("# Autonomia\n", encoding="utf-8")
+        section = build_system_image.proposals_html(self.root)
+        self.assertIn('<a href="o2/primo.html">Primo task</a>', section)
+        self.assertIn("<code>arresti</code>", section)
+        self.assertIn('href="autonomy.html"', section)
 
     def test_hierarchy_and_all_sections_survive(self):
         source = """# Indice

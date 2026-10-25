@@ -21,12 +21,18 @@ LABELS = {
         "register": "Full register",
         "nav": "Navigation",
         "preview": "Preview of the working tree, not published",
+        "pending": "To decide",
+        "no-pending": "No proposal waiting for a decision.",
+        "delegation": "Delegation criteria",
     },
     "it": {
         "presentation": "Presentazione",
         "register": "Register completo",
         "nav": "Navigazione",
         "preview": "Anteprima del working tree, non pubblicata",
+        "pending": "Da decidere",
+        "no-pending": "Nessuna proposta in attesa di decisione.",
+        "delegation": "Criteri della delega",
     },
 }
 
@@ -54,6 +60,9 @@ class TaskDetail:
     title: str
     ciclo: str
     sintesi: str
+    # La questione di una proposta in attesa del custode; vuota se non ce n'è
+    # (`autonomy.md`, «Decisioni riservate»).
+    decidere: str = ""
 
 
 def split_frontmatter(text: str) -> tuple[dict[str, str], str]:
@@ -414,7 +423,18 @@ def parse_task(root: Path, relative: str) -> TaskDetail:
         title=first_h1(body, path.stem),
         ciclo=meta.get("ciclo", "—"),
         sintesi=meta["sintesi"],
+        decidere=meta.get("decidere", ""),
     )
+
+
+def pending_proposals(root: Path) -> list[tuple[str, TaskDetail]]:
+    """I task `o2/` con una proposta da decidere, nell'ordine dell'indice.
+
+    La fonte è il campo `decidere:` del frontmatter: si toglie quando il
+    custode decide, così una proposta consumata esce dalla home da sola.
+    """
+    tasks = [(relative, parse_task(root, relative)) for relative in o2_index(root)]
+    return [(relative, task) for relative, task in tasks if task.decidere]
 
 
 # Gli unici schemi che portano fuori dal checkout senza portarsi dietro il

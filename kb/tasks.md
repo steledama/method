@@ -19,7 +19,10 @@ ciclo: dev
 ---
 ```
 
-`ciclo` vale `dev` o `runtime`. Non esiste `stato`: l'esistenza del file indica
+`ciclo` vale `dev` o `runtime`. Un task con una proposta in attesa del
+custode aggiunge `decidere: "La questione in una frase."`; il campo si toglie
+quando il custode decide, e la home della vista elenca i task che lo hanno
+([view](view.md)). Non esiste `stato`: l'esistenza del file indica
 che il task è aperto; priorità e dipendenza vivono nel plan. Il corpo descrive
 lo stato corrente del lavoro, non accumula diari di sessione.
 

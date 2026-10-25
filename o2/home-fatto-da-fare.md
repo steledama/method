@@ -74,7 +74,7 @@ un repo stanno quindi sullo stesso host: in `nixos` diventa un vincolo fra
 - `giri/<id>.jsonl`: lo stream del giro; `decisioni.json`: stato e cadenza
   del repo, per calcolare le partenze mancate.
 
-**Da decidere, dal giro di `method` del 2026-10-21**
+**Deciso, dal giro di `method` del 2026-10-21**
 ([cattura](../i1/arresto-economia-fuori-giri-2026-10-21.md)): con `giri`
 dichiarato, l'arresto per sessione aperta di `economia` delle 13:00 è stato
 scritto solo nella cartella dell'unità. La vista legge `i1/giri` e lo rende
@@ -148,8 +148,9 @@ freschezza e stati dei tentativi; qui si definisce come leggerli. Finché la
 fonte non esiste, la vista dichiara il dato non disponibile.
 
 - «Fatto» conserva gli ultimi cinque commit; le proposte ancora da decidere
-  restano raggiungibili anche quando escono da quel campione. La loro fonte
-  e il loro consumo sono definiti in [Criteri del ciclo autonomo schedulato](criteri-autonomia.md).
+  restano raggiungibili anche quando escono da quel campione. Fonte e
+  consumo in `autonomy.md` («Decisioni riservate»): il campo `decidere:` dei
+  task `o2/`, che la home elenca nella sezione «Da decidere» (dal 2026-10-25).
 - «Da fare» rende anche la prossima mossa pronta senza data, rispettando
   l'ordine del plan. Le attese senza data restano tali, senza date inventate.
 - La storia estratta per la pubblicazione termina al commit esportato con
@@ -165,9 +166,7 @@ con l'esecutore. La pubblicazione continua a rispettare i contratti delle viste.
 
 ## Register della delega
 
-`autonomy.md` contiene la prima delega operativa del ciclo richiesto dal
-custode. Il resoconto con diff e commit è già il controllo di quel giro;
-la home deve renderne raggiungibili i criteri e le proposte pendenti prima
-del pilota schedulato. Il register è per ora leggibile dal repository:
-aggiungerlo al perimetro delle pagine e concordarne la resa nella home con
-il residuo di `criteri-autonomia`, senza introdurre un nuovo stadio.
+Deciso dal custode il 2026-10-25: `autonomy.md` è una pagina della vista,
+accanto a `goal.md` e `world.md` ma senza polo, e la home la collega dalla
+sezione «Da decidere» (`o3/view/build_pages.py`, `build_system_image.py`).
+Prescritto agli adottanti in `o3/proposte-e-delega-nella-home.md`.

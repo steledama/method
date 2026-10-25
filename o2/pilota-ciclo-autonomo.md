@@ -16,9 +16,10 @@ articolano i loop di dominio.
   «fatto» della home: il custode
   deve vedere i giri prima di toglierne la conferma.
 - Criteri per il ciclo autonomo schedulato concordati nel register:
-  soddisfatto dal criterio `ciclo-autonomo`, ratificato repo per repo
-  (`method` il 2026-10-16); resta il residuo di
-  [criteri](criteri-autonomia.md).
+  soddisfatto dal criterio `ciclo-autonomo`, ratificato in `method` e nei sei
+  adottanti col timer (`danea-auto` il 2026-10-20). Task chiuso il
+  2026-10-25: proposte e register raggiungibili dalla home, collaudo sui casi
+  portato nel campione qui sotto.
 - La scelta di dove gira il ciclo autonomo: timer systemd dal modulo `cicli` di
   `nixos` (`6a6a7ed`), con Claude Code; collaudato al gradino 0 di `salute`.
 - Il ciclo autonomo visibile nella home, con semaforo e pagina del giro
@@ -35,8 +36,8 @@ gradualmente, ciascuno con i propri limiti da analizzare.
 - **Gradino 0**: l'unità vera avviata a mano dal custode (`systemctl start`).
   È un ciclo avviato dal custode, coperto da `ciclo-delegato`; prova ambiente
   dell'unità, credenziali, permessi, push e tempo massimo.
-- **Gradino 1**: timer acceso, cadenza bassa. È il ciclo autonomo schedulato e
-  attende i [criteri](criteri-autonomia.md).
+- **Gradino 1**: timer acceso, cadenza bassa. È il ciclo autonomo schedulato, coperto
+  dal criterio `ciclo-autonomo` di ogni repo.
 - **Gradini successivi**, un repo alla volta per host: su `deck` poi
   `economia`; su `svezia` poi `baserow`, quindi `nixos`, quando il modulo ha
   retto i primi giri, e `bi` in coda; `method` quando il canone ha visto
@@ -411,12 +412,15 @@ condizioni di sospensione sotto.
 
 Fissare prima dell'avvio intervallo, durata, perimetro degli atti delegati,
 criteri di riuscita e condizioni di arresto. I prerequisiti dipendono dai
-risultati dei tre task: [criteri](criteri-autonomia.md),
-[home](home-fatto-da-fare.md) e [esecutore](dove-gira-il-ciclo-autonomo.md).
+risultati dei task [home](home-fatto-da-fare.md) e
+[esecutore](dove-gira-il-ciclo-autonomo.md); i criteri sono in `autonomy.md`.
 
 - Concordare un campione di decisioni e ricostruzioni da rileggere contro le
   fonti, includendo i verdetti modificati: motivo comprensibile e trailer
-  corretti non bastano a provarne la qualità.
+  corretti non bastano a provarne la qualità. Il campione include i casi del
+  filo [ricostruzione delegabile](../i3/verdetto-piu-sicuro-del-materiale.md),
+  tenendo distinte leggibilità del motivo e fedeltà alle fonti (dal task dei
+  criteri, chiuso il 2026-10-25).
 - Misurare interventi necessari del custode e tempo di ricostruzione degli
   esiti, con un confronto assistito concordato prima della partenza. Il
   beneficio atteso è meno lavoro di supervisione a qualità conservata;
