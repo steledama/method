@@ -39,6 +39,13 @@ class PermessiTests(unittest.TestCase):
         self.assertEqual(MODULE.parti("git -C <repo> log … | head"), ["git -C X log X", "head"])
         self.assertEqual(MODULE.parti("o3/kb_tools.py audit"), ["python3 o3/kb_tools.py audit"])
 
+    def test_usage_forms_are_models_not_pipes(self):
+        forma = "python3 o3/commit_gate.py prima|dopo [--giro]"
+        self.assertEqual(MODULE.parti(forma), ["python3 o3/commit_gate.py primaXdopo X"])
+        self.assertTrue(MODULE.concesso(forma, ["python3 o3/commit_gate.py *"], []))
+        self.assertEqual(MODULE.tipo(forma, f"`{forma}`"), "modello")
+        self.assertEqual(MODULE.parti("git log | head"), ["git log", "head"])
+
 
 class EstrazioneTests(unittest.TestCase):
     def test_spans_with_arguments_and_code_blocks(self):

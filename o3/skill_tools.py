@@ -35,8 +35,10 @@ GIORNI = 30
 
 SPAN = re.compile(r"`([^`\n]+)`")
 FENCE = re.compile(r"^```")
-SEPARATORI = re.compile(r"\s*(?:&&|\|\||;|\|)\s*")
-SEGNAPOSTO = re.compile(r"<[^>]+>|…|\.\.\.")
+# La pipe va fra spazi: `prima|dopo` attaccato è l'alternativa di una forma
+# d'uso, come `[--giro]` è l'opzione facoltativa; entrambe fanno un modello.
+SEPARATORI = re.compile(r"\s*(?:&&|\|\||;)\s*|\s+\|\s+")
+SEGNAPOSTO = re.compile(r"<[^>]+>|…|\.\.\.|\[-[^\]]*\]|(?<=\w)\|(?=\w)")
 VARIABILE = re.compile(r"\$\{?\w+")
 # Un gesto retto da una negazione annuncia un vincolo, non lo esegue: «senza `X`»,
 # «non usare `X`», oppure «`X` … le fa negare».
