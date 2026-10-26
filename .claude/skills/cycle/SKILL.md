@@ -67,7 +67,8 @@ con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 senza trailer di coautoria. Prima del push verifica i trailer con
 `python3 o3/commit_gate.py dopo --giro` e correggi con `git commit --amend`
 se segnala un errore: dopo il push la storia non si riscrive, l'errore si dichiara nel
-resoconto. Poi il push: se è rifiutato, niente force, rebase o merge; il
+resoconto. Un avviso sul `Prossimo:` che scavalca la prima riga pronta non è
+un errore, ma il corpo deve nominare la riga scavalcata e il motivo. Poi il push: se è rifiutato, niente force, rebase o merge; il
 commit resta locale e lo dichiari.
 
 **Resoconto finale.** È l'ultimo messaggio e finisce nel log del tentativo,

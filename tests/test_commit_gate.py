@@ -57,6 +57,45 @@ class TrailerTests(unittest.TestCase):
         self.assertTrue(MODULE.errori_trailer(giro[1:], giro=True))
 
 
+class ProssimoTests(unittest.TestCase):
+    PLAN = """# Plan
+
+| Ciclo | Ob. | Task   | Dip.    |
+| ----- | --- | ------ | ------- |
+| dev   | 1   | Atteso | w1      |
+| dev   | S   | Primo  | —       |
+| dev   | S   | Altro  | —       |
+| dev   | S   | Dopo   | ↳ Primo |
+
+`w1` = attesa.
+"""
+
+    def avvisi(self, prossimo, plan=PLAN):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            if plan is not None:
+                (root / "o1").mkdir()
+                (root / "o1" / "plan.md").write_text(plan, encoding="utf-8")
+            return MODULE.avvisi_prossimo([("Prossimo", prossimo)], root)
+
+    def test_first_ready_row_is_the_head(self):
+        self.assertEqual(MODULE.prima_pronta(self.PLAN), "Primo")
+        self.assertEqual(self.avvisi("Primo (confermato)"), [])
+        self.assertEqual(self.avvisi("Primo (cambiato, era Altro; chiuso)"), [])
+
+    def test_skipping_the_head_warns(self):
+        self.assertIn("scavalca", self.avvisi("Altro (confermato)")[0])
+        self.assertTrue(
+            self.avvisi(
+                "Primo (confermato)", plan=self.PLAN.replace("| —       |", "| p1      |", 1)
+            )
+        )
+
+    def test_none_and_missing_plan_are_silent(self):
+        self.assertEqual(self.avvisi("nessuno (coda vuota)"), [])
+        self.assertEqual(self.avvisi("Altro (confermato)", plan=None), [])
+
+
 class PrimaTests(unittest.TestCase):
     def test_checks_run_when_due_and_fail_on_declared_output(self):
         with tempfile.TemporaryDirectory() as tmp:

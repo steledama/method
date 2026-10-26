@@ -6,7 +6,8 @@ qualunque harness, da terminale o da un hook git (`kb/skill-composition.md`).
 
 - `prima`: formatta i file cambiati e lancia i controlli del profilo;
 - `dopo [--giro]`: verifica i trailer dell'ultimo commit; `--giro` aggiunge
-  quelli che `/cycle` richiede.
+  quelli che `/cycle` richiede. Avvisa, senza fallire, se il `Prossimo:`
+  scavalca la prima riga pronta di `o1/plan.md`.
 
 Il profilo è locale, `o3/commit_gate.toml` del repo: formatter per glob e
 controlli, sempre o quando cambia un glob, con l'uscita che li fa fallire.
@@ -25,9 +26,11 @@ import tomllib
 from pathlib import Path
 
 PROFILO = Path("o3/commit_gate.toml")
+PLAN = Path("o1/plan.md")
 STADI = {"perceive", "interpret", "compare", "plan", "specify", "perform"}
 IMPATTI = ["basso", "medio", "alto"]
 PROSSIMO = re.compile(r"nessuno \(.+\)$|.+ \((confermato|cambiato, era .+; .+)\)$")
+TASK_PROSSIMO = re.compile(r"(.+?) \((?:confermato|cambiato, era .+; .+)\)$")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
 
 
@@ -151,10 +154,56 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
     return errori
 
 
+def prima_pronta(testo: str) -> str | None:
+    """Titolo della prima riga con `Dip.` a `—` nella tabella dei task."""
+    colonne: list[str] = []
+    for riga in testo.splitlines():
+        if not riga.startswith("|"):
+            if colonne:
+                break
+            continue
+        celle = [c.strip() for c in riga.strip().strip("|").split("|")]
+        if not colonne:
+            if "Task" in celle and "Dip." in celle:
+                colonne = celle
+            continue
+        if set("".join(celle)) <= set("-: "):
+            continue
+        voce = dict(zip(colonne, celle))
+        if voce.get("Dip.") == "—":
+            return voce.get("Task")
+    return None
+
+
+def avvisi_prossimo(coppie: list[tuple[str, str]], root: Path) -> list[str]:
+    """Il `Prossimo:` contro la coda: scavalcare la prima riga pronta si
+    può (lettura strategica di `exec plan`), ma va visto e motivato."""
+    plan = root / PLAN
+    if not plan.exists():
+        return []
+    pronta = prima_pronta(plan.read_text(encoding="utf-8"))
+    avvisi = []
+    for chiave, valore in coppie:
+        trovato = TASK_PROSSIMO.match(valore) if chiave == "Prossimo" else None
+        if not trovato or trovato.group(1) == pronta:
+            continue
+        if pronta is None:
+            avvisi.append(f"avviso: Prossimo {trovato.group(1)} con nessuna riga pronta in {PLAN}")
+        else:
+            avvisi.append(
+                f"avviso: Prossimo {trovato.group(1)} scavalca la prima riga pronta "
+                f"di {PLAN}, {pronta}: il corpo nomina la riga scavalcata e il motivo"
+            )
+    return avvisi
+
+
 def dopo(root: Path, giro: bool) -> int:
-    errori = errori_trailer(trailer(root), giro)
+    coppie = trailer(root)
+    errori = errori_trailer(coppie, giro)
     for errore in errori:
         print(errore)
+    for avviso in avvisi_prossimo(coppie, root):
+        print(avviso)
     pubblicato = run(["git", "log", "--oneline", "@{u}..HEAD"], root)
     if errori:
         if pubblicato.returncode == 0 and pubblicato.stdout.strip():

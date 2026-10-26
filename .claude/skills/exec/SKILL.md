@@ -165,19 +165,27 @@ con azione (aggiungi/modifica/rimuovi), priorità e motivo:
 - **<task>** — <azione>; priorità <…>; <motivo>
 
 Se non ci sono modifiche da proporre, dillo esplicitamente. Chiudi indicando
-il task consigliato, motivandolo con urgenza, dipendenze e costo/opportunità,
-e confrontalo con l'ultimo trailer `Prossimo:` della storia
-(`git log --format='%(trailers:key=Prossimo,valueonly)' | grep -m1 .`):
+il task consigliato. Di norma è la prima riga pronta del plan (`Dip.` a `—`),
+perché l'ordine delle righe è l'ordine di esecuzione: il riesame parte dalla
+coda, non dal giro precedente. Una sessione può aver messo una riga in testa
+senza toccare il trailer. Se consigli un'altra riga, il corpo del commit
+nomina quella scavalcata e il motivo (urgenza, costo/opportunità, una lente
+del passo 3b). Poi confronta il consigliato con l'ultimo trailer `Prossimo:`
+della storia (`git log --format='%(trailers:key=Prossimo,valueonly)' | grep -m1 .`;
+senza trailer precedente è un cambio, con causa «primo trailer»):
 
 - **confermato**: dì in una riga, nel corpo del commit e nel resoconto,
-  cosa hai riesaminato e perché regge; il trailer resta `(confermato)`;
+  cosa hai riesaminato contro la coda e perché regge; il trailer resta
+  `(confermato)`;
 - **cambiato**: nomina il task precedente e la causa, risalendo la catena
   fino al punto che l'ha mossa (percezione nuova, ipotesi smentita o
   confermata in `i2/`, verdetto di un filo, obiettivo corretto in
   `goal.md`, dipendenza sciolta). Un cambio senza causa nominata è un
   riordino arbitrario.
 
-Il trailer `Prossimo:` va nel commit che chiude il giro. Applica a
+Il trailer `Prossimo:` va nel commit che chiude il giro. `commit_gate.py
+dopo` avvisa se scavalca la prima riga pronta: prima del push, un corpo che
+non nomina la riga scavalcata e il motivo si corregge. Applica a
 `o1/plan.md` e `o2/` entro la delega del gate comune; chiedi solo sui punti
 che ne superano il confine.
 
