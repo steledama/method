@@ -51,6 +51,7 @@ REPO = Path(__file__).resolve().parents[2]
 LABELS = {
     "it": {
         "title": "Ciclo autonomo",
+        "section": "Esiti degli ultimi cicli autonomi",
         "all": "Tutti i tentativi",
         "back": "Home",
         "read": "Letto alle",
@@ -85,6 +86,7 @@ LABELS = {
     },
     "en": {
         "title": "Autonomous cycle",
+        "section": "Latest autonomous cycle results",
         "all": "All attempts",
         "back": "Home",
         "read": "Read at",
@@ -596,7 +598,7 @@ def respond(path: str, state: Path | None, unit: Path | None = None) -> tuple[st
 def home_section() -> str:
     """La sezione della home: le righe arrivano dallo script, il link resta comunque."""
     return f"""      <section class="pole ciclo autonomo">
-        <h2><a href="{PREFIX}">{label("title")}</a></h2>
+        <h2><a href="{PREFIX}">{label("section")}</a></h2>
         <ol class="ciclo-righe" id="ciclo-righe">
           <li class="ciclo-vuoto">{html.escape(label("offline"))}</li>
         </ol>
