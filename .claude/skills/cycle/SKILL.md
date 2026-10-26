@@ -46,7 +46,15 @@ del repo, senza `git -C`: i permessi riconoscono il comando dal suo inizio, e
 un comando composto con un pezzo non concesso è negato per intero. Le
 verifiche si lanciano una per comando: l'harness riporta già il codice di
 uscita, e un `echo rc=$?` aggiunto le fa negare tutte (primi due giri di
-`crm`, 2026-10-15).
+`crm`, 2026-10-15). Lo stesso vale per ogni comando: uno per chiamata Bash,
+senza `;`, `&&`, cicli `for`, graffe `{a,b}`, `python3 -c` o heredoc; più
+oggetti si leggono con più chiamate nello stesso turno. Il messaggio di
+commit va in `-m` ripetuti, non in un file fuori dal repo; i file fuori dal
+checkout si leggono col tool Read, non con `ls` o `cat` (giri dal 20 al 26
+ottobre in `method`, `nixos` ed `economia`). Nel resoconto, un diniego su
+composti, `for` o graffe è attrito dell'harness, perché nessuna regola del
+repo lo vuole; `python3 -c`, scritture e letture fuori perimetro sono
+vincoli voluti (`kb/agent-as-user.md`).
 
 **Durante il giro.** Non fare domande. Ogni punto che in sessione
 chiederesti al custode, e ogni punto riservato da `confine-delega`, diventa
