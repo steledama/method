@@ -79,11 +79,8 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
   `f28e3ca0`). È il primo esempio completo della regola.
 - **economia**: `i2/angolo-nostradamus.md` è già un registro di previsioni;
   probabile destinazione naturale delle ipotesi formate nel giro.
-- **danea-auto**: non ha ancora `/cycle` (`ciclo-autonomo`, prescritta il
-  2026-10-11) né `presidio-ipotesi`; l'osservazione che li rinviava è chiusa
-  il 2026-10-20. Conviene recepire le tre insieme. La previsione aperta sul
-  rinnovo di LibreOffice (verso il 27/10) è già nella forma richiesta e non
-  va toccata dal recepimento.
+- **danea-auto**: recepita il 2026-10-20 nel giro a `5b89e17`, insieme a
+  `ciclo-autonomo` e `presidio-ipotesi`.
 - **crm**: fuori dal ciclo autonomo dal 2026-10-19 e verso la dismissione;
   recepisce solo se torna a fare giri.
 

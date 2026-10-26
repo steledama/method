@@ -9,7 +9,8 @@ La prova del 2026-10-05 su `economia` e `nixos` confronta la pratica corrente
 e presidio in `eval` (braccio B). Non giustifica quel modello generale:
 il custode ha ratificato solo la regola minima, recepita in
 [interpret](../kb/interpret.md) e prescritta in
-[presidio-ipotesi](../o3/presidio-ipotesi.md).
+`o3/presidio-ipotesi.md`, recepita da tutti gli adottanti e chiusa il
+2026-10-26.
 La [misura sulla potatura del canone](potatura-fili-e-verifiche.md) è distinta.
 
 ## Protocollo e provenienza
