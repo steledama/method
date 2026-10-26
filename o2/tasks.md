@@ -12,7 +12,7 @@ Priorità primaria del custode:
 Il percorso verso il ciclo autonomo, secondo le priorità del plan:
 
 - [home-fatto-da-fare.md](home-fatto-da-fare.md) — commit, proposte pendenti, lavoro pronto e il ciclo autonomo col semaforo e la pagina del giro, in parallelo al ciclo autonomo stesso.
-- [dove-gira-il-ciclo-autonomo.md](dove-gira-il-ciclo-autonomo.md) — scelto il timer systemd da un unico modulo `nixos` con Claude Code; restano modulo, arresti e fonte di stato per la home.
+- [lanciatore-ciclo-nel-metodo.md](lanciatore-ciclo-nel-metodo.md) — lo script del ciclo autonomo nel metodo, uguale per tutti i repo e indipendente dal sistema operativo; domande aperte per il custode, il modulo `nixos` resta in vigore.
 - [pilota-ciclo-autonomo.md](pilota-ciclo-autonomo.md) — a gradini, da `salute` su `deck`: avvio manuale, poi timer, poi gli altri repo; timer acceso in sei adottanti e in `method`, `crm` dismesso il 2026-10-22.
 
 Rivalutazione in pausa:

@@ -151,12 +151,14 @@ La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
 commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
 stato in `method` e nei sette adottanti (`goal-senza-fotografia`, chiusa
 il 2026-10-09). I passi restanti sono task in `o1/plan.md`:
-home con fatto e da fare, esecutore e pilota. Il task dei criteri è chiuso il
+home con fatto e da fare e pilota. Il task dell'esecutore è chiuso il
+2026-10-26 col modulo `nixos` in esercizio; portare il lanciatore nel metodo
+è un task proprio, senza effetto sul pilota. Il task dei criteri è chiuso il
 2026-10-25: `ciclo-autonomo` ratificato in `method` e nei sei adottanti col
 timer, proposte da decidere e register della delega raggiungibili dalla home
 (campo `decidere:` dei task `o2/`), collaudo sui casi portato nel campione
 del pilota. Esecutore, criterio e semaforo dei tentativi nella home sono in
-uso nei giri; degli altri due task restano i residui scritti nei loro file
+uso nei giri; di home e pilota restano i residui scritti nei loro file
 `o2/`. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
 
 Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)

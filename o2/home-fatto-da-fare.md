@@ -94,7 +94,7 @@ la 1 lo ottiene senza un secondo lettore. Il ramo è `ciclo-sessioni`, un
 Decisione del custode, 2026-10-21: nessuna pezza in `nixos`. La sola
 fonte dichiarata resta l'obiettivo, ma la si ottiene portando nel metodo
 la scrittura dei tentativi
-([Da ripensare](dove-gira-il-ciclo-autonomo.md#da-ripensare-il-meccanismo-nel-metodo-non-nellhost)).
+([lanciatore nel metodo](lanciatore-ciclo-nel-metodo.md)).
 Fino ad allora vale la 3: un arresto prima del giro può stare nella
 cartella dell'unità.
 
@@ -143,9 +143,9 @@ ciclo autonomo vero da mostrare.
 La home deve rendere distinguibili l'ultimo commit riuscito e l'ultimo
 tentativo del ciclo autonomo: un giro interrotto prima del commit, un push rifiutato
 o una partenza mancata non diventano un successo per assenza di nuovi commit.
-Il task [Dove gira il ciclo autonomo](dove-gira-il-ciclo-autonomo.md) definisce fonte,
-freschezza e stati dei tentativi; qui si definisce come leggerli. Finché la
-fonte non esiste, la vista dichiara il dato non disponibile.
+La fonte è `i1/giri/tentativi.jsonl` del repo, scritta dal lanciatore
+(`kb/cicli.md` di `nixos`); qui si definisce come leggerla. Dove la fonte
+manca, la vista dichiara il dato non disponibile.
 
 - «Fatto» conserva gli ultimi cinque commit; le proposte ancora da decidere
   restano raggiungibili anche quando escono da quel campione. Fonte e

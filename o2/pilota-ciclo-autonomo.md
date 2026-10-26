@@ -412,8 +412,8 @@ condizioni di sospensione sotto.
 
 Fissare prima dell'avvio intervallo, durata, perimetro degli atti delegati,
 criteri di riuscita e condizioni di arresto. I prerequisiti dipendono dai
-risultati dei task [home](home-fatto-da-fare.md) e
-[esecutore](dove-gira-il-ciclo-autonomo.md); i criteri sono in `autonomy.md`.
+risultati del task [home](home-fatto-da-fare.md) e dell'esecutore, chiuso il
+2026-10-26 col modulo `nixos` in esercizio; i criteri sono in `autonomy.md`.
 
 - Concordare un campione di decisioni e ricostruzioni da rileggere contro le
   fonti, includendo i verdetti modificati: motivo comprensibile e trailer
