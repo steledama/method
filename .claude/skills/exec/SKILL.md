@@ -129,6 +129,10 @@ che nel `metodo` hanno natura propria:
   bozza o ristrutturazioni
 - drift tra `i2/` e i nodi -> può aprire un task di riallineamento o2
 - scadenza di una fotografia dell'osservatorio cross-repo
+- il segnale che riapre una riga `w` è comparso fra le catture -> la riga
+  risale fra le pronte e il `Prossimo:` cambia con quel segnale per causa;
+  una riga `p` che aspetta solo un'occorrenza del Mondo passa a `w` col suo
+  segnale (`kb/plan.md`)
 
 **3b. Lettura strategica delle mosse**
 

@@ -42,6 +42,15 @@ tabella a ogni revisione: sono indirizzi, non identificatori stabili del task.
 La legenda dichiara causa e condizione di risveglio; non diventa un secondo
 diario.
 
+La lettera si decide da chi fa la prossima mossa, non da quanto lavoro resta.
+Un task col codice applicato che aspetta un'occorrenza reale per validarsi è
+`w`, anche se poi toccherà a noi verificarla: tenerlo `p` lo lascia in testa
+e i giri lo confermano come prossimo senza che ci sia una mossa da fare. Per
+questo ogni `w` nomina il **segnale** che lo riapre, osservabile nei segnali
+che il giro raccoglie. Il giro lo cerca; se lo trova, la dipendenza si scioglie,
+la riga risale fra le pronte e il `Prossimo:` cambia con quel segnale per
+causa.
+
 ## Attese a finestra
 
 `Dip.` dice da cosa dipende un task, non come si comporta il costo del ritardo,

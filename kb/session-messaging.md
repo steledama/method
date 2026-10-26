@@ -53,8 +53,9 @@ destinatario a un dialogo di approvazione.
   rilegge il pannello con `--format ansi`. Dove la resa del suggerimento è
   verificata per l'harness e la versione del destinatario, un testo con quella
   resa è un suggerimento e si invia; ogni altro testo ferma l'invio e si torna
-  al custode. La resa verificata oggi è quella di Claude Code 2.1.303, 2.1.306 e 2.1.308: il
-  suggerimento è preceduto da `ESC[2m`, l'attributo dim. Per Codex CLI
+  al custode. La resa verificata oggi è quella di Claude Code 2.1.303,
+  2.1.306, 2.1.308 e 2.1.310 (campo vuoto confermato dal custode il
+  2026-10-26): il suggerimento è preceduto da `ESC[2m`, l'attributo dim. Per Codex CLI
   0.163.0, confermata dal custode il 2026-10-25, il campo vuoto mostra il
   suggerimento generico `Ask Codex to do anything` in dim dopo il prompt `›`,
   che un invio sovrascrive; le righe `›` più in alto nel pannello sono
