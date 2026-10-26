@@ -37,57 +37,44 @@ La tensione si misura contro due obiettivi:
 ## Lo stato del verdetto
 
 Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
-misurabile: manca il campione riletto contro le fonti. Il criterio
-`ciclo-autonomo` è ratificato in `salute`, `economia`, `nixos`,
-`method`, `bi` e `baserow`; `crm` ne è uscito il 2026-10-19 per decisione del
-custode (`nixos` `1be1e2d`) ed è dismesso come adottante dal 2026-10-22,
-rimosso da tutti gli host (`a0deb15`, `458eb4b`); il timer è acceso in `salute` dal 2026-10-12 e in `economia` dal
-2026-10-16, in `nixos` e `method` dal 2026-10-17 (`nixos` `7fad7d2`),
-in `bi` su `svezia` dal 2026-10-17 (`nixos` `d1c4346`), in `baserow` su
-`svezia` dal 2026-10-17 (`nixos` `e3f463a`), in `danea-auto` su Windows,
-fuori `nixos`, deciso dal custode il 2026-10-21, col primo giro schedulato
-riuscito il 22 (`danea-auto` `de11b1a`, `85b27f5`, `1a6b33f`)
-(`o2/pilota-ciclo-autonomo.md`, «Andamento»). Dei giri
-schedulati di `salute` fino al 2026-10-15 (`tentativi.jsonl` e journal su
-`deck`, letti in sessione col custode): riusciti il 13 e il 15; il 12 saltato
-con `deck` spento all'orario; il 14 fallito alla preparazione del namespace
-per il Drive irraggiungibile, senza riga nello stato, ora registrato da
-`ciclo-namespace` (`nixos` `kb/cicli.md`). Dal 2026-10-16 al 2026-10-19
-(`tentativi.jsonl`, misurati, letti dai giri di `method`) ogni giro
-schedulato di `deck` partito per intero è riuscito con commit e push:
-`salute` quattro su quattro (0,62–1,52 USD), `economia` quattro su quattro
-(0,66–0,87 USD), `nixos` tre su tre (1,19–1,95 USD; il 19 alle 04:30, non
-più alle 14:00). Due arresti visibili per sessione aperta, cioè il sistema
-che funziona: `method` il 2026-10-19 alle 15:00 e `nixos` il 2026-10-20
-alle 04:30, entrambi ripartiti alle 07:17 del 20, avviati a mano dal
-custode (confermato in sessione). Il 2026-10-20 la serie si incrina:
-`salute` riuscito alle 08:30 con commit e push (1,35 USD), `economia` alle
-13:00 chiuso dall'unità come `riuscito` ma senza commit, con tree sporco
-dopo il giro e due dinieghi, uno su `git rm` di due file `o3/`. La home lo
-mostra giallo, quindi non è un arresto invisibile. Causa letta in sessione
-col custode dal trascritto: alle 12:59 il custode lavorava in `economia`
-con una sessione Codex (`/method`), che `ciclo-sessioni` non vede perché
-cerca solo processi Claude con la cwd nel checkout, e le sessioni Codex
-sono thread di un daemon `app-server` con la cwd altrove. Il giro ha visto
-quattro file non suoi e si è fermato prima del commit, come prescrive la
-skill; i dinieghi erano un `for` composto e `git rm -q`, fuori pattern,
-entrambi aggirati. Il tree è tornato pulito con `deba9f5` e `c2e70a4`,
-commit delle due sessioni Codex che contengono anche il lavoro del giro. La
-correzione di `ciclo-sessioni` sui rollout Codex è in `nixos` `101e32b`, attiva su `deck` dallo switch del 2026-10-20: un rollout con la cwd nel checkout scritto nell'ultima ora ferma il giro col codice 15. Il 2026-10-21 (`tentativi.jsonl`, misurati) `nixos` e `salute` sono riusciti con commit e push (1,44 e 1,20 USD, due e cinque dinieghi). `economia` alle 13:00 si è fermato per sessione aperta, col custode al lavoro (`ee5daa3`, 13:11). La riga dell'arresto però sta nella cartella dell'unità, non in `i1/giri` dichiarato dal repo. La vista la rende come partenza mancata: rossa lo stesso, ma col motivo sbagliato (`i1/arresto-economia-fuori-giri-2026-10-21.md`, proposta in `o2/home-fatto-da-fare.md`). I sei dinieghi del giro di `method` del 20 alle 15:00 erano letture dirette degli altri checkout, quindi una lacuna. La chiude `o3/adottanti.py` (`911b120`): il giro del 21 legge gli adottanti con quello, e il suo unico diniego è un `python3 -c`, vincolo voluto, sostituito con Read. Il 2026-10-22 tutti e sei gli adottanti col timer hanno un giro schedulato riuscito con commit e push: su `deck` `nixos`, `salute` ed `economia` (`tentativi.jsonl`, misurati: 1,46, 1,08 e 1,31 USD, con due, zero e un diniego), su `svezia` `baserow` e `bi` e su Windows `danea-auto` (commit coi trailer `ciclo-autonomo` su `origin`; i loro `tentativi.jsonl` non sono leggibili da `deck`). Dal 23 al 26 (`tentativi.jsonl`, misurati; commit su `origin` dopo i fetch riusciti delle 15:00) ogni giro schedulato partito per intero è riuscito con commit e push: `nixos` (1,02, 0,87, 1,97 e 1,27 USD; zero, tre, zero e un diniego, il 26 un comando composto, vincolo voluto; il 25 13 minuti e 71 turni, con agenti, `home-manager` e `gogcli` aggiornati), `economia` (1,29, 2,37, 0,77 e 1,02 USD, il secondo con 77 turni e un diniego su un comando composto, che il suo prompt recepisce in `dc6b092`), `salute` il 23, il 25 e il 26 (0,99, 1,19 e 1,06 USD, il 25 un diniego su `python3 -c`, vincolo voluto), `bi`, `baserow` e `danea-auto` tutti e quattro i giorni. Il 25, al ritorno dell'ora solare, le partenze di `deck` cadono all'ora locale dei timer (`+01:00`). Tre arresti per sessione aperta, il sistema che funziona: `method` il 23 alle 15:00 e `salute` il 23 alle 09:55 e il 24 alle 09:00, coi commit concordati del custode attorno (`salute` `d8062a4`, 10:03). Gli arresti di `salute` stanno nella cartella dell'unità, non in `i1/giri`, come ammette la decisione del 2026-10-21 in `o2/home-fatto-da-fare.md`. Il giro di `nixos` del 18 è il più lungo finora
-(`5b19d5c`, 9,7 minuti, 69 turni), dentro il tetto di 45 minuti e 5 USD:
-manutenzione piena, bump di `ai`, `home-manager` e `gogcli` con build e
-switch su `deck`; i tre dinieghi erano `gh api`/`gh release list` per le
-versioni upstream (trascritto riletto in sessione col custode, 2026-10-19).
-I dinieghi per giro vanno da uno a quattro (`bi`, giro manuale: tre,
-`i1/casi-delega-bi-2026-10-17.md`). Dal 2026-10-19 il giro di `method` legge
-tutto `~/.local/state/ciclo/` tranne `giri/`, `method` compreso, gli
-`autonomy.md` e i prompt del ciclo degli adottanti, e i marker di `svezia` da
-`origin` aggiornato dal passo `ciclo-fetch` dell'unità prima del giro: nel
-recinto in sola lettura il fetch dal giro falliva
-(`i1/giro-method-2026-10-20.md`), dal passo il primo giro schedulato del
-2026-10-20 trova i quattro fetch riusciti (`fetch.json`); `tentativi.jsonl` porta `dinieghi` e `oggetto` dal
-2026-10-19 (`nixos` `60c2314`), e i controlli `gh` in sola lettura erano già
-concessi al giro di `nixos` dal 18 sera (`nixos` `7eb86ac`). La prima delega resta
+misurabile: manca il campione riletto contro le fonti.
+
+- **Copertura**: il criterio `ciclo-autonomo` è ratificato in `method` e nei
+  sei adottanti. Il timer è acceso in `salute` dal 2026-10-12, in `economia`
+  dal 16, in `nixos`, `method`, `bi` e `baserow` dal 17 (`nixos` `7fad7d2`,
+  `d1c4346`, `e3f463a`) e in `danea-auto` su Windows, fuori `nixos`, col
+  primo giro riuscito il 22 (`de11b1a`). `crm` è uscito il 2026-10-19 ed è
+  dismesso come adottante dal 22 (`a0deb15`, `458eb4b`). L'andamento sta in
+  `o2/pilota-ciclo-autonomo.md`.
+- **Affidabilità**: dal 2026-10-22 ogni giro schedulato partito per intero,
+  in `method` e nei sei adottanti, è riuscito con commit e push
+  (`tentativi.jsonl` su `deck`, misurati; per `svezia` e Windows i commit coi
+  trailer su `origin`). Gli scarti precedenti hanno avuto una causa trovata e
+  corretta: il 14 `salute` fallito sul Drive irraggiungibile, ora registrato
+  da `ciclo-namespace`; il 20 `economia` fermo prima del commit, col tree
+  sporco di una sessione Codex che `ciclo-sessioni` non vedeva (`nixos`
+  `101e32b`). I sei arresti per sessione aperta dal 19 al 24 sono il sistema
+  che funziona; quelli di `salute` ed `economia` stanno nella cartella
+  dell'unità, non in `i1/giri`
+  (`i1/arresto-economia-fuori-giri-2026-10-21.md`, decisione in
+  `o2/home-fatto-da-fare.md`).
+- **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
+  77 turni e 13 minuti, lontano dal tetto di 45 minuti e 5 USD. I
+  `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
+- **Dinieghi**: da zero a tre per giro, su grafie note (composti, `for`,
+  graffe, `python3 -c`, scritture fuori perimetro) che `/cycle` segnala dal
+  2026-10-26 (`e88d81f`). Le lacune trovate sono chiuse: letture degli
+  adottanti con `o3/adottanti.py` (`911b120`), fetch di `svezia` nel passo
+  `ciclo-fetch` dell'unità (`i1/giro-method-2026-10-20.md`), controlli `gh`
+  in sola lettura per `nixos` (`7eb86ac`). La perdita vera resta il gesto
+  abbandonato dopo un diniego (`kb/agent-as-user.md`).
+- **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti nuovi
+  conferma questo stato e non lo riscrive. Il filo si tocca per un
+  fallimento, un arresto invisibile, un diniego di classe nuova, un costo o
+  una durata fuori fascia, un cambio di copertura. Le serie per giorno
+  restano in `tentativi.jsonl` e nei trailer.
+
+La prima delega resta
 ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
 conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
 frequente riferita dal custode motiva la riduzione dell'attrito, non prova

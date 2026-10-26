@@ -30,6 +30,13 @@ strumenti in `o3/`, skill canoniche, `presentation/`, `CLAUDE.md`,
 `autonomy.md` e `goal.md` restano proposte. `/adottanti` e `/method` non
 girano nel giro.
 
+Il filo `i3/ciclo-autonomo.md` porta un verdetto, non la cronaca dei giri
+(`kb/verdict.md`). Un giorno in cui ogni giro atteso riesce senza fatti nuovi
+conferma lo stato scritto: `compare=vuoto` e il filo non si tocca. Lo
+aggiorni solo per i casi elencati in «Quando si aggiorna», nel filo stesso.
+Se nessuno stadio ha materia, il commit del giro è vuoto; il resoconto
+riporta comunque i giri del giorno.
+
 ## Adottanti
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
