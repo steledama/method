@@ -95,6 +95,9 @@ class ProssimoTests(unittest.TestCase):
         self.assertEqual(self.avvisi("nessuno (coda vuota)"), [])
         self.assertEqual(self.avvisi("Altro (confermato)", plan=None), [])
 
+    def test_next_task_outside_the_plan_warns(self):
+        self.assertIn("nessuno (<motivo>)", self.avvisi("nessun task aperto (confermato)")[0])
+
 
 class PrimaTests(unittest.TestCase):
     def test_checks_run_when_due_and_fail_on_declared_output(self):

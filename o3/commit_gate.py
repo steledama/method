@@ -154,9 +154,10 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
     return errori
 
 
-def prima_pronta(testo: str) -> str | None:
-    """Titolo della prima riga con `Dip.` a `—` nella tabella dei task."""
+def righe_plan(testo: str) -> list[tuple[str, str]]:
+    """Coppie (Task, Dip.) della tabella dei task, in ordine."""
     colonne: list[str] = []
+    righe = []
     for riga in testo.splitlines():
         if not riga.startswith("|"):
             if colonne:
@@ -170,9 +171,13 @@ def prima_pronta(testo: str) -> str | None:
         if set("".join(celle)) <= set("-: "):
             continue
         voce = dict(zip(colonne, celle))
-        if voce.get("Dip.") == "—":
-            return voce.get("Task")
-    return None
+        righe.append((voce.get("Task", ""), voce.get("Dip.", "")))
+    return righe
+
+
+def prima_pronta(testo: str) -> str | None:
+    """Titolo della prima riga con `Dip.` a `—` nella tabella dei task."""
+    return next((task for task, dip in righe_plan(testo) if dip == "—"), None)
 
 
 def avvisi_prossimo(coppie: list[tuple[str, str]], root: Path) -> list[str]:
@@ -181,13 +186,20 @@ def avvisi_prossimo(coppie: list[tuple[str, str]], root: Path) -> list[str]:
     plan = root / PLAN
     if not plan.exists():
         return []
-    pronta = prima_pronta(plan.read_text(encoding="utf-8"))
+    testo = plan.read_text(encoding="utf-8")
+    pronta = prima_pronta(testo)
+    tasks = {task for task, _ in righe_plan(testo)}
     avvisi = []
     for chiave, valore in coppie:
         trovato = TASK_PROSSIMO.match(valore) if chiave == "Prossimo" else None
         if not trovato or trovato.group(1) == pronta:
             continue
-        if pronta is None:
+        if trovato.group(1) not in tasks:
+            avvisi.append(
+                f"avviso: Prossimo {trovato.group(1)} non è una riga di {PLAN}; "
+                "senza task pronti la forma è nessuno (<motivo>)"
+            )
+        elif pronta is None:
             avvisi.append(f"avviso: Prossimo {trovato.group(1)} con nessuna riga pronta in {PLAN}")
         else:
             avvisi.append(

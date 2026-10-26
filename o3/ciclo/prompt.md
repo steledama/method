@@ -28,7 +28,10 @@ Il giro tiene vivi `i1/`, `i2/`, `i3/`, plan, task e i nodi di `kb/`. Un nodo
 verificata e dichiara nel resoconto ogni nodo toccato. Prescrizioni e
 strumenti in `o3/`, skill canoniche, `presentation/`, `CLAUDE.md`,
 `autonomy.md` e `goal.md` restano proposte. `/adottanti` e `/method` non
-girano nel giro.
+girano nel giro. Fa eccezione la chiusura di una prescrizione recepita da
+tutti: `python3 o3/prescrizioni.py verifica <nome>` la controlla sui marker,
+`chiudi <nome>` toglie file e voce d'indice in stage, e i rimandi rimasti si
+correggono nel giro.
 
 Il filo `i3/ciclo-autonomo.md` porta un verdetto, non la cronaca dei giri
 (`kb/verdict.md`). Un giorno in cui ogni giro atteso riesce senza fatti nuovi

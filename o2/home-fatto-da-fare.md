@@ -169,4 +169,4 @@ con l'esecutore. La pubblicazione continua a rispettare i contratti delle viste.
 Deciso dal custode il 2026-10-25: `autonomy.md` è una pagina della vista,
 accanto a `goal.md` e `world.md` ma senza polo, e la home la collega dalla
 sezione «Da decidere» (`o3/view/build_pages.py`, `build_system_image.py`).
-Prescritto agli adottanti in `o3/proposte-e-delega-nella-home.md`.
+Prescritto agli adottanti il 2026-10-25, recepito dai sei e chiuso il 2026-10-26.

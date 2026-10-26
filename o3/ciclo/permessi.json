@@ -62,6 +62,7 @@
       "Bash(python3 o3/adottanti.py *)",
       "Bash(python3 o3/skill_tools.py *)",
       "Bash(python3 o3/commit_gate.py *)",
+      "Bash(python3 o3/prescrizioni.py *)",
       "Bash(python3 o3/view/build.py --check)",
       "Bash(python3 -m unittest *)",
       "Bash(ruff check *)",

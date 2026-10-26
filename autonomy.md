@@ -60,8 +60,11 @@ giro, 45 minuti e 5 USD, nell'unità.
 
 Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Un
 nodo arriva subito agli adottanti via symlink: si corregge solo su una fonte
-verificata e il resoconto dichiara ogni nodo toccato. Restano proposte le
-prescrizioni e gli strumenti in `o3/`, le skill canoniche, `presentation/`,
+verificata e il resoconto dichiara ogni nodo toccato. Una prescrizione che
+tutti i marker danno recepita il giro la chiude da sé con
+`o3/prescrizioni.py chiudi` e corregge i rimandi (deciso dal custode il
+2026-10-26: è l'esecuzione di una regola del canone, non una scelta). Restano
+proposte le altre modifiche alle prescrizioni, gli strumenti in `o3/`, le skill canoniche, `presentation/`,
 `CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/adottanti` e
 `/method` non girano nel giro. Gli adottanti si leggono dai marker nei
 checkout locali di `deck`, o da `origin` via `fetch` per quelli di `svezia`,

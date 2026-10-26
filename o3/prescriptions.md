@@ -17,10 +17,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
-- [Nella sessione interattiva il momento del commit si
-  concorda](momento-del-commit.md) — l'agente propone il commit quando un
-  punto si è fermato, lo prende da sé solo per un lettore fuori dalla
-  sessione; il push resta automatico. Prescritta ai sette il 2026-10-11.
 - [Il ciclo autonomo: skill `/cycle`, vista e permessi](ciclo-autonomo.md) —
   il giro `eval → exec → commit` si chiama ciclo congiunto ed è la skill
   `/cycle`; senza custode è il ciclo autonomo, visibile in home col semaforo
@@ -44,10 +40,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
   mappa ed estrazione delle skill prima della composizione. Prescritta ai
   sette il 2026-10-21.
-- [Le proposte da decidere e il register della delega nella
-  home](proposte-e-delega-nella-home.md) — campo `decidere:` nei task `o2/`,
-  sezione «Da decidere» nella home e `autonomy.md` reso come pagina senza
-  polo. Prescritta ai sei il 2026-10-25.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
