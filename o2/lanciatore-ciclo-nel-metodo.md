@@ -41,6 +41,14 @@ piccolo, ma mostra due cose del disegno attuale che il custode non vuole:
   `nixos` `o3/modules/home/ciclo/`;
 - un repo, `nixos`, scrive un log importante per un altro repo.
 
+Decisione del custode, 2026-10-21: nessuna pezza in `nixos`. La sola fonte
+dichiarata resta l'obiettivo e la si ottiene portando nel metodo la
+scrittura dei tentativi. Fino ad allora un arresto prima del giro può stare
+nella cartella dell'unità, e la vista lo rende come partenza mancata: rosso
+lo stesso, col motivo sbagliato. Scartate la vista che unisce le due
+cartelle per `id`, perché aggiunge un secondo lettore, e la scrittura nella
+cartella `giri` dentro `nixos`, perché è la pezza.
+
 ## L'obiettivo del custode
 
 Uno script del metodo, uguale per tutti i repo, lanciato con parametri. Ogni
@@ -145,5 +153,5 @@ nel `i1/giri/` del repo, arresti prima del giro compresi, e il modulo
 Connessioni:
 
 - [pilota-ciclo-autonomo](pilota-ciclo-autonomo.md)
-- [home-fatto-da-fare](home-fatto-da-fare.md)
+- [view](../kb/view.md)
 - [session-messaging](../kb/session-messaging.md)

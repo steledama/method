@@ -23,8 +23,8 @@ articolano i loop di dominio.
 - La scelta di dove gira il ciclo autonomo: timer systemd dal modulo `cicli` di
   `nixos` (`6a6a7ed`), con Claude Code; collaudato al gradino 0 di `salute`.
 - Il ciclo autonomo visibile nella home, con semaforo e pagina del giro
-  ([home](home-fatto-da-fare.md)): va in parallelo al ciclo autonomo, prima del
-  gradino 1.
+  (`kb/view.md`): va in parallelo al ciclo autonomo, prima del gradino 1.
+  Task chiuso il 2026-10-26, verificato dal custode sulla home servita.
 
 ## Scelta del pilota e gradini
 
@@ -412,8 +412,8 @@ condizioni di sospensione sotto.
 
 Fissare prima dell'avvio intervallo, durata, perimetro degli atti delegati,
 criteri di riuscita e condizioni di arresto. I prerequisiti dipendono dai
-risultati del task [home](home-fatto-da-fare.md) e dell'esecutore, chiuso il
-2026-10-26 col modulo `nixos` in esercizio; i criteri sono in `autonomy.md`.
+risultati dei task della home e dell'esecutore, chiusi il 2026-10-26; i
+criteri sono in `autonomy.md`.
 
 - Concordare un campione di decisioni e ricostruzioni da rileggere contro le
   fonti, includendo i verdetti modificati: motivo comprensibile e trailer

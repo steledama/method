@@ -234,7 +234,12 @@ class NextTask(StateCase):
             f"Serie storica <small>({ciclo.label('previous')}: Diagnosi orfani)</small>", page
         )
         latest = json.loads(ciclo.respond("/_ciclo/ultimi.json", self.state)[1])
-        self.assertEqual(latest["tentativi"][0]["prossimo"], "Serie storica")
+        self.assertNotIn("prossimo", latest["tentativi"][0])
+
+    def test_confirmed_task_is_not_repeated_in_the_row(self):
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        attempt = self.round("a", self.commit("Prossimo: Diagnosi orfani (confermato)"))
+        self.assertNotIn("Diagnosi orfani", ciclo.row_html(attempt))
 
 
 if __name__ == "__main__":

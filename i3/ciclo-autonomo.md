@@ -57,7 +57,7 @@ misurabile: manca il campione riletto contro le fonti.
   che funziona; quelli di `salute` ed `economia` stanno nella cartella
   dell'unità, non in `i1/giri`
   (`i1/arresto-economia-fuori-giri-2026-10-21.md`, decisione in
-  `o2/home-fatto-da-fare.md`).
+  `o2/lanciatore-ciclo-nel-metodo.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
   77 turni e 13 minuti, lontano dal tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
@@ -87,7 +87,7 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
   dall'agente. Dettaglio e punti aperti in `o2/pilota-ciclo-autonomo.md`. Il
   custode ha giudicato ottimo il test; la fedeltà resta da misurare sul
   campione. Il custode ha posto la visibilità del ciclo autonomo nella home come
-  condizione parallela, non successiva (`o2/home-fatto-da-fare.md`).
+  condizione parallela, non successiva (`kb/view.md`).
 - **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
   sette lo stesso giorno e prescrizione chiusa (dettaglio in
   `i3/audit-adottanti.md`); `bi` lo esclude per i commit che toccano il
@@ -151,15 +151,15 @@ La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
 commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
 stato in `method` e nei sette adottanti (`goal-senza-fotografia`, chiusa
 il 2026-10-09). I passi restanti sono task in `o1/plan.md`:
-home con fatto e da fare e pilota. Il task dell'esecutore è chiuso il
-2026-10-26 col modulo `nixos` in esercizio; portare il lanciatore nel metodo
-è un task proprio, senza effetto sul pilota. Il task dei criteri è chiuso il
+il pilota. Il 2026-10-26 sono chiusi il task dell'esecutore, col modulo
+`nixos` in esercizio, e quello della home, verificata dal custode senza le
+sezioni «fatto» e «da fare» (scadenze e attese restano nel plan); portare il
+lanciatore nel metodo è un task proprio, senza effetto sul pilota. Il task dei criteri è chiuso il
 2026-10-25: `ciclo-autonomo` ratificato in `method` e nei sei adottanti col
 timer, proposte da decidere e register della delega raggiungibili dalla home
 (campo `decidere:` dei task `o2/`), collaudo sui casi portato nel campione
 del pilota. Esecutore, criterio e semaforo dei tentativi nella home sono in
-uso nei giri; di home e pilota restano i residui scritti nei loro file
-`o2/`. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
+uso nei giri; del pilota restano i residui scritti nel suo file `o2/`. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
 
 Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
 impedisce di equiparare un motivo leggibile a una ricostruzione fedele.

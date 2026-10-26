@@ -43,4 +43,5 @@ leggendo in `cicli.nix` dove `ciclo-sessioni` scrive la chiusura.
 
 ## Stato del seguito
 
-Proposta al custode in `o2/home-fatto-da-fare.md`, «Fonte».
+Decisa dal custode il 2026-10-21: nessuna pezza in `nixos`, la sola fonte
+arriva col lanciatore nel metodo (`o2/lanciatore-ciclo-nel-metodo.md`).

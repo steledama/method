@@ -102,4 +102,5 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   `i1/giri`](arresto-economia-fuori-giri-2026-10-21.md) — dal giro
   autonomo: l'arresto per sessione aperta delle 13:00 sta nella cartella
   dell'unità, non in `i1/giri` dichiarato dal repo. La vista lo mostra come
-  partenza mancata. Proposta in `o2/home-fatto-da-fare.md`.
+  partenza mancata. Decisa dal custode il 2026-10-21, in
+  `o2/lanciatore-ciclo-nel-metodo.md`.

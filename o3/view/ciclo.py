@@ -14,11 +14,12 @@ senza `--ciclo-unita` vale la prima. Risponde sotto `/_ciclo/`:
 - `/_ciclo/`: tutti i tentativi conservati;
 - `/_ciclo/<id>`: la pagina del giro; `/_ciclo/<id>.jsonl`: lo stream.
 
-Contratto in `o2/home-fatto-da-fare.md` («Contratto del ciclo autonomo nella
-vista»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
+Contratto in `kb/view.md` («Stato operativo letto a richiesta»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
 alza, non abbassa. Il prossimo task arriva dal trailer `Prossimo:` del commit
 del giro e si confronta con quello precedente nella storia: un cambio di
 priorità porta il giro a giallo, anche se l'agente lo dichiara confermato.
+La riga lo nomina solo in quel motivo, perché lo stato della coda vive nel
+plan; la pagina del giro lo riporta sempre.
 Solo libreria standard, come `serve.py`.
 """
 
@@ -379,7 +380,6 @@ def summary(attempt: Attempt) -> dict:
         "commit": close.get("head_dopo") if close.get("commit") else None,
         "durata_s": round(close["durata_ms"] / 1000) if close.get("durata_ms") else None,
         "costo_usd": close.get("costo_usd"),
-        "prossimo": attempt.next_task,
     }
 
 
@@ -429,8 +429,6 @@ def row_html(attempt: Attempt) -> str:
     text = html.escape(label(attempt.color) if not attempt.missed else label("missed"))
     reasons = html.escape(" · ".join(r for r in attempt.reasons if r != label("missed")))
     detail = f' <span class="ciclo-motivi">{reasons}</span>' if reasons else ""
-    if attempt.next_task:
-        detail += f' <span class="ciclo-prossimo">→ {html.escape(attempt.next_task)}</span>'
 
     head = f'<span class="semaforo {attempt.color}" aria-hidden="true"></span>'
     if attempt.id:
@@ -633,12 +631,6 @@ def home_section() -> str:
                   const span = document.createElement("span");
                   span.className = "ciclo-motivi";
                   span.textContent = " " + t.motivi.join(" · ");
-                  li.append(span);
-                }}
-                if (t.prossimo) {{
-                  const span = document.createElement("span");
-                  span.className = "ciclo-prossimo";
-                  span.textContent = " → " + t.prossimo;
                   li.append(span);
                 }}
                 list.append(li);

@@ -11,14 +11,13 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip.                       |
-| ----- | --- | ----------------------------------------------- | -------------------------- |
-| dev   | S   | Agente come utilizzatore                        | —                          |
-| dev   | S   | Progettazione delle skill                       | —                          |
-| dev   | S   | Home con fatto e da fare                        | —                          |
-| dev   | S   | Lanciatore del ciclo nel metodo                 | —                          |
-| dev   | S   | Pilota del ciclo autonomo                       | ↳ Home con fatto e da fare |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1                         |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | S   | Agente come utilizzatore                        | —    |
+| dev   | S   | Progettazione delle skill                       | —    |
+| dev   | S   | Lanciatore del ciclo nel metodo                 | —    |
+| dev   | S   | Pilota del ciclo autonomo                       | —    |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 

@@ -256,10 +256,6 @@ h2 {
   color: var(--muted);
 }
 
-.ciclo-prossimo {
-  font-weight: 600;
-}
-
 .semaforo {
   border-radius: 50%;
   display: inline-block;

@@ -268,14 +268,20 @@ perché la provenienza della release è l'hash. Il ciclo autonomo dell'artefatto
 giro `eval` → `exec` → commit senza custode) è il caso tipo: un tentativo
 fermato prima del commit non innesca nessuna pubblicazione, eppure è proprio
 quello che il custode deve vedere. Il server lo legge a ogni richiesta dalla
-cartella di stato dell'host (`serve.py --ciclo-state`, rotte `/_ciclo/`)
-e ogni lettura dichiara il proprio momento, distinto dalla revisione servita.
+cartella dei tentativi che il repo dichiara, o da quella di stato dell'host
+(`serve.py --ciclo-state`, rotte `/_ciclo/`), e ogni lettura dichiara il
+proprio momento, distinto dalla revisione servita. Così l'ultimo tentativo
+resta distinto dall'ultimo commit: un giro fermato prima del commit, un push
+rifiutato o una partenza mancata non diventano un successo per assenza di
+commit nuovi.
 
 La home ne rende gli ultimi tentativi col semaforo (verde riuscito, giallo
 da guardare, rosso bloccato, calcolato da campi espliciti: il giudizio
-dell'agente alza, non abbassa) e il prossimo task del giro; un cambio di
-priorità rispetto al giro precedente è giallo. Ogni riga porta alla pagina
-del giro. Le
+dell'agente alza, non abbassa). Un cambio di priorità rispetto al giro
+precedente è giallo e nomina il task nuovo nel motivo; un task confermato non
+si ripete nella riga, perché lo stato della coda vive nel plan e il log ne
+porta solo l'evento. Ogni riga porta alla pagina del giro, che riporta
+sempre il prossimo task. Le
 righe arrivano da uno script: aperta come file, la home dice che il ciclo autonomo
 si legge dalla vista servita. Un repo senza ciclo autonomo lo dichiara invece di
 mostrare un vuoto muto. È l'eccezione dichiarata al compartimento stagno:
@@ -286,7 +292,10 @@ Accanto ai tentativi la home elenca le proposte da decidere: i task `o2/`
 col campo `decidere:`, letti dalla release perché versionati, raggiungibili
 anche quando escono dagli ultimi giri. Da lì si apre `autonomy.md`, il
 register della delega, reso come pagina accanto a `goal.md` e `world.md` ma
-senza un polo: non è uno stadio del ciclo.
+senza un polo: non è uno stadio del ciclo. La divisione segue la natura del
+dato: lo stato, come una proposta che aspetta il custode per giorni, sta in
+una sezione fissa; l'evento, come il giro che l'ha sollevata, sta nel log,
+dove la riga è gialla e la pagina del giro ne riporta la voce «Attenzione».
 
 È visibilità e feedback nel senso del ciclo d'azione (`action-cycle`): un
 ambito di autonomia senza uno strumento che lo renda valutabile apre il

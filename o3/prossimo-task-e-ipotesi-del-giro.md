@@ -36,8 +36,9 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
   dalla forma («perché», «quindi», previsioni, generalizzazioni da pochi
   casi), portate nel presidio con affermazione, provenienza, criterio di
   smentita e orizzonte; le smentite si citano, non si riscrivono;
-- nella vista, il prossimo task in home e nella pagina del giro; il giro è
-  giallo se il trailer manca o se il task differisce da quello precedente
+- nella vista, il prossimo task nella pagina del giro e, nella riga della
+  home, solo come motivo del giallo quando cambia (lo stato della coda vive
+  nel plan, dal 2026-10-26); il giro è giallo se il trailer manca o se il task differisce da quello precedente
   nella storia, anche quando l'agente lo dichiara confermato. Il confronto
   lo fa la vista, non l'agente.
 
@@ -62,12 +63,14 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
 3. **`cycle` e `commit`**: le due voci nuove del resoconto finale e
    `Prossimo:` fra i trailer. Se il prompt locale del ciclo autonomo elenca
    il contenuto del resoconto o i trailer, allinearlo.
-4. **Vista**: `o3/view/ciclo.py`, `tests/test_ciclo.py` e la regola
-   `.ciclo-prossimo` di `o3/view/assets/system-image.css` dal canone;
+4. **Vista**: `o3/view/ciclo.py`, `tests/test_ciclo.py` e
+   `o3/view/assets/system-image.css` dal canone, senza più la regola
+   `.ciclo-prossimo` (2026-10-26);
    `project.py` resta locale. Verifica con i test e `build.py --check`.
 5. **Primo giro dopo il recepimento**: non ha un `Prossimo:` precedente con
-   cui confrontarsi; dichiara la testa della coda attuale come
-   `(confermato)` e la motiva. Da lì il confronto è meccanico.
+   cui confrontarsi; dichiara la prima riga pronta del plan come cambio,
+   con causa «primo trailer» (`exec plan`, passo 4, dal 2026-10-26). Da lì
+   il confronto è meccanico.
 6. Registrare il recepimento nel marker `i3/allineamento-metodo.md`.
 
 ## Indizi da verificare sul posto
@@ -87,7 +90,7 @@ Il canone ora chiede (`kb/skill.md`, `kb/interpret.md`, `kb/plan.md`):
 ## Verifica
 
 `git log --format='%(trailers:key=Prossimo,valueonly)'` dà una riga per ogni
-giro con `exec plan`. La home mostra il prossimo task accanto a ogni giro e
-un cambio di priorità in giallo. All'audit `/adottanti` si leggono insieme
+giro con `exec plan`. La home mostra un cambio di priorità in giallo, col
+task nuovo nel motivo; la pagina del giro mostra sempre il prossimo task. All'audit `/adottanti` si leggono insieme
 `Esiti:` e `Prossimo:`: quante conferme, quanti cambi, quanti con causa
 nominata; e quante ipotesi nate o smentite in `interpret`.
