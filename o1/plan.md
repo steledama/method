@@ -16,6 +16,7 @@ pianificazione.
 | dev   | S   | Agente come utilizzatore                        | —    |
 | dev   | S   | Progettazione delle skill                       | —    |
 | dev   | S   | Lanciatore del ciclo nel metodo                 | —    |
+| dev   | S   | Ricorrenza dei dinieghi                         | —    |
 | dev   | S   | Pilota del ciclo autonomo                       | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
