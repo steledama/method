@@ -83,6 +83,11 @@ class ProssimoTests(unittest.TestCase):
         self.assertEqual(self.avvisi("Primo (confermato)"), [])
         self.assertEqual(self.avvisi("Primo (cambiato, era Altro; chiuso)"), [])
 
+    def test_linked_task_cell_counts_as_its_text(self):
+        plan = self.PLAN.replace("| Primo  |", "| [Primo](../o2/primo.md) |", 1)
+        self.assertEqual(MODULE.prima_pronta(plan), "Primo")
+        self.assertEqual(self.avvisi("Primo (confermato)", plan=plan), [])
+
     def test_skipping_the_head_warns(self):
         self.assertIn("scavalca", self.avvisi("Altro (confermato)")[0])
         self.assertTrue(

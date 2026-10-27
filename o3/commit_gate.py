@@ -31,6 +31,7 @@ STADI = {"perceive", "interpret", "compare", "plan", "specify", "perform"}
 IMPATTI = ["basso", "medio", "alto"]
 PROSSIMO = re.compile(r"nessuno \(.+\)$|.+ \((confermato|cambiato, era .+; .+)\)$")
 TASK_PROSSIMO = re.compile(r"(.+?) \((?:confermato|cambiato, era .+; .+)\)$")
+LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
 
 
@@ -155,7 +156,8 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
 
 
 def righe_plan(testo: str) -> list[tuple[str, str]]:
-    """Coppie (Task, Dip.) della tabella dei task, in ordine."""
+    """Coppie (Task, Dip.) della tabella dei task, in ordine; un link
+    markdown nella cella vale per il suo testo."""
     colonne: list[str] = []
     righe = []
     for riga in testo.splitlines():
@@ -163,7 +165,7 @@ def righe_plan(testo: str) -> list[tuple[str, str]]:
             if colonne:
                 break
             continue
-        celle = [c.strip() for c in riga.strip().strip("|").split("|")]
+        celle = [LINK.sub(r"\1", c).strip() for c in riga.strip().strip("|").split("|")]
         if not colonne:
             if "Task" in celle and "Dip." in celle:
                 colonne = celle
