@@ -1,5 +1,5 @@
 ---
-sintesi: "Un diniego che ricorre nei giri autonomi, anche fra repo diversi, diventa una proposta in o2: lo conta uno script per classe di grafia, e prima di proporre una regola nuova si verifica se c'è un segnale canonico che l'adottante non ha recepito."
+sintesi: "Un diniego che ricorre nei giri autonomi, anche fra repo diversi, diventa una proposta in o2: lo conta uno script per classe di grafia, e prima di proporre una regola nuova si verifica se c'è un segnale canonico che l'adottante non ha recepito. Decisioni del custode prese il 2026-10-27, resta da costruire lo script."
 ciclo: dev
 ---
 
@@ -58,45 +58,56 @@ non una lettura del modello.
   un commit di `method` la segnala già e se l'adottante l'ha recepito, dal
   cursore del marker `i3/allineamento-metodo.md` confrontato con
   `o3/canone.py distanza`. Se il segnale c'è e l'adottante è indietro,
-  l'esito è «recepire con `/method`».
+  l'esito è «recepire con `/method`». Un recepimento puntuale senza
+  avanzamento del cursore, come `nixos` `a20ab32` per `e88d81f`, il cursore
+  non lo vede: lo script deve leggerlo dal marker o dichiararlo come limite.
 - **L'esito nel giro.** Il passo 4 del perceive aggiunge la lettura
   dell'output. Una ricorrenza senza segnale canonico diventa una proposta in
   questo task o in quello pertinente, e si chiude in sessione col custode
   (`o3/ciclo-autonomo.md`, ricetta, punto 7): il giro non scrive la skill né
   `permessi.json`.
 
-## Domande aperte
+## Decisioni del custode, 2026-10-27
 
-- **N e soglia.** Quanti giri si guardano, e quante ricorrenze fanno un
-  segnale? La proposta di partenza è almeno due giri, anche di repo diversi,
-  negli ultimi dieci per repo.
-- **Classe e causa.** La classe di grafia si legge dal comando negato, la
-  causa accertata viene dal tentativo riuscito che lo segue (`5de8edb`,
-  `kb/agent-as-user.md`). Lo script conta la grafia; la classe del diniego
-  (vincolo voluto, lacuna, attrito) resta al perceive. Un comando con più
-  grafie, come un `for` composto con `python3 -c`, conta in ogni classe o
-  in una sola?
-- **La mappa dei segnali.** Quale classe è già segnalata da quale commit di
-  `method`, e dove vive questa mappa: nello script, in `kb/agent-as-user.md`
-  o in un file di dati in `o3/`?
-- **Repo fuori da `deck`.** I `tentativi.jsonl` di `svezia` e Windows non
-  sono leggibili da `deck` (`i3/ciclo-autonomo.md`): la ricorrenza fra repo
-  conta solo quelli serviti dallo stesso host?
-- **Il gesto abbandonato.** Lo script vede solo i dinieghi, non i gesti
-  abbandonati dopo un diniego, che sono la perdita vera
-  (`kb/agent-as-user.md`). Basta, o serve un segnale anche per quelli?
+Proposte da `nixos` e approvate dal custode, arrivate via Herdr.
+
+- **N e soglia.** Una classe è ricorrente quando compare in almeno due giri
+  distinti, anche di repo diversi, fra gli ultimi dieci di ogni repo.
+- **Ricorrenza dopo il recepimento.** Pesa di più una classe che ricorre
+  anche dopo che l'adottante ha recepito il segnale canonico: la regola nel
+  punto d'uso non basta. La proposta diventa allora un permesso o uno script
+  che renda inutile la grafia, non un'altra frase nella skill. Lo script
+  distingue quindi tre esiti: segnale canonico assente, segnale non
+  recepito (`/method`), segnale recepito e ricorrenza che continua.
+- **Più grafie in un comando.** Il comando conta in ogni sua classe: lo
+  script resta deterministico, e con una riga per classe il doppio
+  conteggio non fa danni. La classe di grafia si legge dal comando negato;
+  la classe del diniego (vincolo voluto, lacuna, attrito) e la causa
+  accertata restano al perceive (`5de8edb`, `kb/agent-as-user.md`).
+- **La mappa dei segnali.** La mappa che va dalla classe al commit di
+  `method` che la segnala vive nello script, come costante coperta dai
+  test. È canone, non un parametro degli adottanti, e un file di dati
+  sarebbe una seconda fonte da tenere allineata. `kb/agent-as-user.md`
+  spiega e rimanda allo script.
+- **Repo fuori da `deck`.** Si contano solo i repo leggibili, ma l'output
+  dichiara quali ha letto, così il limite resta visibile.
+- **Il gesto abbandonato.** Resta al passo 4 del perceive, che confronta il
+  diniego col tentativo che lo segue: da `tentativi.jsonl` lo script non lo
+  vede.
 
 ## Fuori da questo task
 
 - La sonda delle grafie con `claude -p` e i settings del giro: è un task
-  locale di `nixos`, che gestisce host e versione di Claude Code.
-- Gli allow `gh issue view` e `gh pr view` per `nixos`: sono una lacuna
-  locale, da chiudere in sessione sul `permessi.json` di `nixos`.
+  locale di `nixos` (`nixos` `bcf4b26`), che gestisce host e versione di
+  Claude Code.
+- Gli allow `gh issue view` e `gh pr view` per `nixos`: lacuna locale,
+  chiusa nel `permessi.json` di `nixos` (`bcf4b26`).
 
 ## Criterio di chiusura
 
-Lo script è in `o3/` coi test, concesso nel `permessi.json` di `method`,
-letto dal passo 4 del perceive nella skill `eval`. La ricetta di
+Lo script è in `o3/` coi test, mappa dei segnali compresa, concesso nel
+`permessi.json` di `method`, letto dal passo 4 del perceive nella skill
+`eval`; `kb/agent-as-user.md` vi rimanda. La ricetta di
 `o3/ciclo-autonomo.md` lo prescrive agli adottanti. Un giro di `method` ne ha
 usato l'output. Riga del plan, voce in `o2/tasks.md` e questo file si
 rimuovono nello stesso commit.
