@@ -42,7 +42,8 @@ dall'harness come gli altri strumenti: `audit` misura dimensioni, crescita e
 quota di rimandi, confronta i comandi scritti con i permessi di sessione e
 giro, trova i divieti scritti con o senza deny e le chiamate fra skill,
 prova gli esempi di trailer `Prossimo:` di skill e prompt del giro contro
-il gate di `commit_gate.py` e misura la divergenza delle copie dal canone.
+il gate di `commit_gate.py`, segnala la prosa che lega il motivo di una
+conferma al trailer invece che al corpo, e misura la divergenza delle copie dal canone.
 Comandi, divieti, chiamate e trailer si leggono anche nei file accanto a
 `SKILL.md`: un ramo estratto porta procedura, e fuori dal controllo la
 misura migliorerebbe nascondendo i gesti. Comandi e divieti si censiscono anche in

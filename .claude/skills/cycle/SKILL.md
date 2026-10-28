@@ -101,9 +101,10 @@ a richiesta»). Contiene:
   suo motivo;
 - per stadio, `materia` o `vuoto` e cosa è cambiato;
 - ipotesi nate, confermate o smentite nel giro, e dove vivono;
-- prossimo task, confermato o cambiato rispetto al precedente, con la causa
-  del cambio o il motivo della conferma (stesso valore del trailer
-  `Prossimo:`);
+- prossimo task, confermato o cambiato rispetto al precedente, nella stessa
+  forma del trailer `Prossimo:`, che porta fra parentesi solo la causa del
+  cambio; il motivo della conferma sta qui e nel corpo del commit, mai nel
+  trailer;
 - decisioni prese entro la delega, con motivo e fonte;
 - atti sul Mondo compiuti;
 - proposte lasciate al custode e dove vivono;

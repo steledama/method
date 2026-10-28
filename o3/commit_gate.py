@@ -7,7 +7,8 @@ qualunque harness, da terminale o da un hook git (`kb/skill-composition.md`).
 - `prima`: formatta i file cambiati e lancia i controlli del profilo;
 - `dopo [--giro]`: verifica i trailer dell'ultimo commit; `--giro` aggiunge
   quelli che `/cycle` richiede. Avvisa, senza fallire, se il `Prossimo:`
-  scavalca la prima riga pronta di `o1/plan.md`.
+  scavalca la prima riga pronta di `o1/plan.md` o se `nessuno (…)` mescola
+  le forme.
 
 Il profilo è locale, `o3/commit_gate.toml` del repo: formatter per glob e
 controlli, sempre o quando cambia un glob, con l'uscita che li fa fallire.
@@ -31,6 +32,8 @@ STADI = {"perceive", "interpret", "compare", "plan", "specify", "perform"}
 IMPATTI = ["basso", "medio", "alto"]
 PROSSIMO = re.compile(r"nessuno \(.+\)$|.+ \((confermato|cambiato, era .+; .+)\)$")
 TASK_PROSSIMO = re.compile(r"(.+?) \((?:confermato|cambiato, era .+; .+)\)$")
+CONFERMA_MOTIVATA = re.compile(r"\(confermato[^)]")
+NESSUNO_MISTO = re.compile(r"nessuno \((?:confermato|cambiato)\b")
 LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
 
@@ -140,7 +143,12 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
             if stadio not in STADI or esito not in {"materia", "vuoto"}:
                 errori.append(f"voce di Esiti non valida: {voce}")
     for prossimo in valori.get("Prossimo", []):
-        if not PROSSIMO.match(prossimo):
+        if not PROSSIMO.match(prossimo) and CONFERMA_MOTIVATA.search(prossimo):
+            errori.append(
+                "Prossimo: (confermato) non prende motivo, il riesame va nel corpo "
+                f"del commit e nel resoconto: {prossimo}"
+            )
+        elif not PROSSIMO.match(prossimo):
             errori.append(
                 f"Prossimo senza (confermato), (cambiato, era …; …) o nessuno (…): {prossimo}"
             )
@@ -185,13 +193,17 @@ def prima_pronta(testo: str) -> str | None:
 def avvisi_prossimo(coppie: list[tuple[str, str]], root: Path) -> list[str]:
     """Il `Prossimo:` contro la coda: scavalcare la prima riga pronta si
     può (lettura strategica di `exec plan`), ma va visto e motivato."""
+    avvisi = [
+        f"avviso: Prossimo {valore} mescola le forme; nessuno (<motivo>) prende solo il motivo"
+        for chiave, valore in coppie
+        if chiave == "Prossimo" and NESSUNO_MISTO.match(valore)
+    ]
     plan = root / PLAN
     if not plan.exists():
-        return []
+        return avvisi
     testo = plan.read_text(encoding="utf-8")
     pronta = prima_pronta(testo)
     tasks = {task for task, _ in righe_plan(testo)}
-    avvisi = []
     for chiave, valore in coppie:
         trovato = TASK_PROSSIMO.match(valore) if chiave == "Prossimo" else None
         if not trovato or trovato.group(1) == pronta:

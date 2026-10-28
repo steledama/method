@@ -40,7 +40,11 @@ class TrailerTests(unittest.TestCase):
             MODULE.errori_trailer([*base, ("Prossimo", "Task (cambiato, era Altro; fonte)")]), []
         )
         self.assertEqual(MODULE.errori_trailer([*base, ("Prossimo", "nessuno (coda vuota)")]), [])
-        self.assertTrue(MODULE.errori_trailer([*base, ("Prossimo", "Task (confermato; riesame)")]))
+        for motivato in ("Task (confermato; riesame)", "Task (confermato: riesame)"):
+            self.assertIn(
+                "(confermato) non prende motivo",
+                MODULE.errori_trailer([*base, ("Prossimo", motivato)])[0],
+            )
         self.assertTrue(MODULE.errori_trailer([*base, ("Co-Authored-By", "Qualcuno")]))
 
     def test_giro_requires_its_trailers(self):
@@ -99,6 +103,11 @@ class ProssimoTests(unittest.TestCase):
     def test_none_and_missing_plan_are_silent(self):
         self.assertEqual(self.avvisi("nessuno (coda vuota)"), [])
         self.assertEqual(self.avvisi("Altro (confermato)", plan=None), [])
+
+    def test_none_mixed_with_other_forms_warns(self):
+        for misto in ("nessuno (confermato; riesame)", "nessuno (cambiato, era Primo; fonte)"):
+            self.assertIn("mescola le forme", self.avvisi(misto)[0])
+            self.assertIn("mescola le forme", self.avvisi(misto, plan=None)[0])
 
     def test_next_task_outside_the_plan_warns(self):
         self.assertIn("nessuno (<motivo>)", self.avvisi("nessun task aperto (confermato)")[0])

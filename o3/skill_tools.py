@@ -62,6 +62,14 @@ VERBO_CHIAMATA = re.compile(
 )
 RIMANDO = re.compile(r"(?<![\w.])(?:\.\./)*(?:kb|o3|method)/[\w./-]+")
 ESEMPIO_PROSSIMO = re.compile(r"^Prossimo: (.+)$")
+MOTIVO_CONFERMA = re.compile(
+    r"(?:motivo|riesam\w*)[^.;]{0,60}conferm|conferm\w*[^.;]{0,60}(?:motivo|riesam)",
+    re.IGNORECASE,
+)
+FUORI_DAL_TRAILER = re.compile(
+    r"(?:non|mai) (?:nel trailer|fra le parentesi)|il trailer resta|va nel corpo", re.IGNORECASE
+)
+CAPOVERSO = re.compile(r"^\s*(?:[-*]|\d+\.)\s")
 ESEGUIBILI_SHELL = {"git", "python3", "jq", "sed", "grep", "rg", "ls", "cat", "head", "tail"}
 
 
@@ -313,6 +321,35 @@ def esempi_prossimo(righe: list[str]) -> list[tuple[int, str]]:
     return trovati
 
 
+def prosa_prossimo(righe: list[str]) -> list[int]:
+    """Capoversi in prosa che legano il motivo di una conferma al trailer
+    senza dirlo fuori: invitano `(confermato: <motivo>)`, che il gate
+    rifiuta, e un esempio in codice non li cattura."""
+    trovati, blocco, inizio, testo = [], False, 0, ""
+
+    def chiudi() -> None:
+        if (
+            "trailer" in testo
+            and MOTIVO_CONFERMA.search(testo)
+            and not FUORI_DAL_TRAILER.search(testo)
+        ):
+            trovati.append(inizio)
+
+    for numero, riga in enumerate(righe, 1):
+        if FENCE.match(riga.strip()):
+            blocco = not blocco
+        if blocco or FENCE.match(riga.strip()) or not riga.strip() or CAPOVERSO.match(riga):
+            chiudi()
+            inizio, testo = numero, ""
+            if blocco or FENCE.match(riga.strip()) or not riga.strip():
+                continue
+        if not testo:
+            inizio = numero
+        testo += " " + riga.strip()
+    chiudi()
+    return trovati
+
+
 def audit(root: Path) -> str:
     skills = leggi_skill(root)
     nomi = {s.nome for s in skills}
@@ -422,6 +459,13 @@ def audit(root: Path) -> str:
             if not prossimo.match(valore)
         ]
         out += fuori or ["- tutti gli esempi di `Prossimo:` passano il gate"]
+    prosa = [
+        f"- {nome}:{numero} — lega il motivo della conferma al trailer: "
+        "il riesame va nel corpo e nel resoconto"
+        for nome, righe, _ in fonti
+        for numero in prosa_prossimo(righe)
+    ]
+    out += prosa
     out.append("")
 
     out += ["### Composizione", ""]

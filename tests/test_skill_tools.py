@@ -148,6 +148,20 @@ class AuditTests(unittest.TestCase):
         self.assertNotIn("exec:3", report)
         self.assertNotIn("exec:4", report)
 
+    def test_prose_binding_confirmation_reason_to_trailer(self):
+        righe = [
+            "- prossimo task, con la causa del cambio o il motivo della conferma",
+            "  (stesso valore del trailer `Prossimo:`);",
+            "- prossimo task nella forma del trailer; il motivo della conferma",
+            "  sta nel corpo del commit, mai nel trailer;",
+            "",
+            "Il riesame di una conferma va nel corpo, non fra le parentesi del trailer.",
+            "```",
+            "motivo della conferma nel trailer",
+            "```",
+        ]
+        self.assertEqual(MODULE.prosa_prossimo(righe), [1])
+
     def test_branches_beside_skill_are_checked(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
