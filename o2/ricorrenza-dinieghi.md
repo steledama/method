@@ -99,7 +99,12 @@ Proposte da `nixos` e approvate dal custode, arrivate via Herdr.
 
 - La sonda delle grafie con `claude -p` e i settings del giro: è un task
   locale di `nixos` (`nixos` `bcf4b26`), che gestisce host e versione di
-  Claude Code.
+  Claude Code. Esiti del 2026-10-28 su 2.1.311 (`nixos` `91f6ef2`, 21
+  prove, inoltrati via Herdr): negate graffe, `cd` dentro un composto,
+  `$(…)`, `for` e heredoc unito a `&&`; concessi `;` e `&&` fra comandi in
+  allow, pipe, redirezioni, heredoc da solo, `-m` ripetuti, graffe e pipe
+  fra virgolette. Per lo script: la classe composto vale solo con un pezzo
+  non concesso, e l'heredoc conta come classe solo dentro un composto.
 - Gli allow `gh issue view` e `gh pr view` per `nixos`: lacuna locale,
   chiusa nel `permessi.json` di `nixos` (`bcf4b26`).
 
