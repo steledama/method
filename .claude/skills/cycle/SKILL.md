@@ -49,7 +49,10 @@ uscita, e un `echo rc=$?` aggiunto le fa negare tutte (primi due giri di
 `crm`, 2026-10-15). Lo stesso vale per ogni comando: uno per chiamata Bash,
 senza `;`, `&&`, cicli `for`, graffe `{a,b}`, `python3 -c` o heredoc; più
 oggetti si leggono con più chiamate nello stesso turno. Il messaggio di
-commit va in `-m` ripetuti, non in un file fuori dal repo; i file fuori dal
+commit va in `-m` ripetuti, non in un file fuori dal repo: un `-m` per la
+riga, uno per il corpo e tutti i trailer in un solo `-m` finale, uno per
+riga, perché git legge come trailer solo l'ultimo paragrafo e ogni `-m` ne
+apre uno (giro di `danea-auto` del 28 ottobre); i file fuori dal
 checkout si leggono col tool Read, non con `ls` o `cat` (giri dal 20 al 26
 ottobre in `method`, `nixos` ed `economia`). Nel resoconto, un diniego su
 composti, `for` o graffe è attrito dell'harness, perché nessuna regola del
@@ -72,7 +75,18 @@ verifiche del repo, `python3 o3/commit_gate.py prima`, devono passare; se una
 fallisce, niente commit e working tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
 con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 `Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
-senza trailer di coautoria. Prima del push verifica i trailer con
+senza trailer di coautoria. `Esiti:` nomina i sei stadi, non gli archi, e
+`Prossimo:` prende una delle forme di `/commit`:
+
+```
+git commit -m "docs(ciclo): giro del <data>, <esito>" -m "<corpo>" -m "Esiti: perceive=vuoto interpret=vuoto compare=materia plan=materia specify=vuoto perform=vuoto
+Prossimo: <task> (confermato)
+Autonomia: agente
+Impatto: medio
+Impatto-motivo: ciclo-autonomo (autonomy.md, <criterio di copertura>)"
+```
+
+Prima del push verifica i trailer con
 `python3 o3/commit_gate.py dopo --giro` e correggi con `git commit --amend`
 se segnala un errore: dopo il push la storia non si riscrive, l'errore si dichiara nel
 resoconto. Un avviso sul `Prossimo:` che scavalca la prima riga pronta non è
