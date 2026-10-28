@@ -54,10 +54,16 @@ riga, uno per il corpo e tutti i trailer in un solo `-m` finale, uno per
 riga, perché git legge come trailer solo l'ultimo paragrafo e ogni `-m` ne
 apre uno (giro di `danea-auto` del 28 ottobre); i file fuori dal
 checkout si leggono col tool Read, non con `ls` o `cat` (giri dal 20 al 26
-ottobre in `method`, `nixos` ed `economia`). Nel resoconto, un diniego su
-composti, `for` o graffe è attrito dell'harness, perché nessuna regola del
-repo lo vuole; `python3 -c`, scritture e letture fuori perimetro sono
-vincoli voluti (`kb/agent-as-user.md`).
+ottobre in `method`, `nixos` ed `economia`). La regola è più stretta del
+necessario, ma regge al cambio di versione: su Claude Code 2.1.311 `;`, `&&`
+e pipe fra comandi concessi passano, come l'heredoc da solo, mentre una
+graffa fra virgolette negata su 2.1.308 passa su 2.1.311 (sonda di `nixos`,
+`91f6ef2`). Nel resoconto, un diniego su graffe, `for`, `$(…)`, `cd` dentro
+un composto o heredoc unito a `&&` è attrito dell'harness, perché nessuna
+regola del repo lo vuole; un composto è negato anche quando un suo pezzo
+non è concesso, e allora conta la classe di quel pezzo. `python3 -c`,
+scritture e letture fuori perimetro sono vincoli voluti
+(`kb/agent-as-user.md`).
 
 **Durante il giro.** Non fare domande. Ogni punto che in sessione
 chiederesti al custode, e ogni punto riservato da `confine-delega`, diventa
