@@ -42,6 +42,7 @@
       "Bash(git commit *)",
       "Bash(git push)",
       "Bash(git push origin main)",
+      "Bash(git push -q origin main)",
       "Edit(./i1/**)",
       "Write(./i1/**)",
       "Edit(./i2/**)",

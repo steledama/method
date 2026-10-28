@@ -34,7 +34,8 @@ giri autonomi pagano dinieghi su gesti che il prompt stesso richiede.
 1. **Canone già recepito per symlink, da applicare:**
    - togliere da `.claude/settings.json` i deny su `git add -A*`,
      `--all*`, `git add .` e `git add . *`; restano `-f`/`--force` e gli
-     altri deny git (`o3/ciclo-autonomo.md`, punto 7);
+     altri deny git (prescrizione `ciclo-autonomo`, punto 7, chiusa il
+     2026-10-28 e in git);
    - nella `/commit` locale il cartello «non usare `git add -A`» lascia il
      posto al confronto di `git status` prima dello staging;
    - il gate deterministico di `/commit`: un profilo locale
