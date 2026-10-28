@@ -15,6 +15,14 @@ richiedono un riflesso stabile. Quando il segnale è stato interpretato e il suo
 contenuto è risalito, la copia consumata si elimina dall'indice e dalla
 collezione.
 
+Una cattura che rimanda la promozione a un andamento dichiara una soglia
+contabile: N casi in M giri o in un intervallo, con la fonte del conteggio
+(trailer dei commit, `tentativi.jsonl`, altre catture). Il perceive la conta a
+ogni giro e, raggiunta la soglia, compie la promozione dichiarata. Una soglia
+che nessuno conta, come «quando mostrano un andamento», è un cartello: la
+promozione non arriva e i casi restano sparsi nei commit (giro di `salute`,
+2026-10-28, sulle anomalie dell'orologio).
+
 Il grezzo che serve alla percezione ma non va versionato può stare in `i1/`,
 ignorato da git: snapshot di feed, code di elaborazione, log, trascrizioni dei
 giri del ciclo autonomo. È locale all'host che lo produce, tenuto con una

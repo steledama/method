@@ -132,6 +132,12 @@ Per skill, prompt, permessi e script:
 - un gesto ricorrente e fragile, come una scrittura composta su un registro,
   ha uno script dedicato con nome e uscita che ne segnalano la funzione?
 - il feedback di un vincolo voluto dice all'agente cosa fare invece?
+- uno strumento che emette un orario lo dà nell'ora locale in cui si
+  scrivono resoconti e commit, da sola o accanto all'UTC? La `Z` finale è un
+  segnale che l'agente perde: il giro di `salute` del 2026-10-28 ha letto un
+  `modified_at` in UTC come ora locale e ha scritto le 2:00 al posto delle
+  3:00. La correzione sta nell'output dello strumento, non in un'istruzione
+  che chiede di convertire.
 
 La revisione appartiene a chi progetta l'artefatto, in sessione col custode
 quando tocca permessi o prescrizioni del giro. Il giro senza custode percepisce

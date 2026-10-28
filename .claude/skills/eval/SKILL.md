@@ -102,7 +102,11 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.
-5. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
+5. Per ogni cattura in `i1/` con una soglia di promozione, conta i casi
+   dalla fonte che dichiara e, raggiunta la soglia, compi la promozione
+   dichiarata. Una soglia non contabile si riscrive con N, M e la fonte se
+   i casi la danno; altrimenti diventa una proposta (`kb/perceive.md`).
+6. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
 
 ## `interpret` — distillare in sintesi
 
