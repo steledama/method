@@ -106,6 +106,14 @@ Il lato di lettura è invece già canonico: `o3/view/ciclo.py` è identico in
   tag, costa un aggiornamento a ogni modifica. Come arriva lo script
   all'adottante: symlink al checkout come i nodi, copia come la vista, o
   versione fissata? E su `danea2` c'è un checkout di `method`?
+- **Freschezza del checkout del canone.** Il gate e il guardiano che il giro
+  dell'adottante legge dal checkout di `method` possono essere indietro: il
+  giro `baserow` del 2026-10-22 su `svezia` ha letto il gate da `c224d3e`,
+  prima di `73717f4`, e il rifiuto di `nessuno (…)` ha prodotto un finto
+  task (`767236c`). Il lanciatore fa il `pull --ff-only` del checkout di
+  `method` all'avvio, già concesso da `CLAUDE.md` («Pull remoto»), o il giro
+  dichiara l'hash del canone letto? La domanda tocca la versione fissata
+  del punto precedente.
 - **Linguaggio.** Python è già lo strumento di `o3/` e del lanciatore di
   `danea-auto`, ed è multipiattaforma; bash è quello di oggi in `nixos`.
   Quale dipendenza dall'interprete si accetta?
