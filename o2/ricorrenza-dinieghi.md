@@ -64,7 +64,8 @@ non una lettura del modello.
 - **L'esito nel giro.** Il passo 4 del perceive aggiunge la lettura
   dell'output. Una ricorrenza senza segnale canonico diventa una proposta in
   questo task o in quello pertinente, e si chiude in sessione col custode
-  (`o3/ciclo-autonomo.md`, ricetta, punto 7): il giro non scrive la skill né
+  (prescrizione `ciclo-autonomo`, punto 7, chiusa il 2026-10-28 e in git):
+  il giro non scrive la skill né
   `permessi.json`.
 
 ## Decisioni del custode, 2026-10-27
@@ -112,8 +113,9 @@ Proposte da `nixos` e approvate dal custode, arrivate via Herdr.
 
 Lo script è in `o3/` coi test, mappa dei segnali compresa, concesso nel
 `permessi.json` di `method`, letto dal passo 4 del perceive nella skill
-`eval`; `kb/agent-as-user.md` vi rimanda. La ricetta di
-`o3/ciclo-autonomo.md` lo prescrive agli adottanti. Un giro di `method` ne ha
+`eval`; `kb/agent-as-user.md` vi rimanda. Una prescrizione in `o3/` lo
+prescrive agli adottanti: `ciclo-autonomo`, il veicolo previsto, è chiusa
+il 2026-10-28 perché recepita da tutti. Un giro di `method` ne ha
 usato l'output. Riga del plan, voce in `o2/tasks.md` e questo file si
 rimuovono nello stesso commit.
 

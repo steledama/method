@@ -17,12 +17,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
   la misura che la clausola di uscita della tripartizione non aveva.
   Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
-- [Il ciclo autonomo: skill `/cycle`, vista e permessi](ciclo-autonomo.md) —
-  il giro `eval → exec → commit` si chiama ciclo congiunto ed è la skill
-  `/cycle`; senza custode è il ciclo autonomo, visibile in home col semaforo
-  e la pagina del giro; regola comune sui permessi. Sostituisce
-  `battito-nella-home`, recepita da `salute` ed `economia`. Prescritta ai
-  sette il 2026-10-11.
 - [Ogni giro dichiara il prossimo task e le ipotesi che ha
   formato](prossimo-task-e-ipotesi-del-giro.md) — trailer `Prossimo:`
   confermato o cambiato con la causa, confronto meccanico nella vista (cambio

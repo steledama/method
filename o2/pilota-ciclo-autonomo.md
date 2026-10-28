@@ -89,7 +89,7 @@ arriva agli adottanti via symlink.
   custode ha deciso lo stesso giorno: amend concesso dove è concesso il
   commit, solo prima del push, con la rilettura dei trailer nelle skill
   `commit` e `cycle`; base git comune nella prescrizione
-  [ciclo-autonomo](../o3/ciclo-autonomo.md); `attribution` passato
+  `ciclo-autonomo`, chiusa il 2026-10-28; `attribution` passato
   dall'unità.
 - **`salute`, gradino 1, deciso il 2026-10-11** (`deck`): timer ogni giorno
   alle 12:00 dal 2026-10-12 (`nixos` `cd2be2a`), criterio `ciclo-autonomo`

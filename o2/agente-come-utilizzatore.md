@@ -11,7 +11,7 @@ Segnalazione della sessione `nixos` su `deck`, inoltrata via Herdr il
 2026-10-21 su richiesta del custode, con priorità primaria. Il custode ha
 approvato in sessione la forma: nodo nuovo `kb/agent-as-user.md`, rimandi in
 `affordance-signifier`, `constraint`, `claude`, `skill`, `perceive` e nel punto
-8 di `o3/ciclo-autonomo.md`, revisione degli adottanti via `/method` con un
+8 della prescrizione `ciclo-autonomo` (chiusa il 2026-10-28), revisione degli adottanti via `/method` con un
 task `o2/` per repo. Il caso di partenza e il modello del task locale sono in
 `nixos` `o2/design-agent-as-user.md` (giro del 2026-10-21, `5da4549`).
 
@@ -61,8 +61,8 @@ Ordine, dall'evidenza raccolta il 2026-10-21 dai log locali di `deck`:
 - Staging intero, 2026-10-21, segnalato da `nixos` (diniego nel giro e
   cartello in `/manutenzione` e `/commit`): vincolo di basso valore, perché
   il deny su `git add -A`, `--all`, `.` e `. *` vieta la grafia e non il
-  gesto. Tolto da `.claude/settings.json` e da `o3/ciclo-autonomo.md`
-  punto 7; in `/commit` il cartello lascia il posto al confronto di
+  gesto. Tolto da `.claude/settings.json` e dal punto 7 della prescrizione
+  `ciclo-autonomo`; in `/commit` il cartello lascia il posto al confronto di
   `git status` prima dello staging. Restano `-f`/`--force` e gli altri deny
   git. Gli adottanti si allineano con `/method`; `nixos` chiude il punto 1
   del proprio task.
@@ -81,5 +81,5 @@ del plan, voce in `o2/tasks.md` e questo file si rimuovono nello stesso commit.
 Connessioni:
 
 - [agent-as-user](../kb/agent-as-user.md)
-- [ciclo-autonomo](../o3/ciclo-autonomo.md)
+- [ciclo-autonomo](../i3/ciclo-autonomo.md)
 - [audit-adottanti](../i3/audit-adottanti.md)

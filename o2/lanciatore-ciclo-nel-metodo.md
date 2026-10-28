@@ -18,8 +18,8 @@ l'unità, con percorsi in sola lettura, lock e tempo massimo, e i permessi
 dell'harness passati con `--settings` e `--setting-sources project`. Il
 meccanismo è collaudato e in esercizio in sei repo
 (`i3/ciclo-autonomo.md`); la sua forma vive in `kb/cicli.md` di `nixos` e
-nella prescrizione `o3/ciclo-autonomo.md`. La storia della scelta resta in
-git.
+nella prescrizione `ciclo-autonomo`, recepita da tutti e chiusa il
+2026-10-28. La storia della scelta e della prescrizione resta in git.
 
 Il meccanismo resta in vigore finché il custode non decide su questo task.
 Per ora il problema si espone e basta, con le domande aperte, per tornarci
