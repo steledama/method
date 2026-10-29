@@ -23,7 +23,8 @@ Impatto-motivo: ciclo-autonomo (autonomy.md, ciclo schedulato)
 
 ## Perimetro
 
-Il giro tiene vivi `i1/`, `i2/`, `i3/`, plan, task e i nodi di `kb/`. Un nodo
+Il giro tiene vivi `i1/`, `i2/`, `i3/`, plan, task e i nodi di `kb/`; dei
+task la pianificazione, non l'esecuzione (`autonomy.md`). Un nodo
 `kb/` arriva subito agli adottanti via symlink: correggilo solo con una fonte
 verificata e dichiara nel resoconto ogni nodo toccato. Prescrizioni e
 strumenti in `o3/`, skill canoniche, `presentation/`, `CLAUDE.md`,

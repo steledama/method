@@ -50,15 +50,20 @@ gradino 1 deciso il 2026-10-17: il timer lancia un giro ogni giorno alle 15:00.
 Il ciclo autonomo è il ciclo congiunto senza custode, la skill `/cycle
 autonomo`: lo avvia su `deck` l'unità `ciclo-method` del modulo `cicli` di
 `nixos`, con `o3/ciclo/prompt.md` e i permessi di `o3/ciclo/permessi.json`.
-Nessuno risponde durante il giro, e ciò che in sessione si chiederebbe
-diventa proposta nel task `o2/` pertinente. Resta fuori da
+Nessuno risponde durante il giro: una scelta che in sessione si chiederebbe
+diventa proposta nel task `o2/` pertinente, il resto va nel resoconto. Resta fuori da
 `momento-del-commit`: un commit per giro, con `Esiti`, `Autonomia: agente`,
 impatto almeno **medio** e `Impatto-motivo:` col criterio e il gradino
 dichiarati dal prompt. Al gradino 1 il timer di `nixos` avvia il giro; un
 avvio a mano dell'unità resta coperto da questo criterio. Tetto per
 giro, 45 minuti e 5 USD, nell'unità.
 
-Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Un
+Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Dei
+task tiene viva la pianificazione, non l'esecuzione (deciso dal custode il
+2026-10-29, `kb/tasks.md`, «Task e giro»): una notizia nuova ne corregge
+informazioni e specifica, ne muove priorità e dipendenze, chiude attese, crea
+o cancella task; i passi del task restano alla sessione col custode, salvo
+gli atti che questo register assegna al giro. Un
 nodo arriva subito agli adottanti via symlink: si corregge solo su una fonte
 verificata e il resoconto dichiara ogni nodo toccato. Una prescrizione che
 tutti i marker danno recepita il giro la chiude da sé con

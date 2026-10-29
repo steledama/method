@@ -43,17 +43,24 @@ controlla presenza, ordine e dipendenze.
 Il giro ricorrente amministra l'artefatto: esegue il runtime, smaltisce le code
 ricorrenti del dominio, percepisce e dà i verdetti. Ciò che si ripete
 appartiene al giro, non a un task. Il task è straordinario: una tantum, migliora
-l'artefatto e chiede decisioni, approfondimenti o chiarimenti che si prendono
-col custode. Per questo il giro senza custode non porta avanti i task, nemmeno
-specificandoli; il suo `exec specify` resta igiene della forma.
+l'artefatto o porta a termine un affare del dominio, e chiede decisioni,
+approfondimenti o chiarimenti che si prendono col custode.
 
-I due movimenti si toccano in due punti: un verdetto sugli input che cambia la
-priorità della coda, e un'evidenza del giro, dall'autoanalisi o dai dati della
-giornata, che basta a proporre o a cancellare un task. La proposta nasce col
-campo `decidere:`. Le singole osservazioni non si accumulano nel task quando il
-dato del dominio le conserva già (`source-of-truth`, `pace-layering`).
-Un adottante che vuole una delega più larga la dichiara nel proprio register
-di autonomia.
+Il giro senza custode pianifica i task ma non li esegue. Una notizia nuova, come
+una risposta, un dato o un verdetto, si traduce nella pianificazione: il giro
+corregge un'informazione del task, ne aggiorna la specifica, ne cambia priorità
+e dipendenze, chiude un'attesa o un task consumato, ne crea uno nuovo o ne
+cancella uno superato. Se arriva per mail la risposta del notaio sulla vendita
+di un immobile, il giro aggiorna la specifica del task di vendita e chiude
+l'attesa, ma non risponde al notaio. L'implementazione, lo sviluppo e gli atti
+sul Mondo che il task prepara restano alla sessione col custode, salvo quelli
+che il register di autonomia assegna al giro.
+
+A muovere la pianificazione è la notizia. Un plan fermo senza notizie nuove è
+l'equilibrio, non una lacuna. Un'osservazione che il dato del dominio conserva
+già non è una notizia da annotare nel task (`source-of-truth`,
+`pace-layering`). Una scelta che spetta al custode nasce nel task col campo
+`decidere:`.
 
 Connessioni:
 

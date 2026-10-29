@@ -65,10 +65,12 @@ non è concesso, e allora conta la classe di quel pezzo. `python3 -c`,
 scritture e letture fuori perimetro sono vincoli voluti
 (`kb/agent-as-user.md`).
 
-**Durante il giro.** Non fare domande. Il giro amministra l'artefatto e non
-porta avanti i task (`kb/tasks.md`, «Task e giro»): tocca plan e `o2/` solo
-quando un verdetto cambia la priorità della coda o quando un'evidenza del
-giro basta a proporre o a cancellare un task. Quella proposta, come un punto
+**Durante il giro.** Non fare domande. Il giro pianifica i task ma non li
+esegue (`kb/tasks.md`, «Task e giro»). Una notizia nuova si traduce in plan
+e `o2/`: informazione corretta, specifica aggiornata, priorità e dipendenze,
+attesa chiusa, task creato o cancellato. L'implementazione e gli atti che il
+task prepara restano alla sessione col custode, salvo quelli che il register
+di autonomia assegna al giro. Una scelta che spetta al custode, come un punto
 riservato da `confine-delega` che resta aperto oltre il giro, va nel task
 `o2/` pertinente, o in uno nuovo nella forma ordinaria: il campo `decidere:`
 del frontmatter con la questione in una frase, e nel corpo alternative,
