@@ -83,6 +83,8 @@
       "Write(./goal.md)",
       "Edit(./.claude/**)",
       "Write(./.claude/**)",
+      "Edit(./o3/ciclo/**)",
+      "Write(./o3/ciclo/**)",
       "Edit(./.codex/**)",
       "Write(./.codex/**)",
       "Edit(./o3/**)",

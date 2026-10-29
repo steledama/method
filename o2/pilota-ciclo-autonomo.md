@@ -323,6 +323,21 @@ arriva agli adottanti via symlink.
     quattro fetch riusciti, `id` di `fetch.json` uguale a quello della
     partenza, nessun `git fetch` tentato dal giro.
 
+  - **Modifiche a `o3/ciclo/` e pull d'avvio**: il lanciatore non fa il pull
+    se l'aggiornamento tocca i percorsi in sola lettura del giro (per
+    `method` `o3/ciclo`, prompt e permessi) e si ferma con arresto 13
+    `pull-in-sola-lettura`, senza commit. È il recinto che funziona: il giro
+    non si cambia prompt e permessi da solo. Il giro del 2026-10-29 alle 15:00
+    si è fermato così, col checkout di `deck` a `321e096` e `369d5ea` che
+    toccava `o3/ciclo/prompt.md`; un pull a mano alle 15:07 (reflog di
+    `deck`) l'ha portato a `48fff8d` e il custode rilancia l'unità a mano.
+    `danea-auto` ha la stessa protezione, più larga (arresto 17
+    `pull-protetto`). Finché resta il lanciatore attuale, chi modifica
+    `o3/ciclo/` in sessione aggiorna a mano il checkout di `deck` prima
+    delle 15:00, altrimenti il giro del giorno salta. Il disegno che
+    toglie la regola manuale è proposto in
+    [lanciatore-ciclo-nel-metodo](lanciatore-ciclo-nel-metodo.md).
+
 - **`danea-auto`, esecutore su Windows, deciso il 2026-10-20**: il custode
   mette in cantiere il suo ciclo autonomo. Un adottante senza ciclo autonomo
   non è pienamente tale (`goal.md`, «ciclo autonomo di runtime in ogni

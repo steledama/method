@@ -1,6 +1,7 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Problema esposto con domande aperte, nessuna scelta presa."
+sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Problema esposto con domande aperte; un disegno minimale proposto il 2026-10-29."
 ciclo: dev
+decidere: "Adottare il lanciatore minimale col recinto nei permessi dell'harness e la sandbox dell'host come rinforzo facoltativo?"
 ---
 
 # Lanciatore del ciclo nel metodo
@@ -143,6 +144,49 @@ Il lato di lettura è invece già canonico: `o3/view/ciclo.py` è identico in
   implementazioni attuali continuano a girare? Il guasto del log
   dell'arresto si chiude dentro la migrazione, non con una pezza in `nixos`
   (scelta del custode, 2026-10-21).
+
+## Proposta del 2026-10-29: lanciatore minimale
+
+Nasce dall'arresto del giro di `method` del 2026-10-29 alle 15:00
+(`pull-in-sola-lettura`, voce nel
+[task pilota](pilota-ciclo-autonomo.md)). Il custode chiede se basti un
+lanciatore generico e minimale che fa il pull d'avvio e lancia l'agente,
+con l'intero ciclo dentro l'artefatto e all'host il solo trigger.
+
+Il recinto non può stare solo in una regola di `autonomy.md`. Una norma
+si può saltare, per un'istruzione dentro un dato letto (una mail, una
+pagina), per un errore o per un comando concesso che scrive un file; un
+vincolo rende l'atto impossibile (`kb/constraint.md`). Il vincolo però sta
+già nel repo e non dipende dal sistema operativo: sono i permessi
+dell'harness, `o3/ciclo/permessi.json`, passati con `--settings`, l'unico
+recinto di `danea-auto`. Fino al 2026-10-29 quei permessi non negavano la
+scrittura su `o3/ciclo/**`, coperta solo dalla sandbox dell'unità; il
+divieto è stato aggiunto lo stesso giorno.
+
+Il disegno proposto:
+
+- **lanciatore canonico** con le sole cose che l'agente non può fare da sé:
+  lock, controllo della sessione aperta, `pull --ff-only` a working tree
+  pulito anche sui percorsi protetti, avvio di `claude -p` coi permessi del
+  repo, tetto di tempo e di costo, righe di partenza e chiusura in
+  `i1/giri/`, scritte anche quando l'agente si pianta;
+- **recinto nei permessi dell'harness**, versionati nel repo: scrittura
+  negata su prompt e permessi del giro, `autonomy.md`, `CLAUDE.md`,
+  `.claude/` e lanciatore. In `autonomy.md` resta il perché;
+- **rete in chiusura**: se i commit del giro, da `head_prima` a
+  `head_dopo`, toccano i percorsi protetti, la chiusura è rossa e il giro
+  torna al manuale. Così una modifica protetta che arriva da `origin` è
+  passata da una sessione col custode, e il pull d'avvio non ha bisogno di
+  fermarsi;
+- **sandbox dell'host** (systemd su Linux) come rinforzo facoltativo, non
+  più come recinto;
+- fuori dal lanciatore i controlli locali: fetch degli adottanti, slot di
+  `danea-auto`, scadenza del login, nel prompt del repo o in agganci locali.
+
+Resta la domanda «Codice privilegiato da un checkout»: il lanciatore vive
+nel checkout, il suo pull lo aggiorna dal giro successivo e i permessi ne
+vietano la scrittura al giro. Le modifiche a `nixos` che ne seguiranno
+passano dalla sessione su `nixos`, su messaggio Herdr del custode.
 
 ## Da osservare intanto
 
