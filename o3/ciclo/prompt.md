@@ -15,11 +15,18 @@ dell'unità resta coperto dallo stesso criterio. Il perimetro è quello del
 criterio `ciclo-autonomo` di `autonomy.md`, regola di sospensione compresa; i
 permessi sono quelli di `o3/ciclo/permessi.json`, che il giro non modifica.
 
-Trailer di copertura nel commit del giro:
+Trailer di copertura nel commit del giro, in una di due forme secondo come
+è partito il giro:
 
 ```
 Impatto-motivo: ciclo-autonomo (autonomy.md, ciclo schedulato)
+Impatto-motivo: ciclo-autonomo (autonomy.md, avvio a mano)
 ```
+
+Lo distingue l'orario della riga `partenza` del tuo tentativo in
+`i1/giri/tentativi.jsonl`: una partenza nel minuto delle 15:00 è il timer,
+ogni altro orario un avvio a mano. Se non riesci a distinguerli usa «ciclo
+schedulato» e dichiaralo nel resoconto.
 
 ## Perimetro
 

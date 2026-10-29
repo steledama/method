@@ -37,7 +37,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 - [Le attese dichiarano come si riconosce il
   risveglio](risveglio-delle-attese.md) — `probe:` o `arrival:` su ogni `w`,
   `by:` su ogni `w` e `p`, contratto degli strumenti che controllano le
-  attese. Prescritta ai sei il 2026-10-29; `nixos` già conforme.
+  attese. Prescritta ai sei il 2026-10-29; `nixos` già conforme;
+  recepita da `bi` (`5db2d60b`, marker a `48fff8d`).
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
