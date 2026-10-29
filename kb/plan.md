@@ -165,7 +165,10 @@ Calendari che non muovono la coda restano nel dominio.
 
 La cadenza e la composizione della coda sono indizi della forma del runtime, da
 leggere insieme a esiti e copertura dei segnali (`development-goal`). Una
-tabella dev vuota non prova da sola la maturità dell'artefatto.
+tabella dev vuota non prova da sola la maturità dell'artefatto, e una coda ferma
+non prova da sola un problema: un `Prossimo:` confermato per molti giri, con
+esiti runtime sani, è l'equilibrio che il telos dell'artefatto invisibile cerca
+(`development-goal`, `tasks`).
 
 Un ingest semplice può restare una riga del plan; `## Fonti da elaborare` tiene
 eventuali path lunghi. Quando servono decisioni, vincoli o più passaggi, nasce

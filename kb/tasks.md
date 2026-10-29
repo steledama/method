@@ -38,6 +38,23 @@ producono una regola portabile.
 La skill `exec specify` valuta la qualità interna dei task; `exec plan` ne
 controlla presenza, ordine e dipendenze.
 
+## Task e giro
+
+Il giro ricorrente amministra l'artefatto: esegue il runtime, smaltisce le code
+ricorrenti del dominio, percepisce e dà i verdetti. Ciò che si ripete
+appartiene al giro, non a un task. Il task è straordinario: una tantum, migliora
+l'artefatto e chiede decisioni, approfondimenti o chiarimenti che si prendono
+col custode. Per questo il giro senza custode non porta avanti i task, nemmeno
+specificandoli; il suo `exec specify` resta igiene della forma.
+
+I due movimenti si toccano in due punti: un verdetto sugli input che cambia la
+priorità della coda, e un'evidenza del giro, dall'autoanalisi o dai dati della
+giornata, che basta a proporre o a cancellare un task. La proposta nasce col
+campo `decidere:`. Le singole osservazioni non si accumulano nel task quando il
+dato del dominio le conserva già (`source-of-truth`, `pace-layering`).
+Un adottante che vuole una delega più larga la dichiara nel proprio register
+di autonomia.
+
 Connessioni:
 
 - [plan](plan.md)
@@ -47,3 +64,5 @@ Connessioni:
 - [world](world.md)
 - [knowledge-base](knowledge-base.md)
 - [view](view.md)
+- [source-of-truth](source-of-truth.md)
+- [pace-layering](pace-layering.md)

@@ -26,6 +26,12 @@ responsabilità consente a ciascuna di cambiare al proprio ritmo. Il filing back
 porta negli strati più lenti ciò che è diventato riusabile, conservando nelle
 collezioni del ciclo il lavoro e le osservazioni che lo hanno prodotto.
 
+Le strutture lente del dominio, come un vocabolario o una tassonomia, si
+rivedono di rado e su un'analisi globale, non caso per caso nel giro veloce.
+La memoria della revisione è il dato stesso: le righe classificate e i residui,
+come le voci `altro`, che l'analisi ritroverà. Annotarli uno per uno in un task
+duplica la fonte di verità e incolla lo strato veloce al lento.
+
 Brand fonda il caso architettonico sul lavoro di Frank Duffy: un edificio non è
 una cosa unica, ma una sovrapposizione di componenti con longevità diversa.
 Duffy distingue Shell, Services, Scenery e Set; Brand li traduce ed espande nei
@@ -71,4 +77,6 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [design-principles](design-principles.md)
 - [plan](plan.md)
+- [tasks](tasks.md)
+- [source-of-truth](source-of-truth.md)
 - [verdict](verdict.md)
