@@ -57,7 +57,13 @@ misurabile: manca il campione riletto contro le fonti.
   che funziona; quelli di `salute` ed `economia` stanno nella cartella
   dell'unità, non in `i1/giri`
   (`i1/arresto-economia-fuori-giri-2026-10-21.md`, decisione in
-  `o2/lanciatore-ciclo-nel-metodo.md`).
+  `o2/lanciatore-ciclo-nel-metodo.md`). Il 2026-10-29 alle 15:00 il giro di
+  `method` si è fermato con l'arresto 13 `pull-in-sola-lettura`, perché
+  `369d5ea`, commit di sessione, toccava `o3/ciclo/prompt.md`: è il recinto che
+  funziona, visibile in `tentativi.jsonl`, ma il giro del giorno salta finché
+  qualcuno non rilancia (a mano alle 15:36). La regola provvisoria sta in
+  `o2/pilota-ciclo-autonomo.md`, il disegno che la toglie in
+  `o2/lanciatore-ciclo-nel-metodo.md`.
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
   77 turni e 13 minuti, lontano dal tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
