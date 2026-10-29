@@ -18,25 +18,25 @@ pianificazione.
 | dev     | S   | Lanciatore del ciclo nel metodo                 | —    |
 | dev     | S   | Ricorrenza dei dinieghi                         | —    |
 | dev     | S   | Pilota del ciclo autonomo                       | —    |
-| runtime | 1   | Riconoscimento del risveglio delle attese       | p1   |
-| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p2   |
+| runtime | 1   | Riconoscimento del risveglio delle attese       | p2   |
+| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 
-`p1` = proposta di canone da discutere in sessione col custode: il
-risveglio è la sua decisione sulle questioni aperte. Vedi
-`o2/risveglio-delle-attese.md`.
-
-`p2` = audit `/adottanti` del **2026-11-01**: il risveglio conta gli
+`p1` = audit `/adottanti` del **2026-11-01**: il risveglio conta gli
 esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 `o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
+
+`p2` = proposta di canone da discutere in sessione col custode: il
+risveglio è la sua decisione sulle questioni aperte. Vedi
+`o2/risveglio-delle-attese.md`.
 
 ## Scadenze
 
 - 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
   → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
-  trailer `Esiti:` per stadio e per repository (risveglio di `p2`) e
+  trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
   conferma o meno che `aligned` e i file coincidono. Riesame del filo
   [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md): avanzamento del
   percorso e riscontri sulla prima delega.

@@ -37,10 +37,15 @@ rappresentazione; eventuali dettagli stanno in `o2/`, non in nuove colonne.
 
 Attese e pause portano un indice (`w1`, `p2`) che le lega a una legenda breve
 sotto la tabella: la lettera dice chi tiene il tempo — il mondo o noi — e il
-numero è l'indirizzo della chiosa. Gli indici si riassegnano in ordine di
-tabella a ogni revisione: sono indirizzi, non identificatori stabili del task.
-La legenda dichiara causa e condizione di risveglio; non diventa un secondo
-diario.
+numero è l'indirizzo della chiosa. L'indice è dell'attesa, non della riga:
+nasce col primo numero libero della sua lettera e resta invariato finché
+l'attesa vive, comunque la riga si sposti nella tabella; chiusa l'attesa, il
+numero torna libero (con `p1`, `p2`, `p4` occupati la prossima pausa è `p3`).
+Un'attesa che cambia lettera prende il primo libero della nuova. Così un
+riferimento in un commit o fra sessioni resta vero finché l'attesa è aperta,
+mentre rinumerare in ordine di tabella cambierebbe nome a righe intatte. La
+legenda segue l'ordine dei numeri, dichiara causa e condizione di risveglio e
+non diventa un secondo diario.
 
 La lettera si decide da chi fa la prossima mossa, non da quanto lavoro resta.
 Un task col codice applicato che aspetta un'occorrenza reale per validarsi è

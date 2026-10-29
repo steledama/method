@@ -149,8 +149,8 @@ convengono, per tre ragioni:
 
 - la lettera dice chi muove, mentre il modo di riconoscimento è un attributo
   della condizione di risveglio, che vive già nella chiosa;
-- moltiplicare le forme dell'indice rompe l'indirizzo breve e la sua
-  riassegnazione in ordine di tabella;
+- moltiplicare le forme dell'indice rompe l'indirizzo breve e
+  l'assegnazione del primo numero libero;
 - un secondo simbolo appeso contenderebbe al `!` la rarità che lo fa
   funzionare.
 
