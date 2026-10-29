@@ -68,7 +68,10 @@ scritture e letture fuori perimetro sono vincoli voluti
 **Durante il giro.** Non fare domande. Il giro pianifica i task ma non li
 esegue (`kb/tasks.md`, «Task e giro»). Una notizia nuova si traduce in plan
 e `o2/`: informazione corretta, specifica aggiornata, priorità e dipendenze,
-attesa chiusa, task creato o cancellato. L'implementazione e gli atti che il
+attesa chiusa, task creato o cancellato, sempre passando per lettura e
+verdetto e mai dal fatto di `i1/` direttamente (`kb/action-cycle.md`,
+«Risalire prima di scendere»). Se l'anello fra la notizia e il task manca,
+scriverlo in `i2/` o `i3/` è il lavoro del giro. L'implementazione e gli atti che il
 task prepara restano alla sessione col custode, salvo quelli che il register
 di autonomia assegna al giro. Una scelta che spetta al custode, come un punto
 riservato da `confine-delega` che resta aperto oltre il giro, va nel task

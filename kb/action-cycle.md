@@ -27,10 +27,28 @@ perché i due archi procedono in versi opposti.
 Il modello riduce due distanze cognitive. Il _gulf of execution_ separa
 l'intenzione dalla possibilità di agire; plan, specifica e prescrizione lo
 attraversano. Il _gulf of evaluation_ separa l'esito dal suo significato;
-percezione, interpretazione e confronto lo attraversano. Saltare uno stadio può
-essere legittimo quando non serve un artefatto persistente, ma diventa un guasto
-quando elimina un punto di controllo o un'informazione necessaria alla sessione
-successiva.
+percezione, interpretazione e confronto lo attraversano.
+
+## Risalire prima di scendere
+
+Una notizia del Mondo non tocca plan e task direttamente. Prima si chiede quale
+lettura `i2/` la spiega, se la conferma, la smentisce o ne chiede una nuova; poi
+quale verdetto `i3/` cambia, contro quale obiettivo. Solo un verdetto mosso
+muove coda e task, e la modifica nomina la catena che l'ha mossa. Attraversare
+uno stadio non obbliga a scrivere: basta che una lettura e un verdetto
+esistenti coprano la notizia, e la modifica li cita. Il salto è un guasto
+quando nessuno la copre, perché l'assunto finisce nel task, dove nessun
+riesame lo rilegge (`interpret`). Vale per l'umano come per l'agente, e la
+spinta a correggere il piano appena arriva una mail, un log o un dato è il
+segnale per fermarsi a chiederlo.
+
+Se un anello manca, il lavoro è proprio quello: rendere esplicita
+l'interpretazione o la valutazione che il salto darebbe per scontata. È il
+contributo più alto dell'agente, e nel giro senza custode lo esercita in piena
+autonomia, perché una lettura dichiarata con la sua smentita è reversibile e
+ispezionabile. L'interpretazione formalizzata porta provenienza, cosa la
+smentirebbe e orizzonte: serve a capire la notizia, non a giustificare una
+modifica già decisa. Sul Goal l'agente propone soltanto.
 
 La qualità di ogni prodotto si giudica chiedendo se fornisce l'informazione
 necessaria al proprio atto. Per le superfici di decisione valgono in particolare

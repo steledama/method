@@ -254,7 +254,11 @@ pendenti. Se non c'è materia, dichiaralo e chiudi secondo il gate comune.
 
 Elenco puntato, non eseguito: ogni verdetto cambiato in questo giro che implica
 modifiche a `o1/plan.md`/`o2/` (priorità, attese sciolte, scadenze, task
-superati), come input per l'`exec plan` a valle. L'handoff è input, non comando:
+superati), come input per l'`exec plan` a valle. Ogni voce nomina il verdetto
+e la lettura che l'hanno mossa (`kb/action-cycle.md`, «Risalire prima di
+scendere»). Un fatto di `i1/` che sembra chiedere una modifica al piano senza
+che un verdetto lo copra non passa come impatto: prima si chiede quale
+lettura lo spiega e quale verdetto cambia, e si scrive l'anello mancante. L'handoff è input, non comando:
 lo scope ricevente conserva il giudizio e dichiara le divergenze. Se non c'è
 nulla da passare, dillo esplicitamente.
 

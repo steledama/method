@@ -56,7 +56,8 @@ l'attesa, ma non risponde al notaio. L'implementazione, lo sviluppo e gli atti
 sul Mondo che il task prepara restano alla sessione col custode, salvo quelli
 che il register di autonomia assegna al giro.
 
-A muovere la pianificazione è la notizia. Un plan fermo senza notizie nuove è
+A muovere la pianificazione è un verdetto che una notizia ha mosso
+(`action-cycle`, «Risalire prima di scendere»). Un plan fermo senza notizie nuove è
 l'equilibrio, non una lacuna. Un'osservazione che il dato del dominio conserva
 già non è una notizia da annotare nel task (`source-of-truth`,
 `pace-layering`). Una scelta che spetta al custode nasce nel task col campo
@@ -73,3 +74,4 @@ Connessioni:
 - [view](view.md)
 - [source-of-truth](source-of-truth.md)
 - [pace-layering](pace-layering.md)
+- [action-cycle](action-cycle.md)

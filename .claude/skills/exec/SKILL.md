@@ -191,6 +191,13 @@ senza trailer precedente è un cambio, con causa «primo trailer»):
   `goal.md`, dipendenza sciolta). Un cambio senza causa nominata è un
   riordino arbitrario.
 
+Lo stesso obbligo vale per ogni modifica a `o1/plan.md` e `o2/` mossa da un
+fatto nuovo, non solo per il `Prossimo:`: una specifica corretta, un'attesa
+chiusa, un task creato o cancellato nominano lettura e verdetto che li hanno
+mossi (`kb/action-cycle.md`, «Risalire prima di scendere»). Se un fatto di
+`i1/` sembra chiedere la modifica ma nessuna lettura né verdetto lo copre,
+la modifica aspetta: prima si scrive l'anello mancante, rimandando a `eval`.
+
 Il trailer `Prossimo:` va nel commit che chiude il giro. `commit_gate.py
 dopo` avvisa se scavalca la prima riga pronta: prima del push, un corpo che
 non nomina la riga scavalcata e il motivo si corregge. Applica a
