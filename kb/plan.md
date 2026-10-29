@@ -51,10 +51,58 @@ La lettera si decide da chi fa la prossima mossa, non da quanto lavoro resta.
 Un task col codice applicato che aspetta un'occorrenza reale per validarsi è
 `w`, anche se poi toccherà a noi verificarla: tenerlo `p` lo lascia in testa
 e i giri lo confermano come prossimo senza che ci sia una mossa da fare. Per
-questo ogni `w` nomina il **segnale** che lo riapre, osservabile nei segnali
-che il giro raccoglie. Il giro lo cerca; se lo trova, la dipendenza si scioglie,
-la riga risale fra le pronte e il `Prossimo:` cambia con quel segnale per
-causa.
+questo ogni `w` nomina il **segnale** che lo riapre e come lo si riconosce
+(«Risveglio»). Il giro lo cerca; se lo trova, la dipendenza si scioglie, la
+riga risale fra le pronte e il `Prossimo:` cambia con quel segnale per causa.
+
+Il «noi» delle `p` è il custode con l'agente: un'attesa tenuta dal custode,
+dall'agente o da entrambi è una `p`, perché la cognizione è condivisa. Nel giro
+senza custode una `p` non è pronta. L'agente chiede un ripensamento quando una
+`p` non gli torna, altrimenti sta fermo. Un'attesa composita prende la lettera
+della prima mossa attesa, e il risveglio alternativo resta nella chiosa.
+
+## Risveglio
+
+La chiosa di una `w` dichiara come si riconosce il risveglio, in una di due
+forme:
+
+- `probe:` un controllo deterministico, cioè una cosa da interrogare e una
+  condizione, che uno strumento valuta senza il modello
+  (`probe: nixpkgs naps2 >= 8.6.0`). Oltre la cadenza dello strumento l'arrivo
+  non può sfuggire;
+- `arrival:` il fatto atteso e il canale da cui arriva: email, diario,
+  sessione, un log, un giro (`arrival: esito della seduta, via diario o
+sessione`). Il giro lo riconosce confrontando i fatti in ingresso con le `w`
+  ad arrivo. Se il canale passa per il custode, il giro non può accorgersene da
+  solo.
+
+Ogni `w` e ogni `p` porta inoltre `by:`, la data di riesame (`by: 2026-11-04`,
+o il solo mese). Su una `w` che arriva da un canale non letto dal giro è una
+scadenza di sollecito: oltre la data il silenzio è il segnale. Altrimenti è un
+riesame di pertinenza, perché la sonda garantisce che l'arrivo non sfugga, non
+che aspettarlo abbia ancora senso. Su una `p` è la data entro cui ci chiediamo
+se la teniamo ancora, e la domanda può investire il task intero.
+
+Scaduto il termine gli esiti sono tre: sollecitare (per una `p`, riprendere),
+riclassificare, oppure rinnovare il `by:` col motivo nella chiosa. Il rinnovo
+senza motivo è il rinvio rituale che il termine serve a impedire. Nel giro senza
+custode il sollecito è un atto verso l'esterno e la ripresa di una `p` spetta
+alla sessione: il giro nomina la riga scaduta nella riga `Attenzione:`.
+
+I termini non sono scadenze: non stanno in `## Scadenze` e non contano come
+scadute, ma entrano nel controllo delle scadenze come righe di riesame. Il `!`
+resta ortogonale: dice quanto costa l'attesa, non come si riconosce il
+risveglio.
+
+Il canone fissa il contratto della sonda (deterministica, booleana, senza il
+modello) e non la sua sintassi. La condizione vive nella chiosa, scritta nel
+vocabolario chiuso dello strumento che la valuta: i tipi che conosce, come una
+issue, una versione in un repository di pacchetti, una riga di log.
+L'interprete vive in `o3/`, la cadenza nella config dell'adottante. Così la
+sonda nasce e muore con la sua attesa, e una riga del plan non diventa mai un
+comando: lo strumento esegue solo i tipi che conosce, e il giro autonomo resta
+col permesso dello strumento. Uno strumento che controlla le attese prende solo
+le `w` con `probe:` e fa comparire le righe col `by:` passato.
 
 ## Attese a finestra
 
@@ -104,7 +152,7 @@ codice del fork, non si deduce dalla presenza di questo nodo.
 `## Scadenze` contiene solo date esogene o ricorrenze che possono cambiare l'ordine
 della coda, in tre specie. La **prima** è la data esogena: il Mondo la impone e
 la coda le si adatta. La **seconda** è l'orologio nostro, e allora la data non
-sta qui ma nella condizione di risveglio di un `pause`. La **terza** è la
+sta qui ma nel `by:` di una `p`. La **terza** è la
 ricorrenza di uno scheduler: la riga indica cadenza e configurazione —
 la fonte di verità è la config versionata — senza replicare ogni prossima data.
 Calendari che non muovono la coda restano nel dominio.

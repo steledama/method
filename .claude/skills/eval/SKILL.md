@@ -68,7 +68,10 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    territorio di `world.md`, superfici ssh remote comprese), gli esiti già
    prodotti da `kb` (che resta capacità diagnostica trasversale: la sua diagnosi
    si acquisisce come segnale, non si esegue implicitamente da qui), i segnali
-   che il custode porta da un altro repo.
+   che il custode porta da un altro repo. Confronta i fatti in ingresso con
+   le `w` ad `arrival:` del plan, usando il canale dichiarato come mappa della
+   ricerca; l'esito delle `probe:` lo legge dallo strumento del repo che le
+   valuta, se c'è (`kb/plan.md`, «Risveglio»).
 2. Cattura in `i1/` (item più voce in `i1/perceptions.md`) **solo** ciò che è
    effimero o che per precisione e durata chiede un riflesso stabile (cfr.
    `kb/perceive.md`): il grezzo persistente resta fuori, raggiungibile dalla sua

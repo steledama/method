@@ -114,6 +114,9 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
 - `## Scadenze` e finestre tattiche: ricorrenze in arrivo, righe scadute o
   consumate
+- risveglio delle attese (`kb/plan.md`, «Risveglio»): ogni `w` dichiara
+  `probe:` o `arrival:`, ogni `w` e ogni `p` dichiara `by:`; una chiosa senza
+  è un rilievo da correggere
 
 **3. Rivaluta stato, dipendenze e priorità**
 
@@ -133,6 +136,9 @@ che nel `metodo` hanno natura propria:
   risale fra le pronte e il `Prossimo:` cambia con quel segnale per causa;
   una riga `p` che aspetta solo un'occorrenza del Mondo passa a `w` col suo
   segnale (`kb/plan.md`)
+- il `by:` di una `w` o di una `p` è passato -> sollecitare (per la `p`,
+  riprendere), riclassificare o rinnovare il termine col motivo nella
+  chiosa; nel giro senza custode la riga va in `Attenzione:`
 
 **3b. Lettura strategica delle mosse**
 

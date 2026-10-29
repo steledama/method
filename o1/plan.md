@@ -11,25 +11,21 @@ pianificazione.
 
 ## Task
 
-| Ciclo   | Ob. | Task                                            | Dip. |
-| ------- | --- | ----------------------------------------------- | ---- |
-| dev     | S   | Agente come utilizzatore                        | —    |
-| dev     | S   | Progettazione delle skill                       | —    |
-| dev     | S   | Lanciatore del ciclo nel metodo                 | —    |
-| dev     | S   | Ricorrenza dei dinieghi                         | —    |
-| dev     | S   | Pilota del ciclo autonomo                       | —    |
-| runtime | 1   | Riconoscimento del risveglio delle attese       | p2   |
-| dev     | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
+| Ciclo | Ob. | Task                                            | Dip. |
+| ----- | --- | ----------------------------------------------- | ---- |
+| dev   | S   | Agente come utilizzatore                        | —    |
+| dev   | S   | Progettazione delle skill                       | —    |
+| dev   | S   | Lanciatore del ciclo nel metodo                 | —    |
+| dev   | S   | Ricorrenza dei dinieghi                         | —    |
+| dev   | S   | Pilota del ciclo autonomo                       | —    |
+| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
 
 `p1` = audit `/adottanti` del **2026-11-01**: il risveglio conta gli
 esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
 `o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
-
-`p2` = proposta di canone da discutere in sessione col custode: il
-risveglio è la sua decisione sulle questioni aperte. Vedi
-`o2/risveglio-delle-attese.md`.
+by: 2026-11-01.
 
 ## Scadenze
 
