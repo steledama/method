@@ -104,6 +104,12 @@ comando: lo strumento esegue solo i tipi che conosce, e il giro autonomo resta
 col permesso dello strumento. Uno strumento che controlla le attese prende solo
 le `w` con `probe:` e fa comparire le righe col `by:` passato.
 
+Un'attesa che nessun tipo del vocabolario sa interrogare dichiara `arrival:` e
+la riconosce `perceive`: un tipo nuovo entra nello strumento solo quando il caso
+si ripete. La legenda è prosa, e il formatter può andare a capo dentro una
+condizione: chi estrae `probe:` e `by:` unisce prima le righe di continuazione
+della chiosa. Il primo interprete è quello di `nixos` (`0a7cb7c`).
+
 ## Attese a finestra
 
 `Dip.` dice da cosa dipende un task, non come si comporta il costo del ritardo,
