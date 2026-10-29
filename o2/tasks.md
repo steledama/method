@@ -15,6 +15,10 @@ Il percorso verso il ciclo autonomo, secondo le priorità del plan:
 - [ricorrenza-dinieghi.md](ricorrenza-dinieghi.md) — uno script conta per classe di grafia i dinieghi che ricorrono nei giri, anche fra repo; prima di una regola nuova si verifica il segnale canonico non recepito.
 - [pilota-ciclo-autonomo.md](pilota-ciclo-autonomo.md) — a gradini, da `salute` su `deck`: avvio manuale, poi timer, poi gli altri repo; timer acceso in sei adottanti e in `method`, `crm` dismesso il 2026-10-22.
 
+Proposta di canone in attesa del custode:
+
+- [risveglio-delle-attese.md](risveglio-delle-attese.md) — affinare la `w` sul modo in cui si riconosce il risveglio (`sonda:`, `arrivo:`, `entro:`) senza lettere nuove; un'attesa tenuta dal custode è una `p`. Analisi sui sei adottanti, richiesta da `nixos` il 2026-10-29.
+
 Rivalutazione in pausa:
 
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al ciclo autonomo del 2026-11-01 sui numeri registrati.
