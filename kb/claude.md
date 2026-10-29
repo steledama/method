@@ -42,6 +42,12 @@ resto si scarta. Il giro autonomo eredita gli allow di `settings.json`: una
 promozione allarga anche il perimetro senza custode, quindi si promuove solo ciò
 che il giro può fare da solo.
 
+In auto mode il classificatore di Claude Code nega all'agente la modifica dei
+propri permessi in `settings.json`, anche quando la regola che li motiva è già
+canone: è un vincolo voluto. Il recepimento passa dal custode, che esce
+dall'auto mode e concede l'edit in sessione o lo fa da sé (`nixos` `723a1e7`,
+recepimento di `fa46bdf`).
+
 ## Criteri di revisione
 
 - ogni regola cambia davvero un'azione dell'agente?

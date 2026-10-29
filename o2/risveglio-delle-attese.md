@@ -217,7 +217,12 @@ Le recepiscono le loro sessioni. Qui restano come materiale del confronto.
 
 - `nixos`: w2 e w5 diventano `p`; w1, w3 e w4 dichiarano la sonda. Il task
   `maintenance-due-attese-non-upstream` si risolve con l'alternativa A
-  riformulata: lo script legge la sonda e non un prefisso.
+  riformulata: lo script legge la sonda e non un prefisso. Recepito in
+  parte il 2026-10-29 (`nixos` `723a1e7`, via Herdr): w5 è diventata p1,
+  w2 è diventata p2 col risveglio dal Mondo nella chiosa, e il prospetto di
+  `/manutenzione` è sceso da tre «mai controllato» a uno (w1). Il task
+  `nixos` attende questa decisione come p3: se accolta, lo script prende
+  solo le `w` con `sonda:`; se respinta, si torna alle alternative A, B e C.
 - `economia`: w1 diventa `p`; le `w` con canali non letti dal giro (w3, w4)
   prendono un termine.
 - `bi`: va verificato di chi è la decisione in `p1`; w2 ha una sonda
