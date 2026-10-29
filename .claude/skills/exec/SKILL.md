@@ -182,7 +182,8 @@ senza trailer precedente è un cambio, con causa «primo trailer»):
 
 - **confermato**: dì in una riga, nel corpo del commit e nel resoconto,
   cosa hai riesaminato contro la coda e perché regge; il trailer resta
-  `(confermato)`;
+  `(confermato)`. Una conferma ripetuta per molti giri non è un'anomalia:
+  con esiti runtime sani è l'equilibrio (`kb/plan.md`);
 - **cambiato**: nomina il task precedente e la causa, risalendo la catena
   fino al punto che l'ha mossa (percezione nuova, ipotesi smentita o
   confermata in `i2/`, verdetto di un filo, obiettivo corretto in
@@ -193,7 +194,8 @@ Il trailer `Prossimo:` va nel commit che chiude il giro. `commit_gate.py
 dopo` avvisa se scavalca la prima riga pronta: prima del push, un corpo che
 non nomina la riga scavalcata e il motivo si corregge. Applica a
 `o1/plan.md` e `o2/` entro la delega del gate comune; chiedi solo sui punti
-che ne superano il confine.
+che ne superano il confine. Nel ciclo autonomo il plan cambia solo nei due
+punti di contatto col giro (`kb/tasks.md`, «Task e giro»).
 
 **5. Chiudi con l'handoff inverso «verdetti da rivalutare»**
 
@@ -222,6 +224,12 @@ dei file `o2/` — la corrispondenza non si verifica due volte. Per ogni file
   mappa i concetti del task sulle risorse reali (mapping), e scrive i vincoli
   che impediscono l'atto sbagliato (constraint)
 
+Nel ciclo autonomo `specify` resta igiene della forma: frontmatter e facet,
+potatura dei diari, conoscenza stabile che risale in `kb/`. Non porta avanti
+i task, nemmeno precisandone la specifica, perché il task si lavora col
+custode (`kb/tasks.md`, «Task e giro»); un difetto di contenuto si segnala
+nel resoconto.
+
 Esito: quali file sono a posto, quali hanno un difetto e quale, o la chiusura
 in una riga.
 
@@ -240,6 +248,9 @@ Due piani, secondo autorizzazione:
   o si valida la prescrizione e ci si ferma al confine. In `metodo` il Mondo
   runtime sono gli adottanti: l'atto tipico è la prescrizione, e a compierla
   è il `method` dell'adottante — o3 prescrive, l'adottante ratifica.
+  Nel ciclo autonomo l'atto è quello ricorrente del runtime o quello che il
+  register di autonomia assegna al giro; i passi di un task restano alla
+  sessione col custode.
 
 Esito: stato della collezione (prescrizioni vive e loro freschezza, strumenti
 verificati), atti compiuti o predisposti, o la chiusura in una riga.
