@@ -34,6 +34,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
   mappa ed estrazione delle skill prima della composizione. Prescritta ai
   sette il 2026-10-21.
+- [Le attese dichiarano come si riconosce il
+  risveglio](risveglio-delle-attese.md) — `probe:` o `arrival:` su ogni `w`,
+  `by:` su ogni `w` e `p`, contratto degli strumenti che controllano le
+  attese. Prescritta ai sei il 2026-10-29; `nixos` già conforme.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
