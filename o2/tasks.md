@@ -17,6 +17,9 @@ Il percorso verso il ciclo autonomo, secondo le priorità del plan:
 
 Proposta di canone in attesa del custode:
 
+- [uscita-dal-deck.md](uscita-dal-deck.md) — il deck non ha uscita: Alt+frecce lasciate al browser e un link fisso alle viste, anche nei deck di dominio di `economia` e `salute`.
+- [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host una porta sola; cinque punti da decidere, fra cui un host solo e la forma del servitore.
+
 Rivalutazione in pausa:
 
 - [rivalutazione-skill-per-arco.md](rivalutazione-skill-per-arco.md) — task `pause`: il giudizio del 2026-09-24 ha mantenuto la tripartizione `eval`/`exec` e reso contabili gli esiti per stadio (trailer `Esiti:`); si riapre al ciclo autonomo del 2026-11-01 sui numeri registrati.

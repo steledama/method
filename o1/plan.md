@@ -18,6 +18,8 @@ pianificazione.
 | dev   | S   | Lanciatore del ciclo nel metodo                 | —    |
 | dev   | S   | Ricorrenza dei dinieghi                         | —    |
 | dev   | S   | Pilota del ciclo autonomo                       | —    |
+| dev   | S   | Uscita dal deck                                 | —    |
+| dev   | S   | Pubblicazione decisa dal repo                   | —    |
 | dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
 
 Legenda dipendenze esterne:
