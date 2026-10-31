@@ -77,7 +77,15 @@ stesso criterio. Punti da decidere:
   evita il doppio interruttore, ma l'host esegue il servitore di ogni
   checkout che lo nomina: è la domanda «Codice privilegiato da un checkout»
   del lanciatore. Su Windows la convenzione della home va dichiarata
-  (`danea-auto`).
+  (`danea-auto`). Commento di `nixos` del 2026-10-31: con la sola
+  convenzione, qualunque clone sull'host, anche fatto per tutt'altro, gli
+  fa eseguire `build.py --publish` e il servitore. Un elenco sull'host
+  torna utile con un'altra funzione: non dice dove un repo si pubblica, che
+  resta a `SERVITA_SU`, ma quale checkout l'host ammette all'esecuzione. Non
+  porta né porte né host, quindi non duplica l'interruttore: sono due
+  consensi distinti, il repo che vuole esporsi e l'host che accetta di
+  eseguirne il codice. Si decide col punto del servitore: con lo smistatore,
+  l'elenco è anche ciò che gli dice quali servitori avviare.
 
 ## Effetti sul canone
 
