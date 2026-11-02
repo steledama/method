@@ -190,7 +190,9 @@ attrito.
 - `nixos`: il recepimento del canone del 29/10 sul giro che pianifica e non
   esegue, al prossimo `/method` locale;
 - ripetibilità: il quinto audit è arrivato con un giorno di ritardo, perché
-  nessun innesco lo lancia. La cella runtime-o1 resta D;
+  nessun innesco lo lanciava. Dal 2026-11-02 il giro autonomo lancia la parte
+  meccanica alla scadenza (`autonomy.md`). La cella runtime-o1 lascia la D
+  se il rapporto di dicembre arriva in tempo;
 - `baserow`, verifica nell'uso: il fronte backup è chiuso, restano deadlock e
   crescita dello storico, che sono coda di dominio.
 

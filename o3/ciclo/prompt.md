@@ -35,8 +35,8 @@ task la pianificazione, non l'esecuzione (`autonomy.md`). Un nodo
 `kb/` arriva subito agli adottanti via symlink: correggilo solo con una fonte
 verificata e dichiara nel resoconto ogni nodo toccato. Prescrizioni e
 strumenti in `o3/`, skill canoniche, `presentation/`, `CLAUDE.md`,
-`autonomy.md` e `goal.md` restano proposte. `/adottanti` e `/method` non
-girano nel giro. Fa eccezione la chiusura di una prescrizione recepita da
+`autonomy.md` e `goal.md` restano proposte. `/method` non gira nel giro; di
+`/adottanti` gira solo la parte meccanica, come sotto in «Audit mensile». Fa eccezione la chiusura di una prescrizione recepita da
 tutti: `python3 o3/prescrizioni.py verifica <nome>` la controlla sui marker,
 `chiudi <nome>` toglie file e voce d'indice in stage, e i rimandi rimasti si
 correggono nel giro.
@@ -86,6 +86,25 @@ una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
 (`kb/perceive.md`). Il gradino di un adottante si verifica nel suo
 `autonomy.md` e nel suo prompt del ciclo (`o3/ciclo/prompt.md`, o
 `.claude/ciclo-prompt.md` finché non ha migrato).
+
+## Audit mensile
+
+Se la data della riga `(mensile)` di `/adottanti` in `## Scadenze` di
+`o1/plan.md` è oggi o passata, e `i1/` non ha ancora
+`audit-adottanti-AAAA-MM.md` per il mese corrente, lancia
+`python3 o3/adottanti.py audit`. Il comando dura circa un minuto e non
+scrive nei checkout. Salva l'uscita intera in
+`i1/audit-adottanti-AAAA-MM.md`, sotto un frontmatter con `ciclo: runtime`,
+e aggiungi la voce in `i1/perceptions.md`. Se nel mese il file c'è già, non
+rilanciare.
+
+Del rapporto non decidi niente. Non classifichi i rossi, non fai il campione
+di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
+scadenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
+resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
+del rapporto. Il limite che il rapporto dichiara per il `fetch` dei repo di
+`svezia` vale anche qui: leggi `fetch.json` prima di fidarti di
+`origin/main`.
 
 ## Host e verifiche
 

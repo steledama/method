@@ -70,8 +70,12 @@ tutti i marker danno recepita il giro la chiude da sé con
 `o3/prescrizioni.py chiudi` e corregge i rimandi (deciso dal custode il
 2026-10-26: è l'esecuzione di una regola del canone, non una scelta). Restano
 proposte le altre modifiche alle prescrizioni, gli strumenti in `o3/`, le skill canoniche, `presentation/`,
-`CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/adottanti` e
-`/method` non girano nel giro. Gli adottanti si leggono dai marker nei
+`CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/method` non gira
+nel giro. Di `/adottanti` il giro compie solo la parte meccanica (deciso dal
+custode il 2026-11-02): quando la riga `(mensile)` di `## Scadenze` è
+arrivata e il mese non ha ancora il suo rapporto, lancia
+`o3/adottanti.py audit` e lo versiona in `i1/`. La classificazione dei
+rossi e il campione di decisioni restano alla sessione col custode. Gli adottanti si leggono dai marker nei
 checkout locali di `deck`, o da `origin` via `fetch` per quelli di `svezia`,
 senza `ssh`; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti degli adottanti esclusi. Il divieto sta nei deny del solo
 `o3/ciclo/permessi.json`; nelle sessioni col custode restano le regole di sopra.

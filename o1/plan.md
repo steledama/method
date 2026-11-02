@@ -29,8 +29,9 @@ pianificazione.
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Dopo quattro
   coincidenze fra `aligned` e file, le prescrizioni si leggono nei marker,
   con una sola prescrizione verificata nei file a campione. Riesame del filo
-  [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md). L'audit va lanciato in
-  sessione col custode, perché `/adottanti` non gira nel giro.
+  [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md). Il giro autonomo lancia
+  la parte meccanica e ne lascia il rapporto in `i1/`; giudizio e chiusura
+  restano alla sessione col custode.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

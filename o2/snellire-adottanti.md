@@ -1,7 +1,6 @@
 ---
-sintesi: "Snellire /adottanti: tenere solo ciò che si vede da un repository all'altro, con la parte meccanica in o3/adottanti.py audit e il giudizio sul campione di decisioni. Adottata dal custode il 2026-11-02 e implementata lo stesso giorno; prova all'audit del 2026-12-01. Resta da decidere se lo script entra nel giro autonomo."
+sintesi: "Snellire /adottanti: tenere solo ciò che si vede da un repository all'altro, con la parte meccanica in o3/adottanti.py audit e il giudizio sul campione di decisioni. Adottata dal custode il 2026-11-02 e implementata lo stesso giorno; prova all'audit del 2026-12-01. Il giro autonomo lancia la parte meccanica dal 2026-11-02."
 ciclo: dev
-decidere: "Il giro autonomo lancia o3/adottanti.py audit il 1° del mese, lasciando al custode solo il giudizio?"
 ---
 
 # Snellire `/adottanti`
@@ -95,19 +94,20 @@ rapporto, non nel filo.
 Nessun nodo `kb/` cambia, e gli adottanti non sono toccati: `/adottanti`
 è una skill di dominio di `metodo`.
 
-## Da decidere
+## Lo script nel giro
 
-- **lo script nel giro**: con la parte meccanica in sola lettura, il giro
-  autonomo potrebbe lanciare `o3/adottanti.py audit` il 1° del mese e
-  lasciare al custode solo il campione. Toglierebbe il ritardo di questo
-  audit, perché la cella runtime-o1 è ferma a D proprio perché manca un
-  innesco. Servono tre modifiche: la frase di `autonomy.md` per cui
-  `/adottanti` non gira nel giro, il permesso in `o3/ciclo/permessi.json` e
-  il passo nel prompt. Il rapporto dura circa un minuto e raggiunge `svezia`
-  e `danea2` in rete.
+Deciso dal custode il 2026-11-02. Il giro lancia `o3/adottanti.py audit`
+quando la riga `(mensile)` è arrivata e il mese non ha ancora il suo
+rapporto, e lo versiona in `i1/audit-adottanti-AAAA-MM.md`. La regola sta in
+`autonomy.md`, il passo in `o3/ciclo/prompt.md` («Audit mensile»). Il
+permesso c'era già (`Bash(python3 o3/adottanti.py *)`), e l'unità non limita
+la rete e lascia scrivibile `/tmp`. Del rapporto il giro non decide niente:
+classificazione, campione e filo restano alla sessione. Lo script ricostruisce
+in `/tmp` anche le viste di `salute` ed `economia`, ma al giro arrivano solo
+nomi, esiti e conteggi, mai contenuti.
 
 ## Criterio di chiusura
 
 Il task si consuma all'audit del 2026-12-01, il primo snellito: tempo
-dichiarato nel resoconto, rossi utili e falsi contati, e decisione del
-custode sullo script nel giro.
+dichiarato nel resoconto, rossi utili e falsi contati, e rapporto lasciato
+dal giro alla scadenza.

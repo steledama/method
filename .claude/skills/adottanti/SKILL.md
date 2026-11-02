@@ -35,8 +35,12 @@ riscritto in place a ogni giro.
 
 ### 1. Rapporto meccanico
 
-Aggiorna i riferimenti remoti con un `git fetch` per adottante (`fetch` è
-concesso anche sui checkout di altre sessioni), poi lancia:
+Il giro autonomo lancia lo script da solo quando la scadenza arriva, e ne
+versiona l'uscita in `i1/audit-adottanti-AAAA-MM.md` (`autonomy.md`,
+`ciclo-autonomo`). In sessione rilancialo comunque, perché lo stato nel
+frattempo cambia. Aggiorna i riferimenti remoti con un `git fetch` per
+adottante (`fetch` è concesso anche sui checkout di altre sessioni), poi
+lancia:
 
 ```
 python3 o3/adottanti.py audit
@@ -81,6 +85,8 @@ attrito.
   schermata: rossi aperti con la loro classificazione, esito del campione,
   limiti. Le fotografie restano nel rapporto e in git. Aggiorna la riga del
   filo in `i3/verdicts.md`.
-- Avanza la riga `(mensile)` di `o1/plan.md` alla prossima occorrenza.
+- Avanza la riga `(mensile)` di `o1/plan.md` alla prossima occorrenza, ed
+  elimina il rapporto del giro in `i1/` con la sua voce: il filo lo ha
+  consumato.
 - Riporta in conversazione il tempo impiegato, i rossi con la loro
   classificazione e l'esito del campione.
