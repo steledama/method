@@ -1,7 +1,7 @@
 ---
-sintesi: "Snellire /adottanti: tenere solo ciò che si vede da un repository all'altro (viste e host, casi della delega fermi, strumenti del canone contro le forme degli adottanti, accenti), passare la parte meccanica a uno script, togliere la fotografia narrativa delle code e la rilettura dei marker. Proposta del 2026-11-02, dopo il quinto audit."
+sintesi: "Snellire /adottanti: tenere solo ciò che si vede da un repository all'altro, con la parte meccanica in o3/adottanti.py audit e il giudizio sul campione di decisioni. Adottata dal custode il 2026-11-02 e implementata lo stesso giorno; prova all'audit del 2026-12-01. Resta da decidere se lo script entra nel giro autonomo."
 ciclo: dev
-decidere: "Adottare l'audit /adottanti snellito, con la parte meccanica in o3/adottanti.py e il solo giudizio in sessione?"
+decidere: "Il giro autonomo lancia o3/adottanti.py audit il 1° del mese, lasciando al custode solo il giudizio?"
 ---
 
 # Snellire `/adottanti`
@@ -32,6 +32,12 @@ coprono:
   dal verdetto del 2026-11-02.
 
 ## La proposta
+
+Adottata dal custode il 2026-11-02, soglie comprese. Implementata lo stesso
+giorno: sottocomando `audit` in `o3/adottanti.py` con i test, skill
+riscritta in tre passi e indirizzo `host:porta` di ogni vista in `world.md`.
+Il primo rapporto ha richiesto un minuto, con tre rossi, uno dei quali falso
+(una prescrizione «in corso» trattata come scarto, corretta subito).
 
 L'audit risponde a una sola domanda: **che cosa si vede solo guardando i
 repository insieme?** Ogni passo sotto o è meccanico, e allora lo fa uno
@@ -91,19 +97,17 @@ Nessun nodo `kb/` cambia, e gli adottanti non sono toccati: `/adottanti`
 
 ## Da decidere
 
-- **la proposta nel suo insieme**: la domanda in `decidere:`;
 - **lo script nel giro**: con la parte meccanica in sola lettura, il giro
   autonomo potrebbe lanciare `o3/adottanti.py audit` il 1° del mese e
   lasciare al custode solo il campione. Toglierebbe il ritardo di questo
   audit, perché la cella runtime-o1 è ferma a D proprio perché manca un
-  innesco. Oggi `autonomy.md` dice che `/adottanti` non gira nel giro:
-  cambiarlo è una decisione sul register;
-- **le soglie**: 14 giorni per il canone non recepito e 7 per i casi fermi
-  sono proposte, non misure.
+  innesco. Servono tre modifiche: la frase di `autonomy.md` per cui
+  `/adottanti` non gira nel giro, il permesso in `o3/ciclo/permessi.json` e
+  il passo nel prompt. Il rapporto dura circa un minuto e raggiunge `svezia`
+  e `danea2` in rete.
 
 ## Criterio di chiusura
 
-Il custode decide. Se adotta la proposta, il task si consuma con lo script e
-la skill riscritta, provati al primo audit snellito del 2026-12-01: tempo
-dichiarato nel resoconto, e rossi utili o falsi rossi contati. Se la
-rifiuta, il task si chiude col motivo e l'audit resta com'è.
+Il task si consuma all'audit del 2026-12-01, il primo snellito: tempo
+dichiarato nel resoconto, rossi utili e falsi contati, e decisione del
+custode sullo script nel giro.

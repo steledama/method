@@ -8,16 +8,27 @@ sottocomando scrive, e git gira senza lock opzionali.
 Gli adottanti e i checkout vengono da `world.md`, il register che li dichiara.
 `show` legge solo i file con cui un adottante recepisce il canone; il resto del
 dominio, dati personali compresi, resta fuori.
+
+`audit` è la parte meccanica di `/adottanti`: legge `origin/main` dopo il
+`fetch` che il chiamante ha già fatto, ricostruisce le viste in una cartella
+temporanea che poi rimuove e interroga `/_stato` delle viste pubblicate. Del
+dominio tocca solo i conteggi del plan e i nomi delle catture «da inoltrare»;
+non scrive nei checkout. Stampa un rapporto i1 dove ogni scarto è una riga
+`ROSSO`: la classificazione resta al giudizio della skill.
 """
 
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import fnmatch
+import json
 import os
 import re
 import subprocess
 import sys
+import tempfile
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +50,17 @@ INTERFACCIA = [
 
 VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\([^)]*\)\*\*(.*)")
 CHECKOUT = re.compile(r"checkout `~/([\w.-]+)`")
+ACCENTO = re.compile(r"#[0-9a-fA-F]{6}\b")
+VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)`")
+
+# Le skill che ogni adottante porta: il quartetto, la composta e l'allineamento.
+SKILL_COMUNI = {"commit", "cycle", "eval", "exec", "method"}
+# Canone che pesa sul recepimento: nodi, strumenti e skill canoniche.
+CANONE = ("kb/", "o3/", ".claude/skills/")
+SOGLIA_CANONE = 14  # giorni oltre i quali il canone non recepito è rosso
+SOGLIA_CASI = 7  # giorni oltre i quali una cattura «da inoltrare» è ferma
+FINESTRA_GIRI = 30  # giorni contati per i giri autonomi
+LINK_MD = re.compile(r"\]\(([\w./-]+\.md)\)")
 
 
 def adottanti(world: Path = ROOT / "world.md") -> dict[str, Path]:
@@ -55,6 +77,27 @@ def adottanti(world: Path = ROOT / "world.md") -> dict[str, Path]:
             trovati[voce] = HOME / match.group(1)
             voce = None
     return trovati
+
+
+def voci(world: Path = ROOT / "world.md") -> dict[str, str]:
+    """Nome → testo intero della voce in grassetto di `world.md`, righe di seguito comprese."""
+    trovate: dict[str, str] = {}
+    voce = None
+    for riga in world.read_text(encoding="utf-8").splitlines():
+        if match := VOCE.match(riga):
+            voce = match.group(1)
+            trovate[voce] = match.group(2)
+        elif voce and riga.startswith("  "):
+            trovate[voce] += " " + riga.strip()
+        else:
+            voce = None
+    return trovate
+
+
+def di_metodo(world: Path = ROOT / "world.md") -> str:
+    """Il paragrafo di `world.md` che dichiara accento e vista di `metodo`."""
+    testo = world.read_text(encoding="utf-8")
+    return next((p for p in testo.split("\n\n") if "Quello di `metodo`" in p), "")
 
 
 def ammesso(path: str) -> bool:
@@ -98,6 +141,312 @@ def scegli(nome: str, tutti: dict[str, Path]) -> Path:
     return tutti[nome]
 
 
+def frontmatter(testo: str) -> dict[str, str]:
+    if not testo.startswith("---\n"):
+        return {}
+    corpo = testo[4:].split("\n---", 1)[0]
+    return dict(
+        (chiave.strip(), valore.strip())
+        for chiave, _, valore in (r.partition(":") for r in corpo.splitlines())
+        if valore
+    )
+
+
+def conteggio_plan(testo: str) -> tuple[int, int]:
+    """Righe `dev` e `runtime` della tabella del plan."""
+    righe = [r.split("|")[1].strip() for r in testo.splitlines() if r.startswith("|")]
+    return righe.count("dev"), righe.count("runtime")
+
+
+def prescrizioni_aperte(indice: str) -> list[str]:
+    """I nomi delle prescrizioni nei Contenuti di `o3/prescriptions.md`."""
+    contenuti = indice.split("## Contenuti", 1)[-1].split("\n## ", 1)[0]
+    return [m.removesuffix(".md") for m in LINK_MD.findall(contenuti) if "/" not in m]
+
+
+def casi_da_inoltrare(file: dict[str, str]) -> list[str]:
+    """Le catture i1 «da inoltrare»: nel corpo o nella voce d'indice che le linka.
+
+    Una voce che dice anche «acquisita» è già passata; un indice che descrive
+    gli stati senza linkare una cattura non conta.
+    """
+    trovati = set()
+    for path, testo in file.items():
+        nome = Path(path).name
+        if nome != "perceptions.md":
+            if "da inoltrare" in testo and "acquisita da method" not in testo:
+                trovati.add(nome)
+            continue
+        for voce in re.split(r"\n(?=- )", testo):
+            if "da inoltrare" in voce and "acquisita" not in voce:
+                trovati.update(Path(link).name for link in LINK_MD.findall(voce))
+    return sorted(trovati)
+
+
+def accenti_ripetuti(accenti: dict[str, str]) -> list[str]:
+    visti: dict[str, list[str]] = {}
+    for nome, colore in accenti.items():
+        visti.setdefault(colore.lower(), []).append(nome)
+    return [f"{c} in {', '.join(n)}" for c, n in visti.items() if len(n) > 1]
+
+
+def mostra(checkout: Path, path: str, ref: str = "origin/main") -> str:
+    esito = git(checkout, "show", f"{ref}:{path}")
+    return esito.stdout if esito.returncode == 0 else ""
+
+
+def giorni_fa(checkout: Path, ref: str, *path: str) -> int | None:
+    esito = git(checkout, "log", "-1", "--format=%ct", ref, "--", *path)
+    if esito.returncode or not esito.stdout.strip():
+        return None
+    quando = dt.datetime.fromtimestamp(int(esito.stdout), dt.timezone.utc)
+    return (dt.datetime.now(dt.timezone.utc) - quando).days
+
+
+def canale(nome: str, checkout: Path) -> list[str]:
+    marker = frontmatter(mostra(checkout, "i3/allineamento-metodo.md"))
+    commit_m = marker.get("method_commit", "")
+    stato_m = marker.get("status", "?")
+    if not commit_m:
+        return [f"ROSSO {nome}: marker senza method_commit su origin/main"]
+    conto = git(ROOT, "rev-list", "--count", f"{commit_m}..HEAD").stdout.strip() or "?"
+    righe = [
+        f"{nome}: {stato_m} a {commit_m[:7]} ({marker.get('reviewed_at', '?')}), {conto} dietro"
+    ]
+    if stato_m != "aligned":
+        righe.append(f"ROSSO {nome}: status {stato_m}")
+    limite = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SOGLIA_CANONE)
+    vecchi = git(
+        ROOT,
+        "log",
+        "--format=%h %s",
+        f"--until={limite.isoformat()}",
+        f"{commit_m}..HEAD",
+        "--",
+        *CANONE,
+    ).stdout.splitlines()
+    if vecchi:
+        righe.append(
+            f"ROSSO {nome}: {len(vecchi)} commit di canone oltre {SOGLIA_CANONE} giorni non recepiti, "
+            f"il più vecchio {vecchi[-1]}"
+        )
+    return righe
+
+
+def prescrizioni(tutti: dict[str, Path]) -> list[str]:
+    import prescrizioni as presc  # importa adottanti: qui per non chiudere il cerchio
+
+    righe = []
+    for nome in prescrizioni_aperte((ROOT / "o3" / "prescriptions.md").read_text(encoding="utf-8")):
+        esiti = presc.esiti(nome)
+        mancano = [a for a, ok in esiti.items() if not ok]
+        if not mancano:
+            righe.append(f"ROSSO {nome}: recepita da tutti secondo lo strumento, da chiudere")
+            continue
+        for adottante in mancano:
+            riga = riga_marker(mostra(tutti[adottante], "i3/allineamento-metodo.md"), nome)
+            if riga is None:
+                righe.append(f"{nome}: {adottante} non la nomina nel marker")
+            elif SODDISFATTA.search(riga):
+                righe.append(
+                    f"ROSSO {nome}: {adottante} la dà soddisfatta, lo strumento non la riconosce"
+                )
+            else:
+                righe.append(f"{nome}: {adottante} «{riga[:100]}»")
+    return righe
+
+
+SODDISFATTA = re.compile(r"(?<!non )soddisfatt", re.IGNORECASE)
+
+
+def riga_marker(testo: str, nome: str) -> str | None:
+    """La voce del marker che nomina la prescrizione, sulle righe di seguito comprese."""
+    righe = testo.splitlines()
+    for i, riga in enumerate(righe):
+        if f"`{nome}`" in riga:
+            voce = [riga.strip()]
+            for seguito in righe[i + 1 : i + 3]:
+                if not seguito.startswith("  "):
+                    break
+                voce.append(seguito.strip())
+            return re.sub(r"^[-*] ", "", " ".join(voce))
+    return None
+
+
+def costruisci(nome: str, checkout: Path, base: Path) -> str | None:
+    """Estrae origin/main in `base/<nome>` e lancia `build.py --check`: None se passa."""
+    archivio = git_bytes(checkout, "archive", "origin/main")
+    if archivio is None:
+        return "git archive fallito"
+    destinazione = base / nome
+    destinazione.mkdir()
+    # tar e non tarfile: i symlink `../method/...` escono dall'estratto per costruzione.
+    estratto = subprocess.run(
+        ["tar", "-x", "-C", str(destinazione)], input=archivio, capture_output=True, check=False
+    )
+    if estratto.returncode:
+        return "estrazione fallita"
+    try:
+        esito = subprocess.run(
+            [sys.executable, "o3/view/build.py", "--check"],
+            cwd=destinazione,
+            capture_output=True,
+            text=True,
+            timeout=600,
+            check=False,
+        )
+    except subprocess.TimeoutExpired:
+        return "build oltre 600 secondi"
+    if esito.returncode:
+        uscita = (esito.stdout + esito.stderr).strip().splitlines()
+        return uscita[-1] if uscita else f"uscita {esito.returncode}"
+    return None
+
+
+def git_bytes(checkout: Path, *args: str) -> bytes | None:
+    env = {**os.environ, "GIT_OPTIONAL_LOCKS": "0"}
+    esito = subprocess.run(
+        ["git", "-C", str(checkout), *args], capture_output=True, env=env, check=False
+    )
+    return esito.stdout if esito.returncode == 0 else None
+
+
+def servita(host: str, porta: str) -> tuple[str | None, str]:
+    """(commit servito, nota) da `/_stato`; commit None se la porta non risponde."""
+    try:
+        with urllib.request.urlopen(f"http://{host}:{porta}/_stato", timeout=5) as risposta:
+            stato_v = json.load(risposta)
+    except (OSError, ValueError) as errore:
+        return None, f"non raggiunta ({errore.__class__.__name__})"
+    nota = "" if stato_v.get("ok") else "ok: false"
+    return stato_v.get("served_commit", ""), nota
+
+
+def viste(tutti: dict[str, Path], testi: dict[str, str], build: bool) -> list[str]:
+    righe = []
+    indirizzi = {n: VISTA.search(t) for n, t in testi.items() if n in tutti}
+    indirizzi["metodo"] = VISTA.search(di_metodo())
+    checkout = {**tutti, "metodo": ROOT}
+    with tempfile.TemporaryDirectory(prefix="adottanti-") as tmp:
+        base = Path(tmp)
+        (base / "method").symlink_to(ROOT)  # i symlink `../method/...` degli estratti
+        for nome, match in indirizzi.items():
+            origine = git(checkout[nome], "rev-parse", "origin/main").stdout.strip()
+            if build and nome != "metodo":
+                errore = costruisci(nome, checkout[nome], base)
+                righe.append(
+                    f"ROSSO {nome}: build --check fallita: {errore}"
+                    if errore
+                    else f"{nome}: build --check ok"
+                )
+            if not match:
+                righe.append(f"ROSSO {nome}: nessuna vista `host:porta` in world.md")
+                continue
+            host, porta = match.groups()
+            commit_s, nota = servita(host, porta)
+            if commit_s is None:
+                righe.append(f"ROSSO {nome}: {host}:{porta} {nota}, non verificata")
+            elif commit_s != origine or nota:
+                righe.append(
+                    f"ROSSO {nome}: {host}:{porta} serve {commit_s[:8]}, origin/main {origine[:8]} {nota}".rstrip()
+                )
+            else:
+                righe.append(f"{nome}: {host}:{porta} serve origin/main {origine[:8]}")
+    return righe
+
+
+def accenti(tutti: dict[str, Path], testi: dict[str, str]) -> list[str]:
+    righe, colori = [], {}
+    for nome, checkout in tutti.items():
+        dichiarato = ACCENTO.search(testi.get(nome, ""))
+        nel_repo = ACCENTO.search(mostra(checkout, "o3/view/project.py"))
+        if not (dichiarato and nel_repo):
+            righe.append(f"ROSSO {nome}: accento assente in world.md o in o3/view/project.py")
+            continue
+        colori[nome] = nel_repo.group(0)
+        if dichiarato.group(0).lower() != nel_repo.group(0).lower():
+            righe.append(
+                f"ROSSO {nome}: world.md {dichiarato.group(0)}, project.py {nel_repo.group(0)}"
+            )
+    if proprio := ACCENTO.search(di_metodo()):
+        colori["metodo"] = proprio.group(0)
+    righe += [f"ROSSO accento ripetuto: {r}" for r in accenti_ripetuti(colori)]
+    return righe or ["accenti: copie coincidenti e tutti distinti"]
+
+
+def skill(nome: str, checkout: Path) -> list[str]:
+    def elenco(cartella: str) -> set[str]:
+        uscita = git(checkout, "ls-tree", "--name-only", "origin/main", f"{cartella}/").stdout
+        return {Path(r).name for r in uscita.splitlines()}
+
+    claude, codex = elenco(".claude/skills"), elenco(".codex/skills")
+    righe = [f"{nome}: {' '.join(sorted(claude))}"]
+    if mancano := SKILL_COMUNI - claude:
+        righe.append(f"ROSSO {nome}: mancano {', '.join(sorted(mancano))}")
+    if claude != codex:
+        righe.append(f"ROSSO {nome}: wrapper Codex diversi ({' '.join(sorted(claude ^ codex))})")
+    return righe
+
+
+def casi(nome: str, checkout: Path) -> list[str]:
+    paths = git(checkout, "ls-tree", "--name-only", "origin/main", "i1/").stdout.split()
+    file = {p: mostra(checkout, p) for p in paths if p.endswith(".md")}
+    in_metodo = " ".join(p.read_text(encoding="utf-8") for p in (ROOT / "i1").glob("*.md"))
+    righe = []
+    for cattura in casi_da_inoltrare(file):
+        eta = giorni_fa(checkout, "origin/main", f"i1/{cattura}")
+        nota = (
+            "citata in method/i1"
+            if cattura.removesuffix(".md") in in_metodo
+            else "assente in method/i1"
+        )
+        riga = (
+            f"{nome}: i1/{cattura} da inoltrare da {eta if eta is not None else '?'} giorni, {nota}"
+        )
+        righe.append(("ROSSO " if eta is not None and eta > SOGLIA_CASI else "") + riga)
+    return righe
+
+
+def numeri(nome: str, checkout: Path) -> str:
+    dev, runtime = conteggio_plan(mostra(checkout, "o1/plan.md"))
+    motivi = git(
+        checkout,
+        "log",
+        "origin/main",
+        f"--since={FINESTRA_GIRI} days ago",
+        "--format=%(trailers:key=Impatto-motivo,valueonly,separator=%x20)",
+    ).stdout.splitlines()
+    giri = sum("ciclo-autonomo" in m for m in motivi)
+    return (
+        f"{nome}: plan {dev} dev, {runtime} runtime; {giri} giri autonomi in {FINESTRA_GIRI} giorni"
+    )
+
+
+def audit(tutti: dict[str, Path], build: bool = True) -> list[str]:
+    testi = voci()
+    sezioni = [
+        ("Canale", [r for n, c in tutti.items() for r in canale(n, c)]),
+        ("Prescrizioni aperte", prescrizioni(tutti)),
+        ("Viste", viste(tutti, testi, build)),
+        ("Accenti", accenti(tutti, testi)),
+        ("Skill", [r for n, c in tutti.items() for r in skill(n, c)]),
+        (
+            "Casi della delega da inoltrare",
+            [r for n, c in tutti.items() for r in casi(n, c)] or ["nessuno"],
+        ),
+        ("Code e giri", [numeri(n, c) for n, c in tutti.items()]),
+    ]
+    righe = [
+        f"# Audit adottanti, {dt.date.today().isoformat()}, metodo a {commit(ROOT, 'HEAD')}",
+        "",
+    ]
+    for titolo, contenuto in sezioni:
+        righe += [f"## {titolo}", "", *[f"- {r}" for r in contenuto], ""]
+    rossi = sum(r.startswith("- ROSSO") for r in righe)
+    righe.append(f"Rossi: {rossi}")
+    return righe
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=__doc__.splitlines()[0],
@@ -114,9 +463,14 @@ def main(argv: list[str] | None = None) -> int:
     p_show.add_argument("nome")
     p_show.add_argument("path")
     p_show.add_argument("--ref", default="HEAD", help="origin/main per i repo di svezia")
+    p_audit = sub.add_parser("audit", help="parte meccanica di /adottanti, dopo il fetch")
+    p_audit.add_argument("--senza-build", action="store_true", help="salta build.py --check")
     args = parser.parse_args(argv)
 
     tutti = adottanti()
+    if args.comando == "audit":
+        print("\n".join(audit(tutti, build=not args.senza_build)))
+        return 0
     if args.comando == "stato":
         for nome in args.nomi or tutti:
             print("\n".join(stato(nome, scegli(nome, tutti))))

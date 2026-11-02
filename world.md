@@ -8,28 +8,32 @@ centro. Questi ruoli dipendono dal ciclo osservato, non dal versionamento: gli
 adottanti e l'artefatto del metodo hanno una storia Git.
 
 Adottanti (con la superficie da cui si leggono i marker
-`i3/allineamento-metodo.md` e il colore d'accento delle viste). L'accento è
+`i3/allineamento-metodo.md`, il colore d'accento delle viste e l'indirizzo
+`host:porta` della vista pubblicata). L'accento è
 unico per progetto ([view](kb/view.md)) e vive in `o3/view/project.py` di ogni
 repo: qui ne resta una copia, verificata da `/adottanti`, perché l'unicità è
-una proprietà dell'insieme. Quello di `metodo` è `#4338ca`.
+una proprietà dell'insieme. Quello di `metodo` è `#4338ca`, con la vista su `deck:8001`. Gli indirizzi
+sono copie del registro `o3/presentations.nix` di `nixos` e, per
+`danea2`, del `world.md` di `danea-auto`: l'audit li verifica
+raggiungendoli.
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
-  NixOS multi-host — checkout `~/nixos` su `svezia`; accento `#c2410c`
+  NixOS multi-host — checkout `~/nixos` su `svezia`; accento `#c2410c`; vista `deck:8002`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
-  sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`
+  sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,
   patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio
-  salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`
+  salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`; vista `deck:8004`
 - **[salute](https://github.com/steledama/salute)** — Benessere, pratica,
   filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto:
-  `ssh norvegia`, poi `ssh deck`); accento `#be123c`
+  `ssh norvegia`, poi `ssh deck`); accento `#be123c`; vista `deck:8003`
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
-  checkout `~/danea-auto` su `svezia`, runtime su `danea2`; accento `#7e22ce`
+  checkout `~/danea-auto` su `svezia`, runtime su `danea2`; accento `#7e22ce`; vista `danea2:8001`
 - **[baserow](https://github.com/tt-sviluppo/baserow)** — Custodia
   dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
   e contratto con `bi` — checkout `~/baserow` su `svezia` (produzione),
-  standby su `norvegia`; accento `#0369a1`
+  standby su `norvegia`; accento `#0369a1`; vista `svezia:8003`
 
 `crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
 test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e
