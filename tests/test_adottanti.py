@@ -72,6 +72,7 @@ class AuditTests(unittest.TestCase):
             ),
             "i1/tre.md": "**Questione per il metodo.** Due punti, da inoltrare:\n",
             "i1/quattro.md": "Nessuno stato qui.\n",
+            "i1/due.md": "Corpo rimasto com'era: da inoltrare.\n",
         }
         self.assertEqual(MODULE.casi_da_inoltrare(file), ["tre.md", "uno.md"])
 

@@ -10,6 +10,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Un controllo del gate senza il suo strumento sull'host ferma ogni
+  commit](gate-controllo-assente-host-danea-auto-2026-11-02.md) — da
+  `danea-auto` `9839b98`: su `deck` manca PowerShell e il gate dà `FALLITO`
+  anche a un commit di soli documenti; risolto in locale con `quando`, che
+  accetta un solo glob e costringe a ripetere la voce. Un caso solo.
 - [Le verifiche differite di `bi`, ipotesi in attesa nate in
   sessione](verifiche-differite-bi-2026-10-23.md) — da `bi` `b8ef7257`,
   inoltro del custode: un'agenda `i2/verifiche-differite.md` passa al giro

@@ -167,10 +167,11 @@ def prescrizioni_aperte(indice: str) -> list[str]:
 def casi_da_inoltrare(file: dict[str, str]) -> list[str]:
     """Le catture i1 «da inoltrare»: nel corpo o nella voce d'indice che le linka.
 
-    Una voce che dice anche «acquisita» è già passata; un indice che descrive
-    gli stati senza linkare una cattura non conta.
+    Lo stato lo dichiara la voce d'indice: una cattura che l'indice dà
+    «acquisita» è passata anche se il corpo dice ancora «da inoltrare». Un
+    indice che descrive gli stati senza linkare una cattura non conta.
     """
-    trovati = set()
+    trovati, acquisite = set(), set()
     for path, testo in file.items():
         nome = Path(path).name
         if nome != "perceptions.md":
@@ -178,9 +179,12 @@ def casi_da_inoltrare(file: dict[str, str]) -> list[str]:
                 trovati.add(nome)
             continue
         for voce in re.split(r"\n(?=- )", testo):
-            if "da inoltrare" in voce and "acquisita" not in voce:
-                trovati.update(Path(link).name for link in LINK_MD.findall(voce))
-    return sorted(trovati)
+            catture = {Path(link).name for link in LINK_MD.findall(voce)}
+            if "acquisita" in voce:
+                acquisite |= catture
+            elif "da inoltrare" in voce:
+                trovati |= catture
+    return sorted(trovati - acquisite)
 
 
 def accenti_ripetuti(accenti: dict[str, str]) -> list[str]:
