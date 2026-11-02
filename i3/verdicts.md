@@ -20,14 +20,13 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»); l'indice non li ripete.
 
 - [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: i sette marker su `origin` dichiarano `aligned` a
-  `d8a88e7` il 2026-10-10, `delega-nel-checkout-servito` chiusa; `goal-senza-fotografia` e `delega-ciclo` chiuse,
-  recepite dai sette. Il 2026-10-08
-  `migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` risultano
-  recepite dai sette e chiuse, `presidio-ipotesi` recepita da tutti e chiusa il 2026-10-26. L'audit del 2026-11-01 conta i trailer `Esiti:` e decide
-  se la verifica delle prescrizioni nei file si alleggerisce; è anche la
-  prima verifica nell'uso di `baserow`, entrato il 2026-10-05, e il primo
-  sui sei adottanti dopo la dismissione di `crm` del 2026-10-22.
+  mensile `/adottanti`. Quinto audit il 2026-11-02, sui sei adottanti:
+  marker `aligned` al 29/10 e coincidenti coi file per la quarta volta,
+  quindi la verifica d'insieme si alleggerisce. Viste fresche in tutte e
+  sette, `danea2` compreso. Tutti e sei girano da soli ogni giorno, e
+  `baserow` ha chiuso il fronte backup. Ci sono gli esiti per stadio per
+  `p1`. Tre prescrizioni recepite nei file attendono la chiusura, perché
+  `prescrizioni.py` non riconosce la forma dei marker.
 - [ciclo-autonomo.md](ciclo-autonomo.md) — direzione costitutiva dal
   2026-10-11: con quali garanzie ogni repo arriva al giro `eval` → `exec` →
   commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e

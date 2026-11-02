@@ -6,255 +6,207 @@ obiettivo: 2
 # Audit runtime-o1: la distanza degli adottanti dal telos
 
 Verdetto aggregato dell'audit mensile `/adottanti`, aggiornato in place a
-ogni giro. Ultimo giro d'insieme: **2026-10-01**, quarto audit, puntuale
-sulla scadenza; verifiche fuori giro il 2026-10-02 e il 2026-10-03. Le
-letture sono fatte su `origin` dopo un `git fetch`: `economia` e `salute` su
-`deck`, `nixos`, `bi`, `crm` e `danea-auto` su `svezia`. `baserow`, settimo
-adottante, è entrato il 2026-10-05 fuori giro: le letture qui sotto che
-contano «i sei» lo precedono, e la sua baseline fondativa è nella fotografia
-delle code. Il 2026-10-19 il custode ha tolto `crm` dal ciclo autonomo e il
-2026-10-22 l'ha dismesso come adottante: dal prossimo audit gli adottanti
-sono sei, e le letture qui sotto che nominano `crm` precedono la
-dismissione. Al suo posto è atteso `abbinamenti`, di cui il prossimo audit
-dà la baseline fondativa quando entra.
+ogni giro. Ultimo giro d'insieme: **2026-11-02**, quinto audit, un giorno
+dopo la scadenza: il ciclo autonomo non lancia `/adottanti` e il giro di
+`method` del 01/11 era fallito per un errore di rete. Le letture sono fatte su
+`origin` dopo un `git fetch` da `deck`, con le estrazioni in una cartella
+temporanea. Sono i sei adottanti di `world.md`: `crm` è dismesso dal
+2026-10-22 e `abbinamenti`, atteso al suo posto, non è ancora entrato, quindi
+non c'è una baseline fondativa da dare.
 
 ## Verdetto
 
-**Canale del canone: i sette marker su `origin` dichiarano `aligned` a
-`d8a88e7`, revisione del 2026-10-10.** Lettura dopo `git fetch` dai clone
-su `deck`, commit di recepimento con `Autonomia: concordato`: `nixos`
-`ec6c7c9`, `bi` `cd1c42e5`, `economia` `c8f3adf`, `salute` `997c6d2`,
-`crm` `5ec2ba2`, `baserow` `6e9890b`, `danea-auto` `7679fb7`.
-`delega-nel-checkout-servito` è chiusa: i sette riconoscono l'host prima
-del primo atto, le eccezioni sono in `i2/casi-delega-adottanti.md`; `crm`
-e `baserow` segnano acquisiti i propri casi. Il dato certifica cursori e commit pubblicati, non la semantica
-di ogni file né il runtime. L'ultimo audit mensile resta quello del 01/10.
+**Canale del canone: i sei marker su `origin` dichiarano `aligned`, revisione
+del 2026-10-29.** Le posizioni: `economia`, `salute` e `danea-auto` a
+`a1814f7`, 4 commit dietro HEAD (`f2a9163`); `bi` e `baserow` a `ad1e4ae`,
+5 commit; `nixos` a `321e096`, 11 commit. Il ritardo di `nixos` comprende il
+canone del 29/10 sul giro che pianifica i task e non li esegue (`22ead2d`,
+`96314f5`, `369d5ea`, `48fff8d`): nel suo `autonomy.md` quella regola
+manca ancora, mentre i nodi `kb/` gli arrivano via symlink. Sono commit su
+nodi e skill canoniche, non una prescrizione, e hanno due giorni: il ritardo
+è fisiologico e il prossimo `/method` locale lo assorbe. Nessuno `status:
+action-required`.
 
-Lettura dei soli checkout locali di `deck` il 2026-10-18, invariata dal
-17, senza `fetch` né
-`ssh` (giro autonomo di `method`): sei marker sono oltre `d8a88e7`, tutti
-`aligned` — `baserow` a `735d7f7` (2026-10-16), `crm` a `70a5825`, `nixos`
-a `519bdc7`, `bi` a `6105c8a` (revisioni del 2026-10-15), `economia` a
-`ce4ac52` e `salute` a `e5a57bb` (2026-10-11). `danea-auto` resta a `d8a88e7`: il suo checkout
-qui può essere indietro rispetto al clone Windows. I corpi di `economia`,
-`salute` e `crm` dichiarano recepite `momento-del-commit` (chiusa il
-2026-10-26, recepita dai sei) e
-`ciclo-autonomo`. Il dato su `origin` lo dà l'audit del 2026-11-01.
+**`aligned` e file coincidono, quarto giro di fila (09/25, 09/30, 10/01,
+11/02).** Le prescrizioni aperte sono state verificate nei file, non solo
+nei marker:
 
-`goal-senza-fotografia` è chiusa il 2026-10-09: i sette marker ne
-dichiarano l'esito, con gli adattamenti locali motivati (in `nixos` il solo
-fatto senza altra sede è passato in `kb/rclone-gdrive.md`; in `danea-auto`
-due fatti restano nel Goal come buchi di misura con provenienza).
+- `esiti-per-stadio-nel-commit`: tutti e sei scrivono il trailer, da 22 a 32
+  giri ciascuno dall'08/10 (conteggio sotto);
+- `prossimo-task-e-ipotesi-del-giro`: `Prossimo:` c'è in ogni giro dal 22/10
+  che ha invocato `plan`. Le cinque eccezioni (`nixos` 1, `economia` 3,
+  `salute` 1) sono giri senza lo stadio `plan`, quindi conformi;
+- `comunicazione-fra-sessioni`: il rimando a `session-messaging` è nel
+  `CLAUDE.md` di tutti e sei;
+- `progettazione-skill`: aperta come dichiarano i marker. I punti 4-6 sono in
+  task locali in `bi`, `economia` e `danea-auto`, e in corso in `nixos` per
+  decisione del custode del 27/10. `salute` e `baserow` dichiarano il
+  recepimento completo.
 
-`delega-ciclo` è chiusa lo stesso giorno: i sette hanno `autonomy.md` locale
-e il presidio dei casi in `eval perceive`; il riesame dei casi e di un
-campione di decisioni ordinarie vive nello step 5b di `/adottanti`, la
-raccolta nel passo 3 di `eval perceive` canonico. Al 2026-10-10 i giri
-delegati reali hanno inoltrato 18 casi da `bi`, `crm` e `baserow`, letti in
-`i2/casi-delega-adottanti.md`; nei giri dall'08/10 i trailer `Esiti:`
-compaiono in sei adottanti, mentre l'ultimo giro di `nixos` con trailer è
-del 27/09 (`821795a`). Perimetri decisi dal custode nelle
-sessioni: sola lettura e atti di `CLAUDE.md` in `nixos`; rilasci e PROD
-riservati in `bi`; deploy, produzione e invii riservati in `crm`; invii come
-sola bozza in `economia`. Tre atti sul Mondo delegati: eventi Calendar delle
-scadenze in `salute`, backup manuale senza restore in `baserow`, ripristino
-di LibreOffice incastrato e test dei task fuori slot in `danea-auto`,
-recepimento selettivo con effetto dichiarato sull'osservazione
-(`i2/presidio-ipotesi-adottanti.md`). In `nixos` il push rifiutato per
-divergenza si è fermato fino al via del custode al rebase: confine
-rispettato, primo caso riuscito da riesaminare all'audit.
+Le prime tre risultano recepite da tutti nei file, ma `o3/prescrizioni.py
+verifica` ne dà recepita una sola per adottante su sei. Lo strumento cerca
+una riga che nomini la prescrizione fra backtick insieme a «recepit», e due
+forme legittime non passano: «già soddisfatta» (`economia` e `danea-auto` su
+`esiti-per-stadio`) e l'elenco in prosa senza nomi di `salute` («Esiti per
+stadio, momento del commit, prossimo task…»). La chiusura è sospesa: decide
+il custode se chiudere sull'evidenza dei file o chiedere ai marker la forma
+che lo strumento riconosce (vedi «Tensioni aperte»). Anche l'indice
+`o3/prescriptions.md` è indietro: dà `comunicazione-fra-sessioni` recepita
+dai soli `nixos`, `bi` e `baserow`.
 
-`revisione-bootstrap-adottante` è chiusa lo stesso giorno, dopo la lettura
-nel merito dei quattro file su `origin` (`i2/bootstrap-adottanti.md`): il
-contratto regge in tutti e sette, con residui editoriali di ultimo miglio
-che restano dell'adottante. Il più ampio è `CLAUDE.md` di `bi`, che
-riporta un inventario di strumenti già indicizzato altrove; lo stato
-corrente nel README di `crm` e `baserow` è un segnale aperto
-(`i1/stato-nel-readme.md`). Il marker di `danea-auto` a `bf186fb` la dà
-rinviata per la formula del prompt selettivo, mentre il precedente la dava
-già soddisfatta: il prossimo `/method` locale può ripristinare l'esito.
+Con quattro coincidenze, la verifica d'insieme si alleggerisce come
+previsto: dal prossimo audit le prescrizioni si leggono nei marker, con il
+controllo nei file di una sola prescrizione a campione. Si torna alla
+verifica completa al primo scarto.
 
-`ingresso-adottante` esce dalle prescrizioni lo stesso giorno: è una
-procedura dell'osservatorio, non una ricetta da recepire, e vive fra le
-procedure di `o3/prescriptions.md`, richiamata da `/adottanti`. Il collaudo
-con `baserow` è in `i2/ingresso-adottante.md`; la prima verifica nell'uso
-resta all'audit del 01/11.
+**Superfici e viste: fresche e verificate in tutte e sette, `danea2`
+compreso.** La lettura distingue tre controlli:
 
-`pull-autonomo` è chiusa lo stesso giorno, recepita dai sette su `origin`:
-`economia`, `salute`, `crm` e `baserow` a `8796425`, `bi` a `1f0e55a`
-(`b5c3b785`), `nixos` a `33b4f2c` (`de2ac9c`), `danea-auto` a `03a37bc`
-(`e7b3bad`). Dove il checkout è produzione il pull o il commit diventano un
-rilascio, deciso dal custode per ciascuno: in `bi` il push del codice è
-autonomo dopo l'intera suite verde e i cron, se il pull fallisce,
-continuano col codice locale; su `deck` il pull ripubblica le sole viste; in
-`danea-auto` il pull del repository è autonomo solo fuori dagli slot, ora
-elencati in `world.md`, e senza la riga di fine del run precedente diventa
-un'anomalia da riportare. Nessun rilascio da pull ancora esercitato dal vivo.
+- **build e contratti sulle fonti di `origin`**: `python3 o3/view/build.py
+--check` termina con codice 0 in tutte e sei le estrazioni;
+- **revisione servita**: `/_stato` dà `ok: true` e un `served_commit` uguale a
+  `origin/main` per `method`, `nixos`, `salute` ed `economia` su `deck`
+  (8001-8004), `bi` e `baserow` su `svezia` (8001, 8003) e `danea-auto` su
+  `danea2` (8001). È la prima verifica di `danea2` fatta da qui;
+- **porta**: raggiunta dall'indirizzo LAN di `deck` in tutti e sette i casi.
 
-`migrazione-viste`, `viste-fuori-da-git` e `push-autonomo` sono chiuse dal
-2026-10-08. La verifica pubblicata del push è sui commit `nixos` `3fdec4e`,
-`bi` `42ba5dbb`, `economia` `60d52bc`, `salute` `130ddbc`, `crm` `644b70c`,
-`danea-auto` `ffb2953`, `baserow` `623f086`. `bi` mantiene il push su richiesta
-quando i commit non pubblicati toccano codice eseguito dal ciclo: lì è un
-rilascio. La rimozione della forma vecchia dei servizi è registrata nel
-codice di `nixos` (`422bb5b`) e in `danea-auto` (`11c0510`); il marker di
-`nixos` conserva un task per confermare la generazione attiva sui server.
-Chiusura del canone e attivazione locale restano evidenze distinte.
+Gli hash uguali non provano che il rendering sia corretto. Gli accenti di
+`o3/view/project.py` coincidono con la copia in `world.md` e restano distinti
+fra loro e da `#4338ca` di `metodo`.
 
-**`aligned` e file coincidono.** Il 2026-10-02 i sei sono stati ricostruiti
-da `origin` in una cartella temporanea: nessun `misura:` negli indici `i3/`,
-`obiettivo:` in ogni file di `i3/` verificato dalla build, builder identici
-al canone salvo la CONFIG della home e un adattamento dichiarato in
-`salute`. La revisione contro gli obiettivi ha ridotto i fili da 38 a 19
-(marker inclusi): `crm` tiene solo il cursore, perché col dominio fermo
-nessuna tensione era viva. Il 2026-10-03 `presentazioni-permanenti` è
-risultata recepita nei file di tutti e sei: `serve.py` identico al canonico,
-decisione del custode nei `CLAUDE.md` senza eccezioni, esposizione dei dati
-registrata dove ogni repo tiene i propri vincoli (`CLAUDE.md` in cinque,
-`world.md` in `crm`). Il link `Ob.`→`goal.md` è
-verificato nei file: in tutte e sei le `tasks.html` le ancore corrispondono
-alle intestazioni del rispettivo `goal.md`.
-
-**Prescrizioni aperte, con provenienza della verifica:**
-
-- `esiti-per-stadio-nel-commit` — il trailer `Esiti:` è nei fork di
-  `eval`/`exec` di tutti e sette, e sei lo scrivono davvero. Commit con
-  `Esiti:` dal 2026-09-25 al 2026-10-07 su `origin`: `danea-auto` 27,
-  `economia` 15, `bi` 11, `baserow` 6, `nixos` 4, `salute` 3. In
-  `baserow` uno è nascosto a `%(trailers)` (`205c627`, il segnale i1
-  `trailer-esiti-ultimo-paragrafo`); nessun altro caso negli altri repo.
-  `crm` non ha fatto giri, quindi non ha righe: il `git log` lo conferma,
-  non è un buco di registrazione. La prescrizione resta attiva fino al
-  conteggio del 2026-11-01;
-- `presidio-ipotesi` — recepita nei file di sei repo a `35a08d5`, ciascuno
-  con l'esito nel marker. Il seguito sul deck di `nixos` è chiuso: la
-  lettura causale vive in `i2/ipotesi-boot-server.md` e il filo
-  `affidabilita-boot-server` la raggiunge, col riesame al 2026-12-31.
-  `danea-auto` l'ha recepita il 2026-10-20 nel giro a `5b89e17`, dopo la
-  chiusura dell'osservazione senza sollecitazione (scadenza emersa da sola,
-  ipotesi rafforzata, `i2/presidio-ipotesi-adottanti.md`): la prescrizione
-  è chiusa il 2026-10-26;
-
-**Il passo «Rileggi le prescrizioni aperte» di `/method` ha girato in tutti
-e sei.** `economia`, `salute` e `danea-auto`, che mancavano, l'hanno fatto
-col giro fino a `47d8204`. `salute` elenca nel marker l'esito di ognuna
-delle cinque prescrizioni aperte. Gli altri due le riportano nei soli
-adattamenti dove le hanno toccate. È il terzo giro in cui `aligned` e i
-file coincidono: `aligned` copre ora anche le prescrizioni aperte, e il
-marker non avanza finché una pertinente resta senza esito.
-
-**Superfici e viste: fresche in tutti e sette, verificate per
-rigenerazione dopo la migrazione.** Il 2026-10-05 ogni repo è stato estratto
-da `origin` in una cartella temporanea e ricostruito con
-`python3 o3/view/build.py`: build riuscita ovunque, e in sei la
-rigenerazione è identica a `view/` versionata. In `danea-auto` cambia solo
-`view/presentation.html`, il deck reso da pandoc: costruito su Windows con
-pandoc 3.12, qui con la 3.7.0.2, che porta un altro CSS di default e il pin
-di reveal.js a `5.1.0` invece di `6.0.2`. È toolchain, non contenuto. Il confronto per date, la lente del
-giro precedente, segnalava invece viste più vecchie della fonte in
-`economia`, `salute`, `bi` e `crm`. Erano tutti falsi rossi: la fonte era
-cambiata fuori dalla parte che la vista rende, per esempio `world.md` sotto
-la sua intro. Nessuna vista a mano.
+**Skill: niente residui.** I sei hanno il quartetto, `/cycle` e `/method`,
+con i wrapper Codex speculari. `baserow` non ha `/kb`, come dalla baseline.
+Le skill di dominio sono `/manutenzione` in `nixos` e
+`categorizzazione`, `corrispondenze`, `ordini` e `tassonomia` in `bi`.
 
 Fotografia delle code (`development-goal`, pesata sulla gradualità di
-dominio):
+dominio). **La firma del telos è nuova: tutti e sei girano da soli ogni
+giorno.** Dall'08/10, i giri con `Impatto-motivo: ciclo-autonomo` sono 21 in
+`nixos`, 20 in `bi`, 25 in `economia` e in `salute`, 20 in `danea-auto` e 18
+in `baserow`; in `metodo` sono 17.
 
-- **nixos** — coda dev vuota, 8 task runtime (7 a settembre). Il
-  `goal.md` ha un obiettivo nuovo (3, inferenza locale, 2026-09-27) con i
-  suoi task. `/manutenzione` ha guadagnato il ramo `home-manager` e gira
-  ogni giorno su più host. La riga `(quotidiano)` porta ancora la data
-  2026-08-01: è lo stesso falso rosso di settembre, legato al segnale i1
-  `registro-perpetuo-vs-cattura-singola`.
-- **bi** — 11 task, 7 dev e 4 runtime (9 dev a settembre): la coda dev
-  scende mentre il lavoro è intenso (65 commit in una settimana, un giro
-  `eval`/`exec` quasi ogni giorno sul cantiere OEM). Timetable dei cinque
-  run automatizzati intatto. La semestrale concorrenza del 2026-07-31 è
-  ancora annotata come attesa, ora da due mesi.
-- **economia** — 16 task runtime, 0 dev, in-the-loop per costituzione.
-  `## Scadenze` densa e tutta futura, salvo un termine di oggi. Il link
-  `Ob.` è recepito nella sua vista generata.
-- **salute** — 4 task runtime, 0 dev, coda stabile dal 2026-09-27. Le
-  scadenze sono appuntamenti datati, tutti futuri.
-- **crm** — 9 task dev, plan fermo dal **2026-08-21**: 41 giorni. Dopo
-  il 24/9 i suoi soli commit sono allineamenti al canone. La tensione di
-  settembre si conferma: il canale col canone funziona, il dominio no.
-  È coda di dominio, non drift.
-- **danea-auto** — il controprofilo di settembre si è ribaltato: dal più
-  fermo al più attivo. 32 commit dal 24/9, 21 giri con `Esiti:`, coda
-  da 3 a 6 task runtime su guasti veri (Controlp, dialog Danea, run
-  fatali). Ha sciolto da solo le due divergenze dichiarate «finché non hanno
-  una funzione locale»: ha adottato `/commit` (con `valida_ahk.ps1` come
-  controllo sostanziale) e ha generato `presentation/`. Qui l'audit
-  continua a non certificare Danea, Task Scheduler né il backup.
-- **baserow** — baseline fondativa all'ingresso del 2026-10-05, contata a
-  mano sul checkout di `svezia` al commit di adozione `62396a7`, non ancora
-  su `origin`. Marker a `f44b6c0`, `aligned`, con le quattro prescrizioni
-  aperte esitate. Contenuto: 4 nodi `kb/`, 2 catture `i1/`, nessuna sintesi
-  `i2/`, 2 fili `i3/` più il marker, 3 runbook `o3/`. Plan con 4 task, 3
-  runtime e 1 dev, quest'ultimo in attesa di `nixos`. Skill: il quartetto
-  forkato più `method`, senza `/kb` e senza skill di dominio. Builder
-  identici al canone salvo la CONFIG della home; accento `#0369a1`. Il
-  bootstrap regge il contratto comune. Dominio a posta alta e fermo sul
-  primo fronte: nessun backup automatico, ultimo archivio del 31 luglio.
-  Non c'è storia comparabile, quindi niente delta.
+- **nixos**: 1 dev e 6 runtime (0 e 8 il 01/10). L'unico dev è la
+  ristrutturazione di `/manutenzione`, in attesa dei rami `lavoro` e
+  `docker`. Due runtime sono in pausa sulla decisione del custode di separare
+  il repo in casa e lavoro. `## Scadenze` dichiara il timer `ciclo-nixos`
+  senza data, con rimando alla config: la falsa data aggregata
+  `(quotidiano)` di settembre non c'è più.
+- **bi**: 9 dev e 5 runtime (7 e 4). La coda dev cresce col lavoro su ordini
+  e stato condiviso, non per abbandono: 152 commit dall'08/10. La verifica
+  inventari mensile del **2026-10-31** è passata senza traccia nei commit,
+  quindi l'orologio è fermo da due giorni. La semestrale della concorrenza ir
+  è ancora in attesa del Mondo dal 2026-07-31, da tre mesi. È coda di
+  dominio.
+- **economia**: 1 dev e 20 runtime (0 e 16), in-the-loop per costituzione.
+  `## Scadenze` è densa e tutta futura, con i termini di oggi e domani
+  presidiati.
+- **salute**: 0 dev e 4 runtime, coda stabile. Le scadenze sono appuntamenti
+  datati e tutti futuri.
+- **danea-auto**: 3 dev e 4 runtime. Fra i dev ci sono il lanciatore del
+  ciclo su `danea2`, con riesame alla scadenza del login il 18/11, e
+  l'import degli ordini fornitore da `bi`. Manca `## Scadenze`: i run
+  automatizzati stanno nell'elenco del Task Scheduler in `world.md`.
+- **baserow**: 0 dev e 2 runtime (1 e 3). **Il primo fronte è chiuso**:
+  backup quotidiano riuscito sui due lati, controlli delle 06:00 a 0 nei
+  giri del 31/10, 01/11 e 02/11 e restore provato a ottobre. Anche qui manca
+  `## Scadenze`: il timer vive in `o3/systemd`. Aperti il fronte deadlock (tre
+  notti su cinque) e la crescita di audit log e row history a circa 37 MB al
+  giorno.
 
-**Materiale per la clausola di uscita delle skill per arco**
-(`o2/rivalutazione-skill-per-arco.md`). Primo dato con la misura nuova,
-da non giudicare prima del 2026-11-01. Gli esiti `vuoto` adesso esistono e
-si contano. Il più frequente è `interpret=vuoto` in `bi`, in tutti e cinque
-i suoi giri `eval`. Conferma la lettura di settembre: la sua `interpret`
-vive negli script, lo stadio esiste ma la skill non lo esercita.
+**Conteggio degli esiti per stadio, il risveglio di `p1`**
+(`o2/rivalutazione-skill-per-arco.md`). La fonte è
+`%(trailers:key=Esiti)` su `origin/main` dall'08/10. Totali sui sei adottanti,
+come materia/vuoto:
 
-Il segnale sui trailer resta un solo incidente documentato di perdita,
-`baserow` `205c627`. Il marker di `danea-auto` documenta il recepimento del
-presidio, non un secondo incidente. Il canone di `/commit` prescrive ormai
-l'ultimo paragrafo unico: il conteggio di novembre confronterà trailer e
-righe nel corpo, senza riscrivere la storia.
+- perceive 112/21;
+- interpret 75/53;
+- compare 69/57;
+- plan 50/81;
+- specify 58/65;
+- perform 42/79.
+
+Per repository, in giri con `Esiti:`: `economia` 32, `salute` 27, `nixos`
+26, `danea-auto` 23, `baserow` 22, `bi` 21, `metodo` 21. Fra l'80 e il 95
+per cento di questi giri è schedulato. Integrità: le righe `Esiti:` nel corpo
+coincidono coi trailer riconosciuti, tranne `salute` `1d7fe22` (11/10), dove
+`Co-Authored-By` in un paragrafo a parte lascia `Esiti:` fuori dal blocco dei
+trailer. Il caso è contato una volta, e il recupero è dichiarato. È lo
+stesso incidente di `baserow` `205c627`, prima della regola dell'ultimo
+paragrafo unico in `/commit`.
+
+Contro i sintomi della clausola nel filo
+[skill per arco](skill-per-arco-tripartito.md):
+
+- **nessuno stadio è vuoto in tutti i repository**: ogni stadio ha almeno un
+  giro con materia in ognuno dei sei. Le serie vuote lunghe sono locali e hanno una lettura di dominio:
+  `interpret` in `nixos` (11 di fila), `plan` in `bi` (16), cioè la conferma
+  ripetuta con runtime sano che il canone del 29/10 chiama equilibrio, e
+  `perform` in `danea-auto`, `baserow`, `salute` e `metodo` (da 13 a 18).
+  Dal 29/10 il giro non esegue i task per regola, quindi un `perform=vuoto`
+  nel giro schedulato è atteso e non è un indizio di invocazione superflua;
+- **giri tutti vuoti**: da 0 a 5 per repository (`danea-auto` 5, `economia`
+  4), senza ripetizioni a verdetto e coda fermi;
+- **«ha pagato»**: nessun caso nuovo documentato come tale. In `bi`,
+  `interpret` è materia in 9 giri su 20, contro lo zero di settembre: lo
+  stadio è esercitato dove prima viveva solo negli script.
+
+È materiale per il verdetto del custode, non il verdetto: la misura dice che
+la tripartizione non mostra il sintomo del «troppo». Il giro schedulato
+gonfia gli esiti vuoti, e un trailer non distingue un giro schedulato vuoto
+da un'invocazione di sola disciplina.
+
+**Casi della delega (5b).** In `metodo/i1/` non sono arrivati casi nuovi dal
+19/10. In `danea-auto`, due catture locali sono ancora «da inoltrare»:
+`i1/delega-diniego-csv-primo-giro.md` (20/10) e
+`i1/delega-trailer-prossimo-secondo-giro.md` (21/10). Le loro questioni
+sono già nel canone: `73717f4` ammette `Prossimo: nessuno (…)` al gate e fa
+provare a `skill_tools.py audit` gli esempi delle skill. La prescrizione
+`ciclo-autonomo`, chiusa il 28/10, chiede i comandi del prompt alla lettera
+nei permessi e un giro senza dinieghi prima del gradino 1. Le catture sono
+consumate senza bisogno di essere acquisite qui: la segnatura «acquisita da
+method» tocca al prossimo giro di `danea-auto`. Campione di decisioni
+ordinarie fuori dal giro schedulato, uno per adottante, letto contro il
+diff:
+
+- negli altri cinque il motivo è coerente col soggetto e coi file toccati;
+  li ho letti nel log, senza aprire il diff;
+- in `bi`, `15921275` corregge il gancio `deploy-client`, che aveva
+  distribuito `menu.bat` ai PC da un commit su un branch. Dichiara `Impatto:
+basso` su codice che gira in produzione e ha appena toccato i client, e
+  arriva senza test. La correzione di tre righe è giusta. L'impatto
+  dichiarato è sotto la lettura della fonte: è una domanda locale per `bi`,
+  non un criterio comune.
+
+Il campione è piccolo, e l'assenza di altri scarti non prova l'assenza di
+attrito.
 
 ## Tensioni aperte
 
-- `aligned` e file: coincidono da tre giri (2026-09-25, 2026-09-30,
-  2026-10-01). Finché non è confermato, il ciclo autonomo verifica le prescrizioni
-  nei file e non nei marker; se il 2026-11-01 coincidono ancora, la verifica
-  d'insieme si alleggerisce;
-- `revisione-bootstrap-adottante`: completare il confronto fra gli esiti
-  dichiarati e il contratto della revisione coordinata; i marker da soli
-  non equivalgono alla rilettura qualitativa dei quartetti. Il task
-  `Goal senza fotografia` ha aggiornato il contratto di questa prescrizione;
-- ripetibilità: il quarto audit è arrivato in tempo, ma lo ha ricordato
-  l'agente leggendo `## Scadenze` dentro una sessione aperta per altro. La
-  cella runtime-o1 resta D finché il ciclo autonomo non parte da un innesco;
-- `nixos`: la data aggregata della riga `(quotidiano)`, da leggere insieme
-  al segnale i1 sul registro perpetuo;
-- la clausola di uscita delle skill per arco: l'audit del 2026-11-01
-  conta gli esiti per stadio e per repository;
-- `baserow`, prima verifica nell'uso all'audit del 2026-11-01: il segnale
-  è lo stato del backup raccolto dai suoi `/eval perceive`. Un timer attivo
-  con restore provato chiude il primo fronte. Su `origin` al 2026-10-07 il
-  restore è provato (`9f69920`) e strumenti e timer sono versionati
-  (`7f3b0d9`); l'attivazione del timer su `svezia` non è verificata da qui.
+- **chiusura delle tre prescrizioni recepite da tutti nei file**
+  (`esiti-per-stadio-nel-commit`, `prossimo-task-e-ipotesi-del-giro`,
+  `comunicazione-fra-sessioni`): `prescrizioni.py` non le riconosce per la
+  forma dei marker. Al custode la scelta fra chiudere a mano sull'evidenza
+  di questo audit e lasciare che i marker si adeguino. Nel secondo caso
+  resta aperta anche la domanda se lo strumento debba accettare «già
+  soddisfatta»;
+- la clausola di uscita delle skill per arco: il materiale è raccolto e il
+  verdetto spetta al custode, nel filo;
+- `nixos`: il recepimento del canone del 29/10 sul giro che pianifica e non
+  esegue, al prossimo `/method` locale;
+- ripetibilità: il quinto audit è arrivato con un giorno di ritardo, perché
+  nessun innesco lo lancia. La cella runtime-o1 resta D;
+- `baserow`, verifica nell'uso: il fronte backup è chiuso, restano deadlock e
+  crescita dello storico, che sono coda di dominio.
 
 ## Limiti
 
-- i quartetti di bootstrap non sono stati riletti nel giro del 09/10;
-  il collaudo dell'ingresso di `baserow` è documentato nella sintesi i2,
-  ma non certifica da solo la qualità corrente di tutti i bootstrap;
-- la rigenerazione dimostra che le viste sono fedeli ai builder del repo,
-  non che i builder siano fedeli al canone: quella è materia dei
-  `/method` locali;
-- un giro `eval`/`exec` vuoto ora lascia un commit con `Esiti:`, ma solo se
-  si è chiuso: una sessione interrotta resta invisibile;
-- l'attivazione delle presentazioni permanenti: su `deck` il 2026-10-04 le
-  quattro unit `presentazione-*` sono attive. Il 2026-10-05 la produzione
-  serve `bi`, `crm` e `baserow` sulle 8001-8003 dopo i rebuild di `nixos`
-  (`fb8509c`, collaudo LAN in `ec881e8`, da casa in `41453cc`): verificato
-  qui dall'indirizzo LAN di `svezia`, 200 coi titoli giusti, 404 su `/.env`.
-  Per `danea2` c'è solo il collaudo riportato dall'istanza di `danea-auto`,
-  ora pubblicato su `origin` ma non verificato da qui; lo legge il ciclo autonomo
-  del 2026-11-01;
-- `origin` resta indietro quando un adottante non pubblica i suoi commit.
-  Il 2026-10-05 `danea-auto` aveva recepito `migrazione-viste` a `f21594b`
-  nel checkout di `danea2` (`1443454`) mentre `origin` era ancora a
-  `91cf874`, e lo stesso per `baserow` (`62396a7`); lo scarto si è chiuso
-  il giorno stesso con le pubblicazioni. Le letture su `origin` misurano ciò
-  che è pubblicato, non ciò che è stato recepito.
+- le letture su `origin` misurano ciò che è pubblicato, non ciò che è
+  recepito in un checkout non ancora pushato;
+- la rigenerazione e `--check` dimostrano la fedeltà delle viste ai builder
+  del repo, non quella dei builder al canone: quella è materia dei `/method`
+  locali;
+- i `tentativi.jsonl` di `svezia` e di `danea2` non sono leggibili da `deck`:
+  gli arresti prima del commit lì restano invisibili a questo audit;
+- l'innesco dei giri si legge da `Impatto-motivo:`. I commit di sessione
+  senza quella riga finiscono in «altro» e non sono separabili da un giro
+  avviato a mano con la riga mancante.

@@ -1,5 +1,5 @@
 ---
-sintesi: "Il giudizio di settembre (2026-09-24) ha mantenuto la tripartizione eval/exec e corretto la clausola: ogni giro registra l'esito per stadio nel commit (trailer Esiti:). Il task resta pause fino al ciclo autonomo /adottanti del 2026-11-01, che conta gli esiti registrati dopo il recepimento. I sintomi vivono nella clausola del filo i3/skill-per-arco-tripartito.md; qui vivono condizione, data e materiale."
+sintesi: "Il giudizio di settembre (2026-09-24) ha mantenuto la tripartizione eval/exec e corretto la clausola: ogni giro registra l'esito per stadio nel commit (trailer Esiti:). Il materiale è raccolto dall'audit /adottanti del 2026-11-02 (conteggio in i3/audit-adottanti.md): resta il verdetto del custode. I sintomi vivono nella clausola del filo i3/skill-per-arco-tripartito.md; qui vivono condizione, data e materiale."
 ciclo: dev
 ---
 

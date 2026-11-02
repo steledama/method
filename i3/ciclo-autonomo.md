@@ -183,8 +183,22 @@ un ciclo autonomo frequente e ben documentato può comunque aumentarlo.
 
 ## Condizione di chiusura
 
-Riesame all'audit `/adottanti` del **2026-11-01**: avanzamento del
-percorso e riscontri sulla prima delega. Il verdetto vero arriva alla fine dell'osservazione del pilota,
+Riesame del 2026-11-02, con l'audit `/adottanti`:
+
+- **il percorso è avanzato**: la copertura è completa. Dall'08/10 i giri
+  schedulati registrati sono 17 in `method` e da 18 a 25 in ciascuno dei sei
+  adottanti (`i3/audit-adottanti.md`). Dal 22/10 l'unico fallimento è quello
+  di `method` del 01/11;
+- **sulla prima delega non ci sono casi nuovi**: le due catture ancora «da
+  inoltrare» di `danea-auto` sono già assorbite nel canone. Nel campione
+  dell'audit, uno scarto fra impatto dichiarato e fonte in `bi` resta una
+  domanda locale;
+- **il verdetto non è ancora misurabile**, per la stessa ragione di ottobre:
+  il campione da rileggere e la misura del costo di supervisione non sono
+  fissati (`o2/pilota-ciclo-autonomo.md`, «Da fissare alla partenza»). È
+  questo, non la copertura, il passo che blocca.
+
+Prossimo riesame all'audit del **2026-12-01**. Il verdetto vero arriva alla fine dell'osservazione del pilota,
 con durata e criterio di riuscita fissati in `o2/pilota-ciclo-autonomo.md`. A quel
 punto il loop di base diventa canone e si prescrive, oppure si corregge. Il
 ritorno alla modalità assistita resta possibile per il singolo repo o

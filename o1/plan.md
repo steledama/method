@@ -24,22 +24,20 @@ pianificazione.
 
 Legenda dipendenze esterne:
 
-`p1` = audit `/adottanti` del **2026-11-01**: il risveglio conta gli
-esiti per stadio nei trailer `Esiti:` registrati dopo il recepimento di
-`o3/esiti-per-stadio-nel-commit.md`. Vedi `o2/rivalutazione-skill-per-arco.md`.
-by: 2026-11-01.
+`p1` = verdetto del custode sulla clausola di uscita. Il materiale è
+raccolto dall'audit del 2026-11-02 (esiti per stadio e per repository in
+`i3/audit-adottanti.md`) e nessuno stadio risulta vuoto ovunque. Vedi
+`o2/rivalutazione-skill-per-arco.md`. by: 2026-11-15.
 
 ## Scadenze
 
-- 2026-11-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
-  → esiti nel filo
-  [i3/audit-adottanti.md](../i3/audit-adottanti.md). Il giro conta i
-  trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
-  conferma o meno che `aligned` e i file coincidono. Riesame del filo
-  [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md): avanzamento del
-  percorso e riscontri sulla prima delega. Al 2026-11-02 l'audit non
-  risulta eseguito (nessun commit dal 31/10): `p1` e il riesame attendono
-  la sessione col custode, perché `/adottanti` non gira nel giro.
+- 2026-12-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
+  (mensile) → esiti nel filo
+  [i3/audit-adottanti.md](../i3/audit-adottanti.md). Dopo quattro
+  coincidenze fra `aligned` e file, le prescrizioni si leggono nei marker,
+  con una sola prescrizione verificata nei file a campione. Riesame del filo
+  [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md). L'audit va lanciato in
+  sessione col custode, perché `/adottanti` non gira nel giro.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).
