@@ -19,5 +19,4 @@ Proposta di canone in attesa del custode:
 
 - [uscita-dal-deck.md](uscita-dal-deck.md) — il deck non ha uscita: Alt+frecce lasciate al browser e un link fisso alle viste, anche nei deck di dominio di `economia` e `salute`.
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host una porta sola; cinque punti da decidere, fra cui un host solo e la forma del servitore.
-
-Rivalutazione in pausa:
+- [snellire-adottanti.md](snellire-adottanti.md) — `/adottanti` tiene solo ciò che si vede fra repository: parte meccanica in `o3/adottanti.py audit`, campione di decisioni in sessione, filo breve; da decidere anche lo script nel giro.
