@@ -37,7 +37,9 @@ by: 2026-11-01.
   trailer `Esiti:` per stadio e per repository (risveglio di `p1`) e
   conferma o meno che `aligned` e i file coincidono. Riesame del filo
   [i3/ciclo-autonomo.md](../i3/ciclo-autonomo.md): avanzamento del
-  percorso e riscontri sulla prima delega.
+  percorso e riscontri sulla prima delega. Al 2026-11-02 l'audit non
+  risulta eseguito (nessun commit dal 31/10): `p1` e il riesame attendono
+  la sessione col custode, perché `/adottanti` non gira nel giro.
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

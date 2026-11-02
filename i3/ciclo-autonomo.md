@@ -63,7 +63,13 @@ misurabile: manca il campione riletto contro le fonti.
   funziona, visibile in `tentativi.jsonl`, ma il giro del giorno salta finché
   qualcuno non rilancia (a mano alle 15:36). La regola provvisoria sta in
   `o2/pilota-ciclo-autonomo.md`, il disegno che la toglie in
-  `o2/lanciatore-ciclo-nel-metodo.md`.
+  `o2/lanciatore-ciclo-nel-metodo.md`. Il 2026-11-01 il giro di `method` è
+  fallito dopo 15 turni e senza commit su un errore di rete dell'API
+  (`EAI_AGAIN`, DNS irraggiungibile alle 15:04), con `is_error` e uscita
+  1 in `tentativi.jsonl`: il primo fallimento dal 22, fuori dal giro e
+  visibile, nessun atto a metà (tree pulito). Il giro del 31 si era fermato
+  per sessione aperta, e nessuno dei due è stato rilanciato: `method` è
+  rimasto due giorni senza giro.
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
   77 turni e 13 minuti, lontano dal tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
