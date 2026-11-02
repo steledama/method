@@ -24,22 +24,24 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   marker `aligned` al 29/10 e coincidenti coi file per la quarta volta,
   quindi la verifica d'insieme si alleggerisce. Viste fresche in tutte e
   sette, `danea2` compreso. Tutti e sei girano da soli ogni giorno, e
-  `baserow` ha chiuso il fronte backup. Ci sono gli esiti per stadio per
-  `p1`. Tre prescrizioni recepite nei file attendono la chiusura, perché
-  `prescrizioni.py` non riconosce la forma dei marker.
+  `baserow` ha chiuso il fronte backup. Gli esiti per stadio hanno dato il
+  verdetto sulle skill per arco. Tre prescrizioni recepite nei file sono
+  chiuse a mano, perché `prescrizioni.py` non riconosceva la forma dei
+  marker.
 - [ciclo-autonomo.md](ciclo-autonomo.md) — direzione costitutiva dal
   2026-10-11: con quali garanzie ogni repo arriva al giro `eval` → `exec` →
   commit senza custode? Piloti `salute` e `crm` a gradini. Push autonomo in `method` e
   prescritto ai sette; delega dei cicli avviati dal custode ratificata in
   `autonomy.md`, con Goal aggiornato; primi 18 casi della delega da tre
   adottanti, residuo nel checkout servito; timer acceso in `salute` ed
-  `economia`, deciso in `crm`, `nixos` e `method` al gradino 0. Riesame il 2026-11-01,
+  `economia`, deciso in `crm`, `nixos` e `method` al gradino 0. Riesaminato il 2026-11-02, prossimo riesame il 2026-12-01,
   verdetto alla fine del pilota su fedeltà, delega, visibilità degli arresti
   e costo della supervisione.
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la
   tripartizione `eval`/`exec` regge? Il 2026-09-24 è rimasta, con la
-  clausola corretta perché gli esiti nulli non lasciavano traccia; si
-  riapre il 2026-11-01 sui numeri del trailer `Esiti:`.
+  clausola corretta perché gli esiti nulli non lasciavano traccia. Il
+  2026-11-02, sui numeri del trailer `Esiti:`, resta così per adesso; la
+  clausola vale senza data.
 - [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — tre
   ipotesi del canone attendono il caso che le decide: quarta regione della
   tipologia, matrice del ciclo, facet estese.

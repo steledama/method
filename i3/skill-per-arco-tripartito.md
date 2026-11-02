@@ -10,8 +10,20 @@ quartetto operativo segue il ciclo di Norman, con `eval` ed `exec` che portano
 ciascuna i tre stadi del proprio arco come scope. Motivazione e storia della
 decisione stanno nel nodo e in git. Qui resta la tensione aperta: la scommessa
 che la rigidità paghi in qualità autocorrettiva più di quanto costi in
-scritture e invocazioni, con la sua clausola di uscita e il task `p1`
-(`o2/rivalutazione-skill-per-arco.md`).
+scritture e invocazioni, con la sua clausola di uscita.
+
+## Verdetto di novembre (custode, 2026-11-02)
+
+**La tripartizione resta così, per adesso.** Il custode decide sui numeri
+del trailer `Esiti:` contati dall'audit del 2026-11-02
+(`i3/audit-adottanti.md`): nessuno stadio è vuoto in tutti i repository, e le
+serie vuote lunghe hanno una lettura di dominio o di regola (`perform` nel
+giro che non esegue i task, dal 29/10). Il verdetto consuma il task
+`p1`. Resta il limite della misura: `materia`/`vuoto` dice se uno stadio ha
+prodotto qualcosa, non se distinguerlo dagli altri è servito. La clausola
+sotto resta in vigore senza una data. Si riapre su un sintomo o su una
+proposta del custode, come la separazione delle skill per stadio, di cui si
+è parlato lo stesso giorno senza decidere.
 
 ## Verdetto della rivalutazione (custode, 2026-09-24)
 
@@ -46,8 +58,8 @@ per commit sui sette repository dal 2026-08-01:
 Da qui la correzione: ogni giro si chiude con un commit che porta l'esito per
 stadio (trailer `Esiti:`, `materia` o `vuoto`, `--allow-empty` se il giro non
 ha cambiato file), inciso in `kb/skill.md`, nelle canoniche `eval`, `exec` e
-`/commit`, e propagato coi sei adottanti come prescrizione
-`o3/esiti-per-stadio-nel-commit.md`. Il posto è il commit e non il filo o il
+`/commit`, e propagato agli adottanti con una prescrizione recepita da
+tutti e chiusa il 2026-11-02 (storia in git). Il posto è il commit e non il filo o il
 marker perché un file aggiornato a ogni giro sarebbe un log, e il log è git.
 
 **Il fallback del 2026-11-01 si riattiva**, con l'evidenza mancante
@@ -66,8 +78,8 @@ danno la misura del prezzo dell'alternativa. Ma la scommessa si rivaluta, e la
 condizione si scrive **ora** perché fra tre mesi non dipenda da chi si ricorda di
 averla promessa:
 
-- **quando**: il task di rivalutazione `pause` esiste
-  (`o2/rivalutazione-skill-per-arco.md`). La data originaria (**2026-11-01**)
+- **quando**: non c'è più una data. Il task di rivalutazione è consumato
+  dal verdetto del 2026-11-02 (storia in git). La data originaria (**2026-11-01**)
   era stata anticipata dal custode al **2026-09-01**; il giudizio di settembre,
   preso il 2026-09-24, ha mantenuto la tripartizione e riattivato novembre con
   l'evidenza mancante dichiarata (sezione sopra);

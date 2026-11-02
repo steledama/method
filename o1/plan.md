@@ -11,23 +11,15 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                                            | Dip. |
-| ----- | --- | ----------------------------------------------- | ---- |
-| dev   | S   | Agente come utilizzatore                        | —    |
-| dev   | S   | Progettazione delle skill                       | —    |
-| dev   | S   | Lanciatore del ciclo nel metodo                 | —    |
-| dev   | S   | Ricorrenza dei dinieghi                         | —    |
-| dev   | S   | Pilota del ciclo autonomo                       | —    |
-| dev   | S   | Uscita dal deck                                 | —    |
-| dev   | S   | Pubblicazione decisa dal repo                   | —    |
-| dev   | 1   | Rivalutazione clausola di uscita skill per arco | p1   |
-
-Legenda dipendenze esterne:
-
-`p1` = verdetto del custode sulla clausola di uscita. Il materiale è
-raccolto dall'audit del 2026-11-02 (esiti per stadio e per repository in
-`i3/audit-adottanti.md`) e nessuno stadio risulta vuoto ovunque. Vedi
-`o2/rivalutazione-skill-per-arco.md`. by: 2026-11-15.
+| Ciclo | Ob. | Task                            | Dip. |
+| ----- | --- | ------------------------------- | ---- |
+| dev   | S   | Agente come utilizzatore        | —    |
+| dev   | S   | Progettazione delle skill       | —    |
+| dev   | S   | Lanciatore del ciclo nel metodo | —    |
+| dev   | S   | Ricorrenza dei dinieghi         | —    |
+| dev   | S   | Pilota del ciclo autonomo       | —    |
+| dev   | S   | Uscita dal deck                 | —    |
+| dev   | S   | Pubblicazione decisa dal repo   | —    |
 
 ## Scadenze
 

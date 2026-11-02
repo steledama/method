@@ -12,23 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [Ogni giro di `eval` ed `exec` lascia l'esito per stadio nel
-  commit](esiti-per-stadio-nel-commit.md) — trailer `Esiti:` con `materia` o
-  `vuoto` per ogni stadio invocato, `--allow-empty` per i giri tutti vuoti; è
-  la misura che la clausola di uscita della tripartizione non aveva.
-  Recepita dai sei e da `baserow` all'ingresso; resta attiva fino al conteggio del 2026-11-01.
-- [Ogni giro dichiara il prossimo task e le ipotesi che ha
-  formato](prossimo-task-e-ipotesi-del-giro.md) — trailer `Prossimo:`
-  confermato o cambiato con la causa, confronto meccanico nella vista (cambio
-  di priorità in giallo), ipotesi formate nel giro riconosciute dalla forma e
-  portate nel presidio. Prescritta ai sette il 2026-10-20.
-- [Le sessioni si parlano con Herdr, protocollo nel
-  canone](comunicazione-fra-sessioni.md) — fra sessioni d'agente si usa
-  Herdr, non la messaggistica interna dell'harness; il protocollo vive nel
-  nodo `session-messaging` e `CLAUDE.md` tiene solo rimando e clausola
-  locale sulla delega. Prescritta ai sette il 2026-10-20;
-  recepita da `nixos`, `bi` e `baserow`; `crm` dismesso il 2026-10-22 senza
-  recepirla.
 - [Skill e permessi progettati per l'agente
   utilizzatore](progettazione-skill.md) — diniego come percezione, niente
   cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
