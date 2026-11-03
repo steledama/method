@@ -100,7 +100,8 @@ averla promessa:
 
 ## Lettura della misura con un ciclo autonomo programmato
 
-Il risveglio resta il 2026-11-01. Se iniziano giri periodici, il loro
+Senza una data (verdetto del 2026-11-02), la lettura vale a ogni riapertura.
+Con i giri periodici, il loro
 innesco va distinto, quando documentabile, dai giri richiesti da eventi o
 dal custode: aumentare la frequenza può aumentare gli esiti vuoti senza
 provare che gli stadi siano superflui. Dove la fonte non discrimina,
