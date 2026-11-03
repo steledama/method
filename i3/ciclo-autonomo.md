@@ -5,140 +5,83 @@ obiettivo: S, 2
 
 # Il ciclo autonomo: con quali garanzie ogni repo ci arriva?
 
-Il custode, 2026-10-08: gli adottanti sono abbastanza maturi da iniziare a
-girare da soli. Le ultime modifiche al canone rendono esplicite, scritte e
-rintracciabili le ipotesi e le interpretazioni dietro decisioni e azioni
-(provenienza, presidio delle ipotesi, trailer `Esiti:`). La conseguenza
-attesa è un **loop agentico di base**, uguale per tutti: un giro `eval` →
-`exec` che chiude con un commit e il push, schedulato da ogni repo e senza
-custode. I loop di dominio si articolano poi su questa base.
-
 Il custode, 2026-10-11: il ciclo autonomo di runtime è parte costitutiva del
-metodo (`goal.md`, Goal di sviluppo). Ogni repo ci va, gradualmente e con i
-propri limiti; l'artefatto deve avere un ambito di autonomia e strumenti
-rigorosi di tracciabilità, controllo e verifica. La domanda non è più _se_
-l'artefatto regga un giro senza custode, ma _con quali garanzie_ ci arriva
-ciascun repo, e quando un gradino va ritirato.
+metodo (`goal.md`, Goal di sviluppo). Ogni repo ci va gradualmente e con i
+propri limiti, dentro un ambito di autonomia e con strumenti rigorosi di
+tracciabilità, controllo e verifica. La domanda non è _se_ l'artefatto regga
+un giro senza custode, ma _con quali garanzie_ ci arriva ciascun repo e
+quando un gradino va ritirato. La base comune è un giro `eval` → `exec` che
+chiude con commit e push; i loop di dominio si articolano su di essa.
 
 ## La scommessa
 
-L'artefatto è ormai abbastanza esplicito da sostenere l'agente da solo
-**senza perdere fedeltà**. Al custode serve meno essere nel giro, purché lo
-controlli a colpo d'occhio e tenga in mano i criteri.
+L'artefatto è abbastanza esplicito da sostenere l'agente da solo **senza
+perdere fedeltà**: al custode serve meno essere nel giro, purché lo
+controlli a colpo d'occhio e tenga in mano i criteri. Si misura contro:
 
-La tensione si misura contro due obiettivi:
-
-- **S**: il Goal di sviluppo ora delega il governo operativo dei cicli
-  avviati dal custode e conserva la supervisione degli esiti. Il ciclo autonomo
-  schedulato richiede un'ulteriore estensione e visibilità senza sessione.
-- **2**: il loop si propaga come canone agli adottanti, e lì incontra le
+- **S**: il Goal di sviluppo delega il governo operativo dei cicli avviati
+  dal custode e conserva la supervisione degli esiti; il ciclo schedulato
+  chiede in più estensione e visibilità senza sessione;
+- **2**: il loop si propaga come canone agli adottanti e lì incontra le
   differenze di dominio.
 
 ## Lo stato del verdetto
 
-Il ciclo autonomo è in esercizio a gradini, ma il verdetto non è ancora
-misurabile: manca il campione riletto contro le fonti.
+In esercizio a gradini, verdetto non ancora misurabile: manca il campione
+riletto contro le fonti.
 
-- **Copertura**: il criterio `ciclo-autonomo` è ratificato in `method` e nei
-  sei adottanti. Il timer è acceso in `salute` dal 2026-10-12, in `economia`
-  dal 16, in `nixos`, `method`, `bi` e `baserow` dal 17 (`nixos` `7fad7d2`,
-  `d1c4346`, `e3f463a`) e in `danea-auto` su Windows, fuori `nixos`, col
-  primo giro riuscito il 22 (`de11b1a`). `crm` è uscito il 2026-10-19 ed è
-  dismesso come adottante dal 22 (`a0deb15`, `458eb4b`). L'andamento sta in
-  `o2/pilota-ciclo-autonomo.md`.
-- **Affidabilità**: dal 2026-10-22 ogni giro schedulato partito per intero,
-  in `method` e nei sei adottanti, è riuscito con commit e push
-  (`tentativi.jsonl` su `deck`, misurati; per `svezia` e Windows i commit coi
-  trailer su `origin`). Gli scarti precedenti hanno avuto una causa trovata e
-  corretta: il 14 `salute` fallito sul Drive irraggiungibile, ora registrato
-  da `ciclo-namespace`; il 20 `economia` fermo prima del commit, col tree
-  sporco di una sessione Codex che `ciclo-sessioni` non vedeva (`nixos`
-  `101e32b`). I sei arresti per sessione aperta dal 19 al 24 sono il sistema
-  che funziona; quelli di `salute` ed `economia` stanno nella cartella
-  dell'unità, non in `i1/giri`
-  (`i1/arresto-economia-fuori-giri-2026-10-21.md`, decisione in
-  `o2/lanciatore-ciclo-nel-metodo.md`). Il 2026-10-29 alle 15:00 il giro di
-  `method` si è fermato con l'arresto 13 `pull-in-sola-lettura`, perché
-  `369d5ea`, commit di sessione, toccava `o3/ciclo/prompt.md`: è il recinto che
-  funziona, visibile in `tentativi.jsonl`, ma il giro del giorno salta finché
-  qualcuno non rilancia (a mano alle 15:36). La regola provvisoria sta in
-  `o2/pilota-ciclo-autonomo.md`, il disegno che la toglie in
-  `o2/lanciatore-ciclo-nel-metodo.md`. Il 2026-11-01 il giro di `method` è
-  fallito dopo 15 turni e senza commit su un errore di rete dell'API
-  (`EAI_AGAIN`, DNS irraggiungibile alle 15:04), con `is_error` e uscita
-  1 in `tentativi.jsonl`: il primo fallimento dal 22, fuori dal giro e
-  visibile, nessun atto a metà (tree pulito). Il giro del 31 si era fermato
-  per sessione aperta, e nessuno dei due è stato rilanciato: `method` è
-  rimasto due giorni senza giro.
+- **Copertura**: criterio `ciclo-autonomo` ratificato in `method` e nei sei
+  adottanti, timer acceso in tutti dal 2026-10-22 (`danea-auto` su Windows,
+  fuori `nixos`, `de11b1a`). `crm` è dismesso dal 22/10 (`a0deb15`).
+  Andamento in `o2/pilota-ciclo-autonomo.md`.
+- **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
+  con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
+  dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
+  pulito. Gli arresti prima del giro sono il recinto che funziona: sei per
+  sessione aperta fra il 19 e il 24/10, uno `pull-in-sola-lettura` il 29/10
+  (`369d5ea`, rilancio a mano). Il limite è che un arresto o un fallimento
+  non si rilancia da solo: `method` è rimasto senza giro il 31/10 e il
+  01/11. Regola provvisoria in `o2/pilota-ciclo-autonomo.md`, disegno in
+  `o2/lanciatore-ciclo-nel-metodo.md`. Gli scarti prima del 22/10 hanno
+  avuto causa trovata e corretta (`nixos` `101e32b`,
+  `i1/arresto-economia-fuori-giri-2026-10-21.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
-  77 turni e 13 minuti, lontano dal tetto di 45 minuti e 5 USD. I
+  77 turni e 13 minuti, sotto il tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
-- **Dinieghi**: da zero a tre per giro, su grafie note (composti, `for`,
-  graffe, `python3 -c`, scritture fuori perimetro) che `/cycle` segnala dal
-  2026-10-26 (`e88d81f`). Le lacune trovate sono chiuse: letture degli
-  adottanti con `o3/adottanti.py` (`911b120`), fetch di `svezia` nel passo
-  `ciclo-fetch` dell'unità (`i1/giro-method-2026-10-20.md`), controlli `gh`
-  in sola lettura per `nixos` (`7eb86ac`). La perdita vera resta il gesto
+- **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
+  dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
+  `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto
   abbandonato dopo un diniego (`kb/agent-as-user.md`).
-- **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti nuovi
-  conferma questo stato e non lo riscrive. Il filo si tocca per un
-  fallimento, un arresto invisibile, un diniego di classe nuova, un costo o
-  una durata fuori fascia, un cambio di copertura. Le serie per giorno
-  restano in `tentativi.jsonl` e nei trailer.
+- **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
+  nuovi è una lettura che non sposta e non riscrive il filo
+  (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto
+  invisibile, un diniego di classe nuova, un costo o una durata fuori
+  fascia, un cambio di copertura. Le serie per giorno restano in
+  `tentativi.jsonl`, nei trailer e in `i1/giri/`.
 
-La prima delega resta
-ratificata e operativa nei cicli avviati dal custode (`autonomy.md`): niente
-conferme ordinarie fra valutazione, esecuzione e chiusura. La concordanza
-frequente riferita dal custode motiva la riduzione dell'attrito, non prova
-la fedeltà delle ricostruzioni. I fatti ulteriori:
+## I casi che hanno mosso il giudizio
 
-- **Primo giro reale**, 2026-10-11: `salute` su `deck`, gradino 0 avviato
-  a mano dall'unità del modulo `cicli` di `nixos`. Riuscito con commit e
-  push, materia in tutti gli stadi, una proposta lasciata al custode, un
-  errore di strumento corretto con test, errori minori dichiarati
-  dall'agente. Dettaglio e punti aperti in `o2/pilota-ciclo-autonomo.md`. Il
-  custode ha giudicato ottimo il test; la fedeltà resta da misurare sul
-  campione. Il custode ha posto la visibilità del ciclo autonomo nella home come
-  condizione parallela, non successiva (`kb/view.md`).
-- **Push autonomo**: in `method` dal 2026-10-08 (`a6c6ccc`), recepito dai
-  sette lo stesso giorno e prescrizione chiusa (dettaglio in
-  `i3/audit-adottanti.md`); `bi` lo esclude per i commit che toccano il
-  codice eseguito dal ciclo. `danea-auto` lo applica dal 2026-10-07 e la
-  sua sessione dell'08/10 ha chiuso due giri `eval`/`exec` con commit e push
-  senza intervento sul push.
-- **Primo attrito reale**, 2026-10-08: il primo push autonomo di `method` è
-  stato rifiutato perché un altro checkout aveva pubblicato nel frattempo.
-  La regola ha tenuto: nessuna forzatura, arresto, riferimento al custode. Il
-  rebase ha chiesto la cancellazione di due file, e il permesso dell'harness
-  l'ha fermata. Un ciclo autonomo senza custode incontrerà lo stesso caso e non
-  potrà chiedere.
-- **Il testo del giro contro il recinto**, 2026-10-16/17: al primo giro
-  autonomo di `bi` e di `baserow` bootstrap, prompt o skill chiedevano letture
-  e un pull che `ciclo.json` o il register negavano
-  (`i2/casi-delega-adottanti.md`). Diniego preso come confine e dichiarato in
-  ogni caso, nessun atto fuori delega; correzioni locali e a mano. Il
-  2026-10-19 `baserow` estende il giro al pull dello standby su un secondo
-  host, con guardie e verifica dell'hash (`437b11b`): da rileggere ai primi
-  esercizi.
-- **File e tracce del giro nell'artefatto**, 2026-10-19: proposta di `bi`,
-  decisa dal custode. Prompt e permessi del giro vanno in `o3/ciclo/`,
-  versionati, e non si modificano nel giro. Le trascrizioni e gli esiti vanno
-  in `i1/giri/`, ignorati da git, dove `eval perceive` li legge
-  (`kb/perceive.md`, prescrizione `ciclo-autonomo`, chiusa il 2026-10-28).
-  Le frizioni del giro
-  rientrano così nel ciclo senza una sessione col custode. Migrazione da
-  coordinare con `nixos` (path e campo `giri` in `o3/cicli.nix`).
-- **Primi riscontri sulla prima delega**, 2026-10-09/10: 18 casi inoltrati
-  da `bi`, `crm` e `baserow` (`i2/casi-delega-adottanti.md`). Nessuna
-  autonomia rivelatasi sbagliata con danno; due errori dichiarati
-  dall'agente, uno dei quali giudicato corretto dal custode; quattro
-  conferme rivelate inutili, con il criterio allentato in `crm`. Il
-  residuo di dominio è il checkout che è anche superficie servita: in `bi`
-  il commit è già rilascio, in `crm` una pubblicazione. Un ciclo autonomo senza
-  custode non potrebbe chiedere su quel confine: va riconosciuto prima
-  dell'atto. Il custode ha deciso il 2026-10-10 che la delega vale anche lì,
-  con eccezioni nominate in `autonomy.md` ([consent](../kb/consent.md));
-  recepito dai sette lo stesso giorno.
+La prima delega è ratificata dal 2026-10-09 e operativa nei cicli avviati
+dal custode (`autonomy.md`). La concordanza frequente riferita dal custode
+motiva la riduzione dell'attrito, non prova la fedeltà delle ricostruzioni
+([verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)).
+
+- **Primo giro reale**, 2026-10-11, `salute` a gradino 0: riuscito, con la
+  visibilità nella home posta dal custode come condizione parallela
+  (`kb/view.md`).
+- **Push rifiutato**, 2026-10-08: nessuna forzatura e arresto; il rebase si
+  è fermato sul permesso dell'harness. Un giro senza custode incontrerà lo
+  stesso caso e non potrà chiedere.
+- **Checkout che è superficie servita** (`bi`, `crm`, 18 casi dal 09 al
+  10/10, `i2/casi-delega-adottanti.md`): nessuna autonomia sbagliata con
+  danno; il custode ha esteso la delega anche lì con eccezioni nominate
+  ([consent](../kb/consent.md)).
+- **Testo del giro contro il recinto**, 16-17/10, `bi` e `baserow`: prompt e
+  skill chiedevano atti che i permessi negavano; diniego preso come confine.
+  Ne nascono prompt e permessi versionati in `o3/ciclo/` e tracce in
+  `i1/giri/` lette da `eval perceive` (prescrizione chiusa il 28/10).
+- **Standby su secondo host**, `baserow` `437b11b` (19/10): da rileggere ai
+  primi esercizi.
 
 ## Cosa sposterebbe il verdetto
 
@@ -150,56 +93,23 @@ la fedeltà delle ricostruzioni. I fatti ulteriori:
 - **Contro**: un livello senza motivo ricostruibile, un atto fuori delega,
   un impatto alto applicato invece che proposto, una ricostruzione errata
   che altera una decisione, arresti o partenze mancate invisibili, oppure
-  maggiore lavoro di supervisione senza beneficio dimostrato. Criteri che
+  più lavoro di supervisione senza beneficio dimostrato. Criteri che
   crescono più in fretta dei casi concreti restano un segnale negativo.
 - **Ancora da fissare**: campione da rileggere, misura del costo di
-  supervisione e confronto assistito, in `o2/pilota-ciclo-autonomo.md` («Da
-  fissare alla partenza»), mentre i gradini avanzano già.
-
-## Il percorso
-
-La terminologia è fissata il 2026-10-08 nel README: **agente** è l'IA,
-**custode** il ruolo umano che decide. Lo stesso giorno i trailer
-`Autonomia:`, `Impatto:` e `Impatto-motivo:` sono entrati nella skill di
-commit e il consenso differito in `kb/consent.md`. Il Goal è separato dallo
-stato in `method` e nei sette adottanti (`goal-senza-fotografia`, chiusa
-il 2026-10-09). I passi restanti sono task in `o1/plan.md`:
-il pilota. Il 2026-10-26 sono chiusi il task dell'esecutore, col modulo
-`nixos` in esercizio, e quello della home, verificata dal custode senza le
-sezioni «fatto» e «da fare» (scadenze e attese restano nel plan); portare il
-lanciatore nel metodo è un task proprio, senza effetto sul pilota. Il task dei criteri è chiuso il
-2026-10-25: `ciclo-autonomo` ratificato in `method` e nei sei adottanti col
-timer, proposte da decidere e register della delega raggiungibili dalla home
-(campo `decidere:` dei task `o2/`), collaudo sui casi portato nel campione
-del pilota. Esecutore, criterio e semaforo dei tentativi nella home sono in
-uso nei giri; del pilota restano i residui scritti nel suo file `o2/`. Per il ciclo avviato dal custode il controllo è già nel resoconto finale.
-
-Il filo [verdetto più sicuro del materiale](verdetto-piu-sicuro-del-materiale.md)
-impedisce di equiparare un motivo leggibile a una ricostruzione fedele.
-La delega sulla manutenzione dell'artefatto non estende automaticamente
-quella sulle azioni di dominio. Il custode ha ratificato il nuovo Goal e la prima delega del ciclo il
-2026-10-09; il pilota e la sua estensione restano da decidere. L'esito deve misurare anche il costo per il custode:
-un ciclo autonomo frequente e ben documentato può comunque aumentarlo.
+  supervisione e confronto assistito (`o2/pilota-ciclo-autonomo.md`, «Da
+  fissare alla partenza»).
 
 ## Condizione di chiusura
 
-Riesame del 2026-11-02, con l'audit `/adottanti`:
+Riesame del 2026-11-02, con l'audit `/adottanti`: copertura completa, giri
+schedulati da 17 a 25 per repository dall'08/10 (`i3/audit-adottanti.md`),
+nessun caso nuovo sulla prima delega. Il passo che blocca non è la
+copertura ma il campione e la misura del costo di supervisione, ancora da
+fissare. La delega sulla manutenzione dell'artefatto non estende da sola
+quella sulle azioni di dominio, e l'esito deve misurare anche il costo per
+il custode.
 
-- **il percorso è avanzato**: la copertura è completa. Dall'08/10 i giri
-  schedulati registrati sono 17 in `method` e da 18 a 25 in ciascuno dei sei
-  adottanti (`i3/audit-adottanti.md`). Dal 22/10 l'unico fallimento è quello
-  di `method` del 01/11;
-- **sulla prima delega non ci sono casi nuovi**: le due catture ancora «da
-  inoltrare» di `danea-auto` sono già assorbite nel canone. Nel campione
-  dell'audit, uno scarto fra impatto dichiarato e fonte in `bi` resta una
-  domanda locale;
-- **il verdetto non è ancora misurabile**, per la stessa ragione di ottobre:
-  il campione da rileggere e la misura del costo di supervisione non sono
-  fissati (`o2/pilota-ciclo-autonomo.md`, «Da fissare alla partenza»). È
-  questo, non la copertura, il passo che blocca.
-
-Prossimo riesame all'audit del **2026-12-01**. Il verdetto vero arriva alla fine dell'osservazione del pilota,
-con durata e criterio di riuscita fissati in `o2/pilota-ciclo-autonomo.md`. A quel
-punto il loop di base diventa canone e si prescrive, oppure si corregge. Il
-ritorno alla modalità assistita resta possibile per il singolo repo o
-gradino, non per la direzione.
+Prossimo riesame all'audit del **2026-12-01**. Il verdetto arriva alla fine
+dell'osservazione del pilota: il loop di base diventa canone e si
+prescrive, oppure si corregge. Il ritorno alla modalità assistita resta
+possibile per il singolo repo o gradino, non per la direzione.

@@ -43,14 +43,10 @@ nei marker:
   decisione del custode del 27/10. `salute` e `baserow` dichiarano il
   recepimento completo.
 
-Le prime tre risultano recepite da tutti nei file, ma `o3/prescrizioni.py
-verifica` ne dà recepita una sola per adottante su sei. Lo strumento cerca
-una riga che nomini la prescrizione fra backtick insieme a «recepit», e due
-forme legittime non passano: «già soddisfatta» (`economia` e `danea-auto` su
-`esiti-per-stadio`) e l'elenco in prosa senza nomi di `salute` («Esiti per
-stadio, momento del commit, prossimo task…»). Il custode le ha chiuse il
-2026-11-02 sull'evidenza dei file, e file e voci sono usciti da
-`o3/prescriptions.md`. Resta aperta `progettazione-skill`.
+Le prime tre, recepite da tutti nei file, il custode le ha chiuse il
+2026-11-02 su quell'evidenza: `o3/prescrizioni.py verifica` ne riconosceva
+una sola per adottante (cfr. «Tensioni aperte»). Resta aperta
+`progettazione-skill`.
 
 Con quattro coincidenze, la verifica d'insieme si alleggerisce come
 previsto: dal prossimo audit le prescrizioni si leggono nei marker, con il
@@ -126,13 +122,9 @@ come materia/vuoto:
 Per repository, in giri con `Esiti:`: `economia` 32, `salute` 27, `nixos`
 26, `danea-auto` 23, `baserow` 22, `bi` 21, `metodo` 21. Fra l'80 e il 95
 per cento di questi giri è schedulato. Integrità: le righe `Esiti:` nel corpo
-coincidono coi trailer riconosciuti, tranne `salute` `1d7fe22` (11/10), dove
-`Co-Authored-By` in un paragrafo a parte lascia `Esiti:` fuori dal blocco dei
-trailer. Il caso è contato una volta, e il recupero è dichiarato. È lo
-stesso incidente di `baserow` `205c627`: arriva tre giorni dopo la regola
-dell'ultimo paragrafo unico in `/commit` (08/10) e prima del gate che la
-controlla (`b28957e`, 21/10). Dopo il gate non ci sono perdite, e la cattura
-i1 del segnale è consumata.
+coincidono coi trailer riconosciuti; l'unico scarto, `salute` `1d7fe22`
+(11/10), precede il gate `b28957e` ed è contato una volta. Dopo il gate
+nessuna perdita.
 
 Contro i sintomi della clausola nel filo
 [skill per arco](skill-per-arco-tripartito.md):
@@ -184,9 +176,9 @@ attrito.
 
 - `prescrizioni.py` riconosce il recepimento solo nella forma «`nome`
   … recepita». Su tre prescrizioni recepite da tutti ha mancato «già
-  soddisfatta» e l'elenco in prosa, e quindi da solo il giro non le avrebbe
-  mai chiuse. Va deciso se allargare lo strumento o fissare la forma nei
-  marker;
+  soddisfatta» (`economia`, `danea-auto`) e l'elenco in prosa di `salute`,
+  quindi da solo il giro non le avrebbe mai chiuse. Va deciso se allargare
+  lo strumento o fissare la forma nei marker;
 - `nixos`: il recepimento del canone del 29/10 sul giro che pianifica e non
   esegue, al prossimo `/method` locale;
 - ripetibilità: il quinto audit è arrivato con un giorno di ritardo, perché
