@@ -19,7 +19,12 @@ Ogni ipotesi in attesa dichiara **orizzonte e riscontro con fonte**, ed è
 raggiungibile da `eval`. L'orizzonte può essere una data, un evento o una
 ricorrenza di riesame; il riscontro dichiara cosa osservare e dove verificarlo,
 anche quando non è ancora disponibile. Il riesame resta dovuto anche senza
-nuovi segnali; una data trascorsa non risolve da sola l'ipotesi.
+nuovi segnali; una data trascorsa non risolve da sola l'ipotesi. Un riesame
+che non conferma né smentisce l'ipotesi e non ne cambia costo, orizzonte o
+riscontro non aggiunge prosa al presidio: aggiorna un conto, N casi su M
+letture, e il rimando all'ultima cattura. La cronaca delle letture vive nelle
+catture `i1/` e nella storia Git; il presidio tiene i soli casi che hanno
+mosso l'ipotesi.
 
 Si aggiunge il presidio dove manca. Un filo con criterio, conteggio e data
 può già soddisfare la regola; non servono facet, contenitori separati o

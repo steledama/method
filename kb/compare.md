@@ -14,6 +14,12 @@ in `i3/` che conserva una tensione ancora aperta. Il passaggio da
 interpretazione a verdetto non è automatico e non può essere più certo delle
 fonti disponibili.
 
+Un filo conserva una tensione corrente, non la cronaca della sua
+osservazione. Un segnale continuo riporta il conto delle letture, la prima e
+l'ultima cattura e le sole letture che hanno mosso il giudizio, non una frase
+per giro. La soglia oltre cui un presidio si ricompatta è un parametro
+dell'adottante.
+
 Connessioni:
 
 - [input](input.md)

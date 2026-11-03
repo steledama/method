@@ -139,6 +139,16 @@ con criterio, conteggio e data può già bastare. Non introdurre facet,
 contenitori o ipotesi per completare una collezione vuota. Dichiara quali
 ipotesi hai riesaminato e ciò che resta non verificato.
 
+**Lettura che non sposta** (cfr. `kb/interpret.md`): un riesame che non
+conferma né smentisce l'ipotesi e non ne cambia costo, orizzonte o riscontro
+non aggiunge una frase: aggiorna il conto, N casi su M letture, e il rimando
+alla cattura dell'ultima lettura. Nel presidio restano i casi che hanno mosso
+l'ipotesi, la prima e l'ultima cattura e il conto; la cronaca vive nelle
+catture `i1/` e nella storia Git. Un presidio cresciuto a cronaca si
+ricompatta al primo giro che lo tocca, portando a conto le letture che non
+l'hanno mosso; la soglia di righe che lo segnala è un parametro locale
+dell'adottante. Il riesame si dichiara comunque nell'esito dello stadio.
+
 **Ipotesi formate nel giro** (cfr. `kb/interpret.md`): rileggi ciò che il
 giro ha scritto o toccato, in qualunque file e nel messaggio di commit che
 stai preparando, cercando la forma, non l'intenzione: un «perché», un
@@ -194,7 +204,9 @@ ancora valutate.
 - **È ancora _un_ filo?** Se è cresciuto multi-tema, proponi lo split; ogni filo
   tiene una tensione sola.
 - **È stato, non log?** Pota paragrafi storici e sequenze datate: la cronologia
-  è il git history del file, non il suo corpo.
+  è il git history del file, non il suo corpo. Un segnale continuo riporta il
+  conto, la prima e l'ultima cattura e le sole letture che hanno mosso il
+  giudizio, non una frase o un link per giro (`kb/compare.md`).
 
 **3. Copertura bidirezionale con `goal.md`**
 
