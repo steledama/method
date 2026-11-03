@@ -51,11 +51,14 @@ destinatario a un dialogo di approvazione.
   un invio lo unirebbe al messaggio o lo farebbe partire. In forma testuale non
   si distingue da un suggerimento dell'harness, che un invio sostituisce. Si
   rilegge il pannello con `--format ansi`. Dove la resa del suggerimento è
-  verificata per l'harness e la versione del destinatario, un testo con quella
-  resa è un suggerimento e si invia; ogni altro testo ferma l'invio e si torna
-  al custode. La resa verificata oggi è quella di Claude Code 2.1.303,
-  2.1.306, 2.1.308, 2.1.310, 2.1.311 e 2.1.312 (campo vuoto confermato dal
-  custode il 2026-10-26 e, per 2.1.311 e 2.1.312, il 2026-10-28): il suggerimento è preceduto da `ESC[2m`, l'attributo dim. Per Codex CLI
+  verificata per l'harness del destinatario, un testo con quella resa è un
+  suggerimento e si invia; ogni altro testo ferma l'invio e si torna al
+  custode. Il criterio segue la resa, non la versione, che per Claude Code
+  cambia ogni pochi giorni: il campo di un agente Claude Code conta come
+  vuoto se, subito dopo il prompt, il testo è tutto in attributo dim
+  (`ESC[2m` … `ESC[0m`); basta un carattere fuori dal dim per fermare
+  l'invio. Si riverifica col custode solo quando cambia la resa; l'ultima
+  conferma è del 2026-11-03 su 2.1.316, pannelli `nixos` e `method`. Per Codex CLI
   0.163.0, confermata dal custode il 2026-10-25, il campo vuoto mostra il
   suggerimento generico `Ask Codex to do anything` in dim dopo il prompt `›`,
   che un invio sovrascrive; le righe `›` più in alto nel pannello sono
