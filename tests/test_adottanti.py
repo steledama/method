@@ -28,6 +28,30 @@ class AdottantiTests(unittest.TestCase):
         self.assertEqual(list(trovati), ["uno", "due"])
         self.assertEqual(trovati["due"], MODULE.HOME / "due")
 
+    def test_checkout_found_by_origin_not_by_folder_name(self):
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            for cartella, url in (
+                ("nixos", "git@github.com:org/lavoro.git"),
+                ("nixos-casa", "https://github.com/io/casa"),
+            ):
+                subprocess.run(["git", "init", "-q", str(home / cartella)], check=True)
+                subprocess.run(
+                    ["git", "-C", str(home / cartella), "remote", "add", "origin", url], check=True
+                )
+            world = home / "world.md"
+            world.write_text(
+                "- **[casa](https://github.com/io/casa)** — checkout `~/nixos` su `deck`\n"
+                "- **[lavoro](https://github.com/org/lavoro)** — checkout `~/nixos-lavoro` su `svezia`\n"
+                "- **[altro](https://github.com/io/altro)** — checkout `~/altro` su `deck`\n",
+                encoding="utf-8",
+            )
+            trovati = MODULE.adottanti(world, home)
+            self.assertEqual(trovati, {"casa": home / "nixos-casa", "lavoro": home / "nixos"})
+            self.assertEqual(MODULE.assenti(world, home), ["altro"])
+
     def test_real_world_lists_checkouts_in_home(self):
         trovati = MODULE.adottanti()
         self.assertIn("nixos", trovati)

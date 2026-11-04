@@ -22,7 +22,7 @@ raggiungendoli.
   `deck`; accento `#c2410c`; vista `deck:8002`
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS della coppia di server `norvegia`/`svezia`, separata dal
-  repo di casa il 2026-11-04 — checkout `~/nixos-lavoro` su `svezia`;
+  repo di casa il 2026-11-04 — checkout `~/nixos` su `svezia` (`~/nixos-lavoro` su `deck`);
   accento `#a16207`; vista `svezia:8002`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
   sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`

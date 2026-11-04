@@ -4,7 +4,8 @@ Il giro non scrive in `o3/` (deny in `o3/ciclo/permessi.json`): questo script è
 il gesto concesso per l'unico atto che lì gli è delegato, chiudere una
 prescrizione che tutti hanno recepito (`autonomy.md`, `ciclo-autonomo`).
 `verifica <nome>` dice per ogni adottante di `world.md` se il marker
-`i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`.
+`i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
+adottante senza clone sull'host è «checkout assente», e la chiusura non passa.
 `chiudi <nome>` ripete la verifica e solo se passa per tutti toglie file e voce
 da `o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
 """
@@ -18,7 +19,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from adottanti import adottanti, git  # noqa: E402
+from adottanti import adottanti, assenti, git  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 INDICE = ROOT / "o3" / "prescriptions.md"
@@ -32,12 +33,13 @@ def recepita(testo: str, nome: str) -> bool:
     return any(f"`{nome}`" in r and RECEPITA.search(r) for r in testo.splitlines())
 
 
-def esiti(nome: str) -> dict[str, bool]:
-    trovati = {}
+def esiti(nome: str) -> dict[str, bool | None]:
+    """Adottante → recepita sì o no; None se il checkout manca su questo host."""
+    trovati: dict[str, bool | None] = {}
     for adottante, checkout in adottanti().items():
         testi = (git(checkout, "show", f"{ref}:{MARKER}").stdout for ref in ("HEAD", "origin/main"))
         trovati[adottante] = any(recepita(t, nome) for t in testi)
-    return trovati
+    return trovati | {adottante: None for adottante in assenti()}
 
 
 def senza_voce(indice: str, nome: str) -> str | None:
@@ -64,8 +66,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"prescrizione sconosciuta: o3/{args.nome}.md")
         return 2
     trovati = esiti(args.nome)
+    etichetta = {
+        True: "recepita",
+        False: "non risulta recepita",
+        None: "checkout assente su questo host",
+    }
     for adottante, ok in trovati.items():
-        print(f"{adottante}: {'recepita' if ok else 'non risulta recepita'}")
+        print(f"{adottante}: {etichetta[ok]}")
     if not all(trovati.values()):
         return 1
     if args.comando == "verifica":

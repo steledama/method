@@ -5,7 +5,11 @@ cartella di lavoro nega anche le letture: questo script è il gesto concesso al
 posto loro (`kb/agent-as-user.md`). È di sola lettura per costruzione: nessun
 sottocomando scrive, e git gira senza lock opzionali.
 
-Gli adottanti e i checkout vengono da `world.md`, il register che li dichiara.
+Gli adottanti vengono da `world.md`, il register che li dichiara. Il checkout
+si riconosce dal remote `origin`, fra le cartelle della home, perché la
+disposizione cambia da host a host (su `svezia` `~/nixos` è il repo di lavoro,
+su `deck` quello di casa); il nome dichiarato vale solo senza un remote GitHub.
+Un adottante senza clone sull'host è assente, non un marker che non recepisce.
 `show` legge solo i file con cui un adottante recepisce il canone; il resto del
 dominio, dati personali compresi, resta fuori.
 
@@ -48,7 +52,8 @@ INTERFACCIA = [
     ".codex/skills/*/SKILL.md",
 ]
 
-VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\([^)]*\)\*\*(.*)")
+VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\(([^)]*)\)\*\*(.*)")
+REPO = re.compile(r"github\.com[:/]([\w.-]+/[\w.-]+?)(?:\.git)?/?$")
 CHECKOUT = re.compile(r"checkout `~/([\w.-]+)`")
 ACCENTO = re.compile(r"#[0-9a-fA-F]{6}\b")
 VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)`")
@@ -63,20 +68,58 @@ FINESTRA_GIRI = 30  # giorni contati per i giri autonomi
 LINK_MD = re.compile(r"\]\(([\w./-]+\.md)\)")
 
 
-def adottanti(world: Path = ROOT / "world.md") -> dict[str, Path]:
-    """Nome → checkout, dalle voci in grassetto di `world.md` col loro checkout."""
-    trovati: dict[str, Path] = {}
-    voce = None
+def dichiarati(world: Path = ROOT / "world.md") -> dict[str, tuple[str | None, str]]:
+    """Nome → (repo GitHub `owner/nome` o None, cartella dichiarata), dalle voci col checkout."""
+    trovati: dict[str, tuple[str | None, str]] = {}
+    voce = repo = None
     for riga in world.read_text(encoding="utf-8").splitlines():
         if match := VOCE.match(riga):
-            voce = match.group(1)
-            riga = match.group(2)
+            voce, repo = match.group(1), repo_di(match.group(2))
+            riga = match.group(3)
         elif not riga.startswith("  "):
             voce = None
         if voce and (match := CHECKOUT.search(riga)):
-            trovati[voce] = HOME / match.group(1)
+            trovati[voce] = (repo, match.group(1))
             voce = None
     return trovati
+
+
+def repo_di(url: str) -> str | None:
+    match = REPO.search(url.strip())
+    return match.group(1).lower() if match else None
+
+
+def cloni(home: Path = HOME) -> dict[str, Path]:
+    """Repo GitHub `owner/nome` → primo checkout della home col remote `origin` su quel repo."""
+    trovati: dict[str, Path] = {}
+    try:
+        cartelle = sorted(p for p in home.iterdir() if (p / ".git").exists())
+    except OSError:
+        return trovati
+    for cartella in cartelle:
+        repo = repo_di(git(cartella, "config", "--get", "remote.origin.url").stdout)
+        if repo:
+            trovati.setdefault(repo, cartella)
+    return trovati
+
+
+def adottanti(world: Path = ROOT / "world.md", home: Path = HOME) -> dict[str, Path]:
+    """Nome → checkout su questo host; gli assenti li dice `assenti`."""
+    trovati, presenti = {}, None
+    for nome, (repo, cartella) in dichiarati(world).items():
+        if repo is None:
+            trovati[nome] = home / cartella
+            continue
+        presenti = cloni(home) if presenti is None else presenti
+        if repo in presenti:
+            trovati[nome] = presenti[repo]
+    return trovati
+
+
+def assenti(world: Path = ROOT / "world.md", home: Path = HOME) -> list[str]:
+    """Gli adottanti dichiarati senza un clone su questo host."""
+    presenti = adottanti(world, home)
+    return [nome for nome in dichiarati(world) if nome not in presenti]
 
 
 def voci(world: Path = ROOT / "world.md") -> dict[str, str]:
@@ -86,7 +129,7 @@ def voci(world: Path = ROOT / "world.md") -> dict[str, str]:
     for riga in world.read_text(encoding="utf-8").splitlines():
         if match := VOCE.match(riga):
             voce = match.group(1)
-            trovate[voce] = match.group(2)
+            trovate[voce] = match.group(3)
         elif voce and riga.startswith("  "):
             trovate[voce] += " " + riga.strip()
         else:
@@ -137,6 +180,8 @@ def stato(nome: str, checkout: Path) -> list[str]:
 
 def scegli(nome: str, tutti: dict[str, Path]) -> Path:
     if nome not in tutti:
+        if nome in dichiarati():
+            sys.exit(f"{nome}: checkout assente su questo host")
         sys.exit(f"adottante sconosciuto: {nome}; adottanti in world.md: {', '.join(tutti)}")
     return tutti[nome]
 
@@ -243,8 +288,9 @@ def prescrizioni(tutti: dict[str, Path]) -> list[str]:
     righe = []
     for nome in prescrizioni_aperte((ROOT / "o3" / "prescriptions.md").read_text(encoding="utf-8")):
         esiti = presc.esiti(nome)
-        mancano = [a for a, ok in esiti.items() if not ok]
-        if not mancano:
+        # Gli assenti dall'host sono già rossi nel canale: qui contano i marker letti.
+        mancano = [a for a, ok in esiti.items() if ok is False]
+        if not mancano and None not in esiti.values():
             righe.append(f"ROSSO {nome}: recepita da tutti secondo lo strumento, da chiudere")
             continue
         for adottante in mancano:
@@ -428,8 +474,9 @@ def numeri(nome: str, checkout: Path) -> str:
 
 def audit(tutti: dict[str, Path], build: bool = True) -> list[str]:
     testi = voci()
+    mancanti = [f"ROSSO {n}: checkout assente su questo host" for n in assenti()]
     sezioni = [
-        ("Canale", [r for n, c in tutti.items() for r in canale(n, c)]),
+        ("Canale", mancanti + [r for n, c in tutti.items() for r in canale(n, c)]),
         ("Prescrizioni aperte", prescrizioni(tutti)),
         ("Viste", viste(tutti, testi, build)),
         ("Accenti", accenti(tutti, testi)),
@@ -476,7 +523,10 @@ def main(argv: list[str] | None = None) -> int:
         print("\n".join(audit(tutti, build=not args.senza_build)))
         return 0
     if args.comando == "stato":
-        for nome in args.nomi or tutti:
+        for nome in args.nomi or dichiarati():
+            if nome in dichiarati() and nome not in tutti:
+                print(f"{nome}: checkout assente su questo host")
+                continue
             print("\n".join(stato(nome, scegli(nome, tutti))))
         return 0
     checkout = scegli(args.nome, tutti)
