@@ -1,5 +1,5 @@
 ---
-sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Restano la deroga alla revoca, la riga fetch su deck, accento e vista propri."
+sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Restano la riga fetch su deck, i checkout incrociati nei task di separazione, accento e vista propri."
 ciclo: dev
 ---
 
@@ -60,16 +60,20 @@ Il 2026-11-04 il custode accetta la prima alternativa. Applicato in
 - Sessione `nixos` di casa: `nixos-lavoro` nella lista `fetch` del ciclo
   `method` in `o3/cicli.nix`. Finché manca, il giro legge un `origin` che
   nessuno aggiorna e lo dichiara.
-- Sessione di lavoro: nel task di separazione, la deroga alla revoca
-  (`steledama` resta in sola lettura su `tt-sviluppo/nixos`) e la nota che
-  il clone `~/nixos-lavoro` su `deck` è permanente.
+- Le due sessioni `nixos`, nei rispettivi task di separazione: niente
+  revoca degli accessi incrociati. Il custode ha deciso il 2026-11-04 di
+  tenere i checkout incrociati per modificare entrambi i repo da
+  entrambi i lati: `tt-sviluppo/nixos` su `deck` (`~/nixos-lavoro`, che
+  `method` legge anche per il marker) e `steledama/nixos` sulla
+  production. Un checkout è una superficie di modifica del repo, non un
+  atto sui server.
 - Accento proprio: oggi `o3/view/project.py` del repo di lavoro porta
   `#c2410c` come casa, e `/adottanti` lo segnala ripetuto. Si cambia lì e
   si copia in `world.md`.
 - Vista: alla prima pubblicazione dalla production, `host:porta` in
   `world.md`; fino ad allora l'audit la dà assente.
 
-Il task si chiude quando fetch, deroga, accento e vista sono a posto.
+Il task si chiude quando fetch, checkout incrociati, accento e vista sono a posto.
 
 Connessioni:
 
