@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `metodo` ha due facce: i **sei progetti adottanti**, da cui
+Il Mondo runtime di `metodo` ha due facce: i **sette progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -18,7 +18,13 @@ sono copie del registro `o3/presentations.nix` di `nixos` e, per
 raggiungendoli.
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
-  NixOS multi-host — checkout `~/nixos` su `svezia`; accento `#c2410c`; vista `deck:8002`
+  NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
+  `deck`; accento `#c2410c`; vista `deck:8002`
+- **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
+  dichiarativa NixOS della coppia di server `norvegia`/`svezia`, separata dal
+  repo di casa il 2026-11-04 — checkout `~/nixos-lavoro` su `svezia`;
+  accento ancora `#c2410c`, ereditato da casa e da cambiare; vista non ancora
+  servita (prevista sulla 8002 della production)
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
   sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,

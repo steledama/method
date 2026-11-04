@@ -20,11 +20,12 @@ pianificazione.
 | dev   | S   | Pilota del ciclo autonomo       | —    |
 | dev   | S   | Uscita dal deck                 | —    |
 | dev   | S   | Pubblicazione decisa dal repo   | —    |
+| dev   | S   | Nixos di lavoro come adottante  | —    |
 | dev   | 2   | Snellire /adottanti             | —    |
 
 ## Scadenze
 
-- 2026-12-01 → `/adottanti`, audit runtime-o1 mensile dei sei adottanti
+- 2026-12-01 → `/adottanti`, audit runtime-o1 mensile dei sette adottanti
   (mensile) → esiti nel filo
   [i3/audit-adottanti.md](../i3/audit-adottanti.md). Dopo quattro
   coincidenze fra `aligned` e file, le prescrizioni si leggono nei marker,
