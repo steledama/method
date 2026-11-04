@@ -20,7 +20,6 @@ pianificazione.
 | dev   | S   | Pilota del ciclo autonomo       | —    |
 | dev   | S   | Uscita dal deck                 | —    |
 | dev   | S   | Pubblicazione decisa dal repo   | —    |
-| dev   | S   | Nixos di lavoro come adottante  | —    |
 | dev   | 2   | Snellire /adottanti             | —    |
 
 ## Scadenze

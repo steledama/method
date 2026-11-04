@@ -23,8 +23,7 @@ raggiungendoli.
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS della coppia di server `norvegia`/`svezia`, separata dal
   repo di casa il 2026-11-04 — checkout `~/nixos-lavoro` su `svezia`;
-  accento `#a16207`; vista non ancora
-  servita (prevista sulla 8002 della production)
+  accento `#a16207`; vista `svezia:8002`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
   sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,

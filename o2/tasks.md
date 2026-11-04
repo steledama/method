@@ -19,5 +19,4 @@ Proposta di canone in attesa del custode:
 
 - [uscita-dal-deck.md](uscita-dal-deck.md) — il deck non ha uscita: Alt+frecce lasciate al browser e un link fisso alle viste, anche nei deck di dominio di `economia` e `salute`.
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host una porta sola; cinque punti da decidere, fra cui un host solo e la forma del servitore.
-- [nixos-di-lavoro.md](nixos-di-lavoro.md) — `nixos` diviso in casa e lavoro il 2026-11-04: `tt-sviluppo/nixos` settimo adottante, letto da `deck` via fetch (deciso il 2026-11-04); resta la vista, da registrare quando la production la pubblica.
 - [snellire-adottanti.md](snellire-adottanti.md) — `/adottanti` snellito, adottato e implementato il 2026-11-02: parte meccanica in `o3/adottanti.py audit`, campione di decisioni in sessione, filo breve; prova il 2026-12-01; il giro autonomo lancia la parte meccanica.
