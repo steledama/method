@@ -12,12 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [Skill e permessi progettati per l'agente
-  utilizzatore](progettazione-skill.md) — diniego come percezione, niente
-  cartelli, staging intero non più negato, `eval` ed `exec` senza `/commit`,
-  mappa ed estrazione delle skill prima della composizione. Prescritta ai
-  sette il 2026-10-21.
-
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 

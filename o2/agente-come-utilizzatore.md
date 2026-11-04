@@ -17,7 +17,7 @@ task `o2/` per repo. Il caso di partenza e il modello del task locale sono in
 
 ## Revisione per repo
 
-Il veicolo è la prescrizione [o3/progettazione-skill.md](../o3/progettazione-skill.md),
+Il veicolo è stata la prescrizione `progettazione-skill` (chiusa il 2026-11-04, in git),
 che comprende anche il design delle skill. Ogni repo apre un task `o2/`
 proprio quando la recepisce, e controlla quattro cose:
 

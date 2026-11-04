@@ -45,8 +45,10 @@ nei marker:
 
 Le prime tre, recepite da tutti nei file, il custode le ha chiuse il
 2026-11-02 su quell'evidenza: `o3/prescrizioni.py verifica` ne riconosceva
-una sola per adottante (cfr. «Tensioni aperte»). Resta aperta
-`progettazione-skill`.
+una sola per adottante (cfr. «Tensioni aperte»). `progettazione-skill`
+è stata chiusa il 2026-11-04, dopo che `danea-auto` ha chiuso i punti 4-6
+(`ceb68b2`) e `o3/prescrizioni.py verifica` l'ha trovata recepita da tutti
+e sette.
 
 Con quattro coincidenze, la verifica d'insieme si alleggerisce come
 previsto: dal prossimo audit le prescrizioni si leggono nei marker, con il

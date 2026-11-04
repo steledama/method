@@ -10,8 +10,8 @@ ciclo: dev
 Segnalazione della sessione `nixos`, 2026-10-21, con le risposte del custode
 costruite in quella sessione. Forma approvata in sessione: atomicità per atto
 e contratto, composta, base e ramo, due regole senza eccezioni, indipendenza
-dall'harness come criterio. Prescrizione agli adottanti in
-[o3/progettazione-skill.md](../o3/progettazione-skill.md); l'ordine della
+dall'harness come criterio. Prescrizione agli adottanti
+`progettazione-skill`, recepita da tutti e chiusa il 2026-11-04 (in git); l'ordine della
 revisione per repo vive in
 [agente-come-utilizzatore.md](agente-come-utilizzatore.md).
 
@@ -52,8 +52,8 @@ revisione per repo vive in
    dovuto. Le regole restano in una sola copia e non nasce nessuna skill
    nuova. Il prototipo è nel solo fork, non ancora collaudato su sessioni
    nuove. Riscontro dato a `nixos`:
-   - si estrae prima di dividere (`kb/skill.md`, punti 4-6 di
-     `o3/progettazione-skill.md`): `plan` pesa circa 120 righe e il passo 3b
+   - si estrae prima di dividere (`kb/skill.md`, punti 4-6 della
+     prescrizione `progettazione-skill`, chiusa il 2026-11-04): `plan` pesa circa 120 righe e il passo 3b
      è soprattutto conoscenza;
    - la revisione di un task singolo è `specify` con l'oggetto come
      argomento, `exec specify <task>`. Il canone legge `specify` come una
