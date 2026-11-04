@@ -1,5 +1,5 @@
 ---
-sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Restano la riga fetch su deck, i checkout incrociati nei task di separazione, accento e vista propri."
+sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Restano il task di separazione di casa e la vista."
 ciclo: dev
 ---
 
@@ -57,23 +57,23 @@ Il 2026-11-04 il custode accetta la prima alternativa. Applicato in
 
 ## Cosa resta
 
-- Sessione `nixos` di casa: `nixos-lavoro` nella lista `fetch` del ciclo
-  `method` in `o3/cicli.nix`. Finché manca, il giro legge un `origin` che
-  nessuno aggiorna e lo dichiara.
-- Le due sessioni `nixos`, nei rispettivi task di separazione: niente
-  revoca degli accessi incrociati. Il custode ha deciso il 2026-11-04 di
-  tenere i checkout incrociati per modificare entrambi i repo da
-  entrambi i lati: `tt-sviluppo/nixos` su `deck` (`~/nixos-lavoro`, che
-  `method` legge anche per il marker) e `steledama/nixos` sulla
-  production. Un checkout è una superficie di modifica del repo, non un
-  atto sui server.
-- Accento proprio: oggi `o3/view/project.py` del repo di lavoro porta
-  `#c2410c` come casa, e `/adottanti` lo segnala ripetuto. Si cambia lì e
-  si copia in `world.md`.
-- Vista: alla prima pubblicazione dalla production, `host:porta` in
+Fatto il 2026-11-04, verificato su `origin/main` dei due repo:
+
+- riga `fetch` di `nixos-lavoro` nel ciclo `method` in `o3/cicli.nix` di
+  casa (`c4471da`);
+- accento `#a16207` in `o3/view/project.py` e nel marker del repo di
+  lavoro (`1d34974`), copiato in `world.md`;
+- task di separazione del repo di lavoro con accessi e checkout incrociati
+  (`de162f8`) e l'impegno a comunicare la vista sulla 8002 (`5acb55a`).
+
+Restano:
+
+- il task di separazione del repo di casa, che parla ancora di revoca e di
+  sola lettura: la correzione è inoltrata alla sua sessione;
+- la vista: alla prima pubblicazione dalla production, `host:porta` in
   `world.md`; fino ad allora l'audit la dà assente.
 
-Il task si chiude quando fetch, checkout incrociati, accento e vista sono a posto.
+Il task si chiude quando entrambi sono a posto.
 
 Connessioni:
 
