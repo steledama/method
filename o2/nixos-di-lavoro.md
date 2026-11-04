@@ -1,5 +1,5 @@
 ---
-sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Restano il task di separazione di casa e la vista."
+sintesi: "Dal 2026-11-04 nixos è diviso in casa e lavoro; tt-sviluppo/nixos è il settimo adottante, letto da deck via fetch come bi e baserow (deciso dal custode il 2026-11-04). Resta la vista, da registrare in world.md quando la production la pubblica."
 ciclo: dev
 ---
 
@@ -64,16 +64,13 @@ Fatto il 2026-11-04, verificato su `origin/main` dei due repo:
 - accento `#a16207` in `o3/view/project.py` e nel marker del repo di
   lavoro (`1d34974`), copiato in `world.md`;
 - task di separazione del repo di lavoro con accessi e checkout incrociati
-  (`de162f8`) e l'impegno a comunicare la vista sulla 8002 (`5acb55a`).
+  (`de162f8`) e l'impegno a comunicare la vista sulla 8002 (`5acb55a`);
+- task di separazione e `CLAUDE.md` del repo di casa con la stessa
+  correzione (`8760f33`); switch home applicato su `deck`, la lista `fetch`
+  del ciclo comprende `nixos-lavoro`.
 
-Restano:
-
-- il task di separazione del repo di casa, che parla ancora di revoca e di
-  sola lettura: la correzione è inoltrata alla sua sessione;
-- la vista: alla prima pubblicazione dalla production, `host:porta` in
-  `world.md`; fino ad allora l'audit la dà assente.
-
-Il task si chiude quando entrambi sono a posto.
+Resta la vista: alla prima pubblicazione dalla production, `host:porta` in
+`world.md`; fino ad allora l'audit la dà assente. Il task si chiude lì.
 
 Connessioni:
 
