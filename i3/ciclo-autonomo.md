@@ -46,7 +46,8 @@ riletto contro le fonti.
   avuto causa trovata e corretta (`nixos` `101e32b`,
   `i1/arresto-economia-fuori-giri-2026-10-21.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
-  77 turni e 13 minuti, sotto il tetto di 45 minuti e 5 USD. I
+  92 turni (`nixos` del 04/11, 2,21 USD in 12 minuti) e 13 minuti, sotto il
+  tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
