@@ -74,7 +74,10 @@ forme:
   sessione, un log, un giro (`arrival: esito della seduta, via diario o
 sessione`). Il giro lo riconosce confrontando i fatti in ingresso con le `w`
   ad arrivo. Se il canale passa per il custode, il giro non può accorgersene da
-  solo.
+  solo. Se invece il giro non legge il canale perché gli manca un permesso o
+  uno strumento, come una casella di posta in cui scrive bozze ma non legge le
+  risposte, la cecità è una lacuna da proporre (`agent-as-user`), non un
+  `by:` da rinnovare.
 
 Ogni `w` e ogni `p` porta inoltre `by:`, la data di riesame (`by: 2026-11-04`,
 o il solo mese). Su una `w` che arriva da un canale non letto dal giro è una
@@ -162,6 +165,17 @@ sta qui ma nel `by:` di una `p`. La **terza** è la
 ricorrenza di uno scheduler: la riga indica cadenza e configurazione —
 la fonte di verità è la config versionata — senza replicare ogni prossima data.
 Calendari che non muovono la coda restano nel dominio.
+
+Una scadenza che chiede una mossa nostra prima della data, come prenotare,
+procurarsi o rinnovare un documento o preparare un invio, ha un task che la
+prepara. Una riga «entro…» senza task è lavoro non tracciato. Le scadenze
+vicine si leggono come catena: ogni passo deve ricevere in tempo ciò che gli
+serve dal precedente. Se il dominio rispecchia `## Scadenze` su un'altra
+superficie, come un calendario, il confronto va in entrambe le direzioni: ogni
+evento ha la sua riga e ogni riga datata ha il suo evento. Il confronto
+distingue anche l'impegno fissato dalla data obiettivo o dal promemoria.
+Confrontare in un solo verso lascia passare una data obiettivo segnata come
+appuntamento.
 
 La cadenza e la composizione della coda sono indizi della forma del runtime, da
 leggere insieme a esiti e copertura dei segnali (`development-goal`). Una

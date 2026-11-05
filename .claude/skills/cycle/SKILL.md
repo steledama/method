@@ -122,6 +122,9 @@ a richiesta»). Contiene:
 - esito dell'avvio, SHA del commit ed esito del push, oppure lo stop e il
   suo motivo;
 - per stadio, `materia` o `vuoto` e cosa è cambiato;
+- la visione d'insieme di `exec plan` (passo 3c): cosa torna nei giri della
+  settimana, cosa è fermo, cosa scade nella catena, le tendenze; «nessun
+  rilievo» se è pulita;
 - ipotesi nate, confermate o smentite nel giro, e dove vivono;
 - prossimo task, confermato o cambiato rispetto al precedente, nella stessa
   forma del trailer `Prossimo:`, che porta fra parentesi solo la causa del

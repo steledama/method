@@ -63,6 +63,27 @@ già non è una notizia da annotare nel task (`source-of-truth`,
 `pace-layering`). Una scelta che spetta al custode nasce nel task col campo
 `decidere:`.
 
+L'equilibrio però si constata sulla finestra larga, non sul delta. Il giro
+parte a freddo e guarda soprattutto ciò che è entrato dall'ultimo giro, quindi
+ogni giro può fare bene il proprio pezzo mentre all'insieme sfugge ciò che si
+ripete, ciò che è fermo e ciò che scade fra settimane. Per questo ogni giro
+rilegge anche una finestra più ampia del delta:
+
+- i resoconti dei giri recenti, perché un rilievo che torna identico in più
+  giri senza esito è un rinvio rituale: diventa un passo di task, una regola
+  o una voce di `Attenzione:`;
+- le decisioni del custode ferme da giorni;
+- la catena delle scadenze vicine, letta come sequenza;
+- la serie dei segnali che un obiettivo dichiara, contro la soglia, invece
+  del singolo giorno.
+
+Un `Prossimo:` confermato con esiti sani resta l'equilibrio; un rilievo
+ripetuto senza esito non lo è. Il caso che lo ha mostrato: in `salute`, su
+otto giri consecutivi, un prelievo dato per prenotato non lo era, una
+decisione del custode è rimasta ferma sei giorni senza salire in
+`Attenzione:` e i giorni senza pratica sono stati visti uno alla volta (fork
+di `exec`, `dc60e47`).
+
 Connessioni:
 
 - [plan](plan.md)

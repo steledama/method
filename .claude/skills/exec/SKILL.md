@@ -113,7 +113,12 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   lo stato del lavoro resta nel plan e nei fili, senza ricopiarlo nel register. La
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
 - `## Scadenze` e finestre tattiche: ricorrenze in arrivo, righe scadute o
-  consumate
+  consumate. Una scadenza che chiede una mossa nostra prima della data ha il
+  task che la prepara: la riga «entro…» senza task è un rilievo, e il giro
+  crea il task perché la pianificazione è delegata. Dove il dominio rispecchia
+  le scadenze su un'altra superficie, come un calendario, il confronto va in
+  entrambe le direzioni e distingue l'impegno fissato dalla data obiettivo
+  (`kb/plan.md`, «Tempo e fonti»)
 - risveglio delle attese (`kb/plan.md`, «Risveglio»): ogni `w` dichiara
   `probe:` o `arrival:`, ogni `w` e ogni `p` dichiara `by:`; una chiosa senza
   è un rilievo da correggere
@@ -162,6 +167,35 @@ come prossimo task:
 stesso invariante, momento diverso. La ricchezza multi-attore (incentivi,
 canali neutrali, tempismo di una negoziazione) vive nei fork degli adottanti
 come adattamento di dominio; qui resta l'invariante.
+
+**3c. Visione d'insieme**
+
+Il giro parte a freddo e guarda soprattutto il delta: ciò che si ripete,
+ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
+«Task e giro»). Rileggi anche la finestra larga:
+
+- **giri della settimana**: i corpi dei commit dei giri degli ultimi 7
+  giorni (`git log --since="7 days ago" --grep="^docs(ciclo)" --format="%h %ad%n%b" --date=short`).
+  Una voce per il custode, un'anomalia, un'ipotesi o un'esclusione fatta a
+  mano che torna in tre giri senza esito sale in `Attenzione:`, oppure
+  diventa un passo di task o una regola: non si ripete identica un altro
+  giorno. La conferma del `Prossimo:` con esiti sani non conta: è
+  l'equilibrio
+- **decisioni ferme**: un task con `decidere:`, o con un passo che aspetta il
+  custode, fermo da più di 7 giorni va in `Attenzione:` coi giorni di attesa
+- **catena delle scadenze** a 45 giorni, letta come sequenza: un anello senza
+  task o senza data è un rilievo del passo 2
+- **canali delle attese**: un `arrival:` da un canale che il giro non legge
+  per un permesso o uno strumento mancante non si rinnova in silenzio: è una
+  lacuna da proporre (`kb/plan.md`, «Risveglio»)
+- **tendenze**: dove un obiettivo dichiara un segnale ricorrente e una soglia,
+  leggi la serie delle ultime due settimane, non il giorno. Quali segnali e
+  quali soglie lo dice il fork dell'adottante
+
+Ciò che la finestra larga trova entra nel passo 4 come ogni altro fatto,
+risalendo la catena (`kb/action-cycle.md`). Nel `metodo` la finestra conta
+soprattutto i giri e le proposte ferme; le tendenze di dominio vivono nei
+fork.
 
 **4. Applica entro la delega e indica il prossimo task**
 
