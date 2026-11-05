@@ -114,8 +114,8 @@ verifica presenza e dominio, come già fa per `stato`.
 La proprietà estesa è **locale all'adottante** — vive nella sua `kb/` e non nel
 canone, salvo che emerga come generalizzazione portabile: ciò che il metodo
 sanziona è il meccanismo, non la singola proprietà. Un esempio è la facet
-`mondo: lavoro | casa | trasversale`, usata per distinguere ambiti di una KB di
-configurazione. Valori e copertura effettivi si verificano nel fork che la
+`tipo: persona | immobile | successione`, usata per distinguere le entità di una
+KB patrimoniale. Valori e copertura effettivi si verificano nel fork che la
 dichiara, senza mantenerne qui una fotografia corrente.
 
 Il frontmatter appartiene ai nodi, ai task operativi e agli item delle
