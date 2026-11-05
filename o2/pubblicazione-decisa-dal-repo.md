@@ -87,6 +87,34 @@ stesso criterio. Punti da decidere:
   eseguirne il codice. Si decide col punto del servitore: con lo smistatore,
   l'elenco è anche ciò che gli dice quali servitori avviare.
 
+## Evidenza: la vista di `nixos-lavoro` sullo standby
+
+Il 2026-11-05, con nixos d88e297, la vista di `nixos-lavoro` passa dalla
+production allo standby, l'host del suo giro autonomo, perché `/_ciclo/` legge
+lo stato del giro sull'host locale. È il ponte deciso nel regime di oggi
+(`kb/view.md`: il servizio segue il ruolo, host e porte sono materia
+dell'host). Va trattato come evidenza e vincolo di compatibilità, non come
+decisione sui punti sopra:
+
+- **primo ruolo diverso da production**: `privileged.standby` accanto a
+  `privileged.production` in `o3/presentations.nix`, chiave della stessa
+  specie e nessun elenco nuovo. Il valore unico di `SERVITA_SU` regge anche
+  con questo secondo ruolo;
+- **un predicato per ruolo**: `roleCondition` risolve ogni ruolo in una
+  condizione di avvio, condivisa da presentazioni e cicli, e un'asserzione
+  limita le chiavi di ruolo agli host della coppia. Resta da decidere **chi
+  risolve i ruoli**. Con l'host che dichiara nome e ruoli (livello 3), la
+  risoluzione è dell'host e il ponte resta valido. Se invece il metodo li
+  risolvesse da sé, il ponte andrebbe smontato;
+- **la porta è un consenso separato**: il firewall della coppia ammette
+  l'unione delle porte di production e standby, ricavata dal registro e
+  distinta dall'interruttore. Spostare la vista non ha cambiato il sistema
+  (drvPath identico a revisione fissata);
+- **la sovrapposizione transitoria**: fra lo switch dello standby e
+  l'allineamento della production i due host hanno servito lo stesso
+  commit. Il vincolo dell'host unico, che esiste contro le rese a versioni
+  diverse, regge se la sovrapposizione si chiude nella stessa sessione.
+
 ## Effetti sul canone
 
 Se il custode adotta: `kb/view.md` cambia la frase «Host, porte,
