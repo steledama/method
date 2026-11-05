@@ -33,7 +33,11 @@ riletto contro le fonti.
 - **Copertura**: criterio `ciclo-autonomo` ratificato in `method` e nei sei
   adottanti, timer acceso in tutti dal 2026-10-22 (`danea-auto` su Windows,
   fuori `nixos`, `de11b1a`). `crm` è dismesso dal 22/10 (`a0deb15`).
-  Andamento in `o2/pilota-ciclo-autonomo.md`.
+  Settimo dal 2026-11-05 `nixos-lavoro`, separato da `nixos` il 04/11:
+  gradino 0 e due giri a mano riusciti (`92afebd`, `3438713`), poi gradino 1
+  col timer delle 04:30 sullo standby `norvegia` (`1f7c780`), con un commit
+  di registro della production oltre a quello del giro. Andamento in
+  `o2/pilota-ciclo-autonomo.md`.
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
@@ -48,7 +52,8 @@ riletto contro le fonti.
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
   92 turni (`nixos` del 04/11, 2,21 USD in 12 minuti) e 13 minuti, sotto il
   tetto di 45 minuti e 5 USD. I
-  `tentativi.jsonl` di `svezia` e Windows non sono leggibili da `deck`.
+  `tentativi.jsonl` di `svezia`, `norvegia` e Windows non sono leggibili da
+  `deck`.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
   `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto
