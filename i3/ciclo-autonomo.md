@@ -46,7 +46,12 @@ riletto contro le fonti.
   (`369d5ea`, rilancio a mano). Il limite è che un arresto o un fallimento
   non si rilancia da solo: `method` è rimasto senza giro il 31/10 e il
   01/11. Regola provvisoria in `o2/pilota-ciclo-autonomo.md`, disegno in
-  `o2/lanciatore-ciclo-nel-metodo.md`. Gli scarti prima del 22/10 hanno
+  `o2/lanciatore-ciclo-nel-metodo.md`. Il 2026-11-06 `danea-auto` non ha
+  il commit del giro su `origin`, pur col timer delle 08:10 e la ripresa
+  delle 10:10 (`14b1231`): il fetch delle 15:00 è riuscito e `origin/main`
+  resta a `0840a4b` del 05/11. Da `deck` non si vede se il giro sia
+  mancato, fermo o senza push, perché i tentativi di Windows non si leggono
+  da qui: la causa va accertata su `danea2`. Gli scarti prima del 22/10 hanno
   avuto causa trovata e corretta (`nixos` `101e32b`,
   `i1/arresto-economia-fuori-giri-2026-10-21.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
