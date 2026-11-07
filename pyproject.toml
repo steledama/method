@@ -2,6 +2,8 @@
 name = "method"
 version = "1.0.0"
 description = "Repository canonico del metodo per artefatti cognitivi condivisi"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 requires-python = ">=3.12"
 
 [tool.ruff]

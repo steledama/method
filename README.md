@@ -148,3 +148,19 @@ dei due register e delle connessioni intenzionali vive in
 [`readme`](kb/readme.md), [`goal-register`](kb/goal-register.md),
 [`world-register`](kb/world-register.md) e
 [`method-development`](kb/method-development.md).
+
+## Licenza
+
+Copyright © 2026 Stefano Pompa. Il repository usa due licenze copyleft: chi
+ridistribuisce il metodo modificato lo restituisce con la stessa licenza.
+
+- **Codice** — `o3/`, `tests/`, le skill in `.claude/skills/` e
+  `.codex/skills/` (compresi i `SKILL.md`), la configurazione degli strumenti
+  (`pyproject.toml`, `.pi/`): [GPL-3.0-or-later](LICENSE).
+- **Testi** — tutto il resto: i nodi in `kb/`, le collezioni `i1/`–`i3/` e
+  `o1/`–`o2/`, i register, `README.md`, `CLAUDE.md`, `AGENTS.md`,
+  `autonomy.md` e il deck in `presentation/` con le immagini:
+  [CC BY-SA 4.0](LICENSE-docs).
+
+Le licenze valgono anche per le traduzioni. Le opere di terzi citate o
+riassunte restano dei rispettivi autori.
