@@ -68,7 +68,12 @@ riletto contro le fonti.
   contro la misura, non un atto fuori delega: la KB non mostra danni. Il
   canone ora chiede l'invocazione, un minimo per stadio e la verifica ex post
   `commit_gate.py stadi`. La misura torna leggibile quando «Stadi dei giri»
-  di `adottanti.py audit` è senza rossi.
+  di `adottanti.py audit` è senza rossi. Primo riscontro il 2026-11-07:
+  il giro di `salute` delle 9:00 (`a81e024`) ha invocato i bracci col tool
+  Skill, con zero dinieghi, e ha dato «stadi ok». Ha letto `goal.md` e tutti
+  i fili, e `compare=vuoto` è un vuoto vero. È costato 69 turni e 1,76 USD,
+  contro 25-56 turni e 0,52-1,28 USD della settimana prima. È un giro solo:
+  salute lo osserva fino al 14/11.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
   `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto

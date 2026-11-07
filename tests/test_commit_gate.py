@@ -100,6 +100,25 @@ class StadiTests(unittest.TestCase):
             ["perceive dichiarato senza traccia: skill eval non invocata"],
         )
 
+    def test_reading_counts_without_skill_tool(self):
+        giro = self.dir / "g.jsonl"
+        riga = {
+            "type": "assistant",
+            "message": {
+                "content": [
+                    {
+                        "type": "tool_use",
+                        "name": "Read",
+                        "input": {"file_path": ".claude/skills/eval/SKILL.md"},
+                    }
+                ]
+            },
+        }
+        init = {"type": "system", "subtype": "init", "tools": ["Bash", "Read"]}
+        giro.write_text(json.dumps(init) + "\n" + json.dumps(riga), encoding="utf-8")
+        skill, _ = MODULE.tracce(giro)
+        self.assertIn("eval", skill)
+
     def test_compare_needs_goal_and_threads(self):
         giro = trascrizione(
             self.dir / "g.jsonl",

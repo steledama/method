@@ -266,14 +266,20 @@ def dopo(root: Path, giro: bool) -> int:
 
 def tracce(trascrizione: Path) -> tuple[set[str], str]:
     """Skill invocate e testo degli input dei tool della trascrizione di un
-    giro, dove si cercano i path minimi."""
+    giro, dove si cercano i path minimi. Su un harness senza tool Skill (la
+    riga `init` non lo elenca, come in Codex) vale come invocazione la
+    lettura del `SKILL.md` del braccio."""
     skill: set[str] = set()
+    letture: set[str] = set()
+    senza_skill = False
     input_tool: list[str] = []
     for riga in trascrizione.read_text(encoding="utf-8", errors="replace").splitlines():
         try:
             evento = json.loads(riga)
         except json.JSONDecodeError:
             continue
+        if evento.get("type") == "system" and evento.get("subtype") == "init":
+            senza_skill = "Skill" not in evento.get("tools", [])
         if evento.get("type") != "assistant":
             continue
         for parte in evento.get("message", {}).get("content", []):
@@ -285,7 +291,11 @@ def tracce(trascrizione: Path) -> tuple[set[str], str]:
                 if nome:
                     skill.add(nome)
             else:
-                input_tool.append(json.dumps(dati, ensure_ascii=False))
+                testo = json.dumps(dati, ensure_ascii=False)
+                input_tool.append(testo)
+                letture.update(re.findall(r"skills/(\w+)/SKILL\.md", testo))
+    if senza_skill:
+        skill |= letture
     return skill, "\n".join(input_tool)
 
 

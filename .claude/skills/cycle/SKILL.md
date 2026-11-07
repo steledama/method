@@ -67,7 +67,11 @@ scritture e letture fuori perimetro sono vincoli voluti
 
 **Stadi.** Invoca `eval all` ed `exec all` col tool Skill e segui i loro
 stadi: leggere questa skill o il `SKILL.md` di un braccio non vale come
-invocazione. Ogni stadio ha un **minimo** di letture che lascia traccia nella
+invocazione. I permessi del giro concedono `Skill(cycle)`, `Skill(eval)`,
+`Skill(exec)` e `Skill(commit)`: senza, l'invocazione è negata e il giro
+ricade nella lettura (primo giro di `salute` con gli stadi verificati,
+2026-11-07, zero dinieghi). Su un harness senza tool Skill, come Codex, vale
+la lettura del `SKILL.md` del braccio indicata dal wrapper. Ogni stadio ha un **minimo** di letture che lascia traccia nella
 trascrizione, scritto in fondo alla sua sezione in `eval` ed `exec`; il
 prompt del repo lo adatta col dominio aggiungendo gesti, mai togliendone. Una
 procedura del dominio al centro degli atti del giro, come `/manutenzione` di
@@ -156,6 +160,10 @@ a richiesta»). Contiene:
   stadi se è stato eseguito col suo minimo e cosa ne manca, e la
   **procedura**, cioè cosa è costato passaggi, tempo o dinieghi senza
   servire, con al più una proposta. Uno stadio mancante va in `Attenzione:`.
+  La proposta di procedura non resta solo nel resoconto, che il giro
+  seguente non rilegge: entra come passo nel task `o2/` pertinente, o ne
+  apre uno nella forma ordinaria, e il resoconto dice dove vive (giro di
+  `salute` del 2026-11-07, `eb45f4a`).
   L'autovalutazione della sola procedura del dominio non vede il giro che si
   riduce a quella procedura: in `nixos` ha chiuso con `Attenzione: nessuna`
   dal 5 al 7 novembre 2026.
@@ -163,7 +171,10 @@ a richiesta»). Contiene:
 L'**ultima riga** è `Attenzione: nessuna` oppure `Attenzione: <voci>`, con
 le proposte da decidere, le incertezze e gli errori che chiedono uno sguardo
 del custode. La home ne ricava il semaforo del giro: se la riga manca, il
-giro risulta giallo. Il giudizio alza, non abbassa. Le attenzioni hanno
+giro risulta giallo. Il giudizio alza, non abbassa. La riga è la stessa
+nel corpo del commit e in fondo al resoconto, voce per voce: una voce
+aggiunta dopo il commit si dichiara nel resoconto come tale (giro di
+`salute` del 2026-11-07, una voce solo nel resoconto). Le attenzioni hanno
 memoria. Una voce già presente nel resoconto precedente e invariata porta
 `(invariata dal <data>)`, così si conta e non si legge come una novità. Una
 voce lasciata «non indagata» la riprende `perceive` nel giro seguente. Se
