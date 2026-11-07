@@ -18,6 +18,10 @@ un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
 Esiti: plan=materia specify=vuoto perform=vuoto
 ```
 
+Come in `eval`, `vuoto` è lo stadio che ha girato col suo **minimo**, in
+fondo alla sua sezione, senza trovare materia; lo stadio saltato resta fuori
+dal trailer.
+
 Un giro senza file cambiati, quando il commit è chiesto, lo chiude `/commit`
 con `--allow-empty` e lo stesso trailer. Il conteggio è
 `git log --format='%(trailers:key=Esiti,valueonly)'`.
@@ -247,6 +251,9 @@ normalmente **vuoto** — il vuoto è il segnale che la verità è passata per
 prima, non un fallimento. Se non è vuoto, segnalalo al custode: il movimento
 di ritorno è l'eccezione che va giustificata, non un secondo giro automatico.
 
+Minimo: `o1/plan.md`, `goal.md`, l'ultimo trailer `Prossimo:` e
+`python3 o3/view/build.py --check`, dove il repo ha il generatore.
+
 ## `specify` — la qualità interna dei task
 
 Confine netto verso `plan`: `plan` guarda la corrispondenza e l'ordine delle
@@ -273,6 +280,9 @@ forma. Non esegue i passi del task (`kb/tasks.md`, «Task e giro»).
 Esito: quali file sono a posto, quali hanno un difetto e quale, o la chiusura
 in una riga.
 
+Minimo: i file `o2/` che le notizie del giro toccano, o i frontmatter di
+`o2/` quando non ne toccano nessuno.
+
 ## `perform` — l'atto e la sua collezione
 
 Due piani, secondo autorizzazione:
@@ -294,6 +304,11 @@ Due piani, secondo autorizzazione:
 
 Esito: stato della collezione (prescrizioni vive e loro freschezza, strumenti
 verificati), atti compiuti o predisposti, o la chiusura in una riga.
+
+Minimo: l'indice di `o3/` (in `metodo` `o3/prescriptions.md`) e gli atti che il register di autonomia
+assegna al giro; una procedura ricorrente del dominio, come `/manutenzione`
+di `nixos`, è un atto di `perform` (e un canale di `perceive`), non il
+giro.
 
 ## Note operative
 

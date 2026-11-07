@@ -21,6 +21,13 @@ un trailer contabile (`materia` se lo stadio ha prodotto o cambiato qualcosa,
 Esiti: perceive=vuoto interpret=materia compare=materia
 ```
 
+`vuoto` vuol dire che lo stadio ha girato, col suo **minimo**, e non ha
+trovato materia; uno stadio saltato non è `vuoto`, resta fuori dal trailer.
+Il minimo di ogni stadio, scritto in fondo alla sua sezione, sono le letture
+che lasciano traccia nella trascrizione; un adottante lo adatta nel prompt
+del ciclo aggiungendo i gesti del dominio, senza toglierne (caso `nixos` del
+2026-11-07: per venti giorni sei stadi dichiarati, `goal.md` mai letto).
+
 Un giro senza file cambiati, quando il commit è chiesto, lo chiude `/commit`
 con `--allow-empty` e lo stesso trailer: il giro tutto vuoto è proprio quello che la misura deve
 contare. Il conteggio è
@@ -105,11 +112,20 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.
+   Sulla stessa chiusura lancia `python3 o3/commit_gate.py stadi`: gli
+   stadi che l'`Esiti:` del giro precedente dichiara senza la traccia del
+   loro minimo vanno nella riga `Attenzione:` di questo giro. Poi riprendi
+   la riga `Attenzione:` del resoconto precedente voce per voce: risolta,
+   invariata o cambiata; una voce lasciata «non indagata» si indaga qui
+   (cfr. `cycle`, «Resoconto finale»).
 5. Per ogni cattura in `i1/` con una soglia di promozione, conta i casi
    dalla fonte che dichiara e, raggiunta la soglia, compi la promozione
    dichiarata. Una soglia non contabile si riscrive con N, M e la fonte se
    i casi la danno; altrimenti diventa una proposta (`kb/perceive.md`).
 6. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
+
+Minimo: i canali del passo 1; nel ciclo autonomo anche il passo 4, con la
+verifica degli stadi del giro precedente e la sua riga `Attenzione:`.
 
 ## `interpret` — distillare in sintesi
 
@@ -169,6 +185,10 @@ testo nasce altrove.
 Esito: quali sintesi sono nate o cambiate, contro quale materiale sono state
 verificate, quali ipotesi sono nate, confermate o smentite, quali
 affermazioni restano non verificate e sono dichiarate tali.
+
+Minimo: le sintesi `i2/` che le notizie del giro toccano, o l'indice di
+`i2/` quando non ne toccano nessuna, e la rilettura delle ipotesi formate nel
+giro.
 
 ## `compare` — il verdetto contro il Goal
 
@@ -273,6 +293,9 @@ che un verdetto lo copra non passa come impatto: prima si chiede quale
 lettura lo spiega e quale verdetto cambia, e si scrive l'anello mancante. L'handoff è input, non comando:
 lo scope ricevente conserva il giudizio e dichiara le divergenze. Se non c'è
 nulla da passare, dillo esplicitamente.
+
+Minimo: `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`, ciascuno almeno
+alla domanda «è ancora vero?» contro i segnali del giro.
 
 ## Note operative
 

@@ -10,6 +10,12 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [I giri autonomi dichiarano stadi che non
+  eseguono](giri-stadi-dichiarati-senza-traccia-2026-11-07.md) — da `nixos`
+  `4c4a27c`, inoltro del custode, riscontrato in `method`, `salute`,
+  `economia` e `nixos-lavoro`: `Esiti:` nomina sempre sei stadi, nessun giro
+  invoca `eval` o `exec` come skill, `goal.md` quasi mai letto. Recepito il
+  2026-11-07, si chiude a zero rossi in «Stadi dei giri».
 - [Un controllo del gate senza il suo strumento sull'host ferma ogni
   commit](gate-controllo-assente-host-danea-auto-2026-11-02.md) — da
   `danea-auto` `9839b98`: su `deck` manca PowerShell e il gate dà `FALLITO`

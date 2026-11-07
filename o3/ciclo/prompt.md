@@ -80,7 +80,9 @@ altrimenti in `~/.local/state/ciclo/<repo>/`: `tentativi.jsonl` e
 `{tool, input}`, input troncato), oltre al conteggio `permission_denials`;
 le chiusure scritte da `ciclo-namespace` e quelle anteriori al 2026-10-19
 non hanno i due campi. I trascritti `giri/giri/*.jsonl` degli adottanti restano
-fuori, perché portano i dati di `salute` ed `economia`; quelli di `method` in
+fuori, perché portano i dati di `salute` ed `economia`: la sezione
+«Stadi dei giri» di `o3/adottanti.py audit` ne legge solo skill
+invocate e path toccati; quelli di `method` in
 `i1/giri/` si aprono solo per il dettaglio di una riga di `tentativi.jsonl`, e
 una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
 (`kb/perceive.md`). Il gradino di un adottante si verifica nel suo

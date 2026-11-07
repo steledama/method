@@ -8,7 +8,11 @@ qualunque harness, da terminale o da un hook git (`kb/skill-composition.md`).
 - `dopo [--giro]`: verifica i trailer dell'ultimo commit; `--giro` aggiunge
   quelli che `/cycle` richiede. Avvisa, senza fallire, se il `Prossimo:`
   scavalca la prima riga pronta di `o1/plan.md` o se `nessuno (…)` mescola
-  le forme.
+  le forme;
+- `stadi [--giro FILE]`: confronta ex post gli stadi che il trailer
+  `Esiti:` di un giro dichiara con le tracce nella sua trascrizione, l'ultima
+  chiusura di `i1/giri/tentativi.jsonl` se il file non è dato. Legge solo i
+  nomi dei tool, le skill invocate e i path toccati, mai il contenuto.
 
 Il profilo è locale, `o3/commit_gate.toml` del repo: formatter per glob e
 controlli, sempre o quando cambia un glob, con l'uscita che li fa fallire.
@@ -19,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
+import json
 import re
 import shutil
 import subprocess
@@ -36,6 +41,24 @@ CONFERMA_MOTIVATA = re.compile(r"\(confermato[^)]")
 NESSUNO_MISTO = re.compile(r"nessuno \((?:confermato|cambiato)\b")
 LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
+TENTATIVI = Path("i1/giri/tentativi.jsonl")
+# Le tracce minime di ogni stadio nella trascrizione: la skill del braccio
+# invocata col tool Skill e i path che il minimo dello stadio legge
+# (cfr. le skill `eval` ed `exec`, «Minimo»).
+BRACCIO = {
+    "perceive": "eval",
+    "interpret": "eval",
+    "compare": "eval",
+    "plan": "exec",
+    "specify": "exec",
+    "perform": "exec",
+}
+PATH_MINIMI = {
+    "interpret": ["i2/"],
+    "compare": ["goal.md", "i3/"],
+    "plan": ["o1/plan.md"],
+    "specify": ["o2/"],
+}
 
 
 def run(args: list[str], root: Path) -> subprocess.CompletedProcess:
@@ -241,6 +264,99 @@ def dopo(root: Path, giro: bool) -> int:
     return 0
 
 
+def tracce(trascrizione: Path) -> tuple[set[str], str]:
+    """Skill invocate e testo degli input dei tool della trascrizione di un
+    giro, dove si cercano i path minimi."""
+    skill: set[str] = set()
+    input_tool: list[str] = []
+    for riga in trascrizione.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            evento = json.loads(riga)
+        except json.JSONDecodeError:
+            continue
+        if evento.get("type") != "assistant":
+            continue
+        for parte in evento.get("message", {}).get("content", []):
+            if not isinstance(parte, dict) or parte.get("type") != "tool_use":
+                continue
+            dati = parte.get("input", {})
+            if parte.get("name") == "Skill":
+                nome = str(dati.get("skill", "")).split(":")[-1].strip()
+                if nome:
+                    skill.add(nome)
+            else:
+                input_tool.append(json.dumps(dati, ensure_ascii=False))
+    return skill, "\n".join(input_tool)
+
+
+def stadi_esiti(valori: list[str]) -> list[str]:
+    return [voce.partition("=")[0] for esiti in valori for voce in esiti.split()]
+
+
+def lacune(dichiarati: list[str], skill: set[str], testo: str) -> list[str]:
+    """Gli stadi dichiarati senza la loro traccia minima."""
+    righe = []
+    for stadio in dichiarati:
+        mancano = []
+        braccio = BRACCIO.get(stadio)
+        if braccio and braccio not in skill:
+            mancano.append(f"skill {braccio} non invocata")
+        mancano += [f"{p} non toccato" for p in PATH_MINIMI.get(stadio, []) if p not in testo]
+        if mancano:
+            righe.append(f"{stadio} dichiarato senza traccia: {', '.join(mancano)}")
+    return righe
+
+
+def ultima_chiusura(root: Path) -> dict | None:
+    path = root / TENTATIVI
+    if not path.exists():
+        return None
+    ultima = None
+    for riga in path.read_text(encoding="utf-8").splitlines():
+        try:
+            evento = json.loads(riga)
+        except json.JSONDecodeError:
+            continue
+        if evento.get("evento") == "chiusura" and evento.get("giro"):
+            ultima = evento
+    return ultima
+
+
+def verifica_stadi(root: Path, giro: Path | None = None) -> tuple[list[str], list[str]]:
+    """(righe, lacune) degli stadi di un giro: con `giro` dato, il commit
+    è HEAD; altrimenti quelli dell'ultima chiusura."""
+    ref = "HEAD"
+    if giro is None:
+        chiusura = ultima_chiusura(root)
+        if chiusura is None:
+            return [f"nessuna chiusura con trascrizione in {TENTATIVI}"], []
+        giro = Path(chiusura["giro"])
+        ref = chiusura.get("head_dopo") or ref
+        if not chiusura.get("commit"):
+            return [f"giro {giro.stem} senza commit: niente Esiti da verificare"], []
+    if not giro.exists():
+        return [f"trascrizione assente: {giro}"], []
+    valori = [v for k, v in trailer(root, ref) if k == "Esiti"]
+    dichiarati = stadi_esiti(valori)
+    if not dichiarati:
+        return [f"giro {giro.stem}: commit {ref[:7]} senza Esiti"], []
+    skill, testo = tracce(giro)
+    trovate = lacune(dichiarati, skill, testo)
+    righe = [f"giro {giro.stem}, commit {ref[:7]}: dichiarati {' '.join(dichiarati)}"]
+    return righe, trovate
+
+
+def stadi(root: Path, giro: Path | None) -> int:
+    righe, trovate = verifica_stadi(root, giro)
+    for riga in righe + trovate:
+        print(riga)
+    if trovate:
+        print("stadi dichiarati senza traccia, da riportare in Attenzione")
+        return 1
+    print("stadi ok")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--root", type=Path, default=Path("."))
@@ -248,7 +364,11 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("prima", help="formatter e controlli sui file cambiati")
     p_dopo = sub.add_parser("dopo", help="trailer dell'ultimo commit")
     p_dopo.add_argument("--giro", action="store_true", help="trailer richiesti da /cycle")
+    p_cop = sub.add_parser("stadi", help="stadi di Esiti contro la trascrizione del giro")
+    p_cop.add_argument("--giro", type=Path, help="trascrizione; l'ultima chiusura se omessa")
     args = parser.parse_args(argv)
+    if args.comando == "stadi":
+        return stadi(args.root, args.giro)
     return prima(args.root) if args.comando == "prima" else dopo(args.root, args.giro)
 
 

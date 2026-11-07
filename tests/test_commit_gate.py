@@ -3,6 +3,7 @@
 import contextlib
 import importlib.util
 import io
+import json
 import subprocess
 import sys
 import tempfile
@@ -59,6 +60,78 @@ class TrailerTests(unittest.TestCase):
         basso = [(k, "basso" if k == "Impatto" else v) for k, v in giro]
         self.assertIn("giro: Impatto almeno medio", MODULE.errori_trailer(basso, giro=True))
         self.assertTrue(MODULE.errori_trailer(giro[1:], giro=True))
+
+
+def trascrizione(path, chiamate):
+    """Trascrizione finta di un giro: una riga assistant per tool_use."""
+    righe = [
+        json.dumps(
+            {
+                "type": "assistant",
+                "message": {"content": [{"type": "tool_use", "name": nome, "input": dati}]},
+            }
+        )
+        for nome, dati in chiamate
+    ]
+    path.write_text("\n".join(['{"type":"system"}', *righe, "non json"]), encoding="utf-8")
+    return path
+
+
+class StadiTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_skill_read_is_not_invoked(self):
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [
+                ("Skill", {"skill": "cycle"}),
+                ("Read", {"file_path": ".claude/skills/eval/SKILL.md"}),
+            ],
+        )
+        skill, testo = MODULE.tracce(giro)
+        self.assertEqual(skill, {"cycle"})
+        self.assertEqual(
+            MODULE.lacune(["perceive"], skill, testo),
+            ["perceive dichiarato senza traccia: skill eval non invocata"],
+        )
+
+    def test_compare_needs_goal_and_threads(self):
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [("Skill", {"skill": "eval", "args": "all"}), ("Read", {"file_path": "/r/goal.md"})],
+        )
+        skill, testo = MODULE.tracce(giro)
+        self.assertEqual(
+            MODULE.lacune(["perceive", "compare"], skill, testo),
+            ["compare dichiarato senza traccia: i3/ non toccato"],
+        )
+
+    def test_full_round_is_covered(self):
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [
+                ("Skill", {"skill": "eval"}),
+                ("Skill", {"skill": "exec"}),
+                ("Read", {"file_path": "goal.md"}),
+                ("Bash", {"command": "ls i2/ i3/ o2/"}),
+                ("Read", {"file_path": "o1/plan.md"}),
+            ],
+        )
+        skill, testo = MODULE.tracce(giro)
+        self.assertEqual(MODULE.lacune(sorted(MODULE.STADI), skill, testo), [])
+
+    def test_outcomes_name_the_stages(self):
+        self.assertEqual(MODULE.stadi_esiti(["perceive=vuoto plan=materia"]), ["perceive", "plan"])
+
+    def test_missing_attempts_log_is_reported(self):
+        righe, trovate = MODULE.verifica_stadi(self.dir)
+        self.assertEqual(trovate, [])
+        self.assertIn("nessuna chiusura", righe[0])
 
 
 class ProssimoTests(unittest.TestCase):

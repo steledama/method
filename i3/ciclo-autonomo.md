@@ -59,6 +59,16 @@ riletto contro le fonti.
   tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia`, `norvegia` e Windows non sono leggibili da
   `deck`.
+- **Fedeltà degli esiti**: «riuscito» non vuol dire «eseguito». Il
+  2026-11-07, dopo il caso `nixos`, la verifica ha trovato che nessun giro
+  di nessun repo invoca `eval` o `exec` come skill. `Esiti:` nomina sempre i
+  sei stadi, e `goal.md` lo legge quasi nessuno, quindi il verdetto dei fili
+  non si è mai rinnovato nei giri
+  (`i1/giri-stadi-dichiarati-senza-traccia-2026-11-07.md`). È un segnale
+  contro la misura, non un atto fuori delega: la KB non mostra danni. Il
+  canone ora chiede l'invocazione, un minimo per stadio e la verifica ex post
+  `commit_gate.py stadi`. La misura torna leggibile quando «Stadi dei giri»
+  di `adottanti.py audit` è senza rossi.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
   `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto

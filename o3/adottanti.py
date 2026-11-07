@@ -17,7 +17,8 @@ dominio, dati personali compresi, resta fuori.
 `fetch` che il chiamante ha già fatto, ricostruisce le viste in una cartella
 temporanea che poi rimuove e interroga `/_stato` delle viste pubblicate. Del
 dominio tocca solo i conteggi del plan e i nomi delle catture «da inoltrare»;
-non scrive nei checkout. Stampa un rapporto i1 dove ogni scarto è una riga
+non scrive nei checkout. Delle trascrizioni dei giri legge, con
+`commit_gate.py stadi`, solo skill invocate e path toccati. Stampa un rapporto i1 dove ogni scarto è una riga
 `ROSSO`: la classificazione resta al giudizio della skill.
 """
 
@@ -472,6 +473,21 @@ def numeri(nome: str, checkout: Path) -> str:
     )
 
 
+def stadi_giro(nome: str, checkout: Path) -> list[str]:
+    """Stadi di `Esiti:` dell'ultimo giro senza traccia nella trascrizione;
+    solo nomi di stadi e di path, il dominio resta fuori."""
+    sys.path.insert(0, str(ROOT / "o3"))
+    import commit_gate
+
+    if not (checkout / commit_gate.TENTATIVI).exists():
+        return [f"{nome}: nessuna trascrizione dei giri sull'host"]
+    righe, trovate = commit_gate.verifica_stadi(checkout)
+    if not trovate:
+        return [f"{nome}: stadi ok" if "dichiarati" in righe[0] else f"{nome}: {righe[0]}"]
+    stadi = " ".join(t.split()[0] for t in trovate)
+    return [f"ROSSO {nome}: stadi dichiarati senza traccia nell'ultimo giro: {stadi}"]
+
+
 def audit(tutti: dict[str, Path], build: bool = True) -> list[str]:
     testi = voci()
     mancanti = [f"ROSSO {n}: checkout assente su questo host" for n in assenti()]
@@ -486,6 +502,7 @@ def audit(tutti: dict[str, Path], build: bool = True) -> list[str]:
             [r for n, c in tutti.items() for r in casi(n, c)] or ["nessuno"],
         ),
         ("Code e giri", [numeri(n, c) for n, c in tutti.items()]),
+        ("Stadi dei giri", [r for n, c in tutti.items() for r in stadi_giro(n, c)]),
     ]
     righe = [
         f"# Audit adottanti, {dt.date.today().isoformat()}, metodo a {commit(ROOT, 'HEAD')}",

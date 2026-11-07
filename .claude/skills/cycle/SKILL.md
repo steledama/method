@@ -6,7 +6,7 @@ metadata:
 ---
 
 Compi un giro completo del ciclo d'azione: `eval all`, poi `exec all`, poi
-`/commit`, seguendo le skill `eval`, `exec` e `commit` del repository. È il
+`/commit`, invocando le skill `eval`, `exec` e `commit` del repository. È il
 **ciclo congiunto** di [`autonomy.md`](../../../autonomy.md): la verità prima
 delle priorità, le priorità prima del commit. La skill non aggiunge stadi né
 giudizi: è la composta (`kb/skill-composition.md`), decide ordine e
@@ -65,6 +65,20 @@ non è concesso, e allora conta la classe di quel pezzo. `python3 -c`,
 scritture e letture fuori perimetro sono vincoli voluti
 (`kb/agent-as-user.md`).
 
+**Stadi.** Invoca `eval all` ed `exec all` col tool Skill e segui i loro
+stadi: leggere questa skill o il `SKILL.md` di un braccio non vale come
+invocazione. Ogni stadio ha un **minimo** di letture che lascia traccia nella
+trascrizione, scritto in fondo alla sua sezione in `eval` ed `exec`; il
+prompt del repo lo adatta col dominio aggiungendo gesti, mai togliendone. Una
+procedura del dominio al centro degli atti del giro, come `/manutenzione` di
+`nixos`, sta dentro `perceive` e `perform`, non al loro posto: dal 5
+novembre 2026 i giri di `nixos` si sono ridotti a quella procedura più un
+ritocco al task in testa, e in tutti i 21 giri dal 17 ottobre il trailer
+dichiarava i sei stadi senza che uno leggesse `goal.md` (caso
+`nixos`, `i1/ciclo-stadi-saltati-20261107.md` di quel repo). Uno stadio
+che il giro non compie si dichiara: resta fuori da `Esiti:` e va in
+`Attenzione:` col motivo.
+
 **Durante il giro.** Non fare domande. Il giro pianifica i task ma non li
 esegue (`kb/tasks.md`, «Task e giro»). Una notizia nuova si traduce in plan
 e `o2/`: informazione corretta, specifica aggiornata, priorità e dipendenze,
@@ -96,7 +110,8 @@ verifiche del repo, `python3 o3/commit_gate.py prima`, devono passare; se una
 fallisce, niente commit e working tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
 con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 `Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
-senza trailer di coautoria. `Esiti:` nomina i sei stadi, non gli archi, e
+senza trailer di coautoria. `Esiti:` nomina gli stadi eseguiti col loro minimo, non gli archi:
+`vuoto` è lo stadio che ha girato senza materia, mai quello saltato.
 `Prossimo:` prende una delle forme di `/commit`:
 
 ```
@@ -121,7 +136,7 @@ a richiesta»). Contiene:
 
 - esito dell'avvio, SHA del commit ed esito del push, oppure lo stop e il
   suo motivo;
-- per stadio, `materia` o `vuoto` e cosa è cambiato;
+- per stadio eseguito, `materia` o `vuoto` e cosa è cambiato;
 - la visione d'insieme di `exec plan` (passo 3c): cosa torna nei giri della
   settimana, cosa è fermo, cosa scade nella catena, le tendenze; «nessun
   rilievo» se è pulita;
@@ -136,9 +151,21 @@ a richiesta»). Contiene:
 - dinieghi del giro, ciascuno come vincolo voluto, lacuna o attrito
   dell'harness (`kb/agent-as-user.md`) con la causa accertata o l'ipotesi;
   un gesto abbandonato si dichiara come tale;
-- incertezze, verifiche non eseguite, errori scoperti con la correzione.
+- incertezze, verifiche non eseguite, errori scoperti con la correzione;
+- l'autovalutazione, in due parti: gli **stadi**, cioè per ognuno dei sei
+  stadi se è stato eseguito col suo minimo e cosa ne manca, e la
+  **procedura**, cioè cosa è costato passaggi, tempo o dinieghi senza
+  servire, con al più una proposta. Uno stadio mancante va in `Attenzione:`.
+  L'autovalutazione della sola procedura del dominio non vede il giro che si
+  riduce a quella procedura: in `nixos` ha chiuso con `Attenzione: nessuna`
+  dal 5 al 7 novembre 2026.
 
 L'**ultima riga** è `Attenzione: nessuna` oppure `Attenzione: <voci>`, con
 le proposte da decidere, le incertezze e gli errori che chiedono uno sguardo
 del custode. La home ne ricava il semaforo del giro: se la riga manca, il
-giro risulta giallo. Il giudizio alza, non abbassa.
+giro risulta giallo. Il giudizio alza, non abbassa. Le attenzioni hanno
+memoria. Una voce già presente nel resoconto precedente e invariata porta
+`(invariata dal <data>)`, così si conta e non si legge come una novità. Una
+voce lasciata «non indagata» la riprende `perceive` nel giro seguente. Se
+resta aperta oltre quel giro, diventa un'attesa o una voce nel task `o2/`
+pertinente, così non sparisce dal resoconto senza un esito.
