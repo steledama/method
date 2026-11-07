@@ -194,6 +194,12 @@ L'arresto per `RuntimeMaxSec` e la sua traccia nel journal: nessun giro ha
 ancora toccato il tempo massimo di 45 minuti. Il contratto del lanciatore
 dovrà dire come lo registra.
 
+La riga `Attenzione:` del giro precedente non sta nella `chiusura` di
+`tentativi.jsonl`: il giro di `method` del 2026-11-07 l'ha ripresa con un
+`grep` sulla trascrizione, che ha restituito anche il testo delle skill
+lette. Il contratto del lanciatore potrebbe copiare quella riga nella
+`chiusura`, accanto a `oggetto`, da proporre al custode con le domande aperte.
+
 ## Criterio di chiusura
 
 Il custode decide le domande aperte. Lo script canonico gira in `method` e

@@ -49,9 +49,12 @@ riletto contro le fonti.
   `o2/lanciatore-ciclo-nel-metodo.md`. Il 2026-11-06 `danea-auto` non ha
   il commit del giro su `origin`, pur col timer delle 08:10 e la ripresa
   delle 10:10 (`14b1231`): il fetch delle 15:00 è riuscito e `origin/main`
-  resta a `0840a4b` del 05/11. Da `deck` non si vede se il giro sia
-  mancato, fermo o senza push, perché i tentativi di Windows non si leggono
-  da qui: la causa va accertata su `danea2`. Gli scarti prima del 22/10 hanno
+  resta a `0840a4b` del 05/11. Il 07/11 su `origin` arriva solo il giro
+  della ripresa delle 10:10 (`6ebecfb`), nessuno delle 08:10: è il secondo
+  giorno di fila senza un commit del timer. Da `deck` non si vede se il giro
+  sia mancato, fermo o senza push, perché i tentativi di Windows non si
+  leggono da qui: la causa va accertata su `danea2`, voce in
+  `o2/pilota-ciclo-autonomo.md`. Gli scarti prima del 22/10 hanno
   avuto causa trovata e corretta (`nixos` `101e32b`,
   `i1/arresto-economia-fuori-giri-2026-10-21.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
