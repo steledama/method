@@ -20,3 +20,7 @@ fallisce_se = '^- [1-9]\d* (problemi strutturali|link rotti fuori dai nodi)'
 [[controllo]]
 quando = "*.py"
 comando = ["python3", "-m", "unittest", "discover", "tests"]
+
+[[controllo]]
+quando = "*.md"
+comando = ["python3", "o3/traduzioni.py", "check"]

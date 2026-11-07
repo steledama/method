@@ -1,7 +1,6 @@
 ---
-sintesi: "Il custode ha deciso il 2026-11-07 che la lingua canonica di method è l'inglese e l'italiano è secondario. Resta da decidere come si deriva l'italiano senza raddoppiare la manutenzione: cosa si traduce, dove vive la copia e come se ne verifica l'allineamento."
+sintesi: "Inglese lingua canonica, italiano secondario (custode, 2026-11-07). Forma decisa e fissata in kb/translation.md con il controllo o3/traduzioni.py nel gate; restano le traduzioni a lotti, da avviare su indicazione del custode."
 ciclo: dev
-decidere: "Con quale perimetro, collocazione e verifica di allineamento si deriva l'italiano dall'inglese canonico?"
 ---
 
 # Traduzione in inglese
@@ -13,33 +12,33 @@ La proposta l'ha portata la sessione `nixos` su `deck`, inoltrata il
 (commit `d00059d`, che copre anche le traduzioni), poi la traduzione. Il
 messaggio non porta autorizzazioni nuove.
 
-## Decisione presa
+## Decisioni
 
-Il 2026-11-07 il custode ha stabilito che la lingua principale è l'inglese
-e quella secondaria l'italiano. L'inglese fa fede: una differenza fra le
-due versioni si risolve correggendo l'italiano.
+Il 2026-11-07 il custode ha deciso:
 
-## Punti da decidere
+- la lingua principale è l'inglese, quella secondaria l'italiano: fa fede
+  l'inglese;
+- accettate le proposte su perimetro, allineamento, adottanti e ordine;
+- collocazione nel file gemello (`kb/node.it.md`), non in un albero
+  separato;
+- si fissa la forma, le traduzioni non ancora.
 
-- **Perimetro.** Proposta: si traduce in italiano solo la superficie letta
-  da fuori, cioè `README.md`, `kb/` e `presentation/`. Le collezioni di
-  lavoro (`i1/`–`i3/`, `o1/`–`o3/`), i register, `CLAUDE.md`, `AGENTS.md`,
-  `autonomy.md` e le skill passano al solo inglese. Senza questo taglio ogni
-  giro del ciclo raddoppia le scritture.
-- **Collocazione.** Le due forme possibili sono un file gemello
-  (`kb/node.it.md`) oppure un albero separato (`it/kb/node.md`). Il gemello
-  tiene vicine le due versioni e rende evidente quando ne manca una;
-  l'albero separato lascia `kb/` pulita per gli adottanti, che la leggono
-  via symlink.
-- **Allineamento.** Proposta: l'italiano è una derivazione, come le viste.
-  Lo produce l'agente e porta il commit della fonte inglese da cui deriva;
-  il gate di `/commit` segnala in modo deterministico la copia rimasta
-  indietro. Un nodo inglese cambiato con l'italiano vecchio è un ritardo
-  dichiarato, non un errore che blocca il commit.
-- **Adottanti.** Leggono `kb/` via symlink e hanno code e `kb/` locale in
-  italiano. Il passaggio del canone all'inglese cambia ciò che vedono e le
-  skill che forkano. Da decidere se lo recepiscono con il normale `/method`
-  o se serve un avviso apposito; la delega di questo repo non li copre.
-- **Ordine.** Proposta: prima si fissa la forma in un nodo `kb/`
-  (generalizzabile: qualunque adottante bilingue la riusa), poi si traduce
-  a lotti partendo da `README.md` e dall'hub `cognitive-artifact-design.md`.
+La forma vive in [translation](../kb/translation.md); il controllo
+deterministico è `o3/traduzioni.py check`, lanciato dal gate di `/commit`.
+
+## Da fare, su indicazione del custode
+
+- **Lotti.** Ogni lotto riscrive in inglese il sorgente e ne deriva il
+  gemello italiano con `fonte:`. Si comincia da `README.md` e dall'hub
+  `cognitive-artifact-design.md`, poi i nodi `kb/` e il deck.
+- **Solo inglese.** Le collezioni `i1/`–`i3/` e `o1/`–`o3/`, i register,
+  `CLAUDE.md`, `AGENTS.md`, `autonomy.md` e le skill passano all'inglese senza
+  gemello.
+- **Strumenti.** Le etichette che gli strumenti cercano nei testi (per
+  esempio `Connessioni:` in `o3/kb_tools.py`, le sezioni delle viste) vanno
+  rese bilingui o tradotte insieme al lotto che le tocca, perché l'audit non
+  si rompa.
+- **Adottanti.** Il cambio di lingua del canone si recepisce con il normale
+  `/method` di ciascun adottante: la delega di questo repo non li copre.
+  Quando i primi nodi passano all'inglese, una prescrizione in `o3/` lo
+  segnala.

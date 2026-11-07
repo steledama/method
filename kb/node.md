@@ -46,7 +46,8 @@ Caratteristiche:
 - frontmatter minimo obbligatorio: `stato` (`bozza`, `iniziale`, `maturo`), con
   il meccanismo di estensione descritto sotto; le date vivono in Git
 - nome file inglese, tutto minuscolo con trattini, singolare come forma canonica
-- prosa italiana per i concetti del dominio
+- prosa nella lingua canonica del progetto, dichiarata nel README; l'altra
+  lingua, se c'è, vive in una copia gemella derivata (cfr. `translation`)
 - H1 inglese obbligatorio, coerente con il filename e leggibile anche fuori da
   esso
 - sezioni non gerarchiche: preferire label testuali e bullet di primo livello a
@@ -150,3 +151,4 @@ Connessioni:
 - [knowledge-base](knowledge-base.md)
 - [cognitive-fidelity](cognitive-fidelity.md)
 - [connection](connection.md)
+- [translation](translation.md)

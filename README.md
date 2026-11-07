@@ -149,6 +149,14 @@ dei due register e delle connessioni intenzionali vive in
 [`world-register`](kb/world-register.md) e
 [`method-development`](kb/method-development.md).
 
+## Lingua
+
+La lingua canonica di `method` è l'inglese, l'italiano è secondario: README,
+nodi `kb/` e deck avranno una copia gemella `nome.it.md` derivata
+dall'inglese, il resto vivrà in sola lingua inglese. La forma è in
+[`translation`](kb/translation.md); la traduzione, ancora da fare, procede
+a lotti dal task [`o2/traduzione-inglese.md`](o2/traduzione-inglese.md).
+
 ## Licenza
 
 Copyright © 2026 Stefano Pompa. Il repository usa due licenze copyleft: chi

@@ -24,6 +24,8 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
 - [cognitive-fidelity](cognitive-fidelity.md) — Verifica strutturale, fattuale e
   semantica dell'aderenza al progetto reale
+- [translation](translation.md) — Lingua canonica e copia gemella derivata:
+  perimetro tradotto, impronta `fonte:` e ritardo dichiarato
 - [design-principles](design-principles.md) — Principi guida: universali,
   code-based e specifici di progetto
 

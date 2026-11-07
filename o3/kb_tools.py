@@ -39,6 +39,7 @@ CODE_EXTENSIONS = {
     ".mjs",
     ".cjs",
 }
+TRANSLATION_RE = re.compile(r"^.+\.[a-z]{2}\.md$")
 CODE_EXCLUDE_PARTS = {
     ".git",
     ".direnv",
@@ -188,8 +189,14 @@ def doc_files(root: Path) -> list[Path]:
         path
         for directory in existing_doc_dirs(root)
         for path in directory.glob("*.md")
-        if path.resolve() != catalog_resolved
+        if path.resolve() != catalog_resolved and not is_translation(path)
     )
+
+
+def is_translation(path: Path) -> bool:
+    """Copia gemella tradotta (`nome.<lingua>.md`): non è un nodo, ne deriva
+    (cfr. `translation`). Restano controllati i suoi link."""
+    return TRANSLATION_RE.match(path.name) is not None
 
 
 def catalog_path(root: Path) -> Path | None:

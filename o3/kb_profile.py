@@ -57,7 +57,12 @@ def node_files(root: Path) -> tuple[list[Path], list[str]]:
             path = base / name
             if path.suffix != ".md":
                 continue
-            if path.is_symlink() or name.startswith(".") or path == kb / "kb.md":
+            if (
+                path.is_symlink()
+                or name.startswith(".")
+                or path == kb / "kb.md"
+                or re.match(r"^.+\.[a-z]{2}\.md$", name)
+            ):
                 excluded.append(path.relative_to(root).as_posix())
             else:
                 included.append(path)

@@ -41,6 +41,11 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
   1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
   fatti o fonti. Test: `python3 -m unittest discover -s tests -p 'test_kb_profile.py'`.
+- `traduzioni.py check` — allineamento delle copie gemelle `nome.<lingua>.md`
+  al sorgente (cfr. [translation](../kb/translation.md)): esce con errore per
+  copia senza sorgente o senza `fonte:`, segnala senza fermare quelle
+  indietro; `fonte <file>` stampa la riga da scrivere nella copia. Lo lancia
+  il gate di `/commit`. Test: `python3 -m unittest discover -s tests -p 'test_traduzioni.py'`.
 - `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
   cfr. [view](../kb/view.md)):
   - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i

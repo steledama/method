@@ -81,6 +81,8 @@ README, CLAUDE, un register, un indice o un nodo, va rimossa o ricollocata.
 - nomi strutturali e register in lowercase;
 - nodi `kb/` in inglese, lowercase, singolare e con trattini;
 - nodi `kb/*.md`: frontmatter `stato` e footer `Connessioni:`;
+- copie tradotte: gemello `nome.<lingua>.md` col solo `fonte:`, non sono
+  nodi (cfr. `translation`);
 - item delle collezioni: frontmatter `ciclo: dev|runtime`;
 - task `o2/`: frontmatter `sintesi` e `ciclo`;
 - README, CLAUDE, AGENTS, register e indici: nessun frontmatter;
