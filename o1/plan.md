@@ -20,6 +20,7 @@ pianificazione.
 | dev   | S   | Pilota del ciclo autonomo       | —    |
 | dev   | S   | Uscita dal deck                 | —    |
 | dev   | S   | Pubblicazione decisa dal repo   | —    |
+| dev   | S   | Traduzione in inglese           | —    |
 | dev   | 2   | Snellire /adottanti             | —    |
 
 ## Scadenze
