@@ -27,7 +27,15 @@ che il task è aperto; priorità e dipendenza vivono nel plan. Il corpo descrive
 lo stato corrente del lavoro, non accumula diari di sessione.
 
 Alla chiusura, contenuti stabili e decisioni risalgono nella KB o nei fili;
-riga, indice e file vengono rimossi insieme. Prima di eliminare copie operative
+riga, indice e file vengono rimossi insieme, e con loro ogni rimando che il
+repo tiene al task: la chiosa `w`/`p` della legenda e le voci dei registri
+del dominio che lo nominano per titolo o percorso. Un rimando rimasto è un
+dato vecchio che un giro legge come vivo. I link markdown verso il file
+rimosso li segnala l'audit della KB, la legenda il contratto del plan. I
+registri del dominio li conosce solo l'adottante, che li dichiara nella
+propria procedura di chiusura e, dove può, li controlla con un proprio
+strumento (`nixos`, `df6af83`: voce del registro di manutenzione rimasta sei
+giorni dopo l'uscita del suo task dal plan). Prima di eliminare copie operative
 nel Mondo si verifica che abbiano perso significato autonomo e che esistano
 target e autorità espliciti.
 

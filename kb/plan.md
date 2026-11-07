@@ -45,7 +45,10 @@ Un'attesa che cambia lettera prende il primo libero della nuova. Così un
 riferimento in un commit o fra sessioni resta vero finché l'attesa è aperta,
 mentre rinumerare in ordine di tabella cambierebbe nome a righe intatte. La
 legenda segue l'ordine dei numeri, dichiara causa e condizione di risveglio e
-non diventa un secondo diario.
+non diventa un secondo diario. Indici e chiose si corrispondono: una chiosa
+senza la riga che porti il suo indice in `Dip.` è il resto di un'attesa
+chiusa o di un task uscito dal plan, e va tolta. Un indice senza chiosa è
+un'attesa senza causa. Le due cose le segnala `build.py --check`.
 
 La lettera si decide da chi fa la prossima mossa, non da quanto lavoro resta.
 Un task col codice applicato che aspetta un'occorrenza reale per validarsi è

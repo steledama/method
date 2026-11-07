@@ -291,6 +291,34 @@ def _check_obiettivi(root: Path, rows: list[PlanRow]) -> list[str]:
     return errors
 
 
+# La chiosa apre il suo bullet con l'indice, nelle grafie in uso:
+# «- `w3` — …», «- w1 — …», «- p1 → …», «- **w1 · Titolo** — …».
+_LEGEND_ENTRY = re.compile(r"^\s*[-*]\s+[*`]*([wp]\d+)!?[*`]*\s*[—–:→·-]", re.MULTILINE)
+_DEPENDENCY_INDEX = re.compile(r"\b([wp]\d+)!?(?![\w])")
+
+
+def _check_legenda(root: Path, rows: list[PlanRow]) -> list[str]:
+    """Indici `w`/`p` della colonna `Dip.` contro la legenda del plan
+    (`kb/plan.md`): una chiosa senza riga è il rimando di un task chiuso
+    rimasto nel plan, un indice senza chiosa è un'attesa senza causa."""
+    text = (root / "o1" / "plan.md").read_text(encoding="utf-8")
+    legend = set(_LEGEND_ENTRY.findall(text))
+    used: dict[str, str] = {}
+    for row in rows:
+        for index in _DEPENDENCY_INDEX.findall(row.dependency):
+            used.setdefault(index, row.task)
+    errors = [
+        f"legenda del plan: {index} senza riga che lo porti in Dip. "
+        "(chiosa di un'attesa chiusa o di un task uscito dal plan)"
+        for index in sorted(legend - used.keys())
+    ]
+    errors += [
+        f"legenda del plan: {index} in Dip. di «{used[index]}» senza chiosa"
+        for index in sorted(used.keys() - legend)
+    ]
+    return errors
+
+
 def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
     """Legge plan e `o2/` come un contratto: rompe invece di degradare.
 
@@ -338,6 +366,7 @@ def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
             )
 
     errors += _check_obiettivi(root, rows)
+    errors += _check_legenda(root, rows)
 
     if errors:
         raise SystemExit("contratto plan × o2 violato:\n- " + "\n- ".join(errors))
