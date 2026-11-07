@@ -82,6 +82,19 @@ sessione`). Il giro lo riconosce confrontando i fatti in ingresso con le `w`
   risposte, la cecità è una lacuna da proporre (`agent-as-user`), non un
   `by:` da rinnovare.
 
+Un arrivo può coprire l'attesa solo in parte. Quando la `w` aspetta la
+risposta a una nostra richiesta, chi riconosce l'arrivo ne confronta il
+contenuto con ciò che la richiesta chiedeva, letto dal messaggio inviato o
+dalla chiosa, che per questo lo tiene raggiungibile. Ogni parte non coperta
+esce in modo esplicito: resta nell'`arrival:` della `w`, diventa una mossa
+nostra (una `p` o un `decidere:`) oppure cade col motivo scritto. Nel giro
+senza custode l'arrivo parziale va anche nella riga `Attenzione:`. Una
+risposta che scioglie l'attesa senza questo confronto toglie dal radar
+proprio le domande rimaste aperte, spesso le sostanziali (giro di
+`economia`, 2026-11-06: a una richiesta in tre punti il notaio risponde col
+solo elenco dei documenti, l'attesa si chiude e i due punti sostanziali li
+recupera il custode il giorno dopo).
+
 Ogni `w` e ogni `p` porta inoltre `by:`, la data di riesame (`by: 2026-11-04`,
 o il solo mese). Su una `w` che arriva da un canale non letto dal giro è una
 scadenza di sollecito: oltre la data il silenzio è il segnale. Altrimenti è un
