@@ -1,7 +1,6 @@
 ---
-sintesi: "Il deck non ha un'uscita: Reveal intercetta Alt+frecce e nella pagina nulla riporta alle viste. Rimedio canonico in due parti, Alt+frecce lasciate al browser e un link fisso «← viste», da far arrivare anche ai deck di dominio. Proposta da nixos il 2026-10-31, verificata sul sorgente di Reveal."
+sintesi: "Il deck non ha un'uscita: Reveal intercetta Alt+frecce e nella pagina nulla riporta alle viste. Rimedio canonico in due parti, Alt+frecce lasciate al browser e un link fisso «← viste», da far arrivare anche ai deck di dominio. Adottato dal custode il 2026-11-08, da implementare."
 ciclo: dev
-decidere: "Adottare il rimedio in due parti (keyboardCondition che ignora Alt e link fisso alle viste) come canone, con un frammento comune che anche i DECK_BUILDER includono?"
 ---
 
 # Uscita dal deck
@@ -34,7 +33,10 @@ pandoc 3.7.0.2 di `deck`:
   `Reveal.configure({keyboardCondition: e => !e.altKey})` nell'`include-after`
   (riga 317 del template, dopo l'inizializzazione alla 95).
 
-## Il rimedio proposto
+## Il rimedio
+
+Adottato dal custode il 2026-11-08, così come proposto, compreso il frammento
+comune che i `DECK_BUILDER` includono.
 
 - **Alt+frecce al browser**: si perde solo il salto dei frammenti, che i
   deck del metodo non usano;
@@ -69,7 +71,7 @@ propria copia per non creare drift. La prescrizione nomina `economia` e
 
 ## Criterio di chiusura
 
-Il custode decide. Il frammento e il controllo girano in `method`, test
+Il frammento e il controllo girano in `method`, test
 compresi; la prescrizione è aperta. Riga del plan, voce in `o2/tasks.md` e
 questo file si rimuovono nello stesso commit.
 

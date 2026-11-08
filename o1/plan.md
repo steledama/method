@@ -11,18 +11,18 @@ pianificazione.
 
 ## Task
 
-| Ciclo | Ob. | Task                            | Dip. |
-| ----- | --- | ------------------------------- | ---- |
-| dev   | S   | Agente come utilizzatore        | —    |
-| dev   | S   | Progettazione delle skill       | —    |
-| dev   | S   | Lanciatore del ciclo nel metodo | —    |
-| dev   | S   | Ricorrenza dei dinieghi         | —    |
-| dev   | S   | Pilota del ciclo autonomo       | —    |
-| dev   | S   | Uscita dal deck                 | —    |
-| dev   | S   | Pubblicazione decisa dal repo   | —    |
-| dev   | S   | Traduzione in inglese           | —    |
-| dev   | S   | Strumento delle scadenze        | —    |
-| dev   | 2   | Snellire /adottanti             | —    |
+| Ciclo | Ob. | Task                            | Dip.                              |
+| ----- | --- | ------------------------------- | --------------------------------- |
+| dev   | S   | Agente come utilizzatore        | —                                 |
+| dev   | S   | Progettazione delle skill       | —                                 |
+| dev   | S   | Lanciatore del ciclo nel metodo | —                                 |
+| dev   | S   | Ricorrenza dei dinieghi         | —                                 |
+| dev   | S   | Pilota del ciclo autonomo       | —                                 |
+| dev   | S   | Uscita dal deck                 | —                                 |
+| dev   | S   | Pubblicazione decisa dal repo   | ↳ Lanciatore del ciclo nel metodo |
+| dev   | S   | Traduzione in inglese           | —                                 |
+| dev   | S   | Strumento delle scadenze        | —                                 |
+| dev   | 2   | Snellire /adottanti             | —                                 |
 
 ## Ricorrenze
 

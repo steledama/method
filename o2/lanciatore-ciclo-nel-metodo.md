@@ -1,7 +1,6 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Problema esposto con domande aperte; un disegno minimale proposto il 2026-10-29."
+sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; da implementare, prima in method."
 ciclo: dev
-decidere: "Adottare il lanciatore minimale col recinto nei permessi dell'harness e la sandbox dell'host come rinforzo facoltativo?"
 ---
 
 # Lanciatore del ciclo nel metodo
@@ -22,9 +21,23 @@ meccanismo è collaudato e in esercizio in sei repo
 nella prescrizione `ciclo-autonomo`, recepita da tutti e chiusa il
 2026-10-28. La storia della scelta e della prescrizione resta in git.
 
-Il meccanismo resta in vigore finché il custode non decide su questo task.
-Per ora il problema si espone e basta, con le domande aperte, per tornarci
-con calma.
+Il meccanismo resta in vigore finché lo script canonico non lo sostituisce.
+
+## Decisioni del custode (2026-11-08)
+
+Adottato il disegno minimale della proposta del 2026-10-29, con queste scelte:
+
+- **Recinto:** i permessi dell'harness, versionati nel repo. La sandbox
+  systemd resta accesa dove esiste: «facoltativa» vale per i sistemi che non
+  ce l'hanno, come Windows, e non abbassa la soglia su `deck`.
+- **Come arriva lo script:** dal checkout vivo di `method`, come il gate, con il
+  `pull --ff-only` del checkout all'avvio e la rete in chiusura. Niente versione
+  fissata.
+- **Linguaggio:** Python.
+- **Ordine:** prima `method`, poi `danea-auto` come prova su un altro sistema
+  operativo; il modulo `nixos` si riduce dopo.
+
+Le altre domande qui sotto si decidono quando il lavoro le raggiunge.
 
 ## Il segnale
 
@@ -202,7 +215,7 @@ lette. Il contratto del lanciatore potrebbe copiare quella riga nella
 
 ## Criterio di chiusura
 
-Il custode decide le domande aperte. Lo script canonico gira in `method` e
+Lo script canonico gira in `method` e
 in almeno un adottante su un altro sistema operativo, scrive i tentativi
 nel `i1/giri/` del repo, arresti prima del giro compresi, e il modulo
 `nixos` si riduce all'adattatore dello scheduler. Riga del plan, voce in

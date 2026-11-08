@@ -1,7 +1,6 @@
 ---
-sintesi: "Chi serve cosa lo decide oggi nixos (o3/presentations.nix), fuori dai repo serviti. Proposta da nixos il 2026-10-31: il repo dichiara dove si pubblica, il metodo fissa il contratto agnostico, l'host una porta sola con un servitore per tutti i checkout che lo nominano. Valutata: direzione coerente col lanciatore, cinque punti da decidere."
+sintesi: "Chi serve cosa lo decide oggi nixos (o3/presentations.nix), fuori dai repo serviti. Adottato dal custode il 2026-11-08: il repo dichiara dove si pubblica con un valore solo, una porta per host con uno smistatore davanti a un servitore per repo, un elenco dei checkout ammessi sull'host. Da implementare dopo il lanciatore."
 ciclo: dev
-decidere: "Adottare SERVITA_SU nel repo e una porta sola per host, e con quale forma del servitore (multi-root o smistatore davanti ai servitori per repo)?"
 ---
 
 # Pubblicazione decisa dal repo
@@ -35,6 +34,23 @@ Tre livelli:
    nome e ruoli; il suo veto resta clonare, eseguire, la porta.
 
 Accendere e spegnere diventa un commit nel repo, senza rebuild.
+
+## Decisioni del custode (2026-11-08)
+
+Adottata la direzione, da eseguire dopo il
+[lanciatore](lanciatore-ciclo-nel-metodo.md), con queste scelte sui punti
+sotto:
+
+- **Un solo host privilegiato:** `SERVITA_SU` è un valore solo, host o ruolo,
+  controllato dalla build.
+- **Forma del servitore:** una porta per host, con uno smistatore canonico
+  davanti a un servitore per repo, ciascuno col codice del suo checkout.
+- **Ammissione:** un elenco sull'host dice quali checkout può eseguire, distinto
+  da `SERVITA_SU`: sono due consensi diversi. È anche ciò che dice allo
+  smistatore quali servitori avviare.
+
+Restano da fissare nell'implementazione chi risolve i ruoli e il
+sotto-percorso delle pagine del ciclo.
 
 ## Valutazione del 2026-10-31
 
@@ -126,7 +142,7 @@ nel metodo; una prescrizione porta campo e codice agli adottanti. Poi
 
 ## Criterio di chiusura
 
-Il custode decide i punti sopra. Il contratto è in `kb/view.md`, il campo e
+Il contratto è in `kb/view.md`, il campo e
 il servitore girano in `method` e in un adottante su un altro sistema
 operativo, la prescrizione è aperta. Riga del plan, voce in `o2/tasks.md` e
 questo file si rimuovono nello stesso commit.
