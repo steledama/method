@@ -5,7 +5,8 @@ Legge `o1/plan.md` del repo da cui è lanciato e stampa:
 - la catena cronologica di `## Scadenze` e `## Ricorrenze`. Una ricorrenza è
   `dovuta` dalla data raggiunta e `saltata` quando è passata anche la data più
   una cadenza. Una data passata in `## Scadenze` e un `entro` passato in
-  `## Ricorrenze` contano come scaduti; l'orologio nostro passato no;
+  `## Ricorrenze` contano come scaduti; l'orologio nostro passato no. I `by:` in
+  arrivo entrano nella catena come riesami, senza contare come scadenze;
 - i rilievi di forma: ogni voce delle due sezioni è una data interpretata o un
   rilievo col suo testo, mai uno scarto in silenzio;
 - le attese a finestra (`!`), a ogni esecuzione e senza condizione di distanza;
@@ -368,15 +369,30 @@ def _blocco(titolo: str, righe: list[str]) -> str:
     return "\n".join(["", titolo, "", *righe]) + "\n" if righe else ""
 
 
+def _riesami_in_arrivo(testo: str, oggi: date, finestra: int) -> list[tuple[date, str]]:
+    """I `by:` entro la finestra: restano date nostre, non contano come scadenze."""
+    arrivo: list[tuple[date, str]] = []
+    for attesa in attese(testo):
+        if attesa.by is None or not 0 <= (attesa.by - oggi).days <= finestra:
+            continue
+        distanza = (attesa.by - oggi).days
+        quando = f"fra {distanza} giorni" if distanza else "oggi"
+        nome = attesa.indice if attesa.task == "—" else f"{attesa.indice} · {attesa.task}"
+        arrivo.append((attesa.by, f"- riesame {quando} — {attesa.by.isoformat()} — {nome}"))
+    return arrivo
+
+
 def rapporto(testo: str, profilo: Profilo, oggi: date, finestra: int) -> tuple[str, bool]:
     lettura = leggi(testo, profilo)
     catena = [
-        f"- {stato} — {voce.data.isoformat()} — {voce.testo}"
-        for voce in sorted(lettura.voci, key=lambda voce: voce.data)
+        (voce.data, f"- {stato} — {voce.data.isoformat()} — {voce.testo}")
+        for voce in lettura.voci
         if (stato := voce.stato(oggi, finestra)) is not None
     ]
+    catena += _riesami_in_arrivo(testo, oggi, finestra)
     if catena:
-        uscita = "\n".join([f"Catena entro {finestra} giorni da {oggi.isoformat()}:", "", *catena])
+        righe = [riga for _, riga in sorted(catena, key=lambda coppia: coppia[0])]
+        uscita = "\n".join([f"Catena entro {finestra} giorni da {oggi.isoformat()}:", "", *righe])
         uscita += "\n"
     else:
         uscita = f"Nessuna voce entro {finestra} giorni da {oggi.isoformat()}.\n"

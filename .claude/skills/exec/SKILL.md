@@ -116,6 +116,10 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   register `goal.md` (un task senza obiettivo è un candidato al taglio);
   lo stato del lavoro resta nel plan e nei fili, senza ricopiarlo nel register. La
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
+- lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Ricorrenze»): catena a 45
+  giorni, attese a finestra, `by:` passati e rilievi di forma. Non rifare a mano
+  il confronto delle date. L'uscita 1 dice che c'è una scaduta: si tratta qui e
+  non ferma il commit. Un rilievo di forma si corregge nel plan
 - `## Ricorrenze` (`kb/plan.md`, «Ricorrenze»): una riga `task` arrivata alla
   data apre il task ordinario e avanza; una riga `sessione` dovuta va in
   `Attenzione:` nel giro senza custode; una riga senza procedura è un rilievo.
@@ -192,7 +196,7 @@ ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
   l'equilibrio
 - **decisioni ferme**: un task con `decidere:`, o con un passo che aspetta il
   custode, fermo da più di 7 giorni va in `Attenzione:` coi giorni di attesa
-- **catena delle scadenze** a 45 giorni, `## Ricorrenze` comprese, letta come sequenza: un anello senza
+- **catena delle scadenze** a 45 giorni, dall'uscita di `o3/scadenze.py` del passo 2, letta come sequenza: un anello senza
   task o senza data è un rilievo del passo 2
 - **canali delle attese**: un `arrival:` da un canale che il giro non legge
   per un permesso o uno strumento mancante non si rinnova in silenzio: è una

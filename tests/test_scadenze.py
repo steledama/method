@@ -215,6 +215,24 @@ class AtteseTests(unittest.TestCase):
         self.assertNotIn("RIESAME — p2", uscita)
         self.assertFalse(scaduta)
 
+    def test_by_in_arrivo_entra_nella_catena_senza_scaduta(self):
+        uscita, scaduta = MODULE.rapporto(self.PLAN, ISO, date(2026, 11, 5), 45)
+        self.assertIn("- riesame fra 2 giorni — 2026-11-07 — w1 · Primo", uscita)
+        self.assertIn("- riesame fra 25 giorni — 2026-11-30 — p2 · Secondo", uscita)
+        self.assertNotIn("2027-01-31", uscita)
+        self.assertFalse(scaduta)
+
+    def test_by_di_oggi_e_in_catena_e_non_ancora_riesame_passato(self):
+        uscita, _ = MODULE.rapporto(self.PLAN, ISO, date(2026, 11, 7), 45)
+        self.assertIn("- riesame oggi — 2026-11-07 — w1 · Primo", uscita)
+        self.assertNotIn("RIESAME — w1", uscita)
+
+    def test_by_in_arrivo_segue_l_ordine_cronologico(self):
+        plan = self.PLAN + "\n## Scadenze\n\n- **2026-11-20** — Mondo.\n"
+        uscita, _ = MODULE.rapporto(plan, ISO, date(2026, 11, 5), 45)
+        self.assertLess(uscita.index("w1 · Primo"), uscita.index("Mondo"))
+        self.assertLess(uscita.index("Mondo"), uscita.index("p2 · Secondo"))
+
     def test_finestre_stampate_senza_condizione_di_distanza(self):
         uscita, _ = MODULE.rapporto(self.PLAN, ISO, date(2030, 1, 1), 1)
         self.assertIn("- w1! — Primo", uscita)

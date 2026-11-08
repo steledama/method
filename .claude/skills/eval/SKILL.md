@@ -261,6 +261,11 @@ operativo di esecuzione. Stessa lente sui task `o2/`: i diari di sessione si
 potano a chiusura. È il gemello del passo «igiene» di `exec plan`, guardato dal
 versante opposto.
 
+Lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Ricorrenze»): una riga `saltata`
+più volte, o che da molte occorrenze non produce niente, è candidata a una
+cadenza più bassa o al taglio. Il numero fra parentesi dice quante occorrenze ha
+perso; il taglio resta una proposta.
+
 Migrare è **fondere, non cancellare**: prima di potare una copia, stabilisci
 quale delle due porta il fatto più fresco. L'assunzione naturale — la copia è
 stale, la destinazione è vera — non regge sempre: nella potatura di `economia`

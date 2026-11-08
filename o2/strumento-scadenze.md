@@ -16,9 +16,9 @@ urgenza: la prima `Prossima` di `nixos` è 2027-11.
 ## Perché non basta adottare `check_scadenze.py`
 
 Stato letto il 2026-11-08. Una sessione di `economia` ha recepito nel frattempo
-il contratto, in modifiche non ancora committate: `## Ricorrenze` e rilievi di
-forma ci sono. Lo strumento del canone serve comunque, perché una copia per
-adottante non regge le differenze che seguono.
+il contratto (`3edf44d`): `## Ricorrenze` e rilievi di forma ci sono. Lo
+strumento del canone serve comunque, perché una copia per adottante non regge
+le differenze che seguono.
 
 - La sua regex non riconosce nessuna delle 19 voci di `## Scadenze` di `bi`,
   `nixos-lavoro` e `salute`, che scrivono le date ciascuno a modo suo: con quel
@@ -44,6 +44,10 @@ girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
    `## Ricorrenze`. Gli appuntamenti passati si tolgono dal plan.
 3. **Date di `salute`:** il profilo ammette il formato `it`, perché quelle date
    le legge una persona; non si riscrivono in ISO.
+
+4. **Date nostre da tenere visibili:** restano nel `by:`, e un `by:` entro 45
+   giorni entra nella catena come riesame in arrivo, senza contare come scadenza
+   né toccare il codice di uscita. Quesito portato da `economia`.
 
 ## Forma dello strumento
 
@@ -75,16 +79,19 @@ girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
 1. Fatto il 2026-11-08: `o3/scadenze.py` e `tests/test_scadenze.py`. Provato
    sugli otto plan: su ognuno le righe delle due sezioni sono date, `config` o
    rilievi, nessuna sparisce.
-2. `kb/plan.md`: il canone fornisce lo strumento, con le decisioni 1 e 2.
-3. `/exec` ed `/eval` canoniche lo lanciano, `o3/ciclo/permessi.json` di
-   `method` lo concede. Finché manca la riga il giro non lo lancia: il giro
-   dell'08/11 l'ha provato ed è stato negato, e ha letto `## Ricorrenze` a
-   mano.
+2. Fatto il 2026-11-08: `kb/plan.md` dice che il canone fornisce lo strumento,
+   con le decisioni 1 e 2.
+3. Fatto il 2026-11-08: `/exec` ed `/eval` canoniche lo lanciano,
+   `o3/ciclo/permessi.json` di `method` lo concede.
 4. Prescrizione agli adottanti, ciascuno col proprio `/method`, senza cambio
    simultaneo:
-   - `economia` sposta in `## Ricorrenze` le righe con cadenza, che portano via
-     le `~`, poi cancella `check_scadenze.py` senza wrapper e aggiorna i
-     riferimenti; da fare quando la sessione aperta lì sul file ha chiuso;
+   - `economia` toglie da `## Scadenze` le tre righe con la `~` rimaste
+     (Caprioli, Arsini, consuntivo Tigli): sono date nostre e restano nel `by:`,
+     quello di Arsini riscritto col giorno. Aggiunge una riga `task` in
+     `## Ricorrenze` per il consuntivo, che torna ogni anno. Poi cancella
+     `check_scadenze.py` senza wrapper e aggiorna riferimenti e permessi. Fino
+     ad allora non tocca le tre righe: lo strumento attuale non mostra i `by:`
+     in arrivo;
    - `nixos` e `nixos-lavoro` tolgono da `maintenance-due.sh` il ramo `by:`, e
      tengono registro e voci orfane;
    - `bi` sposta il timetable e gli orologi manuali, che i rilievi faranno

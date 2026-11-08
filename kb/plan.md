@@ -96,7 +96,7 @@ solo elenco dei documenti, l'attesa si chiude e i due punti sostanziali li
 recupera il custode il giorno dopo).
 
 Ogni `w` e ogni `p` porta inoltre `by:`, la data di riesame (`by: 2026-11-04`,
-o il solo mese). Su una `w` che arriva da un canale non letto dal giro è una
+o il solo mese, che vale come il suo ultimo giorno). Su una `w` che arriva da un canale non letto dal giro è una
 scadenza di sollecito: oltre la data il silenzio è il segnale. Altrimenti è un
 riesame di pertinenza, perché la sonda garantisce che l'arrivo non sfugga, non
 che aspettarlo abbia ancora senso. Su una `p` è la data entro cui ci chiediamo
@@ -167,10 +167,9 @@ conta. Scrivere il ripiego col suo costo trasforma un'ansia in una decisione: si
 può scegliere di rischiare una finestra, non si può sceglierlo senza sapere cosa
 c'è dopo.
 
-Un adottante che implementa il controllo delle scadenze deve far comparire le
+Il controllo delle scadenze (`o3/scadenze.py`, cfr. «Ricorrenze») fa comparire le
 righe marcate a ogni esecuzione, senza condizione di distanza, senza contarle
-come scadute. È il contratto del controllo: il suo recepimento si verifica nel
-codice del fork, non si deduce dalla presenza di questo nodo.
+come scadute.
 
 ## Ricorrenze
 
@@ -240,19 +239,42 @@ col suo task, come ogni appuntamento fissato per un'occorrenza. La riga avanza
 all'apertura del task, perché da lì a sorvegliare sono il task e la scadenza.
 Una riga `task` non porta quindi `entro`.
 
-Un adottante che implementa il controllo delle scadenze unisce le due sezioni
-in una sola catena cronologica e dà a ogni riga uno stato: `dovuta` dalla data
-raggiunta, `saltata` quando è passata anche la data più una cadenza, cioè
-quando è andata persa un'occorrenza intera. Solo un `entro` passato conta come
-scaduta: l'orologio nostro passato si stampa senza toccare il codice di uscita,
-come un `by:`. Le righe `config` non hanno data da confrontare: se un giro
-manca lo dicono i log dello scheduler, che sono un canale di `perceive`.
+Il controllo è uno strumento del canone, `o3/scadenze.py`, che un adottante
+lancia dal proprio repo col checkout di `method`, come il gate di `/commit`:
+uno strumento per repo finirebbe per leggere la stessa grammatica in modi
+diversi, come è successo al `by:` col solo mese. Il profilo locale
+`o3/scadenze.toml` è opzionale e riguarda solo la forma delle righe di
+`## Scadenze`: formati di data oltre a quello ISO e marcatori di riga chiusa.
+Stati, codice di uscita e divieto di scarti silenziosi non si configurano. Gli
+strumenti locali restano alle voci di dominio, come i rami di una manutenzione.
 
-Il controllo non scarta mai in silenzio. Una voce di `## Scadenze` o di
-`## Ricorrenze` che ha l'aspetto di una scadenza ma non si riesce a interpretare
-si stampa come rilievo di forma, col testo della riga, e come gli altri rilievi
-non tocca il codice di uscita. È la classe del guasto di `economia`, dove 8
-righe erano invisibili senza alcun segnale (2026-11-08).
+Il controllo unisce le due sezioni in una sola catena cronologica e dà a ogni
+riga di `## Ricorrenze` uno stato: `dovuta` dalla data raggiunta, `saltata`
+quando è passata anche la data più una cadenza, cioè quando è andata persa
+un'occorrenza intera, col numero delle occorrenze perse. Lì solo un `entro`
+passato conta come scaduta: l'orologio nostro passato si stampa senza toccare
+il codice di uscita, come un `by:`. In `## Scadenze` ogni data passata conta
+come scaduta, perché la sezione tiene solo date imposte dal Mondo; un
+appuntamento passato si toglie dal plan. Le righe `config` non hanno data da
+confrontare: se un giro manca lo dicono i log dello scheduler, che sono un
+canale di `perceive`.
+
+Una data nostra che deve restare visibile sta nel `by:`, non in `## Scadenze`:
+un `by:` entro la finestra di 45 giorni entra nella catena come riesame in
+arrivo, senza contare come scadenza e senza toccare il codice di uscita. Se
+conta il giorno, il `by:` lo porta scritto: col solo mese vale l'ultimo.
+
+È un segnale, non un gate: esce con 1 se c'è una scaduta, con 2 se non riesce a
+leggere plan o profilo, e non entra nei controlli del commit. Lo lanciano
+`exec plan` ed `eval compare`.
+
+Il controllo non scarta mai in silenzio. Ogni voce di `## Scadenze` o di
+`## Ricorrenze` è una data interpretata o un rilievo di forma, col testo della
+riga, che come gli altri rilievi non tocca il codice di uscita. È la classe del
+guasto di `economia`, dove 8 righe erano invisibili senza alcun segnale
+(2026-11-08). Una voce di `## Scadenze` comincia con la data, ISO e col giorno o
+il solo mese, eventualmente in grassetto e preceduta da `entro`, e la separa dal
+testo un `—` o un `→`.
 
 `exec plan` apre i task delle righe `task`, e nel giro senza custode nomina in
 `Attenzione:` le righe `sessione` dovute. Le righe `giro` le compie `exec
