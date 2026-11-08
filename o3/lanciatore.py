@@ -44,6 +44,9 @@ dell'host, mai del repo, che non può allargarsi il recinto da solo. Se la sandb
 non muore con il proprio comando, come un'unità di `systemd-run`, l'host passa con
 `--recinto-ferma` il comando che la ferma e ne attende la fine: il lanciatore lo
 lancia prima di chiudere, così nessun commit dell'agente cade dopo la chiusura.
+Lo scheduler che ferma il lanciatore gli lascia quindi più tempo di quanto la
+sandbox ne lasci all'agente: altrimenti il lanciatore muore mentre aspetta, e
+la chiusura non si scrive.
 
 La rete guarda i commit del giro anche quando il giro finisce male (tetto,
 uscita con errore, interruzione): un percorso protetto toccato vale 23 e ferma i
