@@ -60,10 +60,11 @@ PATH_MINIMI = {
     "specify": ["o2/"],
 }
 # Comandi che il minimo vuole interi: tutti i pezzi nello stesso input di un
-# tool. Il passo 3c di `exec plan` legge i corpi dei giri, non gli oggetti.
+# tool. Il passo 3c di `exec plan` legge i corpi dei giri, non gli oggetti. Il
+# tipo del commit lo sceglie il fork (`docs(ciclo)`, `chore(ciclo)`): conta lo scope.
 COMANDI_MINIMI = {
     "plan": [
-        (("git log", "docs(ciclo)", "%b"), "corpi dei giri della settimana non letti (passo 3c)"),
+        (("git log", "(ciclo)", "%b"), "corpi dei giri della settimana non letti (passo 3c)"),
     ],
 }
 OBIETTIVO = re.compile(r"^### (\d+)\.", re.MULTILINE)

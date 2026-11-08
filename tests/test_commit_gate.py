@@ -167,6 +167,18 @@ class StadiTests(unittest.TestCase):
             ["plan dichiarato senza traccia: corpi dei giri della settimana non letti (passo 3c)"],
         )
 
+    def test_the_commit_type_of_the_rounds_is_the_fork_s(self):
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [
+                ("Skill", {"skill": "exec"}),
+                ("Read", {"file_path": "o1/plan.md"}),
+                ("Bash", {"command": CORPI_DEI_GIRI.replace("docs(", "chore(")}),
+            ],
+        )
+        skill, testo = MODULE.tracce(giro)
+        self.assertEqual(MODULE.lacune(["plan"], skill, testo), [])
+
     def test_report_is_the_last_agent_text(self):
         giro = self.dir / "g.jsonl"
         righe = [
