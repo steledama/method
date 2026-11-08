@@ -85,8 +85,17 @@ Prossimi passi, `danea-auto` per prima:
    (`i1/lanciatore-canonico-prova-windows.md` di quel repo). Primo giro vero il
    2026-11-08 alle 16:13, avviato a mano dal Task Scheduler: riuscito in 2 minuti
    e 42 secondi, 1,02 USD, commit `0624d2f` pubblicato, nessun diniego. Il task
-   punta ora al lanciatore canonico. Resta da togliere `ciclo_autonomo.py`, nella
-   sessione di `danea-auto`;
+   punta ora al lanciatore canonico. Tolti poi `ciclo_autonomo.py` (`22c7aa0`) e lo
+   stato in `C:\ciclo\stato` (`9352d4a`); `host-settings.json`, che era `{}`, non
+   si fonde più ed è tolto. Il campo `giro` della chiusura fa leggere a
+   `commit_gate.py stadi` il giro delle 16:13. Dal resoconto inoltrato il
+   2026-11-08: i controlli che si fermavano al primo arresto e il tetto alle :50
+   sforato da fetch e pull li chiude `bbe06b4`; l'attesa dello slot anche sotto
+   `--controlli` la chiude `LANCIATORE_MODO`, che `prima.py` di `danea-auto`
+   deve ancora leggere. Il pull che non ferma un cambio del recinto è il disegno
+   (rete in chiusura); `exit_status` stringa come `$EXIT_STATUS` di systemd,
+   `push` vero senza commit perché vuol dire «niente da pubblicare» e la vista lo
+   legge solo con `commit`;
 2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`
    costruito su `systemd-run` (ancora da provare) e `RuntimeMaxSec` come tetto di
    riserva. È un atto sul modulo `nixos`, nella sua sessione, su messaggio Herdr

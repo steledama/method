@@ -416,6 +416,13 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(esito.returncode, 16)
         self.assertIn("fuori-slot", esito.stdout)
 
+    def test_l_aggancio_sa_se_e_un_giro_o_una_diagnosi(self):
+        self.con_prima(
+            'import os\nprint(os.environ["LANCIATORE_MODO"])\nraise SystemExit(16)\n'
+        )
+        self.assertIn("controlli", self.lancia("--controlli").stdout)
+        self.assert_arresto(16, "giro")
+
     def test_i_controlli_non_si_fermano_al_primo_arresto(self):
         self.con_prima('print("fuori-slot")\nraise SystemExit(16)\n')
         (self.repo / "sporco.md").write_text("x\n", encoding="utf-8")

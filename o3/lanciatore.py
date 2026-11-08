@@ -27,7 +27,9 @@ L'aggancio `prima` è uno script Python in `o3/ciclo/`, dove il giro non scrive.
 Esce con 0 per proseguire o con 16, 18 o 19 per fermare il giro, con
 il motivo sulla prima riga dell'uscita. Con 0 può stampare un oggetto JSON:
 `minuti` accorcia il tetto, senza poterlo alzare, `attenzione` aggiunge un
-avviso alla chiusura, `salta: true` esce senza lasciare tracce.
+avviso alla chiusura, `salta: true` esce senza lasciare tracce. L'aggancio
+riceve `LANCIATORE_MODO`, `giro` o `controlli`: sotto `--controlli` dà la
+diagnosi senza attese, per esempio quella di uno slot.
 
 All'avvio il lanciatore aggiorna con `pull --ff-only` anche il proprio checkout
 del canone, se è un altro repo e pulito: vale dal giro successivo, e se non
@@ -163,7 +165,7 @@ def tetto_residuo(esito: EsitoPrima, trascorsi: float) -> Profilo:
     return replace(esito.profilo, minuti=minuti)
 
 
-def esegui_prima(profilo: Profilo) -> EsitoPrima:
+def esegui_prima(profilo: Profilo, modo: str = "giro") -> EsitoPrima:
     """I controlli locali del repo: possono fermare, accorciare, mai allargare."""
     if profilo.prima is None:
         return EsitoPrima(profilo)
@@ -182,6 +184,7 @@ def esegui_prima(profilo: Profilo) -> EsitoPrima:
             encoding="utf-8",
             errors="replace",
             stdin=subprocess.DEVNULL,
+            env={**os.environ, "LANCIATORE_MODO": modo},
             timeout=PRIMA_SECONDI,
             creationflags=NO_WINDOW,
             check=False,
@@ -705,7 +708,7 @@ def controlli(profilo: Profilo, checkout: Path) -> int:
             raise Arresto(24, "fermo-dopo-percorsi-protetti")
 
     prova(fermo)
-    locale = prova(esegui_prima, profilo)
+    locale = prova(esegui_prima, profilo, "controlli")
     avvisi = [locale.attenzione if locale else None, prova(controlla_sessioni, checkout)]
     prova(controlla_tree, profilo)
     prova(controlla_file)
