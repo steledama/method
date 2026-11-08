@@ -63,7 +63,11 @@ destinatario a un dialogo di approvazione.
   suggerimento generico `Ask Codex to do anything` in dim dopo il prompt `›`,
   che un invio sovrascrive; le righe `›` più in alto nel pannello sono
   messaggi già inviati della cronologia, non il campo. Senza verifica vale
-  la regola prudente: qualunque testo nel campo di input ferma l'invio;
+  la regola prudente: qualunque testo nel campo di input ferma l'invio. Fa
+  eccezione la lettura che arriva senza codici di colore, dove un
+  suggerimento e un testo scritto si confondono: in quel caso si invia lo
+  stesso. Lo ha deciso il custode il 2026-11-08, su `danea2` (Windows) con
+  Herdr 0.9.5 e Claude Code 2.1.319;
 - un agente `blocked` ha un dialogo aperto: lo si legge e si torna al
   custode, senza approvarlo;
 - invia con `herdr agent prompt <pane-id> "<messaggio>"`; su un agente
