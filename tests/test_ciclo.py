@@ -236,6 +236,32 @@ class NextTask(StateCase):
         latest = json.loads(ciclo.respond("/_ciclo/ultimi.json", self.state)[1])
         self.assertNotIn("prossimo", latest["tentativi"][0])
 
+    def write_plan(self, task: str, source: str) -> None:
+        (self.repo / "o1").mkdir()
+        (self.repo / "o1" / "plan.md").write_text(
+            f"| Ciclo | Ob. | Task | Dip. |\n| --- | --- | --- | --- |\n"
+            f"| dev | 1 | [{task}](../{source}) | — |\n",
+            encoding="utf-8",
+        )
+
+    def latest_after_change(self) -> dict:
+        self.commit("Prossimo: Diagnosi orfani (confermato)")
+        self.round(
+            "a", self.commit("Prossimo: Serie storica (cambiato, era Diagnosi orfani; smentita)")
+        )
+        return json.loads(ciclo.respond("/_ciclo/ultimi.json", self.state)[1])["tentativi"][0]
+
+    def test_changed_priority_links_the_new_task(self):
+        self.write_plan("Serie storica", "o2/serie-storica.md")
+        self.assertEqual(
+            self.latest_after_change()["task_cambiato"],
+            {"titolo": "Serie storica", "href": "/o2/serie-storica.html"},
+        )
+
+    def test_task_out_of_the_plan_has_no_link(self):
+        self.write_plan("Altro task", "o2/altro.md")
+        self.assertNotIn("task_cambiato", self.latest_after_change())
+
     def test_confirmed_task_is_not_repeated_in_the_row(self):
         self.commit("Prossimo: Diagnosi orfani (confermato)")
         attempt = self.round("a", self.commit("Prossimo: Diagnosi orfani (confermato)"))

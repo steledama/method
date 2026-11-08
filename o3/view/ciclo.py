@@ -34,7 +34,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 import project
-from sources import inline_markdown
+from sources import inline_markdown, parse_plan
 
 PREFIX = "_ciclo/"
 HOME_ROWS = 5
@@ -138,6 +138,7 @@ class Attempt:
     missed: bool = False
     next_task: str | None = None
     previous_task: str | None = None
+    changed_task_href: str | None = None
 
     @property
     def when(self) -> str:
@@ -234,6 +235,17 @@ def same(a: str, b: str) -> bool:
     return " ".join(a.split()).casefold() == " ".join(b.split()).casefold()
 
 
+def task_href(task: str) -> str | None:
+    """La pagina del task nel plan corrente: None se è uscito dal plan, se non
+    ha una specifica `o2/` o se la copia servita non ha le fonti."""
+    try:
+        rows = parse_plan(REPO)
+    except (OSError, SystemExit):
+        return None
+    source = next((row.source for row in rows if row.source and same(row.task, task)), None)
+    return f"/{source.removesuffix('.md')}.html" if source else None
+
+
 def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
     """Prossimo task del giro e confronto col precedente; senza git lo dichiara."""
     head = close.get("head_dopo")
@@ -262,6 +274,7 @@ def judge_next(attempt: Attempt, close: dict, reasons: list[str]) -> None:
         if declared == "confermato":
             note += f" ({label('undeclared')})"
         reasons.append(note)
+        attempt.changed_task_href = task_href(task)
 
 
 def judge(attempt: Attempt, state: Path, decision: dict, now: datetime) -> None:
@@ -371,7 +384,13 @@ def load(state: Path | None, now: datetime | None = None, unit: Path | None = No
 
 def summary(attempt: Attempt) -> dict:
     close = attempt.close or {}
+    changed = (
+        {"task_cambiato": {"titolo": attempt.next_task, "href": attempt.changed_task_href}}
+        if attempt.changed_task_href
+        else {}
+    )
     return {
+        **changed,
         "id": attempt.id,
         "ts": attempt.when,
         "colore": attempt.color,
@@ -630,7 +649,17 @@ def home_section() -> str:
                 if (t.motivi.length) {{
                   const span = document.createElement("span");
                   span.className = "ciclo-motivi";
-                  span.textContent = " " + t.motivi.join(" · ");
+                  const motivi = " " + t.motivi.join(" · ");
+                  const nuovo = t.task_cambiato;
+                  const at = nuovo ? motivi.indexOf("→ " + nuovo.titolo) : -1;
+                  if (at < 0) span.textContent = motivi;
+                  else {{
+                    const start = at + 2;
+                    const task = document.createElement("a");
+                    task.href = nuovo.href;
+                    task.textContent = nuovo.titolo;
+                    span.append(motivi.slice(0, start), task, motivi.slice(start + nuovo.titolo.length));
+                  }}
                   li.append(span);
                 }}
                 list.append(li);

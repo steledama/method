@@ -278,7 +278,8 @@ commit nuovi.
 La home ne rende gli ultimi tentativi col semaforo (verde riuscito, giallo
 da guardare, rosso bloccato, calcolato da campi espliciti: il giudizio
 dell'agente alza, non abbassa). Un cambio di priorità rispetto al giro
-precedente è giallo e nomina il task nuovo nel motivo; un task confermato non
+precedente è giallo e nomina il task nuovo nel motivo, con un link alla sua
+specifica finché il task resta nel plan; un task confermato non
 si ripete nella riga, perché lo stato della coda vive nel plan e il log ne
 porta solo l'evento. Ogni riga porta alla pagina del giro, che riporta
 sempre il prossimo task. Le
