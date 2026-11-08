@@ -15,21 +15,25 @@ urgenza: la prima `Prossima` di `nixos` è 2027-11.
 
 ## Perché non basta adottare `check_scadenze.py`
 
-Stato letto il 2026-11-08 su `economia` `1a7e242`.
+Stato letto il 2026-11-08. Una sessione di `economia` ha recepito nel frattempo
+il contratto, in modifiche non ancora committate: `## Ricorrenze` e rilievi di
+forma ci sono. Lo strumento del canone serve comunque, perché una copia per
+adottante non regge le differenze che seguono.
 
-- Il file non rispetta il contratto. Non legge `## Ricorrenze`, e su un plan di
-  prova ha fatto emergere 1 voce di `## Scadenze` su 4: `**entro 2026-11-02**`,
-  `**2 novembre 2026**` e `2026-11-03` spariscono senza rilievo.
 - La sua regex non riconosce nessuna delle 19 voci di `## Scadenze` di `bi`,
-  `nixos-lavoro` e `salute`, che scrivono le date ciascuno a modo suo.
+  `nixos-lavoro` e `salute`, che scrivono le date ciascuno a modo suo: con quel
+  parser sarebbero tutte rilievi.
+- La sua legenda accetta una sola forma di chiosa, e la colonna del task è letta
+  per posizione.
 - `economia` e `nixos` danno già due letture del `by:` col solo mese: primo
   giorno la prima, ultimo la seconda.
 - `maintenance-due.sh` di `nixos` non legge `Prossima`, e
   `.claude/skills/exec/plan.md` di quel repo dichiara il controllo a lettura.
 
 La grammatica del plan c'è già in `o3/view/sources.py` (`_PROSSIMA`,
-`_CADENZE`, `_LEGEND_ENTRY`, che accetta entrambe le forme di legenda): lo
-strumento la riusa, importandola o estraendola, e non scrive un terzo parser.
+`_CADENZE`, `_LEGEND_ENTRY`, che accetta entrambe le forme di legenda). Lo
+strumento non la importa, perché `o3/view/` la forkano gli adottanti e lui deve
+girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
 
 ## Decisioni del custode (2026-11-08)
 
@@ -68,8 +72,9 @@ strumento la riusa, importandola o estraendola, e non scrive un terzo parser.
 
 ## Da fare
 
-1. In `method`: `o3/scadenze.py` con i test, riusando logica e casi di
-   `check_scadenze.py` di `economia` e il censo delle forme reali qui sopra.
+1. Fatto il 2026-11-08: `o3/scadenze.py` e `tests/test_scadenze.py`. Provato
+   sugli otto plan: su ognuno le righe delle due sezioni sono date, `config` o
+   rilievi, nessuna sparisce.
 2. `kb/plan.md`: il canone fornisce lo strumento, con le decisioni 1 e 2.
 3. `/exec` ed `/eval` canoniche lo lanciano, `o3/ciclo/permessi.json` di
    `method` lo concede.
