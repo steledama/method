@@ -21,6 +21,7 @@ pianificazione.
 | dev   | S   | Uscita dal deck                 | —    |
 | dev   | S   | Pubblicazione decisa dal repo   | —    |
 | dev   | S   | Traduzione in inglese           | —    |
+| dev   | S   | Strumento delle scadenze        | —    |
 | dev   | 2   | Snellire /adottanti             | —    |
 
 ## Ricorrenze

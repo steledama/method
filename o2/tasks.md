@@ -21,3 +21,7 @@ Proposta di canone in attesa del custode:
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host una porta sola; cinque punti da decidere, fra cui un host solo e la forma del servitore.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella, deciso dal custode il 2026-11-07; forma fissata in `kb/translation.md` col controllo nel gate, traduzioni a lotti in attesa del via.
 - [snellire-adottanti.md](snellire-adottanti.md) — `/adottanti` snellito, adottato e implementato il 2026-11-02: parte meccanica in `o3/adottanti.py audit`, campione di decisioni in sessione, filo breve; prova il 2026-12-01; il giro autonomo lancia la parte meccanica.
+
+Deciso dal custode, da implementare:
+
+- [strumento-scadenze.md](strumento-scadenze.md) — un solo controllo di scadenze e ricorrenze nel canone, `o3/scadenze.py` con profilo locale minimo; deciso il 2026-11-08, gli adottanti lo recepiscono senza cambio simultaneo.
