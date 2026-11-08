@@ -123,7 +123,14 @@ Prossimi passi, `danea-auto` per prima:
      del solo `o3/ciclo/**`); aggiunto il divieto su `.git/**`. `bi` è già
      allineata. Entra nella prescrizione del passo 3;
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
-   all'adattatore.
+   all'adattatore. I moduli sono due, in due repo distinti: `nixos-casa`
+   (`steledama/nixos`, host di casa, `ciclo-method`) e `nixos` di lavoro
+   (`svezia`, `ciclo-bi` e `ciclo-baserow`), ciascuno con la sua copia. Da
+   decidere col custode prima di questo passo: l'adattatore collaudato a casa
+   si copia nel `nixos` di lavoro o diventa un pezzo comune ai due repo? Fino
+   ad allora i giri di `svezia` restano sul vecchio modulo, dove git gira
+   dentro il namespace e i due rischi del collaudo non si presentano in
+   quella forma.
 
 ## Il segnale
 
