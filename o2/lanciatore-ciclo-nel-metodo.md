@@ -1,5 +1,5 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; da implementare, prima in method."
+sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script esiste e gira su danea2, resta il collaudo in method e poi la prescrizione."
 ciclo: dev
 ---
 
@@ -130,7 +130,10 @@ Prossimi passi, `danea-auto` per prima:
    chiusura arriva sempre dopo la morte dell'agente. Resta al custode la
    sequenza in `kb/cicli.md` di quel repo: pull di `~/method` su deck,
    switch, sonda, un giro a mano col Claude vero. Dopo, la riga del tetto in
-   `autonomy.md` passa dall'unità al lanciatore;
+   `autonomy.md` passa dall'unità al lanciatore. Un giro a mano di `method`
+   dell'08/11 alle 19:37 (`87eac6f5`) ha la riga `partenza` nella forma del
+   lanciatore: se è il giro di questa sequenza, ipotesi e riscontro stanno nel
+   filo [ciclo autonomo](../i3/ciclo-autonomo.md);
 
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
    all'adattatore. I moduli sono due, in due repo distinti: `nixos-casa`

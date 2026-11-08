@@ -57,7 +57,9 @@ non una lettura del modello.
   Candidata alla mappa: le parentesi non quotate in un argomento, come
   `--grep=^docs(ciclo)`. Il comando non è valido in bash e l'harness lo
   nega, mentre la forma fra virgolette passa. È ricorsa nei giri di
-  `method` del 03/11 (causa accertata in `fc73956`) e dell'08/11; il
+  `method` del 03/11 (causa accertata in `fc73956`), dell'08/11 e di nuovo
+  nel giro a mano dell'08/11, due volte su comandi che la skill scrive
+  quotati, ciascuna al costo di un rilancio; il
   diniego di `economia` del 03/11 su un `git log --format` non quotato è
   forse della stessa classe, da verificare. È un errore di scrittura
   dell'agente, non un permesso mancante.

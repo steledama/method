@@ -83,10 +83,12 @@ girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
    con le decisioni 1 e 2.
 3. Fatto il 2026-11-08: `/exec` ed `/eval` canoniche lo lanciano,
    `o3/ciclo/permessi.json` di `method` lo concede.
-4. Aperta il 2026-11-08: la prescrizione
-   [scadenze-nel-canone](../o3/scadenze-nel-canone.md) porta ricetta e note per
-   repo ai sette adottanti, ciascuno col proprio `/method`, senza cambio
-   simultaneo.
+4. Fatto il 2026-11-08: la prescrizione `scadenze-nel-canone`, recepita dai
+   sette adottanti nello stesso giorno, è chiusa dal giro (storia in git).
+
+Resta la terza verifica qui sotto: il plan di `nixos` è fuori dall'interfaccia
+che il giro legge (`o3/adottanti.py show`), quindi la riga del seed si controlla
+in sessione, poi il task si chiude.
 
 ## Verifica di riuscita
 

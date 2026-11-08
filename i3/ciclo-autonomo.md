@@ -37,7 +37,13 @@ riletto contro le fonti.
   gradino 0 e due giri a mano riusciti (`92afebd`, `3438713`), poi gradino 1
   col timer delle 04:30 sullo standby `norvegia` (`1f7c780`), con un commit
   di registro della production oltre a quello del giro. Andamento in
-  `o2/pilota-ciclo-autonomo.md`.
+  `o2/pilota-ciclo-autonomo.md`. Dall'08/11 cambia il meccanismo di
+  `danea-auto`: parte dal lanciatore canonico di `method` (marker del repo,
+  giro a mano `0624d2f`, timer dal 09/11). Ipotesi del giro dell'08/11: anche
+  la partenza di `method` delle 19:37 (`87eac6f5`, avvio a mano) viene dal
+  lanciatore, perché la riga ha la forma di `o3/lanciatore.py` e non quella
+  compatta dell'unità. La smentirebbe una `chiusura` di quell'id in forma
+  compatta; riscontro in `i1/giri/tentativi.jsonl` al giro del 09/11.
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
