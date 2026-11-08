@@ -122,6 +122,16 @@ Prossimi passi, `danea-auto` per prima:
      protetti della rete. In `method` `o3/**` era già negato (il resoconto parlava
      del solo `o3/ciclo/**`); aggiunto il divieto su `.git/**`. `bi` è già
      allineata. Entra nella prescrizione del passo 3;
+
+   Il modulo è pronto in `nixos-casa` (`d375d55b`, `82240929`): esterna con
+   `TimeoutStopSec=90s`, perché al tetto di `RuntimeMaxSec` il lanciatore
+   riceve il SIGTERM subito e deve sopravvivere ai 30 secondi dell'agente.
+   Provato su `svezia` con agente sordo: 143, o 23 col commit protetto, e la
+   chiusura arriva sempre dopo la morte dell'agente. Resta al custode la
+   sequenza in `kb/cicli.md` di quel repo: pull di `~/method` su deck,
+   switch, sonda, un giro a mano col Claude vero. Dopo, la riga del tetto in
+   `autonomy.md` passa dall'unità al lanciatore;
+
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
    all'adattatore. I moduli sono due, in due repo distinti: `nixos-casa`
    (`steledama/nixos`, host di casa, `ciclo-method`) e `nixos` di lavoro
