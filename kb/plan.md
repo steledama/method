@@ -188,11 +188,16 @@ nel plan di `economia` non restava niente che ricordasse il successivo).
 ```markdown
 | Prossima         | Cadenza    | Esecutore | Ob. | Ricorrenza                  |
 | ---------------- | ---------- | --------- | --- | --------------------------- |
+| config           | quotidiano | scheduler | 1   | [Ciclo autonomo](procedura) |
 | 2027-11          | annuale    | sessione  | 2   | [Prova del seed](procedura) |
 | 2027-03          | annuale    | task      | 1   | [Redditi](procedura)        |
 | entro 2027-08-10 | annuale    | sessione  | 1   | [RC auto](procedura)        |
-| config           | quotidiano | scheduler | 1   | [Ciclo autonomo](config)    |
 ```
+
+Un repo col ciclo autonomo lo dichiara nella prima riga, perché chi consulta il
+plan veda subito cosa gira da solo. La riga non riporta l'orario: la fonte di
+verità è la config dello scheduler, spesso fuori dall'artefatto, e una copia
+andrebbe tenuta sincronizzata. L'ora effettiva la dicono i log dei giri.
 
 - `Prossima` è la prossima mossa, non l'evento: un giorno o il solo mese, che
   vale come il suo ultimo giorno. La data nuda è un orologio nostro, `entro` un

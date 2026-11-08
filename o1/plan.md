@@ -25,9 +25,10 @@ pianificazione.
 
 ## Ricorrenze
 
-| Prossima   | Cadenza | Esecutore | Ob. | Ricorrenza                                         |
-| ---------- | ------- | --------- | --- | -------------------------------------------------- |
-| 2026-12-01 | mensile | sessione  | 2   | [/adottanti](../.claude/skills/adottanti/SKILL.md) |
+| Prossima   | Cadenza    | Esecutore | Ob. | Ricorrenza                                         |
+| ---------- | ---------- | --------- | --- | -------------------------------------------------- |
+| config     | quotidiano | scheduler | S   | [Ciclo autonomo](../o3/ciclo/prompt.md)            |
+| 2026-12-01 | mensile    | sessione  | 2   | [/adottanti](../.claude/skills/adottanti/SKILL.md) |
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).
