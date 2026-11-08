@@ -93,6 +93,8 @@
       "Write(./o3/ciclo/**)",
       "Edit(./.codex/**)",
       "Write(./.codex/**)",
+      "Edit(./.git/**)",
+      "Write(./.git/**)",
       "Edit(./o3/**)",
       "Write(./o3/**)",
       "Edit(./tests/**)",

@@ -317,6 +317,64 @@ class LanciatoreTests(unittest.TestCase):
         (self.repo / ".git" / "lanciatore" / "fermo").unlink()
         self.assertEqual(self.lancia().returncode, 0)
 
+    def test_la_rete_vale_anche_al_tetto(self):
+        (self.repo / "o3" / "ciclo" / "lanciatore.toml").write_text(
+            "minuti = 0.01\n", encoding="utf-8"
+        )
+        self.committa("tetto basso")
+        self.imposta_agente(
+            agente("echo altro > o3/ciclo/prompt.md\ngit add -A\ngit commit -q -m x\nsleep 30")
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 23)
+        chiusura = self.chiusura()
+        self.assertEqual(chiusura["esito"], "errore")
+        self.assertEqual(
+            chiusura["motivo"], "percorsi-protetti: o3/ciclo/prompt.md (dopo tetto-di-tempo)"
+        )
+        self.assertTrue((self.repo / ".git" / "lanciatore" / "fermo").exists())
+
+    def test_la_rete_vale_anche_con_uscita_non_zero(self):
+        self.imposta_agente(
+            agente("echo altro > autonomy.md\ngit add -A\ngit commit -q -m x\nexit 7")
+        )
+        self.assertEqual(self.lancia().returncode, 23)
+        self.assertEqual(
+            self.chiusura()["motivo"],
+            "percorsi-protetti: autonomy.md (dopo claude-uscita-non-zero)",
+        )
+
+    def test_la_cartella_degli_hook_versionati_e_protetta(self):
+        self.sh("git", "config", "core.hooksPath", "o3/hooks")
+        self.imposta_agente(
+            agente(
+                "mkdir -p o3/hooks\necho x > o3/hooks/post-merge\ngit add -A\n"
+                f"git commit -q -m x\necho '{RISULTATO}'"
+            )
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 23)
+        self.assertEqual(self.chiusura()["motivo"], "percorsi-protetti: o3/hooks/post-merge")
+
+    def test_al_tetto_il_recinto_si_ferma_prima_della_chiusura(self):
+        (self.repo / "o3" / "ciclo" / "lanciatore.toml").write_text(
+            "minuti = 0.01\n", encoding="utf-8"
+        )
+        self.committa("tetto basso")
+        self.imposta_agente(agente("sleep 30"))
+        ferma = self.base / "ferma.sh"
+        ferma.write_text(
+            "#!/bin/sh\ntest -f i1/giri/tentativi.jsonl && grep -c chiusura i1/giri/tentativi.jsonl"
+            " > .git/chiusure-al-fermo || echo 0 > .git/chiusure-al-fermo\n",
+            encoding="utf-8",
+        )
+        ferma.chmod(0o755)
+        esito = self.lancia("--recinto-ferma", str(ferma))
+        self.assertEqual(esito.returncode, 22)
+        self.assertEqual(
+            (self.repo / ".git" / "chiusure-al-fermo").read_text(encoding="utf-8").strip(), "0"
+        )
+
     def test_protetti_del_profilo_si_aggiungono(self):
         (self.repo / "o3" / "ciclo" / "lanciatore.toml").write_text(
             'protetti = ["secret/*"]\n', encoding="utf-8"
@@ -417,9 +475,7 @@ class LanciatoreTests(unittest.TestCase):
         self.assertIn("fuori-slot", esito.stdout)
 
     def test_l_aggancio_sa_se_e_un_giro_o_una_diagnosi(self):
-        self.con_prima(
-            'import os\nprint(os.environ["LANCIATORE_MODO"])\nraise SystemExit(16)\n'
-        )
+        self.con_prima('import os\nprint(os.environ["LANCIATORE_MODO"])\nraise SystemExit(16)\n')
         self.assertIn("controlli", self.lancia("--controlli").stdout)
         self.assert_arresto(16, "giro")
 

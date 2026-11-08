@@ -40,7 +40,21 @@ giro toccano un percorso protetto la chiusura è rossa e i giri successivi si
 fermano finché una persona non toglie `.git/lanciatore/fermo`. Un host con una
 sandbox la passa con `--recinto "comando con argomenti"`, che precede l'agente:
 il lanciatore resta fuori, dove può leggere i processi e fare il pull. L'opzione è
-dell'host, mai del repo, che non può allargarsi il recinto da solo.
+dell'host, mai del repo, che non può allargarsi il recinto da solo. Se la sandbox
+non muore con il proprio comando, come un'unità di `systemd-run`, l'host passa con
+`--recinto-ferma` il comando che la ferma e ne attende la fine: il lanciatore lo
+lancia prima di chiudere, così nessun commit dell'agente cade dopo la chiusura.
+
+La rete guarda i commit del giro anche quando il giro finisce male (tetto,
+uscita con errore, interruzione): un percorso protetto toccato vale 23 e ferma i
+giri successivi qualunque sia stata la fine. Fra i protetti entra anche la
+cartella di `core.hooksPath`, se è versionata nel repo.
+
+Il lanciatore gira fuori dal recinto e usa git nel checkout: ciò che git esegue da
+lì non lo deve scrivere il giro. Ogni repo nega quindi al giro, nei permessi e
+nella sandbox dove c'è, `o3/lanciatore.py` se il repo è il canone, `.git/config`,
+`.git/hooks`, `.git/lanciatore` e la cartella degli hook versionati. I primi due
+coprono anche `core.fsmonitor`, `core.hooksPath` e gli alias.
 
 Codici di uscita, gli stessi dell'unità di `nixos`: 0 riuscito, 10 tree sporco,
 11 branch inatteso o senza upstream, 12 divergente, 13 fetch o pull falliti,
@@ -81,6 +95,7 @@ STREAM_TENUTI = 60
 CODEX_MINUTI = 60
 GIT_SECONDI = 120
 GRAZIA_SECONDI = 15
+FERMA_SECONDI = 120
 PRIMA_SECONDI = 20 * 60  # un aggancio può aspettare, per esempio la fine di un run
 CODICI_PRIMA = (16, 18, 19)
 DINIEGO_CARATTERI = 1000
@@ -427,8 +442,26 @@ def impostazioni(destinazione: Path) -> Path:
     return destinazione
 
 
-def termina(processo: subprocess.Popen[bytes]) -> None:
-    """Chiude l'agente con tutti i suoi figli."""
+def ferma_recinto(ferma: list[str]) -> None:
+    """Il comando dell'host che ferma la sandbox e ne attende la fine."""
+    if not ferma:
+        return
+    try:
+        subprocess.run(
+            ferma,
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            timeout=FERMA_SECONDI,
+            creationflags=NO_WINDOW,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        pass
+
+
+def termina(processo: subprocess.Popen[bytes], ferma: list[str] = ()) -> None:
+    """Chiude l'agente con tutti i suoi figli, e la sandbox se non muore con lui."""
+    ferma_recinto(list(ferma))
     if WINDOWS:
         subprocess.run(
             ["taskkill", "/T", "/F", "/PID", str(processo.pid)],
@@ -448,7 +481,7 @@ def termina(processo: subprocess.Popen[bytes]) -> None:
         pass
 
 
-def lancia_agente(comando: list[str], stream: Path, profilo: Profilo) -> int:
+def lancia_agente(comando: list[str], stream: Path, profilo: Profilo, ferma: list[str] = ()) -> int:
     """L'agente col suo tetto di tempo; alla fine l'albero dei processi non resta."""
     stream.parent.mkdir(parents=True, exist_ok=True)
     with stream.open("wb") as uscita:
@@ -463,10 +496,10 @@ def lancia_agente(comando: list[str], stream: Path, profilo: Profilo) -> int:
         try:
             return processo.wait(timeout=profilo.minuti * 60)
         except subprocess.TimeoutExpired as errore:
-            termina(processo)
+            termina(processo, ferma)
             raise Arresto(22, "tetto-di-tempo", f"{profilo.minuti} minuti") from errore
         except Interrotto:
-            termina(processo)
+            termina(processo, ferma)
             raise
 
 
@@ -513,6 +546,32 @@ def percorsi_protetti(prima: str, dopo: str, protetti: tuple[str, ...]) -> list[
     """I file toccati dai commit del giro che il giro non doveva toccare."""
     nomi = git_testo("diff", "--name-only", f"{prima}..{dopo}").splitlines()
     return [nome for nome in nomi if any(fnmatch.fnmatch(nome, modello) for modello in protetti)]
+
+
+def cartella_hook() -> str | None:
+    """La cartella di `core.hooksPath`, se sta dentro il repo."""
+    valore = git_testo("config", "--get", "core.hooksPath")
+    if not valore or os.path.isabs(valore) or valore.startswith("~"):
+        return None
+    relativo = os.path.normpath(valore).replace("\\", "/")
+    return None if relativo.startswith("..") else relativo
+
+
+def rete(
+    tentativo: Tentativo, profilo: Profilo, fermo: Path, causa: str | None = None
+) -> Arresto | None:
+    """La rete in chiusura: i commit del giro su percorsi protetti, comunque sia finito."""
+    toccati = percorsi_protetti(
+        tentativo.head_prima, git_testo("rev-parse", "HEAD"), profilo.protetti
+    )
+    if not toccati:
+        return None
+    fermo.write_text(
+        f"il giro {tentativo.id} ha toccato {', '.join(toccati)}: rivedi e togli questo file\n",
+        encoding="utf-8",
+    )
+    motivo = f"percorsi-protetti: {', '.join(toccati)}"
+    return Arresto(USCITA_PERCORSI_PROTETTI, f"{motivo} (dopo {causa})" if causa else motivo)
 
 
 def pota(cartella: Path, tenuti: int = STREAM_TENUTI) -> None:
@@ -613,12 +672,18 @@ def _alza_interrotto(_numero: int, _frame: object) -> None:
 
 
 def giro(
-    profilo: Profilo, claude: str, recinto: list[str], checkout: Path, pull_canone: bool
+    profilo: Profilo,
+    claude: str,
+    recinto: list[str],
+    checkout: Path,
+    pull_canone: bool,
+    ferma: list[str] = (),
 ) -> int:
     tentativo = Tentativo(checkout.name)
     tentativo.head_prima = git_testo("rev-parse", "HEAD")
     signal.signal(signal.SIGTERM, _alza_interrotto)
     fermo = STATO / "fermo"
+    lanciato = False
     try:
         lock = Lock(STATO / "lock")
         if fermo.exists():
@@ -639,6 +704,9 @@ def giro(
         if pull_canone:
             tentativo.avvisa(aggiorna_canone(checkout))
         profilo = tetto_residuo(locale, time.monotonic() - fine_aggancio)
+        hook = cartella_hook()
+        if hook:
+            profilo = replace(profilo, protetti=(*profilo.protetti, f"{hook}/*"))
         comando = [
             *recinto,
             claude,
@@ -657,26 +725,27 @@ def giro(
             "--max-budget-usd",
             str(profilo.budget_usd),
         ]
-        tentativo.claude_exit = lancia_agente(comando, tentativo.stream, profilo)
+        lanciato = True
+        tentativo.claude_exit = lancia_agente(comando, tentativo.stream, profilo, ferma)
         if tentativo.claude_exit != 0:
             raise Arresto(20, "claude-uscita-non-zero", str(tentativo.claude_exit))
         fine = risultato(tentativo.stream)
         if not fine or fine.get("is_error") is not False:
             raise Arresto(21, "claude-errore")
-        toccati = percorsi_protetti(
-            tentativo.head_prima, git_testo("rev-parse", "HEAD"), profilo.protetti
-        )
-        if toccati:
-            fermo.write_text(
-                f"il giro {tentativo.id} ha toccato {', '.join(toccati)}: rivedi e togli questo file\n",
-                encoding="utf-8",
-            )
-            raise Arresto(USCITA_PERCORSI_PROTETTI, f"percorsi-protetti: {', '.join(toccati)}")
+        protetto = rete(tentativo, profilo, fermo)
+        if protetto:
+            raise protetto
     except Arresto as arresto:
+        if lanciato and arresto.codice != USCITA_PERCORSI_PROTETTI:
+            arresto = rete(tentativo, profilo, fermo, arresto.motivo) or arresto
         print(f"lanciatore: {arresto.motivo} {arresto.dettaglio}".rstrip(), file=sys.stderr)
         tentativo.chiusura(esito_di(arresto.codice), arresto.motivo, arresto.codice)
         return arresto.codice
     except Interrotto:
+        protetto = rete(tentativo, profilo, fermo, "interrotto") if lanciato else None
+        if protetto:
+            tentativo.chiusura("errore", protetto.motivo, protetto.codice)
+            return protetto.codice
         tentativo.chiusura("errore", "interrotto", 143)
         return 143
     except Exception as errore:  # la chiusura si scrive comunque
@@ -748,6 +817,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--claude", default=None, help="eseguibile dell'agente, se non è nel PATH")
     parser.add_argument("--recinto", default="", help="sandbox dell'host, messa davanti all'agente")
     parser.add_argument(
+        "--recinto-ferma",
+        default="",
+        help="comando dell'host che ferma la sandbox e ne attende la fine",
+    )
+    parser.add_argument(
         "--senza-pull-canone", action="store_true", help="non aggiornare il checkout del canone"
     )
     args = parser.parse_args(argv)
@@ -773,7 +847,14 @@ def main(argv: list[str] | None = None) -> int:
     if not claude:
         segnala("agente non trovato nel PATH")
         return 14
-    return giro(profilo, claude, shlex.split(args.recinto), checkout, not args.senza_pull_canone)
+    return giro(
+        profilo,
+        claude,
+        shlex.split(args.recinto),
+        checkout,
+        not args.senza_pull_canone,
+        shlex.split(args.recinto_ferma),
+    )
 
 
 if __name__ == "__main__":

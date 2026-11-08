@@ -98,9 +98,30 @@ Prossimi passi, `danea-auto` per prima:
    `push` vero senza commit perché vuol dire «niente da pubblicare» e la vista lo
    legge solo con `commit`;
 2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`
-   costruito su `systemd-run` (ancora da provare) e `RuntimeMaxSec` come tetto di
-   riserva. È un atto sul modulo `nixos`, nella sua sessione, su messaggio Herdr
-   del custode;
+   costruito su `systemd-run` e `RuntimeMaxSec` come tetto di riserva. È un atto
+   sul modulo `nixos`, nella sua sessione, su messaggio Herdr del custode. Le prove
+   della sessione `nixos` dell'host di casa (resoconto inoltrato il 2026-11-08, prove in
+   `/tmp` di quell'host): `systemd-run` regge come recinto con `BindsTo`/`After`
+   verso l'unità esterna e `--expand-environment=no`; senza, al tetto unità e
+   agente restano vivi. Codici, recinto, `fetch.json` e commit con push locale
+   tornano; il giro col Claude vero si è fermato sul limite delle 5 ore (20) ed è
+   da ripetere. Due rischi portati al canone e chiusi qui:
+   - **chiusura al tetto con l'agente vivo.** Il lanciatore uccideva
+     `systemd-run` e scriveva la chiusura prima che l'unità interna morisse.
+     Nuova opzione dell'host `--recinto-ferma`, il comando che ferma la sandbox e
+     ne attende la fine, lanciato prima della chiusura. Per `ciclo-method`:
+     `systemctl --user stop ciclo-method-agente`. Trovato rileggendo: la rete in
+     chiusura girava solo sul giro riuscito, e un commit protetto seguito da tetto,
+     errore o interruzione sfuggiva. Ora vale per ogni fine dopo l'avvio
+     dell'agente, con 23 e il `fermo`;
+   - **git del lanciatore su un checkout scritto dall'agente.** Criterio per
+     tutti: il giro non scrive ciò che git esegue dal lanciatore, cioè
+     `o3/lanciatore.py` nel canone, `.git/config`, `.git/hooks`, `.git/lanciatore`
+     e la cartella di `core.hooksPath`, se versionata. Lo dicono i permessi e la
+     sandbox dove c'è; la cartella degli hook versionati entra da sé fra i
+     protetti della rete. In `method` `o3/**` era già negato (il resoconto parlava
+     del solo `o3/ciclo/**`); aggiunto il divieto su `.git/**`. `bi` è già
+     allineata. Entra nella prescrizione del passo 3;
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
    all'adattatore.
 
