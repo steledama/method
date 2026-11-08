@@ -1,5 +1,5 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script esiste e gira su danea2, resta il collaudo in method e poi la prescrizione."
+sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script gira su danea2 e il collaudo in method è eseguito col giro a mano dell'08/11; la prescrizione agli altri adottanti aspetta il giro dal timer del 09/11."
 ciclo: dev
 ---
 
@@ -97,7 +97,7 @@ Prossimi passi, `danea-auto` per prima:
    (rete in chiusura); `exit_status` stringa come `$EXIT_STATUS` di systemd,
    `push` vero senza commit perché vuol dire «niente da pubblicare» e la vista lo
    legge solo con `commit`;
-2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`
+2. collaudo in `method`, **eseguito il 2026-11-08**: l'unità `ciclo-method` lancia lo script, con `--recinto`
    costruito su `systemd-run` e `RuntimeMaxSec` come tetto di riserva. È un atto
    sul modulo `nixos`, nella sua sessione, su messaggio Herdr del custode. Le prove
    della sessione `nixos` dell'host di casa (resoconto inoltrato il 2026-11-08, prove in
@@ -127,16 +127,31 @@ Prossimi passi, `danea-auto` per prima:
    `TimeoutStopSec=90s`, perché al tetto di `RuntimeMaxSec` il lanciatore
    riceve il SIGTERM subito e deve sopravvivere ai 30 secondi dell'agente.
    Provato su `svezia` con agente sordo: 143, o 23 col commit protetto, e la
-   chiusura arriva sempre dopo la morte dell'agente. Resta al custode la
-   sequenza in `kb/cicli.md` di quel repo: pull di `~/method` su deck,
-   switch, sonda, un giro a mano col Claude vero. Dopo, la riga del tetto in
-   `autonomy.md` passa dall'unità al lanciatore. Un giro a mano di `method`
-   dell'08/11 alle 19:37 (`87eac6f5`) ha la riga `partenza` nella forma del
-   lanciatore: se è il giro di questa sequenza, ipotesi e riscontro stanno nel
-   filo [ciclo autonomo](../i3/ciclo-autonomo.md);
+   chiusura arriva sempre dopo la morte dell'agente.
+
+   Esito su `deck` (resoconto inoltrato dalla sessione `nixos` il 2026-11-08,
+   riscontrato qui su `i1/giri/tentativi.jsonl` e sull'host): switch riuscito,
+   timer sempre alle 15:00, sonda `ciclo-method-sonda` superata. Giro a mano
+   col Claude 2.1.318 dalle 19:37 alle 19:41 (`87eac6f5`): riuscito, commit
+   `12a6b7f` pubblicato, 2,55 USD, 91 turni. I 2 dinieghi sono due `git log` con
+   le parentesi fuori dalle virgolette, grafia già nota, e non dipendono dal
+   recinto. `ciclo-method-agente` non resta in vita e `.git/lanciatore/fermo`
+   non esiste.
+
+   Non ancora provati: la partenza dal timer, la prima il 2026-11-09 alle
+   15:00; il tetto di tempo sull'unità vera, provato solo su unità transitorie;
+   i wrapper come `gog` e i percorsi su Drive, che `method` non usa e `salute`
+   ed `economia` sì. Una sessione aperta in `~/method` alle 15:00 ferma il giro
+   con 15, e la prova slitta. Resta anche la riga del tetto in `autonomy.md`,
+   che passa dall'unità al lanciatore;
 
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
-   all'adattatore. I moduli sono due, in due repo distinti: `nixos-casa`
+   all'adattatore. Condizione, proposta dalla sessione `nixos` e condivisa dal
+   custode il 2026-11-08: il passo parte solo dopo il giro dal timer del
+   2026-11-09, se chiude riuscito, senza `ciclo-method-agente` in vita e senza
+   `fermo`. Poi un adottante alla volta: `salute` o `economia` per primi, perché
+   hanno wrapper e Drive, `nixos` per ultimo, perché ha la home scrivibile. I
+   moduli sono due, in due repo distinti: `nixos-casa`
    (`steledama/nixos`, host di casa, `ciclo-method`) e `nixos` di lavoro
    (`svezia`, `ciclo-bi` e `ciclo-baserow`), ciascuno con la sua copia. Da
    decidere col custode prima di questo passo: l'adattatore collaudato a casa

@@ -11,7 +11,7 @@ Priorità primaria del custode:
 
 Il percorso verso il ciclo autonomo, secondo le priorità del plan:
 
-- [lanciatore-ciclo-nel-metodo.md](lanciatore-ciclo-nel-metodo.md) — lo script del ciclo autonomo nel metodo, uguale per tutti i repo e indipendente dal sistema operativo; disegno minimale adottato il 2026-11-08, `o3/lanciatore.py` scritto e provato, il timer usa ancora il modulo `nixos`.
+- [lanciatore-ciclo-nel-metodo.md](lanciatore-ciclo-nel-metodo.md) — lo script del ciclo autonomo nel metodo, uguale per tutti i repo e indipendente dal sistema operativo; disegno minimale adottato il 2026-11-08, collaudo in `method` eseguito lo stesso giorno a mano; la prescrizione aspetta il giro dal timer del 09/11.
 - [ricorrenza-dinieghi.md](ricorrenza-dinieghi.md) — uno script conta per classe di grafia i dinieghi che ricorrono nei giri, anche fra repo; prima di una regola nuova si verifica il segnale canonico non recepito.
 - [pilota-ciclo-autonomo.md](pilota-ciclo-autonomo.md) — a gradini, da `salute` su `deck`: avvio manuale, poi timer, poi gli altri repo; timer acceso in sei adottanti e in `method`, `crm` dismesso il 2026-10-22.
 
