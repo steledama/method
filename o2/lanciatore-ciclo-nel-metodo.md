@@ -68,9 +68,11 @@ con `danea-auto`:
   `branch`, `minuti`, `budget_usd`, `protetti`, `prima`;
 - `prima` è l'unico aggancio locale, uno script Python in `o3/ciclo/` che gira
   prima dell'agente e può fermare (16-19), accorciare il tetto, avvisare o saltare;
-- niente chiave per fermare il pull sui percorsi protetti: `danea-auto` migra
-  senza. Cade così la decisione D4 del 20/10 di quel repo: un commit su `origin`
-  che tocca `o3/runtime/` o `o3/scheduler/` va in produzione al giro successivo;
+- `pull_fermo` ferma con 17 il pull che tocca i percorsi elencati, dove il
+  checkout è anche la produzione e il pull è un rilascio. Vuota per default. In
+  `danea-auto` elenca i soli `o3/runtime/*` e `o3/scheduler/*`, e la decisione D4
+  del 20/10 resta in vigore per la produzione; il recinto lo coprono i protetti
+  e la rete in chiusura;
 - il lanciatore aggiorna il proprio checkout del canone, salvo
   `--senza-pull-canone`, opzione dell'host. Su `danea2` resta spento: lì il
   canone lo aggiorna il custode in sessione.
@@ -79,7 +81,7 @@ Prossimi passi, `danea-auto` per prima:
 
 1. `danea-auto` su `danea2`, nella sua sessione: `--controlli` in sola lettura,
    perché il ramo Windows non è mai stato eseguito, poi un giro vero. Il profilo
-   porta `minuti = 40`, `budget_usd = 5` e `prima` con slot, ripresa delle 10:10,
+   porta `minuti = 40`, `budget_usd = 5`, `pull_fermo` e `prima` con slot, ripresa delle 10:10,
    login e tetto alle `:50`; il Task Scheduler lancia `pythonw.exe` sullo script
    con `--claude` e `--senza-pull-canone`, e `ciclo_autonomo.py` esce;
 2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`

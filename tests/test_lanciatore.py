@@ -199,6 +199,26 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(chiusura["head_prima"], testa)
         self.assertEqual(chiusura["esito"], "riuscito")
 
+    def con_pull_fermo(self):
+        (self.repo / "o3" / "ciclo" / "lanciatore.toml").write_text(
+            'pull_fermo = ["o3/runtime/*", "o3/scheduler/*"]\n', encoding="utf-8"
+        )
+        self.committa("profilo")
+        self.sh("git", "push", "-q")
+        return self.sh("git", "rev-parse", "HEAD")
+
+    def test_pull_che_tocca_la_produzione_resta_al_custode(self):
+        testa = self.con_pull_fermo()
+        self.spingi_dal_clone("o3/runtime/export.ahk")
+        self.assert_arresto(17, "pull-fermo")
+        self.assertEqual(self.sh("git", "rev-parse", "HEAD"), testa)
+
+    def test_pull_che_non_tocca_la_produzione_procede(self):
+        self.con_pull_fermo()
+        testa = self.spingi_dal_clone("kb/nodo.md")
+        self.assertEqual(self.lancia().returncode, 0)
+        self.assertEqual(self.chiusura()["head_prima"], testa)
+
     def test_fetch_fallito(self):
         self.sh("git", "remote", "set-url", "origin", str(self.base / "non-esiste.git"))
         self.assert_arresto(13, "fetch-fallito")

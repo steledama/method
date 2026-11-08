@@ -18,9 +18,13 @@ Il profilo locale `o3/ciclo/lanciatore.toml` è opzionale:
     budget_usd = 5
     protetti = ["o3/mio-recinto/*"]     # si aggiungono a quelli canonici
     prima = "o3/ciclo/prima.py"         # controlli locali, prima dell'agente
+    pull_fermo = ["o3/runtime/*"]       # un pull che li tocca resta al custode
+
+`pull_fermo` è per i repo in cui il checkout è anche la produzione: lì il pull è
+un rilascio, e il suo momento lo sceglie una persona.
 
 L'aggancio `prima` è uno script Python in `o3/ciclo/`, dove il giro non scrive.
-Esce con 0 per proseguire o con un codice da 16 a 19 per fermare il giro, con
+Esce con 0 per proseguire o con 16, 18 o 19 per fermare il giro, con
 il motivo sulla prima riga dell'uscita. Con 0 può stampare un oggetto JSON:
 `minuti` accorcia il tetto, senza poterlo alzare, `attenzione` aggiunge un
 avviso alla chiusura, `salta: true` esce senza lasciare tracce.
@@ -39,7 +43,7 @@ dell'host, mai del repo, che non può allargarsi il recinto da solo.
 Codici di uscita, gli stessi dell'unità di `nixos`: 0 riuscito, 10 tree sporco,
 11 branch inatteso o senza upstream, 12 divergente, 13 fetch o pull falliti,
 14 prompt, permessi, profilo, aggancio o `i1/giri` non adatti, 15 sessione aperta,
-16-19 riservati all'aggancio `prima`, 20 agente
+16, 18 e 19 riservati all'aggancio `prima`, 17 pull fermo, 20 agente
 uscito con errore, 21 errore riportato dall'agente, 22 tetto di tempo, 23 percorso
 protetto toccato dal giro, 24 giri fermi dopo un 23, 75 lock.
 """
@@ -75,7 +79,7 @@ CODEX_MINUTI = 60
 GIT_SECONDI = 120
 GRAZIA_SECONDI = 15
 PRIMA_SECONDI = 20 * 60  # un aggancio può aspettare, per esempio la fine di un run
-CODICI_PRIMA = range(16, 20)
+CODICI_PRIMA = (16, 18, 19)
 DINIEGO_CARATTERI = 1000
 # Ciò che definisce il giro non lo modifica il giro.
 PROTETTI = (
@@ -114,6 +118,7 @@ class Profilo:
     budget_usd: float = 5
     protetti: tuple[str, ...] = PROTETTI
     prima: str | None = None
+    pull_fermo: tuple[str, ...] = ()
 
 
 def leggi_profilo(path: Path) -> Profilo:
@@ -123,7 +128,7 @@ def leggi_profilo(path: Path) -> Profilo:
         dati = tomllib.loads(path.read_text(encoding="utf-8"))
     except tomllib.TOMLDecodeError as errore:
         raise Arresto(14, "profilo-invalido", str(errore)) from errore
-    ignote = dati.keys() - {"branch", "minuti", "budget_usd", "protetti", "prima"}
+    ignote = dati.keys() - {"branch", "minuti", "budget_usd", "protetti", "prima", "pull_fermo"}
     if ignote:
         raise Arresto(14, "profilo-invalido", f"chiavi sconosciute {sorted(ignote)}")
     return Profilo(
@@ -132,6 +137,7 @@ def leggi_profilo(path: Path) -> Profilo:
         dati.get("budget_usd", 5),
         (*PROTETTI, *dati.get("protetti", [])),
         dati.get("prima"),
+        tuple(dati.get("pull_fermo", [])),
     )
 
 
@@ -339,7 +345,7 @@ def controlla_tree(profilo: Profilo) -> None:
         raise Arresto(10, "checkout-sporco")
 
 
-def prepara_repo() -> str:
+def prepara_repo(profilo: Profilo) -> str:
     """Fetch e `pull --ff-only`: ritorna l'HEAD da cui parte il giro."""
     if git("fetch", "--quiet", "origin").returncode != 0:
         raise Arresto(13, "fetch-fallito")
@@ -348,8 +354,12 @@ def prepara_repo() -> str:
     avanti, dietro = git_testo("rev-list", "--left-right", "--count", "HEAD...@{u}").split()
     if int(avanti) and int(dietro):
         raise Arresto(12, "branch-divergente", f"{avanti} avanti, {dietro} dietro")
-    if int(dietro) and git("pull", "--ff-only", "--quiet").returncode != 0:
-        raise Arresto(13, "pull-fallito")
+    if int(dietro):
+        fermi = percorsi_protetti("HEAD", "@{u}", profilo.pull_fermo)
+        if fermi:
+            raise Arresto(17, "pull-fermo", ", ".join(fermi))
+        if git("pull", "--ff-only", "--quiet").returncode != 0:
+            raise Arresto(13, "pull-fallito")
     return git_testo("rev-parse", "HEAD")
 
 
@@ -605,7 +615,7 @@ def giro(
         tentativo.avvisa(controlla_sessioni(checkout))
         controlla_tree(profilo)
         controlla_file()
-        tentativo.head_prima = prepara_repo()
+        tentativo.head_prima = prepara_repo(profilo)
         if pull_canone:
             tentativo.avvisa(aggiorna_canone(checkout))
         comando = [
