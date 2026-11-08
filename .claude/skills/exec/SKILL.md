@@ -116,7 +116,11 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   register `goal.md` (un task senza obiettivo è un candidato al taglio);
   lo stato del lavoro resta nel plan e nei fili, senza ricopiarlo nel register. La
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
-- `## Scadenze` e finestre tattiche: ricorrenze in arrivo, righe scadute o
+- `## Ricorrenze` (`kb/plan.md`, «Ricorrenze»): una riga `task` arrivata alla
+  data apre il task ordinario e avanza; una riga `sessione` dovuta va in
+  `Attenzione:` nel giro senza custode; una riga senza procedura è un rilievo.
+  Non sono candidate al `Prossimo:`
+- `## Scadenze` e finestre tattiche: righe scadute o
   consumate. Una scadenza che chiede una mossa nostra prima della data ha il
   task che la prepara: la riga «entro…» senza task è un rilievo, e il giro
   crea il task perché la pianificazione è delegata. Dove il dominio rispecchia
@@ -188,7 +192,7 @@ ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
   l'equilibrio
 - **decisioni ferme**: un task con `decidere:`, o con un passo che aspetta il
   custode, fermo da più di 7 giorni va in `Attenzione:` coi giorni di attesa
-- **catena delle scadenze** a 45 giorni, letta come sequenza: un anello senza
+- **catena delle scadenze** a 45 giorni, `## Ricorrenze` comprese, letta come sequenza: un anello senza
   task o senza data è un rilievo del passo 2
 - **canali delle attese**: un `arrival:` da un canale che il giro non legge
   per un permesso o uno strumento mancante non si rinnova in silenzio: è una

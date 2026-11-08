@@ -72,7 +72,7 @@ tutti i marker danno recepita il giro la chiude da sé con
 proposte le altre modifiche alle prescrizioni, gli strumenti in `o3/`, le skill canoniche, `presentation/`,
 `CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/method` non gira
 nel giro. Di `/adottanti` il giro compie solo la parte meccanica (deciso dal
-custode il 2026-11-02): quando la riga `(mensile)` di `## Scadenze` è
+custode il 2026-11-02): quando la riga di `## Ricorrenze` è
 arrivata e il mese non ha ancora il suo rapporto, lancia
 `o3/adottanti.py audit` e lo versiona in `i1/`. La classificazione dei
 rossi e il campione di decisioni restano alla sessione col custode. Gli adottanti si leggono dai marker nei

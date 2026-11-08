@@ -12,7 +12,7 @@ insieme?** Mai «ecco i tuoi task». È una skill di dominio di `metodo` (il suo
 Mondo runtime sono gli adottanti): non fa parte del quartetto e gli adottanti
 non la forkano.
 
-La cadenza è la riga `(mensile)` in `## Scadenze` di `o1/plan.md`; gli esiti
+La cadenza è la riga di `/adottanti` in `## Ricorrenze` di `o1/plan.md`; gli esiti
 vanno nel filo [`i3/audit-adottanti.md`](../../../i3/audit-adottanti.md),
 riscritto in place a ogni giro.
 
@@ -35,7 +35,7 @@ riscritto in place a ogni giro.
 
 ### 1. Rapporto meccanico
 
-Il giro autonomo lancia lo script da solo quando la scadenza arriva, e ne
+Il giro autonomo lancia lo script da solo quando la ricorrenza è dovuta, e ne
 versiona l'uscita in `i1/audit-adottanti-AAAA-MM.md` (`autonomy.md`,
 `ciclo-autonomo`). In sessione rilancialo comunque, perché lo stato nel
 frattempo cambia. Aggiorna i riferimenti remoti con un `git fetch` per
@@ -85,7 +85,7 @@ attrito.
   schermata: rossi aperti con la loro classificazione, esito del campione,
   limiti. Le fotografie restano nel rapporto e in git. Aggiorna la riga del
   filo in `i3/verdicts.md`.
-- Avanza la riga `(mensile)` di `o1/plan.md` alla prossima occorrenza, ed
+- Avanza `Prossima` nella riga di `## Ricorrenze` di `o1/plan.md`, ed
   elimina il rapporto del giro in `i1/` con la sua voce: il filo lo ha
   consumato.
 - Riporta in conversazione il tempo impiegato, i rossi con la loro

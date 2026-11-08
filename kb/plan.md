@@ -137,8 +137,8 @@ identica. L'attesa **onerosa** costa in modo crescente ma resta aperta e si
 recupera pagando — interessi, sanzioni, ravvedimenti. L'attesa **a finestra**
 non rende la cosa più cara: può renderla impossibile.
 
-Le prime due sono già governate, perché `## Scadenze` regge tutto ciò che ha una
-data. La terza è invisibile per costruzione: la sua caratteristica è
+Le prime due sono già governate, perché `## Scadenze` e `## Ricorrenze` reggono
+tutto ciò che ha una data. La terza è invisibile per costruzione: la sua caratteristica è
 precisamente di non averne una — una capacità di agire che può venir meno, una
 controparte che può uscire di scena, un fatto altrui non databile. Nessun
 controllo che ragioni per distanza temporale la troverà.
@@ -172,19 +172,108 @@ righe marcate a ogni esecuzione, senza condizione di distanza, senza contarle
 come scadute. È il contratto del controllo: il suo recepimento si verifica nel
 codice del fork, non si deduce dalla presenza di questo nodo.
 
+## Ricorrenze
+
+Un task si chiude e scompare, una ricorrenza compiuta si riscrive con la data
+successiva. È questo il criterio: la riga che, fatta la cosa, tornerebbe non è
+un task né una scadenza e sta in `## Ricorrenze`, la sezione del plan che segue
+la tabella dei task. Vale per un timer quotidiano, un controllo mensile o un
+adempimento annuale, con l'orologio nostro o del Mondo.
+
+Altrove costa in due modi. Come `p` eterna è un task che dichiara di non
+chiudersi e occupa la coda (la prova annuale del seed di `nixos`). Come task
+rifatto a ogni occorrenza sparisce fra una e l'altra (chiuso il 730 del 2026,
+nel plan di `economia` non restava niente che ricordasse il successivo).
+
+```markdown
+| Prossima         | Cadenza    | Esecutore | Ob. | Ricorrenza                  |
+| ---------------- | ---------- | --------- | --- | --------------------------- |
+| 2027-11          | annuale    | sessione  | 2   | [Prova del seed](procedura) |
+| 2027-03          | annuale    | task      | 1   | [Redditi](procedura)        |
+| entro 2027-08-10 | annuale    | sessione  | 1   | [RC auto](procedura)        |
+| config           | quotidiano | scheduler | 1   | [Ciclo autonomo](config)    |
+```
+
+- `Prossima` è la prossima mossa, non l'evento: un giorno o il solo mese, che
+  vale come il suo ultimo giorno. La data nuda è un orologio nostro, `entro` un
+  termine imposto dal Mondo, `config` dice che l'orologio è di uno scheduler:
+  la fonte di verità è la config versionata e la riga non replica ogni prossima
+  data. Un marcatore di data indicativa non serve, e non va introdotto: la
+  grafia `~` di `economia`, riscritta in `\~` nel file, ha nascosto al controllo
+  le righe che la portavano;
+- `Cadenza` è una di `quotidiano`, `settimanale`, `mensile`, `trimestrale`,
+  `semestrale`, `annuale`, `biennale`. Una nuova entra quando il caso si
+  presenta, perché il controllo deve saperla convertire in un intervallo;
+- `Esecutore` dice chi chiude l'occorrenza: `scheduler`, `giro`, `sessione`
+  (il «noi» delle `p`, custode con agente) o `task`. Descrive e non autorizza:
+  il permesso sta nel register di autonomia, e una riga del plan non diventa
+  mai un comando. Se il giro compie solo una parte dell'occorrenza, l'esecutore
+  resta chi la chiude;
+- `Ob.` vale come nella tabella dei task e non può essere vuoto: una ricorrenza
+  non finisce mai da sola, quindi è quella che ha più bisogno di dichiarare a
+  cosa serve;
+- `Ricorrenza` è il titolo con il link alla procedura: una riga senza procedura
+  è un rilievo, come un `entro` senza task.
+
+La tabella non accoglie prosa. La procedura sta dove starebbe comunque, in una
+skill, in `o3/` o in un nodo `kb/`, mai in `o2/`, che è fatto di lavoro che
+finisce. La procedura dichiara anche dove va la traccia di un'occorrenza
+compiuta, di norma `i1/` o il filo che la consuma. Quando le porzioni di Mondo
+si moltiplicano, come i rami di una manutenzione, le cadenze per entità stanno
+in configurazione dichiarativa accanto alla skill e il plan tiene una riga sola.
+
+Avanzare `Prossima` è l'atto che chiude l'occorrenza, nello stesso commit della
+sua traccia. L'ultimo esito quindi non serve in riga: una data passata significa
+non fatta, senza dover distinguere fra una cosa saltata e una riga dimenticata.
+
+`Esecutore` distingue anche le ricorrenze che si esauriscono in una sessione da
+quelle con mosse preparatorie. Se l'occorrenza chiede attese o decisioni oltre
+una sessione, come i redditi, è `task`: `Prossima` è il giorno in cui si
+comincia e a quella data `exec plan` apre un task ordinario, che si chiude e
+scompare come ogni altro. Il termine di quella occorrenza va in `## Scadenze`
+col suo task, come ogni appuntamento fissato per un'occorrenza. La riga avanza
+all'apertura del task, perché da lì a sorvegliare sono il task e la scadenza.
+Una riga `task` non porta quindi `entro`.
+
+Un adottante che implementa il controllo delle scadenze unisce le due sezioni
+in una sola catena cronologica e dà a ogni riga uno stato: `dovuta` dalla data
+raggiunta, `saltata` quando è passata anche la data più una cadenza, cioè
+quando è andata persa un'occorrenza intera. Solo un `entro` passato conta come
+scaduta: l'orologio nostro passato si stampa senza toccare il codice di uscita,
+come un `by:`. Le righe `config` non hanno data da confrontare: se un giro
+manca lo dicono i log dello scheduler, che sono un canale di `perceive`.
+
+Il controllo non scarta mai in silenzio. Una voce di `## Scadenze` o di
+`## Ricorrenze` che ha l'aspetto di una scadenza ma non si riesce a interpretare
+si stampa come rilievo di forma, col testo della riga, e come gli altri rilievi
+non tocca il codice di uscita. È la classe del guasto di `economia`, dove 8
+righe erano invisibili senza alcun segnale (2026-11-08).
+
+`exec plan` apre i task delle righe `task`, e nel giro senza custode nomina in
+`Attenzione:` le righe `sessione` dovute. Le righe `giro` le compie `exec
+perform`, se il register di autonomia glielo assegna. Una ricorrenza non è
+candidata al `Prossimo:`, che resta dei task. `eval compare` giudica quelle
+saltate più volte e quelle che da molte occorrenze non producono niente,
+candidate a una cadenza più bassa o al taglio: il riesame di pertinenza è
+l'occorrenza stessa, quindi la riga non porta un `by:`.
+
+La sezione è una seconda tabella del plan: il parser di un fork che legge ogni
+tabella come tabella dei task va adeguato prima di aggiungerla. La forma la
+verifica `build.py --check`. Decisa dal custode il 2026-11-08, su un caso
+portato da `nixos`.
+
 ## Tempo e fonti
 
-`## Scadenze` contiene solo date esogene o ricorrenze che possono cambiare l'ordine
-della coda, in tre specie. La **prima** è la data esogena: il Mondo la impone e
-la coda le si adatta. La **seconda** è l'orologio nostro, e allora la data non
-sta qui ma nel `by:` di una `p`. La **terza** è la
-ricorrenza di uno scheduler: la riga indica cadenza e configurazione —
-la fonte di verità è la config versionata — senza replicare ogni prossima data.
-Calendari che non muovono la coda restano nel dominio.
+`## Scadenze` contiene solo date una tantum che possono cambiare l'ordine della
+coda. Se la data la impone il Mondo sta qui, e la coda le si adatta. Se
+l'orologio è nostro la data non sta qui ma nel `by:` di una `p`. Se la data
+torna è una ricorrenza, e sta in `## Ricorrenze`. Calendari che non muovono la
+coda restano nel dominio, ricorrenti o no.
 
 Una scadenza che chiede una mossa nostra prima della data, come prenotare,
 procurarsi o rinnovare un documento o preparare un invio, ha un task che la
-prepara. Una riga «entro…» senza task è lavoro non tracciato. Le scadenze
+prepara. Una riga «entro…» di `## Scadenze` senza task è lavoro non tracciato.
+Le scadenze
 vicine si leggono come catena: ogni passo deve ricevere in tempo ciò che gli
 serve dal precedente. Se il dominio rispecchia `## Scadenze` su un'altra
 superficie, come un calendario, il confronto va in entrambe le direzioni: ogni

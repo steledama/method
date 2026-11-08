@@ -83,7 +83,7 @@ autonoma: il nome non deve obbligare il chiamante a dichiarare un arco falso.
 Gli scope di dominio non entrano automaticamente nello sweep `all`.
 
 Il nome indica la capacità o l'oggetto mantenuto, non la cadenza. Il ritmo vive
-nel plan o in configurazione dichiarativa: una stessa skill può servire più
+in `## Ricorrenze` del plan o in configurazione dichiarativa: una stessa skill può servire più
 porzioni di Mondo con cadenze diverse, oppure essere attivata da un evento.
 Ritmi diversi non bastano a dividere una capacità; procedure o giudizi diversi
 sì.

@@ -50,7 +50,8 @@ controlla presenza, ordine e dipendenze.
 
 Il giro ricorrente amministra l'artefatto: esegue il runtime, smaltisce le code
 ricorrenti del dominio, percepisce e dà i verdetti. Ciò che si ripete
-appartiene al giro, non a un task. Il task è straordinario: una tantum, migliora
+appartiene al giro, non a un task, e nel plan sta nella sezione `## Ricorrenze`
+(`plan`, «Ricorrenze»). Il task è straordinario: una tantum, migliora
 l'artefatto o porta a termine un affare del dominio, e chiede decisioni,
 approfondimenti o chiarimenti che si prendono col custode.
 

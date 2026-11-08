@@ -135,6 +135,23 @@ def _index_titles(root: Path) -> dict[str, str]:
     return titles
 
 
+# La sezione delle ricorrenze ha una tabella propria (`kb/plan.md`, «Ricorrenze»).
+_RICORRENZE = "## Ricorrenze"
+_RICORRENZE_COLONNE = ["Prossima", "Cadenza", "Esecutore", "Ob.", "Ricorrenza"]
+_CADENZE = {
+    "quotidiano",
+    "settimanale",
+    "mensile",
+    "trimestrale",
+    "semestrale",
+    "annuale",
+    "biennale",
+}
+_ESECUTORI = {"scheduler", "giro", "sessione", "task"}
+_PROSSIMA = re.compile(r"(?:entro )?\d{4}-\d{2}(?:-\d{2})?")
+_LINK_PROCEDURA = re.compile(r"\[[^\]]+\]\(([^)#]+)(?:#[^)]*)?\)")
+
+
 def parse_plan(root: Path) -> list[PlanRow]:
     plan = root / "o1" / "plan.md"
     text = plan.read_text(encoding="utf-8")
@@ -149,8 +166,11 @@ def parse_plan(root: Path) -> list[PlanRow]:
     )
     rows: list[PlanRow] = []
     position = 0
+    section = ""
     for line in text.splitlines():
-        if not line.startswith("|"):
+        if line.startswith("## "):
+            section = line.strip()
+        if not line.startswith("|") or section == _RICORRENZE:
             continue
         cells = [
             cell.strip().replace("<<PIPE>>", "|")
@@ -319,6 +339,61 @@ def _check_legenda(root: Path, rows: list[PlanRow]) -> list[str]:
     return errors
 
 
+def _righe_ricorrenze(text: str) -> list[list[str]]:
+    """Le righe di tabella della sezione `## Ricorrenze`, intestazione compresa."""
+    righe: list[list[str]] = []
+    section = ""
+    for line in text.splitlines():
+        if line.startswith("## "):
+            section = line.strip()
+        if section == _RICORRENZE and line.startswith("|"):
+            righe.append([cell.strip() for cell in line.strip().strip("|").split("|")])
+    return [riga for riga in righe if set("".join(riga)) - set("-: ")]
+
+
+def _check_riga_ricorrenza(root: Path, riga: list[str], keys: set[str]) -> list[str]:
+    prossima, cadenza, esecutore, obiettivo, ricorrenza = riga
+    errors: list[str] = []
+    prefix = f"ricorrenze del plan: «{ricorrenza}»"
+    if esecutore not in _ESECUTORI:
+        errors.append(f"{prefix}: esecutore «{esecutore}» sconosciuto")
+    if (prossima == "config") != (esecutore == "scheduler"):
+        errors.append(f"{prefix}: `config` e `scheduler` vanno insieme")
+    elif prossima != "config" and not _PROSSIMA.fullmatch(prossima):
+        errors.append(f"{prefix}: Prossima «{prossima}» non riconosciuta")
+    if esecutore == "task" and prossima.startswith("entro "):
+        errors.append(f"{prefix}: una riga `task` non porta `entro`")
+    if cadenza not in _CADENZE:
+        errors.append(f"{prefix}: cadenza «{cadenza}» sconosciuta")
+    unknown = [key.strip() for key in obiettivo.split(",") if key.strip() not in keys]
+    if not obiettivo or unknown:
+        errors.append(f"{prefix}: Ob. «{obiettivo}» vuoto o assente dal register")
+    link = _LINK_PROCEDURA.search(ricorrenza)
+    if link is None:
+        errors.append(f"{prefix}: senza link alla procedura")
+    elif not (root / "o1" / link.group(1)).exists():
+        errors.append(f"{prefix}: procedura {link.group(1)} inesistente")
+    return errors
+
+
+def _check_ricorrenze(root: Path) -> list[str]:
+    """La forma della sezione `## Ricorrenze` (`kb/plan.md`); lo stato delle
+    date no: una ricorrenza dovuta è un fatto del giro, non un errore di forma."""
+    righe = _righe_ricorrenze((root / "o1" / "plan.md").read_text(encoding="utf-8"))
+    if not righe:
+        return []
+    if righe[0] != _RICORRENZE_COLONNE:
+        return [f"ricorrenze del plan: colonne attese {' · '.join(_RICORRENZE_COLONNE)}"]
+    keys = goal_keys(root)
+    errors: list[str] = []
+    for riga in righe[1:]:
+        if len(riga) != len(_RICORRENZE_COLONNE):
+            errors.append(f"ricorrenze del plan: riga con {len(riga)} colonne — {riga}")
+            continue
+        errors += _check_riga_ricorrenza(root, riga, keys)
+    return errors
+
+
 def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
     """Legge plan e `o2/` come un contratto: rompe invece di degradare.
 
@@ -367,6 +442,7 @@ def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
 
     errors += _check_obiettivi(root, rows)
     errors += _check_legenda(root, rows)
+    errors += _check_ricorrenze(root)
 
     if errors:
         raise SystemExit("contratto plan × o2 violato:\n- " + "\n- ".join(errors))

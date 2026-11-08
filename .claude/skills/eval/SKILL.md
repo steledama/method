@@ -148,7 +148,7 @@ Tre obblighi sulle sintesi `i2/`:
   non provano da soli i fatti esterni che riportano.
 
 **Ipotesi in attesa** (cfr. `kb/interpret.md`): leggi l'indice `i2/`, i fili
-raggiunti da `i3/verdicts.md` e le `## Scadenze` di `o1/plan.md`, seguendo i
+raggiunti da `i3/verdicts.md`, le `## Scadenze` e le `## Ricorrenze` di `o1/plan.md`, seguendo i
 rimandi alle ipotesi anche quando non ci sono segnali nuovi. Ogni ipotesi in
 attesa dichiara orizzonte e riscontro con fonte: verifica se l'evento o il
 riesame è arrivato, confronta il riscontro disponibile con il criterio e

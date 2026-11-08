@@ -91,7 +91,7 @@ una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
 
 ## Audit mensile
 
-Se la data della riga `(mensile)` di `/adottanti` in `## Scadenze` di
+Se la `Prossima` della riga di `/adottanti` in `## Ricorrenze` di
 `o1/plan.md` è oggi o passata, e `i1/` non ha ancora
 `audit-adottanti-AAAA-MM.md` per il mese corrente, lancia
 `python3 o3/adottanti.py audit`. Il comando dura circa un minuto e non
@@ -102,7 +102,7 @@ rilanciare.
 
 Del rapporto non decidi niente. Non classifichi i rossi, non fai il campione
 di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
-scadenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
+ricorrenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
 resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
 del rapporto. Il limite che il rapporto dichiara per il `fetch` dei repo di
 `svezia` vale anche qui: leggi `fetch.json` prima di fidarti di
