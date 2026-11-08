@@ -58,7 +58,7 @@ COLONNE_RICORRENZE = 5
 PROSSIMA = re.compile(r"(entro )?(\d{4})-(\d{2})(?:-(\d{2}))?")
 LEGENDA = re.compile(r"^\s*[-*]\s+[*`]*([wp]\d+)!?[*`]*\s*[—–:→·-]", re.MULTILINE)
 INDICE = re.compile(r"\b([wp]\d+)(!?)(?![\w])")
-BY = re.compile(r"\bby:\s*(\d{4})-(\d{2})(?:-(\d{2}))?(?![\d-])")
+BY = re.compile(r"\bby:(?:\*\*)?\s*(\d{4})-(\d{2})(?:-(\d{2}))?(?![\d-])")
 LINK = re.compile(r"\[([^\]]+)\]\([^)]*\)")
 
 _TESTA = r"^- (?:\*\*)?(?P<entro>entro )?"
@@ -435,6 +435,9 @@ def main(argv: list[str] | None = None) -> int:
         print(f"scadenze: {errore}", file=sys.stderr)
         return 2
     uscita, scaduta = rapporto(testo, profilo, args.today, args.days)
+    # Su Windows lo stdout rediretto non è UTF-8 e le frecce del plan romperebbero.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     print(uscita, end="")
     return 1 if scaduta else 0
 

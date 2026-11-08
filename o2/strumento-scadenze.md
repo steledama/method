@@ -83,19 +83,10 @@ girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
    con le decisioni 1 e 2.
 3. Fatto il 2026-11-08: `/exec` ed `/eval` canoniche lo lanciano,
    `o3/ciclo/permessi.json` di `method` lo concede.
-4. Prescrizione agli adottanti, ciascuno col proprio `/method`, senza cambio
-   simultaneo:
-   - `economia` toglie da `## Scadenze` le tre righe con la `~` rimaste
-     (Caprioli, Arsini, consuntivo Tigli): sono date nostre e restano nel `by:`,
-     quello di Arsini riscritto col giorno. Aggiunge una riga `task` in
-     `## Ricorrenze` per il consuntivo, che torna ogni anno. Poi cancella
-     `check_scadenze.py` senza wrapper e aggiorna riferimenti e permessi. Fino
-     ad allora non tocca le tre righe: lo strumento attuale non mostra i `by:`
-     in arrivo;
-   - `nixos` e `nixos-lavoro` tolgono da `maintenance-due.sh` il ramo `by:`, e
-     tengono registro e voci orfane;
-   - `bi` sposta il timetable e gli orologi manuali, che i rilievi faranno
-     emergere.
+4. Aperta il 2026-11-08: la prescrizione
+   [scadenze-nel-canone](../o3/scadenze-nel-canone.md) porta ricetta e note per
+   repo ai sette adottanti, ciascuno col proprio `/method`, senza cambio
+   simultaneo.
 
 ## Verifica di riuscita
 

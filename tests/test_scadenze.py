@@ -3,6 +3,8 @@
 import contextlib
 import importlib.util
 import io
+import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -197,6 +199,11 @@ class AtteseTests(unittest.TestCase):
         self.assertEqual(trovate["w1"].by, date(2026, 11, 7))
         self.assertEqual(trovate["w1"].task, "Primo")
 
+    def test_by_in_grassetto_e_valido(self):
+        trovate = MODULE.attese("- p1 → causa. **by:**\n  2026-11-12 → `o2/a.md`.\n")
+        self.assertEqual(trovate[0].by, date(2026, 11, 12))
+        self.assertIsNone(trovate[0].rilievo())
+
     def test_by_col_solo_mese_vale_l_ultimo_giorno(self):
         trovate = {attesa.indice: attesa for attesa in MODULE.attese(self.PLAN)}
         self.assertEqual(trovate["p2"].by, date(2026, 11, 30))
@@ -277,6 +284,20 @@ class MainTests(unittest.TestCase):
         )
         _, uscita = self.lancia(plan)
         self.assertLess(uscita.index("Nostra"), uscita.index("Mondo"))
+
+    def test_output_con_le_frecce_regge_uno_stdout_non_utf8(self):
+        with tempfile.TemporaryDirectory() as cartella:
+            plan = Path(cartella) / "plan.md"
+            plan.write_text("## Scadenze\n\n- boh → testo.\n", encoding="utf-8")
+            esito = subprocess.run(
+                [sys.executable, str(ROOT / "o3" / "scadenze.py"), "--plan", str(plan)],
+                capture_output=True,
+                env={**os.environ, "PYTHONIOENCODING": "cp1252", "PYTHONUTF8": "0"},
+                cwd=cartella,
+                check=False,
+            )
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        self.assertIn("boh → testo.", esito.stdout.decode("utf-8"))
 
     def test_uscita_due_per_profilo_invalido_o_plan_assente(self):
         for profilo in ["ignota = 1\n", 'formati_data = ["klingon"]\n', "= rotto"]:
