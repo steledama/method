@@ -50,6 +50,12 @@ vincolo no.
 
 ## Forma
 
+Il deck ha un'uscita, perché nessun gesto ovvio riporta alle viste: Alt+frecce
+restano al browser, e Reveal rinuncia al salto dei frammenti che i deck non
+usano, e un link fisso «← viste» sta in ogni deck. È un frammento comune
+(`sources.deck_exit`) che anche un builder di dominio include, e la build rompe
+se manca.
+
 Reveal, caricato da CDN senza dipendenze installate: l'HTML si apre via
 `file://` e la rete serve solo al framework; per l'uso offline Reveal si
 vendorizza. Il deck ha un CSS canonico, `deck.css`, uguale in ogni repo — base

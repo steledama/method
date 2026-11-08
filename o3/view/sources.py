@@ -24,6 +24,7 @@ LABELS = {
         "pending": "To decide",
         "no-pending": "No proposal waiting for a decision.",
         "delegation": "Delegation criteria",
+        "views": "views",
     },
     "it": {
         "presentation": "Presentazione",
@@ -33,6 +34,7 @@ LABELS = {
         "pending": "Da decidere",
         "no-pending": "Nessuna proposta in attesa di decisione.",
         "delegation": "Criteri della delega",
+        "views": "viste",
     },
 }
 
@@ -689,6 +691,29 @@ def register_intro(root: Path, name: str) -> str:
     return match.group("body").strip()
 
 
+def deck_exit() -> str:
+    """L'uscita dal deck, da includere dopo `Reveal.initialize`.
+
+    Reveal usa Alt+frecce per saltare i frammenti e toglie l'evento al browser,
+    e un solo «indietro» riporta alle viste: Alt+frecce tornano al browser, e un
+    link fisso rende visibile l'uscita. Un `DECK_BUILDER` di dominio deve
+    includere lo stesso frammento: lo verifica `check_deck_exit`. Sta su una riga
+    sola perché il template di pandoc indenterebbe le successive.
+    """
+    return (
+        f'<a class="deck-exit" href="index.html">← {html.escape(label("views"))}</a>'
+        "<script>Reveal.configure({keyboardCondition: (event) => !event.altKey});</script>"
+    )
+
+
+def check_deck_exit(page: str) -> None:
+    """Un deck senza il frammento non si pubblica: resterebbe senza uscita."""
+    if deck_exit() not in page:
+        raise SystemExit(
+            "deck: manca l'uscita alle viste, includi sources.deck_exit() nella pagina"
+        )
+
+
 def reveal_page(markdown: str, source: str, title: str, reveal_url: str, folder: Path) -> str:
     """Il deck Reveal canonico da Markdown: stile, accento e link chiusi.
 
@@ -713,5 +738,6 @@ def reveal_page(markdown: str, source: str, title: str, reveal_url: str, folder:
             "--variable=margin:0.05",
             "--variable=center:false",
             "--variable=slideNumber:true",
+            f"--variable=include-after:{deck_exit()}",
         ],
     )

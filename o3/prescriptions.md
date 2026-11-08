@@ -16,6 +16,9 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   canone](scadenze-nel-canone.md) — `o3/scadenze.py` al posto degli strumenti
   locali sulle stesse sezioni, plan portato alla forma, `by:` nella catena.
   Prescritta ai sette il 2026-11-08.
+- [Il deck ha un'uscita alle viste](uscita-dal-deck.md) — frammento comune con
+  Alt+frecce lasciate al browser e link fisso, anche nei builder di dominio; la
+  build rompe se manca. Prescritta ai sette il 2026-11-08.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.

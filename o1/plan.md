@@ -18,7 +18,6 @@ pianificazione.
 | dev   | S   | Lanciatore del ciclo nel metodo | —                                 |
 | dev   | S   | Ricorrenza dei dinieghi         | —                                 |
 | dev   | S   | Pilota del ciclo autonomo       | —                                 |
-| dev   | S   | Uscita dal deck                 | —                                 |
 | dev   | S   | Pubblicazione decisa dal repo   | ↳ Lanciatore del ciclo nel metodo |
 | dev   | S   | Traduzione in inglese           | —                                 |
 | dev   | S   | Strumento delle scadenze        | —                                 |

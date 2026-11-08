@@ -22,6 +22,5 @@ Proposta di canone in attesa del custode:
 
 Deciso dal custode, da implementare:
 
-- [uscita-dal-deck.md](uscita-dal-deck.md) — il deck non ha uscita: Alt+frecce lasciate al browser e un link fisso alle viste, anche nei deck di dominio di `economia` e `salute`; adottato il 2026-11-08.
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host una porta sola con uno smistatore e un elenco dei checkout ammessi; adottato il 2026-11-08, dopo il lanciatore.
 - [strumento-scadenze.md](strumento-scadenze.md) — un solo controllo di scadenze e ricorrenze nel canone, `o3/scadenze.py` con profilo locale minimo; deciso il 2026-11-08, gli adottanti lo recepiscono senza cambio simultaneo.

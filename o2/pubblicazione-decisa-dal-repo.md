@@ -151,4 +151,3 @@ Connessioni:
 
 - [view](../kb/view.md)
 - [lanciatore-ciclo-nel-metodo](lanciatore-ciclo-nel-metodo.md)
-- [uscita-dal-deck](uscita-dal-deck.md)

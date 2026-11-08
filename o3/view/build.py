@@ -42,6 +42,7 @@ from sources import (
     check_verdict_contract,
     label,
     parse_plan,
+    check_deck_exit,
     reveal_page,
 )
 
@@ -191,6 +192,8 @@ def render(out: Path, commit: str | None = None) -> None:
 
     texts = dict(pages)
     deck = deck_page(reveal_url, out)
+    if deck is not None:
+        check_deck_exit(deck)
     if deck is not None:
         texts["presentation.html"] = deck
     texts["index.html"] = render_home(ROOT, deck is not None, provenance)

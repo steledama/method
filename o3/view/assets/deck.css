@@ -79,6 +79,31 @@
   width: 100%;
 }
 
+/* Uscita alle viste: in basso a sinistra, lontana da controlli e numero. */
+.deck-exit {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  bottom: 12px;
+  color: var(--accent);
+  font: 14px/1.4 system-ui, sans-serif;
+  left: 12px;
+  padding: 2px 8px;
+  position: fixed;
+  text-decoration: none;
+  z-index: 40;
+}
+
+.deck-exit:hover,
+.deck-exit:focus-visible {
+  text-decoration: underline;
+}
+
+@media print {
+  .deck-exit {
+    display: none;
+  }
+}
+
 /* Cover. */
 .reveal #title-slide {
   text-align: left;
