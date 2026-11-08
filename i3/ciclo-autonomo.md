@@ -76,7 +76,12 @@ riletto contro le fonti.
   Skill, con zero dinieghi, e ha dato «stadi ok». Ha letto `goal.md` e tutti
   i fili, e `compare=vuoto` è un vuoto vero. È costato 69 turni e 1,76 USD,
   contro 25-56 turni e 0,52-1,28 USD della settimana prima. È un giro solo:
-  salute lo osserva fino al 14/11.
+  salute lo osserva fino al 14/11. Il gate verde non dice se il giudizio
+  regge: in `nixos`, l'8 novembre, minimi soddisfatti con finestre troppo
+  corte, oggetti al posto dei corpi e atti prima del verdetto
+  (`i1/giri-lettura-fatta-giudizio-sottile-2026-11-08.md`). Dal 2026-11-08
+  il resoconto traccia ogni filo e obiettivo e `stadi` verifica il passo 3c;
+  il giudizio si misura sul campione.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
   `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto

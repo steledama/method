@@ -59,6 +59,14 @@ PATH_MINIMI = {
     "plan": ["o1/plan.md"],
     "specify": ["o2/"],
 }
+# Comandi che il minimo vuole interi: tutti i pezzi nello stesso input di un
+# tool. Il passo 3c di `exec plan` legge i corpi dei giri, non gli oggetti.
+COMANDI_MINIMI = {
+    "plan": [
+        (("git log", "docs(ciclo)", "%b"), "corpi dei giri della settimana non letti (passo 3c)"),
+    ],
+}
+OBIETTIVO = re.compile(r"^### (\d+)\.", re.MULTILINE)
 
 
 def run(args: list[str], root: Path) -> subprocess.CompletedProcess:
@@ -312,9 +320,57 @@ def lacune(dichiarati: list[str], skill: set[str], testo: str) -> list[str]:
         if braccio and braccio not in skill:
             mancano.append(f"skill {braccio} non invocata")
         mancano += [f"{p} non toccato" for p in PATH_MINIMI.get(stadio, []) if p not in testo]
+        input_tool = testo.splitlines()
+        for pezzi, messaggio in COMANDI_MINIMI.get(stadio, []):
+            if not any(all(p in riga for p in pezzi) for riga in input_tool):
+                mancano.append(messaggio)
         if mancano:
             righe.append(f"{stadio} dichiarato senza traccia: {', '.join(mancano)}")
     return righe
+
+
+def resoconto(trascrizione: Path) -> str:
+    """L'ultimo testo dell'agente nella trascrizione: il resoconto del giro."""
+    ultimo = ""
+    for riga in trascrizione.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            evento = json.loads(riga)
+        except json.JSONDecodeError:
+            continue
+        if evento.get("type") != "assistant":
+            continue
+        contenuto = evento.get("message", {}).get("content", [])
+        if not isinstance(contenuto, list):
+            continue
+        testi = [
+            p.get("text", "") for p in contenuto if isinstance(p, dict) and p.get("type") == "text"
+        ]
+        if any(testi):
+            ultimo = "\n".join(testi)
+    return ultimo
+
+
+def fili_e_obiettivi(root: Path, ref: str) -> tuple[list[str], list[str]]:
+    """I fili con `obiettivo:` e i numeri degli obiettivi del register a `ref`."""
+    uscita = run(["git", "grep", "-l", "^obiettivo:", ref, "--", "i3/*.md"], root).stdout
+    fili = sorted(Path(riga.partition(":")[2]).stem for riga in uscita.splitlines())
+    goal = run(["git", "show", f"{ref}:goal.md"], root).stdout
+    return fili, OBIETTIVO.findall(goal)
+
+
+def avviso_copertura(fili: list[str], obiettivi: list[str], testo: str) -> list[str]:
+    """Fili e obiettivi che il resoconto non nomina: un avviso, non una lacuna,
+    perché nominarli non prova il giudizio e un giro può abbreviare il nome."""
+    fili_assenti = [f for f in fili if f not in testo]
+    obiettivi_assenti = [
+        n for n in obiettivi if not re.search(rf"\bobiettivo {n}\b", testo, re.IGNORECASE)
+    ]
+    assenti = []
+    if fili_assenti:
+        assenti.append(f"fili {', '.join(fili_assenti)}")
+    if obiettivi_assenti:
+        assenti.append(f"obiettivi {', '.join(obiettivi_assenti)}")
+    return [f"avviso: compare, non nominati nel resoconto: {'; '.join(assenti)}"] if assenti else []
 
 
 def ultima_chiusura(root: Path) -> dict | None:
@@ -353,6 +409,8 @@ def verifica_stadi(root: Path, giro: Path | None = None) -> tuple[list[str], lis
     skill, testo = tracce(giro)
     trovate = lacune(dichiarati, skill, testo)
     righe = [f"giro {giro.stem}, commit {ref[:7]}: dichiarati {' '.join(dichiarati)}"]
+    if "compare" in dichiarati:
+        righe += avviso_copertura(*fili_e_obiettivi(root, ref), resoconto(giro))
     return righe, trovate
 
 

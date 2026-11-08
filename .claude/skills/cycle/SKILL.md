@@ -79,7 +79,12 @@ procedura del dominio al centro degli atti del giro, come `/manutenzione` di
 novembre 2026 i giri di `nixos` si sono ridotti a quella procedura più un
 ritocco al task in testa, e in tutti i 21 giri dal 17 ottobre il trailer
 dichiarava i sei stadi senza che uno leggesse `goal.md` (caso
-`nixos`, `i1/ciclo-stadi-saltati-20261107.md` di quel repo). Uno stadio
+`nixos`, `i1/ciclo-stadi-saltati-20261107.md` di quel repo). La procedura si
+divide fra i due stadi: la diagnosi, in sola lettura, è un canale di
+`perceive`; gli atti stanno in `perform`, dopo `compare` e `plan`, così il
+verdetto può ancora fermarli. La verità prima delle priorità vale anche per
+gli atti (giro di `nixos` del 2026-11-08: bump e switch prima della lettura
+di `goal.md`). Uno stadio
 che il giro non compie si dichiara: resta fuori da `Esiti:` e va in
 `Attenzione:` col motivo.
 
@@ -141,6 +146,9 @@ a richiesta»). Contiene:
 - esito dell'avvio, SHA del commit ed esito del push, oppure lo stop e il
   suo motivo;
 - per stadio eseguito, `materia` o `vuoto` e cosa è cambiato;
+- la traccia del giudizio di `compare` (`eval`, passo 6): una riga per ogni
+  filo con `obiettivo:` e una per ogni obiettivo del register, col segnale
+  usato;
 - la visione d'insieme di `exec plan` (passo 3c): cosa torna nei giri della
   settimana, cosa è fermo, cosa scade nella catena, le tendenze; «nessun
   rilievo» se è pulita;

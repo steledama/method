@@ -23,7 +23,9 @@ Esiti: perceive=vuoto interpret=materia compare=materia
 
 `vuoto` vuol dire che lo stadio ha girato, col suo **minimo**, e non ha
 trovato materia; uno stadio saltato non è `vuoto`, resta fuori dal trailer.
-Il minimo di ogni stadio, scritto in fondo alla sua sezione, sono le letture
+Una riga che registra solo il giro stesso (un marker, un cursore, il conto di
+una lettura che non sposta) non è materia: lo stadio resta `vuoto` (giro di
+`nixos` del 2026-11-08). Il minimo di ogni stadio, scritto in fondo alla sua sezione, sono le letture
 che lasciano traccia nella trascrizione; un adottante lo adatta nel prompt
 del ciclo aggiungendo i gesti del dominio, senza toglierne (caso `nixos` del
 2026-11-07: per venti giorni sei stadi dichiarati, `goal.md` mai letto).
@@ -114,7 +116,8 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    script consentito, mai con un'istruzione che chiede di aggirarla.
    Sulla stessa chiusura lancia `python3 o3/commit_gate.py stadi`: gli
    stadi che l'`Esiti:` del giro precedente dichiara senza la traccia del
-   loro minimo vanno nella riga `Attenzione:` di questo giro. Poi riprendi
+   loro minimo vanno nella riga `Attenzione:` di questo giro; un suo
+   `avviso` su fili e obiettivi non nominati va nell'autovalutazione. Poi riprendi
    la riga `Attenzione:` del resoconto precedente voce per voce: risolta,
    invariata o cambiata; una voce lasciata «non indagata» si indaga qui
    (cfr. `cycle`, «Resoconto finale»).
@@ -195,7 +198,11 @@ giro.
 **1. Raccogli il contesto corrente**
 
 Leggi `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`; poi `o1/plan.md` e
-`git log --oneline -15` per gli eventi dall'ultima revisione. I segnali reali
+gli eventi dall'ultimo giro: `git log -1 --grep='^docs(ciclo)' --format=%h`
+dà il commit, `git log --oneline <commit>..HEAD` gli eventi, tutti. Una
+finestra a numero fisso perde il lavoro del custode fra due giri (`nixos`,
+2026-11-08: 35 commit contro `-15`). Senza un giro precedente vale la data
+dell'ultima revisione, con `--since`. I segnali reali
 sono gli esiti di `perceive` e `interpret` di questo giro, l'audit
 (`o3/kb_tools.py audit`), i marker `i3/allineamento-metodo.md` degli adottanti
 (dai checkout dichiarati nel territorio di `world.md`) e le percezioni `i1/` non
@@ -277,7 +284,12 @@ decidere cosa conta è del custode (`kb/goal.md`).
 **6. Applica entro la delega, proponi oltre il confine**
 
 Per ogni filo/obiettivo rendi leggibili azione (aggiorna/chiudi/split/crea,
-migra dal plan) e motivo. Applica gli esiti autorizzati dal gate comune;
+migra dal plan) e motivo. Il resoconto del giro ne porta la traccia, una riga
+per ogni filo con `obiettivo:` e una per ogni obiettivo del register:
+`<nome del file del filo>: <regge, aggiornato, chiuso> (<segnale usato>)` e
+`obiettivo N: <segnale vivo o buco di misura>`. Il segnale è un path, uno SHA
+o una data col suo canale; la memoria del giro precedente non è un segnale.
+Applica gli esiti autorizzati dal gate comune;
 porta al custode soltanto i punti riservati, con una proposta concreta e
 raggiungibile. Distingui nel resoconto modifiche applicate e decisioni
 pendenti. Se non c'è materia, dichiaralo e chiudi secondo il gate comune.
@@ -295,7 +307,11 @@ lo scope ricevente conserva il giudizio e dichiara le divergenze. Se non c'è
 nulla da passare, dillo esplicitamente.
 
 Minimo: `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`, ciascuno almeno
-alla domanda «è ancora vero?» contro i segnali del giro.
+alla domanda «è ancora vero?» contro i segnali del giro. Il minimo misura la
+lettura: la traccia del passo 6 rende controllabile il giudizio, e
+`commit_gate.py stadi` avvisa se un filo o un obiettivo non è nominato.
+Nominarli non prova che il giudizio regga: quello resta ai riesami a campione
+(`autonomy.md`, «Supervisione»).
 
 ## Note operative
 

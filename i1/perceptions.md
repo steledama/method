@@ -14,7 +14,8 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
   giudizio](giri-lettura-fatta-giudizio-sottile-2026-11-08.md) — da `nixos`
   `5d4eecb`, inoltro del custode: primo giro con gli stadi verificati, gate
   verde e giudizio sottile. `%s` al posto di `%b` in quattro giri su dieci di
-  quattro repo. Cinque questioni da decidere col custode.
+  quattro repo. Recepito il 2026-11-08; si chiude quando i fork recepiscono
+  e gli atti di `/manutenzione` seguono `goal.md`.
 - [I giri autonomi dichiarano stadi che non
   eseguono](giri-stadi-dichiarati-senza-traccia-2026-11-07.md) — da `nixos`
   `4c4a27c`, inoltro del custode, riscontrato in `method`, `salute`,

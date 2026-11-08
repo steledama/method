@@ -60,17 +60,25 @@ Due punti del caso vanno letti diversamente:
   pipe di `exec plan` è passato nel giro di `salute` dell'8 novembre. La
   discordanza è fra i due testi, senza diniego osservato.
 
-## Questioni per il metodo
+## Recepito, deciso dal custode il 2026-11-08
 
-Le cinque del caso, da decidere col custode:
+- `compare` legge gli eventi dall'ultimo commit `docs(ciclo)`; il `Prossimo:`
+  si legge con `--grep`, senza pipe.
+- Il resoconto porta una riga per filo e una per obiettivo, col segnale
+  usato. `commit_gate.py stadi` avvisa se ne manca uno, senza farlo lacuna.
+- Il passo 3c è verificato: `stadi` vuole `docs(ciclo)` con `%b` in un solo
+  comando, altrimenti `plan` è dichiarato senza traccia.
+- Una procedura di dominio si divide: la diagnosi in `perceive`, gli atti in
+  `perform`, dopo `compare` e `plan`. Il custode nota che vale anche per
+  `nixos-lavoro`, il cui prompt mette `/manutenzione` nel `perceive` con
+  bump compiuti dai rami. La divisione si fa negli adottanti, col loro
+  `/method`.
+- `materia` non comprende la riga che registra solo il giro stesso.
 
-- finestre di `compare` e del `Prossimo:` dall'ultimo giro invece che a
-  numero fisso, e comando senza pipe;
-- una traccia del giudizio per filo e per obiettivo oltre al minimo di
-  letture, e se il gate possa controllare almeno che siano nominati;
-- verificabilità del passo 3c dal gate;
-- atti di una procedura di dominio prima o dopo `compare`;
-- `materia` su una nota che riguarda solo il giro stesso.
+## Questione aperta
+
+Si chiude quando i fork recepiscono, «Stadi dei giri» è senza rossi anche sul
+3c e i giri di `nixos` e `nixos-lavoro` mostrano gli atti dopo `goal.md`.
 
 Il caso risponde in parte alla questione aperta di
 [`giri-stadi-dichiarati-senza-traccia-2026-11-07.md`](giri-stadi-dichiarati-senza-traccia-2026-11-07.md),

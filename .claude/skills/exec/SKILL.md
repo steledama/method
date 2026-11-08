@@ -180,7 +180,8 @@ ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
 
 - **giri della settimana**: i corpi dei commit dei giri degli ultimi 7
   giorni (`git log --since="7 days ago" --grep="^docs(ciclo)" --format="%h %ad%n%b" --date=short`).
-  Una voce per il custode, un'anomalia, un'ipotesi o un'esclusione fatta a
+  Servono i corpi: con `%s` restano gli oggetti e le voci da contare non si
+  vedono (4 giri su 10 in quattro repo, novembre 2026). Una voce per il custode, un'anomalia, un'ipotesi o un'esclusione fatta a
   mano che torna in tre giri senza esito sale in `Attenzione:`, oppure
   diventa un passo di task o una regola: non si ripete identica un altro
   giorno. La conferma del `Prossimo:` con esiti sani non conta: è
@@ -215,7 +216,7 @@ coda, non dal giro precedente. Una sessione può aver messo una riga in testa
 senza toccare il trailer. Se consigli un'altra riga, il corpo del commit
 nomina quella scavalcata e il motivo (urgenza, costo/opportunità, una lente
 del passo 3b). Poi confronta il consigliato con l'ultimo trailer `Prossimo:`
-della storia (`git log --format='%(trailers:key=Prossimo,valueonly)' | grep -m1 .`;
+della storia (`git log -1 --grep='^Prossimo:' --format='%(trailers:key=Prossimo,valueonly)'`;
 senza trailer precedente è un cambio, con causa «primo trailer»):
 
 - **confermato**: dì in una riga, nel corpo del commit e nel resoconto,
@@ -251,7 +252,8 @@ normalmente **vuoto** — il vuoto è il segnale che la verità è passata per
 prima, non un fallimento. Se non è vuoto, segnalalo al custode: il movimento
 di ritorno è l'eccezione che va giustificata, non un secondo giro automatico.
 
-Minimo: `o1/plan.md`, `goal.md`, l'ultimo trailer `Prossimo:` e
+Minimo: `o1/plan.md`, `goal.md`, l'ultimo trailer `Prossimo:`, i corpi dei
+giri della settimana del passo 3c, verificati da `commit_gate.py stadi`, e
 `python3 o3/view/build.py --check`, dove il repo ha il generatore.
 
 ## `specify` — la qualità interna dei task
@@ -307,8 +309,8 @@ verificati), atti compiuti o predisposti, o la chiusura in una riga.
 
 Minimo: l'indice di `o3/` (in `metodo` `o3/prescriptions.md`) e gli atti che il register di autonomia
 assegna al giro; una procedura ricorrente del dominio, come `/manutenzione`
-di `nixos`, è un atto di `perform` (e un canale di `perceive`), non il
-giro.
+di `nixos`, non è il giro: la sua diagnosi è un canale di `perceive`, i suoi
+atti stanno qui, dopo `compare` e `plan` (`cycle`, «Stadi»).
 
 ## Note operative
 

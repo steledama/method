@@ -77,6 +77,11 @@ def trascrizione(path, chiamate):
     return path
 
 
+CORPI_DEI_GIRI = (
+    'git log --since="7 days ago" --grep="^docs(ciclo)" --format="%h %ad%n%b" --date=short'
+)
+
+
 class StadiTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -139,10 +144,47 @@ class StadiTests(unittest.TestCase):
                 ("Read", {"file_path": "goal.md"}),
                 ("Bash", {"command": "ls i2/ i3/ o2/"}),
                 ("Read", {"file_path": "o1/plan.md"}),
+                ("Bash", {"command": CORPI_DEI_GIRI}),
             ],
         )
         skill, testo = MODULE.tracce(giro)
         self.assertEqual(MODULE.lacune(sorted(MODULE.STADI), skill, testo), [])
+
+    def test_plan_needs_the_bodies_of_the_rounds(self):
+        oggetti = CORPI_DEI_GIRI.replace("%n%b", " %s")
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [
+                ("Skill", {"skill": "exec"}),
+                ("Read", {"file_path": "o1/plan.md"}),
+                ("Bash", {"command": oggetti}),
+                ("Bash", {"command": "git show HEAD --format=%b"}),
+            ],
+        )
+        skill, testo = MODULE.tracce(giro)
+        self.assertEqual(
+            MODULE.lacune(["plan"], skill, testo),
+            ["plan dichiarato senza traccia: corpi dei giri della settimana non letti (passo 3c)"],
+        )
+
+    def test_report_is_the_last_agent_text(self):
+        giro = self.dir / "g.jsonl"
+        righe = [
+            {"type": "assistant", "message": {"content": [{"type": "text", "text": "prima"}]}},
+            {"type": "assistant", "message": {"content": [{"type": "tool_use", "name": "Bash"}]}},
+            {"type": "assistant", "message": {"content": [{"type": "text", "text": "ultimo"}]}},
+            {"type": "user", "message": {"content": "dopo"}},
+        ]
+        giro.write_text("\n".join(json.dumps(r) for r in righe), encoding="utf-8")
+        self.assertEqual(MODULE.resoconto(giro), "ultimo")
+
+    def test_coverage_warns_on_unnamed_threads_and_objectives(self):
+        testo = "ciclo-autonomo: regge (i1/x.md)\nObiettivo 1: segnale vivo\nobiettivo 10: altro"
+        self.assertEqual(
+            MODULE.avviso_copertura(["ciclo-autonomo", "kb"], ["1", "2"], testo),
+            ["avviso: compare, non nominati nel resoconto: fili kb; obiettivi 2"],
+        )
+        self.assertEqual(MODULE.avviso_copertura(["ciclo-autonomo"], ["1"], testo), [])
 
     def test_outcomes_name_the_stages(self):
         self.assertEqual(MODULE.stadi_esiti(["perceive=vuoto plan=materia"]), ["perceive", "plan"])
