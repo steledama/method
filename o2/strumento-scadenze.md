@@ -77,7 +77,9 @@ girare col solo stdlib: `tests/test_scadenze.py` verifica che coincidano.
    rilievi, nessuna sparisce.
 2. `kb/plan.md`: il canone fornisce lo strumento, con le decisioni 1 e 2.
 3. `/exec` ed `/eval` canoniche lo lanciano, `o3/ciclo/permessi.json` di
-   `method` lo concede.
+   `method` lo concede. Finché manca la riga il giro non lo lancia: il giro
+   dell'08/11 l'ha provato ed è stato negato, e ha letto `## Ricorrenze` a
+   mano.
 4. Prescrizione agli adottanti, ciascuno col proprio `/method`, senza cambio
    simultaneo:
    - `economia` sposta in `## Ricorrenze` le righe con cadenza, che portano via

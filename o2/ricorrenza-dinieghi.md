@@ -54,6 +54,13 @@ non una lettura del modello.
   sulla grafia e stampa una riga per classe ricorrente: classe, numero di
   giri, repo, date. Una classe non riconosciuta si stampa come «altro», col
   comando, perché una grafia nuova è proprio ciò che il giro deve vedere.
+  Candidata alla mappa: le parentesi non quotate in un argomento, come
+  `--grep=^docs(ciclo)`. Il comando non è valido in bash e l'harness lo
+  nega, mentre la forma fra virgolette passa. È ricorsa nei giri di
+  `method` del 03/11 (causa accertata in `fc73956`) e dell'08/11; il
+  diniego di `economia` del 03/11 su un `git log --format` non quotato è
+  forse della stessa classe, da verificare. È un errore di scrittura
+  dell'agente, non un permesso mancante.
 - **Il segnale già canonico.** Per ogni classe ricorrente lo script dice se
   un commit di `method` la segnala già e se l'adottante l'ha recepito, dal
   cursore del marker `i3/allineamento-metodo.md` confrontato con

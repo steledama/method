@@ -419,7 +419,8 @@ arriva agli adottanti via symlink.
     (`e9b89c4`, `c628acb`), quindi il 24 il login era valido.
   - **Timer delle 08:10 senza commit su `origin`, 06 e 07/11**: il 06/11
     nessun commit del giro, il 07/11 solo quello della ripresa delle 10:10
-    (`6ebecfb`). Da `deck` non si distinguono mancata partenza, arresto e
+    (`6ebecfb`). L'08/11 il timer delle 08:10 committa di nuovo
+    (`376d042`). Da `deck` non si distinguono mancata partenza, arresto e
     push mancato. Passo per la sessione col custode: leggere le righe del
     06 e 07/11 in `i1/giri/tentativi.jsonl` di `danea-auto` su `danea2` e
     portarne la causa nel filo [ciclo autonomo](../i3/ciclo-autonomo.md).
