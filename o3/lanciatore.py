@@ -64,6 +64,7 @@ import sys
 import time
 import tomllib
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -146,6 +147,20 @@ class EsitoPrima:
     profilo: Profilo
     attenzione: str | None = None
     salta: bool = False
+    accorciato: bool = False
+
+
+def tetto_residuo(esito: EsitoPrima, trascorsi: float) -> Profilo:
+    """Il tetto dell'aggancio vale dal suo orologio, non dall'avvio dell'agente.
+
+    Fetch e pull fra i due si scalano: un limite come «entro le :50» non si sfora.
+    """
+    if not esito.accorciato:
+        return esito.profilo
+    minuti = esito.profilo.minuti - trascorsi / 60
+    if minuti <= 0:
+        raise Arresto(22, "tetto-di-tempo", "esaurito prima dell'avvio dell'agente")
+    return replace(esito.profilo, minuti=minuti)
 
 
 def esegui_prima(profilo: Profilo) -> EsitoPrima:
@@ -192,6 +207,7 @@ def esegui_prima(profilo: Profilo) -> EsitoPrima:
         replace(profilo, minuti=min(profilo.minuti, minuti)),
         dati.get("attenzione"),
         dati.get("salta") is True,
+        minuti < profilo.minuti,
     )
 
 
@@ -609,6 +625,7 @@ def giro(
         locale = esegui_prima(profilo)
         if locale.salta:
             return 0
+        fine_aggancio = time.monotonic()
         profilo = locale.profilo
         tentativo.partenza()
         tentativo.avvisa(locale.attenzione)
@@ -618,6 +635,7 @@ def giro(
         tentativo.head_prima = prepara_repo(profilo)
         if pull_canone:
             tentativo.avvisa(aggiorna_canone(checkout))
+        profilo = tetto_residuo(locale, time.monotonic() - fine_aggancio)
         comando = [
             *recinto,
             claude,
@@ -669,19 +687,34 @@ def giro(
 
 
 def controlli(profilo: Profilo, checkout: Path) -> int:
-    """I controlli in sola lettura: dicono se il giro partirebbe adesso."""
-    try:
+    """I controlli in sola lettura, tutti: è una diagnosi, non si ferma al primo.
+
+    Il codice di uscita è quello del primo arresto, come nel giro.
+    """
+    arresti: list[Arresto] = []
+
+    def prova(controllo: Callable[..., Any], *argomenti: object) -> Any:
+        try:
+            return controllo(*argomenti)
+        except Arresto as arresto:
+            arresti.append(arresto)
+            return None
+
+    def fermo() -> None:
         if (STATO / "fermo").exists():
             raise Arresto(24, "fermo-dopo-percorsi-protetti")
-        locale = esegui_prima(profilo)
-        avvisi = [locale.attenzione, controlla_sessioni(checkout)]
-        controlla_tree(profilo)
-        controlla_file()
-    except Arresto as arresto:
+
+    prova(fermo)
+    locale = prova(esegui_prima, profilo)
+    avvisi = [locale.attenzione if locale else None, prova(controlla_sessioni, checkout)]
+    prova(controlla_tree, profilo)
+    prova(controlla_file)
+    for arresto in arresti:
         print(f"arresto {arresto.codice}: {arresto.motivo} {arresto.dettaglio}".rstrip())
-        return arresto.codice
     for avviso in filter(None, avvisi):
         print(f"attenzione: {avviso}")
+    if arresti:
+        return arresti[0].codice
     print(
         "controlli: l'aggancio salterebbe il giro"
         if locale.salta

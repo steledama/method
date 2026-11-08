@@ -416,6 +416,31 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(esito.returncode, 16)
         self.assertIn("fuori-slot", esito.stdout)
 
+    def test_i_controlli_non_si_fermano_al_primo_arresto(self):
+        self.con_prima('print("fuori-slot")\nraise SystemExit(16)\n')
+        (self.repo / "sporco.md").write_text("x\n", encoding="utf-8")
+        (self.repo / "o3" / "ciclo" / "permessi.json").write_text("{rotto", encoding="utf-8")
+        esito = self.lancia("--controlli")
+        self.assertEqual(esito.returncode, 16)
+        for motivo in ("fuori-slot", "checkout-sporco", "settings-invalide"):
+            self.assertIn(motivo, esito.stdout)
+        self.assertNotIn("potrebbe partire", esito.stdout)
+
+    def test_il_tetto_dell_aggancio_sconta_fetch_e_pull(self):
+        profilo = MODULE.Profilo(minuti=10)
+        esito = MODULE.EsitoPrima(profilo, accorciato=True)
+        self.assertEqual(MODULE.tetto_residuo(esito, 120).minuti, 8)
+
+    def test_il_tetto_del_profilo_vale_dall_avvio_dell_agente(self):
+        profilo = MODULE.Profilo(minuti=10)
+        self.assertEqual(MODULE.tetto_residuo(MODULE.EsitoPrima(profilo), 120).minuti, 10)
+
+    def test_tetto_esaurito_prima_dell_avvio(self):
+        esito = MODULE.EsitoPrima(MODULE.Profilo(minuti=1), accorciato=True)
+        with self.assertRaises(MODULE.Arresto) as contesto:
+            MODULE.tetto_residuo(esito, 61)
+        self.assertEqual(contesto.exception.codice, 22)
+
     def test_stderr_dell_agente_finisce_nello_stream(self):
         self.imposta_agente(agente("echo spiegazione >&2\nexit 3"))
         self.assertEqual(self.lancia().returncode, 20)

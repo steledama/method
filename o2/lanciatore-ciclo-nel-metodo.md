@@ -79,11 +79,13 @@ con `danea-auto`:
 
 Prossimi passi, `danea-auto` per prima:
 
-1. `danea-auto` su `danea2`, nella sua sessione: `--controlli` in sola lettura,
-   perché il ramo Windows non è mai stato eseguito, poi un giro vero. Il profilo
-   porta `minuti = 40`, `budget_usd = 5`, `pull_fermo` e `prima` con slot, ripresa delle 10:10,
-   login e tetto alle `:50`; il Task Scheduler lancia `pythonw.exe` sullo script
-   con `--claude` e `--senza-pull-canone`, e `ciclo_autonomo.py` esce;
+1. `danea-auto` su `danea2`: profilo e `prima.py` scritti il 2026-11-08, provati in
+   un repo di prova con un agente finto. Su Windows reggono `pythonw`, il lock con
+   `msvcrt`, la chiusura dell'albero al tetto e i codici 17, 23 e 24
+   (`i1/lanciatore-canonico-prova-windows.md` di quel repo). Restano al custode
+   `--controlli` da una PowerShell senza sessioni e il rilancio di
+   `crea_task_ciclo.ps1`, poi il primo giro vero; `ciclo_autonomo.py` esce solo
+   dopo che quel giro ha chiuso bene;
 2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`
    costruito su `systemd-run` (ancora da provare) e `RuntimeMaxSec` come tetto di
    riserva. È un atto sul modulo `nixos`, nella sua sessione, su messaggio Herdr
