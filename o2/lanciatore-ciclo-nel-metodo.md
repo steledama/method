@@ -91,8 +91,9 @@ Prossimi passi, `danea-auto` per prima:
    `commit_gate.py stadi` il giro delle 16:13. Dal resoconto inoltrato il
    2026-11-08: i controlli che si fermavano al primo arresto e il tetto alle :50
    sforato da fetch e pull li chiude `bbe06b4`; l'attesa dello slot anche sotto
-   `--controlli` la chiude `LANCIATORE_MODO`, che `prima.py` di `danea-auto`
-   deve ancora leggere. Il pull che non ferma un cambio del recinto è il disegno
+   `--controlli` la chiude `LANCIATORE_MODO` (`a063923`), letta da `prima.py` di
+   `danea-auto` in `ef7273a`. Provato dal vivo alle 16:39: `--controlli` riporta
+   tutti gli arresti. Primo giro dal timer col canone il 2026-11-09 alle 08:10. Il pull che non ferma un cambio del recinto è il disegno
    (rete in chiusura); `exit_status` stringa come `$EXIT_STATUS` di systemd,
    `push` vero senza commit perché vuol dire «niente da pubblicare» e la vista lo
    legge solo con `commit`;
