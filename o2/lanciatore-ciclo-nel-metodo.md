@@ -39,6 +39,56 @@ Adottato il disegno minimale della proposta del 2026-10-29, con queste scelte:
 
 Le altre domande qui sotto si decidono quando il lavoro le raggiunge.
 
+## Stato
+
+`o3/lanciatore.py` esiste con i test (`tests/test_lanciatore.py`, agente finto su
+repository veri) e il timer non lo usa ancora. Stessi codici d'arresto e stessa
+forma delle righe dell'unità di `nixos`; `lock` e `settings.json` stanno in
+`.git/lanciatore/`, così non serve una cartella di stato fuori dal repo e ogni
+arresto finisce in `i1/giri/`, che chiude il guasto dell'origine. Provato il
+2026-11-08 con Claude Code 2.1.318 in un repo usa e getta: giro riuscito, tracce
+lette dalla vista, 0,06 USD. In `method` i controlli hanno trovato la sessione
+aperta (15).
+
+Scelte prese scrivendolo, da rivedere col custode se non tornano:
+
+- tetto di tempo e di costo sono del repo (`o3/ciclo/lanciatore.toml`), l'orario
+  resta all'host;
+- un giro che tocca un percorso protetto ferma i successivi con
+  `.git/lanciatore/fermo`, che toglie una persona: è il «torna al manuale»;
+- il lanciatore sta fuori dalla sandbox e `--recinto`, opzione dell'host, mette
+  dentro il solo agente. Dentro il namespace `/proc` degli altri processi è
+  negato e il pull sui percorsi in sola lettura si romperebbe a metà;
+- l'avviso di `attenzione` è copiato nella chiusura, come fa già `danea-auto`.
+
+Confermate dal custode il 2026-11-08, insieme a ciò che ha portato il confronto
+con `danea-auto`:
+
+- il profilo `o3/ciclo/lanciatore.toml` è il posto dei parametri del repo:
+  `branch`, `minuti`, `budget_usd`, `protetti`, `prima`;
+- `prima` è l'unico aggancio locale, uno script Python in `o3/ciclo/` che gira
+  prima dell'agente e può fermare (16-19), accorciare il tetto, avvisare o saltare;
+- niente chiave per fermare il pull sui percorsi protetti: `danea-auto` migra
+  senza. Cade così la decisione D4 del 20/10 di quel repo: un commit su `origin`
+  che tocca `o3/runtime/` o `o3/scheduler/` va in produzione al giro successivo;
+- il lanciatore aggiorna il proprio checkout del canone, salvo
+  `--senza-pull-canone`, opzione dell'host. Su `danea2` resta spento: lì il
+  canone lo aggiorna il custode in sessione.
+
+Prossimi passi, `danea-auto` per prima:
+
+1. `danea-auto` su `danea2`, nella sua sessione: `--controlli` in sola lettura,
+   perché il ramo Windows non è mai stato eseguito, poi un giro vero. Il profilo
+   porta `minuti = 40`, `budget_usd = 5` e `prima` con slot, ripresa delle 10:10,
+   login e tetto alle `:50`; il Task Scheduler lancia `pythonw.exe` sullo script
+   con `--claude` e `--senza-pull-canone`, e `ciclo_autonomo.py` esce;
+2. collaudo in `method`: l'unità `ciclo-method` lancia lo script, con `--recinto`
+   costruito su `systemd-run` (ancora da provare) e `RuntimeMaxSec` come tetto di
+   riserva. È un atto sul modulo `nixos`, nella sua sessione, su messaggio Herdr
+   del custode;
+3. prescrizione agli altri adottanti e riduzione del modulo `nixos`
+   all'adattatore.
+
 ## Il segnale
 
 Il 2026-10-21 alle 13:00 il giro di `economia` si è fermato per sessione
@@ -206,12 +256,6 @@ passano dalla sessione su `nixos`, su messaggio Herdr del custode.
 L'arresto per `RuntimeMaxSec` e la sua traccia nel journal: nessun giro ha
 ancora toccato il tempo massimo di 45 minuti. Il contratto del lanciatore
 dovrà dire come lo registra.
-
-La riga `Attenzione:` del giro precedente non sta nella `chiusura` di
-`tentativi.jsonl`: il giro di `method` del 2026-11-07 l'ha ripresa con un
-`grep` sulla trascrizione, che ha restituito anche il testo delle skill
-lette. Il contratto del lanciatore potrebbe copiare quella riga nella
-`chiusura`, accanto a `oggetto`, da proporre al custode con le domande aperte.
 
 ## Criterio di chiusura
 

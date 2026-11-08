@@ -54,6 +54,12 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   copia senza sorgente o senza `fonte:`, segnala senza fermare quelle
   indietro; `fonte <file>` stampa la riga da scrivere nella copia. Lo lancia
   il gate di `/commit`. Test: `python3 -m unittest discover -s tests -p 'test_traduzioni.py'`.
+- `lanciatore.py` — il lanciatore canonico del ciclo autonomo: controlli, pull,
+  avvio dell'agente coi tetti, righe di `partenza` e `chiusura` in `i1/giri/`;
+  `--controlli` è in sola lettura. Non ancora usato dal timer
+  ([task](../o2/lanciatore-ciclo-nel-metodo.md)). Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
+- `scadenze.py` — il controllo di scadenze e ricorrenze del plan
+  ([plan](../kb/plan.md), «Ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
 - `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
   cfr. [view](../kb/view.md)):
   - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i
