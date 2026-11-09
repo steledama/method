@@ -226,6 +226,24 @@ def parse_plan(root: Path) -> list[PlanRow]:
     return rows
 
 
+def _check_direzione(root: Path) -> list[str]:
+    """Verifica la forma della direzione quando il repo l'ha adottata."""
+    lines = (root / "o1" / "plan.md").read_text(encoding="utf-8").splitlines()
+    headings = [(index, line) for index, line in enumerate(lines) if line.startswith("## ")]
+    directions = [index for index, heading in headings if heading == "## Direzione"]
+    if not directions:
+        return []  # I plan degli adottanti recepiscono il canone localmente.
+    if len(directions) != 1:
+        return ["o1/plan.md: `## Direzione` deve comparire una sola volta"]
+    if not headings or headings[0] != (directions[0], "## Direzione"):
+        return ["o1/plan.md: `## Direzione` deve precedere le altre sezioni"]
+    end = next((index for index, _ in headings if index > directions[0]), len(lines))
+    body = [line.strip() for line in lines[directions[0] + 1 : end] if line.strip()]
+    if not body or any(line.startswith(("|", "- ", "* ")) for line in body):
+        return ["o1/plan.md: `## Direzione` richiede una breve sintesi in prosa"]
+    return []
+
+
 _GOAL_HEADING = re.compile(r"^#{2,4}\s+((\d+)[.)]\s.*?)\s*$", re.MULTILINE)
 _DEV_GOAL_HEADING = re.compile(r"^##\s+(Goal di sviluppo)\s*$", re.MULTILINE)
 
@@ -442,6 +460,7 @@ def check_plan_contract(root: Path, rows: list[PlanRow]) -> None:
                 f"{row.source}: ciclo divergente — plan «{row.ciclo}», frontmatter «{detail_ciclo}»"
             )
 
+    errors += _check_direzione(root)
     errors += _check_obiettivi(root, rows)
     errors += _check_legenda(root, rows)
     errors += _check_ricorrenze(root)

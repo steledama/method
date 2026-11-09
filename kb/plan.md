@@ -22,6 +22,21 @@ e da `o2/`; Git e i fili conservano ciò che merita storia.
 
 ## Forma
 
+Il plan apre con `## Direzione`, prima di `## Task`: due o tre frasi che
+dichiarano la fase operativa del repository e la rotta verso il traguardo.
+In un repository in sviluppo nominano il traguardo che organizza i task;
+in uno a regime dichiarano il peso prevalente delle ricorrenze e gli
+eventuali fronti di sviluppo ancora vivi. È una sintesi locale del lavoro,
+non una copia del motivo stabile di `goal.md` o della bussola del README.
+
+La fase si dichiara in prosa, senza un attributo a valori chiusi: quantità
+di task e ricorrenze sono indizi, non una prova automatica di maturità.
+`exec plan` confronta la direzione con Goal, fili e coda a ogni giro. La
+riscrive quando cambiano traguardo, fase o rotta, non a ogni avanzamento.
+Date di stato, percentuali, prossimi passi e resoconti appartengono alla
+tabella, a `o2/` o ai fili `i3/`. Il generatore può verificarne forma e
+posizione; la freschezza del significato resta al giro.
+
 La tabella canonica usa `Ciclo · Ob. · Task · Dip.`:
 
 - `Ciclo`: `dev` o `runtime`, secondo il mondo su cui insiste il task;

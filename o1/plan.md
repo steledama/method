@@ -9,6 +9,13 @@ con priorità e dipendenze. La conoscenza stabile vive in `kb/`, i verdetti nei
 fili di `i3/`, la storia in git; qui restano solo i task e il loro stato di
 pianificazione.
 
+## Direzione
+
+Questo repository custodisce il metodo portabile e osserva come gli adottanti
+lo usano. È in sviluppo verso un ciclo di runtime autonomo in ciascun repo,
+con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
+skill e viste che rendono quel ciclo ricostruibile e governabile.
+
 ## Task
 
 | Ciclo | Ob. | Task                            | Dip.                              |
