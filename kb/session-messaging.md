@@ -77,6 +77,34 @@ destinatario a un dialogo di approvazione.
 - se la sandbox blocca il socket di Herdr chiede l'escalation per il solo
   comando necessario.
 
+## Sessione su un altro host
+
+Il custode può aprire con `ssh`, in un pannello dell'Herdr locale, una
+sessione d'agente che gira su un altro host. Herdr vede il pannello ma non
+riconosce l'agente, perché il processo locale è `ssh`: `herdr agent list` non
+lo elenca e `herdr agent prompt` non si può usare. Restano i comandi di
+pannello, e il protocollo vale con queste sostituzioni:
+
+- il destinatario si ricava da `herdr pane list`, e l'identità (host,
+  directory, agente) si conferma leggendo il pannello con `herdr pane read`;
+- il campo di input si verifica con `herdr pane read --format ansi`: la
+  sequenza arriva dal terminale remoto intatta, quindi la regola del
+  suggerimento in dim vale identica;
+- si invia con `herdr pane send-text <pane-id> "<messaggio>"` seguito da
+  `herdr pane send-keys <pane-id> Enter`, e si conferma la partenza del
+  turno con `herdr pane wait-output`;
+- gli stati dell'agente non ci sono: non esistono `working`, `blocked` né
+  `--wait`. Un dialogo di approvazione dall'altra parte non è segnalato e si
+  vede solo leggendo il pannello, prima dell'invio e prima di considerare
+  chiuso il turno; per Claude Code la fine del turno si ricava dall'assenza
+  di `esc to interrupt`;
+- la risposta si legge dal pannello, come nel caso locale.
+
+Il collegamento attraversa un host ma non sposta autorità: la sessione remota
+conserva regole e delega del proprio repository e del proprio host. Primi
+invii riusciti il 2026-11-09, da `nixos` su norvegia a una sessione `bi` su
+svezia.
+
 ## Nel repository adottante
 
 `CLAUDE.md` tiene una sezione breve che rimanda a questo nodo e aggiunge la
