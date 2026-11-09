@@ -127,8 +127,10 @@ motiva la riduzione dell'attrito, non prova la fedeltà delle ricostruzioni
   fallito in build lasciava il tree sporco, che ferma i giri seguenti, e il
   guasto non aveva traccia nel repo. `cycle` ora fa ritirare l'atto quando un
   controllo prova che il Mondo non è cambiato e il diff è solo suo; ogni altro
-  caso resta tree com'è (`i1/atto-fallito-tree-sporco-nixos-2026-11-09.md`).
-  Da rileggere al prossimo atto fallito, anche fuori da bump e switch.
+  caso resta tree com'è (`nixos` `8167598`, `nixos-lavoro` `665e412`). Prova
+  limitata: i due repo condividono incidente e skill, e il ritiro non risulta
+  ancora eseguito. Da rileggere al primo ritiro e al prossimo atto fallito,
+  anche fuori da bump e switch.
 
 ## Cosa sposterebbe il verdetto
 
