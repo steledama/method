@@ -123,6 +123,12 @@ motiva la riduzione dell'attrito, non prova la fedeltà delle ricostruzioni
   `i1/giri/` lette da `eval perceive` (prescrizione chiusa il 28/10).
 - **Standby su secondo host**, `baserow` `437b11b` (19/10): da rileggere ai
   primi esercizi.
+- **Atto fallito senza effetti**, `nixos` e `nixos-lavoro`, 09/11: un bump
+  fallito in build lasciava il tree sporco, che ferma i giri seguenti, e il
+  guasto non aveva traccia nel repo. `cycle` ora fa ritirare l'atto quando un
+  controllo prova che il Mondo non è cambiato e il diff è solo suo; ogni altro
+  caso resta tree com'è (`i1/atto-fallito-tree-sporco-nixos-2026-11-09.md`).
+  Da rileggere al prossimo atto fallito, anche fuori da bump e switch.
 
 ## Cosa sposterebbe il verdetto
 

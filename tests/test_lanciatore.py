@@ -147,6 +147,12 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(ultimo, chiusura)
         self.assertTrue(Path(chiusura["giro"]).is_file())
 
+    def test_giro_senza_commit_non_giudica_il_push(self):
+        self.assertEqual(self.lancia().returncode, 0)
+        chiusura = self.righe()[-1]
+        self.assertFalse(chiusura["commit"])
+        self.assertIsNone(chiusura["push"])
+
     def test_argomenti_dell_agente_e_attribuzione_vuota(self):
         self.assertEqual(self.lancia().returncode, 0)
         argomenti = (self.repo / ".git" / "argomenti").read_text(encoding="utf-8")

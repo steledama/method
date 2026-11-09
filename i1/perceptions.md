@@ -10,6 +10,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Un atto del giro fallito senza effetti blocca i giri
+  seguenti](atto-fallito-tree-sporco-nixos-2026-11-09.md) — da `nixos`
+  `8167598` e `nixos-lavoro` `b80b3b9`, inoltro del custode: bump fallito in
+  build, tree sporco e guasto senza traccia nel repo. Recepito il 2026-11-09
+  in `cycle`; si chiude quando `nixos-lavoro` restringe il ritiro.
 - [Il minimo degli stadi misura la lettura, non il
   giudizio](giri-lettura-fatta-giudizio-sottile-2026-11-08.md) — da `nixos`
   `5d4eecb`, inoltro del custode: primo giro con gli stadi verificati, gate

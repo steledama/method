@@ -646,7 +646,8 @@ class Tentativo:
             "head_dopo": dopo,
             "commit": commit,
             "oggetto": git_testo("log", "-1", "--format=%s") if commit else None,
-            "push": bool(dopo) and dopo == git_testo("rev-parse", "@{u}"),
+            # Senza commit non c'è push da giudicare: `false` direbbe push fallito.
+            "push": dopo == git_testo("rev-parse", "@{u}") if commit else None,
             "tree_sporco_dopo": bool(git_testo("status", "--porcelain")),
             "claude_exit": self.claude_exit,
             "giro": str(self.stream.resolve()) if self.stream.exists() else None,
