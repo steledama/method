@@ -42,7 +42,7 @@ Le altre domande qui sotto si decidono quando il lavoro le raggiunge.
 ## Stato
 
 `o3/lanciatore.py` esiste con i test (`tests/test_lanciatore.py`, agente finto su
-repository veri) e il timer non lo usa ancora. Stessi codici d'arresto e stessa
+repository veri) e il timer di `method` lo usa dal 2026-11-09 alle 15:00. Stessi codici d'arresto e stessa
 forma delle righe dell'unità di `nixos`; `lock` e `settings.json` stanno in
 `.git/lanciatore/`, così non serve una cartella di stato fuori dal repo e ogni
 arresto finisce in `i1/giri/`, che chiude il guasto dell'origine. Provato il
@@ -138,8 +138,15 @@ Prossimi passi, `danea-auto` per prima:
    recinto. `ciclo-method-agente` non resta in vita e `.git/lanciatore/fermo`
    non esiste.
 
-   Non ancora provati: la partenza dal timer, la prima il 2026-11-09 alle
-   15:00; il tetto di tempo sull'unità vera, provato solo su unità transitorie;
+   Partenza dal timer: il 2026-11-09 alle 15:00:14 (`5d068878`), letta in
+   `i1/giri/tentativi.jsonl`; il filo [ciclo autonomo](../i3/ciclo-autonomo.md)
+   registra il passaggio. L'esito non si legge dal giro stesso: la condizione
+   del passo 3 si verifica al giro del 10/11 sulla riga di chiusura, in
+   sessione per ciò che chiede l'host (unità viva, `fermo`). Proposta per la
+   sessione: `o3/prescriptions.md` dice ancora di `lanciatore.py` «Non ancora
+   usato dal timer», e il giro non scrive in `o3/`.
+
+   Non ancora provati: il tetto di tempo sull'unità vera, provato solo su unità transitorie;
    i wrapper come `gog` e i percorsi su Drive, che `method` non usa e `salute`
    ed `economia` sì. Una sessione aperta in `~/method` alle 15:00 ferma il giro
    con 15, e la prova slitta. Resta anche la riga del tetto in `autonomy.md`,

@@ -42,11 +42,18 @@ riletto contro le fonti.
   giro a mano `0624d2f`, timer dal 09/11). Anche `method` parte dal lanciatore
   dalla stessa data: giro a mano delle 19:37 (`87eac6f5`) riuscito, `chiusura`
   nella forma di `o3/lanciatore.py`, e l'ipotesi del giro dell'08/11 è
-  confermata. La prova dal timer è il 09/11 alle 15:00.
+  confermata. Il 09/11 il timer ha lanciato il canone in `danea-auto` alle
+  08:10 (`3e26903` su `origin`, 08:12) e in `method` alle 15:00 (partenza
+  `5d068878`); l'esito di quest'ultimo sta nella sua chiusura, che legge il
+  giro seguente.
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
-  pulito. Gli arresti prima del giro sono il recinto che funziona: sei per
+  pulito. Il 09/11 mancano in più due commit del giro, per il bump fallito
+  (caso sotto): `nixos` alle 04:39 chiude `riuscito` con `commit` falso e
+  tree sporco (`29e191b4`), e `nixos-lavoro` non ha commit del giro su
+  `origin`; il suo tentativo non si legge da `deck`. Quell'`esito` non dice
+  che il giro abbia prodotto il commit. Gli arresti prima del giro sono il recinto che funziona: sei per
   sessione aperta fra il 19 e il 24/10, uno `pull-in-sola-lettura` il 29/10
   (`369d5ea`, rilancio a mano). Il limite è che un arresto o un fallimento
   non si rilancia da solo: `method` è rimasto senza giro il 31/10 e il
@@ -60,13 +67,17 @@ riletto contro le fonti.
   commit del timer restano due. Da `deck` non si vede se quei giri siano
   mancati, fermi o senza push, perché i tentativi di Windows non si
   leggono da qui: la causa va accertata su `danea2`, voce in
-  `o2/pilota-ciclo-autonomo.md`. Gli scarti prima del 22/10 hanno
+  `o2/pilota-ciclo-autonomo.md`. Ipotesi del giro del 09/11, da quella
+  stessa lettura: il marker di `danea-auto` dice che la ripresa parte solo
+  se il giro delle 08:10 non ha lanciato `claude`, quindi il 07/11 non
+  sarebbe un push mancato; la smentisce una riga delle 08:10 con l'agente
+  avviato. Gli scarti prima del 22/10 hanno
   avuto causa trovata e corretta (`nixos` `101e32b`,
   `i1/arresto-economia-fuori-giri-2026-10-21.md`).
-- **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,4 USD e arriva a
-  100 turni (`nixos` dell'08/11, 2,32 USD in 9 minuti, primo giro di
-  `nixos` con gli stadi invocati) e 13 minuti, sotto il tetto di 45 minuti
-  e 5 USD. I
+- **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,7 USD e arriva a
+  102 turni (`salute` del 09/11, 2,74 USD in 9 minuti e mezzo; `economia`
+  lo stesso giorno 2,65 USD e 96 turni, misurati in `tentativi.jsonl`) e 13
+  minuti, sotto il tetto di 45 minuti e 5 USD. I
   `tentativi.jsonl` di `svezia`, `norvegia` e Windows non sono leggibili da
   `deck`.
 - **Fedeltà degli esiti**: «riuscito» non vuol dire «eseguito». Il

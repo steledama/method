@@ -62,7 +62,15 @@ non una lettura del modello.
   quotati, ciascuna al costo di un rilancio; il
   diniego di `economia` del 03/11 su un `git log --format` non quotato è
   forse della stessa classe, da verificare. È un errore di scrittura
-  dell'agente, non un permesso mancante.
+  dell'agente, non un permesso mancante. Il 2026-11-09 torna in quattro repo
+  nello stesso giorno, dalle righe di chiusura: `nixos` e `economia`
+  sull'ultimo `docs(ciclo)`, `salute` sul `Prossimo:`, `method` col primo
+  `git log` degli eventi, rilanciato fra virgolette. La `eval` e la `exec`
+  canoniche lo scrivono quotato; i fork non sono riletti. Per la decisione
+  «Ricorrenza dopo il recepimento» la proposta è uno strumento, non un'altra
+  frase: un comando concesso per nome che stampi l'ultimo commit del giro e
+  l'ultimo `Prossimo:`, così la grafia non serve più. Si decide in sessione,
+  insieme allo script.
 - **Il segnale già canonico.** Per ogni classe ricorrente lo script dice se
   un commit di `method` la segnala già e se l'adottante l'ha recepito, dal
   cursore del marker `i3/allineamento-metodo.md` confrontato con
