@@ -40,8 +40,9 @@ Claude o Codex lasciata aperta e ferma nel checkout è innocua. Conta quella che
 lavora mentre il giro gira, perché il commit del giro potrebbe portarsi dietro le
 sue modifiche. Il lanciatore tocca `.git/lanciatore/inizio-giro` prima
 dell'agente e gli passa un hook `PreToolUse` che, davanti a un `git commit`,
-cerca transcript Claude e rollout Codex nel checkout scritti dopo il marker: se
-ne trova blocca il commit. Dopo l'agente, un giro senza commit con il tree
+cerca transcript Claude e rollout Codex nel checkout con una chiamata a uno
+strumento dopo il marker: se ne trova blocca il commit. Scrivere non basta, la
+sessione che avvia il giro a mano scrive la propria risposta dopo il marker. Dopo l'agente, un giro senza commit con il tree
 sporco e una sessione concorrente chiude con 15 `sessione-concorrente` e le
 sessioni nella riga di chiusura; il tree resta al custode.
 
@@ -107,6 +108,7 @@ GIRI = Path("i1/giri")
 STATO = Path(".git/lanciatore")
 INIZIO = STATO / "inizio-giro"
 STREAM_TENUTI = 60
+CODA_BYTE = 4 * 1024 * 1024  # la coda di un transcript che basta a coprire un giro
 GIT_SECONDI = 120
 GRAZIA_SECONDI = 15
 FERMA_SECONDI = 120
@@ -304,19 +306,66 @@ def _cwd_transcript(file: Path, righe: int = 50) -> str | None:
     return None
 
 
-def _scritto_dopo(file: Path, dopo: float) -> bool:
+def _chiamata(evento: dict) -> bool:
+    """Una chiamata a uno strumento: in Claude un `tool_use`, in Codex un `*_call`."""
+    if evento.get("type") == "assistant":
+        contenuto = (evento.get("message") or {}).get("content")
+        return isinstance(contenuto, list) and any(
+            isinstance(parte, dict) and parte.get("type") == "tool_use" for parte in contenuto
+        )
+    if evento.get("type") == "response_item":
+        tipo = (evento.get("payload") or {}).get("type")
+        return isinstance(tipo, str) and tipo.endswith("_call")
+    return False
+
+
+def _istante(evento: dict) -> float | None:
     try:
-        return file.stat().st_mtime > dopo
+        return datetime.fromisoformat(evento["timestamp"]).timestamp()
+    except (KeyError, AttributeError, TypeError, ValueError):
+        return None
+
+
+def lavora_dopo(file: Path, dopo: float, coda: int = CODA_BYTE) -> bool:
+    """La sessione ha chiamato uno strumento dopo l'istante `dopo`.
+
+    Scrivere non basta: la sessione che avvia il giro a mano ne scrive la
+    risposta subito dopo il marker, e non lavora nel checkout (sessione
+    economia, 2026-11-10). Si legge la coda del file, dal fondo, fino al primo
+    evento anteriore al marker.
+    """
+    try:
+        if file.stat().st_mtime <= dopo:
+            return False
+        with file.open("rb") as testo:
+            testo.seek(max(0, file.stat().st_size - coda))
+            righe = testo.read().decode("utf-8", errors="replace").splitlines()
     except OSError:
         return False
+    for riga in reversed(righe):
+        try:
+            evento = json.loads(riga)
+        except ValueError:
+            continue
+        if not isinstance(evento, dict):
+            continue
+        momento = _istante(evento)
+        if momento is None:
+            continue
+        if momento <= dopo:
+            return False
+        if _chiamata(evento):
+            return True
+    return False
 
 
 def concorrenti(
     checkout: Path, dopo: float, claude: Path | None = None, codex: Path | None = None
 ) -> list[str]:
-    """Le sessioni Claude o Codex che hanno scritto nel checkout dopo l'istante `dopo`.
+    """Le sessioni Claude o Codex che hanno lavorato nel checkout dopo l'istante `dopo`.
 
-    Una sessione aperta e ferma non scrive e non conta (custode, 2026-11-10).
+    Una sessione aperta e ferma non conta (custode, 2026-11-10); lavorare è
+    chiamare uno strumento, non solo scrivere il transcript (`lavora_dopo`).
     Claude tiene i transcript in `projects/<checkout codificato>`, ogni carattere
     non alfanumerico del path diventato `-`; una sottocartella aggiunge un
     suffisso, e lì la cwd del transcript decide. Il giro gira con
@@ -333,14 +382,14 @@ def concorrenti(
             if nome != codifica and not nome.startswith(f"{codifica}-"):
                 continue
             for file in sorted(cartella.glob("*.jsonl")):
-                if not _scritto_dopo(file, dopo):
+                if not lavora_dopo(file, dopo):
                     continue
                 cwd = _cwd_transcript(file)
                 if (cwd and _dentro(cwd, checkout)) or (not cwd and nome == codifica):
                     trovate.append(f"claude: {file}")
     if codex.is_dir():
         for rollout in sorted(codex.rglob("rollout-*.jsonl")):
-            if not _scritto_dopo(rollout, dopo):
+            if not lavora_dopo(rollout, dopo):
                 continue
             try:
                 with rollout.open(encoding="utf-8") as file:
@@ -369,7 +418,7 @@ def comando_hook() -> str:
 def hook_commit(ingresso: str) -> int:
     """Davanti a un `git commit` del giro: 2 lo blocca, 0 lo lascia passare.
 
-    Blocca se un'altra sessione ha scritto nel checkout dopo il marker
+    Blocca se un'altra sessione ha lavorato nel checkout dopo il marker
     `inizio-giro`, che il lanciatore tocca subito prima dell'agente: il commit
     del giro potrebbe portarsi dietro le sue modifiche. Senza marker non è un
     giro e l'hook tace.

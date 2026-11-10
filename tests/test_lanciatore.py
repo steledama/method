@@ -13,6 +13,7 @@ import sys
 import tempfile
 import time
 import unittest
+from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -154,19 +155,30 @@ class LanciatoreTests(unittest.TestCase):
         self.assertIsNone(chiusura["push"])
 
     def sessione_concorrente(self):
-        """Un transcript Claude nel checkout, scritto mentre l'agente gira."""
+        """Un transcript Claude nel checkout con una chiamata mentre l'agente gira."""
         cartella = "".join(c if c.isalnum() else "-" for c in str(self.repo.resolve()))
         transcript = self.base / ".claude" / "projects" / cartella / "s.jsonl"
-        return (
-            f"mkdir -p '{transcript.parent}'\n"
-            f"echo '{{\"cwd\": \"{self.repo.resolve()}\"}}' > '{transcript}'\n"
+        riga = json.dumps(
+            {
+                "type": "assistant",
+                "cwd": str(self.repo.resolve()),
+                "timestamp": "2099-01-01T00:00:00Z",
+                "message": {"content": [{"type": "tool_use", "name": "Edit"}]},
+            }
         )
+        return f"mkdir -p '{transcript.parent}'\necho '{riga}' > '{transcript}'\n"
 
     def test_una_sessione_aperta_non_ferma_il_giro(self):
         cartella = "".join(c if c.isalnum() else "-" for c in str(self.repo.resolve()))
         transcript = self.base / ".claude" / "projects" / cartella / "s.jsonl"
         transcript.parent.mkdir(parents=True)
-        transcript.write_text(json.dumps({"cwd": str(self.repo)}) + "\n", encoding="utf-8")
+        riga = {
+            "type": "assistant",
+            "cwd": str(self.repo),
+            "timestamp": "2020-01-01T00:00:00Z",
+            "message": {"content": [{"type": "tool_use", "name": "Edit"}]},
+        }
+        transcript.write_text(json.dumps(riga) + "\n", encoding="utf-8")
         os.utime(transcript, (time.time() - 30, time.time() - 30))
         self.imposta_agente(agente(f"echo x > nota.md\necho '{RISULTATO}'"))
         esito = self.lancia()
@@ -670,19 +682,43 @@ class ConcorrentiTests(unittest.TestCase):
         self.codex = self.base / "codex" / "sessions"
         self.inizio = time.time() - 60
 
-    def scrivi(self, file, righe, eta_secondi):
+    def istante(self, secondi_dopo):
+        momento = datetime.fromtimestamp(self.inizio + secondi_dopo, UTC)
+        return momento.isoformat().replace("+00:00", "Z")
+
+    def scrivi(self, file, righe):
         file.parent.mkdir(parents=True, exist_ok=True)
         file.write_text("".join(json.dumps(r) + "\n" for r in righe), encoding="utf-8")
-        momento = self.inizio + 30 - eta_secondi
-        os.utime(file, (momento, momento))
 
-    def transcript(self, cartella, cwd=None, eta_secondi=0):
-        righe = [{"type": "summary"}, *([{"type": "user", "cwd": str(cwd)}] if cwd else [])]
-        self.scrivi(self.claude / cartella / "s.jsonl", righe, eta_secondi)
+    def claude_evento(self, secondi_dopo, chiamata):
+        parte = {"type": "tool_use", "name": "Edit"} if chiamata else {"type": "text"}
+        tipo = "assistant"
+        return {
+            "type": tipo,
+            "timestamp": self.istante(secondi_dopo),
+            "message": {"content": [parte]},
+        }
 
-    def rollout(self, cwd, eta_secondi=0):
+    def transcript(self, cartella, cwd=None, eta_secondi=-30, chiamata=True, prima=()):
+        righe = [
+            {"type": "summary"},
+            *([{"type": "user", "cwd": str(cwd), "timestamp": self.istante(-600)}] if cwd else []),
+            *prima,
+            self.claude_evento(-eta_secondi, chiamata),
+        ]
+        self.scrivi(self.claude / cartella / "s.jsonl", righe)
+
+    def rollout(self, cwd, eta_secondi=-30, tipo="function_call"):
         file = self.codex / "2026" / "11" / "rollout-a.jsonl"
-        self.scrivi(file, [{"type": "session_meta", "payload": {"cwd": str(cwd)}}], eta_secondi)
+        righe = [
+            {"type": "session_meta", "timestamp": self.istante(-600), "payload": {"cwd": str(cwd)}},
+            {
+                "type": "response_item",
+                "timestamp": self.istante(-eta_secondi),
+                "payload": {"type": tipo},
+            },
+        ]
+        self.scrivi(file, righe)
 
     def trovate(self):
         return MODULE.concorrenti(self.checkout, self.inizio, self.claude, self.codex)
@@ -694,6 +730,19 @@ class ConcorrentiTests(unittest.TestCase):
         self.transcript(self.codifica(self.checkout), self.checkout)
         self.assertEqual(len(self.trovate()), 1)
         self.assertTrue(self.trovate()[0].startswith("claude: "))
+
+    def test_la_sessione_che_avvia_il_giro_risponde_ma_non_lavora(self):
+        self.transcript(
+            self.codifica(self.checkout),
+            self.checkout,
+            chiamata=False,
+            prima=[self.claude_evento(-5, True)],
+        )
+        self.assertEqual(self.trovate(), [])
+
+    def test_l_output_di_una_chiamata_codex_non_e_lavoro(self):
+        self.rollout(self.checkout, tipo="function_call_output")
+        self.assertEqual(self.trovate(), [])
 
     def test_claude_in_una_sottocartella(self):
         self.transcript(self.codifica(self.checkout / "kb"), self.checkout / "kb")
