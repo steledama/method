@@ -14,7 +14,6 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
-from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "o3" / "lanciatore.py"
@@ -51,7 +50,8 @@ class LanciatoreTests(unittest.TestCase):
             "GIT_CONFIG_GLOBAL": str(self.base / "gitconfig"),
             "GIT_CONFIG_NOSYSTEM": "1",
         }
-        self.env.pop("INVOCATION_ID", None)
+        for variabile in ("INVOCATION_ID", "CLAUDE_CONFIG_DIR", "CODEX_HOME"):
+            self.env.pop(variabile, None)
         (self.base / "gitconfig").write_text(
             "[user]\n\tname = Prova\n\temail = prova@example.org\n[init]\n\tdefaultBranch = main\n",
             encoding="utf-8",
@@ -152,6 +152,75 @@ class LanciatoreTests(unittest.TestCase):
         chiusura = self.righe()[-1]
         self.assertFalse(chiusura["commit"])
         self.assertIsNone(chiusura["push"])
+
+    def sessione_concorrente(self):
+        """Un transcript Claude nel checkout, scritto mentre l'agente gira."""
+        cartella = "".join(c if c.isalnum() else "-" for c in str(self.repo.resolve()))
+        transcript = self.base / ".claude" / "projects" / cartella / "s.jsonl"
+        return (
+            f"mkdir -p '{transcript.parent}'\n"
+            f"echo '{{\"cwd\": \"{self.repo.resolve()}\"}}' > '{transcript}'\n"
+        )
+
+    def test_una_sessione_aperta_non_ferma_il_giro(self):
+        cartella = "".join(c if c.isalnum() else "-" for c in str(self.repo.resolve()))
+        transcript = self.base / ".claude" / "projects" / cartella / "s.jsonl"
+        transcript.parent.mkdir(parents=True)
+        transcript.write_text(json.dumps({"cwd": str(self.repo)}) + "\n", encoding="utf-8")
+        os.utime(transcript, (time.time() - 30, time.time() - 30))
+        self.imposta_agente(agente(f"echo x > nota.md\necho '{RISULTATO}'"))
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        self.assertNotIn("sessioni_concorrenti", self.chiusura())
+        self.assertFalse((self.repo / ".git" / "lanciatore" / "inizio-giro").exists())
+
+    def test_lavoro_lasciato_mentre_un_altra_sessione_scrive(self):
+        self.imposta_agente(
+            agente(f"echo x > nota.md\n{self.sessione_concorrente()}echo '{RISULTATO}'")
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 15, esito.stderr)
+        chiusura = self.chiusura()
+        self.assertEqual(chiusura["motivo"], "sessione-concorrente")
+        self.assertTrue(chiusura["tree_sporco_dopo"])
+        self.assertEqual(len(chiusura["sessioni_concorrenti"]), 1)
+
+    def test_tree_pulito_senza_commit_non_e_concorrenza(self):
+        self.imposta_agente(agente(f"{self.sessione_concorrente()}echo '{RISULTATO}'"))
+        self.assertEqual(self.lancia().returncode, 0)
+
+    def hook(self, comando, marker=True):
+        impostazioni = json.loads((self.repo / ".git/lanciatore/settings.json").read_text())
+        (voce,) = impostazioni["hooks"]["PreToolUse"]
+        self.assertEqual(voce["matcher"], "Bash")
+        if marker:
+            (self.repo / ".git/lanciatore/inizio-giro").touch()
+            passato = time.time() - 5
+            os.utime(self.repo / ".git/lanciatore/inizio-giro", (passato, passato))
+        else:
+            (self.repo / ".git/lanciatore/inizio-giro").unlink(missing_ok=True)
+        ingresso = json.dumps({"cwd": str(self.repo), "tool_input": {"command": comando}})
+        return subprocess.run(
+            voce["hooks"][0]["command"],
+            shell=True,
+            input=ingresso,
+            cwd=self.repo,
+            env=self.env,
+            capture_output=True,
+            text=True,
+            timeout=60,
+            check=False,
+        )
+
+    def test_l_hook_blocca_il_commit_di_un_giro_con_una_sessione_concorrente(self):
+        self.assertEqual(self.lancia().returncode, 0)
+        self.assertEqual(self.hook("git commit -m x").returncode, 0)
+        subprocess.run(["sh", "-c", self.sessione_concorrente()], check=True)
+        bloccato = self.hook("git add -A && git commit -m x")
+        self.assertEqual(bloccato.returncode, 2)
+        self.assertIn("sessione-concorrente", bloccato.stderr)
+        self.assertEqual(self.hook("git status").returncode, 0)
+        self.assertEqual(self.hook("git commit -m x", marker=False).returncode, 0)
 
     def test_argomenti_dell_agente_e_attribuzione_vuota(self):
         self.assertEqual(self.lancia().returncode, 0)
@@ -589,78 +658,81 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(sorted(p.name for p in cartella.iterdir()), ["3.jsonl", "4.jsonl"])
 
 
-@unittest.skipIf(os.name == "nt", "symlink di /proc simulati")
-class SessioniTests(unittest.TestCase):
+class ConcorrentiTests(unittest.TestCase):
+    """Sessioni che scrivono nel checkout dopo l'inizio del giro."""
+
     def setUp(self):
         temporanea = tempfile.TemporaryDirectory()
         self.addCleanup(temporanea.cleanup)
         self.base = Path(temporanea.name)
-        self.proc = self.base / "proc"
-        self.proc.mkdir()
         self.checkout = self.base / "repo"
+        self.claude = self.base / "claude" / "projects"
+        self.codex = self.base / "codex" / "sessions"
+        self.inizio = time.time() - 60
 
-    def processo(self, pid, nome, cwd):
-        cartella = self.proc / str(pid)
-        cartella.mkdir()
-        (cartella / "comm").write_text(f"{nome}\n", encoding="utf-8")
-        (cartella / "cwd").symlink_to(cwd)
-
-    def test_claude_nel_checkout_o_in_una_sottocartella(self):
-        self.processo(10, "claude", f"{self.checkout}/kb")
-        arresto, _ = MODULE.sessioni_posix(self.checkout, self.proc)
-        self.assertEqual((arresto.codice, arresto.motivo), (15, "sessione-claude-attiva"))
-
-    def test_altri_processi_e_altri_checkout_non_contano(self):
-        self.processo(11, "python3", str(self.checkout))
-        self.processo(12, "claude", f"{self.checkout}-altro")
-        self.assertEqual(MODULE.sessioni_posix(self.checkout, self.proc), (None, 0))
-
-    def rollout(self, cwd, eta_minuti=1):
-        cartella = self.base / "sessions" / "2026" / "11"
-        cartella.mkdir(parents=True, exist_ok=True)
-        file = cartella / "rollout-a.jsonl"
-        file.write_text(
-            json.dumps({"type": "session_meta", "payload": {"cwd": str(cwd)}}) + "\n",
-            encoding="utf-8",
-        )
-        momento = time.time() - eta_minuti * 60
+    def scrivi(self, file, righe, eta_secondi):
+        file.parent.mkdir(parents=True, exist_ok=True)
+        file.write_text("".join(json.dumps(r) + "\n" for r in righe), encoding="utf-8")
+        momento = self.inizio + 30 - eta_secondi
         os.utime(file, (momento, momento))
 
-    def test_rollout_codex_recente_nel_checkout(self):
-        self.rollout(self.checkout)
-        arresto = MODULE.sessioni_codex(self.checkout, self.base / "sessions")
-        self.assertEqual(arresto.motivo, "sessione-codex-attiva")
+    def transcript(self, cartella, cwd=None, eta_secondi=0):
+        righe = [{"type": "summary"}, *([{"type": "user", "cwd": str(cwd)}] if cwd else [])]
+        self.scrivi(self.claude / cartella / "s.jsonl", righe, eta_secondi)
 
-    def test_rollout_codex_vecchio_o_altrove(self):
-        self.rollout(self.checkout, eta_minuti=120)
-        self.assertIsNone(MODULE.sessioni_codex(self.checkout, self.base / "sessions"))
+    def rollout(self, cwd, eta_secondi=0):
+        file = self.codex / "2026" / "11" / "rollout-a.jsonl"
+        self.scrivi(file, [{"type": "session_meta", "payload": {"cwd": str(cwd)}}], eta_secondi)
+
+    def trovate(self):
+        return MODULE.concorrenti(self.checkout, self.inizio, self.claude, self.codex)
+
+    def codifica(self, percorso):
+        return "".join(c if c.isalnum() else "-" for c in str(percorso))
+
+    def test_claude_che_scrive_durante_il_giro(self):
+        self.transcript(self.codifica(self.checkout), self.checkout)
+        self.assertEqual(len(self.trovate()), 1)
+        self.assertTrue(self.trovate()[0].startswith("claude: "))
+
+    def test_claude_in_una_sottocartella(self):
+        self.transcript(self.codifica(self.checkout / "kb"), self.checkout / "kb")
+        self.assertEqual(len(self.trovate()), 1)
+
+    def test_sessione_aperta_e_ferma_non_conta(self):
+        self.transcript(self.codifica(self.checkout), self.checkout, eta_secondi=120)
+        self.rollout(self.checkout, eta_secondi=120)
+        self.assertEqual(self.trovate(), [])
+
+    def test_un_checkout_dal_nome_simile_non_conta(self):
+        altro = Path(f"{self.checkout}-altro")
+        self.transcript(self.codifica(altro), altro)
+        self.assertEqual(self.trovate(), [])
+
+    def test_codex_che_scrive_durante_il_giro(self):
+        self.rollout(self.checkout / "o2")
+        self.assertEqual(len(self.trovate()), 1)
+        self.assertTrue(self.trovate()[0].startswith("codex: "))
+
+    def test_codex_altrove_non_conta(self):
         self.rollout(self.base / "altrove")
-        self.assertIsNone(MODULE.sessioni_codex(self.checkout, self.base / "sessions"))
+        self.assertEqual(self.trovate(), [])
+
+    def test_il_commit_si_riconosce_anche_composto(self):
+        for comando, atteso in [
+            ("git commit -m x", True),
+            ("git add -A && git commit -q -F msg", True),
+            ("git -C /r commit", True),
+            ("git log --oneline", False),
+            ("git-commit-tree", False),
+            ("echo commit", False),
+        ]:
+            with self.subTest(comando):
+                self.assertEqual(bool(MODULE.COMMIT.search(comando)), atteso)
 
 
 class WindowsTests(unittest.TestCase):
     """Il ramo Windows, per quanto si può provare fuori da Windows."""
-
-    def tasklist(self, stdout="", returncode=0, errore=None):
-        finto = mock.Mock(stdout=stdout, returncode=returncode)
-        with mock.patch.object(MODULE.subprocess, "run", return_value=finto, side_effect=errore):
-            return MODULE.sessioni_windows()
-
-    def test_claude_vivo_sull_host_ferma_il_giro(self):
-        arresto, _ = self.tasklist('"claude.exe","1234","Services","0","10 K"')
-        self.assertEqual(arresto.motivo, "sessione-claude-attiva")
-
-    def test_nessun_processo(self):
-        self.assertEqual(
-            self.tasklist("INFORMAZIONI: nessuna attività in esecuzione."), (None, None)
-        )
-
-    def test_tasklist_che_fallisce_non_vuol_dire_nessuna_sessione(self):
-        for caso in [{"returncode": 1}, {"errore": OSError("assente")}]:
-            with self.subTest(caso):
-                arresto, avviso = self.tasklist(**caso)
-                self.assertIsNone(arresto)
-                self.assertIn("non verificabili", avviso)
 
     def test_percorsi_con_maiuscole_e_barre_miste(self):
         radice = r"C:\Users\danea\danea-auto"

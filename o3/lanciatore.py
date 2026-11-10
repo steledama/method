@@ -1,7 +1,7 @@
 """Lanciatore canonico del ciclo autonomo: uguale per ogni repo, per ogni sistema.
 
-Fa solo ciò che l'agente non può fare da sé: lock, controllo delle sessioni
-aperte, `pull --ff-only`, avvio di `claude -p` coi permessi del repo, tetto di
+Fa solo ciò che l'agente non può fare da sé: lock, `pull --ff-only`, avvio di
+`claude -p` coi permessi del repo e l'hook sulle sessioni concorrenti, tetto di
 tempo e di costo, righe `partenza` e `chiusura` in `i1/giri/`, scritte anche
 quando l'agente si pianta. Il ciclo vive nell'artefatto (`o3/ciclo/prompt.md`,
 `o3/ciclo/permessi.json`), all'host resta il trigger. Decisione del custode del
@@ -35,6 +35,16 @@ All'avvio il lanciatore aggiorna con `pull --ff-only` anche il proprio checkout
 del canone, se è un altro repo e pulito: vale dal giro successivo, e se non
 riesce è un avviso. L'host che non vuole lo spegne con `--senza-pull-canone`.
 
+Le sessioni aperte non fermano il giro (custode, 2026-11-10): una sessione
+Claude o Codex lasciata aperta e ferma nel checkout è innocua. Conta quella che
+lavora mentre il giro gira, perché il commit del giro potrebbe portarsi dietro le
+sue modifiche. Il lanciatore tocca `.git/lanciatore/inizio-giro` prima
+dell'agente e gli passa un hook `PreToolUse` che, davanti a un `git commit`,
+cerca transcript Claude e rollout Codex nel checkout scritti dopo il marker: se
+ne trova blocca il commit. Dopo l'agente, un giro senza commit con il tree
+sporco e una sessione concorrente chiude con 15 `sessione-concorrente` e le
+sessioni nella riga di chiusura; il tree resta al custode.
+
 Il recinto sta nei permessi dell'harness. La rete è in chiusura: se i commit del
 giro toccano un percorso protetto la chiusura è rossa e i giri successivi si
 fermano finché una persona non toglie `.git/lanciatore/fermo`. Un host con una
@@ -61,7 +71,8 @@ coprono anche `core.fsmonitor`, `core.hooksPath` e gli alias.
 
 Codici di uscita, gli stessi dell'unità di `nixos`: 0 riuscito, 10 tree sporco,
 11 branch inatteso o senza upstream, 12 divergente, 13 fetch o pull falliti,
-14 prompt, permessi, profilo, aggancio o `i1/giri` non adatti, 15 sessione aperta,
+14 prompt, permessi, profilo, aggancio o `i1/giri` non adatti, 15 sessione
+concorrente durante il giro,
 16, 18 e 19 riservati all'aggancio `prima`, 17 pull fermo, 20 agente
 uscito con errore, 21 errore riportato dall'agente, 22 tetto di tempo, 23 percorso
 protetto toccato dal giro, 24 giri fermi dopo un 23, 75 lock.
@@ -94,8 +105,8 @@ PERMESSI = Path("o3/ciclo/permessi.json")
 PROFILO = Path("o3/ciclo/lanciatore.toml")
 GIRI = Path("i1/giri")
 STATO = Path(".git/lanciatore")
+INIZIO = STATO / "inizio-giro"
 STREAM_TENUTI = 60
-CODEX_MINUTI = 60
 GIT_SECONDI = 120
 GRAZIA_SECONDI = 15
 FERMA_SECONDI = 120
@@ -112,6 +123,8 @@ PROTETTI = (
     "CLAUDE.md",
     "AGENTS.md",
 )
+# `git commit`, anche come `git -C <dir> commit` o dopo altri comandi.
+COMMIT = re.compile(r"(^|[^\w-])git(\s[^;&|]*)?\scommit(\s|$)")
 ATTENZIONE = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
 WINDOWS = os.name == "nt"
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
@@ -265,98 +278,147 @@ def _dentro(cwd: str, checkout: Path | str, percorsi: Any = os.path) -> bool:
     return interno == radice or interno.startswith(f"{radice}{percorsi.sep}")
 
 
-def sessioni_posix(checkout: Path, proc: Path = Path("/proc")) -> tuple[Arresto | None, int]:
-    """Un processo Claude nel checkout; quanti processi Claude non si sono letti.
-
-    Dentro un namespace `/proc/<pid>/cwd` degli altri processi è negato: chi
-    non si legge non si conta come assente, si dichiara.
-    """
-    illeggibili = 0
-    for voce in proc.iterdir():
-        if not voce.name.isdigit():
-            continue
-        try:
-            nome = (voce / "comm").read_text(encoding="utf-8", errors="replace").strip()
-        except OSError:
-            continue
-        if "claude" not in nome:
-            continue
-        try:
-            cwd = os.readlink(voce / "cwd")
-        except PermissionError:
-            illeggibili += 1
-            continue
-        except OSError:
-            continue
-        if _dentro(cwd, checkout):
-            return Arresto(15, "sessione-claude-attiva", f"pid {voce.name}, {cwd}"), illeggibili
-    return None, illeggibili
+def cartella_claude() -> Path:
+    return Path(os.environ.get("CLAUDE_CONFIG_DIR") or Path.home() / ".claude") / "projects"
 
 
-def sessioni_windows() -> tuple[Arresto | None, str | None]:
-    """Su Windows la cwd degli altri processi non si legge: vale l'intero host.
+def cartella_codex() -> Path:
+    return Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex") / "sessions"
 
-    Un `tasklist` che fallisce non vuol dire «nessuna sessione»: si dichiara.
-    """
-    non_verificabile = "sessioni non verificabili: tasklist fallito"
+
+def _cwd_transcript(file: Path, righe: int = 50) -> str | None:
+    """La cwd dichiarata nelle prime righe di un transcript Claude."""
     try:
-        esito = subprocess.run(
-            ["tasklist", "/FI", "IMAGENAME eq claude.exe", "/FO", "CSV", "/NH"],
-            capture_output=True,
-            text=True,
-            errors="replace",
-            timeout=GIT_SECONDI,
-            creationflags=NO_WINDOW,
-            check=False,
-        )
-    except (OSError, subprocess.SubprocessError):
-        return None, non_verificabile
-    if esito.returncode != 0:
-        return None, non_verificabile
-    if "claude.exe" in esito.stdout.lower():
-        return Arresto(15, "sessione-claude-attiva", "claude.exe vivo sull'host"), None
-    return None, None
-
-
-def sessioni_codex(checkout: Path, cartella: Path, minuti: int = CODEX_MINUTI) -> Arresto | None:
-    """Le sessioni Codex sono thread di un demone: si leggono dai rollout recenti."""
-    if not cartella.is_dir():
+        with file.open(encoding="utf-8", errors="replace") as testo:
+            for numero, riga in enumerate(testo):
+                if numero >= righe:
+                    break
+                try:
+                    evento = json.loads(riga)
+                except ValueError:
+                    continue
+                if isinstance(evento, dict) and isinstance(evento.get("cwd"), str):
+                    return evento["cwd"]
+    except OSError:
         return None
-    soglia = time.time() - minuti * 60
-    for rollout in cartella.rglob("rollout-*.jsonl"):
-        try:
-            if rollout.stat().st_mtime < soglia:
-                continue
-            with rollout.open(encoding="utf-8") as file:
-                testa = json.loads(file.readline())
-        except (OSError, ValueError):
-            continue
-        cwd = (
-            (testa.get("payload") or {}).get("cwd") if testa.get("type") == "session_meta" else None
-        )
-        if cwd and _dentro(cwd, checkout):
-            return Arresto(15, "sessione-codex-attiva", f"{rollout}, {cwd}")
     return None
 
 
-def controlla_sessioni(checkout: Path) -> str | None:
-    """Ferma il giro se qualcuno lavora nel checkout; ritorna un eventuale avviso."""
-    avviso = None
-    if WINDOWS:
-        trovata, avviso = sessioni_windows()
-    elif Path("/proc/self").exists():
-        trovata, illeggibili = sessioni_posix(checkout)
-        if illeggibili:
-            avviso = f"sessioni non verificabili: {illeggibili} processi Claude illeggibili"
-    else:
-        trovata, avviso = None, "sessioni non verificabili su questo sistema"
-    if trovata:
-        raise trovata
-    casa = Path(os.environ.get("CODEX_HOME") or Path.home() / ".codex")
-    trovata = sessioni_codex(checkout, casa / "sessions")
-    if trovata:
-        raise trovata
-    return avviso
+def _scritto_dopo(file: Path, dopo: float) -> bool:
+    try:
+        return file.stat().st_mtime > dopo
+    except OSError:
+        return False
+
+
+def concorrenti(
+    checkout: Path, dopo: float, claude: Path | None = None, codex: Path | None = None
+) -> list[str]:
+    """Le sessioni Claude o Codex che hanno scritto nel checkout dopo l'istante `dopo`.
+
+    Una sessione aperta e ferma non scrive e non conta (custode, 2026-11-10).
+    Claude tiene i transcript in `projects/<checkout codificato>`, ogni carattere
+    non alfanumerico del path diventato `-`; una sottocartella aggiunge un
+    suffisso, e lì la cwd del transcript decide. Il giro gira con
+    `--no-session-persistence` e non ne lascia di suoi. Le sessioni Codex sono
+    thread di un demone: la cwd sta nella `session_meta` del rollout.
+    """
+    trovate = []
+    claude = claude or cartella_claude()
+    codex = codex or cartella_codex()
+    codifica = os.path.normcase(re.sub(r"[^A-Za-z0-9]", "-", str(checkout)))
+    if claude.is_dir():
+        for cartella in sorted(claude.iterdir()):
+            nome = os.path.normcase(cartella.name)
+            if nome != codifica and not nome.startswith(f"{codifica}-"):
+                continue
+            for file in sorted(cartella.glob("*.jsonl")):
+                if not _scritto_dopo(file, dopo):
+                    continue
+                cwd = _cwd_transcript(file)
+                if (cwd and _dentro(cwd, checkout)) or (not cwd and nome == codifica):
+                    trovate.append(f"claude: {file}")
+    if codex.is_dir():
+        for rollout in sorted(codex.rglob("rollout-*.jsonl")):
+            if not _scritto_dopo(rollout, dopo):
+                continue
+            try:
+                with rollout.open(encoding="utf-8") as file:
+                    testa = json.loads(file.readline())
+            except (OSError, ValueError):
+                continue
+            meta = testa.get("payload") if isinstance(testa, dict) else None
+            cwd = meta.get("cwd") if testa.get("type") == "session_meta" and meta else None
+            if isinstance(cwd, str) and _dentro(cwd, checkout):
+                trovate.append(f"codex: {rollout}")
+    return trovate
+
+
+def comando_hook() -> str:
+    """L'hook `PreToolUse` del giro: questo file, con l'interprete che lo esegue.
+
+    `pythonw` non ha stderr, e l'hook ci scrive il motivo del blocco.
+    """
+    interprete = Path(sys.executable)
+    if interprete.name.lower() == "pythonw.exe":
+        interprete = interprete.with_name("python.exe")
+    script = Path(__file__).resolve()
+    return f"{shlex.quote(interprete.as_posix())} {shlex.quote(script.as_posix())} --hook-commit"
+
+
+def hook_commit(ingresso: str) -> int:
+    """Davanti a un `git commit` del giro: 2 lo blocca, 0 lo lascia passare.
+
+    Blocca se un'altra sessione ha scritto nel checkout dopo il marker
+    `inizio-giro`, che il lanciatore tocca subito prima dell'agente: il commit
+    del giro potrebbe portarsi dietro le sue modifiche. Senza marker non è un
+    giro e l'hook tace.
+    """
+    try:
+        dati = json.loads(ingresso)
+    except ValueError:
+        return 0
+    comando = (dati.get("tool_input") or {}).get("command") if isinstance(dati, dict) else None
+    if not isinstance(comando, str) or not COMMIT.search(comando):
+        return 0
+    cwd = dati.get("cwd") if isinstance(dati.get("cwd"), str) else os.getcwd()
+    radice = git_testo("-C", cwd, "rev-parse", "--show-toplevel")
+    if not radice:
+        return 0
+    checkout = Path(radice).resolve()
+    try:
+        dopo = (checkout / INIZIO).stat().st_mtime
+    except OSError:
+        return 0
+    trovate = concorrenti(checkout, dopo)
+    if not trovate:
+        return 0
+    righe = [
+        "lanciatore: commit bloccato, un'altra sessione ha lavorato nel checkout durante il giro:",
+        *(f"  {voce}" for voce in trovate),
+        "Non committare e non riprovare: lascia il working tree com'è, chiudi il giro e",
+        "dichiaralo nella riga Attenzione: del resoconto (sessione-concorrente).",
+        "Il custode riconcilia le modifiche.",
+    ]
+    print("\n".join(righe), file=sys.stderr)
+    return 2
+
+
+def controlla_concorrenti(tentativo: Tentativo, checkout: Path, dopo: float) -> None:
+    """Dopo l'agente: lavoro lasciato fuori dal commit mentre un'altra sessione scriveva.
+
+    Un commit del giro è passato dall'hook, quindi la sessione ha scritto dopo:
+    la trova fatta, come dopo un pull. Senza commit e a tree pulito non c'è
+    niente da riconciliare.
+    """
+    if git_testo("rev-parse", "HEAD") != tentativo.head_prima:
+        return
+    if not git_testo("status", "--porcelain"):
+        return
+    trovate = concorrenti(checkout, dopo)
+    if trovate:
+        tentativo.sessioni = trovate
+        raise Arresto(15, "sessione-concorrente", ", ".join(trovate))
 
 
 def giri_ignorata() -> bool:
@@ -437,9 +499,11 @@ class Lock:
 
 
 def impostazioni(destinazione: Path) -> Path:
-    """I permessi del repo, senza trailer di attribuzione nei commit del giro."""
+    """I permessi del repo, senza trailer di attribuzione, con l'hook sul commit."""
     dati = json.loads(PERMESSI.read_text(encoding="utf-8"))
     dati["attribution"] = {"commit": "", "pr": ""}
+    hook = {"matcher": "Bash", "hooks": [{"type": "command", "command": comando_hook()}]}
+    dati.setdefault("hooks", {}).setdefault("PreToolUse", []).append(hook)
     destinazione.parent.mkdir(parents=True, exist_ok=True)
     destinazione.write_text(json.dumps(dati, indent=2), encoding="utf-8")
     return destinazione
@@ -594,6 +658,7 @@ class Tentativo:
     claude_exit: int | None = None
     avviso: str | None = None
     partito: bool = False
+    sessioni: list[str] | None = None
 
     def avvisa(self, testo: str | None) -> None:
         if testo:
@@ -661,6 +726,8 @@ class Tentativo:
         }
         if fine or self.avviso:
             riga["attenzione"] = nota
+        if self.sessioni:
+            riga["sessioni_concorrenti"] = self.sessioni
         self.scrivi(riga)
         (GIRI / "ultimo.json").write_text(json.dumps(riga, ensure_ascii=False), encoding="utf-8")
 
@@ -701,7 +768,6 @@ def giro(
         profilo = locale.profilo
         tentativo.partenza()
         tentativo.avvisa(locale.attenzione)
-        tentativo.avvisa(controlla_sessioni(checkout))
         controlla_tree(profilo)
         controlla_file()
         tentativo.head_prima = prepara_repo(profilo)
@@ -729,8 +795,11 @@ def giro(
             "--max-budget-usd",
             str(profilo.budget_usd),
         ]
+        INIZIO.touch()
+        inizio = INIZIO.stat().st_mtime
         lanciato = True
         tentativo.claude_exit = lancia_agente(comando, tentativo.stream, profilo, ferma)
+        controlla_concorrenti(tentativo, checkout, inizio)
         if tentativo.claude_exit != 0:
             raise Arresto(20, "claude-uscita-non-zero", str(tentativo.claude_exit))
         fine = risultato(tentativo.stream)
@@ -756,6 +825,7 @@ def giro(
         tentativo.chiusura("errore", f"lanciatore: {errore!r}"[:300], 1)
         raise
     finally:
+        INIZIO.unlink(missing_ok=True)
         pota(GIRI / "giri")
     tentativo.chiusura("riuscito", None, 0)
     del lock  # tenuto fino a qui: il file aperto è il lock
@@ -782,7 +852,7 @@ def controlli(profilo: Profilo, checkout: Path) -> int:
 
     prova(fermo)
     locale = prova(esegui_prima, profilo, "controlli")
-    avvisi = [locale.attenzione if locale else None, prova(controlla_sessioni, checkout)]
+    avvisi = [locale.attenzione if locale else None]
     prova(controlla_tree, profilo)
     prova(controlla_file)
     for arresto in arresti:
@@ -828,7 +898,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--senza-pull-canone", action="store_true", help="non aggiornare il checkout del canone"
     )
+    parser.add_argument("--hook-commit", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
+    if args.hook_commit:
+        return hook_commit(sys.stdin.read())
     os.environ.setdefault("GIT_TERMINAL_PROMPT", "0")
     radice = git_testo("rev-parse", "--show-toplevel")
     if not radice:

@@ -148,8 +148,10 @@ Prossimi passi, `danea-auto` per prima:
 
    Non ancora provati: il tetto di tempo sull'unità vera, provato solo su unità transitorie;
    i wrapper come `gog` e i percorsi su Drive, che `method` non usa e `salute`
-   ed `economia` sì. Una sessione aperta in `~/method` alle 15:00 ferma il giro
-   con 15, e la prova slitta. Resta anche la riga del tetto in `autonomy.md`,
+   ed `economia` sì. Dal 2026-11-10 una sessione aperta in `~/method` non
+   ferma più il giro: il lanciatore blocca solo il commit di un giro mentre
+   un'altra sessione lavora nel checkout (15 `sessione-concorrente`), come
+   `ciclo-concorrenti` in `nixos` `beb75bc`, su preferenza del custode. Resta anche la riga del tetto in `autonomy.md`,
    che passa dall'unità al lanciatore;
 
 3. prescrizione agli altri adottanti e riduzione del modulo `nixos`

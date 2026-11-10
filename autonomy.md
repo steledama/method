@@ -82,8 +82,10 @@ senza `ssh`; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trasc
 
 Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un
 nodo `kb/` che altera il senso del canone senza fonte o per una ricostruzione
-sbagliata che altera una decisione. Lo stop per sessione aperta, il push
-rifiutato e il lock occupato sono il sistema che funziona.
+sbagliata che altera una decisione. Lo stop per sessione concorrente, il
+push rifiutato e il lock occupato sono il sistema che funziona. Una sessione
+aperta e ferma nel checkout non ferma il giro: conta solo quella che ci lavora
+mentre il giro gira, e ne blocca il commit (custode, 2026-11-10).
 
 ## Decisioni riservate e arresto parziale
 
