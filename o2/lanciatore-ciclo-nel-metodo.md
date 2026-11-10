@@ -1,6 +1,7 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script gira su danea2 e il collaudo in method è eseguito col giro a mano dell'08/11; la prescrizione agli altri adottanti aspetta il giro dal timer del 09/11."
+sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script gira su danea2 e il collaudo in method è eseguito col giro a mano dell'08/11; il giro dal timer del 09/11 è riuscito senza `fermo`, e per la prescrizione agli altri adottanti resta da verificare in sessione l'unità dell'agente."
 ciclo: dev
+decidere: "Prima della prescrizione agli altri adottanti, l'adattatore collaudato in nixos-casa si copia nel nixos di lavoro o diventa un pezzo comune ai due repo?"
 ---
 
 # Lanciatore del ciclo nel metodo
@@ -140,9 +141,11 @@ Prossimi passi, `danea-auto` per prima:
 
    Partenza dal timer: il 2026-11-09 alle 15:00:14 (`5d068878`), letta in
    `i1/giri/tentativi.jsonl`; il filo [ciclo autonomo](../i3/ciclo-autonomo.md)
-   registra il passaggio. L'esito non si legge dal giro stesso: la condizione
-   del passo 3 si verifica al giro del 10/11 sulla riga di chiusura, in
-   sessione per ciò che chiede l'host (unità viva, `fermo`). Proposta per la
+   registra il passaggio. Letto dal giro del 10/11: chiusura `riuscito` alle
+   15:04:29, commit `59a7c44` pubblicato, 2 dinieghi di grafia, e
+   `.git/lanciatore/fermo` assente. Della condizione del passo 3 resta da
+   verificare in sessione solo `ciclo-method-agente` non in vita, che il giro
+   non legge; la partenza del 10/11 alle 15:00:14 c'è stata. Proposta per la
    sessione: `o3/prescriptions.md` dice ancora di `lanciatore.py` «Non ancora
    usato dal timer», e il giro non scrive in `o3/`.
 

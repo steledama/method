@@ -43,13 +43,18 @@ riletto contro le fonti.
   dalla stessa data: giro a mano delle 19:37 (`87eac6f5`) riuscito, `chiusura`
   nella forma di `o3/lanciatore.py`, e l'ipotesi del giro dell'08/11 è
   confermata. Il 09/11 il timer ha lanciato il canone in `danea-auto` alle
-  08:10 (`3e26903` su `origin`, 08:12) e in `method` alle 15:00 (partenza
-  `5d068878`); l'esito di quest'ultimo sta nella sua chiusura, che legge il
-  giro seguente.
+  08:10 (`3e26903` su `origin`, 08:12) e in `method` alle 15:00
+  (`5d068878`, chiusura `riuscito` alle 15:04, commit `59a7c44` pubblicato,
+  nessun `fermo`).
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
-  pulito. Il 09/11 mancano in più due commit del giro, per il bump fallito
+  pulito. Il 10/11 `economia` si ferma prima del giro per una sessione Codex
+  aperta e ferma dalle 13:34 (`sessione-codex-attiva`, riga in
+  `~/.local/state/ciclo/economia/`): arresto visibile, ma senza lavoro
+  concorrente. Il custode ha deciso lo stesso giorno che una sessione ferma
+  non blocca il giro; conta solo quella che lavora mentre il giro gira, e ne
+  blocca il commit (`autonomy.md`, `0896918`; `nixos` `beb75bc`). Il 09/11 mancano in più due commit del giro, per il bump fallito
   (caso sotto): `nixos` alle 04:39 chiude `riuscito` con `commit` falso e
   tree sporco (`29e191b4`), e `nixos-lavoro` non ha commit del giro su
   `origin`; il suo tentativo non si legge da `deck`. Quell'`esito` non dice

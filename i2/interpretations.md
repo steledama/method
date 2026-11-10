@@ -23,7 +23,7 @@ Indice della collezione `i2/`: lo stadio **i2** (Interpret) del ciclo — le sin
   recuperate; il solo stato del nodo non presidia ogni ipotesi.
 - [presidio-ipotesi-adottanti.md](presidio-ipotesi-adottanti.md) — criteri,
   esiti e limiti degli otto run; regola minima ratificata e osservazione
-  ancora aperta su `danea-auto`, raggiungibile dalle Scadenze del plan.
+  su `danea-auto` chiusa il 2026-10-20: la scadenza è emersa da sola.
 - [churn-goal-adottanti.md](churn-goal-adottanti.md) — 118 commit su
   `goal.md` in due mesi negli otto repo: il 74% tocca solo segnali e stato,
   le misure copiate da una fonte sono 16 e quasi tutte in `danea-auto` e
