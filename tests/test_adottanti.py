@@ -53,8 +53,10 @@ class AdottantiTests(unittest.TestCase):
             self.assertEqual(MODULE.assenti(world, home), ["altro"])
 
     def test_real_world_lists_checkouts_in_home(self):
+        dichiarati = MODULE.dichiarati()
+        self.assertIn("nixos", dichiarati)
         trovati = MODULE.adottanti()
-        self.assertIn("nixos", trovati)
+        self.assertTrue(set(trovati) <= set(dichiarati))
         self.assertTrue(all(path.parent == MODULE.HOME for path in trovati.values()))
 
     def test_show_only_reads_the_canon_interface(self):

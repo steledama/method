@@ -150,6 +150,56 @@ class StadiTests(unittest.TestCase):
         skill, testo = MODULE.tracce(giro)
         self.assertEqual(MODULE.lacune(sorted(MODULE.STADI), skill, testo), [])
 
+    def test_paths_count_with_windows_posix_and_mixed_separators(self):
+        for root, sep in (("C:\\repo", "\\"), ("/repo", "/"), ("C:\\repo", "/")):
+            with self.subTest(root=root, sep=sep):
+                chiamate = [
+                    ("Skill", {"skill": "eval"}),
+                    ("Skill", {"skill": "exec"}),
+                    ("Read", {"file_path": f"{root}{sep}goal.md"}),
+                    ("Read", {"file_path": f"{root}{sep}i2{sep}interpretations.md"}),
+                    ("Read", {"file_path": f"{root}{sep}i3{sep}filo.md"}),
+                    ("Read", {"file_path": f"{root}{sep}o1{sep}plan.md"}),
+                    ("Grep", {"pattern": "^stato:", "path": f"{root}{sep}o2{sep}"}),
+                    ("Bash", {"command": CORPI_DEI_GIRI}),
+                ]
+                for assente in (None, 3, 4, 5, 6):
+                    with self.subTest(assente=assente):
+                        giro = trascrizione(
+                            self.dir / "g.jsonl",
+                            [c for i, c in enumerate(chiamate) if i != assente],
+                        )
+                        skill, testo = MODULE.tracce(giro)
+                        lacune = MODULE.lacune(sorted(MODULE.STADI), skill, testo)
+                        attese = {
+                            3: "interpret dichiarato senza traccia: i2/ non toccato",
+                            4: "compare dichiarato senza traccia: i3/ non toccato",
+                            5: "plan dichiarato senza traccia: o1/plan.md non toccato",
+                            6: "specify dichiarato senza traccia: o2/ non toccato",
+                        }
+                        self.assertEqual(lacune, [] if assente is None else [attese[assente]])
+
+    def test_nested_inputs_are_normalized_before_json_escaping(self):
+        dati = {"paths": [r"C:\repo\o1\plan.md", {"path": "C:\\repo\\i2\\"}], "limit": 2}
+        originali = json.dumps(dati)
+        giro = trascrizione(self.dir / "g.jsonl", [("Read", dati)])
+        _, testo = MODULE.tracce(giro)
+        self.assertEqual(
+            json.loads(testo),
+            {"paths": ["C:/repo/o1/plan.md", {"path": "C:/repo/i2/"}], "limit": 2},
+        )
+        self.assertEqual(json.dumps(dati), originali)
+
+    def test_windows_skill_read_counts_without_skill_tool(self):
+        giro = trascrizione(
+            self.dir / "g.jsonl",
+            [("Read", {"file_path": r"C:\repo\.claude\skills\eval\SKILL.md"})],
+        )
+        init = {"type": "system", "subtype": "init", "tools": ["Read"]}
+        giro.write_text(json.dumps(init) + "\n" + giro.read_text(encoding="utf-8"), encoding="utf-8")
+        skill, _ = MODULE.tracce(giro)
+        self.assertIn("eval", skill)
+
     def test_plan_needs_the_bodies_of_the_rounds(self):
         oggetti = CORPI_DEI_GIRI.replace("%n%b", " %s")
         giro = trascrizione(

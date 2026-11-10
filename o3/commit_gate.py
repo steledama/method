@@ -273,6 +273,17 @@ def dopo(root: Path, giro: bool) -> int:
     return 0
 
 
+def normalizza_separatori(dati: object) -> object:
+    """Rende confrontabili i path Windows e POSIX prima degli escape JSON."""
+    if isinstance(dati, str):
+        return dati.replace("\\", "/")
+    if isinstance(dati, dict):
+        return {chiave: normalizza_separatori(valore) for chiave, valore in dati.items()}
+    if isinstance(dati, list):
+        return [normalizza_separatori(valore) for valore in dati]
+    return dati
+
+
 def tracce(trascrizione: Path) -> tuple[set[str], str]:
     """Skill invocate e testo degli input dei tool della trascrizione di un
     giro, dove si cercano i path minimi. Su un harness senza tool Skill (la
@@ -300,7 +311,7 @@ def tracce(trascrizione: Path) -> tuple[set[str], str]:
                 if nome:
                     skill.add(nome)
             else:
-                testo = json.dumps(dati, ensure_ascii=False)
+                testo = json.dumps(normalizza_separatori(dati), ensure_ascii=False)
                 input_tool.append(testo)
                 letture.update(re.findall(r"skills/(\w+)/SKILL\.md", testo))
     if senza_skill:
