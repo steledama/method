@@ -83,9 +83,39 @@ class PoliticaTests(unittest.TestCase):
         self.assertIsNone(comando("cat /stato/ciclo/method/fetch.json"))
         self.assertIsNone(comando("head -3 /stato/ciclo/salute/ultimo.json"))
         self.assertIsNone(comando("cat i1/giri/ultimo.json"))
-        self.assertIn("fuori dal checkout", comando("cat /etc/passwd"))
-        self.assertIn("fuori dal checkout", comando("ls ../altro/"))
-        self.assertIn("fuori dal checkout", comando("cat ~/.bashrc"))
+        self.assertIn("fuori dalle cartelle", comando("cat /etc/passwd"))
+        self.assertIn("fuori dalle cartelle", comando("ls ../altro/"))
+        self.assertIn("fuori dalle cartelle", comando("cat ~/.bashrc"))
+
+    def test_2_e_1_non_spezza_il_comando(self):
+        self.assertIsNone(comando("git status --short 2>&1 | head -5"))
+        self.assertIsNone(comando("ls -la >&2"))
+        self.assertIn("Bash(rm *)", comando("ls & rm x"))
+
+    def test_symlink_e_cartelle_aggiuntive(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp).resolve()
+            (base / "repo" / "i1").mkdir(parents=True)
+            (base / "canone" / "o3").mkdir(parents=True)
+            (base / "segreto").mkdir()
+            (base / "repo" / "method").symlink_to(base / "canone")
+            (base / "repo" / "fuga").symlink_to(base / "segreto")
+            (base / "repo" / "i1" / "trappola").symlink_to(base / "repo" / "o3")
+            radice = base / "repo"
+            regole_giro = {
+                "permissions": {
+                    **IMPOSTAZIONI["permissions"],
+                    "additionalDirectories": [str(base / "canone")],
+                }
+            }
+            giudica = MODULE.giudica_comando
+            self.assertIsNone(giudica("cat method/o3/x.py", regole_giro, radice))
+            self.assertIsNone(giudica(f"cat {base}/canone/o3/x.py", regole_giro, radice))
+            self.assertIn("fuori dalle cartelle", giudica("cat fuga/x", regole_giro, radice))
+            self.assertIn("fuori dalle cartelle", giudica("cat fuga/x", IMPOSTAZIONI, radice))
+            self.assertIn(
+                "Edit(./o3/**)", MODULE.giudica_file("i1/trappola/a.py", regole_giro, radice)
+            )
 
     def test_patch_su_percorsi_ammessi_e_negati(self):
         patch = "*** Begin Patch\n*** Add File: i1/nota.md\n+x\n*** End Patch"

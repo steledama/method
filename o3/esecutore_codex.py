@@ -50,6 +50,7 @@ from pathlib import Path
 
 WINDOWS = os.name == "nt"
 OPERATORI = {"&&", "||", ";", "|", "&", "\n"}
+DUPLICA = re.compile(r"\s*\d*>&(?:\d+|-)(?=\s|$|[;|&])")
 SOSTITUZIONE = re.compile(r"\$\(|`|<\(|>\(")
 PATCH = re.compile(r"^\*\*\* (?:Add File|Update File|Delete File|Move to): (.+)$", re.MULTILINE)
 REGOLA = re.compile(r"^([A-Za-z_][\w-]*)(?:\((.*)\))?$", re.DOTALL)
@@ -96,6 +97,9 @@ def pezzi(comando: str) -> list[str] | None:
         return None
     # Una riga nuova separa i comandi; un heredoc diventa comandi da ammettere, e cade.
     comando = comando.replace("\r\n", "\n").replace("\n", " ; ")
+    # `2>&1` e simili duplicano un descrittore, non separano comandi (rifiuti
+    # di salute dell'11/11/2026): si tolgono prima di dividere sulla `&`.
+    comando = DUPLICA.sub("", comando)
     lessico = shlex.shlex(comando, posix=True, punctuation_chars=";&|")
     lessico.whitespace_split = True
     lessico.whitespace = " \t\r"
@@ -151,19 +155,45 @@ def percorso_reale(percorso: str, radice: Path) -> str:
     return os.path.normpath(str(pieno)).replace("\\", "/")
 
 
+def percorsi(percorso: str, radice: Path) -> tuple[str, str]:
+    """Il path come scritto e dove punta davvero: la shell segue i symlink
+    (`method/../o3` esce dal checkout, osservato da economia l'11/11/2026)."""
+    scritto = percorso_reale(percorso, radice)
+    return scritto, os.path.realpath(scritto).replace("\\", "/")
+
+
+def dentro(percorso: str, cartella: str) -> bool:
+    cartella = cartella.rstrip("/")
+    return percorso == cartella or percorso.startswith(cartella + "/")
+
+
+def cartelle_aggiuntive(impostazioni: dict, radice: Path) -> list[str]:
+    """Le `additionalDirectories` del giro: cartelle di lavoro, lette come il checkout."""
+    voci = (impostazioni.get("permissions") or {}).get("additionalDirectories") or []
+    return [percorsi(os.path.expanduser(str(v)), radice)[1] for v in voci]
+
+
 def percorso_in(percorso: str, modello: str, radice: Path) -> bool:
     return bool(_regex_percorso(assoluto(modello, radice)).match(percorso))
 
 
 def giudica_file(percorso: str, impostazioni: dict, radice: Path) -> str | None:
-    """Il motivo del rifiuto di una scrittura, o None se ammessa."""
-    reale = percorso_reale(percorso, radice)
+    """Il motivo del rifiuto di una scrittura, o None se ammessa.
+
+    Negata se lo nega il path scritto o quello vero; ammessa solo se il path
+    vero è ammesso, perché è lì che la scrittura arriva."""
+    scritto, vero = percorsi(percorso, radice)
+    radice_vera = Path(os.path.realpath(radice))
     for strumento, argomento in regole(impostazioni, "deny"):
-        if strumento in ("Edit", "Write") and argomento and percorso_in(reale, argomento, radice):
-            return f"scrittura negata da {strumento}({argomento}): {percorso}"
+        if strumento in ("Edit", "Write") and argomento:
+            if percorso_in(scritto, argomento, radice) or percorso_in(vero, argomento, radice_vera):
+                return f"scrittura negata da {strumento}({argomento}): {percorso}"
     for strumento, argomento in regole(impostazioni, "allow"):
-        if strumento in ("Edit", "Write") and argomento and percorso_in(reale, argomento, radice):
-            return None
+        if strumento in ("Edit", "Write") and argomento:
+            if percorso_in(vero, argomento, radice_vera) or (
+                vero == scritto and percorso_in(scritto, argomento, radice)
+            ):
+                return None
     return f"scrittura non ammessa dai permessi del giro: {percorso}"
 
 
@@ -176,7 +206,8 @@ def giudica_comando(comando: str, impostazioni: dict, radice: Path) -> str | Non
     ammessi = [a for s, a in regole(impostazioni, "allow") if s == "Bash" and a]
     letture_negate = [a for s, a in regole(impostazioni, "deny") if s == "Read" and a]
     letture_ammesse = [a for s, a in regole(impostazioni, "allow") if s == "Read" and a]
-    interno = os.path.normpath(str(radice)).replace("\\", "/")
+    radice_vera = Path(os.path.realpath(radice))
+    aperte = [radice_vera.as_posix(), *cartelle_aggiuntive(impostazioni, radice)]
     for pezzo in divisi:
         for modello in negati:
             if comando_ammesso(pezzo, modello):
@@ -188,17 +219,17 @@ def giudica_comando(comando: str, impostazioni: dict, radice: Path) -> str | Non
             if "/" not in parola and "\\" not in parola and not parola.startswith("~"):
                 continue
             parola = os.path.expanduser(parola)
-            reale = percorso_reale(parola, radice)
+            scritto, vero = percorsi(parola, radice)
             for modello in letture_negate:
-                if percorso_in(reale, modello, radice):
+                if percorso_in(scritto, modello, radice) or percorso_in(vero, modello, radice_vera):
                     return f"lettura negata da Read({modello}): {parola}"
-            fuori = reale != interno and not reale.startswith(interno + "/")
+            fuori = not any(dentro(vero, cartella) for cartella in aperte)
             if (
                 fuori
                 and pezzo.split()[0] in LETTORI
-                and not any(percorso_in(reale, m, radice) for m in letture_ammesse)
+                and not any(percorso_in(vero, m, radice_vera) for m in letture_ammesse)
             ):
-                return f"lettura fuori dal checkout non ammessa da un Read del giro: {parola}"
+                return f"lettura fuori dalle cartelle del giro non ammessa da un Read: {parola}"
     return None
 
 

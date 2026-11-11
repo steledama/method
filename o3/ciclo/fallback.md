@@ -104,13 +104,17 @@ It runs `codex exec` with:
   `GIT_REFLOG_ACTION=lanciatore <id>`, which tells the run's commits apart).
 
 The hook judges every call against the repository's Claude rules. `Bash`:
-the command is split on `&&`, `||`, `;`, `|` and newlines; every piece must
+the command is split on `&&`, `||`, `;`, `|` and newlines, after removing
+descriptor duplications such as `2>&1`; every piece must
 match an `allow` pattern and no `deny` pattern; command or process
 substitution is refused, being unjudgeable. Path arguments are checked
-against `Read(…)` deny rules; for reading commands (`cat`, `head`, `ls`,
-`grep`…) a path outside the checkout must also match a `Read(…)` allow rule,
+against `Read(…)` deny rules, both as written and resolved through symlinks
+(`method/../o3` leaves the checkout); for reading commands (`cat`, `head`,
+`ls`, `grep`…) a resolved path outside the checkout and the
+`additionalDirectories` must also match a `Read(…)` allow rule,
 the same perimeter as Claude's Read tool, which Codex lacks. `apply_patch`: every `Add`, `Update`, `Delete`
-and `Move to` path must match an `Edit`/`Write` allow rule and no deny rule.
+and `Move to` path must match an `Edit`/`Write` allow rule where it really
+points, and no deny rule either as written or resolved.
 Other tools pass only if named in `allow`; `update_plan` is harmless and
 passes. Then the settings' `Bash` hooks run with Claude-shaped input: the
 launcher's commit-concurrency hook blocks with exit 2. Refusals answer with
