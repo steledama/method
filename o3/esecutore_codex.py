@@ -12,7 +12,9 @@ Traduzione della politica, verificata su Codex CLI 0.166.0 il 2026-11-11:
 - un solo hook `PreToolUse` inline (`-c hooks.PreToolUse=…`), questo file con
   `--hook`, giudica ogni chiamata contro le regole `allow`/`deny` di Claude:
   `Bash(…)` per i comandi, `Edit(…)`/`Write(…)` per i file di `apply_patch`,
-  `Read(…)` negato per i path che un comando nomina; poi gli hook `Bash` delle
+  `Read(…)` negato per i path che un comando nomina e, per i comandi di
+  lettura (`cat`, `head`, `ls`…), `Read(…)` ammesso per i path fuori dal
+  checkout, perché Codex non ha un tool Read; poi gli hook `Bash` delle
   impostazioni, cioè quello del lanciatore sul commit. Il rifiuto è il JSON
   `permissionDecision: deny`; `--dangerously-bypass-hook-trust` è necessario
   perché l'hook è inline, e la fonte è questo file del canone;
@@ -50,6 +52,11 @@ QUOTA = re.compile(r"usage limit|rate.?limit|quota|too many requests|\b429\b", r
 AUTENTICAZIONE = re.compile(
     r"unauthori[sz]ed|not logged in|authentication|login required|\b401\b|\b403\b", re.IGNORECASE
 )
+# Codex non ha un tool Read: legge con questi comandi. Fuori dal checkout un loro
+# path deve essere ammesso da un `Read(…)` del giro, lo stesso perimetro del tool
+# Read di Claude (giro di method dell'11/11/2026, che non poteva leggere fetch.json).
+LETTORI = {"cat", "head", "tail", "ls", "wc", "grep", "rg", "jq", "diff", "sort", "uniq", "cut"}
+LETTORI |= {"readlink", "sed", "stat", "file"}
 # Strumenti locali di Codex senza effetti fuori dalla sessione.
 INNOCUI = {"update_plan"}
 STRUMENTI_FILE = {"apply_patch", "Edit", "Write"}
@@ -163,6 +170,8 @@ def giudica_comando(comando: str, impostazioni: dict, radice: Path) -> str | Non
     negati = [a for s, a in regole(impostazioni, "deny") if s == "Bash" and a]
     ammessi = [a for s, a in regole(impostazioni, "allow") if s == "Bash" and a]
     letture_negate = [a for s, a in regole(impostazioni, "deny") if s == "Read" and a]
+    letture_ammesse = [a for s, a in regole(impostazioni, "allow") if s == "Read" and a]
+    interno = os.path.normpath(str(radice)).replace("\\", "/")
     for pezzo in divisi:
         for modello in negati:
             if comando_ammesso(pezzo, modello):
@@ -178,6 +187,13 @@ def giudica_comando(comando: str, impostazioni: dict, radice: Path) -> str | Non
             for modello in letture_negate:
                 if percorso_in(reale, modello, radice):
                     return f"lettura negata da Read({modello}): {parola}"
+            fuori = reale != interno and not reale.startswith(interno + "/")
+            if (
+                fuori
+                and pezzo.split()[0] in LETTORI
+                and not any(percorso_in(reale, m, radice) for m in letture_ammesse)
+            ):
+                return f"lettura fuori dal checkout non ammessa da un Read del giro: {parola}"
     return None
 
 

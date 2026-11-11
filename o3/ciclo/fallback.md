@@ -100,7 +100,9 @@ The hook judges every call against the repository's Claude rules. `Bash`:
 the command is split on `&&`, `||`, `;`, `|` and newlines; every piece must
 match an `allow` pattern and no `deny` pattern; command or process
 substitution is refused, being unjudgeable. Path arguments are checked
-against `Read(…)` deny rules. `apply_patch`: every `Add`, `Update`, `Delete`
+against `Read(…)` deny rules; for reading commands (`cat`, `head`, `ls`,
+`grep`…) a path outside the checkout must also match a `Read(…)` allow rule,
+the same perimeter as Claude's Read tool, which Codex lacks. `apply_patch`: every `Add`, `Update`, `Delete`
 and `Move to` path must match an `Edit`/`Write` allow rule and no deny rule.
 Other tools pass only if named in `allow`; `update_plan` is harmless and
 passes. Then the settings' `Bash` hooks run with Claude-shaped input: the
@@ -131,16 +133,19 @@ End-to-end through the launcher, same day, run by the custodian (profile
 `engine: codex`, one run commit recognized from the reflog tag, push true,
 `budget_usd_imposto: false`, two denials in the closure (`apply_patch` on
 `o3/vietato.md` by `Edit(./o3/**)`, `rm .gitignore` by `Bash(rm *)`), complete
-trace, clean tree.
+trace, clean tree. Then the manual run of method from its `ciclo-method`
+unit on deck with `motori = ["codex", "claude"]`: Codex inside the systemd
+sandbox, commit `3b618dc`, network push to `origin/main`, no denial.
 
 Still open, to verify before relying on the fallback:
 
 - the form of a real Codex quota or authentication error: today recognized
   from the text (`usage limit`, `rate limit`, `429`, `unauthorized`); a new
   form must be added when observed;
-- `git push` over the network from inside the Codex sandbox: the end-to-end
-  push went to a local remote;
 - a fallback from one engine to the other with real engines;
+- reads outside the checkout in a Codex run (`fetch.json`, other runs'
+  closures) since the read rule above: the manual method run of 2026-11-11
+  (`3b618dc`) abstained, the prompt asking for a Read tool Codex lacks;
 - Windows (danea-auto): the Codex sandbox there and the hook command quoting;
 - hosted tools that hooks do not cover (web search): today they pass only if
   the repository allows `WebSearch`; otherwise they are not disabled in Codex.

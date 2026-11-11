@@ -54,7 +54,10 @@ riga, uno per il corpo e tutti i trailer in un solo `-m` finale, uno per
 riga, perché git legge come trailer solo l'ultimo paragrafo e ogni `-m` ne
 apre uno (giro di `danea-auto` del 28 ottobre); i file fuori dal
 checkout si leggono col tool Read, non con `ls` o `cat` (giri dal 20 al 26
-ottobre in `method`, `nixos` ed `economia`). La regola è più stretta del
+ottobre in `method`, `nixos` ed `economia`). Codex non ha un tool Read: lì
+si legge con `cat` sul solo path, un comando per file, e l'esecutore canonico
+lo ammette solo dove un `Read(…)` del giro lo ammette (giro di `method`
+dell'11/11/2026). La regola è più stretta del
 necessario, ma regge al cambio di versione: su Claude Code 2.1.311 `;`, `&&`
 e pipe fra comandi concessi passano, come l'heredoc da solo, mentre una
 graffa fra virgolette negata su 2.1.308 passa su 2.1.311 (sonda di `nixos`,

@@ -86,6 +86,14 @@ esito e `ultimo_riuscito` del fetch e le chiusure previste; fino ad allora
 dichiarare età degli origin ignota e chiusure non verificate. Non cambiare
 prompt, permessi o esecutore nel giro autonomo.
 
+Fatto in sessione l'11/11, su richiesta del custode: l'adattamento del
+prompt al tool disponibile. In Codex si legge con `cat` sul solo path; l'esecutore
+ammette un comando di lettura fuori dal checkout solo dove un `Read(…)` del
+giro lo ammette, lo stesso perimetro del tool Read di Claude: `fetch.json` e
+le chiusure dei giri sì, trascritti e dati di dominio degli adottanti no.
+Prompt e `/cycle` lo dicono. Resta la verifica nel primo giro Codex; la
+cattura si consuma allora.
+
 ## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
 
 Tre punti inoltrati dalla sessione nixos su deck, su richiesta del custode.

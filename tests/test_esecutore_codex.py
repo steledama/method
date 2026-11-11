@@ -25,6 +25,7 @@ IMPOSTAZIONI = {
     "permissions": {
         "allow": [
             "Read(./**)",
+            "Read(//stato/ciclo/**)",
             "Bash(git status*)",
             "Bash(git commit *)",
             "Bash(git push)",
@@ -77,6 +78,14 @@ class PoliticaTests(unittest.TestCase):
 
     def test_le_letture_negate_valgono_anche_nei_comandi(self):
         self.assertIn("Read(~/.ssh/**)", comando("cat ~/.ssh/id_rsa"))
+
+    def test_fuori_dal_checkout_si_legge_solo_cio_che_read_ammette(self):
+        self.assertIsNone(comando("cat /stato/ciclo/method/fetch.json"))
+        self.assertIsNone(comando("head -3 /stato/ciclo/salute/ultimo.json"))
+        self.assertIsNone(comando("cat i1/giri/ultimo.json"))
+        self.assertIn("fuori dal checkout", comando("cat /etc/passwd"))
+        self.assertIn("fuori dal checkout", comando("ls ../altro/"))
+        self.assertIn("fuori dal checkout", comando("cat ~/.bashrc"))
 
     def test_patch_su_percorsi_ammessi_e_negati(self):
         patch = "*** Begin Patch\n*** Add File: i1/nota.md\n+x\n*** End Patch"

@@ -56,7 +56,8 @@ checkout locale può essere indietro. Il fetch lo fa l'unità prima del giro,
 fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 `o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
 checkout sono in sola lettura. L'esito sta in
-`~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read: per
+`~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read (in Codex, che non
+l'ha, con `cat` sul solo path, ammesso dal `Read` del giro): per
 ogni checkout `esito`, `ts`, `origin_main` e `ultimo_riuscito`, il momento
 dell'ultimo fetch andato a buon fine (`null` se non ce n'è uno noto).
 
@@ -75,7 +76,7 @@ Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
 dichiara (campo `giri` in `o3/cicli.nix` di `nixos`, per tutti i repo man mano
 che recepiscono la decisione del 2026-10-19),
 altrimenti in `~/.local/state/ciclo/<repo>/`: `tentativi.jsonl` e
-`ultimo.json`, da leggere con il tool Read: esito, commit, push e dinieghi. La riga `chiusura` porta
+`ultimo.json`, da leggere con il tool Read (in Codex con `cat` sul solo path): esito, commit, push e dinieghi. La riga `chiusura` porta
 `oggetto` (prima riga del commit del giro, o null) e `dinieghi` (lista di
 `{tool, input}`, input troncato), oltre al conteggio `permission_denials`;
 le chiusure scritte da `ciclo-namespace` e quelle anteriori al 2026-10-19
