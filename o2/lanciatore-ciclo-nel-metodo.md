@@ -217,9 +217,9 @@ Prossimi passi, `danea-auto` per prima:
    15:04:29, commit `59a7c44` pubblicato, 2 dinieghi di grafia, e
    `.git/lanciatore/fermo` assente. Della condizione del passo 3 resta da
    verificare in sessione solo `ciclo-method-agente` non in vita, che il giro
-   non legge; la partenza del 10/11 alle 15:00:14 c'è stata. Proposta per la
-   sessione: `o3/prescriptions.md` dice ancora di `lanciatore.py` «Non ancora
-   usato dal timer», e il giro non scrive in `o3/`.
+   non legge; la partenza del 10/11 alle 15:00:14 c'è stata. La riga di
+   `o3/prescriptions.md` che diceva `lanciatore.py` «Non ancora usato dal
+   timer» è corretta da `fce8afe`.
 
    Non ancora provati: il tetto di tempo sull'unità vera, provato solo su unità transitorie;
    i wrapper come `gog` e i percorsi su Drive, che `method` non usa e `salute`

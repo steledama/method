@@ -45,7 +45,16 @@ riletto contro le fonti.
   confermata. Il 09/11 il timer ha lanciato il canone in `danea-auto` alle
   08:10 (`3e26903` su `origin`, 08:12) e in `method` alle 15:00
   (`5d068878`, chiusura `riuscito` alle 15:04, commit `59a7c44` pubblicato,
-  nessun `fermo`).
+  nessun `fermo`). L'11/11 i tre repo di `svezia` (`bi`, `baserow`,
+  `nixos-lavoro`) non hanno un commit del giro su `origin` (fetch delle 15:00
+  riusciti): la migrazione al solo server tiene sospesi i loro timer, e `bi`
+  riferisce un rifiuto per quota settimanale (HTTP 429, nessun tool, costo
+  zero). Sono fatti inoltrati dalle sessioni, non riletti qui
+  (`o2/lanciatore-ciclo-nel-metodo.md`, sezioni dell'11/11). Una sospensione
+  dichiarata non è una partenza mancata invisibile; resta da rileggere alla
+  ripresa, insieme alla quota settimanale: se l'account è lo stesso, tocca anche i
+  giri di `deck`, che l'11/11 sono riusciti (`salute` 09:03, `economia`
+  14:02, `nixos` 04:33).
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
@@ -68,8 +77,11 @@ riletto contro le fonti.
   delle 10:10 (`14b1231`): il fetch delle 15:00 è riuscito e `origin/main`
   resta a `0840a4b` del 05/11. Il 07/11 su `origin` arriva solo il giro
   della ripresa delle 10:10 (`6ebecfb`), nessuno delle 08:10. L'08/11 il
-  timer delle 08:10 torna a committare (`376d042`, 08:12): i giorni senza
-  commit del timer restano due. Da `deck` non si vede se quei giri siano
+  timer delle 08:10 torna a committare (`376d042`, 08:12) e così il 09 e il
+  10/11 (`3e26903`, `3cd860f`). L'11/11 su `origin` non c'è un commit del
+  giro, né delle 08:10 né della ripresa: fetch delle 15:00:10 riuscito,
+  `origin/main` a `8a37364` del 10/11, 17:33. I giorni senza commit del
+  timer sono tre. Da `deck` non si vede se quei giri siano
   mancati, fermi o senza push, perché i tentativi di Windows non si
   leggono da qui: la causa va accertata su `danea2`, voce in
   `o2/pilota-ciclo-autonomo.md`. Ipotesi del giro del 09/11, da quella

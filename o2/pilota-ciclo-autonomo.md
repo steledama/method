@@ -420,9 +420,11 @@ arriva agli adottanti via symlink.
   - **Timer delle 08:10 senza commit su `origin`, 06 e 07/11**: il 06/11
     nessun commit del giro, il 07/11 solo quello della ripresa delle 10:10
     (`6ebecfb`). L'08/11 il timer delle 08:10 committa di nuovo
-    (`376d042`). Da `deck` non si distinguono mancata partenza, arresto e
+    (`376d042`), e così il 09 e il 10/11. L'11/11 di nuovo nessun commit del
+    giro su `origin` (`8a37364` del 10/11, fetch delle 15:00:10 riuscito).
+    Da `deck` non si distinguono mancata partenza, arresto e
     push mancato. Passo per la sessione col custode: leggere le righe del
-    06 e 07/11 in `i1/giri/tentativi.jsonl` di `danea-auto` su `danea2` e
+    06, 07 e 11/11 in `i1/giri/tentativi.jsonl` di `danea-auto` su `danea2` e
     portarne la causa nel filo [ciclo autonomo](../i3/ciclo-autonomo.md).
 
 I tempi fra i gradini si decidono sull'andamento delle prove. Si avanza senza
