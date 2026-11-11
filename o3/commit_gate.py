@@ -4,7 +4,17 @@ La skill `commit` tiene il giudizio (delega, filing back, messaggio,
 `Autonomia`); qui sta ciò che una macchina verifica da sola, lanciabile da
 qualunque harness, da terminale o da un hook git (`kb/skill-composition.md`).
 
-- `prima`: formatta i file cambiati e lancia i controlli del profilo;
+- `prima [--perimetro FILE...]`: formatta i file cambiati e lancia i
+  controlli del profilo. Col perimetro (i file della sessione, anche come glob)
+  confronta prima di scrivere: un file cambiato fuori dal perimetro esce con 3
+  senza formattare nulla, perché è di un'altra sessione. Dentro un giro del
+  lanciatore (`GIT_REFLOG_ACTION=lanciatore <id>`) il perimetro è obbligatorio:
+  senza esce con 4, senza scrivere. Alla fine registra l'impronta del working
+  tree in `.git/commit-gate-impronta`;
+- `verifica`: subito prima dello staging confronta il working tree con
+  l'impronta di `prima`; un file cambiato o comparso nel frattempo esce con 3.
+  Proposta di economia (giro dell'11/11/2026, prettier su file di una sessione
+  concorrente), recepita il 2026-11-11;
 - `dopo [--giro]`: verifica i trailer dell'ultimo commit; `--giro` aggiunge
   quelli che `/cycle` richiede. Avvisa, senza fallire, se il `Prossimo:`
   scavalca la prima riga pronta di `o1/plan.md` o se `nessuno (…)` mescola
@@ -23,7 +33,9 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
+import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -68,6 +80,9 @@ COMANDI_MINIMI = {
     ],
 }
 OBIETTIVO = re.compile(r"^### (\d+)\.", re.MULTILINE)
+FUORI_PERIMETRO = 3
+GIRO_SENZA_PERIMETRO = 4
+IMPRONTA = "commit-gate-impronta"
 
 
 def run(args: list[str], root: Path) -> subprocess.CompletedProcess:
@@ -96,14 +111,73 @@ def cambiati(root: Path) -> list[str]:
     return files
 
 
+def nel_perimetro(path: str, perimetro: list[str]) -> bool:
+    return any(path == voce or fnmatch.fnmatch(path, voce) for voce in perimetro)
+
+
+def normalizza_perimetro(perimetro: list[str]) -> list[str]:
+    voci = []
+    for voce in perimetro:
+        voce = voce.replace("\\", "/")
+        while voce.startswith("./"):
+            voce = voce[2:]
+        voci.append(voce)
+    return voci
+
+
+def in_giro() -> bool:
+    """Il lanciatore marca l'agente con `GIT_REFLOG_ACTION=lanciatore <id>`."""
+    return os.environ.get("GIT_REFLOG_ACTION", "").startswith("lanciatore ")
+
+
+def impronta(root: Path) -> dict[str, str]:
+    """Path e hash del contenuto dei file cambiati: ciò che lo staging prenderà."""
+    voci = {}
+    for path in sorted(cambiati(root)):
+        file = root / path
+        voci[path] = hashlib.sha256(file.read_bytes()).hexdigest() if file.is_file() else "-"
+    return voci
+
+
+def file_impronta(root: Path) -> Path:
+    cartella = run(["git", "rev-parse", "--absolute-git-dir"], root).stdout.strip()
+    return Path(cartella) / IMPRONTA
+
+
+def verifica(root: Path) -> int:
+    file = file_impronta(root)
+    if not file.exists():
+        print("impronta assente: lancia prima `commit_gate.py prima`")
+        return FUORI_PERIMETRO
+    attesa = json.loads(file.read_text(encoding="utf-8"))
+    attuale = impronta(root)
+    diversi = sorted(p for p in attesa.keys() | attuale.keys() if attesa.get(p) != attuale.get(p))
+    if diversi:
+        print("working tree cambiato dopo il gate: " + ", ".join(diversi))
+        print("non fare lo staging: un'altra sessione sta scrivendo nel checkout")
+        return FUORI_PERIMETRO
+    print("impronta ok")
+    return 0
+
+
 def profilo(root: Path) -> dict:
     path = root / PROFILO
     return tomllib.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
-def prima(root: Path) -> int:
+def prima(root: Path, perimetro: list[str] | None = None) -> int:
     conf = profilo(root)
     files = cambiati(root)
+    if perimetro is None and in_giro():
+        print("giro senza perimetro: passa a `prima --perimetro` i file toccati nel giro")
+        return GIRO_SENZA_PERIMETRO
+    if perimetro is not None:
+        perimetro = normalizza_perimetro(perimetro)
+        fuori = [f for f in files if not nel_perimetro(f, perimetro)]
+        if fuori:
+            # Prima di qualunque scrittura: quei file sono di un'altra sessione.
+            print("file cambiati fuori dal perimetro, nessun file formattato: " + ", ".join(fuori))
+            return FUORI_PERIMETRO
     falliti = 0
     if not conf:
         print(f"profilo {PROFILO} assente: nessun formatter né controllo dichiarato")
@@ -137,6 +211,7 @@ def prima(root: Path) -> int:
         if fallito:
             falliti += 1
             print(uscita[-3000:], end="" if uscita.endswith("\n") else "\n")
+    file_impronta(root).write_text(json.dumps(impronta(root), indent=1), encoding="utf-8")
     return 1 if falliti else 0
 
 
@@ -441,7 +516,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--root", type=Path, default=Path("."))
     sub = parser.add_subparsers(dest="comando", required=True)
-    sub.add_parser("prima", help="formatter e controlli sui file cambiati")
+    p_prima = sub.add_parser("prima", help="formatter e controlli sui file cambiati")
+    p_prima.add_argument(
+        "--perimetro", nargs="+", help="i file della sessione; fuori perimetro esce con 3"
+    )
+    sub.add_parser("verifica", help="prima dello staging: working tree uguale all'impronta")
     p_dopo = sub.add_parser("dopo", help="trailer dell'ultimo commit")
     p_dopo.add_argument("--giro", action="store_true", help="trailer richiesti da /cycle")
     p_cop = sub.add_parser("stadi", help="stadi di Esiti contro la trascrizione del giro")
@@ -449,7 +528,11 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.comando == "stadi":
         return stadi(args.root, args.giro)
-    return prima(args.root) if args.comando == "prima" else dopo(args.root, args.giro)
+    if args.comando == "verifica":
+        return verifica(args.root)
+    return (
+        prima(args.root, args.perimetro) if args.comando == "prima" else dopo(args.root, args.giro)
+    )
 
 
 if __name__ == "__main__":

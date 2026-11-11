@@ -121,11 +121,18 @@ atto quale controllo e quale comando (`nixos`, 2026-11-09, `8167598`).
 dello strumento che l'ha dato, nel fuso e nell'unità in cui lo scrivi; il
 corpo del commit si ricava dalla bozza. Così un errore si vede prima della
 pubblicazione: nel giro di `salute` del 2026-10-28 un orario UTC letto come
-locale è emerso solo nel resoconto, a commit già spinto. Prima dello staging confronta `git status --short` con i file
+locale è emerso solo nel resoconto, a commit già spinto. Prima del gate confronta `git status --short` con i file
 toccati nel giro: un file modificato che non hai toccato vuol dire una
-sessione concorrente, e allora non committi e chiudi con lo stop. Le
-verifiche del repo, `python3 o3/commit_gate.py prima`, devono passare; se una
-fallisce, niente commit e working tree lasciato com'è. Un solo commit per giro, anche vuoto (`--allow-empty`),
+sessione concorrente, e allora non committi e chiudi con lo stop. Poi le
+verifiche del repo, `python3 o3/commit_gate.py prima --perimetro <file
+toccati nel giro>`, sempre col perimetro: senza, sotto il lanciatore, il gate
+esce con 4. Con 3 il gate ha trovato file fuori perimetro senza scrivere
+nulla, ed è lo stesso stop; se un controllo fallisce, niente commit e working
+tree lasciato com'è. Subito prima dello staging `python3 o3/commit_gate.py
+verifica` conferma che dopo il gate nessun file è cambiato né comparso; con 3
+è lo stop. Il gate formattava ogni file cambiato: nel giro di `economia`
+dell'11/11/2026 ha riscritto due file di una sessione concorrente prima del
+confronto. Un solo commit per giro, anche vuoto (`--allow-empty`),
 con `Esiti:`, `Prossimo:`, `Autonomia: agente`, `Impatto` almeno medio e
 `Impatto-motivo:` col criterio di copertura, tutti nell'ultimo paragrafo e
 senza trailer di coautoria. `Esiti:` nomina gli stadi eseguiti col loro minimo, non gli archi:

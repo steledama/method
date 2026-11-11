@@ -4,11 +4,13 @@ import contextlib
 import importlib.util
 import io
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 SPEC = importlib.util.spec_from_file_location(
     "commit_gate", Path(__file__).resolve().parents[1] / "o3" / "commit_gate.py"
@@ -196,7 +198,9 @@ class StadiTests(unittest.TestCase):
             [("Read", {"file_path": r"C:\repo\.claude\skills\eval\SKILL.md"})],
         )
         init = {"type": "system", "subtype": "init", "tools": ["Read"]}
-        giro.write_text(json.dumps(init) + "\n" + giro.read_text(encoding="utf-8"), encoding="utf-8")
+        giro.write_text(
+            json.dumps(init) + "\n" + giro.read_text(encoding="utf-8"), encoding="utf-8"
+        )
         skill, _ = MODULE.tracce(giro)
         self.assertIn("eval", skill)
 
@@ -344,6 +348,87 @@ class PrimaTests(unittest.TestCase):
                 esito = MODULE.prima(root)
         self.assertEqual(esito, 1)
         self.assertIn("non disponibile, FALLITO", uscita.getvalue())
+
+
+FORMATTER = (
+    "[[formatter]]\n"
+    'glob = "*.md"\n'
+    'comando = ["python3", "-c", '
+    "\"import sys; [open(f, 'a').write('F') for f in sys.argv[1:]]\"]\n"
+)
+
+
+class PerimetroTests(unittest.TestCase):
+    """Il gate non scrive sui file di un'altra sessione (proposta di economia, 2026-11-11)."""
+
+    def setUp(self):
+        temporanea = tempfile.TemporaryDirectory()
+        self.addCleanup(temporanea.cleanup)
+        self.root = Path(temporanea.name)
+        subprocess.run(["git", "init", "-q", str(self.root)], check=True)
+        (self.root / "o3").mkdir()
+        (self.root / "o3" / "commit_gate.toml").write_text(FORMATTER, encoding="utf-8")
+        git = ["git", "-C", str(self.root), "-c", "user.name=P", "-c", "user.email=p@example.org"]
+        subprocess.run([*git, "add", "-A"], check=True)
+        subprocess.run([*git, "commit", "-q", "-m", "profilo"], check=True)
+        (self.root / "mio.md").write_text("mio\n", encoding="utf-8")
+        ambiente = patch.dict(os.environ)
+        ambiente.start()
+        self.addCleanup(ambiente.stop)
+        os.environ.pop("GIT_REFLOG_ACTION", None)
+
+    def prima(self, perimetro=None):
+        uscita = io.StringIO()
+        with contextlib.redirect_stdout(uscita):
+            esito = MODULE.prima(self.root, perimetro)
+        return esito, uscita.getvalue()
+
+    def verifica(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            return MODULE.verifica(self.root)
+
+    def test_file_estraneo_ferma_senza_scrivere(self):
+        (self.root / "altrui.md").write_text("altrui\n", encoding="utf-8")
+        esito, uscita = self.prima(["mio.md"])
+        self.assertEqual(esito, MODULE.FUORI_PERIMETRO)
+        self.assertIn("altrui.md", uscita)
+        self.assertEqual((self.root / "altrui.md").read_bytes(), b"altrui\n")
+        self.assertEqual((self.root / "mio.md").read_bytes(), b"mio\n")
+
+    def test_solo_il_perimetro_si_comporta_come_prima(self):
+        esito, _ = self.prima(["./mio.md"])
+        self.assertEqual(esito, 0)
+        self.assertEqual((self.root / "mio.md").read_text(), "mio\nF")
+
+    def test_il_perimetro_accetta_i_glob(self):
+        (self.root / "i1").mkdir()
+        (self.root / "i1" / "nota.md").write_text("n\n", encoding="utf-8")
+        self.assertEqual(self.prima(["mio.md", "i1/*"])[0], 0)
+
+    def test_in_un_giro_senza_perimetro_non_parte(self):
+        os.environ["GIT_REFLOG_ACTION"] = "lanciatore abc"
+        esito, _ = self.prima()
+        self.assertEqual(esito, MODULE.GIRO_SENZA_PERIMETRO)
+        self.assertEqual((self.root / "mio.md").read_bytes(), b"mio\n")
+        self.assertEqual(self.prima(["mio.md"])[0], 0)
+
+    def test_fuori_da_un_giro_senza_perimetro_resta_com_era(self):
+        (self.root / "altro.md").write_text("a\n", encoding="utf-8")
+        self.assertEqual(self.prima()[0], 0)
+        self.assertEqual((self.root / "altro.md").read_text(), "a\nF")
+
+    def test_l_impronta_vede_un_file_cambiato_o_comparso_dopo_il_gate(self):
+        self.assertEqual(self.prima(["mio.md"])[0], 0)
+        self.assertEqual(self.verifica(), 0)
+        (self.root / "altrui.md").write_text("altrui\n", encoding="utf-8")
+        self.assertEqual(self.verifica(), MODULE.FUORI_PERIMETRO)
+        (self.root / "altrui.md").unlink()
+        self.assertEqual(self.verifica(), 0)
+        (self.root / "mio.md").write_text("cambiato\n", encoding="utf-8")
+        self.assertEqual(self.verifica(), MODULE.FUORI_PERIMETRO)
+
+    def test_verifica_senza_impronta(self):
+        self.assertEqual(self.verifica(), MODULE.FUORI_PERIMETRO)
 
 
 if __name__ == "__main__":

@@ -111,6 +111,7 @@ del rapporto. Il limite che il rapporto dichiara per il `fetch` dei repo di
 ## Host e verifiche
 
 L'host è `deck`, il checkout servito: il commit ripubblica le viste di
-`method` in LAN. Verifiche: `python3 o3/commit_gate.py prima`, che lancia
-`build.py --check` sempre e l'audit della KB con modifiche a `kb/`
-(profilo in `o3/commit_gate.toml`).
+`method` in LAN. Verifiche: `python3 o3/commit_gate.py prima --perimetro
+<file toccati nel giro>`, che lancia `build.py --check` sempre e l'audit della
+KB con modifiche a `kb/` (profilo in `o3/commit_gate.toml`), e
+`python3 o3/commit_gate.py verifica` subito prima dello staging.
