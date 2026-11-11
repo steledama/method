@@ -92,6 +92,8 @@ dell'hook.
 
 ## Verifiche aperte prima di contare sul fallback
 
-Elencate nel contratto, sezione «Verified and still open»: giro completo dal
-vivo attraverso il lanciatore, forma reale di un errore di quota di Codex,
-`git push` dalla sandbox di Codex, Windows.
+Il giro completo dal vivo attraverso il lanciatore con Codex è riuscito il
+2026-11-11 (commit, push verso un remote locale, due rifiuti in chiusura).
+Restano, elencate nel contratto: la forma reale di un errore di quota di
+Codex, il `git push` in rete dalla sandbox di Codex, un fallback fra motori
+veri, Windows.

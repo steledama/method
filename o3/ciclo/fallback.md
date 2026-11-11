@@ -126,14 +126,21 @@ commands; `workspace-write` makes `.git` read-only and `writable_roots`
 including it lets the commit succeed. Canonical tests cover the policy and
 the normalization with a fake Codex: `python3 -m unittest tests.test_esecutore_codex`.
 
+End-to-end through the launcher, same day, run by the custodian (profile
+`motori = ["codex"]`, throwaway repository with a local bare remote): exit 0,
+`engine: codex`, one run commit recognized from the reflog tag, push true,
+`budget_usd_imposto: false`, two denials in the closure (`apply_patch` on
+`o3/vietato.md` by `Edit(./o3/**)`, `rm .gitignore` by `Bash(rm *)`), complete
+trace, clean tree.
+
 Still open, to verify before relying on the fallback:
 
-- the end-to-end run through the launcher with real Codex
-  (scratch script of 2026-11-11, to be run by the custodian);
 - the form of a real Codex quota or authentication error: today recognized
   from the text (`usage limit`, `rate limit`, `429`, `unauthorized`); a new
   form must be added when observed;
-- `git push` from inside the Codex sandbox (network enabled, not yet observed);
+- `git push` over the network from inside the Codex sandbox: the end-to-end
+  push went to a local remote;
+- a fallback from one engine to the other with real engines;
 - Windows (danea-auto): the Codex sandbox there and the hook command quoting;
 - hosted tools that hooks do not cover (web search): today they pass only if
   the repository allows `WebSearch`; otherwise they are not disabled in Codex.
