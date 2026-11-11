@@ -48,7 +48,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   il gate di `/commit`. Test: `python3 -m unittest discover -s tests -p 'test_traduzioni.py'`.
 - `lanciatore.py` — il lanciatore canonico del ciclo autonomo: controlli, pull,
   avvio dell'agente coi tetti, righe di `partenza` e `chiusura` in `i1/giri/`;
-  `--controlli` è in sola lettura. Non ancora usato dal timer
+  `--controlli` è in sola lettura. Osservabilità e contratto di fallback:
+  [engine fallback](ciclo/fallback.md). In uso dal timer di method dal 09/11
   ([task](../o2/lanciatore-ciclo-nel-metodo.md)). Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
   ([plan](../kb/plan.md), «Ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.

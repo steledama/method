@@ -70,6 +70,134 @@ class LanciatoreTests(unittest.TestCase):
         self.sh("git", "push", "-q", "-u", "origin", "main")
         self.imposta_agente(OK)
 
+    def rifiuto(self, prefisso="", costo=0):
+        evento = json.dumps(
+            {
+                "type": "result",
+                "is_error": True,
+                "api_error_status": 429,
+                "terminal_reason": "rate_limit",
+                "total_cost_usd": costo,
+            }
+        )
+        self.imposta_agente(agente(prefisso + f"echo '{evento}'\nexit 1"))
+
+    def adattatore(self):
+        file = self.base / "codex-adapter"
+        file.write_text(OK, encoding="utf-8")
+        file.chmod(0o755)
+        return str(file)
+
+    def test_fallback_rifiuto_prima_degli_atti(self):
+        self.rifiuto()
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        fine = self.chiusura()
+        self.assertEqual(fine["engine"], "codex")
+        self.assertEqual([e["engine"] for e in fine["engine_attempts"]], ["claude", "codex"])
+        self.assertEqual(fine["claude_exit"], 1)
+        self.assertTrue(Path(fine["engine_attempts"][0]["giro"]).exists())
+        args = (self.repo / ".git/argomenti").read_text()
+        self.assertIn("--settings", args)
+        self.assertEqual(float(args.split("--budget-usd ")[1].strip()), 5)
+
+    def test_budget_condiviso(self):
+        self.rifiuto(costo=1.25)
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        self.assertIn("--budget-usd 3.75", (self.repo / ".git/argomenti").read_text())
+        self.assertEqual(self.chiusura()["costo_usd"], 2.75)
+
+    def test_budget_esaurito_non_registra_un_tentativo_codex(self):
+        self.rifiuto(costo=5)
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 22)
+        fine = self.chiusura()
+        self.assertEqual(fine["engine"], "claude")
+        self.assertEqual(len(fine["engine_attempts"]), 1)
+        self.assertEqual(fine["provider_observation"]["api_error_status"], 429)
+
+    def test_costo_ignoto_blocca_fallback(self):
+        self.rifiuto(costo=None)
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 20)
+        self.assertIn("unknown spent budget", self.chiusura()["attenzione"])
+
+    def test_codex_fallisce_senza_terzo_tentativo(self):
+        self.rifiuto()
+        adattatore = Path(self.adattatore())
+        adattatore.write_text(agente("exit 7"), encoding="utf-8")
+        esito = self.lancia("--codex-adapter", str(adattatore))
+        self.assertEqual(esito.returncode, 20)
+        self.assertEqual(self.chiusura()["motivo"], "codex-uscita-non-zero")
+        self.assertEqual(len(self.chiusura()["engine_attempts"]), 2)
+
+    def test_claude_assente(self):
+        self.claude.unlink()
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        self.assertEqual(self.chiusura()["engine"], "codex")
+        self.assertEqual(self.chiusura()["claude_exit"], 127)
+
+    def test_fallback_bloccato_da_modifica_senza_tool_in_traccia(self):
+        self.rifiuto("echo partial > nuovo.md\n")
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 20)
+        self.assertEqual(self.chiusura()["engine"], "claude")
+
+    def test_warning_non_attiva_fallback(self):
+        quota = json.dumps(
+            {
+                "type": "rate_limit_event",
+                "rate_limit_info": {
+                    "status": "allowed_warning",
+                    "overageStatus": "rejected",
+                    "overageDisabledReason": "out_of_credits",
+                    "utilization": 0.92,
+                },
+            }
+        )
+        self.imposta_agente(agente(f"echo '{quota}'\necho '{RISULTATO}'"))
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        fine = self.chiusura()
+        self.assertEqual(fine["engine"], "claude")
+        self.assertEqual(len(fine["provider_observation"]["rate_limit_events"]), 1)
+        self.assertFalse(fine["provider_observation"]["unavailable"])
+
+    def test_fallback_bloccato_dopo_strumento(self):
+        tool = json.dumps(
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [{"type": "tool_use", "name": "Bash", "input": {"command": "true"}}]
+                },
+            }
+        )
+        self.rifiuto(f"echo '{tool}'\n")
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 20, esito.stderr)
+        self.assertEqual(len(self.chiusura()["engine_attempts"]), 1)
+        self.assertIn("partial acts", self.chiusura()["attenzione"])
+
+    def test_fallback_bloccato_da_traccia_incompleta(self):
+        self.rifiuto("echo 'not-json'\n")
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 20, esito.stderr)
+        self.assertEqual(self.chiusura()["engine"], "claude")
+
+    def test_rifiuto_senza_adattatore_equivalente(self):
+        self.rifiuto()
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 20)
+        self.assertIn("not configured", self.chiusura()["attenzione"])
+
+    def test_errore_builder_non_attiva_fallback(self):
+        self.imposta_agente(agente("echo 'aws-lc-sys panic exit 101'\nexit 101"))
+        esito = self.lancia("--codex-adapter", self.adattatore())
+        self.assertEqual(esito.returncode, 20)
+        self.assertEqual(self.chiusura()["engine"], "claude")
+
     def sh(self, *comando, cwd=None):
         return subprocess.run(
             comando, cwd=cwd or self.repo, env=self.env, capture_output=True, text=True, check=True

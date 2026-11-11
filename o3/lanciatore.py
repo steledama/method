@@ -311,7 +311,8 @@ def _chiamata(evento: dict) -> bool:
     if evento.get("type") == "assistant":
         contenuto = (evento.get("message") or {}).get("content")
         return isinstance(contenuto, list) and any(
-            isinstance(parte, dict) and parte.get("type") == "tool_use" for parte in contenuto
+            isinstance(parte, dict) and parte.get("type") in {"tool_use", "server_tool_use"}
+            for parte in contenuto
         )
     if evento.get("type") == "response_item":
         tipo = (evento.get("payload") or {}).get("type")
@@ -619,21 +620,65 @@ def lancia_agente(comando: list[str], stream: Path, profilo: Profilo, ferma: lis
             raise
 
 
-def risultato(stream: Path) -> dict:
-    """L'evento finale `result`, assente se il giro è stato interrotto."""
-    ultimo: dict = {}
+def osserva(stream: Path) -> dict:
+    """Keep provider evidence separate from the decision to retry."""
+    eventi = []
+    incompleto = False
     try:
         righe = stream.read_text(encoding="utf-8", errors="replace").splitlines()
     except OSError:
-        return ultimo
+        righe = []
     for riga in righe:
         try:
             evento = json.loads(riga)
         except ValueError:
+            incompleto = True
             continue
-        if isinstance(evento, dict) and evento.get("type") == "result":
-            ultimo = evento
-    return ultimo
+        if isinstance(evento, dict):
+            eventi.append(evento)
+        else:
+            incompleto = True
+    risultati = [e for e in eventi if e.get("type") == "result"]
+    quote = [e.get("rate_limit_info", {}) for e in eventi if e.get("type") == "rate_limit_event"]
+    errori = [
+        e
+        for e in eventi
+        if e.get("type") == "error"
+        or e.get("error")
+        or (e.get("message") if isinstance(e.get("message"), dict) else {}).get("error")
+    ]
+    ultimo = risultati[-1] if risultati else {}
+    successo = any(e.get("is_error") is False for e in risultati)
+    # Only explicit provider rejection; overage rejection alone is not rejection.
+    rifiuto = any(q.get("status") == "rejected" for q in quote)
+    rifiuto = rifiuto or any(
+        e.get("error")
+        in ("rate_limit", "authentication_failed", "billing_error", "overloaded_error")
+        for e in eventi
+        if isinstance(e.get("error"), str)
+    )
+    stati = [e.get("api_error_status") for e in risultati + errori]
+    indisponibile = not successo and (
+        rifiuto or any(x in (401, 403, 429, 503, "401", "403", "429", "503") for x in stati)
+    )
+    strumenti = any(_chiamata(e) or e.get("permission_denials") for e in eventi)
+    tipi_noti = {"system", "assistant", "user", "result", "rate_limit_event", "error"}
+    incompleto = incompleto or any(e.get("type") not in tipi_noti for e in eventi)
+    return {
+        "result": ultimo,
+        "results": risultati,
+        "rate_limit_events": quote,
+        "errors": errori,
+        "terminal_reason": ultimo.get("terminal_reason"),
+        "api_error_status": ultimo.get("api_error_status"),
+        "unavailable": indisponibile,
+        "tools_started": strumenti,
+        "trace_incomplete": incompleto or not eventi,
+    }
+
+
+def risultato(stream: Path) -> dict:
+    return osserva(stream)["result"]
 
 
 def dinieghi(fine: dict) -> list[dict]:
@@ -708,6 +753,8 @@ class Tentativo:
     avviso: str | None = None
     partito: bool = False
     sessioni: list[str] | None = None
+    engine: str = "claude"
+    tentativi_engine: list[dict] = field(default_factory=list)
 
     def avvisa(self, testo: str | None) -> None:
         if testo:
@@ -715,7 +762,8 @@ class Tentativo:
 
     @property
     def stream(self) -> Path:
-        return GIRI / "giri" / f"{self.id}.jsonl"
+        suffisso = ".codex" if self.engine == "codex" else ""
+        return GIRI / "giri" / f"{self.id}{suffisso}.jsonl"
 
     def scrivi(self, riga: dict) -> None:
         GIRI.mkdir(parents=True, exist_ok=True)
@@ -742,7 +790,14 @@ class Tentativo:
         self.partenza()
         dopo = git_testo("rev-parse", "HEAD")
         commit = bool(self.head_prima and dopo and self.head_prima != dopo)
-        fine = risultato(self.stream)
+        osservazione = osserva(self.stream)
+        fine = osservazione["result"]
+        costi = [t["observation"]["result"].get("total_cost_usd") for t in self.tentativi_engine]
+        costo = (
+            sum(costi)
+            if costi and all(isinstance(c, (int, float)) for c in costi)
+            else fine.get("total_cost_usd")
+        )
         nota = attenzione(str(fine.get("result") or ""))
         if self.avviso:
             nota = "; ".join(parte for parte in (self.avviso, nota) if parte)
@@ -764,11 +819,14 @@ class Tentativo:
             "push": dopo == git_testo("rev-parse", "@{u}") if commit else None,
             "tree_sporco_dopo": bool(git_testo("status", "--porcelain")),
             "claude_exit": self.claude_exit,
+            "engine": self.engine,
+            "engine_attempts": self.tentativi_engine,
+            "provider_observation": osservazione,
             "giro": str(self.stream.resolve()) if self.stream.exists() else None,
             "is_error": fine.get("is_error"),
             "permission_denials": len(fine.get("permission_denials") or []),
             "dinieghi": dinieghi(fine),
-            "costo_usd": fine.get("total_cost_usd"),
+            "costo_usd": costo,
             "turni": fine.get("num_turns"),
             "durata_ms": fine.get("duration_ms")
             or int((ora() - self.inizio) / timedelta(milliseconds=1)),
@@ -791,6 +849,115 @@ def _alza_interrotto(_numero: int, _frame: object) -> None:
     raise Interrotto
 
 
+def comando_engine(engine: str, eseguibile: str, settings: Path, budget: float) -> list[str]:
+    if engine == "codex":
+        # Host adapter: enforce equivalent permissions/hook/budget, normalize events.
+        return [
+            eseguibile,
+            "--prompt",
+            str(PROMPT.resolve()),
+            "--settings",
+            str(settings),
+            "--budget-usd",
+            str(budget),
+        ]
+    return [
+        eseguibile,
+        "-p",
+        PROMPT.read_text(encoding="utf-8"),
+        "--settings",
+        str(settings),
+        "--setting-sources",
+        "project",
+        "--permission-mode",
+        "dontAsk",
+        "--no-session-persistence",
+        "--output-format",
+        "stream-json",
+        "--verbose",
+        "--max-budget-usd",
+        str(budget),
+    ]
+
+
+def esegui_engine(
+    tentativo: Tentativo,
+    profilo: Profilo,
+    claude: str,
+    codex_adapter: str | None,
+    recinto: list[str],
+    ferma: list[str],
+    checkout: Path,
+    inizio: float,
+) -> None:
+    settings = impostazioni(STATO / "settings.json").resolve()
+    scadenza = time.monotonic() + profilo.minuti * 60
+    budget = profilo.budget_usd
+    for engine, eseguibile in (("claude", claude), ("codex", codex_adapter)):
+        minuti = (scadenza - time.monotonic()) / 60
+        if minuti <= 0 or budget <= 0:
+            raise Arresto(22, "fallback-budget-esaurito")
+        tentativo.engine = engine
+        record = {"engine": engine, "exit": None, "giro": str(tentativo.stream.resolve())}
+        tentativo.tentativi_engine.append(record)
+        try:
+            if shutil.which(eseguibile) is None:
+                record["exit"] = 127
+                # Launcher evidence, not a fabricated provider quota/API error.
+                tentativo.stream.parent.mkdir(parents=True, exist_ok=True)
+                tentativo.stream.write_text(
+                    json.dumps(
+                        {
+                            "type": "result",
+                            "is_error": True,
+                            "total_cost_usd": 0,
+                            "terminal_reason": "executable_missing",
+                        }
+                    )
+                    + "\n",
+                    encoding="utf-8",
+                )
+            else:
+                record["exit"] = lancia_agente(
+                    [*recinto, *comando_engine(engine, eseguibile, settings, budget)],
+                    tentativo.stream,
+                    replace(profilo, minuti=minuti, budget_usd=budget),
+                    ferma,
+                )
+        finally:
+            record["observation"] = osserva(tentativo.stream)
+            if engine == "claude":
+                tentativo.claude_exit = record["exit"]
+        controlla_concorrenti(tentativo, checkout, inizio)
+        evidenza = record["observation"]
+        fine = evidenza["result"]
+        if record["exit"] == 0 and fine.get("is_error") is False:
+            return
+        indisponibile = (
+            evidenza["unavailable"] or fine.get("terminal_reason") == "executable_missing"
+        )
+        if engine == "claude" and indisponibile:
+            sicuro = (
+                not evidenza["tools_started"]
+                and not evidenza["trace_incomplete"]
+                and git_testo("rev-parse", "HEAD") == tentativo.head_prima
+                and not git_testo("status", "--porcelain")
+            )
+            if not sicuro:
+                tentativo.avvisa("fallback blocked: partial acts or incomplete evidence")
+            elif not codex_adapter:
+                tentativo.avvisa("fallback unavailable: equivalent Codex adapter not configured")
+            else:
+                costo = fine.get("total_cost_usd")
+                if isinstance(costo, (int, float)) and costo >= 0:
+                    budget -= costo
+                    continue
+                tentativo.avvisa("fallback blocked: unknown spent budget")
+        if record["exit"] != 0:
+            raise Arresto(20, f"{engine}-uscita-non-zero", str(record["exit"]))
+        raise Arresto(21, f"{engine}-errore")
+
+
 def giro(
     profilo: Profilo,
     claude: str,
@@ -798,6 +965,7 @@ def giro(
     checkout: Path,
     pull_canone: bool,
     ferma: list[str] = (),
+    codex_adapter: str | None = None,
 ) -> int:
     tentativo = Tentativo(checkout.name)
     tentativo.head_prima = git_testo("rev-parse", "HEAD")
@@ -826,34 +994,10 @@ def giro(
         hook = cartella_hook()
         if hook:
             profilo = replace(profilo, protetti=(*profilo.protetti, f"{hook}/*"))
-        comando = [
-            *recinto,
-            claude,
-            "-p",
-            PROMPT.read_text(encoding="utf-8"),
-            "--settings",
-            str(impostazioni(STATO / "settings.json").resolve()),
-            "--setting-sources",
-            "project",
-            "--permission-mode",
-            "dontAsk",
-            "--no-session-persistence",
-            "--output-format",
-            "stream-json",
-            "--verbose",
-            "--max-budget-usd",
-            str(profilo.budget_usd),
-        ]
         INIZIO.touch()
         inizio = INIZIO.stat().st_mtime
         lanciato = True
-        tentativo.claude_exit = lancia_agente(comando, tentativo.stream, profilo, ferma)
-        controlla_concorrenti(tentativo, checkout, inizio)
-        if tentativo.claude_exit != 0:
-            raise Arresto(20, "claude-uscita-non-zero", str(tentativo.claude_exit))
-        fine = risultato(tentativo.stream)
-        if not fine or fine.get("is_error") is not False:
-            raise Arresto(21, "claude-errore")
+        esegui_engine(tentativo, profilo, claude, codex_adapter, recinto, ferma, checkout, inizio)
         protetto = rete(tentativo, profilo, fermo)
         if protetto:
             raise protetto
@@ -937,6 +1081,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--controlli", action="store_true", help="solo i controlli, in sola lettura"
     )
+    parser.add_argument("--codex-adapter", help="Codex executor with equivalent policy enforcement")
     parser.add_argument("--claude", default=None, help="eseguibile dell'agente, se non è nel PATH")
     parser.add_argument("--recinto", default="", help="sandbox dell'host, messa davanti all'agente")
     parser.add_argument(
@@ -969,7 +1114,7 @@ def main(argv: list[str] | None = None) -> int:
         return arresto.codice
     if args.controlli:
         return controlli(profilo, checkout)
-    claude = args.claude or shutil.which("claude")
+    claude = args.claude or shutil.which("claude") or ("claude" if args.codex_adapter else None)
     if not claude:
         segnala("agente non trovato nel PATH")
         return 14
@@ -980,6 +1125,7 @@ def main(argv: list[str] | None = None) -> int:
         checkout,
         not args.senza_pull_canone,
         shlex.split(args.recinto_ferma),
+        args.codex_adapter,
     )
 
 

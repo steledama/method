@@ -24,6 +24,37 @@ nella prescrizione `ciclo-autonomo`, recepita da tutti e chiusa il
 
 Il meccanismo resta in vigore finché lo script canonico non lo sostituisce.
 
+## Quota visibility and engine fallback (2026-11-11)
+
+Explicit implementation request forwarded by the nixos session on norvegia.
+Directly checked source:
+`/home/sviluppo/nixos/i1/giri/giri/fb0c81b2249148789b68f3a8e2464ab7.jsonl`
+(run of 2026-11-10). Its 13 quota events report `allowed_warning`, weekly
+utilization 0.91–0.92 and five-hour utilization 0–0.11. Overage is rejected
+because credits are exhausted, while ordinary requests remain allowed. Both
+results succeed; the final result reports `terminal_reason: completed` and
+`api_error_status: null`. Line 273 contains the `aws-lc-sys` builder panic
+with exit 101. This evidence does not attribute the withdrawn bump to quota.
+The legacy nixos closure omits quota and terminal/API error fields.
+
+The canonical launcher now records provider observations and ordered engine
+attempts, with one shared execution path and one prompt source. Its safe
+Claude → Codex orchestration and adoption contract are in
+[`o3/ciclo/fallback.md`](../o3/ciclo/fallback.md). Warning alone never triggers
+fallback; partial acts and incomplete evidence block it.
+
+Still required for operational Codex fallback: a verified executor that maps
+native Codex events and enforces equivalent permissions, commit hook and
+monetary ceiling. No such executor is claimed by this change. The integration
+option remains unset until that validation; this task stays open. The nixos
+session retains host changes and the timer suspension for server-only migration.
+The subsequent read-only nixos report confirms that the installed server-only
+unit does not enforce the required read/command/network boundaries, and Codex
+0.166.0 exposes no verified USD ceiling. Its documented hooks have not been
+validated on that installation. These are concrete blockers to activation,
+not permission to weaken the policy; details are retained in the contract.
+This implementation request does not expand authority over adopters or hosts.
+
 ## Decisioni del custode (2026-11-08)
 
 Adottato il disegno minimale della proposta del 2026-10-29, con queste scelte:
