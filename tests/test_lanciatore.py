@@ -1078,6 +1078,7 @@ class ProtettiTests(unittest.TestCase):
         for percorso in [
             "o3/ciclo/prompt.md",
             "o3/lanciatore.py",
+            "o3/esecutore_codex.py",
             ".claude/skills/a/SKILL.md",
             "autonomy.md",
         ]:

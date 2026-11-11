@@ -88,7 +88,7 @@ cartella di `core.hooksPath`, se è versionata nel repo.
 
 Il lanciatore gira fuori dal recinto e usa git nel checkout: ciò che git esegue da
 lì non lo deve scrivere il giro. Ogni repo nega quindi al giro, nei permessi e
-nella sandbox dove c'è, `o3/lanciatore.py` se il repo è il canone, `.git/config`,
+nella sandbox dove c'è, `o3/lanciatore.py` e `o3/esecutore_codex.py` se il repo è il canone, `.git/config`,
 `.git/hooks`, `.git/lanciatore` e la cartella degli hook versionati. I primi due
 coprono anche `core.fsmonitor`, `core.hooksPath` e gli alias.
 
@@ -143,6 +143,7 @@ DINIEGO_CARATTERI = 1000
 PROTETTI = (
     "o3/ciclo/*",
     "o3/lanciatore.py",
+    "o3/esecutore_codex.py",
     ".claude/*",
     ".codex/*",
     "autonomy.md",
