@@ -1,3 +1,4 @@
 # Profilo del lanciatore di method: solo ciò che si discosta dai default.
-# Claude lavora, Codex subentra se Claude è indisponibile (custode, 2026-11-11).
-motori = ["claude", "codex"]
+# Codex primo per il secondo giro a mano del 2026-11-11 (letture fuori checkout
+# con 10c09e7); a regime l'ordine voluto dal custode è ["claude", "codex"].
+motori = ["codex", "claude"]
