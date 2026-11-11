@@ -1,4 +1,3 @@
 # Profilo del lanciatore di method: solo ciò che si discosta dai default.
-# Codex primo per il giro a mano del 2026-11-11 (prova di Codex nel recinto e
-# del push in rete); a regime l'ordine voluto dal custode è ["claude", "codex"].
-motori = ["codex", "claude"]
+# Claude lavora, Codex subentra se Claude è indisponibile (custode, 2026-11-11).
+motori = ["claude", "codex"]
