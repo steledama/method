@@ -55,6 +55,31 @@ validated on that installation. These are concrete blockers to activation,
 not permission to weaken the policy; details are retained in the contract.
 This implementation request does not expand authority over adopters or hosts.
 
+## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
+
+Tre punti inoltrati dalla sessione nixos su deck, su richiesta del custode.
+
+- Tetto USD: decisione del custode, account flat. Il tetto resta preferito
+  dove si impone, la sua assenza non blocca il fallback: l'host la sceglie con
+  `--codex-senza-tetto-usd`, la chiusura la dichiara con
+  `budget_usd_imposto: false`. Gli altri vincoli (comandi ammessi, percorsi
+  protetti, hook al commit, recinto e arresto) restano da valutare.
+- Sede dell'esecutore Codex: nel canone, in Python accanto a `o3/lanciatore.py`,
+  perché il custode lo vuole anche su danea-auto (Windows); agli host restano
+  recinto, arresto e percorso del binario. Proposta di nixos, adottata. Prossimo
+  passo di questo task: scrivere l'esecutore canonico e il suo collaudo con
+  agenti finti, poi la verifica di copertura degli hook sulla versione installata.
+- Difetto della chiusura (giro a mano di economia, id `f9d27165`): `commit: true`
+  con l'oggetto del commit del custode `5622e30`, perché si leggeva il cambio di
+  HEAD. Ora il lanciatore passa all'agente `GIT_REFLOG_ACTION=lanciatore <id>`
+  e conta come commit del giro solo le voci del reflog con quell'etichetta
+  (`commit_giro`, `commit_altri`). Lo stesso errore nascondeva il lavoro lasciato
+  con una sessione concorrente: l'arresto 15 ora scatta anche se un'altra
+  sessione ha committato. Il pull del canone fallito nei due giri partiti nello
+  stesso secondo resta un conflitto probabile, non provato: ora i pull passano
+  da un lock nella cartella git del canone e l'avviso riporta la prima riga
+  dell'errore di git, così il prossimo caso si diagnostica.
+
 ## Sweden host adoption interface (2026-11-11)
 
 Custodian-authorized preparation, coordinated with nixos, BI and Baserow.

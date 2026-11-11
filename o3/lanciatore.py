@@ -26,6 +26,9 @@ un rilascio, e il suo momento lo sceglie una persona.
 L'host può asserire `--branch` uguale al profilo (11 se diverso) e passare
 `--max-minuti` e `--max-budget-usd`: valori positivi finiti, applicati come
 minimo col profilo, anche sotto `--controlli`. Non possono ampliare la delega.
+Il fallback Codex (`--codex-adapter`, contratto in `o3/ciclo/fallback.md`) può
+girare senza tetto USD solo con `--codex-senza-tetto-usd`: la chiusura lo
+dichiara con `budget_usd_imposto: false` (custode, 2026-11-11, account flat).
 
 L'aggancio `prima` è uno script Python in `o3/ciclo/`, dove il giro non scrive.
 Esce con 0 per proseguire o con 16, 18 o 19 per fermare il giro, con
@@ -37,7 +40,15 @@ diagnosi senza attese, per esempio quella di uno slot.
 
 All'avvio il lanciatore aggiorna con `pull --ff-only` anche il proprio checkout
 del canone, se è un altro repo e pulito: vale dal giro successivo, e se non
-riesce è un avviso. L'host che non vuole lo spegne con `--senza-pull-canone`.
+riesce è un avviso con la prima riga dell'errore di git. Un lock nella cartella
+git del canone mette in fila i pull di giri partiti insieme da repo diversi.
+L'host che non vuole il pull lo spegne con `--senza-pull-canone`.
+
+La chiusura conta come commit del giro solo quelli fatti dall'agente: il
+lanciatore gli passa `GIT_REFLOG_ACTION=lanciatore <id>`, nell'ambiente e nelle
+impostazioni, e legge il reflog di HEAD. `commit_giro` li elenca, `oggetto` e
+`push` guardano l'ultimo; `commit_altri` conta quelli entrati nel frattempo da
+altre sessioni, che il cambio di HEAD da solo scambierebbe per il giro.
 
 Le sessioni aperte non fermano il giro (custode, 2026-11-10): una sessione
 Claude o Codex lasciata aperta e ferma nel checkout è innocua. Conta quella che
@@ -483,6 +494,22 @@ def hook_commit(ingresso: str) -> int:
     return 2
 
 
+def commit_del_giro(etichetta: str) -> list[str]:
+    """I commit fatti dal giro, dal più vecchio: le voci del reflog con la sua etichetta.
+
+    Il cambio di HEAD non basta: una sessione del custode può committare mentre
+    il giro gira. Il lanciatore dà all'agente `GIT_REFLOG_ACTION`, che git scrive
+    nel reflog di ogni spostamento di HEAD fatto da lì.
+    """
+    voci = git_testo("reflog", "show", "--format=%H%x00%gs", "HEAD").splitlines()
+    trovati: list[str] = []
+    for voce in reversed(voci):
+        sha, _, messaggio = voce.partition("\0")
+        if messaggio.startswith(f"{etichetta}:") and sha not in trovati:
+            trovati.append(sha)
+    return trovati
+
+
 def controlla_concorrenti(tentativo: Tentativo, checkout: Path, dopo: float) -> None:
     """Dopo l'agente: lavoro lasciato fuori dal commit mentre un'altra sessione scriveva.
 
@@ -490,7 +517,7 @@ def controlla_concorrenti(tentativo: Tentativo, checkout: Path, dopo: float) -> 
     la trova fatta, come dopo un pull. Senza commit e a tree pulito non c'è
     niente da riconciliare.
     """
-    if git_testo("rev-parse", "HEAD") != tentativo.head_prima:
+    if commit_del_giro(tentativo.etichetta):
         return
     if not git_testo("status", "--porcelain"):
         return
@@ -547,10 +574,20 @@ def aggiorna_canone(checkout: Path) -> str | None:
     if canone == checkout or not (canone / ".git").exists():
         return None
     try:
+        # Giri di repo diversi partono insieme dallo stesso canone: un pull alla volta.
+        cartella = git_testo("-C", str(canone), "rev-parse", "--absolute-git-dir")
+        try:
+            lock = Lock(Path(cartella) / "lanciatore-pull-canone", attendi=True)
+        except (OSError, Arresto):
+            return "canone non aggiornato: lock del pull non ottenuto"
         if git_testo("-C", str(canone), "status", "--porcelain"):
             return "canone non aggiornato: checkout sporco"
-        if git("-C", str(canone), "pull", "--ff-only", "--quiet").returncode != 0:
-            return "canone non aggiornato: pull fallito"
+        pull = git("-C", str(canone), "pull", "--ff-only", "--quiet")
+        if pull.returncode != 0:
+            righe = (pull.stderr or pull.stdout).strip().splitlines()
+            causa = righe[0][:200] if righe else f"uscita {pull.returncode}"
+            return f"canone non aggiornato: pull fallito ({causa})"
+        lock.file.close()
     except (OSError, subprocess.SubprocessError):
         return "canone non aggiornato: git non ha risposto"
     return None
@@ -559,7 +596,7 @@ def aggiorna_canone(checkout: Path) -> str | None:
 class Lock:
     """Lock del sistema operativo: muore col processo, niente file orfani da pulire."""
 
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, attendi: bool = False):
         path.parent.mkdir(parents=True, exist_ok=True)
         self.file = path.open("a+")
         try:
@@ -567,20 +604,24 @@ class Lock:
                 import msvcrt
 
                 self.file.seek(0)
-                msvcrt.locking(self.file.fileno(), msvcrt.LK_NBLCK, 1)
+                modo = msvcrt.LK_LOCK if attendi else msvcrt.LK_NBLCK
+                msvcrt.locking(self.file.fileno(), modo, 1)
             else:
                 import fcntl
 
-                fcntl.flock(self.file, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                fcntl.flock(self.file, fcntl.LOCK_EX | (0 if attendi else fcntl.LOCK_NB))
         except OSError as errore:
             self.file.close()
             raise Arresto(75, "lock") from errore
 
 
-def impostazioni(destinazione: Path) -> Path:
+def impostazioni(destinazione: Path, etichetta: str = "") -> Path:
     """I permessi del repo, senza trailer di attribuzione, con l'hook sul commit."""
     dati = json.loads(PERMESSI.read_text(encoding="utf-8"))
     dati["attribution"] = {"commit": "", "pr": ""}
+    if etichetta:
+        # Arriva all'agente anche dentro un recinto che non eredita l'ambiente.
+        dati.setdefault("env", {})["GIT_REFLOG_ACTION"] = etichetta
     hook = {"matcher": "Bash", "hooks": [{"type": "command", "command": comando_hook()}]}
     dati.setdefault("hooks", {}).setdefault("PreToolUse", []).append(hook)
     destinazione.parent.mkdir(parents=True, exist_ok=True)
@@ -628,12 +669,20 @@ def termina(processo: subprocess.Popen[bytes], ferma: list[str] = ()) -> None:
         pass
 
 
-def lancia_agente(comando: list[str], stream: Path, profilo: Profilo, ferma: list[str] = ()) -> int:
+def lancia_agente(
+    comando: list[str],
+    stream: Path,
+    profilo: Profilo,
+    ferma: list[str] = (),
+    etichetta: str = "",
+) -> int:
     """L'agente col suo tetto di tempo; alla fine l'albero dei processi non resta."""
     stream.parent.mkdir(parents=True, exist_ok=True)
+    ambiente = {**os.environ, "GIT_REFLOG_ACTION": etichetta} if etichetta else None
     with stream.open("wb") as uscita:
         processo = subprocess.Popen(
             comando,
+            env=ambiente,
             stdin=subprocess.DEVNULL,
             stdout=uscita,
             stderr=subprocess.STDOUT,  # un'uscita con errore si spiega dallo stream
@@ -788,6 +837,11 @@ class Tentativo:
     sessioni: list[str] | None = None
     engine: str = "claude"
     tentativi_engine: list[dict] = field(default_factory=list)
+    budget_usd_imposto: bool = True
+
+    @property
+    def etichetta(self) -> str:
+        return f"lanciatore {self.id}"
 
     def avvisa(self, testo: str | None) -> None:
         if testo:
@@ -822,7 +876,17 @@ class Tentativo:
     def chiusura(self, esito: str, motivo: str | None, codice: int) -> None:
         self.partenza()
         dopo = git_testo("rev-parse", "HEAD")
-        commit = bool(self.head_prima and dopo and self.head_prima != dopo)
+        propri = commit_del_giro(self.etichetta) if self.head_prima else []
+        commit = bool(propri)
+        altri = (
+            [
+                sha
+                for sha in git_testo("rev-list", f"{self.head_prima}..{dopo}").splitlines()
+                if sha not in propri
+            ]
+            if self.head_prima and dopo
+            else []
+        )
         osservazione = osserva(self.stream)
         fine = osservazione["result"]
         costi = [t["observation"]["result"].get("total_cost_usd") for t in self.tentativi_engine]
@@ -848,13 +912,21 @@ class Tentativo:
             "head_prima": self.head_prima,
             "head_dopo": dopo,
             "commit": commit,
-            "oggetto": git_testo("log", "-1", "--format=%s") if commit else None,
+            "commit_giro": propri,
+            "oggetto": git_testo("log", "-1", "--format=%s", propri[-1]) if commit else None,
             # Senza commit non c'è push da giudicare: `false` direbbe push fallito.
-            "push": dopo == git_testo("rev-parse", "@{u}") if commit else None,
+            "push": (
+                git("merge-base", "--is-ancestor", propri[-1], "@{u}").returncode == 0
+                if commit
+                else None
+            ),
+            # Commit entrati fra head_prima e head_dopo che il giro non ha fatto.
+            "commit_altri": len(altri),
             "tree_sporco_dopo": bool(git_testo("status", "--porcelain")),
             "claude_exit": self.claude_exit,
             "engine": self.engine,
             "engine_attempts": self.tentativi_engine,
+            "budget_usd_imposto": self.budget_usd_imposto,
             "provider_observation": osservazione,
             "giro": str(self.stream.resolve()) if self.stream.exists() else None,
             "is_error": fine.get("is_error"),
@@ -883,18 +955,13 @@ def _alza_interrotto(_numero: int, _frame: object) -> None:
     raise Interrotto
 
 
-def comando_engine(engine: str, eseguibile: str, settings: Path, budget: float) -> list[str]:
+def comando_engine(
+    engine: str, eseguibile: str, settings: Path, budget: float, senza_tetto: bool = False
+) -> list[str]:
     if engine == "codex":
-        # Host adapter: enforce equivalent permissions/hook/budget, normalize events.
-        return [
-            eseguibile,
-            "--prompt",
-            str(PROMPT.resolve()),
-            "--settings",
-            str(settings),
-            "--budget-usd",
-            str(budget),
-        ]
+        # Executor: enforce equivalent permissions/hook/budget, normalize events.
+        tetto = ["--senza-tetto-usd"] if senza_tetto else ["--budget-usd", str(budget)]
+        return [eseguibile, "--prompt", str(PROMPT.resolve()), "--settings", str(settings), *tetto]
     return [
         eseguibile,
         "-p",
@@ -923,16 +990,26 @@ def esegui_engine(
     ferma: list[str],
     checkout: Path,
     inizio: float,
+    senza_tetto: bool = False,
 ) -> None:
-    settings = impostazioni(STATO / "settings.json").resolve()
+    settings = impostazioni(STATO / "settings.json", tentativo.etichetta).resolve()
     scadenza = time.monotonic() + profilo.minuti * 60
     budget = profilo.budget_usd
     for engine, eseguibile in (("claude", claude), ("codex", codex_adapter)):
         minuti = (scadenza - time.monotonic()) / 60
-        if minuti <= 0 or budget <= 0:
+        # Senza tetto USD (scelta dell'host) il budget non ferma il tentativo Codex.
+        libero = engine == "codex" and senza_tetto
+        if minuti <= 0 or (budget <= 0 and not libero):
             raise Arresto(22, "fallback-budget-esaurito")
         tentativo.engine = engine
-        record = {"engine": engine, "exit": None, "giro": str(tentativo.stream.resolve())}
+        record = {
+            "engine": engine,
+            "exit": None,
+            "giro": str(tentativo.stream.resolve()),
+            "budget_usd_imposto": not libero,
+        }
+        if libero:
+            tentativo.budget_usd_imposto = False
         tentativo.tentativi_engine.append(record)
         try:
             if shutil.which(eseguibile) is None:
@@ -953,10 +1030,11 @@ def esegui_engine(
                 )
             else:
                 record["exit"] = lancia_agente(
-                    [*recinto, *comando_engine(engine, eseguibile, settings, budget)],
+                    [*recinto, *comando_engine(engine, eseguibile, settings, budget, libero)],
                     tentativo.stream,
                     replace(profilo, minuti=minuti, budget_usd=budget),
                     ferma,
+                    tentativo.etichetta,
                 )
         finally:
             record["observation"] = osserva(tentativo.stream)
@@ -986,6 +1064,8 @@ def esegui_engine(
                 if isinstance(costo, (int, float)) and costo >= 0:
                     budget -= costo
                     continue
+                if senza_tetto:
+                    continue
                 tentativo.avvisa("fallback blocked: unknown spent budget")
         if record["exit"] != 0:
             raise Arresto(20, f"{engine}-uscita-non-zero", str(record["exit"]))
@@ -1000,6 +1080,7 @@ def giro(
     pull_canone: bool,
     ferma: list[str] = (),
     codex_adapter: str | None = None,
+    senza_tetto: bool = False,
 ) -> int:
     tentativo = Tentativo(checkout.name)
     tentativo.head_prima = git_testo("rev-parse", "HEAD")
@@ -1031,7 +1112,9 @@ def giro(
         INIZIO.touch()
         inizio = INIZIO.stat().st_mtime
         lanciato = True
-        esegui_engine(tentativo, profilo, claude, codex_adapter, recinto, ferma, checkout, inizio)
+        esegui_engine(
+            tentativo, profilo, claude, codex_adapter, recinto, ferma, checkout, inizio, senza_tetto
+        )
         protetto = rete(tentativo, profilo, fermo)
         if protetto:
             raise protetto
@@ -1121,6 +1204,11 @@ def main(argv: list[str] | None = None) -> int:
         "--controlli", action="store_true", help="solo i controlli, in sola lettura"
     )
     parser.add_argument("--codex-adapter", help="Codex executor with equivalent policy enforcement")
+    parser.add_argument(
+        "--codex-senza-tetto-usd",
+        action="store_true",
+        help="fallback Codex senza tetto USD imposto: scelta dell'host, dichiarata in chiusura",
+    )
     parser.add_argument("--branch", help="expected repository profile branch (assertion)")
     parser.add_argument("--max-minuti", type=float, help="host duration cap; can only restrict")
     parser.add_argument("--max-budget-usd", type=float, help="host USD cap; can only restrict")
@@ -1170,6 +1258,7 @@ def main(argv: list[str] | None = None) -> int:
         not args.senza_pull_canone,
         shlex.split(args.recinto_ferma),
         args.codex_adapter,
+        args.codex_senza_tetto_usd,
     )
 
 

@@ -193,6 +193,23 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(esito.returncode, 20)
         self.assertIn("not configured", self.chiusura()["attenzione"])
 
+    def test_fallback_senza_tetto_usd_dichiarato(self):
+        self.rifiuto(costo=None)
+        esito = self.lancia("--codex-adapter", self.adattatore(), "--codex-senza-tetto-usd")
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        fine = self.chiusura()
+        self.assertEqual(fine["engine"], "codex")
+        self.assertIs(fine["budget_usd_imposto"], False)
+        self.assertEqual([e["budget_usd_imposto"] for e in fine["engine_attempts"]], [True, False])
+        args = (self.repo / ".git/argomenti").read_text()
+        self.assertIn("--senza-tetto-usd", args)
+        self.assertNotIn("--budget-usd", args)
+
+    def test_col_tetto_la_chiusura_lo_dichiara(self):
+        self.rifiuto()
+        self.assertEqual(self.lancia("--codex-adapter", self.adattatore()).returncode, 0)
+        self.assertIs(self.chiusura()["budget_usd_imposto"], True)
+
     def test_errore_builder_non_attiva_fallback(self):
         self.imposta_agente(agente("echo 'aws-lc-sys panic exit 101'\nexit 101"))
         esito = self.lancia("--codex-adapter", self.adattatore())
@@ -325,6 +342,49 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(chiusura["motivo"], "sessione-concorrente")
         self.assertTrue(chiusura["tree_sporco_dopo"])
         self.assertEqual(len(chiusura["sessioni_concorrenti"]), 1)
+
+    # Un commit di un'altra sessione: senza l'etichetta che il lanciatore dà all'agente.
+    ALTRA = "echo c > custode.md\ngit add custode.md\nenv -u GIT_REFLOG_ACTION git commit -q -m 'Autonomia: concordato'\n"
+
+    def test_il_commit_di_un_altra_sessione_non_e_del_giro(self):
+        self.imposta_agente(agente(f"{self.ALTRA}echo '{RISULTATO}'"))
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        chiusura = self.chiusura()
+        self.assertNotEqual(chiusura["head_prima"], chiusura["head_dopo"])
+        self.assertFalse(chiusura["commit"])
+        self.assertIsNone(chiusura["oggetto"])
+        self.assertIsNone(chiusura["push"])
+        self.assertEqual(chiusura["commit_giro"], [])
+        self.assertEqual(chiusura["commit_altri"], 1)
+
+    def test_il_commit_altrui_non_nasconde_il_lavoro_lasciato(self):
+        self.imposta_agente(
+            agente(f"{self.ALTRA}echo x > nota.md\n{self.sessione_concorrente()}echo '{RISULTATO}'")
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 15, esito.stderr)
+        chiusura = self.chiusura()
+        self.assertFalse(chiusura["commit"])
+        self.assertEqual(chiusura["motivo"], "sessione-concorrente")
+
+    def test_l_oggetto_e_quello_del_giro_anche_dopo_un_commit_altrui(self):
+        self.imposta_agente(
+            agente(
+                "echo fatto > nota.md\ngit add nota.md\ngit commit -q -m 'docs: giro'\n"
+                f"git push -q\n{self.ALTRA}echo '{RISULTATO}'"
+            )
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        chiusura = self.chiusura()
+        self.assertTrue(chiusura["commit"])
+        self.assertEqual(chiusura["oggetto"], "docs: giro")
+        self.assertTrue(chiusura["push"])
+        self.assertEqual(len(chiusura["commit_giro"]), 1)
+        self.assertEqual(chiusura["commit_altri"], 1)
+        impostazioni = json.loads((self.repo / ".git/lanciatore/settings.json").read_text())
+        self.assertEqual(impostazioni["env"]["GIT_REFLOG_ACTION"], f"lanciatore {chiusura['id']}")
 
     def test_tree_pulito_senza_commit_non_e_concorrenza(self):
         self.imposta_agente(agente(f"{self.sessione_concorrente()}echo '{RISULTATO}'"))
@@ -803,6 +863,14 @@ class LanciatoreTests(unittest.TestCase):
         checkout, testa = self.canone()
         self.assertEqual(self.lancia_dal_canone(checkout, "--senza-pull-canone").returncode, 0)
         self.assertNotEqual(self.sh("git", "rev-parse", "HEAD", cwd=checkout), testa)
+
+    def test_il_pull_del_canone_passa_dal_lock_e_dice_perche_fallisce(self):
+        checkout, _ = self.canone()
+        self.sh("git", "remote", "set-url", "origin", str(self.base / "manca.git"), cwd=checkout)
+        self.assertEqual(self.lancia_dal_canone(checkout).returncode, 0)
+        attenzione = self.chiusura()["attenzione"]
+        self.assertIn("canone non aggiornato: pull fallito (", attenzione)
+        self.assertTrue((checkout / ".git" / "lanciatore-pull-canone").exists())
 
     def test_canone_sporco_e_un_avviso_non_un_arresto(self):
         checkout, _ = self.canone()
