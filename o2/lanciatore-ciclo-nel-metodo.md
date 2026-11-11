@@ -1,7 +1,6 @@
 ---
 sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script gira su danea2 e il collaudo in method è eseguito col giro a mano dell'08/11; il giro dal timer del 09/11 è riuscito senza `fermo`, e per la prescrizione agli altri adottanti resta da verificare in sessione l'unità dell'agente."
 ciclo: dev
-decidere: "Prima della prescrizione agli altri adottanti, l'adattatore collaudato in nixos-casa si copia nel nixos di lavoro o diventa un pezzo comune ai due repo?"
 ---
 
 # Lanciatore del ciclo nel metodo
@@ -54,6 +53,27 @@ unit does not enforce the required read/command/network boundaries, and Codex
 validated on that installation. These are concrete blockers to activation,
 not permission to weaken the policy; details are retained in the contract.
 This implementation request does not expand authority over adopters or hosts.
+
+## Il motore lo sceglie il repo (2026-11-11, decisione del custode)
+
+Il custode: il metodo è agnostico su modelli e sistemi per costituzione,
+quindi il motore si sceglie nel repo e nei due versi. Ogni repo configura
+solo sé stesso; un nixos configura solo sé stesso come adottante, e degli
+altri tiene binari, recinto, arresto e trigger. Casa e lavoro hanno due
+nixos distinti, in comune c'è solo method: questo scioglie la questione
+aperta del task (adattatore host copiato o comune), ciascun nixos ha il
+proprio adattatore e il pezzo comune è il canone.
+
+Fatto: `motori` nel profilo (`o3/ciclo/lanciatore.toml`), fallback
+simmetrico, tolte `--codex-adapter` e `--codex-senza-tetto-usd`, l'host dà
+`--claude`/`--codex`; esecutore canonico `o3/esecutore_codex.py` con la
+politica tradotta in un hook `PreToolUse` e gli eventi normalizzati; costo in
+chiusura come somma dei costi noti. Verificato dal vivo su Codex 0.166.0, con
+autorizzazione esplicita del custode: hook inline, rifiuto, `apply_patch`
+nell'hook, `env`, `.git` scrivibile solo con `writable_roots`. Prescrizione
+ai sette: [motori del ciclo](../o3/motori-del-ciclo.md). Restano le verifiche
+elencate nel [contratto](../o3/ciclo/fallback.md), a partire dal giro
+completo dal vivo attraverso il lanciatore.
 
 ## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
 

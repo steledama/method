@@ -1,152 +1,156 @@
-# Engine fallback contract
+# Engine choice and fallback contract
 
 The canonical launcher owns preflight, lock, deadline, remaining budget,
 execution, concurrency checks, protected-path checks and closure. There is
-one repository prompt, `o3/ciclo/prompt.md`. Claude and Codex must use that
-same source and the repository's existing delegation. Switching engine grants
-no additional authority.
+one repository prompt, `o3/ciclo/prompt.md`, and one permission source,
+`o3/ciclo/permessi.json`. Every engine uses that same source and the
+repository's existing delegation. Switching engine grants no additional
+authority.
+
+## The repository chooses the engines (custodian, 2026-11-11)
+
+The method is agnostic about model and operating system, so the engine is a
+repository setting, not a host one. `o3/ciclo/lanciatore.toml`:
+
+```toml
+motori = ["claude", "codex"]   # the first works, the second takes over once
+minuti = 45
+budget_usd = 5                 # ceiling where the engine can enforce it
+```
+
+`motori` holds one or two of `claude` and `codex`, without repetitions;
+default `["claude"]`. The order works both ways: `["codex", "claude"]` is
+as valid as the reverse. An unknown engine or a malformed list exits 14.
+
+The host supplies only what belongs to the machine: executable paths
+(`--claude`, `--codex`, when not on PATH), sandbox (`--recinto`), stop
+(`--recinto-ferma`) and trigger. It may still restrict with `--max-minuti`
+and `--max-budget-usd`, never widen. The host does not choose the engine.
+If none of the profile's engines is found, the launcher exits 14; a missing
+first engine is an unavailability, and the second takes over.
+
+## USD ceiling: preferred, not required
+
+Decision of the custodian, 2026-11-11: custodian and both accounts are on
+flat-rate plans. A USD ceiling is preferable where it can be enforced, but
+its absence must not block a run or a fallback.
+
+Claude enforces `--max-budget-usd`; Codex has no USD ceiling (it counts
+tokens). Each attempt records `budget_usd_imposto`, and the closure declares
+`budget_usd_imposto: false` whenever an engine ran without a ceiling. An
+exhausted budget stops only an engine that enforces it. An unknown cost of a
+previous attempt is not debited and does not block: the closure warns
+(`<engine>: costo ignoto`). `costo_usd` sums the known USD costs. A token
+budget is never reported as a USD ceiling. The wall-clock deadline always
+covers all attempts.
 
 ## Observation and retry
 
-Every closure records `engine`, ordered `engine_attempts` (engine, exit status,
-trace path and observation), and `provider_observation` for the final engine.
-An exit status of null means execution did not return (for example timeout).
-Existing `claude_exit` remains Claude's exit status, even after fallback.
-`costo_usd` totals the known costs of both attempts. Each attempt and the
-closure record `budget_usd_imposto`: `false` when the Codex attempt ran without
-a USD ceiling (see below).
-Each observation preserves all `result` records, quota events, structured
-errors, terminal reason and API error status. Raw traces remain available.
-Missing fields remain unknown, rather than becoming success or quota exhaustion.
+Every closure records `engine`, ordered `engine_attempts` (engine, exit
+status, trace path, observation, `budget_usd_imposto`), and
+`provider_observation` for the final engine. An exit status of null means
+execution did not return (for example timeout). `claude_exit` remains
+Claude's exit status. Each observation preserves all `result` records, quota
+events, structured errors, terminal reason and API error status. Raw traces
+remain available. Missing fields remain unknown, rather than becoming success
+or quota exhaustion.
 
 `allowed_warning` and `overageStatus: rejected` with
-`overageDisabledReason: out_of_credits` do not establish unavailability.
-Only an explicit quota rejection, recognized provider availability/authentication
-error, or missing Claude executable can admit fallback. A successful result
-prevents classifying that execution as unavailable. A builder panic, generic
-nonzero exit, missing result, malformed trace or timeout does not trigger retry.
+`overageDisabledReason: out_of_credits` do not establish unavailability. Only
+an explicit quota rejection, recognized availability/authentication error, or
+missing executable can admit fallback. A successful result prevents
+classifying that execution as unavailable. A builder panic, generic nonzero
+exit, missing result, malformed trace or timeout does not trigger retry.
 
-At most one Codex attempt follows Claude. It requires no tool invocation
+At most one attempt follows the first. It requires no tool invocation
 (including reads), no permission denial, no malformed or unknown event, no
-changed HEAD or tracked/untracked working tree, known spent cost, remaining
-time and budget (budget only when a USD ceiling applies), and no concurrent
-session detected. Any partial execution
-stops for review: an unchanged working tree alone does not prove that external
-acts have not occurred. There is no automatic replay or resume after partial acts.
-The original deadline and budget cover both attempts; results report cumulative
-cost within one engine, so only its last cumulative cost is debited.
+changed HEAD or tracked/untracked working tree, remaining time, and no
+concurrent session detected. Any partial execution stops for review: an
+unchanged working tree alone does not prove that external acts have not
+occurred. There is no automatic replay or resume after partial acts.
 
-## USD ceiling: preferred, not required (custodian, 2026-11-11)
+## The canonical Codex executor
 
-Decision of the custodian, forwarded by the nixos session on 2026-11-11: the
-custodian and both accounts (Claude and Codex) are on flat-rate plans. A USD
-ceiling is preferable whenever it can be enforced, but its absence must not
-block the fallback: having the fallback matters more than that detail.
-
-The host chooses with `--codex-senza-tetto-usd`. Without it the launcher passes
-`--budget-usd REMAINING` and the executor must enforce it or fail before
-starting Codex. With it the launcher passes `--senza-tetto-usd` instead, an
-unknown Claude cost no longer blocks the fallback, and the closure declares
-`budget_usd_imposto: false`. The choice is explicit and visible in every
-closure; a token budget is never reported as a USD ceiling. The wall-clock
-deadline still covers both attempts.
-
-The other constraints are unchanged and still to be evaluated for Codex:
-allowed commands, protected paths, the commit concurrency hook, sandbox and
-stop. Neither this decision nor flat-rate pricing relaxes them.
-
-## Codex integration boundary
-
-Enable with `--codex-adapter /absolute/path/to/executor`. This is an explicit
-host integration, not an alias for the `codex` binary. The launcher calls it
-inside the same `--recinto`, with the same termination mechanism:
+`o3/esecutore_codex.py`, in Python like the launcher, so one executor serves
+every host, Windows included. The launcher calls it inside the same
+`--recinto`, with the same termination mechanism:
 
 ```
-executor --prompt /absolute/path/to/o3/ciclo/prompt.md \
-  --settings /absolute/path/to/.git/lanciatore/settings.json \
-  (--budget-usd REMAINING | --senza-tetto-usd)
+python esecutore_codex.py --codex /path/to/codex \
+  --prompt /abs/o3/ciclo/prompt.md --settings /abs/.git/lanciatore/settings.json
 ```
 
-The settings carry an `env` map (today `GIT_REFLOG_ACTION=lanciatore <id>`,
-which lets the closure tell the run's commits from other sessions'): the
-executor must export it to Codex and its tool processes.
+It runs `codex exec` with:
 
-The executor must run Codex noninteractively, read the given prompt without
-copying it, enforce the supplied permission policy, deny unattended approval,
-apply the supplied commit concurrency hook, enforce the remaining monetary
-ceiling when `--budget-usd` is given, and preserve the host's filesystem/network/process restrictions.
-It must fail before starting Codex if it cannot enforce any required boundary.
-The launcher enforces the remaining wall-clock limit and kills the process tree.
+- `--json --ephemeral`: native events on stdout, no rollout, so the run is not
+  seen as a concurrent Codex session;
+- `--ignore-user-config --ignore-rules`: no user MCP servers, profiles or
+  execpolicy rules; authentication still comes from `CODEX_HOME`;
+- `--sandbox workspace-write` with `network_access=true` and the git common
+  directory in `writable_roots`: without it `.git` is read-only and
+  `git add` fails on `index.lock`;
+- `approval_policy="never"`;
+- one inline `PreToolUse` hook (`-c hooks.PreToolUse=…`), the executor itself
+  in `--hook` mode, with `--dangerously-bypass-hook-trust`: an inline hook has
+  no persisted trust, and its source is this canonical file;
+- the `env` map of the settings exported to Codex and its commands (today
+  `GIT_REFLOG_ACTION=lanciatore <id>`, which tells the run's commits apart).
 
-The executor emits JSONL using the launcher's existing event contract:
-`assistant.message.content[].type: tool_use` for every tool invocation,
-`rate_limit_event.rate_limit_info` for quota observations, `error` for failures,
-and a final `result` with `is_error`, `terminal_reason`, `api_error_status`,
-`total_cost_usd`, `result` and available usage fields. Native Codex events must
-be normalized by the executor; do not claim a successful result without a
-successful terminal event. Preserve native diagnostics in the trace as structured
-error data. Failures must return nonzero. No prompt, lock, preflight, retry or
-closure logic belongs in this executor.
+The hook judges every call against the repository's Claude rules. `Bash`:
+the command is split on `&&`, `||`, `;`, `|` and newlines; every piece must
+match an `allow` pattern and no `deny` pattern; command or process
+substitution is refused, being unjudgeable. Path arguments are checked
+against `Read(…)` deny rules. `apply_patch`: every `Add`, `Update`, `Delete`
+and `Move to` path must match an `Edit`/`Write` allow rule and no deny rule.
+Other tools pass only if named in `allow`; `update_plan` is harmless and
+passes. Then the settings' `Bash` hooks run with Claude-shaped input: the
+launcher's commit-concurrency hook blocks with exit 2. Refusals answer with
+`permissionDecision: deny`, are recorded and reach the closure as
+`permission_denials`. A hook that cannot be evaluated refuses.
 
-A generic Codex `workspace-write` sandbox does not enforce Claude's command
-allowlist, protected reads or commit hook. This change therefore supplies the
-canonical orchestration and adapter contract, **not a verified Codex executor**.
-Without an explicitly configured equivalent executor, fallback remains disabled
-and the closure explains why. Never pass the bare Codex binary to this option.
+Events are normalized to the launcher's contract: `command_execution`,
+`file_change` and every other started item become `assistant` `tool_use`;
+`agent_message` becomes text; `turn.failed` and `error` become `error`;
+in-turn CLI warnings (`item.type: error`) become `system`; an unknown
+top-level event stays visible as `codex.<type>`, which the launcher reads as
+an incomplete trace. The final `result` is successful only after
+`turn.completed`, with exit 0 and no failure; `total_cost_usd` is null.
 
-### Where the executor lives (2026-11-11)
+## Verified and still open
 
-The custodian wants the fallback on danea-auto (Windows) too. The executor's
-work (JSONL normalization, translation of the permission policy, hooks) is
-portable, so it belongs in the canon next to `o3/lanciatore.py`, in Python like
-it: one executor for every host, Windows included, instead of one per host.
-Hosts keep only what is theirs today with `--claude`: sandbox (`--recinto`),
-stop (`--recinto-ferma`) and the path of the Codex binary. Proposed by nixos,
-adopted by method; the canonical executor is not written yet and the task is
-`o2/lanciatore-ciclo-nel-metodo.md`.
+Verified live on Codex CLI 0.166.0 on 2026-11-11 (deck, throwaway repository,
+custodian's explicit authorization): inline `-c` hooks run; a JSON deny
+blocks the command (`Command blocked by PreToolUse hook`); `apply_patch`
+reaches the hook with the patch in `tool_input.command`; settings env reaches
+commands; `workspace-write` makes `.git` read-only and `writable_roots`
+including it lets the commit succeed. Canonical tests cover the policy and
+the normalization with a fake Codex: `python3 -m unittest tests.test_esecutore_codex`.
 
-Official reference for native JSONL execution:
-[Codex non-interactive mode](https://developers.openai.com/codex/noninteractive).
+Still open, to verify before relying on the fallback:
 
-## Adoption, including nixos
+- the end-to-end run through the launcher with real Codex
+  (scratch script of 2026-11-11, to be run by the custodian);
+- the form of a real Codex quota or authentication error: today recognized
+  from the text (`usage limit`, `rate limit`, `429`, `unauthorized`); a new
+  form must be added when observed;
+- `git push` from inside the Codex sandbox (network enabled, not yet observed);
+- Windows (danea-auto): the Codex sandbox there and the hook command quoting;
+- hosted tools that hooks do not cover (web search): today they pass only if
+  the repository allows `WebSearch`; otherwise they are not disabled in Codex.
 
-1. Update the method checkout through the adopter's normal `/method` process.
-   Repositories already using `o3/lanciatore.py` receive observation without
-   changing their invocation. Legacy `ciclo-chiusura.sh` does not gain it.
-2. For legacy systemd cycles, migrate the host adapter to the canonical launcher;
-   retain its sandbox, lock ownership, stop command, deadline and local delegation.
-   Keep the nixos timer suspended during the server-only migration.
-3. Implement and validate the equivalent Codex executor in the host integration.
-   Exercise rejected quota, allowed warning, authentication failure, missing
-   executable, timeout, partial external acts, denied paths/commands, commit
-   concurrency and monetary ceiling. Test with fake agents before live use.
-4. Only then configure `--codex-adapter`. Do not reactivate a timer as part of
-   receiving this contract. Host activation remains with its local session.
+## Adoption
 
-Canonical tests: `python3 -m unittest discover -s tests -p test_lanciatore.py`.
+1. Update the method checkout through the adopter's normal `/method`
+   process. Repositories already using `o3/lanciatore.py` keep Claude alone:
+   without `motori` nothing changes.
+2. To enable a second engine, the repository adds `motori` to its profile.
+   The host makes sure the binary is reachable inside the sandbox
+   (`--codex` path, `CODEX_HOME` with `auth.json` readable, network allowed).
+3. The host removes per-repository policy it still holds for other
+   repositories (duration, budget): the profile is the source, and the host
+   keeps only a physical backstop above the profile's `minuti`.
+4. A first run with the fallback is a manual run with the custodian present.
+   Timer activation stays with the host's local session.
 
-## Host verification received on 2026-11-11
-
-The nixos session reported a read-only inspection of the installed inactive
-unit on norvegia and Codex CLI 0.166.0; no agent or host change was performed.
-The unit has writable home/checkout, no effective network or inaccessible-path
-filter, and only `o3/ciclo` read-only. `ReadWritePaths` is not a global whitelist
-without an enclosing read-only filesystem. `NoNewPrivileges` does not revoke
-services or sockets already accessible to the UID. BI/Baserow configuration
-also leaves checkout and service surfaces writable; these were configuration
-findings, not remote observations.
-
-Reusable primitives are read-only/inaccessible mounts, cgroups, deadline and
-entry guards. They do not enforce Claude's command allowlist, an in-run commit
-hook or a USD ceiling. PATH wrappers cannot prevent absolute executable paths.
-The installed Codex `exec` help exposes no USD budget option. Documented hooks
-and experimental token rollout budgets do not establish equivalent enforcement;
-no hook validation on that installed version has been performed.
-
-Therefore the current server-only host integration cannot enable this fallback.
-Keep `--codex-adapter` unset and the timer suspended. A future implementation
-should reuse one validator of the source policy and minimal harness backends,
-with explicit tests for capabilities it cannot reproduce. Do not silently
-downgrade policy. The missing USD ceiling is no longer a blocker: since the
-custodian's decision above it is an explicit host choice declared in the
-closure, never a token budget presented as a USD ceiling.
+Canonical tests:
+`python3 -m unittest tests.test_lanciatore tests.test_esecutore_codex`.

@@ -19,6 +19,7 @@ Il profilo locale `o3/ciclo/lanciatore.toml` è opzionale:
     protetti = ["o3/mio-recinto/*"]     # si aggiungono a quelli canonici
     prima = "o3/ciclo/prima.py"         # controlli locali, prima dell'agente
     pull_fermo = ["o3/runtime/*"]       # un pull che li tocca resta al custode
+    motori = ["claude", "codex"]        # chi lavora e chi subentra; default ["claude"]
 
 `pull_fermo` è per i repo in cui il checkout è anche la produzione: lì il pull è
 un rilascio, e il suo momento lo sceglie una persona.
@@ -26,9 +27,15 @@ un rilascio, e il suo momento lo sceglie una persona.
 L'host può asserire `--branch` uguale al profilo (11 se diverso) e passare
 `--max-minuti` e `--max-budget-usd`: valori positivi finiti, applicati come
 minimo col profilo, anche sotto `--controlli`. Non possono ampliare la delega.
-Il fallback Codex (`--codex-adapter`, contratto in `o3/ciclo/fallback.md`) può
-girare senza tetto USD solo con `--codex-senza-tetto-usd`: la chiusura lo
-dichiara con `budget_usd_imposto: false` (custode, 2026-11-11, account flat).
+
+Il motore lo sceglie il repo, non l'host (custode, 2026-11-11): `motori` dà
+l'ordine, il primo lavora e il secondo subentra una volta sola, solo se il primo
+era indisponibile prima di qualunque atto. Vale nei due versi, `["codex",
+"claude"]` compreso. Codex passa dall'esecutore canonico `o3/esecutore_codex.py`,
+che traduce permessi e hook; l'host dà solo i binari, `--claude` e `--codex`,
+se non sono nel PATH. `budget_usd` è il tetto dove il motore lo sa imporre:
+Codex non ne ha uno, il giro procede e la chiusura dichiara
+`budget_usd_imposto: false`. Contratto in `o3/ciclo/fallback.md`.
 
 L'aggancio `prima` è uno script Python in `o3/ciclo/`, dove il giro non scrive.
 Esce con 0 per proseguire o con 16, 18 o 19 per fermare il giro, con
@@ -148,6 +155,10 @@ ATTENZIONE = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
 WINDOWS = os.name == "nt"
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 USCITA_PERCORSI_PROTETTI = 23
+# I motori che il profilo del repo può scegliere e se sanno imporre un tetto in USD.
+# Codex non ne ha uno: il giro procede e la chiusura lo dichiara (custode, 2026-11-11).
+MOTORI = {"claude": True, "codex": False}
+ESECUTORE_CODEX = Path(__file__).resolve().parent / "esecutore_codex.py"
 
 
 class Arresto(Exception):
@@ -172,6 +183,7 @@ class Profilo:
     protetti: tuple[str, ...] = PROTETTI
     prima: str | None = None
     pull_fermo: tuple[str, ...] = ()
+    motori: tuple[str, ...] = ("claude",)
 
 
 def leggi_profilo(path: Path) -> Profilo:
@@ -181,9 +193,27 @@ def leggi_profilo(path: Path) -> Profilo:
         dati = tomllib.loads(path.read_text(encoding="utf-8"))
     except tomllib.TOMLDecodeError as errore:
         raise Arresto(14, "profilo-invalido", str(errore)) from errore
-    ignote = dati.keys() - {"branch", "minuti", "budget_usd", "protetti", "prima", "pull_fermo"}
+    ignote = dati.keys() - {
+        "branch",
+        "minuti",
+        "budget_usd",
+        "protetti",
+        "prima",
+        "pull_fermo",
+        "motori",
+    }
     if ignote:
         raise Arresto(14, "profilo-invalido", f"chiavi sconosciute {sorted(ignote)}")
+    motori = dati.get("motori", ["claude"])
+    if (
+        not isinstance(motori, list)
+        or not 1 <= len(motori) <= 2
+        or len(set(motori)) != len(motori)
+        or any(m not in MOTORI for m in motori)
+    ):
+        raise Arresto(
+            14, "profilo-invalido", f"motori: uno o due fra {sorted(MOTORI)}, senza ripetizioni"
+        )
     return Profilo(
         dati.get("branch", "main"),
         dati.get("minuti", 45),
@@ -191,6 +221,7 @@ def leggi_profilo(path: Path) -> Profilo:
         (*PROTETTI, *dati.get("protetti", [])),
         dati.get("prima"),
         tuple(dati.get("pull_fermo", [])),
+        tuple(motori),
     )
 
 
@@ -890,11 +921,10 @@ class Tentativo:
         osservazione = osserva(self.stream)
         fine = osservazione["result"]
         costi = [t["observation"]["result"].get("total_cost_usd") for t in self.tentativi_engine]
-        costo = (
-            sum(costi)
-            if costi and all(isinstance(c, (int, float)) for c in costi)
-            else fine.get("total_cost_usd")
-        )
+        # I costi noti in USD; un motore senza (Codex conta token) lo dichiara
+        # `budget_usd_imposto: false`, e se nessuno è noto il costo resta ignoto.
+        noti = [c for c in costi if isinstance(c, (int, float))]
+        costo = sum(noti) if noti else fine.get("total_cost_usd")
         nota = attenzione(str(fine.get("result") or ""))
         if self.avviso:
             nota = "; ".join(parte for parte in (self.avviso, nota) if parte)
@@ -955,13 +985,19 @@ def _alza_interrotto(_numero: int, _frame: object) -> None:
     raise Interrotto
 
 
-def comando_engine(
-    engine: str, eseguibile: str, settings: Path, budget: float, senza_tetto: bool = False
-) -> list[str]:
+def comando_engine(engine: str, eseguibile: str, settings: Path, budget: float) -> list[str]:
     if engine == "codex":
-        # Executor: enforce equivalent permissions/hook/budget, normalize events.
-        tetto = ["--senza-tetto-usd"] if senza_tetto else ["--budget-usd", str(budget)]
-        return [eseguibile, "--prompt", str(PROMPT.resolve()), "--settings", str(settings), *tetto]
+        # L'esecutore canonico traduce permessi e hook e normalizza gli eventi.
+        return [
+            sys.executable,
+            str(ESECUTORE_CODEX),
+            "--codex",
+            eseguibile,
+            "--prompt",
+            str(PROMPT.resolve()),
+            "--settings",
+            str(settings),
+        ]
     return [
         eseguibile,
         "-p",
@@ -984,33 +1020,32 @@ def comando_engine(
 def esegui_engine(
     tentativo: Tentativo,
     profilo: Profilo,
-    claude: str,
-    codex_adapter: str | None,
+    eseguibili: dict[str, str],
     recinto: list[str],
     ferma: list[str],
     checkout: Path,
     inizio: float,
-    senza_tetto: bool = False,
 ) -> None:
+    """I motori nell'ordine del profilo del repo: il secondo solo se il primo era indisponibile."""
     settings = impostazioni(STATO / "settings.json", tentativo.etichetta).resolve()
     scadenza = time.monotonic() + profilo.minuti * 60
     budget = profilo.budget_usd
-    for engine, eseguibile in (("claude", claude), ("codex", codex_adapter)):
+    for posizione, engine in enumerate(profilo.motori):
         minuti = (scadenza - time.monotonic()) / 60
-        # Senza tetto USD (scelta dell'host) il budget non ferma il tentativo Codex.
-        libero = engine == "codex" and senza_tetto
-        if minuti <= 0 or (budget <= 0 and not libero):
+        impone = MOTORI[engine]
+        if minuti <= 0 or (impone and budget <= 0):
             raise Arresto(22, "fallback-budget-esaurito")
         tentativo.engine = engine
         record = {
             "engine": engine,
             "exit": None,
             "giro": str(tentativo.stream.resolve()),
-            "budget_usd_imposto": not libero,
+            "budget_usd_imposto": impone,
         }
-        if libero:
+        if not impone:
             tentativo.budget_usd_imposto = False
         tentativo.tentativi_engine.append(record)
+        eseguibile = eseguibili.get(engine) or engine
         try:
             if shutil.which(eseguibile) is None:
                 record["exit"] = 127
@@ -1030,7 +1065,7 @@ def esegui_engine(
                 )
             else:
                 record["exit"] = lancia_agente(
-                    [*recinto, *comando_engine(engine, eseguibile, settings, budget, libero)],
+                    [*recinto, *comando_engine(engine, eseguibile, settings, budget)],
                     tentativo.stream,
                     replace(profilo, minuti=minuti, budget_usd=budget),
                     ferma,
@@ -1048,7 +1083,7 @@ def esegui_engine(
         indisponibile = (
             evidenza["unavailable"] or fine.get("terminal_reason") == "executable_missing"
         )
-        if engine == "claude" and indisponibile:
+        if posizione + 1 < len(profilo.motori) and indisponibile:
             sicuro = (
                 not evidenza["tools_started"]
                 and not evidenza["trace_incomplete"]
@@ -1057,16 +1092,14 @@ def esegui_engine(
             )
             if not sicuro:
                 tentativo.avvisa("fallback blocked: partial acts or incomplete evidence")
-            elif not codex_adapter:
-                tentativo.avvisa("fallback unavailable: equivalent Codex adapter not configured")
             else:
                 costo = fine.get("total_cost_usd")
                 if isinstance(costo, (int, float)) and costo >= 0:
                     budget -= costo
-                    continue
-                if senza_tetto:
-                    continue
-                tentativo.avvisa("fallback blocked: unknown spent budget")
+                else:
+                    # Non blocca (custode, 2026-11-11): lo si dichiara.
+                    tentativo.avvisa(f"{engine}: costo ignoto, non scalato dal tetto")
+                continue
         if record["exit"] != 0:
             raise Arresto(20, f"{engine}-uscita-non-zero", str(record["exit"]))
         raise Arresto(21, f"{engine}-errore")
@@ -1074,13 +1107,11 @@ def esegui_engine(
 
 def giro(
     profilo: Profilo,
-    claude: str,
+    eseguibili: dict[str, str],
     recinto: list[str],
     checkout: Path,
     pull_canone: bool,
     ferma: list[str] = (),
-    codex_adapter: str | None = None,
-    senza_tetto: bool = False,
 ) -> int:
     tentativo = Tentativo(checkout.name)
     tentativo.head_prima = git_testo("rev-parse", "HEAD")
@@ -1112,9 +1143,7 @@ def giro(
         INIZIO.touch()
         inizio = INIZIO.stat().st_mtime
         lanciato = True
-        esegui_engine(
-            tentativo, profilo, claude, codex_adapter, recinto, ferma, checkout, inizio, senza_tetto
-        )
+        esegui_engine(tentativo, profilo, eseguibili, recinto, ferma, checkout, inizio)
         protetto = rete(tentativo, profilo, fermo)
         if protetto:
             raise protetto
@@ -1203,16 +1232,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--controlli", action="store_true", help="solo i controlli, in sola lettura"
     )
-    parser.add_argument("--codex-adapter", help="Codex executor with equivalent policy enforcement")
-    parser.add_argument(
-        "--codex-senza-tetto-usd",
-        action="store_true",
-        help="fallback Codex senza tetto USD imposto: scelta dell'host, dichiarata in chiusura",
-    )
     parser.add_argument("--branch", help="expected repository profile branch (assertion)")
     parser.add_argument("--max-minuti", type=float, help="host duration cap; can only restrict")
     parser.add_argument("--max-budget-usd", type=float, help="host USD cap; can only restrict")
-    parser.add_argument("--claude", default=None, help="eseguibile dell'agente, se non è nel PATH")
+    parser.add_argument("--claude", default=None, help="eseguibile di Claude, se non è nel PATH")
+    parser.add_argument("--codex", default=None, help="eseguibile di Codex, se non è nel PATH")
     parser.add_argument("--recinto", default="", help="sandbox dell'host, messa davanti all'agente")
     parser.add_argument(
         "--recinto-ferma",
@@ -1246,19 +1270,18 @@ def main(argv: list[str] | None = None) -> int:
         return arresto.codice
     if args.controlli:
         return controlli(profilo, checkout)
-    claude = args.claude or shutil.which("claude") or ("claude" if args.codex_adapter else None)
-    if not claude:
-        segnala("agente non trovato nel PATH")
+    eseguibili = {"claude": args.claude or "claude", "codex": args.codex or "codex"}
+    # Un motore assente è un fallback verso l'altro; nessuno dei due è un errore di forma.
+    if not any(shutil.which(eseguibili[motore]) for motore in profilo.motori):
+        segnala(f"agente non trovato: {', '.join(profilo.motori)}")
         return 14
     return giro(
         profilo,
-        claude,
+        eseguibili,
         shlex.split(args.recinto),
         checkout,
         not args.senza_pull_canone,
         shlex.split(args.recinto_ferma),
-        args.codex_adapter,
-        args.codex_senza_tetto_usd,
     )
 
 

@@ -12,6 +12,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
+- [Il motore del ciclo lo sceglie il repo](motori-del-ciclo.md) — `motori` nel
+  profilo del lanciatore, fallback nei due versi, esecutore Codex canonico;
+  all'host solo binari, recinto, arresto e trigger, e nessun nixos tiene la
+  politica degli altri repo. Prescritta ai sette il 2026-11-11.
+
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 
@@ -51,6 +56,9 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `--controlli` è in sola lettura. Osservabilità e contratto di fallback:
   [engine fallback](ciclo/fallback.md). In uso dal timer di method dal 09/11
   ([task](../o2/lanciatore-ciclo-nel-metodo.md)). Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
+- `esecutore_codex.py` — l'esecutore canonico di Codex per il lanciatore:
+  traduce permessi e hook del giro in un hook `PreToolUse` di Codex e
+  normalizza i suoi eventi. Test: `python3 -m unittest discover -s tests -p 'test_esecutore_codex.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
   ([plan](../kb/plan.md), «Ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
 - `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
