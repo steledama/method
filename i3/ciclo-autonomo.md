@@ -136,6 +136,14 @@ riletto contro le fonti.
   e verificata nel tentativo `47567de9`: `cat` sul solo path legge il fetch
   con id coincidente e quattro esiti riusciti, e le chiusure in `i1/giri/`
   di nixos, salute ed economia. Il perimetro resta quello dei Read concessi.
+  L'11/11 tre adottanti hanno trovato il diniego eludibile e sospeso Codex:
+  `head alias` col symlink verso `~/.config` (nixos `5aa20f9`), `head .env`
+  senza barra (BI `39d63da`), più sei regole esatte Docker/SQL negate per
+  le virgolette (Baserow). L'esecutore ora giudica ogni parola che può
+  essere un path e le regole nella forma scritta
+  ([runbook](../o3/motori-del-ciclo.md)), con regressioni sulle tre
+  riproduzioni; la ripresa di Codex resta alle verifiche di ciascun
+  adottante, e Windows non è collaudato (danea-auto `ce2a2f6`).
   Nella chiusura serale di economia `f9d27165`, `commit: true` attribuisce
   al tentativo `5622e30`, ma il resoconto dichiara lo stop per concorrenza
   senza commit proprio: il riepilogo non basta ad attribuire un commit al

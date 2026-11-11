@@ -102,9 +102,28 @@ canonico, e il passo diventa la verifica nel proprio recinto.
 ### Lavoro: `danea-auto` su `danea2` (Windows)
 
 Host e adottante coincidono: il trigger è dello scheduler di Windows. Passa
-`--codex` se serve. L'esecutore è Python come il lanciatore; restano da
-verificare su Windows la sandbox di Codex e la quotatura del comando
-dell'hook.
+`--codex` se serve. L'esecutore è Python come il lanciatore.
+
+Prove isolate di `danea-auto` (`ce2a2f6`, 2026-11-11, fixture e motori
+finti, nessun motore reale): il fallback Claude→Codex sotto `pythonw` e
+l'hook invocato via `cmd.exe` e via CreateProcess funzionano. Windows **non**
+è collaudato; restano aperti:
+
+- un discendente staccato dal motore (`DETACHED_PROCESS`) sopravvive alla
+  chiusura riuscita: su Windows manca un equivalente di `--recinto-ferma`;
+- le letture del canone con path Windows: l'esecutore ora confronta i path
+  nella forma delle regole di Claude (`C:\…` come `//c/…`, maiuscole
+  indifferenti), provato solo in simulazione su Linux; `cat method/…` e
+  `cat ~/method/…` restano fuori dal perimetro finché i permessi del giro
+  non ammettono il canone (`additionalDirectories` o un `Read(…)`), scelta
+  dell'adottante;
+- `git add` negato su `.git/index.lock` nella sandbox di `codex sandbox`
+  anche con `writable_roots`; `codex exec --sandbox workspace-write` non è
+  provato;
+- la forma reale dei comandi di Codex su Windows: se li avvolge in
+  PowerShell (`powershell.exe -Command …`) l'hook li nega tutti e il giro
+  fallisce chiuso. Anche variabili PowerShell (`$null`, `$env:…`) e
+  l'accento grave cadono come non scomponibili.
 
 ## Verifiche aperte prima di contare sul fallback
 
@@ -113,4 +132,14 @@ Il giro completo dal vivo attraverso il lanciatore con Codex è riuscito il
 Poi i giri a mano di `method` (push in rete, letture fuori dal checkout) e
 di `nixos` col solo recinto dell'host (`5769c3c`). Restano, elencate nel
 contratto: la forma reale di un errore di quota di Codex, un fallback fra
-motori veri, Windows.
+motori veri, Windows (sopra).
+
+Il 2026-11-12 il giudizio dei comandi è stato corretto dopo tre
+riproduzioni: `head alias` col symlink verso `~/.config` (nixos `5aa20f9`),
+`head .env` senza barra (BI `39d63da`), sei regole Docker/SQL esatte con
+virgolette negate (Baserow `o3/riproduci-policy-codex.py`). Gli adottanti che
+hanno sospeso Codex rieseguono le proprie verifiche col canone corretto prima
+di rimetterlo nel profilo. Resta il limite di ogni elenco di comandi
+ammessi: un comando ammesso che legge o scrive per conto proprio (lo script
+di `sed`, `git diff --no-index`, `grep -R` che segue i symlink) non è
+giudicato oltre ciò che la riga nomina.

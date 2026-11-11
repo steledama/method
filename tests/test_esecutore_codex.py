@@ -12,6 +12,8 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from typing import ClassVar
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "o3" / "esecutore_codex.py"
@@ -188,6 +190,264 @@ class PoliticaTests(unittest.TestCase):
         self.assertEqual(
             json.loads(esito.stdout)["hookSpecificOutput"]["permissionDecision"], "deny"
         )
+
+
+# Regole reali di Baserow (o3/ciclo/permessi.json, 11/11/2026): comandi esatti con
+# virgolette, che la normalizzazione toglieva (o3/riproduci-policy-codex.py).
+BASEROW = [
+    "docker inspect baserow --format '{{.Config.Image}}'",
+    "docker inspect baserow --format '{{.State.Health.Status}}'",
+    (
+        "docker exec -u postgres baserow psql -d baserow -Atc "
+        "'select pg_database_size(current_database())'"
+    ),
+    (
+        "docker exec -u postgres baserow psql -d baserow -Atc "
+        "'select relname, pg_total_relation_size(relid) from pg_statio_user_tables "
+        "order by 2 desc limit 10'"
+    ),
+    (
+        "docker exec -u postgres baserow psql -d baserow -Atc "
+        "'select (select count(*) from core_workspace), (select count(*) from database_table)'"
+    ),
+    (
+        "docker exec -u postgres baserow psql -d baserow -Atc "
+        "'select relname, n_live_tup, n_dead_tup, last_autovacuum, autovacuum_count "
+        "from pg_stat_user_tables order by pg_total_relation_size(relid) desc limit 4'"
+    ),
+]
+LETTURE = {
+    "permissions": {
+        "allow": [
+            "Read(./**)",
+            *(f"Bash({c} *)" for c in ("cat", "head", "tail", "grep", "rg", "ls", "sort", "cd")),
+            "Bash(git status*)",
+            "Bash(git show *)",
+            *(f"Bash({c})" for c in BASEROW),
+            "Bash(docker compose ps)",
+            "Edit(./i1/**)",
+        ],
+        "deny": [
+            "Read(./.env)",
+            "Read(./backup/**)",
+            "Read(~/.config/**)",
+            "Edit(./CLAUDE.md)",
+            "Bash(cat .env)",
+            "Bash(rm *)",
+            "Bash(docker compose up*)",
+        ],
+    }
+}
+
+
+class LettureNegateTests(unittest.TestCase):
+    """Dinieghi `Read` per nomi semplici, symlink, virgolette e cartella corrente
+    (BI 39d63da, nixos 5aa20f9, Baserow): nessun comando giudicato viene eseguito
+    e la fixture `.env` contiene solo un valore finto."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.radice = Path(self._tmp.name).resolve() / "repo"
+        (self.radice / "sub").mkdir(parents=True)
+        (self.radice / "i1").mkdir()
+        (self.radice / ".env").write_text("FIXTURE_NON_SECRET=example\n", encoding="utf-8")
+        (self.radice / "goal.md").write_text("# goal\n", encoding="utf-8")
+        (self.radice / "sub" / "nota.md").write_text("x\n", encoding="utf-8")
+        destinazione = Path.home() / ".config" / "codex-policy-fixture-inesistente"
+        self.assertFalse(destinazione.exists())
+        self.symlink = True
+        try:
+            (self.radice / "alias").symlink_to(destinazione)
+        except OSError:  # Windows senza privilegio di symlink
+            self.symlink = False
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def giudica(self, testo, cartella=None):
+        return MODULE.giudica_comando(testo, LETTURE, self.radice, cartella)
+
+    def negato(self, testo, atteso="", cartella=None):
+        motivo = self.giudica(testo, cartella)
+        self.assertIsNotNone(motivo, testo)
+        self.assertIn(atteso, motivo, testo)
+
+    def test_env_negato_in_ogni_forma(self):
+        for testo in (
+            "cat .env",
+            "head .env",
+            "tail .env",
+            "head -n 3 .env",
+            "tail -n3 .env",
+            "cat '.env'",
+            'cat ".env"',
+            "cat \\.env",
+            "cat -- .env",
+            "cat goal.md .env",
+            "cat .env | head",
+            "cat ./.env",
+            "cat sub/../.env",
+            "cat .e*",
+            "cat .en?",
+            "cat < .env",
+            "head<.env",
+            "grep -f .env goal.md",
+            "grep -f.env goal.md",
+            "grep x .env",
+            "git show HEAD:.env",
+            "cd sub && cat ../.env",
+            "cd sub; cat ../.env",
+        ):
+            self.negato(testo, ".env")
+
+    def test_lettori_ricorsivi_sulle_cartelle_con_un_diniego(self):
+        (self.radice / "backup").mkdir()
+        for testo in (
+            "grep -r x .",
+            "grep -rn x",
+            "grep -R x .",
+            "rg x",
+            "rg --hidden x",
+            "rg -uu x .",
+            "rg x backup",
+        ):
+            self.negato(testo, "ricorsiva")
+        # `rg` salta i nascosti: `.env` non lo raggiunge, `backup/` sì.
+        self.assertIsNone(self.giudica("rg x sub"))
+        self.assertIsNone(self.giudica("grep -rn x sub"))
+        self.assertIsNone(self.giudica("rg x sub goal.md"))
+
+    def test_symlink_verso_un_diniego_anche_senza_barra(self):
+        if not self.symlink:
+            self.skipTest("symlink non creabili qui")
+        for testo in ("head alias", "cat alias", "tail alias", "cat ./alias", "cat 'alias'"):
+            self.negato(testo, "Read(~/.config/**)")
+
+    def test_espansioni_che_solo_la_shell_conosce_cadono(self):
+        for testo in (
+            "cat $HOME/.config/x",
+            "cat ${HOME}/x",
+            'cat "$HOME/x"',
+            "cat .{e,x}nv",
+            "cat $'.env'",
+            "cat <(cat .env)",
+            "cat 'aperta",
+            "cd - && cat x",
+        ):
+            self.negato(testo, "non scomponibile")
+
+    def test_ammessi_i_pattern_le_opzioni_e_le_virgolette(self):
+        for testo in (
+            "cat goal.md",
+            "cat 'goal.md'",
+            "grep .env goal.md",
+            "grep -n env goal.md",
+            "grep -e .env goal.md",
+            "head -n 5 goal.md",
+            "cat *.md",
+            "cat '*'",
+            "cat goal.md # .env",
+            "ls",
+            "ls sub",
+            "git status 2>&1 | head -5",
+            "ls >/dev/null 2>&1",
+            "cat goal.md > i1/copia.md",
+            "grep 'a;b' goal.md",
+            "grep '$(x)' goal.md",
+            "cd sub && cat nota.md",
+            "git show HEAD:goal.md",
+        ):
+            self.assertIsNone(self.giudica(testo), testo)
+
+    def test_le_redirezioni_in_uscita_sono_scritture(self):
+        self.negato("cat goal.md > CLAUDE.md", "Edit(./CLAUDE.md)")
+        self.negato("cat goal.md >> o3/x.py", "non ammessa")
+        self.negato("ls >&uscita.txt", "non ammessa")
+        self.negato("ls; > CLAUDE.md", "Edit(./CLAUDE.md)")
+
+    def test_cartella_di_lavoro_di_codex(self):
+        self.negato("cat ../.env", "Read(./.env)", self.radice / "sub")
+        self.assertIsNone(self.giudica("cat nota.md", self.radice / "sub"))
+        ingresso = {
+            "tool_name": "Bash",
+            "tool_input": {"command": "cat ../.env", "workdir": "sub"},
+            "cwd": str(self.radice),
+        }
+        self.assertIn("Read(./.env)", MODULE.giudica(ingresso, LETTURE))
+
+    def test_regole_baserow_esatte_con_virgolette(self):
+        for testo in BASEROW:
+            self.assertIsNone(self.giudica(testo), testo)
+            self.assertIsNone(self.giudica(testo + " 2>&1"), testo)
+            self.assertIsNone(self.giudica(testo.replace("'", '"')), testo)
+            self.negato(testo + " ; rm x", "Bash(rm *)")
+        self.negato("docker inspect baserow --format '{{.Config.Env}}'", "non ammesso")
+        self.negato("docker compose up -d", "docker compose up")
+        self.negato("'cat' .env", "Bash(cat .env)")
+        self.assertIsNone(self.giudica("docker compose ps"))
+
+    def test_caricabile_senza_registrarsi_in_sys_modules(self):
+        # Come lo caricano le riproduzioni degli adottanti (Baserow, BI).
+        spec = importlib.util.spec_from_file_location("esecutore_isolato", SCRIPT)
+        modulo = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(modulo)
+        self.assertIsNotNone(modulo.giudica_comando("cat .env", LETTURE, self.radice))
+
+    def test_nelle_regole_bash_solo_l_asterisco_e_jolly(self):
+        self.assertTrue(MODULE.comando_ammesso("echo [x]", "echo [x]"))
+        self.assertFalse(MODULE.comando_ammesso("echo y", "echo ?"))
+        self.assertTrue(MODULE.comando_ammesso("echo y z", "echo *"))
+        self.assertTrue(MODULE.comando_ammesso("cat", "cat *"))
+
+
+class WindowsTests(unittest.TestCase):
+    """La forma Windows simulata: barra rovescia letterale, dischi come `//c/…`,
+    maiuscole indifferenti. Il comportamento reale di Codex su Windows resta da
+    provare (danea-auto ce2a2f6)."""
+
+    REGOLE: ClassVar[dict] = {
+        "permissions": {
+            "allow": ["Read(./**)", "Bash(cat *)", "Bash(type *)", "Edit(./i1/**)"],
+            "deny": [
+                "Read(//c/Users/me/.ssh/**)",
+                "Edit(//c/Users/me/.ssh/**)",
+                "Read(./.env)",
+                "Bash(rm *)",
+            ],
+        }
+    }
+
+    def setUp(self):
+        patcher = mock.patch.object(MODULE, "WINDOWS", True)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def giudica(self, testo):
+        return MODULE.giudica_comando(testo, self.REGOLE, Path("C:/repo"))
+
+    def test_path_di_windows_contro_le_regole_di_claude(self):
+        for testo in (
+            r"cat C:\Users\me\.ssh\id_rsa",
+            "cat C:/Users/me/.ssh/id_rsa",
+            r"cat c:\users\ME\.SSH\id_rsa",
+            r"cat 'C:\Users\me\.ssh\id rsa'",
+        ):
+            self.assertIn("Read(//c/Users/me/.ssh/**)", self.giudica(testo) or "", testo)
+        motivo = MODULE.giudica_file(r"C:\Users\me\.ssh\config", self.REGOLE, Path("C:/repo"))
+        self.assertIn("Edit(//c/Users/me/.ssh/**)", motivo)
+
+    def test_variabili_e_accento_grave_cadono(self):
+        for testo in (
+            r"cat $env:USERPROFILE\.ssh\x",
+            r"type %USERPROFILE%\.ssh\x",
+            "cat `$x",
+        ):
+            self.assertIn("non scomponibile", self.giudica(testo), testo)
+
+    def test_maiuscole_nel_nome_e_nel_path(self):
+        self.assertIn("Read(./.env)", self.giudica(r"type .\.ENV") or "")
+        self.assertIn("non ammesso", self.giudica(r"TYPE goal.md") or "")
+        self.assertIn("Bash(rm *)", self.giudica("RM x") or "")
 
 
 AVVIO = [
