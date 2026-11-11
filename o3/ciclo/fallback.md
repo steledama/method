@@ -149,7 +149,10 @@ unit on deck with `motori = ["codex", "claude"]`: Codex inside the systemd
 sandbox, commit `3b618dc`, network push to `origin/main`, no denial.
 It abstained from reads outside the checkout (no Read tool in Codex); after
 the read rule above (`10c09e7`) a second manual run (`dc6e902`) read
-`fetch.json` and six closures with `cat`, no denial.
+`fetch.json` and six closures with `cat`, no denial. With the host-sandbox
+rule (`0eeb2db`), the nixos manual run with `motori = ["codex", "claude"]`
+reached the push (nixos `5769c3c`, 2026-11-11): Nix, Nix daemon and user bus
+reachable inside the unit.
 
 Still open, to verify before relying on the fallback:
 
@@ -174,6 +177,20 @@ Still open, to verify before relying on the fallback:
    keeps only a physical backstop above the profile's `minuti`.
 4. A first run with the fallback is a manual run with the custodian present.
    Timer activation stays with the host's local session.
+
+### Manual run
+
+The launcher stops with 15 `sessione-concorrente` when another session uses
+tools in the same checkout during the run, even only to wait for it or check
+on it (three nixos attempts on 2026-11-11). That is the intended behaviour, so
+a manual run goes like this:
+
+- start the unit from a separate terminal, or from the session as its last
+  act, and keep every session in that checkout idle until the run ends;
+- the `ciclo-<repo>` unit is `Type=exec`, so a plain `systemctl --user start`
+  returns at once; to wait for the end use
+  `systemctl --user start --wait ciclo-<repo>.service`;
+- then read the closure in `i1/giri/tentativi.jsonl` and the run commit.
 
 Canonical tests:
 `python3 -m unittest tests.test_lanciatore tests.test_esecutore_codex`.

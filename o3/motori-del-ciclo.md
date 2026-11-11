@@ -67,6 +67,22 @@ Da fare nella sessione del repo, con `/method`:
 4. Primo giro col secondo motore: a mano, col custode presente. L'attivazione
    del timer resta della sessione locale.
 
+### Il giro a mano (aggiunta del 2026-11-11, dal collaudo di `nixos`)
+
+Una sessione che usa strumenti nello stesso checkout durante il giro, anche
+solo per aspettarlo o controllarlo, lo ferma con 15 `sessione-concorrente`:
+è voluto, e a `nixos` è costato tre tentativi. Quindi:
+
+- lanciare l'unità da un terminale separato, o dalla sessione come ultimo
+  atto, e tenere ferme le sessioni del checkout finché il giro non finisce;
+- l'unità `ciclo-<repo>` è `Type=exec` e `systemctl --user start` torna
+  subito: per aspettarla, `systemctl --user start --wait ciclo-<repo>.service`;
+- a giro finito, leggere la chiusura in `i1/giri/tentativi.jsonl` e il commit.
+
+Vale per ogni adottante con un primo giro col secondo motore ancora da fare:
+`nixos-lavoro` e `danea-auto` (su Windows il trigger è lo scheduler, la regola
+della sessione ferma resta).
+
 ### Casa: `nixos` su `deck`
 
 Giri di `method`, `nixos`, `economia`, `salute`. Task locale già aperto:
@@ -94,6 +110,7 @@ dell'hook.
 
 Il giro completo dal vivo attraverso il lanciatore con Codex è riuscito il
 2026-11-11 (commit, push verso un remote locale, due rifiuti in chiusura).
-Restano, elencate nel contratto: la forma reale di un errore di quota di
-Codex, il `git push` in rete dalla sandbox di Codex, un fallback fra motori
-veri, Windows.
+Poi i giri a mano di `method` (push in rete, letture fuori dal checkout) e
+di `nixos` col solo recinto dell'host (`5769c3c`). Restano, elencate nel
+contratto: la forma reale di un errore di quota di Codex, un fallback fra
+motori veri, Windows.
