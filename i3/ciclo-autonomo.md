@@ -139,8 +139,10 @@ riletto contro le fonti.
   Nella chiusura serale di economia `f9d27165`, `commit: true` attribuisce
   al tentativo `5622e30`, ma il resoconto dichiara lo stop per concorrenza
   senza commit proprio: il riepilogo non basta ad attribuire un commit al
-  giro. Il caso resta da verificare nel task del lanciatore, senza leggere
-  trascritti o dati di dominio dell'adottante.
+  giro. È il difetto corretto in `4341ff0` (chiusura delle 18:17 di quel
+  giorno, lanciatore precedente): da allora la chiusura conta come commit del
+  giro solo le voci del reflog con l'etichetta del lanciatore (`commit_giro`,
+  `commit_altri`), e un commit altrui non spegne più l'arresto 15.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto

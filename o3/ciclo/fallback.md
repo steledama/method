@@ -136,6 +136,9 @@ End-to-end through the launcher, same day, run by the custodian (profile
 trace, clean tree. Then the manual run of method from its `ciclo-method`
 unit on deck with `motori = ["codex", "claude"]`: Codex inside the systemd
 sandbox, commit `3b618dc`, network push to `origin/main`, no denial.
+It abstained from reads outside the checkout (no Read tool in Codex); after
+the read rule above (`10c09e7`) a second manual run (`dc6e902`) read
+`fetch.json` and six closures with `cat`, no denial.
 
 Still open, to verify before relying on the fallback:
 
@@ -143,9 +146,6 @@ Still open, to verify before relying on the fallback:
   from the text (`usage limit`, `rate limit`, `429`, `unauthorized`); a new
   form must be added when observed;
 - a fallback from one engine to the other with real engines;
-- reads outside the checkout in a Codex run (`fetch.json`, other runs'
-  closures) since the read rule above: the manual method run of 2026-11-11
-  (`3b618dc`) abstained, the prompt asking for a Read tool Codex lacks;
 - Windows (danea-auto): the Codex sandbox there and the hook command quoting;
 - hosted tools that hooks do not cover (web search): today they pass only if
   the repository allows `WebSearch`; otherwise they are not disabled in Codex.

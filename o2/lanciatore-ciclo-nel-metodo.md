@@ -99,12 +99,12 @@ La chiusura `e8d5b664` verifica anche il push in rete di `3b618dc`;
 restano i collaudi fra motori reali e su Windows. Fonte e verdetto:
 [ciclo autonomo](../i3/ciclo-autonomo.md), cambio di copertura del canale.
 
-Nel collaudo della chiusura conservare il caso `economia` `f9d27165`
-dell'11/11: il riepilogo dice `commit: true`, `head_dopo: 5622e30`, mentre
-il resoconto dichiara stop per concorrenza e nessun commit proprio. Verificare
-in sessione l'attribuzione del commit al giro, distinguendolo dal commit della
-sessione concorrente; il controllo deve preservare lo stop anche quando HEAD
-avanza. Il giro method legge solo la chiusura autorizzata, senza trascritto.
+Il caso `economia` `f9d27165` dell'11/11 (`commit: true` con `5622e30` della
+sessione concorrente), richiamato dal giro `47567de9`, è il difetto corretto
+in `4341ff0`, più sotto: la chiusura riconosce i commit del giro dal reflog e
+un commit altrui non spegne l'arresto 15. I test
+`test_il_commit_di_un_altra_sessione_non_e_del_giro` e
+`test_il_commit_altrui_non_nasconde_il_lavoro_lasciato` lo fissano.
 
 ## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
 
