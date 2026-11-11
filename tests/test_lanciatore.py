@@ -755,6 +755,16 @@ class LanciatoreTests(unittest.TestCase):
         self.assertEqual(self.lancia("--recinto", str(involucro)).returncode, 0)
         self.assertTrue((self.repo / ".git" / "nel-recinto").exists())
 
+    def test_col_recinto_codex_usa_quello_dell_host(self):
+        involucro = self.base / "recinto.sh"
+        involucro.write_text('#!/bin/sh\nexec "$@"\n', encoding="utf-8")
+        involucro.chmod(0o755)
+        codex = self.motori("codex")
+        self.assertEqual(self.lancia("--codex", codex, "--recinto", str(involucro)).returncode, 0)
+        self.assertIn("danger-full-access", (self.repo / ".git/argomenti-codex").read_text())
+        self.assertEqual(self.lancia("--codex", codex).returncode, 0)
+        self.assertIn("workspace-write", (self.repo / ".git/argomenti-codex").read_text())
+
     def test_controlli_non_scrivono_tracce(self):
         esito = self.lancia("--controlli")
         self.assertEqual(esito.returncode, 0, esito.stderr)

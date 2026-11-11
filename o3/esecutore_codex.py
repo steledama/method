@@ -18,8 +18,13 @@ Traduzione della politica, verificata su Codex CLI 0.166.0 il 2026-11-11:
   impostazioni, cioè quello del lanciatore sul commit. Il rifiuto è il JSON
   `permissionDecision: deny`; `--dangerously-bypass-hook-trust` è necessario
   perché l'hook è inline, e la fonte è questo file del canone;
-- sandbox `workspace-write` con rete e con la cartella git scrivibile, senza la
-  quale il commit fallisce (`index.lock` in sola lettura); approvazioni `never`;
+- senza recinto dell'host, sandbox `workspace-write` con rete e con la
+  cartella git scrivibile, senza la quale il commit fallisce (`index.lock` in
+  sola lettura); col recinto dell'host (`--recinto-host`, che passa il
+  lanciatore quando l'host dà `--recinto`) Codex non aggiunge il proprio e
+  vale quello dell'host, come per Claude: la sandbox di Codex chiudeva la home
+  scrivibile del recinto, e con lei cache e demone di Nix e il bus utente
+  (giro di nixos dell'11/11/2026, decisione del custode); approvazioni `never`;
 - `--ignore-user-config` e `--ignore-rules`: niente server MCP, profili o regole
   dell'utente; `--ephemeral`: nessun rollout, così il giro non vede sé stesso
   come sessione concorrente.
@@ -393,8 +398,21 @@ def toml(valore: object) -> str:
     return json.dumps(valore)
 
 
-def comando_codex(codex: str, radice: Path, cartella_git: str, hook_cmd: str) -> list[str]:
+def comando_codex(
+    codex: str, radice: Path, cartella_git: str, hook_cmd: str, recinto_host: bool = False
+) -> list[str]:
     hooks = [{"matcher": "*", "hooks": [{"type": "command", "command": hook_cmd, "timeout": 120}]}]
+    if recinto_host:
+        sandbox = ["--sandbox", "danger-full-access"]
+    else:
+        sandbox = [
+            "--sandbox",
+            "workspace-write",
+            "-c",
+            "sandbox_workspace_write.network_access=true",
+            "-c",
+            f"sandbox_workspace_write.writable_roots={toml([cartella_git])}",
+        ]
     return [
         codex,
         "exec",
@@ -403,23 +421,18 @@ def comando_codex(codex: str, radice: Path, cartella_git: str, hook_cmd: str) ->
         "--ignore-user-config",
         "--ignore-rules",
         "--dangerously-bypass-hook-trust",
-        "--sandbox",
-        "workspace-write",
+        *sandbox,
         "-C",
         str(radice),
         "-c",
         'approval_policy="never"',
-        "-c",
-        "sandbox_workspace_write.network_access=true",
-        "-c",
-        f"sandbox_workspace_write.writable_roots={toml([cartella_git])}",
         "-c",
         f"hooks.PreToolUse={toml(hooks)}",
         "-",
     ]
 
 
-def esegui(codex: str, prompt: Path, impostazioni_path: Path) -> int:
+def esegui(codex: str, prompt: Path, impostazioni_path: Path, recinto_host: bool = False) -> int:
     impostazioni = json.loads(impostazioni_path.read_text(encoding="utf-8"))
     radice = Path.cwd()
     cartella_git = subprocess.run(
@@ -439,7 +452,11 @@ def esegui(codex: str, prompt: Path, impostazioni_path: Path) -> int:
         try:
             processo = subprocess.Popen(
                 comando_codex(
-                    codex, radice, cartella_git, comando_hook(impostazioni_path, dinieghi)
+                    codex,
+                    radice,
+                    cartella_git,
+                    comando_hook(impostazioni_path, dinieghi),
+                    recinto_host,
                 ),
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
@@ -489,6 +506,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--codex", default="codex", help="eseguibile di Codex")
     parser.add_argument("--prompt", type=Path)
     parser.add_argument("--settings", type=Path, required=True)
+    parser.add_argument(
+        "--recinto-host",
+        action="store_true",
+        help="l'host racchiude il giro nel suo recinto: Codex non aggiunge il proprio",
+    )
     parser.add_argument("--hook", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--dinieghi", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
@@ -496,7 +518,7 @@ def main(argv: list[str] | None = None) -> int:
         return hook(args.settings, args.dinieghi)
     if args.prompt is None:
         parser.error("--prompt è richiesto")
-    return esegui(args.codex, args.prompt, args.settings)
+    return esegui(args.codex, args.prompt, args.settings, args.recinto_host)
 
 
 if __name__ == "__main__":

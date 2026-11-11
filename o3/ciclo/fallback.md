@@ -86,9 +86,16 @@ It runs `codex exec` with:
   seen as a concurrent Codex session;
 - `--ignore-user-config --ignore-rules`: no user MCP servers, profiles or
   execpolicy rules; authentication still comes from `CODEX_HOME`;
-- `--sandbox workspace-write` with `network_access=true` and the git common
-  directory in `writable_roots`: without it `.git` is read-only and
-  `git add` fails on `index.lock`;
+- with a host sandbox (`--recinto`; the launcher then passes `--recinto-host`):
+  `--sandbox danger-full-access`, so the host's fence is the only one, as for
+  Claude, which has no sandbox of its own. Codex's sandbox inside systemd
+  closed the writable home of the nixos fence, and with it Nix cache, Nix
+  daemon and the user bus (nixos manual run `928bb91a`, 2026-11-11; custodian's
+  decision the same day). The policy still goes through the hook;
+- without a host sandbox (Windows, manual runs): `--sandbox workspace-write`
+  with `network_access=true` and the git common directory in
+  `writable_roots`: without it `.git` is read-only and `git add` fails on
+  `index.lock`;
 - `approval_policy="never"`;
 - one inline `PreToolUse` hook (`-c hooks.PreToolUse=…`), the executor itself
   in `--hook` mode, with `--dangerously-bypass-hook-trust`: an inline hook has

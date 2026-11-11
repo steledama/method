@@ -214,7 +214,7 @@ class TraduttoreTests(unittest.TestCase):
 
 @unittest.skipIf(os.name == "nt", "Codex finto in shell POSIX")
 class EsecuzioneTests(unittest.TestCase):
-    def esegui(self, eventi, uscita=0, stderr=""):
+    def esegui(self, eventi, uscita=0, stderr="", *extra):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
             subprocess.run(["git", "init", "-q", str(base / "repo")], check=True)
@@ -237,7 +237,7 @@ class EsecuzioneTests(unittest.TestCase):
             impostazioni.write_text(json.dumps(IMPOSTAZIONI), encoding="utf-8")
             esito = subprocess.run(
                 [sys.executable, str(SCRIPT), "--codex", str(codex), "--prompt", str(prompt)]
-                + ["--settings", str(impostazioni)],
+                + ["--settings", str(impostazioni), *extra],
                 cwd=base / "repo",
                 capture_output=True,
                 text=True,
@@ -270,6 +270,14 @@ class EsecuzioneTests(unittest.TestCase):
         self.assertIn(str(self.repo / ".git"), radici)
         hook = next(a for a in self.argomenti if a.startswith("hooks.PreToolUse="))
         self.assertIn("--hook", hook)
+
+    def test_col_recinto_dell_host_codex_non_aggiunge_il_proprio(self):
+        esito, _ = self.esegui([*AVVIO, MESSAGGIO, FINE], 0, "", "--recinto-host")
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        self.assertIn("danger-full-access", self.argomenti)
+        self.assertNotIn("workspace-write", self.argomenti)
+        self.assertFalse(any(a.startswith("sandbox_workspace_write") for a in self.argomenti))
+        self.assertTrue(any(a.startswith("hooks.PreToolUse=") for a in self.argomenti))
 
     def test_quota_rifiutata_esce_non_zero_con_429(self):
         guasto = {"type": "turn.failed", "error": {"message": "usage limit reached"}}

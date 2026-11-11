@@ -986,9 +986,12 @@ def _alza_interrotto(_numero: int, _frame: object) -> None:
     raise Interrotto
 
 
-def comando_engine(engine: str, eseguibile: str, settings: Path, budget: float) -> list[str]:
+def comando_engine(
+    engine: str, eseguibile: str, settings: Path, budget: float, recinto: bool = False
+) -> list[str]:
     if engine == "codex":
         # L'esecutore canonico traduce permessi e hook e normalizza gli eventi.
+        # Col recinto dell'host Codex non aggiunge il proprio (custode, 2026-11-11).
         return [
             sys.executable,
             str(ESECUTORE_CODEX),
@@ -998,6 +1001,7 @@ def comando_engine(engine: str, eseguibile: str, settings: Path, budget: float) 
             str(PROMPT.resolve()),
             "--settings",
             str(settings),
+            *(["--recinto-host"] if recinto else []),
         ]
     return [
         eseguibile,
@@ -1066,7 +1070,10 @@ def esegui_engine(
                 )
             else:
                 record["exit"] = lancia_agente(
-                    [*recinto, *comando_engine(engine, eseguibile, settings, budget)],
+                    [
+                        *recinto,
+                        *comando_engine(engine, eseguibile, settings, budget, bool(recinto)),
+                    ],
                     tentativo.stream,
                     replace(profilo, minuti=minuti, budget_usd=budget),
                     ferma,
