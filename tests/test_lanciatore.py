@@ -13,6 +13,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -590,6 +591,28 @@ class LanciatoreTests(unittest.TestCase):
             (self.repo / ".git" / "chiusure-al-fermo").read_text(encoding="utf-8").strip(), "0"
         )
 
+    def test_stop_fallito_ferma_anche_un_giro_riuscito(self):
+        esito = self.lancia("--recinto-ferma", f'{sys.executable} -c "raise SystemExit(1)"')
+        self.assertEqual(esito.returncode, 25)
+        self.assertEqual(self.chiusura()["motivo"], "recinto-arresto-non-verificato")
+        self.assertIn("not final", self.chiusura()["attenzione"])
+        self.assertTrue((self.repo / ".git/lanciatore/fermo").exists())
+        self.assertEqual(self.lancia().returncode, 24)
+
+    def test_stop_eseguito_anche_su_successo(self):
+        self.assertEqual(
+            self.lancia("--recinto-ferma", f'{sys.executable} -c "pass"').returncode, 0
+        )
+
+    def test_caps_host_e_branch(self):
+        self.assertEqual(self.lancia("--branch", "altro").returncode, 11)
+        for valore in ("nan", "inf", "0", "-1"):
+            self.assertEqual(self.lancia("--max-minuti", valore).returncode, 14)
+        self.assertEqual(self.lancia("--max-budget-usd", "2").returncode, 0)
+        self.assertIn("2.0", (self.repo / ".git/argomenti").read_text())
+        self.assertEqual(self.lancia("--max-budget-usd", "99").returncode, 0)
+        self.assertIn("5", (self.repo / ".git/argomenti").read_text())
+
     def test_protetti_del_profilo_si_aggiungono(self):
         (self.repo / "o3" / "ciclo" / "lanciatore.toml").write_text(
             'protetti = ["secret/*"]\n', encoding="utf-8"
@@ -796,6 +819,23 @@ class LanciatoreTests(unittest.TestCase):
             os.utime(file, (numero + 1, numero + 1))
         MODULE.pota(cartella, tenuti=2)
         self.assertEqual(sorted(p.name for p in cartella.iterdir()), ["3.jsonl", "4.jsonl"])
+
+
+class HostBoundaryTests(unittest.TestCase):
+    def test_stop_timeout_o_comando_assente_non_sono_successo(self):
+        for errore in (OSError("missing"), subprocess.TimeoutExpired("stop", 120)):
+            with (
+                self.subTest(errore=errore),
+                patch.object(MODULE.subprocess, "run", side_effect=errore),
+            ):
+                with self.assertRaises(MODULE.Arresto) as catturato:
+                    MODULE.ferma_recinto(["stop"])
+                self.assertEqual(catturato.exception.codice, 25)
+
+    def test_caps_non_allargano_e_tempo_si_restringe(self):
+        profilo = MODULE.Profilo(minuti=10, budget_usd=2)
+        self.assertEqual(MODULE.limiti_host(profilo, "main", 99, 99), profilo)
+        self.assertEqual(MODULE.limiti_host(profilo, "main", 3, 1).minuti, 3)
 
 
 class ConcorrentiTests(unittest.TestCase):

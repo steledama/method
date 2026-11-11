@@ -23,6 +23,10 @@ Il profilo locale `o3/ciclo/lanciatore.toml` è opzionale:
 `pull_fermo` è per i repo in cui il checkout è anche la produzione: lì il pull è
 un rilascio, e il suo momento lo sceglie una persona.
 
+L'host può asserire `--branch` uguale al profilo (11 se diverso) e passare
+`--max-minuti` e `--max-budget-usd`: valori positivi finiti, applicati come
+minimo col profilo, anche sotto `--controlli`. Non possono ampliare la delega.
+
 L'aggancio `prima` è uno script Python in `o3/ciclo/`, dove il giro non scrive.
 Esce con 0 per proseguire o con 16, 18 o 19 per fermare il giro, con
 il motivo sulla prima riga dell'uscita. Con 0 può stampare un oggetto JSON:
@@ -76,7 +80,8 @@ Codici di uscita, gli stessi dell'unità di `nixos`: 0 riuscito, 10 tree sporco,
 concorrente durante il giro,
 16, 18 e 19 riservati all'aggancio `prima`, 17 pull fermo, 20 agente
 uscito con errore, 21 errore riportato dall'agente, 22 tetto di tempo, 23 percorso
-protetto toccato dal giro, 24 giri fermi dopo un 23, 75 lock.
+protetto toccato dal giro, 24 giri fermi dopo un 23 o 25,
+25 arresto del recinto non verificato, 75 lock.
 """
 
 from __future__ import annotations
@@ -84,6 +89,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import math
 import os
 import re
 import shlex
@@ -183,6 +189,29 @@ class EsitoPrima:
     attenzione: str | None = None
     salta: bool = False
     accorciato: bool = False
+
+
+def limiti_host(
+    profilo: Profilo, branch: str | None, minuti: float | None, budget: float | None
+) -> Profilo:
+    """Host assertions and caps never widen repository authority."""
+    if branch is not None and branch != profilo.branch:
+        raise Arresto(11, "branch-host-incoerente", branch)
+    valori = {}
+    for nome, limite in (("minuti", minuti), ("budget_usd", budget)):
+        valore = getattr(profilo, nome)
+        if (
+            isinstance(valore, bool)
+            or not isinstance(valore, (int, float))
+            or not math.isfinite(valore)
+            or valore <= 0
+        ):
+            raise Arresto(14, "profilo-invalido", nome)
+        if limite is not None:
+            if not math.isfinite(limite) or limite <= 0:
+                raise Arresto(14, "limite-host-invalido", nome)
+            valori[nome] = min(valore, limite)
+    return replace(profilo, **valori)
 
 
 def tetto_residuo(esito: EsitoPrima, trascorsi: float) -> Profilo:
@@ -564,7 +593,7 @@ def ferma_recinto(ferma: list[str]) -> None:
     if not ferma:
         return
     try:
-        subprocess.run(
+        esito = subprocess.run(
             ferma,
             stdin=subprocess.DEVNULL,
             capture_output=True,
@@ -572,13 +601,14 @@ def ferma_recinto(ferma: list[str]) -> None:
             creationflags=NO_WINDOW,
             check=False,
         )
-    except (OSError, subprocess.SubprocessError):
-        pass
+    except (OSError, subprocess.SubprocessError) as errore:
+        raise Arresto(25, "recinto-arresto-non-verificato", str(errore)) from errore
+    if esito.returncode != 0:
+        raise Arresto(25, "recinto-arresto-non-verificato", str(esito.returncode))
 
 
 def termina(processo: subprocess.Popen[bytes], ferma: list[str] = ()) -> None:
     """Chiude l'agente con tutti i suoi figli, e la sandbox se non muore con lui."""
-    ferma_recinto(list(ferma))
     if WINDOWS:
         subprocess.run(
             ["taskkill", "/T", "/F", "/PID", str(processo.pid)],
@@ -618,6 +648,9 @@ def lancia_agente(comando: list[str], stream: Path, profilo: Profilo, ferma: lis
         except Interrotto:
             termina(processo, ferma)
             raise
+        finally:
+            # Also stop on normal exit: the wrapper may have detached children.
+            ferma_recinto(list(ferma))
 
 
 def osserva(stream: Path) -> dict:
@@ -808,6 +841,7 @@ class Tentativo:
             "ts": iso(ora()),
             "esito": esito,
             "motivo": motivo,
+            "stato_finale_verificato": codice != 25,
             "service_result": "success" if codice == 0 else "exit-code",
             "exit_code": "exited",
             "exit_status": str(codice),
@@ -842,7 +876,7 @@ class Tentativo:
 def esito_di(codice: int) -> str:
     if codice == 22:
         return "timeout"
-    return "errore" if codice in {20, 21, USCITA_PERCORSI_PROTETTI} else "arresto"
+    return "errore" if codice in {20, 21, 25, USCITA_PERCORSI_PROTETTI} else "arresto"
 
 
 def _alza_interrotto(_numero: int, _frame: object) -> None:
@@ -1002,7 +1036,12 @@ def giro(
         if protetto:
             raise protetto
     except Arresto as arresto:
-        if lanciato and arresto.codice != USCITA_PERCORSI_PROTETTI:
+        if arresto.codice == 25:
+            fermo.write_text(arresto.motivo + "\n", encoding="utf-8")
+            tentativo.avvisa(
+                "Sandbox termination unverified; repository state is not final. Custodian must reconcile before removing fermo."
+            )
+        if lanciato and arresto.codice not in (25, USCITA_PERCORSI_PROTETTI):
             arresto = rete(tentativo, profilo, fermo, arresto.motivo) or arresto
         print(f"lanciatore: {arresto.motivo} {arresto.dettaglio}".rstrip(), file=sys.stderr)
         tentativo.chiusura(esito_di(arresto.codice), arresto.motivo, arresto.codice)
@@ -1082,6 +1121,9 @@ def main(argv: list[str] | None = None) -> int:
         "--controlli", action="store_true", help="solo i controlli, in sola lettura"
     )
     parser.add_argument("--codex-adapter", help="Codex executor with equivalent policy enforcement")
+    parser.add_argument("--branch", help="expected repository profile branch (assertion)")
+    parser.add_argument("--max-minuti", type=float, help="host duration cap; can only restrict")
+    parser.add_argument("--max-budget-usd", type=float, help="host USD cap; can only restrict")
     parser.add_argument("--claude", default=None, help="eseguibile dell'agente, se non è nel PATH")
     parser.add_argument("--recinto", default="", help="sandbox dell'host, messa davanti all'agente")
     parser.add_argument(
@@ -1108,7 +1150,9 @@ def main(argv: list[str] | None = None) -> int:
         segnala(f"giri-non-ignorati {GIRI}")
         return 14
     try:
-        profilo = leggi_profilo(PROFILO)
+        profilo = limiti_host(
+            leggi_profilo(PROFILO), args.branch, args.max_minuti, args.max_budget_usd
+        )
     except Arresto as arresto:
         segnala(f"{arresto.motivo} {arresto.dettaglio}")
         return arresto.codice

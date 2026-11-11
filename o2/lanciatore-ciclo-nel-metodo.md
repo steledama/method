@@ -55,6 +55,47 @@ validated on that installation. These are concrete blockers to activation,
 not permission to weaken the policy; details are retained in the contract.
 This implementation request does not expand authority over adopters or hosts.
 
+## Sweden host adoption interface (2026-11-11)
+
+Custodian-authorized preparation, coordinated with nixos, BI and Baserow.
+The clean canonical checkout was updated and verified at `fce8afe` before
+changes. Nixos reports 91 original evidence files and SHA256 manifest retained
+in its `i1/giri/adozione-20261111T110001Z`; BI reports weekly quota rejection,
+HTTP 429, no tools and zero cost on 11 November. These are forwarded findings,
+not a direct reanalysis of those files by method.
+
+The launcher remains outside the host sandbox. Use the existing `--recinto`
+command prefix and `--recinto-ferma` stop command; no launcher copy, prompt,
+lock, preflight or closure implementation belongs in the host wrapper.
+The host supplies `--branch` as an assertion against the repository profile
+(exit 11 on mismatch), `--max-minuti` and `--max-budget-usd` as positive finite
+caps. Effective limits are the minimum of repository and host values; invalid
+limits exit 14. These options also apply to `--controlli`. The repository
+profile remains the source of branch and execution parameters; omitted values
+retain canonical defaults. No second TOML interpreter is needed.
+
+The stop command now runs after every launched process, including normal exit,
+timeout and interruption. It must return zero only after verifying termination
+of the entire sandbox/cgroup, including an already inactive unit. Missing
+command, nonzero exit or 120-second stop timeout produce exit 25,
+`recinto-arresto-non-verificato`, closure `stato_finale_verificato: false`,
+and persistent `.git/lanciatore/fermo`; subsequent runs exit 24. Such a closure
+records failure, not a final snapshot: the custodian must terminate survivors
+and reconcile repository state before removing the marker. The host scheduler
+must allow time for local `prima`, fetch/pull, the agent deadline and stop.
+A successful stop depends on the host command's truthful termination check;
+the portable launcher cannot inspect a systemd cgroup itself.
+
+Codex CLI 0.166.0 was inspected read-only. Its exec help provides JSONL,
+ephemeral execution and config/rule isolation switches, but no verified USD
+ceiling. Official hooks documentation describes PreToolUse denial, but this
+does not validate installed coverage or translation of the repository's
+Claude policy. Native turn usage is not monetary enforcement. Therefore
+`--codex-adapter` remains unset; the existing fallback contract is unchanged.
+Controlled canonical tests use fake agents and temporary repositories only;
+transient systemd tests remain with nixos. Real cycles and timer activation
+remain gated on host testing and custodian confirmation.
+
 ## Decisioni del custode (2026-11-08)
 
 Adottato il disegno minimale della proposta del 2026-10-29, con queste scelte:
