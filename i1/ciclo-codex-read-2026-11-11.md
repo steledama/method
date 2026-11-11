@@ -21,3 +21,10 @@ Il lavoro di adattamento è in
 [lanciatore-ciclo-nel-metodo](../o2/lanciatore-ciclo-nel-metodo.md);
 la cattura si consuma quando una lettura autorizzata di questi soli stati
 è verificata in un giro Codex. Nessuna proposta allarga il perimetro dei dati.
+
+Riscontro: `10c09e7` adatta prompt ed esecutore a `cat` sul solo path,
+entro gli stessi Read autorizzati. Il tentativo Codex `47567de9`, partito
+l'11/11 alle 18:21:17 +01:00, legge `fetch.json` con lo stesso id e quattro
+fetch riusciti, e le chiusure `i1/giri/ultimo.json` di nixos, salute ed
+economia. La lacuna è risolta e la cattura consumata; restano esclusi i
+trascritti degli adottanti.

@@ -58,8 +58,8 @@ riletto contro le fonti.
   La copertura ora comprende Codex: decisione del custode nei commit
   `201a6eb`, `6d3938f` e `de73101`, con motori scelti dal repo e primo
   collaudo completo in un repository di prova (push locale). Il profilo di
-  method mette Codex per primo per la prova a mano dell'11/11; il successo
-  di questo giro e del push in rete resta da leggere nella sua chiusura.
+  method mette Codex per primo per la prova a mano dell'11/11: la chiusura
+  `e8d5b664` conferma il commit `3b618dc`, push in rete riuscito e tree pulito.
   La vecchia storia di `nixos` non è nella storia pubblica letta: il log
   completo disponibile parte da `1c9da16` dell'11/11 e registra il passaggio
   al repo pubblico in `2667016`. Questo spiega il limite di confronto con
@@ -132,9 +132,15 @@ riletto contro le fonti.
   abbandonato dopo un diniego (`kb/agent-as-user.md`).
   Il primo giro qui con Codex espone una lacuna senza diniego: manca il
   tool Read richiesto per gli stati fuori checkout
-  ([cattura](../i1/ciclo-codex-read-2026-11-11.md)). La freschezza degli
-  origin di svezia e le chiusure esterne non sono verificate in quel giro;
-  l'equivalenza operativa fra motori resta incompleta su questo canale.
+  ([cattura](../i1/ciclo-codex-read-2026-11-11.md)). Chiusa da `10c09e7`
+  e verificata nel tentativo `47567de9`: `cat` sul solo path legge il fetch
+  con id coincidente e quattro esiti riusciti, e le chiusure in `i1/giri/`
+  di nixos, salute ed economia. Il perimetro resta quello dei Read concessi.
+  Nella chiusura serale di economia `f9d27165`, `commit: true` attribuisce
+  al tentativo `5622e30`, ma il resoconto dichiara lo stop per concorrenza
+  senza commit proprio: il riepilogo non basta ad attribuire un commit al
+  giro. Il caso resta da verificare nel task del lanciatore, senza leggere
+  trascritti o dati di dominio dell'adottante.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto

@@ -1,5 +1,5 @@
 ---
-sintesi: "Lanciatore canonico in uso in method e danea-auto; motori scelti dal repo ed esecutore Codex implementati l'11/11, con prova completa su remoto locale. Prescrizione motori-del-ciclo aperta; restano propagazione, collaudi in rete e fra motori, Windows e lettura autorizzata degli stati esterni nel giro Codex."
+sintesi: "Lanciatore canonico in uso in method e danea-auto; Codex verificato con push in rete e lettura degli stati autorizzati l'11/11. Prescrizione motori-del-ciclo aperta; restano propagazione, collaudi fra motori e Windows, e attribuzione dei commit in presenza di sessioni concorrenti."
 ciclo: dev
 ---
 
@@ -91,8 +91,20 @@ prompt al tool disponibile. In Codex si legge con `cat` sul solo path; l'esecuto
 ammette un comando di lettura fuori dal checkout solo dove un `Read(…)` del
 giro lo ammette, lo stesso perimetro del tool Read di Claude: `fetch.json` e
 le chiusure dei giri sì, trascritti e dati di dominio degli adottanti no.
-Prompt e `/cycle` lo dicono. Resta la verifica nel primo giro Codex; la
-cattura si consuma allora.
+Prompt e `/cycle` lo dicono (`10c09e7`). Verificato nel secondo giro Codex,
+tentativo `47567de9` dell'11/11 alle 18:21:17 +01:00: fetch con id coincidente,
+quattro esiti riusciti e `ultimo_riuscito` corrente; chiusure di nixos,
+salute ed economia lette da `i1/giri/ultimo.json`. La cattura è consumata.
+La chiusura `e8d5b664` verifica anche il push in rete di `3b618dc`;
+restano i collaudi fra motori reali e su Windows. Fonte e verdetto:
+[ciclo autonomo](../i3/ciclo-autonomo.md), cambio di copertura del canale.
+
+Nel collaudo della chiusura conservare il caso `economia` `f9d27165`
+dell'11/11: il riepilogo dice `commit: true`, `head_dopo: 5622e30`, mentre
+il resoconto dichiara stop per concorrenza e nessun commit proprio. Verificare
+in sessione l'attribuzione del commit al giro, distinguendolo dal commit della
+sessione concorrente; il controllo deve preservare lo stop anche quando HEAD
+avanza. Il giro method legge solo la chiusura autorizzata, senza trascritto.
 
 ## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
 
