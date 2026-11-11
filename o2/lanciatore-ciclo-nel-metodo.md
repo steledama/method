@@ -1,5 +1,5 @@
 ---
-sintesi: "Portare il lanciatore del ciclo autonomo nel metodo: uno script canonico uguale per tutti i repo, lanciato con parametri, a tenuta stagna per repo e indipendente dal sistema operativo. Adottato dal custode il 2026-11-08 il disegno minimale, in Python, dal checkout vivo, con la sandbox accesa dove esiste; lo script gira su danea2 e il collaudo in method è eseguito col giro a mano dell'08/11; il giro dal timer del 09/11 è riuscito senza `fermo`, e per la prescrizione agli altri adottanti resta da verificare in sessione l'unità dell'agente."
+sintesi: "Lanciatore canonico in uso in method e danea-auto; motori scelti dal repo ed esecutore Codex implementati l'11/11, con prova completa su remoto locale. Prescrizione motori-del-ciclo aperta; restano propagazione, collaudi in rete e fra motori, Windows e lettura autorizzata degli stati esterni nel giro Codex."
 ciclo: dev
 ---
 
@@ -42,17 +42,12 @@ Claude → Codex orchestration and adoption contract are in
 [`o3/ciclo/fallback.md`](../o3/ciclo/fallback.md). Warning alone never triggers
 fallback; partial acts and incomplete evidence block it.
 
-Still required for operational Codex fallback: a verified executor that maps
-native Codex events and enforces equivalent permissions, commit hook and
-monetary ceiling. No such executor is claimed by this change. The integration
-option remains unset until that validation; this task stays open. The nixos
-session retains host changes and the timer suspension for server-only migration.
-The subsequent read-only nixos report confirms that the installed server-only
-unit does not enforce the required read/command/network boundaries, and Codex
-0.166.0 exposes no verified USD ceiling. Its documented hooks have not been
-validated on that installation. These are concrete blockers to activation,
-not permission to weaken the policy; details are retained in the contract.
-This implementation request does not expand authority over adopters or hosts.
+That initial assessment preceded the canonical executor and the custodian's
+engine decision below. `201a6eb` supplies the executor; `6d3938f` records the
+live end-to-end test, and the current contract explicitly permits the absence
+of a Codex USD ceiling on the custodian's flat-rate account. Host migration
+and the remaining live checks stay separate from that implementation.
+This request does not expand authority over adopters or hosts.
 
 ## Il motore lo sceglie il repo (2026-11-11, decisione del custode)
 
@@ -72,23 +67,38 @@ chiusura come somma dei costi noti. Verificato dal vivo su Codex 0.166.0, con
 autorizzazione esplicita del custode: hook inline, rifiuto, `apply_patch`
 nell'hook, `env`, `.git` scrivibile solo con `writable_roots`. Prescrizione
 ai sette: [motori del ciclo](../o3/motori-del-ciclo.md). Restano le verifiche
-elencate nel [contratto](../o3/ciclo/fallback.md), a partire dal giro
-completo dal vivo attraverso il lanciatore.
+elencate nel [contratto](../o3/ciclo/fallback.md). Il giro completo dal vivo
+attraverso il lanciatore è verificato da `6d3938f`, su repository di prova
+con remoto locale; non prova ancora il push in rete né il passaggio fra
+motori reali. `de73101` abilita Codex per primo nel giro a mano di method.
+
+### Canale degli stati nel giro Codex
+
+Il verdetto [ciclo autonomo](../i3/ciclo-autonomo.md), sul cambio di
+copertura dell'11/11 e sulla
+[cattura](../i1/ciclo-codex-read-2026-11-11.md), lascia incompleta
+l'equivalenza operativa del perceive: manca il tool Read richiesto per gli
+stati fuori checkout. In sessione predisporre un'interfaccia di sola lettura
+per `fetch.json` e per le sole chiusure autorizzate dei giri, o un adattamento
+esplicito del prompt al tool disponibile. Non includere trascritti degli
+adottanti né dati di dominio. Verifica: nel primo giro Codex leggere id,
+esito e `ultimo_riuscito` del fetch e le chiusure previste; fino ad allora
+dichiarare età degli origin ignota e chiusure non verificate. Non cambiare
+prompt, permessi o esecutore nel giro autonomo.
 
 ## Tetto USD, sede dell'esecutore e commit del giro (2026-11-11, sera)
 
 Tre punti inoltrati dalla sessione nixos su deck, su richiesta del custode.
 
 - Tetto USD: decisione del custode, account flat. Il tetto resta preferito
-  dove si impone, la sua assenza non blocca il fallback: l'host la sceglie con
-  `--codex-senza-tetto-usd`, la chiusura la dichiara con
+  dove si impone, la sua assenza non blocca il fallback: la chiusura la dichiara con
   `budget_usd_imposto: false`. Gli altri vincoli (comandi ammessi, percorsi
   protetti, hook al commit, recinto e arresto) restano da valutare.
 - Sede dell'esecutore Codex: nel canone, in Python accanto a `o3/lanciatore.py`,
   perché il custode lo vuole anche su danea-auto (Windows); agli host restano
-  recinto, arresto e percorso del binario. Proposta di nixos, adottata. Prossimo
-  passo di questo task: scrivere l'esecutore canonico e il suo collaudo con
-  agenti finti, poi la verifica di copertura degli hook sulla versione installata.
+  recinto, arresto e percorso del binario. Proposta di nixos, adottata e
+  implementata in `201a6eb`; prove degli hook e giro completo registrati nel
+  contratto aggiornato da `6d3938f`.
 - Difetto della chiusura (giro a mano di economia, id `f9d27165`): `commit: true`
   con l'oggetto del commit del custode `5622e30`, perché si leggeva il cambio di
   HEAD. Ora il lanciatore passa all'agente `GIT_REFLOG_ACTION=lanciatore <id>`

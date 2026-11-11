@@ -10,6 +10,10 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 ## Contenuti
 
+- [Il giro Codex non espone Read per gli stati fuori
+  checkout](ciclo-codex-read-2026-11-11.md) — giro a mano `e8d5b664`:
+  fetch corrente e chiusure esterne non letti; adattamento da verificare
+  nel task del lanciatore, senza ampliare il perimetro.
 - [Il minimo degli stadi misura la lettura, non il
   giudizio](giri-lettura-fatta-giudizio-sottile-2026-11-08.md) — da `nixos`
   `5d4eecb`, inoltro del custode: primo giro con gli stadi verificati, gate

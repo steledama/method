@@ -55,6 +55,15 @@ riletto contro le fonti.
   ripresa, insieme alla quota settimanale: se l'account è lo stesso, tocca anche i
   giri di `deck`, che l'11/11 sono riusciti (`salute` 09:03, `economia`
   14:02, `nixos` 04:33).
+  La copertura ora comprende Codex: decisione del custode nei commit
+  `201a6eb`, `6d3938f` e `de73101`, con motori scelti dal repo e primo
+  collaudo completo in un repository di prova (push locale). Il profilo di
+  method mette Codex per primo per la prova a mano dell'11/11; il successo
+  di questo giro e del push in rete resta da leggere nella sua chiusura.
+  La vecchia storia di `nixos` non è nella storia pubblica letta: il log
+  completo disponibile parte da `1c9da16` dell'11/11 e registra il passaggio
+  al repo pubblico in `2667016`. Questo spiega il limite di confronto con
+  `e707d27`, senza smentire la chiusura già letta dal giro precedente.
 - **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
   con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
@@ -121,6 +130,11 @@ riletto contro le fonti.
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
   `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto
   abbandonato dopo un diniego (`kb/agent-as-user.md`).
+  Il primo giro qui con Codex espone una lacuna senza diniego: manca il
+  tool Read richiesto per gli stati fuori checkout
+  ([cattura](../i1/ciclo-codex-read-2026-11-11.md)). La freschezza degli
+  origin di svezia e le chiusure esterne non sono verificate in quel giro;
+  l'equivalenza operativa fra motori resta incompleta su questo canale.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto
