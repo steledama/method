@@ -40,7 +40,8 @@ class TrailerTests(unittest.TestCase):
         self.assertTrue(MODULE.errori_trailer([*base, ("Esiti", "plan=fatto")]))
         self.assertTrue(MODULE.errori_trailer([*base, ("Prossimo", "Task")]))
         self.assertEqual(
-            MODULE.errori_trailer([*base, ("Prossimo", "Task (cambiato, era Altro; fonte)")]), []
+            MODULE.errori_trailer([*base, ("Prossimo", "Task (cambiato, era Altro; fonte)")]),
+            [],
         )
         self.assertEqual(MODULE.errori_trailer([*base, ("Prossimo", "nessuno (coda vuota)")]), [])
         for motivato in ("Task (confermato; riesame)", "Task (confermato: riesame)"):
@@ -129,7 +130,10 @@ class StadiTests(unittest.TestCase):
     def test_compare_needs_goal_and_threads(self):
         giro = trascrizione(
             self.dir / "g.jsonl",
-            [("Skill", {"skill": "eval", "args": "all"}), ("Read", {"file_path": "/r/goal.md"})],
+            [
+                ("Skill", {"skill": "eval", "args": "all"}),
+                ("Read", {"file_path": "/r/goal.md"}),
+            ],
         )
         skill, testo = MODULE.tracce(giro)
         self.assertEqual(
@@ -182,7 +186,10 @@ class StadiTests(unittest.TestCase):
                         self.assertEqual(lacune, [] if assente is None else [attese[assente]])
 
     def test_nested_inputs_are_normalized_before_json_escaping(self):
-        dati = {"paths": [r"C:\repo\o1\plan.md", {"path": "C:\\repo\\i2\\"}], "limit": 2}
+        dati = {
+            "paths": [r"C:\repo\o1\plan.md", {"path": "C:\\repo\\i2\\"}],
+            "limit": 2,
+        }
         originali = json.dumps(dati)
         giro = trascrizione(self.dir / "g.jsonl", [("Read", dati)])
         _, testo = MODULE.tracce(giro)
@@ -236,9 +243,18 @@ class StadiTests(unittest.TestCase):
     def test_report_is_the_last_agent_text(self):
         giro = self.dir / "g.jsonl"
         righe = [
-            {"type": "assistant", "message": {"content": [{"type": "text", "text": "prima"}]}},
-            {"type": "assistant", "message": {"content": [{"type": "tool_use", "name": "Bash"}]}},
-            {"type": "assistant", "message": {"content": [{"type": "text", "text": "ultimo"}]}},
+            {
+                "type": "assistant",
+                "message": {"content": [{"type": "text", "text": "prima"}]},
+            },
+            {
+                "type": "assistant",
+                "message": {"content": [{"type": "tool_use", "name": "Bash"}]},
+            },
+            {
+                "type": "assistant",
+                "message": {"content": [{"type": "text", "text": "ultimo"}]},
+            },
             {"type": "user", "message": {"content": "dopo"}},
         ]
         giro.write_text("\n".join(json.dumps(r) for r in righe), encoding="utf-8")
@@ -259,6 +275,58 @@ class StadiTests(unittest.TestCase):
         righe, trovate = MODULE.verifica_stadi(self.dir)
         self.assertEqual(trovate, [])
         self.assertIn("nessuna chiusura", righe[0])
+
+    def test_register_commit_does_not_hide_cycle_outcomes(self):
+        giro = trascrizione(self.dir / "g.jsonl", [])
+        chiusura = {
+            "giro": str(giro),
+            "commit": True,
+            "head_dopo": "registro",
+            "commit_giro": ["ciclo", "registro"],
+        }
+
+        def trailers(root, ref):
+            return [("Esiti", "perceive=vuoto")] if ref == "ciclo" else []
+
+        with (
+            patch.object(MODULE, "ultima_chiusura", return_value=chiusura),
+            patch.object(MODULE, "trailer", side_effect=trailers),
+        ):
+            righe, trovate = MODULE.verifica_stadi(self.dir)
+        self.assertIn("commit ciclo", righe[0])
+        self.assertTrue(trovate)  # La mancanza della skill torna visibile.
+
+    def test_missing_or_ambiguous_outcomes_fail(self):
+        giro = trascrizione(self.dir / "g.jsonl", [])
+        chiusura = {
+            "giro": str(giro),
+            "commit": True,
+            "head_dopo": "registro",
+            "commit_giro": ["ciclo", "registro"],
+        }
+        for trailers in ([], [("Esiti", "perceive=vuoto")]):
+            with (
+                self.subTest(trailers=trailers),
+                patch.object(MODULE, "ultima_chiusura", return_value=chiusura),
+                patch.object(MODULE, "trailer", return_value=trailers),
+                contextlib.redirect_stdout(io.StringIO()),
+            ):
+                self.assertEqual(MODULE.stadi(self.dir, None), 1)
+
+    def test_legacy_closure_uses_head_after(self):
+        giro = trascrizione(self.dir / "g.jsonl", [("Skill", {"skill": "eval"})])
+        chiusura = {"giro": str(giro), "commit": True, "head_dopo": "legacy"}
+        with (
+            patch.object(MODULE, "ultima_chiusura", return_value=chiusura),
+            patch.object(MODULE, "trailer", return_value=[("Esiti", "perceive=vuoto")]),
+        ):
+            righe, trovate = MODULE.verifica_stadi(self.dir)
+        self.assertIn("commit legacy", righe[0])
+        self.assertEqual(trovate, [])
+
+    def test_missing_transcript_fails(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(MODULE.stadi(self.dir, self.dir / "missing.jsonl"), 1)
 
 
 class ProssimoTests(unittest.TestCase):
@@ -296,7 +364,8 @@ class ProssimoTests(unittest.TestCase):
         self.assertIn("scavalca", self.avvisi("Altro (confermato)")[0])
         self.assertTrue(
             self.avvisi(
-                "Primo (confermato)", plan=self.PLAN.replace("| —       |", "| p1      |", 1)
+                "Primo (confermato)",
+                plan=self.PLAN.replace("| —       |", "| p1      |", 1),
             )
         )
 
@@ -305,7 +374,10 @@ class ProssimoTests(unittest.TestCase):
         self.assertEqual(self.avvisi("Altro (confermato)", plan=None), [])
 
     def test_none_mixed_with_other_forms_warns(self):
-        for misto in ("nessuno (confermato; riesame)", "nessuno (cambiato, era Primo; fonte)"):
+        for misto in (
+            "nessuno (confermato; riesame)",
+            "nessuno (cambiato, era Primo; fonte)",
+        ):
             self.assertIn("mescola le forme", self.avvisi(misto)[0])
             self.assertIn("mescola le forme", self.avvisi(misto, plan=None)[0])
 
@@ -341,7 +413,8 @@ class PrimaTests(unittest.TestCase):
             subprocess.run(["git", "init", "-q", str(root)], check=True)
             (root / "o3").mkdir()
             (root / "o3" / "commit_gate.toml").write_text(
-                '[[controllo]]\ncomando = ["comando-che-non-esiste-xyz"]\n', encoding="utf-8"
+                '[[controllo]]\ncomando = ["comando-che-non-esiste-xyz"]\n',
+                encoding="utf-8",
             )
             uscita = io.StringIO()
             with contextlib.redirect_stdout(uscita):
@@ -368,7 +441,15 @@ class PerimetroTests(unittest.TestCase):
         subprocess.run(["git", "init", "-q", str(self.root)], check=True)
         (self.root / "o3").mkdir()
         (self.root / "o3" / "commit_gate.toml").write_text(FORMATTER, encoding="utf-8")
-        git = ["git", "-C", str(self.root), "-c", "user.name=P", "-c", "user.email=p@example.org"]
+        git = [
+            "git",
+            "-C",
+            str(self.root),
+            "-c",
+            "user.name=P",
+            "-c",
+            "user.email=p@example.org",
+        ]
         subprocess.run([*git, "add", "-A"], check=True)
         subprocess.run([*git, "commit", "-q", "-m", "profilo"], check=True)
         (self.root / "mio.md").write_text("mio\n", encoding="utf-8")

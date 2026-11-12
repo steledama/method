@@ -76,7 +76,10 @@ PATH_MINIMI = {
 # tipo del commit lo sceglie il fork (`docs(ciclo)`, `chore(ciclo)`): conta lo scope.
 COMANDI_MINIMI = {
     "plan": [
-        (("git log", "(ciclo)", "%b"), "corpi dei giri della settimana non letti (passo 3c)"),
+        (
+            ("git log", "(ciclo)", "%b"),
+            "corpi dei giri della settimana non letti (passo 3c)",
+        ),
     ],
 }
 OBIETTIVO = re.compile(r"^### (\d+)\.", re.MULTILINE)
@@ -479,20 +482,29 @@ def verifica_stadi(root: Path, giro: Path | None = None) -> tuple[list[str], lis
     """(righe, lacune) degli stadi di un giro: con `giro` dato, il commit
     è HEAD; altrimenti quelli dell'ultima chiusura."""
     ref = "HEAD"
+    candidati = [ref]
     if giro is None:
         chiusura = ultima_chiusura(root)
         if chiusura is None:
             return [f"nessuna chiusura con trascrizione in {TENTATIVI}"], []
         giro = Path(chiusura["giro"])
         ref = chiusura.get("head_dopo") or ref
+        candidati = chiusura.get("commit_giro") or [ref]
+        if isinstance(candidati, str):
+            candidati = [candidati]
         if not chiusura.get("commit"):
             return [f"giro {giro.stem} senza commit: niente Esiti da verificare"], []
     if not giro.exists():
-        return [f"trascrizione assente: {giro}"], []
-    valori = [v for k, v in trailer(root, ref) if k == "Esiti"]
+        return [], [f"trascrizione assente: {giro}"]
+    con_esiti = [
+        (candidato, [v for k, v in trailer(root, candidato) if k == "Esiti"])
+        for candidato in candidati
+    ]
+    con_esiti = [(candidato, valori) for candidato, valori in con_esiti if valori]
+    if len(con_esiti) != 1:
+        return [], [f"giro {giro.stem}: atteso un solo commit con Esiti, trovati {len(con_esiti)}"]
+    ref, valori = con_esiti[0]
     dichiarati = stadi_esiti(valori)
-    if not dichiarati:
-        return [f"giro {giro.stem}: commit {ref[:7]} senza Esiti"], []
     skill, testo = tracce(giro)
     trovate = lacune(dichiarati, skill, testo)
     righe = [f"giro {giro.stem}, commit {ref[:7]}: dichiarati {' '.join(dichiarati)}"]
@@ -518,7 +530,9 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="comando", required=True)
     p_prima = sub.add_parser("prima", help="formatter e controlli sui file cambiati")
     p_prima.add_argument(
-        "--perimetro", nargs="+", help="i file della sessione; fuori perimetro esce con 3"
+        "--perimetro",
+        nargs="+",
+        help="i file della sessione; fuori perimetro esce con 3",
     )
     sub.add_parser("verifica", help="prima dello staging: working tree uguale all'impronta")
     p_dopo = sub.add_parser("dopo", help="trailer dell'ultimo commit")
