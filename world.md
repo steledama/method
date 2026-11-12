@@ -17,12 +17,18 @@ sono copie del registro `o3/presentations.nix` di `nixos` e, per
 `danea2`, del `world.md` di `danea-auto`: l'audit li verifica
 raggiungendoli.
 
+Su `deck` vivono solo i checkout dei repo di casa (`method`, `nixos`,
+`economia`, `salute`). Gli adottanti di lavoro (`nixos-lavoro`, `bi`,
+`danea-auto`, `baserow`) non hanno un clone su `deck`: da lì si raggiungono
+via `ssh svezia` sul checkout dichiarato (decisione del custode del
+2026-11-12, per non tenere copie secondarie da riallineare).
+
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
   `deck`; accento `#c2410c`; vista `deck:8002`
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS della coppia di server `norvegia`/`svezia`, separata dal
-  repo di casa il 2026-11-04 — checkout `~/nixos` su `svezia` (`~/nixos-lavoro` su `deck`);
+  repo di casa il 2026-11-04 — checkout `~/nixos` su `svezia`;
   accento `#a16207`; vista `norvegia:8002`, sullo standby insieme al giro
   autonomo (il servizio segue il ruolo, dal 2026-11-05 con nixos d88e297)
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
