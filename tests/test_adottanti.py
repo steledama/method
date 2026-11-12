@@ -69,6 +69,11 @@ class AdottantiTests(unittest.TestCase):
         comando = MODULE.comando(MODULE.Remoto("svezia", "nixos"), ("log", "--format=%h %s"))
         self.assertEqual(comando[:-1], [*MODULE.SSH, "svezia"])
         self.assertEqual(comando[-1], "env GIT_OPTIONAL_LOCKS=0 git -C nixos log '--format=%h %s'")
+        windows = MODULE.Remoto("danea2", "danea-auto", windows=True)
+        self.assertEqual(
+            MODULE.comando(windows, ("log", "--format=%h %s"))[-1],
+            'set GIT_OPTIONAL_LOCKS=0&& git -C danea-auto log "--format=%h %s"',
+        )
 
     def test_real_world_lists_checkouts_in_home(self):
         dichiarati = MODULE.dichiarati()

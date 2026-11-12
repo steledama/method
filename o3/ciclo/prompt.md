@@ -51,8 +51,8 @@ riporta comunque i giri del giorno.
 ## Adottanti
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
-di `deck`. I repo di `svezia` (`bi`, `baserow`, `danea-auto`, `nixos-lavoro`)
-non hanno un clone su `deck` dal 2026-11-12 e si leggono solo via ssh, che il
+di `deck`. I repo di lavoro (`bi`, `baserow`, `nixos-lavoro` su `svezia`,
+`danea-auto` su `danea2`) non hanno un clone su `deck` dal 2026-11-12 e si leggono solo via ssh, che il
 giro non ha: `o3/adottanti.py` li dà assenti e il giro dichiara il limite,
 senza dedurne lo stato. Il fetch dei checkout locali lo fa l'unità prima del
 giro, fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
@@ -107,7 +107,7 @@ Del rapporto non decidi niente. Non classifichi i rossi, non fai il campione
 di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
 ricorrenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
 resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
-del rapporto. Nel rapporto del giro i repo di `svezia` sono rossi perché
+del rapporto. Nel rapporto del giro i repo di lavoro sono rossi perché
 assenti, non per il loro stato: li legge l'audit in sessione con `--ssh`.
 Per i checkout locali leggi `fetch.json` prima di fidarti di `origin/main`.
 

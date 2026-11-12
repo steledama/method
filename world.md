@@ -18,10 +18,11 @@ sono copie del registro `o3/presentations.nix` di `nixos` e, per
 raggiungendoli.
 
 Su `deck` vivono solo i checkout dei repo di casa (`method`, `nixos`,
-`economia`, `salute`). Gli adottanti di lavoro (`nixos-lavoro`, `bi`,
-`danea-auto`, `baserow`) non hanno un clone su `deck`: da lì si raggiungono
-via `ssh svezia` sul checkout dichiarato (decisione del custode del
-2026-11-12, per non tenere copie secondarie da riallineare).
+`economia`, `salute`). Gli adottanti di lavoro non hanno un clone su
+`deck`: da lì si raggiungono via ssh sul checkout dichiarato, `ssh svezia`
+per `nixos-lavoro`, `bi` e `baserow`, `ssh danea2` (Windows, shell `cmd`)
+per `danea-auto` (decisione del custode del 2026-11-12, per non tenere copie
+secondarie da riallineare).
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
@@ -41,7 +42,7 @@ via `ssh svezia` sul checkout dichiarato (decisione del custode del
   `ssh norvegia`, poi `ssh deck`); accento `#be123c`; vista `deck:8003`
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
-  checkout `~/danea-auto` su `svezia`, runtime su `danea2`; accento `#7e22ce`; vista `danea2:8001`
+  checkout `~/danea-auto` su `danea2`, dove gira anche il runtime; accento `#7e22ce`; vista `danea2:8001`
 - **[baserow](https://github.com/tt-sviluppo/baserow)** — Custodia
   dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
   e contratto con `bi` — checkout `~/baserow` su `svezia` (produzione),

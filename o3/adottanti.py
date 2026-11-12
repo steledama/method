@@ -58,6 +58,7 @@ class Remoto(NamedTuple):
 
     host: str
     cartella: str  # relativa alla home remota
+    windows: bool = False  # sshd con shell `cmd`, come su `danea2`
 
     def __str__(self) -> str:
         return f"{self.host}:~/{self.cartella}"
@@ -139,8 +140,21 @@ def cloni(home: Path = HOME) -> dict[str, Path]:
 
 @lru_cache(maxsize=None)
 def raggiungibile(remoto: Remoto) -> bool:
-    """Il checkout remoto risponde a `git rev-parse` via ssh."""
+    """Il checkout remoto risponde a `git rev-parse` via ssh; annota se l'host è Windows."""
+    try:
+        sonda = subprocess.run(
+            [*SSH, remoto.host, "echo %OS%"], capture_output=True, text=True, check=False
+        )
+    except OSError:  # ssh assente dal PATH
+        return False
+    if sonda.returncode:
+        return False
+    WINDOWS[remoto.host] = "Windows_NT" in sonda.stdout
+    remoto = remoto._replace(windows=WINDOWS[remoto.host])
     return git(remoto, "rev-parse", "--git-dir").returncode == 0
+
+
+WINDOWS: dict[str, bool] = {}  # host → shell `cmd`, dalla sonda di `raggiungibile`
 
 
 def adottanti(
@@ -158,7 +172,7 @@ def adottanti(
         if repo in presenti:
             trovati[nome] = presenti[repo]
         elif host and host != qui and prova(remoto := Remoto(host, cartella)):
-            trovati[nome] = remoto
+            trovati[nome] = remoto._replace(windows=WINDOWS.get(host, False))
     return trovati
 
 
@@ -199,6 +213,10 @@ def ammesso(path: str) -> bool:
 
 def comando(checkout: Checkout, args: tuple[str, ...]) -> list[str]:
     """Il comando git sul checkout: locale, o via ssh sull'host dichiarato."""
+    if isinstance(checkout, Remoto) and checkout.windows:
+        # `cmd` non ha `env` né le virgolette singole: quoting di Windows.
+        remoto = subprocess.list2cmdline(["git", "-C", checkout.cartella, *args])
+        return [*SSH, checkout.host, f"set GIT_OPTIONAL_LOCKS=0&& {remoto}"]
     if isinstance(checkout, Remoto):
         remoto = ["env", "GIT_OPTIONAL_LOCKS=0", "git", "-C", checkout.cartella, *args]
         return [*SSH, checkout.host, shlex.join(remoto)]
