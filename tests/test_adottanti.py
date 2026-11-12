@@ -75,6 +75,12 @@ class AdottantiTests(unittest.TestCase):
             'set GIT_OPTIONAL_LOCKS=0&& git -C danea-auto log "--format=%h %s"',
         )
 
+    def test_shell_metacharacters_never_reach_the_remote_shell(self):
+        self.assertFalse(MODULE.ammesso(".claude/skills/x&calc/SKILL.md"))
+        self.assertTrue(MODULE.ammesso(".claude/skills/exec/SKILL.md"))
+        with self.assertRaises(SystemExit):
+            MODULE.main(["log", "nixos", "--ref", "HEAD&calc"])
+
     def test_real_world_lists_checkouts_in_home(self):
         dichiarati = MODULE.dichiarati()
         self.assertIn("nixos", dichiarati)

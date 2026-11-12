@@ -205,8 +205,13 @@ def di_metodo(world: Path = ROOT / "world.md") -> str:
     return next((p for p in testo.split("\n\n") if "Quello di `metodo`" in p), "")
 
 
+# Ref e path passano anche per la shell remota (`cmd` su Windows): niente
+# metacaratteri, così un argomento non diventa un secondo comando.
+SICURO = re.compile(r"^[A-Za-z0-9_./-]+$")
+
+
 def ammesso(path: str) -> bool:
-    if ".." in Path(path).parts:
+    if ".." in Path(path).parts or not SICURO.match(path):
         return False
     return any(fnmatch.fnmatchcase(path, schema) for schema in INTERFACCIA)
 
@@ -618,6 +623,8 @@ def main(argv: list[str] | None = None) -> int:
     p_audit = sub.add_parser("audit", help="parte meccanica di /adottanti, dopo il fetch")
     p_audit.add_argument("--senza-build", action="store_true", help="salta build.py --check")
     args = parser.parse_args(argv)
+    if not SICURO.match(getattr(args, "ref", "HEAD")):
+        sys.exit(f"ref non ammesso: {args.ref}")
 
     global REMOTI
     REMOTI = args.ssh
