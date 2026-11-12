@@ -6,6 +6,8 @@ prescrizione che tutti hanno recepito (`autonomy.md`, `ciclo-autonomo`).
 `verifica <nome>` dice per ogni adottante di `world.md` se il marker
 `i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
 adottante senza clone sull'host è «checkout assente», e la chiusura non passa.
+Con `--ssh`, in sessione, legge via ssh gli adottanti dichiarati su altri host
+(`o3/adottanti.py`); il giro non lo passa.
 `chiudi <nome>` ripete la verifica e solo se passa per tutti toglie file e voce
 da `o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
 """
@@ -19,6 +21,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import adottanti as lettura  # noqa: E402
 from adottanti import adottanti, assenti, git  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,7 +64,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("comando", choices=["verifica", "chiudi"])
     parser.add_argument("nome", help="nome del file in o3/, senza .md")
+    parser.add_argument(
+        "--ssh", action="store_true", help="legge via ssh gli adottanti su altri host"
+    )
     args = parser.parse_args(argv)
+    lettura.REMOTI = args.ssh
     if not NOME.match(args.nome) or not (ROOT / "o3" / f"{args.nome}.md").exists():
         print(f"prescrizione sconosciuta: o3/{args.nome}.md")
         return 2
