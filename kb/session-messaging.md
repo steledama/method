@@ -90,20 +90,47 @@ pannello, e il protocollo vale con queste sostituzioni:
 - il campo di input si verifica con `herdr pane read --format ansi`: la
   sequenza arriva dal terminale remoto intatta, quindi la regola del
   suggerimento in dim vale identica;
+- il pannello non è legato all'host: il custode può chiudere la sessione e
+  aprirne un'altra, anche su un host diverso, nello stesso pannello. Host e
+  directory si rileggono dalla riga di stato prima di ogni invio, non solo
+  del primo;
 - si invia con `herdr pane send-text <pane-id> "<messaggio>"` seguito da
   `herdr pane send-keys <pane-id> Enter`, e si conferma la partenza del
-  turno con `herdr pane wait-output`;
+  turno con `herdr pane wait-output --match <testo>`, che richiede un testo
+  o un'espressione da attendere. Se non trova il testo nel tempo concesso,
+  lo stato si ricava rileggendo il pannello, non reinviando;
 - gli stati dell'agente non ci sono: non esistono `working`, `blocked` né
   `--wait`. Un dialogo di approvazione dall'altra parte non è segnalato e si
   vede solo leggendo il pannello, prima dell'invio e prima di considerare
   chiuso il turno; per Claude Code la fine del turno si ricava dall'assenza
-  di `esc to interrupt`;
+  di `esc to interrupt`, dello spinner e delle chiamate in attesa, con il
+  campo di input di nuovo vuoto; l'attesa è un ciclo che rilegge il
+  pannello finché la condizione non vale;
 - la risposta si legge dal pannello, come nel caso locale.
+
+Il canale fra host va in un solo verso. La sessione remota gira fuori
+dall'Herdr del mittente: non ne vede i pannelli e non può scrivergli, quindi
+non risponde con un invio, ma lascia la risposta nel proprio pannello, dove
+la legge il mittente. Chi apre il pannello `ssh` tiene la conversazione,
+mentre l'altra parte risponde soltanto. Un mittente che voglia una risposta
+la chiede in forma compatta, da leggere in fondo al pannello. Nella
+lettura, i blocchi lunghi compressi dall'harness remoto non si espandono.
+
+Il canale permette anche di lavorare su un repository che sull'host del
+mittente non ha checkout. La sessione remota legge, valuta e verifica nel
+proprio checkout, con le proprie regole, e il mittente ne riceve l'esito
+senza tenere un clone parallelo, che invecchierebbe e duplicherebbe
+l'autorità. Le domande che servono a confrontare o a decidere si inviano di
+sola lettura e lo dichiarano. Un atto sul repository remoto resta della
+sessione remota e del suo custode.
 
 Il collegamento attraversa un host ma non sposta autorità: la sessione remota
 conserva regole e delega del proprio repository e del proprio host. Primi
 invii riusciti il 2026-11-09, da `nixos` su norvegia a una sessione `bi` su
-svezia.
+svezia. Il 2026-11-12, da `nixos` su deck a una sessione su norvegia nel
+repository di lavoro, il canale è stato collaudato come accesso a un
+repository senza checkout locale: confronto delle versioni con gli host di
+casa e valutazione dell'effetto di una cadenza di aggiornamento sul server.
 
 ## Nel repository adottante
 
