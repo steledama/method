@@ -37,8 +37,8 @@ verificata e dichiara nel resoconto ogni nodo toccato. Prescrizioni e
 strumenti in `o3/`, skill canoniche, `presentation/`, `CLAUDE.md`,
 `autonomy.md` e `goal.md` restano proposte. `/method` non gira nel giro; di
 `/adottanti` gira solo la parte meccanica, come sotto in «Audit mensile». Fa eccezione la chiusura di una prescrizione recepita da
-tutti: `python3 o3/prescrizioni.py verifica <nome>` la controlla sui marker,
-`chiudi <nome>` toglie file e voce d'indice in stage, e i rimandi rimasti si
+tutti: `python3 o3/prescrizioni.py verifica <nome> --ssh` la controlla sui
+marker, `chiudi <nome> --ssh` toglie file e voce d'indice in stage, e i rimandi rimasti si
 correggono nel giro.
 
 Il filo `i3/ciclo-autonomo.md` porta un verdetto, non la cronaca dei giri
@@ -52,9 +52,12 @@ riporta comunque i giri del giorno.
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
 di `deck`. I repo di lavoro (`bi`, `baserow`, `nixos-lavoro` su `svezia`,
-`danea-auto` su `danea2`) non hanno un clone su `deck` dal 2026-11-12 e si leggono solo via ssh, che il
-giro non ha: `o3/adottanti.py` li dà assenti e il giro dichiara il limite,
-senza dedurne lo stato. Il fetch dei checkout locali lo fa l'unità prima del
+`danea-auto` su `danea2`) non hanno un clone su `deck` dal 2026-11-12 e si
+leggono sul loro host con `--ssh`, ammesso solo per `o3/adottanti.py` e
+`o3/prescrizioni.py`, in sola lettura (custode, 2026-11-12). Del checkout
+remoto `origin/main` è quello dell'ultimo fetch fatto su quell'host: se
+conta, lo dici. Un host che non risponde lo script lo dà assente: dichiari
+il limite senza dedurne lo stato. Il fetch dei checkout locali lo fa l'unità prima del
 giro, fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 `o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
 checkout sono in sola lettura. L'esito sta in
@@ -68,7 +71,8 @@ Gli adottanti si leggono con `python3 o3/adottanti.py`, di sola lettura:
 <repo> [-n N] [--ref origin/main]` gli ultimi commit coi trailer; `show <repo>
 <path> [--ref origin/main]` un file dell'interfaccia col canone (marker,
 `CLAUDE.md`, `autonomy.md`, prompt e permessi del ciclo, skill), elencati da
-`--help`. `ssh` non è concesso, e non passi `--ssh`. Se un fetch non è
+`--help`. `ssh` diretto non è concesso; passa per lo script con `--ssh`. Se
+un fetch non è
 `riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
 dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
 e l'età dell'`origin` letto, presa da `ultimo_riuscito` (ignota se `null`), senza dedurre uno stato che il checkout non
@@ -97,7 +101,7 @@ una frizione che deve durare diventa una cattura `.md` versionata in `i1/`
 Se la `Prossima` della riga di `/adottanti` in `## Ricorrenze` di
 `o1/plan.md` è oggi o passata, e `i1/` non ha ancora
 `audit-adottanti-AAAA-MM.md` per il mese corrente, lancia
-`python3 o3/adottanti.py audit`. Il comando dura circa un minuto e non
+`python3 o3/adottanti.py --ssh audit`. Il comando dura circa un minuto e non
 scrive nei checkout. Salva l'uscita intera in
 `i1/audit-adottanti-AAAA-MM.md`, sotto un frontmatter con `ciclo: runtime`,
 e aggiungi la voce in `i1/perceptions.md`. Se nel mese il file c'è già, non
@@ -107,9 +111,8 @@ Del rapporto non decidi niente. Non classifichi i rossi, non fai il campione
 di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
 ricorrenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
 resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
-del rapporto. Nel rapporto del giro i repo di lavoro sono rossi perché
-assenti, non per il loro stato: li legge l'audit in sessione con `--ssh`.
-Per i checkout locali leggi `fetch.json` prima di fidarti di `origin/main`.
+del rapporto. Un host che non risponde dà un rosso di assenza, non di
+stato. Per i checkout locali leggi `fetch.json` prima di fidarti di `origin/main`.
 
 ## Host e verifiche
 

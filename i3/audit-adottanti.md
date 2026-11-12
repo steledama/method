@@ -189,10 +189,10 @@ attrito.
   se il rapporto di dicembre arriva in tempo;
 - prova dell'audit snellito, al primo audit del 2026-12-01: il resoconto
   dichiara il tempo speso in sessione e conta i rossi utili e quelli falsi,
-  e il rapporto del giro deve esserci alla scadenza. Dal 2026-11-12 il giro
-  non legge via ssh gli adottanti di lavoro, quindi il suo rapporto li dà
-  assenti: quelli li legge l'audit in sessione con `--ssh` (criterio dal task
-  `snellire-adottanti`, chiuso il 2026-11-12, in git);
+  e il rapporto del giro deve esserci alla scadenza. Dal 2026-11-12 gli
+  adottanti di lavoro non hanno clone su `deck`: giro e sessione li leggono
+  sui loro host con `--ssh` (criterio dal task `snellire-adottanti`, chiuso
+  il 2026-11-12, in git);
 - `baserow`, verifica nell'uso: il fronte backup è chiuso, restano deadlock e
   crescita dello storico, che sono coda di dominio.
 

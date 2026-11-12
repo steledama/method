@@ -76,8 +76,10 @@ custode il 2026-11-02): quando la riga di `## Ricorrenze` è
 arrivata e il mese non ha ancora il suo rapporto, lancia
 `o3/adottanti.py audit` e lo versiona in `i1/`. La classificazione dei
 rossi e il campione di decisioni restano alla sessione col custode. Gli adottanti si leggono dai marker nei
-checkout locali di `deck`, o da `origin` via `fetch` per quelli di `svezia`,
-senza `ssh`; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti degli adottanti esclusi. Il divieto sta nei deny del solo
+checkout locali di `deck` e, per quelli di lavoro senza clone su `deck`, sul
+loro host con `o3/adottanti.py` e `o3/prescrizioni.py` passati con `--ssh`,
+in sola lettura (deciso dal custode il 2026-11-12); `ssh` diretto resta
+negato; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti degli adottanti esclusi. Il divieto sta nei deny del solo
 `o3/ciclo/permessi.json`; nelle sessioni col custode restano le regole di sopra.
 
 Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un

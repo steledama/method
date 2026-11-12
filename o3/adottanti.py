@@ -13,7 +13,9 @@ Un adottante senza clone sull'host, dichiarato `su` un altro host, si legge
 lì via `ssh <host> git -C <cartella>`, solo con `--ssh`: da `deck` gli
 adottanti di lavoro non hanno copie secondarie (decisione del custode del
 2026-11-12). Gli stessi comandi git, di sola lettura, girano sul checkout
-remoto. Il giro autonomo non passa `--ssh`, perché il suo recinto nega `ssh`.
+remoto. Il giro autonomo passa `--ssh` a questo script e a `prescrizioni.py`,
+unici gesti ssh che ha (custode, 2026-11-12): `ssh` diretto gli resta negato,
+e ref e path non portano metacaratteri alla shell remota.
 Un adottante che non ha clone e non si raggiunge è assente, non un marker che
 non recepisce.
 `show` legge solo i file con cui un adottante recepisce il canone; il resto del

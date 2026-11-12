@@ -7,7 +7,7 @@ prescrizione che tutti hanno recepito (`autonomy.md`, `ciclo-autonomo`).
 `i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
 adottante senza clone sull'host è «checkout assente», e la chiusura non passa.
 Con `--ssh`, in sessione, legge via ssh gli adottanti dichiarati su altri host
-(`o3/adottanti.py`); il giro non lo passa.
+(`o3/adottanti.py`); il giro lo passa, come per `adottanti.py`.
 `chiudi <nome>` ripete la verifica e solo se passa per tutti toglie file e voce
 da `o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
 """
