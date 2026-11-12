@@ -22,7 +22,15 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | ----- | --- | ----------------------------- | ---- |
 | dev   | S   | Ricorrenza dei dinieghi       | —    |
 | dev   | S   | Pubblicazione decisa dal repo | —    |
-| dev   | S   | Traduzione in inglese         | —    |
+| dev   | S   | Traduzione in inglese         | p1   |
+
+Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
+riesame (`kb/plan.md`, «Risveglio»):
+
+- `p1` — custode, 2026-11-12: la traduzione aspetta la fine
+  dell'osservazione del ciclo autonomo, per non mescolare il cambio di
+  lingua ai `/method` degli adottanti; si riprende al riesame del filo
+  ciclo autonomo, o prima se serve un lettore in inglese; by: 2026-12-01
 
 ## Ricorrenze
 
