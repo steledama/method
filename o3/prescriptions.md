@@ -16,6 +16,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   profilo del lanciatore, fallback nei due versi, esecutore Codex canonico;
   all'host solo binari, recinto, arresto e trigger, e nessun nixos tiene la
   politica degli altri repo. Prescritta ai sette il 2026-11-11.
+- [L'ultimo giro senza `git log` da quotare](ultimo-giro.md) —
+  `o3/ultimo_giro.py` al posto dei `git log` con parentesi che aprono il
+  giro, negati in 13 giri di quattro repo; le skill lo usano, i permessi lo
+  concedono. Prescritta ai sette il 2026-11-12.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
@@ -61,6 +65,12 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   normalizza i suoi eventi. Test: `python3 -m unittest discover -s tests -p 'test_esecutore_codex.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
   ([plan](../kb/plan.md), «Ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
+- `dinieghi.py` — la ricorrenza dei dinieghi nei giri autonomi: classi di
+  grafia in almeno due giri fra gli ultimi dieci dei repo leggibili, con
+  l'esito sul segnale canonico ([agent-as-user](../kb/agent-as-user.md)). Lo
+  lancia il giro di `method`. Test: `python3 -m unittest discover -s tests -p 'test_dinieghi.py'`.
+- `ultimo_giro.py` — l'ultimo giro e l'ultimo `Prossimo:` del repo corrente,
+  senza grafie da quotare ([ultimo giro](ultimo-giro.md)). Test nello stesso file.
 - `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
   cfr. [view](../kb/view.md)):
   - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i

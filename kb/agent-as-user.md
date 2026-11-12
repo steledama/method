@@ -61,6 +61,13 @@ classifica in uno di tre modi:
   primo tentativo il feedback del diniego basta; se ricorre, un segnale nel
   punto d'uso è legittimo, perché dietro c'è un vincolo vero, oppure lo
   strumento dedicato rende superflua la grafia che l'harness ferma.
+  Che una grafia ricorra lo dice uno script, non la memoria del giro:
+  `o3/dinieghi.py` conta per classe i dinieghi degli ultimi giri, anche fra
+  repository, e per ogni classe dice se un segnale canonico c'è ed è stato
+  recepito. Una ricorrenza che continua dopo il recepimento chiede uno
+  strumento, non un'altra frase: il caso è `o3/ultimo_giro.py`, nato dalle
+  parentesi non quotate nei `git log` che aprono il giro, negate in tredici
+  giri di quattro repository in una settimana di novembre 2026.
 
 La classe dipende dal contesto, non dal comando. L'affordance è una relazione
 tra agente e artefatto, e lo stesso deny può essere vincolo in un contesto e

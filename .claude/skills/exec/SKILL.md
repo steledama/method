@@ -229,7 +229,7 @@ coda, non dal giro precedente. Una sessione può aver messo una riga in testa
 senza toccare il trailer. Se consigli un'altra riga, il corpo del commit
 nomina quella scavalcata e il motivo (urgenza, costo/opportunità, una lente
 del passo 3b). Poi confronta il consigliato con l'ultimo trailer `Prossimo:`
-della storia (`git log -1 --grep='^Prossimo:' --format='%(trailers:key=Prossimo,valueonly)'`;
+della storia (la riga `Prossimo:` di `python3 o3/ultimo_giro.py`;
 senza trailer precedente è un cambio, con causa «primo trailer»):
 
 - **confermato**: dì in una riga, nel corpo del commit e nel resoconto,

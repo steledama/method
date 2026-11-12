@@ -114,6 +114,15 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.
+   In `metodo`, che osserva i giri di tutti, lancia poi
+   `python3 o3/dinieghi.py`: le classi di grafia che ricorrono in almeno due
+   giri fra gli ultimi dieci dei repo leggibili, con l'esito sul segnale
+   canonico. Segnale assente, o recepito e ricorrenza che continua, è una
+   proposta nel task `o2/` pertinente, da chiudere col custode con un
+   permesso o uno strumento, non con un'altra frase; non recepito è un
+   `/method` dell'adottante, da segnalare. Le righe «Altro» sono grafie
+   nuove: si classificano come i dinieghi dell'ultimo giro. Il giro non
+   scrive né skill né permessi.
    Sulla stessa chiusura lancia `python3 o3/commit_gate.py stadi`: gli
    stadi che l'`Esiti:` del giro precedente dichiara senza la traccia del
    loro minimo vanno nella riga `Attenzione:` di questo giro; un suo
@@ -198,8 +207,9 @@ giro.
 **1. Raccogli il contesto corrente**
 
 Leggi `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`; poi `o1/plan.md` e
-gli eventi dall'ultimo giro: `git log -1 --grep='^docs(ciclo)' --format=%h`
-dà il commit, `git log --oneline <commit>..HEAD` gli eventi, tutti. Una
+gli eventi dall'ultimo giro: `python3 o3/ultimo_giro.py` dà il commit del
+giro (oggetto `docs(ciclo)` con `Esiti:`) senza grafie da quotare,
+`git log --oneline <commit>..HEAD` gli eventi, tutti. Una
 finestra a numero fisso perde il lavoro del custode fra due giri (`nixos`,
 2026-11-08: 35 commit contro `-15`). Senza un giro precedente vale la data
 dell'ultima revisione, con `--since`. I segnali reali

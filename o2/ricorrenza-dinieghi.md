@@ -1,5 +1,5 @@
 ---
-sintesi: "Un diniego che ricorre nei giri autonomi, anche fra repo diversi, diventa una proposta in o2: lo conta uno script per classe di grafia, e prima di proporre una regola nuova si verifica se c'è un segnale canonico che l'adottante non ha recepito. Decisioni del custode prese il 2026-10-27, resta da costruire lo script."
+sintesi: "Costruiti il 2026-11-12 o3/dinieghi.py, che conta per classe di grafia i dinieghi ricorrenti fra repo con l'esito sul segnale canonico, e o3/ultimo_giro.py, lo strumento che toglie la grafia più ricorrente; prescrizione ultimo-giro ai sette. Resta la verifica su un giro vero di method."
 ciclo: dev
 ---
 
@@ -126,14 +126,39 @@ Proposte da `nixos` e approvate dal custode, arrivate via Herdr.
 - Gli allow `gh issue view` e `gh pr view` per `nixos`: lacuna locale,
   chiusa nel `permessi.json` di `nixos` (`bcf4b26`).
 
+## Stato, 2026-11-12
+
+Costruito in sessione col custode:
+
+- `o3/dinieghi.py` coi test (`tests/test_dinieghi.py`), mappa dei segnali
+  compresa, concesso nei permessi del giro e lanciato al passo 4 del
+  perceive della skill `eval`, in `metodo` soltanto: il conteggio fra repo
+  è il lavoro dell'osservatorio, e negli adottanti leggerebbe i dinieghi di
+  `salute` ed `economia` da un giro altrui. Per questo non si prescrive.
+  `kb/agent-as-user.md` vi rimanda.
+- Prima uscita, sugli ultimi dieci giri di `method`, `nixos`, `salute` ed
+  `economia`: `parentesi` in 13 giri e quattro repo, senza segnale;
+  `non-concesso` in 4 giri; `fuori-perimetro` in 2, recepita in `method` e
+  non in `nixos`. Le parentesi sono quasi tutte le due letture che aprono il
+  giro, e la regola quotata delle skill non bastava.
+- Da qui `o3/ultimo_giro.py`, la proposta di questo task per la
+  «ricorrenza dopo il recepimento»: ultimo giro, `Esiti:` e ultimo
+  `Prossimo:` senza grafie da quotare. Lo usano `eval compare` ed
+  `exec plan`; la prescrizione [ultimo giro](../o3/ultimo-giro.md) lo porta
+  ai sette.
+- Limiti dell'uscita, dichiarati dallo script: permessi di oggi e non di
+  allora (il `printenv` di `economia` dell'08/11 è concesso oggi), abbinamento
+  dei pattern che imita l'harness, giri di `svezia` e `danea2` non letti.
+  Le grafie negate da Codex escono col motore, perché le traduce
+  l'esecutore.
+
 ## Criterio di chiusura
 
-Lo script è in `o3/` coi test, mappa dei segnali compresa, concesso nel
-`permessi.json` di `method`, letto dal passo 4 del perceive nella skill
-`eval`; `kb/agent-as-user.md` vi rimanda. Una prescrizione in `o3/` lo
-prescrive agli adottanti: `ciclo-autonomo`, il veicolo previsto, è chiusa
-il 2026-10-28 perché recepita da tutti. Un giro di `method` ne ha
-usato l'output. Riga del plan, voce in `o2/tasks.md` e questo file si
+Fatto il 2026-11-12, salvo l'ultima condizione: lo script è in `o3/` coi
+test, concesso e letto dal passo 4 del perceive; `kb/agent-as-user.md` vi
+rimanda; la prescrizione `ultimo-giro` porta agli adottanti lo strumento
+nato dalla prima uscita. Resta che un giro di `method` ne abbia usato
+l'output e che le sue due letture d'apertura passino senza dinieghi. Riga del plan, voce in `o2/tasks.md` e questo file si
 rimuovono nello stesso commit.
 
 Connessioni:
