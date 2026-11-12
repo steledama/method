@@ -25,10 +25,10 @@ Senza `--root` verifica il repo che lo contiene.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import re
-import importlib.util
 import subprocess
 import sys
 import tomllib
@@ -356,8 +356,39 @@ def node_key(root: Path, path: Path) -> str:
     return path.relative_to(root).as_posix()
 
 
+def without_fenced_code(text: str) -> str:
+    """Esclude gli esempi fenced dai controlli dei collegamenti.
+
+    La chiusura richiede lo stesso carattere e almeno la lunghezza
+    dell'apertura; un blocco non chiuso prosegue fino a fine documento.
+    Non è un parser Markdown completo (per esempio, contenitori e inline
+    code restano fuori da questo filtro).
+    """
+    visible: list[str] = []
+    fence_char = ""
+    fence_length = 0
+    for line in text.splitlines():
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if fence_char:
+            if (
+                marker
+                and marker[1][0] == fence_char
+                and len(marker[1]) >= fence_length
+                and not marker[2].strip()
+            ):
+                fence_char = ""
+            continue
+        if marker and not (marker[1][0] == "`" and "`" in marker[2]):
+            fence_char, fence_length = marker[1][0], len(marker[1])
+            continue
+        visible.append(line)
+    return "\n".join(visible)
+
+
 def markdown_links(text: str) -> list[str]:
-    return [target for target in LINK_RE.findall(text) if target.endswith(".md")]
+    return [
+        target for target in LINK_RE.findall(without_fenced_code(text)) if target.endswith(".md")
+    ]
 
 
 def resolve_link(source: Path, target: str) -> Path | None:
@@ -407,7 +438,7 @@ def catalog_index(root: Path) -> tuple[list[str], list[str], list[str]]:
     text = catalog.read_text(encoding="utf-8")
     paths: list[str] = []
     broken: list[str] = []
-    for match in CATALOG_LINK_RE.finditer(text):
+    for match in CATALOG_LINK_RE.finditer(without_fenced_code(text)):
         target = match.group("path")
         resolved = resolve_link(catalog, target)
         if resolved is None:
@@ -578,7 +609,7 @@ def cluster_state(
 
     clusters: dict[str, set[str]] = defaultdict(set)
     current: str | None = None
-    for line in catalog.read_text(encoding="utf-8").splitlines():
+    for line in without_fenced_code(catalog.read_text(encoding="utf-8")).splitlines():
         heading = re.match(r"## (.+)", line)
         if heading:
             current = heading.group(1).strip()

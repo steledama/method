@@ -26,6 +26,12 @@ che nessuno lo veda. I comandi:
 - `terms`: candidati terminologici da valutare, non nuovi nodi automatici;
 - `inventory`, `coverage`: inventario e copertura per progetti con codice.
 
+I controlli dei collegamenti ignorano gli esempi nei blocchi fenced con
+backtick o tilde, anche non chiusi; catalogo, cluster e backlink usano lo
+stesso filtro. Il riconoscimento dei link resta euristico: questo filtro
+non interpreta inline code, blocchi indentati o fence dentro contenitori
+Markdown (liste e citazioni), né sostituisce un parser Markdown completo.
+
 Il nucleo comune resta indipendente dal dominio, e il dominio non lo copia.
 L'adottante dichiara ciò che è suo in due file opzionali del proprio repo:
 
