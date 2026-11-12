@@ -1,5 +1,5 @@
 ---
-sintesi: "Costruiti il 2026-11-12 o3/dinieghi.py, che conta per classe di grafia i dinieghi ricorrenti fra repo con l'esito sul segnale canonico, e o3/ultimo_giro.py, lo strumento che toglie la grafia più ricorrente; prescrizione ultimo-giro ai sette. Resta la verifica su un giro vero di method."
+sintesi: "Costruiti il 2026-11-12 o3/dinieghi.py, che conta per classe di grafia i dinieghi ricorrenti fra repo con l'esito sul segnale canonico, e o3/ultimo_giro.py, lo strumento che toglie la grafia più ricorrente; prescrizione ultimo-giro ai sette. Verifica su un giro vero di method riuscita il 2026-11-12; resta la classe parentesi da mappare su de3fe56 in SEGNALI, poi la chiusura in sessione."
 ciclo: dev
 ---
 
@@ -160,6 +160,17 @@ rimanda; la prescrizione `ultimo-giro` porta agli adottanti lo strumento
 nato dalla prima uscita. Resta che un giro di `method` ne abbia usato
 l'output e che le sue due letture d'apertura passino senza dinieghi. Riga del plan, voce in `o2/tasks.md` e questo file si
 rimuovono nello stesso commit.
+
+Verifica sul giro schedulato del 2026-11-12 (tentativo `1627c9a5`): il
+perceive ha letto l'uscita di `o3/dinieghi.py`, e `o3/ultimo_giro.py` e
+`git log --oneline dc6e902..HEAD` sono passati al primo tentativo, senza
+dinieghi in tutto il giro. La condizione è soddisfatta. Il giro non chiude
+il task per un residuo che tocca uno strumento in `o3/`, fuori dal suo
+perimetro: in `SEGNALI` di `o3/dinieghi.py` la classe `parentesi` resta
+`None`, quindi l'uscita la dà «segnale assente: proposta in o2/» finché la
+classe resta nella finestra di dieci giri, benché lo strumento proposto
+(`o3/ultimo_giro.py`, `de3fe56`) esista. Proposta: mapparla su `de3fe56`
+col suo test in `tests/test_dinieghi.py`, poi chiudere il task in sessione.
 
 Connessioni:
 
