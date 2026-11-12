@@ -51,9 +51,11 @@ riporta comunque i giri del giorno.
 ## Adottanti
 
 Il perceive legge i marker `i3/allineamento-metodo.md` dai checkout locali
-di `deck`. Per i repo di `svezia` (`bi`, `baserow`, `danea-auto`, `nixos-lavoro`) il
-checkout locale può essere indietro. Il fetch lo fa l'unità prima del giro,
-fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
+di `deck`. I repo di `svezia` (`bi`, `baserow`, `danea-auto`, `nixos-lavoro`)
+non hanno un clone su `deck` dal 2026-11-12 e si leggono solo via ssh, che il
+giro non ha: `o3/adottanti.py` li dà assenti e il giro dichiara il limite,
+senza dedurne lo stato. Il fetch dei checkout locali lo fa l'unità prima del
+giro, fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
 `o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
 checkout sono in sola lettura. L'esito sta in
 `~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read (in Codex, che non
@@ -66,7 +68,7 @@ Gli adottanti si leggono con `python3 o3/adottanti.py`, di sola lettura:
 <repo> [-n N] [--ref origin/main]` gli ultimi commit coi trailer; `show <repo>
 <path> [--ref origin/main]` un file dell'interfaccia col canone (marker,
 `CLAUDE.md`, `autonomy.md`, prompt e permessi del ciclo, skill), elencati da
-`--help`. Per i repo di `svezia` usa `--ref origin/main`. `ssh` non è concesso. Se un fetch non è
+`--help`. `ssh` non è concesso, e non passi `--ssh`. Se un fetch non è
 `riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
 dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
 e l'età dell'`origin` letto, presa da `ultimo_riuscito` (ignota se `null`), senza dedurre uno stato che il checkout non
@@ -105,9 +107,9 @@ Del rapporto non decidi niente. Non classifichi i rossi, non fai il campione
 di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
 ricorrenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
 resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
-del rapporto. Il limite che il rapporto dichiara per il `fetch` dei repo di
-`svezia` vale anche qui: leggi `fetch.json` prima di fidarti di
-`origin/main`.
+del rapporto. Nel rapporto del giro i repo di `svezia` sono rossi perché
+assenti, non per il loro stato: li legge l'audit in sessione con `--ssh`.
+Per i checkout locali leggi `fetch.json` prima di fidarti di `origin/main`.
 
 ## Host e verifiche
 

@@ -48,16 +48,36 @@ class AdottantiTests(unittest.TestCase):
                 "- **[altro](https://github.com/io/altro)** — checkout `~/altro` su `deck`\n",
                 encoding="utf-8",
             )
-            trovati = MODULE.adottanti(world, home)
+            trovati = MODULE.adottanti(world, home, qui="deck", prova=lambda r: False)
             self.assertEqual(trovati, {"casa": home / "nixos-casa", "lavoro": home / "nixos"})
-            self.assertEqual(MODULE.assenti(world, home), ["altro"])
+            self.assertEqual(MODULE.assenti(world, home, "deck", lambda r: False), ["altro"])
+
+    def test_checkout_on_another_host_is_read_over_ssh(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            home = Path(tmp)
+            world = home / "world.md"
+            world.write_text(
+                "- **[lavoro](https://github.com/org/lavoro)** — checkout `~/nixos` su `svezia`\n"
+                "- **[spento](https://github.com/org/spento)** — checkout `~/spento` su `svezia`\n"
+                "- **[casa](https://github.com/io/casa)** — checkout `~/casa` su `deck`\n",
+                encoding="utf-8",
+            )
+            prova = lambda remoto: remoto.cartella != "spento"  # noqa: E731
+            trovati = MODULE.adottanti(world, home, qui="deck", prova=prova)
+            self.assertEqual(trovati, {"lavoro": MODULE.Remoto("svezia", "nixos")})
+            self.assertEqual(MODULE.assenti(world, home, "deck", prova), ["spento", "casa"])
+        comando = MODULE.comando(MODULE.Remoto("svezia", "nixos"), ("log", "--format=%h %s"))
+        self.assertEqual(comando[:-1], [*MODULE.SSH, "svezia"])
+        self.assertEqual(comando[-1], "env GIT_OPTIONAL_LOCKS=0 git -C nixos log '--format=%h %s'")
 
     def test_real_world_lists_checkouts_in_home(self):
         dichiarati = MODULE.dichiarati()
         self.assertIn("nixos", dichiarati)
-        trovati = MODULE.adottanti()
+        trovati = MODULE.adottanti(prova=lambda r: True)
         self.assertTrue(set(trovati) <= set(dichiarati))
-        self.assertTrue(all(path.parent == MODULE.HOME for path in trovati.values()))
+        self.assertTrue(
+            all(isinstance(c, MODULE.Remoto) or c.parent == MODULE.HOME for c in trovati.values())
+        )
 
     def test_show_only_reads_the_canon_interface(self):
         for path in ("CLAUDE.md", "i3/allineamento-metodo.md", ".claude/skills/eval/SKILL.md"):

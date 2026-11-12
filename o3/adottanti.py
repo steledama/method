@@ -9,7 +9,13 @@ Gli adottanti vengono da `world.md`, il register che li dichiara. Il checkout
 si riconosce dal remote `origin`, fra le cartelle della home, perché la
 disposizione cambia da host a host (su `svezia` `~/nixos` è il repo di lavoro,
 su `deck` quello di casa); il nome dichiarato vale solo senza un remote GitHub.
-Un adottante senza clone sull'host è assente, non un marker che non recepisce.
+Un adottante senza clone sull'host, dichiarato `su` un altro host, si legge
+lì via `ssh <host> git -C <cartella>`, solo con `--ssh`: da `deck` gli
+adottanti di lavoro non hanno copie secondarie (decisione del custode del
+2026-11-12). Gli stessi comandi git, di sola lettura, girano sul checkout
+remoto. Il giro autonomo non passa `--ssh`, perché il suo recinto nega `ssh`.
+Un adottante che non ha clone e non si raggiunge è assente, non un marker che
+non recepisce.
 `show` legge solo i file con cui un adottante recepisce il canone; il resto del
 dominio, dati personali compresi, resta fuori.
 
@@ -30,14 +36,41 @@ import fnmatch
 import json
 import os
 import re
+import shlex
+import socket
 import subprocess
 import sys
 import tempfile
 import urllib.request
+from functools import lru_cache
 from pathlib import Path
+from typing import NamedTuple
 
 ROOT = Path(__file__).resolve().parents[1]
 HOME = Path.home()
+QUI = socket.gethostname()
+REMOTI = False  # `--ssh`: legge i checkout dichiarati su altri host
+SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10"]
+
+
+class Remoto(NamedTuple):
+    """Il checkout dichiarato di un adottante su un altro host, letto via ssh."""
+
+    host: str
+    cartella: str  # relativa alla home remota
+
+    def __str__(self) -> str:
+        return f"{self.host}:~/{self.cartella}"
+
+
+Checkout = Path | Remoto
+
+
+def ASSENTE() -> str:  # noqa: N802
+    return "checkout assente su questo host" + (
+        " e non raggiungibile" if REMOTI else " (remoti con --ssh)"
+    )
+
 
 # L'interfaccia di un adottante col canone: regole, delega, marker, ciclo, skill.
 INTERFACCIA = [
@@ -55,7 +88,7 @@ INTERFACCIA = [
 
 VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\(([^)]*)\)\*\*(.*)")
 REPO = re.compile(r"github\.com[:/]([\w.-]+/[\w.-]+?)(?:\.git)?/?$")
-CHECKOUT = re.compile(r"checkout `~/([\w.-]+)`")
+CHECKOUT = re.compile(r"checkout `~/([\w.-]+)`(?: su `([\w.-]+)`)?")
 ACCENTO = re.compile(r"#[0-9a-fA-F]{6}\b")
 VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)`")
 
@@ -69,9 +102,9 @@ FINESTRA_GIRI = 30  # giorni contati per i giri autonomi
 LINK_MD = re.compile(r"\]\(([\w./-]+\.md)\)")
 
 
-def dichiarati(world: Path = ROOT / "world.md") -> dict[str, tuple[str | None, str]]:
-    """Nome → (repo GitHub `owner/nome` o None, cartella dichiarata), dalle voci col checkout."""
-    trovati: dict[str, tuple[str | None, str]] = {}
+def dichiarati(world: Path = ROOT / "world.md") -> dict[str, tuple[str | None, str, str | None]]:
+    """Nome → (repo GitHub `owner/nome` o None, cartella e host dichiarati), dalle voci col checkout."""
+    trovati: dict[str, tuple[str | None, str, str | None]] = {}
     voce = repo = None
     for riga in world.read_text(encoding="utf-8").splitlines():
         if match := VOCE.match(riga):
@@ -80,7 +113,7 @@ def dichiarati(world: Path = ROOT / "world.md") -> dict[str, tuple[str | None, s
         elif not riga.startswith("  "):
             voce = None
         if voce and (match := CHECKOUT.search(riga)):
-            trovati[voce] = (repo, match.group(1))
+            trovati[voce] = (repo, match.group(1), match.group(2))
             voce = None
     return trovati
 
@@ -104,22 +137,36 @@ def cloni(home: Path = HOME) -> dict[str, Path]:
     return trovati
 
 
-def adottanti(world: Path = ROOT / "world.md", home: Path = HOME) -> dict[str, Path]:
-    """Nome → checkout su questo host; gli assenti li dice `assenti`."""
+@lru_cache(maxsize=None)
+def raggiungibile(remoto: Remoto) -> bool:
+    """Il checkout remoto risponde a `git rev-parse` via ssh."""
+    return git(remoto, "rev-parse", "--git-dir").returncode == 0
+
+
+def adottanti(
+    world: Path = ROOT / "world.md", home: Path = HOME, qui: str = QUI, prova=None
+) -> dict[str, Checkout]:
+    """Nome → checkout locale, o remoto se dichiarato su un altro host; gli assenti li dice `assenti`."""
+    if prova is None:
+        prova = raggiungibile if REMOTI else (lambda remoto: False)
     trovati, presenti = {}, None
-    for nome, (repo, cartella) in dichiarati(world).items():
+    for nome, (repo, cartella, host) in dichiarati(world).items():
         if repo is None:
             trovati[nome] = home / cartella
             continue
         presenti = cloni(home) if presenti is None else presenti
         if repo in presenti:
             trovati[nome] = presenti[repo]
+        elif host and host != qui and prova(remoto := Remoto(host, cartella)):
+            trovati[nome] = remoto
     return trovati
 
 
-def assenti(world: Path = ROOT / "world.md", home: Path = HOME) -> list[str]:
-    """Gli adottanti dichiarati senza un clone su questo host."""
-    presenti = adottanti(world, home)
+def assenti(
+    world: Path = ROOT / "world.md", home: Path = HOME, qui: str = QUI, prova=None
+) -> list[str]:
+    """Gli adottanti dichiarati senza un clone su questo host né uno remoto raggiungibile."""
+    presenti = adottanti(world, home, qui, prova)
     return [nome for nome in dichiarati(world) if nome not in presenti]
 
 
@@ -150,20 +197,31 @@ def ammesso(path: str) -> bool:
     return any(fnmatch.fnmatchcase(path, schema) for schema in INTERFACCIA)
 
 
-def git(checkout: Path, *args: str) -> subprocess.CompletedProcess:
+def comando(checkout: Checkout, args: tuple[str, ...]) -> list[str]:
+    """Il comando git sul checkout: locale, o via ssh sull'host dichiarato."""
+    if isinstance(checkout, Remoto):
+        remoto = ["env", "GIT_OPTIONAL_LOCKS=0", "git", "-C", checkout.cartella, *args]
+        return [*SSH, checkout.host, shlex.join(remoto)]
+    return ["git", "-C", str(checkout), *args]
+
+
+def git(checkout: Checkout, *args: str) -> subprocess.CompletedProcess:
     env = {**os.environ, "GIT_OPTIONAL_LOCKS": "0"}
-    return subprocess.run(
-        ["git", "-C", str(checkout), *args], capture_output=True, text=True, env=env, check=False
-    )
+    try:
+        return subprocess.run(
+            comando(checkout, args), capture_output=True, text=True, env=env, check=False
+        )
+    except OSError as errore:  # ssh assente dal PATH
+        return subprocess.CompletedProcess(args, 127, "", str(errore))
 
 
-def commit(checkout: Path, ref: str) -> str:
+def commit(checkout: Checkout, ref: str) -> str:
     esito = git(checkout, "log", "-1", "--format=%h %ad %s", "--date=iso-strict", ref)
     return esito.stdout.strip() if esito.returncode == 0 else f"assente ({ref})"
 
 
-def stato(nome: str, checkout: Path) -> list[str]:
-    if not (checkout / ".git").exists():
+def stato(nome: str, checkout: Checkout) -> list[str]:
+    if isinstance(checkout, Path) and not (checkout / ".git").exists():
         return [f"{nome}: checkout assente in {checkout}"]
     righe = [f"{nome} ({checkout})"]
     righe.append(f"  HEAD         {commit(checkout, 'HEAD')}")
@@ -179,10 +237,10 @@ def stato(nome: str, checkout: Path) -> list[str]:
     return righe
 
 
-def scegli(nome: str, tutti: dict[str, Path]) -> Path:
+def scegli(nome: str, tutti: dict[str, Checkout]) -> Checkout:
     if nome not in tutti:
         if nome in dichiarati():
-            sys.exit(f"{nome}: checkout assente su questo host")
+            sys.exit(f"{nome}: {ASSENTE()}")
         sys.exit(f"adottante sconosciuto: {nome}; adottanti in world.md: {', '.join(tutti)}")
     return tutti[nome]
 
@@ -240,12 +298,12 @@ def accenti_ripetuti(accenti: dict[str, str]) -> list[str]:
     return [f"{c} in {', '.join(n)}" for c, n in visti.items() if len(n) > 1]
 
 
-def mostra(checkout: Path, path: str, ref: str = "origin/main") -> str:
+def mostra(checkout: Checkout, path: str, ref: str = "origin/main") -> str:
     esito = git(checkout, "show", f"{ref}:{path}")
     return esito.stdout if esito.returncode == 0 else ""
 
 
-def giorni_fa(checkout: Path, ref: str, *path: str) -> int | None:
+def giorni_fa(checkout: Checkout, ref: str, *path: str) -> int | None:
     esito = git(checkout, "log", "-1", "--format=%ct", ref, "--", *path)
     if esito.returncode or not esito.stdout.strip():
         return None
@@ -253,7 +311,7 @@ def giorni_fa(checkout: Path, ref: str, *path: str) -> int | None:
     return (dt.datetime.now(dt.timezone.utc) - quando).days
 
 
-def canale(nome: str, checkout: Path) -> list[str]:
+def canale(nome: str, checkout: Checkout) -> list[str]:
     marker = frontmatter(mostra(checkout, "i3/allineamento-metodo.md"))
     commit_m = marker.get("method_commit", "")
     stato_m = marker.get("status", "?")
@@ -283,7 +341,7 @@ def canale(nome: str, checkout: Path) -> list[str]:
     return righe
 
 
-def prescrizioni(tutti: dict[str, Path]) -> list[str]:
+def prescrizioni(tutti: dict[str, Checkout]) -> list[str]:
     import prescrizioni as presc  # importa adottanti: qui per non chiudere il cerchio
 
     righe = []
@@ -324,7 +382,7 @@ def riga_marker(testo: str, nome: str) -> str | None:
     return None
 
 
-def costruisci(nome: str, checkout: Path, base: Path) -> str | None:
+def costruisci(nome: str, checkout: Checkout, base: Path) -> str | None:
     """Estrae origin/main in `base/<nome>` e lancia `build.py --check`: None se passa."""
     archivio = git_bytes(checkout, "archive", "origin/main")
     if archivio is None:
@@ -354,11 +412,12 @@ def costruisci(nome: str, checkout: Path, base: Path) -> str | None:
     return None
 
 
-def git_bytes(checkout: Path, *args: str) -> bytes | None:
+def git_bytes(checkout: Checkout, *args: str) -> bytes | None:
     env = {**os.environ, "GIT_OPTIONAL_LOCKS": "0"}
-    esito = subprocess.run(
-        ["git", "-C", str(checkout), *args], capture_output=True, env=env, check=False
-    )
+    try:
+        esito = subprocess.run(comando(checkout, args), capture_output=True, env=env, check=False)
+    except OSError:
+        return None
     return esito.stdout if esito.returncode == 0 else None
 
 
@@ -373,7 +432,7 @@ def servita(host: str, porta: str) -> tuple[str | None, str]:
     return stato_v.get("served_commit", ""), nota
 
 
-def viste(tutti: dict[str, Path], testi: dict[str, str], build: bool) -> list[str]:
+def viste(tutti: dict[str, Checkout], testi: dict[str, str], build: bool) -> list[str]:
     righe = []
     indirizzi = {n: VISTA.search(t) for n, t in testi.items() if n in tutti}
     indirizzi["metodo"] = VISTA.search(di_metodo())
@@ -406,7 +465,7 @@ def viste(tutti: dict[str, Path], testi: dict[str, str], build: bool) -> list[st
     return righe
 
 
-def accenti(tutti: dict[str, Path], testi: dict[str, str]) -> list[str]:
+def accenti(tutti: dict[str, Checkout], testi: dict[str, str]) -> list[str]:
     righe, colori = [], {}
     for nome, checkout in tutti.items():
         dichiarato = ACCENTO.search(testi.get(nome, ""))
@@ -425,7 +484,7 @@ def accenti(tutti: dict[str, Path], testi: dict[str, str]) -> list[str]:
     return righe or ["accenti: copie coincidenti e tutti distinti"]
 
 
-def skill(nome: str, checkout: Path) -> list[str]:
+def skill(nome: str, checkout: Checkout) -> list[str]:
     def elenco(cartella: str) -> set[str]:
         uscita = git(checkout, "ls-tree", "--name-only", "origin/main", f"{cartella}/").stdout
         return {Path(r).name for r in uscita.splitlines()}
@@ -439,7 +498,7 @@ def skill(nome: str, checkout: Path) -> list[str]:
     return righe
 
 
-def casi(nome: str, checkout: Path) -> list[str]:
+def casi(nome: str, checkout: Checkout) -> list[str]:
     paths = git(checkout, "ls-tree", "--name-only", "origin/main", "i1/").stdout.split()
     file = {p: mostra(checkout, p) for p in paths if p.endswith(".md")}
     in_metodo = " ".join(p.read_text(encoding="utf-8") for p in (ROOT / "i1").glob("*.md"))
@@ -458,7 +517,7 @@ def casi(nome: str, checkout: Path) -> list[str]:
     return righe
 
 
-def numeri(nome: str, checkout: Path) -> str:
+def numeri(nome: str, checkout: Checkout) -> str:
     dev, runtime = conteggio_plan(mostra(checkout, "o1/plan.md"))
     motivi = git(
         checkout,
@@ -473,12 +532,14 @@ def numeri(nome: str, checkout: Path) -> str:
     )
 
 
-def stadi_giro(nome: str, checkout: Path) -> list[str]:
+def stadi_giro(nome: str, checkout: Checkout) -> list[str]:
     """Stadi di `Esiti:` dell'ultimo giro senza traccia nella trascrizione;
     solo nomi di stadi e di path, il dominio resta fuori."""
     sys.path.insert(0, str(ROOT / "o3"))
     import commit_gate
 
+    if isinstance(checkout, Remoto):
+        return [f"{nome}: trascrizione dei giri su {checkout.host}, non letta da qui"]
     if not (checkout / commit_gate.TENTATIVI).exists():
         return [f"{nome}: nessuna trascrizione dei giri sull'host"]
     righe, trovate = commit_gate.verifica_stadi(checkout)
@@ -488,9 +549,9 @@ def stadi_giro(nome: str, checkout: Path) -> list[str]:
     return [f"ROSSO {nome}: stadi dichiarati senza traccia nell'ultimo giro: {stadi}"]
 
 
-def audit(tutti: dict[str, Path], build: bool = True) -> list[str]:
+def audit(tutti: dict[str, Checkout], build: bool = True) -> list[str]:
     testi = voci()
-    mancanti = [f"ROSSO {n}: checkout assente su questo host" for n in assenti()]
+    mancanti = [f"ROSSO {n}: {ASSENTE()}" for n in assenti()]
     sezioni = [
         ("Canale", mancanti + [r for n, c in tutti.items() for r in canale(n, c)]),
         ("Prescrizioni aperte", prescrizioni(tutti)),
@@ -520,21 +581,28 @@ def main(argv: list[str] | None = None) -> int:
         description=__doc__.splitlines()[0],
         epilog="File leggibili con show: " + ", ".join(INTERFACCIA),
     )
+    parser.add_argument(
+        "--ssh",
+        action="store_true",
+        help="legge via ssh i checkout dichiarati su altri host (in sessione, non nel giro)",
+    )
     sub = parser.add_subparsers(dest="comando", required=True)
     p_stato = sub.add_parser("stato", help="HEAD, origin/main, distanza e working tree")
     p_stato.add_argument("nomi", nargs="*", help="adottanti; tutti se omessi")
     p_log = sub.add_parser("log", help="ultimi commit con data e trailer")
     p_log.add_argument("nome")
     p_log.add_argument("-n", type=int, default=5)
-    p_log.add_argument("--ref", default="HEAD", help="origin/main per i repo di svezia")
+    p_log.add_argument("--ref", default="HEAD")
     p_show = sub.add_parser("show", help="un file dell'interfaccia col canone")
     p_show.add_argument("nome")
     p_show.add_argument("path")
-    p_show.add_argument("--ref", default="HEAD", help="origin/main per i repo di svezia")
+    p_show.add_argument("--ref", default="HEAD")
     p_audit = sub.add_parser("audit", help="parte meccanica di /adottanti, dopo il fetch")
     p_audit.add_argument("--senza-build", action="store_true", help="salta build.py --check")
     args = parser.parse_args(argv)
 
+    global REMOTI
+    REMOTI = args.ssh
     tutti = adottanti()
     if args.comando == "audit":
         print("\n".join(audit(tutti, build=not args.senza_build)))
@@ -542,7 +610,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.comando == "stato":
         for nome in args.nomi or dichiarati():
             if nome in dichiarati() and nome not in tutti:
-                print(f"{nome}: checkout assente su questo host")
+                print(f"{nome}: {ASSENTE()}")
                 continue
             print("\n".join(stato(nome, scegli(nome, tutti))))
         return 0

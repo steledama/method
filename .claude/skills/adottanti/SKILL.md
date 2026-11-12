@@ -39,14 +39,18 @@ Il giro autonomo lancia lo script da solo quando la ricorrenza è dovuta, e ne
 versiona l'uscita in `i1/audit-adottanti-AAAA-MM.md` (`autonomy.md`,
 `ciclo-autonomo`). In sessione rilancialo comunque, perché lo stato nel
 frattempo cambia. Aggiorna i riferimenti remoti con un `git fetch` per
-adottante (`fetch` è concesso anche sui checkout di altre sessioni), poi
-lancia:
+adottante (`fetch` è concesso anche sui checkout di altre sessioni). Gli
+adottanti senza clone su questo host si aggiornano sul loro host, per esempio
+`ssh svezia git -C bi fetch`. Poi lancia:
 
 ```
-python3 o3/adottanti.py audit
+python3 o3/adottanti.py --ssh audit
 ```
 
-Lo script legge `origin/main` e non scrive nei checkout. Il rapporto ha sette
+Con `--ssh` lo script legge via ssh i checkout dichiarati su un altro host in
+`world.md`, dove da `deck` stanno gli adottanti di lavoro. Senza `--ssh`, come
+nel giro, quegli adottanti risultano assenti. Lo script legge `origin/main` e
+non scrive nei checkout. Il rapporto ha sette
 sezioni:
 
 - **canale**: marker, ritardo verso HEAD, canone non recepito oltre la soglia;
