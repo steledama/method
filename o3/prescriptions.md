@@ -80,6 +80,11 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     Costruisce in una cartella temporanea e tocca `../view/` solo a esito
     riuscito; `--check` verifica senza scrivere, `--publish DIR` pubblica da
     un commit pulito. È Python per girare anche sugli host Windows;
+  - `radice.py` — la root del repo da rendere: con `--root DIR` i builder
+    di questo checkout rendono un altro repo, che in `o3/view/` tiene solo
+    `project.py` e i moduli di dominio (`python3 method/../o3/view/build.py
+--root .` dall'adottante). Test:
+    `python3 -m unittest discover -s tests -p 'test_radice.py'`;
   - `publish.py` — la pubblicazione da commit pulito chiamata da
     `build.py --publish`: fonti esportate con `git archive`, una cartella
     per versione, puntatore `current` scambiato solo a build riuscita,

@@ -1,5 +1,5 @@
 ---
-sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Primo passo fatto (descrizioni della home in project.py)."
+sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Fatti i passi sulle viste (descrizioni in project.py, build e serve con --root); restano l'audit KB e la prescrizione."
 ciclo: dev
 ---
 
@@ -50,13 +50,20 @@ sono stati letti.
    da `build_system_image.py` a `project.py` (`DESCRIZIONI`, solo gli slot
    che il repo dice diversamente). Il file canonico torna uguale in ogni
    repo; un `project.py` senza il campo resta valido.
-2. **Builder dal canone.** `build.py` e `serve.py` accettano la root del
-   repo da rendere; `o3/view/` dell'adottante si riduce a `project.py`, CSS,
-   moduli di dominio e test. Cambia il contratto «builder di quel commit»:
-   provenienza e impronta di riavvio devono includere il commit di `method`.
-   Da fissare: se la pubblicazione usa il canone del checkout vivo o un suo
-   export pulito, e cosa resta del «stesso path in ogni repo» per skill e
-   gate.
+2. **Fatto in `method` il 2026-11-12.** `build.py` e `serve.py` accettano
+   `--root DIR` (`radice.py`): la root è esplicita, non dedotta dalla
+   cartella corrente, e `o3/view/` del repo reso va davanti ai builder per
+   `project` e i moduli di dominio. Una copia dei builder accanto a
+   `project.py` ferma la build invece di coprire il canone. La pubblicazione
+   di un commit senza builder esporta `o3/view/` dal commit `HEAD` del
+   canone: la versione è la coppia dei due commit, in `provenance.json`,
+   sulla home e nel nome della release, e un canone avanzato la fa
+   ricostruire. Provato su un export di `nixos` a cui restava il solo
+   `project.py`: resa identica a quella della sua copia, salvo la
+   descrizione di `o3` che aspetta `DESCRIZIONI`. Non ancora provata la
+   pubblicazione reale dal canone esportato: `HEAD` deve prima contenere
+   `radice.py`. Resta all'host l'impronta di riavvio, che deve guardare
+   anche `o3/view/` del canone.
 3. **Nucleo dell'audit con profilo e modulo di dominio.** `kb_tools.py`
    con `--root`, un profilo dichiarativo `o3/kb_tools.toml` (cartelle,
    catalogo, facet, estensioni ed esclusioni del codice) e un modulo di

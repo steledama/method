@@ -34,13 +34,14 @@ def commit(repo: Path, text: str) -> str:
     return git(repo, "rev-parse", "HEAD")
 
 
-def fake_builder(source: Path, out: Path, sha: str) -> None:
+def fake_builder(source: Path, out: Path, sha: str, canon: str | None = None) -> None:
     text = (source / "goal.md").read_text(encoding="utf-8")
     out.mkdir(parents=True)
     (out / "index.html").write_text(text, encoding="utf-8")
     if "rotto" in text:
         raise RuntimeError("contratto violato")
-    (out / "provenance.json").write_text(json.dumps({"commit": sha}), encoding="utf-8")
+    provenance = {"commit": sha} | ({"canon": canon} if canon else {})
+    (out / "provenance.json").write_text(json.dumps(provenance), encoding="utf-8")
 
 
 def served(dest: Path) -> str:
@@ -98,11 +99,41 @@ class PublishTest(unittest.TestCase):
         self.assertEqual(self.run_publish(), 0)
         self.assertEqual(self.releases(), before)
 
+    def test_canone_avanzato_ricostruisce_lo_stesso_commit(self) -> None:
+        """Senza builder nel commit la versione è la coppia repo + canone."""
+        commit(self.repo, "uno")
+        saved = publish.canon_commit
+        try:
+            publish.canon_commit = lambda repo, sha: "a" * 40
+            self.run_publish()
+            before = self.releases()
+            self.assertEqual(self.run_publish(), 0)
+            self.assertEqual(self.releases(), before)
+            publish.canon_commit = lambda repo, sha: "b" * 40
+            self.assertEqual(self.run_publish(), 0)
+            self.assertEqual(publish.served_identity(self.dest)[1], "b" * 40)
+            self.assertNotEqual(self.releases(), before)
+        finally:
+            publish.canon_commit = saved
+
+    def test_commit_coi_propri_builder_non_dipende_dal_canone(self) -> None:
+        (self.repo / "o3" / "view").mkdir(parents=True)
+        (self.repo / "o3" / "view" / "build.py").write_text("", encoding="utf-8")
+        sha = commit(self.repo, "uno")
+        self.assertIsNone(publish.canon_commit(self.repo, sha))
+        (self.repo / "o3" / "view" / "build.py").unlink()
+        sha = commit(self.repo, "due")
+        self.assertEqual(
+            publish.canon_commit(self.repo, sha), publish.resolve(publish.CANON, "HEAD")
+        )
+
     def test_richiesta_durante_la_build_arriva_comunque(self) -> None:
         commit(self.repo, "uno")
 
-        def builder_con_commit_concorrente(source: Path, out: Path, sha: str) -> None:
-            fake_builder(source, out, sha)
+        def builder_con_commit_concorrente(
+            source: Path, out: Path, sha: str, canon: str | None
+        ) -> None:
+            fake_builder(source, out, sha, canon)
             if (source / "goal.md").read_text(encoding="utf-8") == "uno":
                 commit(self.repo, "due")
                 # La seconda pubblicazione trova il lock e si accoda.
@@ -117,7 +148,7 @@ class PublishTest(unittest.TestCase):
         self.run_publish()
         sha = commit(self.repo, "due")
 
-        def builder_interrotto(source: Path, out: Path, sha: str) -> None:
+        def builder_interrotto(source: Path, out: Path, sha: str, canon: str | None) -> None:
             out.mkdir(parents=True)
             raise SystemExit(143)
 
@@ -150,10 +181,12 @@ class PublishTest(unittest.TestCase):
     def test_commit_arrivato_durante_una_build_fallita_si_pubblica(self) -> None:
         commit(self.repo, "rotto")
 
-        def builder_che_fallisce_e_vede_un_commit(source: Path, out: Path, sha: str) -> None:
+        def builder_che_fallisce_e_vede_un_commit(
+            source: Path, out: Path, sha: str, canon: str | None
+        ) -> None:
             if (source / "goal.md").read_text(encoding="utf-8") == "rotto":
                 commit(self.repo, "buono")
-            fake_builder(source, out, sha)
+            fake_builder(source, out, sha, canon)
 
         self.assertEqual(
             publish.publish(self.repo, self.dest, builder=builder_che_fallisce_e_vede_un_commit),

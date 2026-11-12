@@ -167,7 +167,13 @@ bloccano sotto `file://`. Chi non ha il toolchain consulta la vista pubblicata.
 
 La build è versionata in `o3/view/`, con lo **stesso path in ogni repo**:
 chi passa da un progetto all'altro, umano o agente, non deve scoprire dove
-stanno i builder, e le skill citano un solo comando. L'entrypoint è unico,
+stanno i builder, e le skill citano un solo comando. I builder sono canone
+e stanno in `method`: l'adottante li lancia dal checkout del canone sul
+proprio repo, `python3 method/../o3/view/build.py --root .`, e in `o3/view/`
+tiene solo ciò che è suo, cioè `project.py`, i moduli di dominio e i test.
+Una copia dei builder nell'adottante deriva dal canone senza che nessuno lo
+veda; finché esiste si lancia quella, e la build dal canone rifiuta di
+mescolarsi con lei. L'entrypoint è unico,
 `python3 o3/view/build.py`: verifica i contratti fra le fonti, rigenera
 pagine, deck, home e asset, e chiude col presidio del compartimento stagno.
 Scrive sempre in una cartella temporanea e copia in `view/` solo a esito
@@ -215,7 +221,7 @@ dell'artefatto autonomo:
   non le apre;
 - **pubblicazione da commit pulito**, col contratto della sezione seguente, e
   nessuna copia mantenuta a mano: i builder e `serve.py` sono quelli del
-  checkout;
+  checkout, del repo o del canone;
 - **esposizione dichiarata**: un server sempre acceso e senza autenticazione
   espone le viste in modo continuo. L'adottante lo registra dove tiene i propri
   vincoli sui dati — cosa entra nel perimetro e chi lo vede.
@@ -236,9 +242,14 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   iniziata finisce sulla versione con cui è partita;
 - **fonti pulite**: la vista pubblicata deriva da un commit, esportato senza
   modifiche locali né file non tracciati e costruito coi builder di quel
-  commit. Un pull o un edit durante la build non mescolano le revisioni;
+  commit. Se il commit non li porta, i builder si esportano allo stesso modo
+  dal commit corrente del checkout del canone, mai dal suo working tree. Un
+  pull o un edit durante la build non mescolano le revisioni;
 - **provenienza**: la home pubblicata espone l'hash del commit costruito e il
-  toolchain che l'ha resa, registrati anche in un file accanto all'output;
+  toolchain che l'ha resa, registrati anche in un file accanto all'output.
+  Quando i builder vengono dal canone la versione è la coppia dei due
+  commit: la home li espone entrambi, e un canone avanzato fa ricostruire
+  lo stesso commit;
 - **recupero**: all'avvio si pubblica se l'output manca o è arretrato.
   L'innesco a evento dopo un aggiornamento delle fonti può perdere un
   cambio che arriva mentre una pubblicazione si chiude: lo affianca un
@@ -253,7 +264,8 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   locali che importa (oggi `ciclo`, `project`, `sources`) arriva in
   esercizio solo dopo un riavvio, e l'innesco dell'host deve prevederlo: per
   esempio un riavvio quando cambia l'impronta del codice di `o3/view/`
-  rispetto a quella caricata. Senza, una rotta nuova risponde 404 finché un
+  rispetto a quella caricata, compresa quella di `o3/view/` del canone se il
+  servitore viene da lì. Senza, una rotta nuova risponde 404 finché un
   riavvio a mano non la porta in esercizio;
 - **verifica distinta dalla freschezza**: un audit controlla separatamente
   build e contratti sulle fonti, revisione servita rispetto al riferimento

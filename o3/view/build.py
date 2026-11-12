@@ -12,6 +12,8 @@ La build scrive sempre in una cartella temporanea e copia in `view/` solo a
 esito riuscito: un errore, anche tardivo, lascia intatta la vista precedente.
 
 - senza argomenti: rende il working tree in `view/`;
+- `--root DIR`: rende un altro repo coi builder di questo checkout; lo usa
+  l'adottante che non li copia (`radice.py`);
 - `--check`: verifica contratti e resa senza toccare `view/`;
 - `--out DIR`: rende in una cartella nuova (lo usa la pubblicazione);
 - `--publish DIR`: pubblica da un commit pulito (`--rev`, default `HEAD`)
@@ -33,10 +35,15 @@ import sys
 import tempfile
 from pathlib import Path
 
-import project
-from build_pages import render_all
-from build_system_image import render as render_home
-from sources import (
+import radice
+
+# Prima di `project`: con `--root` l'identità è quella del repo reso.
+ROOT = radice.attiva()
+
+import project  # noqa: E402
+from build_pages import render_all  # noqa: E402
+from build_system_image import render as render_home  # noqa: E402
+from sources import (  # noqa: E402
     check_closed,
     check_plan_contract,
     check_verdict_contract,
@@ -46,7 +53,6 @@ from sources import (
     reveal_page,
 )
 
-ROOT = Path(__file__).resolve().parents[2]
 VIEW = ROOT / "view"
 ASSETS = VIEW / "assets"
 CANONICAL_ASSETS = Path(__file__).resolve().parent / "assets"
@@ -147,11 +153,13 @@ def deck_page(reveal_url: str, out: Path) -> str | None:
     return None
 
 
-def render(out: Path, commit: str | None = None) -> None:
+def render(out: Path, commit: str | None = None, canon: str | None = None) -> None:
     """Rende tutte le viste in `out`, cartella vuota o nuova.
 
     Con `commit` la home dichiara la revisione costruita e il toolchain, e
     `provenance.json` li registra: è la vista pubblicata da fonti pulite.
+    `canon` è il commit di `method` da cui vengono i builder, quando non sono
+    quelli del commit reso.
     """
     require("pandoc")
     prettier = require("prettier")
@@ -188,6 +196,8 @@ def render(out: Path, commit: str | None = None) -> None:
             "prettier": version(prettier),
             "python": platform.python_version(),
         }
+        if canon:
+            provenance["canon"] = canon
         write(out / "provenance.json", json.dumps(provenance, indent=2) + "\n")
 
     texts = dict(pages)
@@ -232,7 +242,13 @@ def main() -> None:
     mode.add_argument("--out", type=Path, help="rende in una cartella nuova")
     mode.add_argument("--publish", type=Path, metavar="DIR", help="pubblica da un commit pulito")
     parser.add_argument("--rev", default="HEAD", help="revisione da pubblicare (con --publish)")
+    parser.add_argument(
+        "--root",
+        type=Path,
+        help="repo da rendere, se non è quello dei builder (radice.py)",
+    )
     parser.add_argument("--commit", help=argparse.SUPPRESS)
+    parser.add_argument("--canon", help=argparse.SUPPRESS)
     args = parser.parse_args()
 
     if args.publish:
@@ -243,7 +259,7 @@ def main() -> None:
         if args.out:
             if args.out.exists():
                 raise SystemExit(f"build: {args.out} esiste già, serve una cartella nuova")
-            render(args.out.resolve(), args.commit)
+            render(args.out.resolve(), args.commit, args.canon)
             return
         with tempfile.TemporaryDirectory(prefix="view-") as tmp:
             staged = Path(tmp) / "view"

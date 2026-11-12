@@ -41,9 +41,12 @@ from urllib.parse import unquote, urlsplit
 # dello script non è in `sys.path`, e `ciclo` non si troverebbe.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import ciclo
+import radice
 
-VIEW = Path(__file__).resolve().parents[2] / "view"
+VIEW = radice.attiva() / "view"
+
+import ciclo  # noqa: E402 — dopo la root: importa `project` del repo servito
+
 PORT = 8000
 # Uscita per «nessuna versione valida»: un servizio la distingue da un crash.
 NO_VALID_VERSION = 3
@@ -144,6 +147,9 @@ def lan_addresses() -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Serve view/ sulle reti private")
+    parser.add_argument(
+        "--root", type=Path, help="repo da servire, se non è quello di questo script (radice.py)"
+    )
     parser.add_argument("--port", type=int, default=PORT, help=f"porta TCP (default {PORT})")
     parser.add_argument(
         "--bind", default="0.0.0.0", help="indirizzo d'ascolto (default: tutte le interfacce)"

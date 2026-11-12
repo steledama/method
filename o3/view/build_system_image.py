@@ -220,6 +220,8 @@ def provenance_html(provenance: dict[str, str] | None) -> str:
             f"      <p>{html.escape(label('preview'))}</p>\n    </footer>"
         )
     tools = " · ".join(provenance[key] for key in ("pandoc", "prettier") if provenance.get(key))
+    if provenance.get("canon"):
+        tools = f"method {provenance['canon'][:12]} · {tools}"
     return (
         '\n    <footer class="provenance">\n'
         f"      <p>Commit <code>{html.escape(provenance['commit'][:12])}</code>"

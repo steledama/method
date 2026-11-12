@@ -8,7 +8,11 @@ versione in `releases/` e un puntatore `current` che nomina quella servita.
 - **Fonti stabili**: il commit si esporta con `git archive` in una cartella
   temporanea e la build gira sui builder di quel commit. Né le modifiche
   locali né i file non tracciati entrano nell'output, e un pull o un edit
-  durante la build non mescolano le revisioni.
+  durante la build non mescolano le revisioni. Se il commit non porta i
+  builder (l'adottante li lancia dal checkout di `method`), si esporta allo
+  stesso modo `o3/view/` dal commit `HEAD` di questo checkout: la vista
+  servita si identifica con la coppia dei due commit, e un canone avanzato
+  la fa ricostruire.
 - **Ultima vista buona**: la build scrive in una cartella `.partial`; solo a
   build riuscita la cartella prende il suo nome e il puntatore cambia con
   `os.replace`, atomico anche su Windows. Un errore lascia intatta la
@@ -51,7 +55,8 @@ STALE_LOCK = 30 * 60
 # Giri massimi per inseguire commit arrivati durante la pubblicazione.
 MAX_ROUNDS = 5
 
-Builder = Callable[[Path, Path, str], None]
+Builder = Callable[[Path, Path, str, str | None], None]
+CANON = Path(__file__).resolve().parents[2]
 
 
 def git(repo: Path, *args: str) -> str:
@@ -68,10 +73,10 @@ def resolve(repo: Path, rev: str) -> str:
     return git(repo, "rev-parse", "--verify", f"{rev}^{{commit}}")
 
 
-def export(repo: Path, commit: str, target: Path) -> None:
+def export(repo: Path, commit: str, target: Path, *paths: str) -> None:
     """Le fonti del commit, senza working tree né file non tracciati."""
     archive = subprocess.run(
-        ["git", "-C", str(repo), "archive", "--format=tar", commit],
+        ["git", "-C", str(repo), "archive", "--format=tar", commit, *paths],
         capture_output=True,
         check=True,
     ).stdout
@@ -79,18 +84,28 @@ def export(repo: Path, commit: str, target: Path) -> None:
         tar.extractall(target, filter="tar")
 
 
-def build_with_commit_builders(source: Path, out: Path, commit: str) -> None:
-    """Costruisce con i builder del commit stesso: provenienza intera."""
+def carries_builders(repo: Path, commit: str) -> bool:
+    """Il commit porta i propri builder, o li prende dal canone."""
+    return bool(git(repo, "ls-tree", "--name-only", commit, "o3/view/build.py"))
+
+
+def canon_commit(repo: Path, commit: str) -> str | None:
+    """Il commit di `method` che rende `commit`, se i builder non sono suoi."""
+    if carries_builders(repo, commit):
+        return None
+    try:
+        return resolve(CANON, "HEAD")
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        raise RuntimeError(
+            f"{commit[:12]} non porta o3/view/build.py e {CANON} non è un checkout git: "
+            "nessun builder con cui costruire"
+        ) from None
+
+
+def run_build(script: Path, cwd: Path, *args: str) -> None:
     result = subprocess.run(
-        [
-            sys.executable,
-            str(source / "o3" / "view" / "build.py"),
-            "--out",
-            str(out),
-            "--commit",
-            commit,
-        ],
-        cwd=source,
+        [sys.executable, str(script), *args],
+        cwd=cwd,
         text=True,
         encoding="utf-8",
         capture_output=True,
@@ -98,6 +113,34 @@ def build_with_commit_builders(source: Path, out: Path, commit: str) -> None:
     )
     if result.returncode != 0:
         raise RuntimeError((result.stdout + result.stderr).strip() or "build fallita")
+
+
+def build_with_commit_builders(source: Path, out: Path, commit: str, canon: str | None) -> None:
+    """Costruisce da fonti pulite: provenienza intera.
+
+    Coi builder del commit stesso, se li porta. Altrimenti con quelli del
+    commit `canon` di `method`, esportati come le fonti: né gli uni né gli
+    altri vengono da un working tree.
+    """
+    if canon is None:
+        run_build(
+            source / "o3" / "view" / "build.py", source, "--out", str(out), "--commit", commit
+        )
+        return
+    with tempfile.TemporaryDirectory(prefix="view-canon-") as tmp:
+        export(CANON, canon, Path(tmp), "o3/view")
+        run_build(
+            Path(tmp) / "o3" / "view" / "build.py",
+            source,
+            "--root",
+            str(source),
+            "--out",
+            str(out),
+            "--commit",
+            commit,
+            "--canon",
+            canon,
+        )
 
 
 def current(dest: Path) -> str | None:
@@ -109,15 +152,25 @@ def current(dest: Path) -> str | None:
     return name if name and (dest / RELEASES / name).is_dir() else None
 
 
-def served_commit(dest: Path) -> str | None:
+def served_provenance(dest: Path) -> dict:
     name = current(dest)
     if name is None:
-        return None
+        return {}
     try:
         data = json.loads((dest / RELEASES / name / "provenance.json").read_text(encoding="utf-8"))
     except (FileNotFoundError, json.JSONDecodeError):
-        return None
-    return data.get("commit")
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def served_commit(dest: Path) -> str | None:
+    return served_provenance(dest).get("commit")
+
+
+def served_identity(dest: Path) -> tuple[str | None, str | None]:
+    """Commit reso e commit del canone che l'ha reso: insieme dicono la versione."""
+    data = served_provenance(dest)
+    return data.get("commit"), data.get("canon")
 
 
 def write_atomic(path: Path, text: str) -> None:
@@ -190,14 +243,17 @@ def prune(dest: Path, keep: set[str]) -> None:
             shutil.rmtree(path, ignore_errors=True)
 
 
-def publish_once(repo: Path, dest: Path, commit: str, builder: Builder) -> str:
+def publish_once(repo: Path, dest: Path, commit: str, canon: str | None, builder: Builder) -> str:
     name = f"{datetime.now(UTC):%Y%m%dT%H%M%S}-{commit[:12]}"
+    if canon:
+        # Lo stesso commit reso da un canone nuovo è un'altra versione.
+        name += f"-m{canon[:12]}"
     partial = dest / RELEASES / f"{name}.partial"
     with tempfile.TemporaryDirectory(prefix="view-src-") as tmp:
         source = Path(tmp)
         export(repo, commit, source)
         try:
-            builder(source, partial, commit)
+            builder(source, partial, commit, canon)
         except BaseException:
             shutil.rmtree(partial, ignore_errors=True)
             raise
@@ -223,13 +279,19 @@ def publish(repo: Path, dest: Path, rev: str = "HEAD", builder: Builder | None =
         for _ in range(MAX_ROUNDS):
             (dest / PENDING).unlink(missing_ok=True)
             commit = resolve(repo, rev)
-            if served_commit(dest) == commit:
+            try:
+                canon = canon_commit(repo, commit)
+            except RuntimeError as error:
+                write_status(dest, ok=False, requested=commit, error=str(error))
+                print(f"publish: {error}", file=sys.stderr)
+                return 1
+            if served_identity(dest) == (commit, canon):
                 write_status(dest, ok=True, requested=commit)
                 print(f"publish: {commit[:12]} già servito")
                 result = 0
             else:
                 try:
-                    name = publish_once(repo, dest, commit, builder)
+                    name = publish_once(repo, dest, commit, canon, builder)
                 except Exception as error:  # noqa: BLE001 — l'errore va nello stato, non perso
                     write_status(dest, ok=False, requested=commit, error=str(error))
                     print(

@@ -33,7 +33,11 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
 
-import project
+import radice
+
+REPO = radice.attiva()
+
+import project  # noqa: E402 — dopo la root: l'identità è quella del repo reso
 from sources import inline_markdown, parse_plan
 
 PREFIX = "_ciclo/"
@@ -47,7 +51,6 @@ ID = re.compile(r"^[0-9a-f]{32}$")
 ATTENTION = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
 # `<task> (confermato)`, `<task> (cambiato, era <task>; motivo)`, `nessuno (motivo)`.
 NEXT = re.compile(r"^(.*?)\s*\((confermato|cambiato)\b(?:,\s*era\s+([^;)]*))?[^)]*\)\s*$")
-REPO = Path(__file__).resolve().parents[2]
 
 LABELS = {
     "it": {
