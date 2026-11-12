@@ -1,5 +1,5 @@
 ---
-sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Fatti i passi sulle viste (descrizioni in project.py, build e serve con --root); restano l'audit KB e la prescrizione."
+sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Fatto in method e prescritto ai sette; resta il primo recepimento in un adottante."
 ciclo: dev
 ---
 
@@ -64,22 +64,30 @@ sono stati letti.
    pubblicazione reale dal canone esportato: `HEAD` deve prima contenere
    `radice.py`. Resta all'host l'impronta di riavvio, che deve guardare
    anche `o3/view/` del canone.
-3. **Nucleo dell'audit con profilo e modulo di dominio.** `kb_tools.py`
-   con `--root`, un profilo dichiarativo `o3/kb_tools.toml` (cartelle,
-   catalogo, facet, estensioni ed esclusioni del codice) e un modulo di
-   dominio opzionale che aggiunge sottocomandi e controlli all'`audit` e può
-   sostituire `inventory` e `coverage`. Il solo toml non basta: i controlli
-   di `nixos` sono codice. Stessa sorte per `kb_profile.py`, dopo aver letto
-   le differenze.
-4. **Una sola prescrizione** agli adottanti, aperta quando 2 e 3 girano in
-   `method`: un giro di recepimento invece di tre. Fino ad allora il passo 1
-   arriva a chi ricopia `build_system_image.py` senza altro da fare.
+3. **Fatto in `method` il 2026-11-12.** `kb_tools.py` accetta `--root`,
+   legge il profilo `o3/kb_tools.toml` e il modulo `o3/kb_domain.py` del
+   repo verificato. Il modulo aggiunge sottocomandi, entra nel report di
+   `audit` e può sostituire solo `inventory` e `coverage`. Lanciato in sola
+   lettura su `economia` e `salute`, il nucleo dà gli stessi numeri dei
+   loro fork, salvo i controlli propri che i fork hanno in più e un link
+   rotto in `economia` (`CLAUDE.md -> nodo-collegato.md`) che il fork non
+   vede. `kb_profile.py` aveva già `--root`: le tre copie sono solo ferme
+   (manca l'esclusione delle traduzioni) e si rimuovono.
+4. **Aperta il 2026-11-12** la prescrizione
+   [strumenti dal canone](../o3/strumenti-dal-canone.md), una sola per
+   viste e audit.
+
+## Resta
+
+Il primo recepimento in un adottante: finché nessuno lancia davvero i
+builder e l'audit dal canone, la prova è su un export di `nixos` e su
+letture di `economia` e `salute`, non sul loro gate di commit né su un
+servizio in esercizio. Non provato su Windows (`danea-auto`).
 
 ## Criterio di chiusura
 
-I builder e il nucleo dell'audit girano dal canone su `method` e su un
-adottante, con `kb/view.md` e `kb/kb-tools.md` aggiornati e la prescrizione
-aperta. Riga del plan, voce in `o2/tasks.md` e questo file si rimuovono
+Un adottante lancia builder e nucleo dell'audit dal canone nel proprio
+gate di commit, senza copie. Riga del plan, voce in `o2/tasks.md` e questo file si rimuovono
 nello stesso commit.
 
 Connessioni:

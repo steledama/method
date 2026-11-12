@@ -1,5 +1,26 @@
 #!/usr/bin/env python3
-"""Strumenti deterministici portabili per repository basati sul metodo."""
+"""Strumenti deterministici portabili per repository basati sul metodo.
+
+Il nucleo è canone e si lancia dal checkout di `method` sul repo da
+verificare, come `commit_gate.py`:
+
+    python3 method/../o3/kb_tools.py --root . audit
+
+Il repo dichiara ciò che è suo in due file opzionali, senza copiare il nucleo:
+
+- `o3/kb_tools.toml`, il profilo: `doc_dirs`, `optional_doc_dirs`, `catalog`,
+  `code_extensions`, `code_exclude`, `stopwords` (aggiunte) e le facet di
+  dominio, `[facets.<nome>]` con `values` e `required`;
+- `o3/kb_domain.py`, i controlli che sono codice. Può esporre `COMMANDS`,
+  un dizionario `nome -> funzione(root, core)` che rende un dato
+  serializzabile in JSON: i nomi nuovi diventano sottocomandi, `inventory` e
+  `coverage` sostituiscono quelli generici, gli altri comandi base non si
+  toccano. E `audit(root, core)`, che rende `etichetta -> violazioni` e
+  entra nel report di `audit`. `core` è questo modulo, già col profilo
+  applicato.
+
+Senza `--root` verifica il repo che lo contiene.
+"""
 
 from __future__ import annotations
 
@@ -7,11 +28,15 @@ import argparse
 import json
 import os
 import re
+import importlib.util
 import subprocess
+import sys
+import tomllib
 from collections import Counter, defaultdict
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
+from types import ModuleType
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 WORD_RE = re.compile(r"\b[a-zàèéìòù][a-zàèéìòù-]{5,}\b", re.IGNORECASE)
@@ -110,10 +135,10 @@ class Facet:
 
 
 # Attributi di dominio dichiarati dall'adottante. Vuoto in `method` (il suo
-# dominio è astratto, nessuna facet); l'adottante parametrizza questa costante nel
-# proprio fork, come fa già per DOC_DIRS o CATALOG_NAME. Esempi reali:
-#   economia: {"tipo": Facet(frozenset({"persona", "immobile", "successione"}))}
-#   nixos:    {"mondo": Facet(frozenset({"lavoro", "casa", "trasversale"}), required=True)}
+# dominio è astratto, nessuna facet); l'adottante li dichiara nel profilo
+# `o3/kb_tools.toml`, come DOC_DIRS o CATALOG_NAME. Esempi reali:
+#   economia: [facets.tipo]  values = ["persona", "immobile", "successione"]
+#   nixos:    [facets.mondo] values = ["lavoro", "casa", "trasversale"], required = true
 EXTENDED_FACETS: dict[str, Facet] = {}
 CYCLE_FACET = Facet(frozenset({"dev", "runtime"}), required=True)
 
@@ -144,6 +169,7 @@ class AuditResult:
     recent_commits: list[str]
     facet_violations: list[str]
     stage_cycle_count: int
+    domain: dict[str, list[str]]
 
 
 @dataclass
@@ -169,8 +195,121 @@ class TaskFrontmatter:
     missing: list[str]
 
 
+PROFILE = "o3/kb_tools.toml"
+DOMAIN = "o3/kb_domain.py"
+# I soli comandi base che un modulo di dominio può sostituire: il resto è
+# l'interfaccia comune che skill e audit comparativi si aspettano uguale.
+REPLACEABLE = {"inventory", "coverage"}
+_root: Path | None = None
+_domain: ModuleType | None = None
+
+
 def repo_root() -> Path:
-    return Path(__file__).resolve().parents[1]
+    return _root or Path(__file__).resolve().parents[1]
+
+
+def _strings(key: str, value: object) -> list[str]:
+    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+        raise SystemExit(f"{PROFILE}: «{key}» deve essere una lista di stringhe")
+    return value
+
+
+def load_profile(root: Path) -> None:
+    """Applica il profilo del repo alle costanti del nucleo, se c'è."""
+    global DOC_DIRS, OPTIONAL_DOC_DIRS, CATALOG_NAME, CODE_EXTENSIONS
+    global CODE_EXCLUDE_PARTS, STOPWORDS, EXTENDED_FACETS
+    path = root / PROFILE
+    if not path.is_file():
+        return
+    try:
+        data = tomllib.loads(path.read_text(encoding="utf-8"))
+    except tomllib.TOMLDecodeError as error:
+        raise SystemExit(f"{PROFILE}: {error}") from None
+    known = {
+        "doc_dirs",
+        "optional_doc_dirs",
+        "catalog",
+        "code_extensions",
+        "code_exclude",
+        "stopwords",
+        "facets",
+    }
+    unknown = sorted(set(data) - known)
+    if unknown:
+        raise SystemExit(f"{PROFILE}: chiavi non riconosciute: {', '.join(unknown)}")
+    if "doc_dirs" in data:
+        DOC_DIRS = tuple(_strings("doc_dirs", data["doc_dirs"]))
+    if "optional_doc_dirs" in data:
+        OPTIONAL_DOC_DIRS = tuple(_strings("optional_doc_dirs", data["optional_doc_dirs"]))
+    if "catalog" in data:
+        if not isinstance(data["catalog"], str):
+            raise SystemExit(f"{PROFILE}: «catalog» deve essere un percorso")
+        CATALOG_NAME = data["catalog"]
+    if "code_extensions" in data:
+        CODE_EXTENSIONS = set(_strings("code_extensions", data["code_extensions"]))
+    if "code_exclude" in data:
+        CODE_EXCLUDE_PARTS = set(_strings("code_exclude", data["code_exclude"]))
+    if "stopwords" in data:
+        STOPWORDS = STOPWORDS | set(_strings("stopwords", data["stopwords"]))
+    facets = data.get("facets", {})
+    if not isinstance(facets, dict):
+        raise SystemExit(f"{PROFILE}: «facets» deve essere una tabella")
+    declared: dict[str, Facet] = {}
+    for name, spec in facets.items():
+        extra = sorted(set(spec) - {"values", "required"}) if isinstance(spec, dict) else ["?"]
+        if extra or "values" not in spec or not isinstance(spec.get("required", False), bool):
+            raise SystemExit(
+                f"{PROFILE}: [facets.{name}] vuole «values» e, se serve, «required» booleano"
+            )
+        declared[name] = Facet(
+            frozenset(_strings(f"facets.{name}.values", spec["values"])),
+            required=spec.get("required", False),
+        )
+    if declared:
+        EXTENDED_FACETS = declared
+
+
+def load_domain(root: Path) -> ModuleType | None:
+    """Carica i controlli di dominio del repo, se li dichiara."""
+    path = root / DOMAIN
+    if not path.is_file():
+        return None
+    spec = importlib.util.spec_from_file_location("kb_domain", path)
+    if spec is None or spec.loader is None:
+        raise SystemExit(f"{DOMAIN}: modulo non caricabile")
+    module = importlib.util.module_from_spec(spec)
+    # Il modulo può importare i propri vicini in `o3/`.
+    sys.path.insert(0, str(path.parent))
+    spec.loader.exec_module(module)
+    commands = getattr(module, "COMMANDS", {})
+    if not isinstance(commands, dict) or not all(callable(fn) for fn in commands.values()):
+        raise SystemExit(f"{DOMAIN}: COMMANDS deve essere un dizionario nome -> funzione")
+    return module
+
+
+def domain_commands() -> dict:
+    return getattr(_domain, "COMMANDS", {}) if _domain else {}
+
+
+def domain_audit(root: Path) -> dict[str, list[str]]:
+    check = getattr(_domain, "audit", None) if _domain else None
+    if check is None:
+        return {}
+    result = check(root, sys.modules[__name__])
+    if not isinstance(result, dict) or not all(
+        isinstance(items, list) and all(isinstance(item, str) for item in items)
+        for items in result.values()
+    ):
+        raise SystemExit(f"{DOMAIN}: audit deve rendere etichetta -> lista di violazioni")
+    return {str(label): items for label, items in result.items()}
+
+
+def activate(root: Path | None) -> None:
+    """Fissa il repo da verificare e ne carica profilo e controlli di dominio."""
+    global _root, _domain
+    _root = root.resolve() if root else None
+    load_profile(repo_root())
+    _domain = load_domain(repo_root())
 
 
 def deaccent(value: str) -> str:
@@ -640,6 +779,7 @@ def run_audit(root: Path) -> AuditResult:
         recent_commits=recent_commits(root),
         facet_violations=facet_issues,
         stage_cycle_count=stage_cycle_count,
+        domain=domain_audit(root),
     )
 
 
@@ -655,6 +795,7 @@ def markdown_report(result: AuditResult) -> str:
         + len(result.footer_duplicates)
         + len(result.non_node_broken_links)
         + len(result.facet_violations)
+        + sum(len(items) for items in result.domain.values())
     )
     lines = [
         f"## [{datetime.now(tz=UTC).date().isoformat()}] kb",
@@ -701,6 +842,8 @@ def markdown_report(result: AuditResult) -> str:
     problems += [f"- [LINK-INLINE-CORPO] {item}" for item in result.body_inline_links]
     problems += [f"- [CONNESSIONE-DUPLICATA] {item}" for item in result.footer_duplicates]
     problems += [f"- [FACET] {item}" for item in result.facet_violations]
+    for label, items in result.domain.items():
+        problems += [f"- [{label.upper()}] {item}" for item in items]
     lines += problems[:30] if problems else ["- Nessun problema strutturale rilevato"]
     if len(problems) > 30:
         lines.append(f"- ... altri {len(problems) - 30} problemi non mostrati")
@@ -830,7 +973,11 @@ def command_facets(args: argparse.Namespace) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Utility portabili per knowledge base")
+    parser.add_argument(
+        "--root", type=Path, help="repo da verificare, se non è quello di questo script"
+    )
     sub = parser.add_subparsers(dest="command", required=True)
+    extra = dict(domain_commands())
 
     audit = sub.add_parser("audit", help="audit strutturale della KB")
     audit.add_argument("--format", choices=["markdown", "json"], default="markdown")
@@ -853,13 +1000,16 @@ def build_parser() -> argparse.ArgumentParser:
     terms.add_argument("--limit", type=int, default=12)
     terms.set_defaults(func=command_terms)
 
-    inventory = sub.add_parser("inventory", help="inventario generico dei file codice")
-    inventory.add_argument("--format", choices=["json"], default="json")
-    inventory.set_defaults(func=command_inventory)
+    # `inventory` e `coverage` generici valgono finché il dominio non porta i suoi.
+    if "inventory" not in extra:
+        inventory = sub.add_parser("inventory", help="inventario generico dei file codice")
+        inventory.add_argument("--format", choices=["json"], default="json")
+        inventory.set_defaults(func=command_inventory)
 
-    coverage = sub.add_parser("coverage", help="copertura generica codice -> nodi KB")
-    coverage.add_argument("--format", choices=["json"], default="json")
-    coverage.set_defaults(func=command_coverage)
+    if "coverage" not in extra:
+        coverage = sub.add_parser("coverage", help="copertura generica codice -> nodi KB")
+        coverage.add_argument("--format", choices=["json"], default="json")
+        coverage.set_defaults(func=command_coverage)
 
     tasks = sub.add_parser("tasks", help="verifica frontmatter dei task aperti")
     tasks.add_argument("--format", choices=["json"], default="json")
@@ -869,11 +1019,57 @@ def build_parser() -> argparse.ArgumentParser:
         "facets", help="verifica gli attributi di dominio dichiarati (EXTENDED_FACETS)"
     )
     facets.set_defaults(func=command_facets)
+
+    for name, function in extra.items():
+        command = sub.add_parser(name, help=f"controllo di dominio ({DOMAIN})")
+        command.add_argument("--format", choices=["json"], default="json")
+        command.set_defaults(func=domain_command(function))
     return parser
 
 
-def main() -> None:
-    args = build_parser().parse_args()
+def domain_command(function):
+    def run(args: argparse.Namespace) -> None:
+        print_json(function(repo_root(), sys.modules[__name__]))
+
+    return run
+
+
+BASE_COMMANDS = {
+    "audit",
+    "backlinks",
+    "orphans",
+    "readme",
+    "migration",
+    "terms",
+    "inventory",
+    "coverage",
+    "tasks",
+    "facets",
+}
+
+
+def root_argument(argv: list[str]) -> Path | None:
+    """`--root` letto prima del parser: profilo e dominio decidono i sottocomandi."""
+    for index, arg in enumerate(argv):
+        if arg == "--root" and index + 1 < len(argv):
+            return Path(argv[index + 1])
+        if arg.startswith("--root="):
+            return Path(arg.split("=", 1)[1])
+    return None
+
+
+def main(argv: list[str] | None = None) -> None:
+    argv = sys.argv[1:] if argv is None else argv
+    root = root_argument(argv)
+    if root is not None and not root.is_dir():
+        raise SystemExit(f"--root {root}: cartella inesistente")
+    activate(root)
+    locked = sorted(set(domain_commands()) & (BASE_COMMANDS - REPLACEABLE))
+    if locked:
+        raise SystemExit(
+            f"{DOMAIN}: COMMANDS non può sostituire i comandi base {', '.join(locked)}"
+        )
+    args = build_parser().parse_args(argv)
     args.func(args)
 
 

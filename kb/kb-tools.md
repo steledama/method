@@ -9,7 +9,10 @@ link, backlink, catalogo, frontmatter, formato e copertura. Non decidono quali
 concetti siano veri o utili. Lo script produce evidenze; custode e agente le
 interpretano e modificano la conoscenza.
 
-`o3/kb_tools.py` offre una superficie portabile usata dalla skill `kb`:
+`o3/kb_tools.py` è il nucleo usato dalla skill `kb`. Vive nel canone e si
+lancia da lì sul repo da verificare, `python3 method/../o3/kb_tools.py
+--root . audit`: una copia nell'adottante smette di ricevere il nucleo senza
+che nessuno lo veda. I comandi:
 
 - `audit [--format markdown|json]`: report strutturale completo; i link sono
   verificati anche fuori dall'inventario dei nodi — register dei poli, bussola,
@@ -23,13 +26,21 @@ interpretano e modificano la conoscenza.
 - `terms`: candidati terminologici da valutare, non nuovi nodi automatici;
 - `inventory`, `coverage`: inventario e copertura per progetti con codice.
 
-Il nucleo comune resta indipendente dal dominio. Un adottante può aggiungere
-controlli `facts` o `fidelity` quando dispone di fonti primarie leggibili, e può
-dichiarare facet locali tramite `EXTENDED_FACETS`. Le estensioni preservano i
-comandi base, così skill e audit comparativi possono usare la stessa
-interfaccia.
+Il nucleo comune resta indipendente dal dominio, e il dominio non lo copia.
+L'adottante dichiara ciò che è suo in due file opzionali del proprio repo:
 
-`o3/kb_profile.py --root <repo>` produce il profilo quantitativo comune:
+- `o3/kb_tools.toml`, il profilo: cartelle dei documenti, catalogo,
+  estensioni ed esclusioni del codice, facet locali;
+- `o3/kb_domain.py`, i controlli che sono codice, come `facts` o `fidelity`
+  quando dispone di fonti primarie leggibili. Il modulo aggiunge
+  sottocomandi, porta le proprie violazioni nel report di `audit` e può
+  sostituire `inventory` e `coverage`, che dipendono dal linguaggio del
+  repo.
+
+Gli altri comandi base non si sostituiscono, così skill e audit comparativi
+usano la stessa interfaccia in ogni repo.
+
+`o3/kb_profile.py --root <repo>`, lanciato allo stesso modo dal canone, produce il profilo quantitativo comune:
 manifest dei nodi locali con impronte, righe, distribuzione delle dimensioni e
 maturità dichiarata. Esclude catalogo, file nascosti e symlink; enumera anche
 nodi non catalogati. Il parametro `--states` adatta il dominio chiuso degli
@@ -77,7 +88,8 @@ Regole d'uso:
   della sintesi come conferma indipendente;
 - conservare nei fili solo il cambiamento di giudizio prodotto dall'audit, non
   il report rigenerabile;
-- tenere le estensioni locali e, quando possibile, prive di dipendenze esterne.
+- tenere le estensioni locali, nel modulo di dominio, e quando possibile
+  prive di dipendenze esterne.
 
 Lo scope intenzionale è la struttura della KB e dei documenti supportati. La
 qualità delle decisioni, dei router e delle prescrizioni resta una valutazione

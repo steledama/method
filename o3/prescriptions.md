@@ -21,6 +21,11 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   giro, negati in 13 giri di quattro repo; le skill lo usano, i permessi lo
   concedono. Prescritta ai sette il 2026-11-12.
 
+- [Builder delle viste e audit KB lanciati dal canone](strumenti-dal-canone.md) —
+  `--root` su `build.py`, `serve.py` e `kb_tools.py`; all'adottante restano
+  `project.py`, profilo e moduli di dominio, senza copie né fork.
+  Prescritta ai sette il 2026-11-12.
+
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 
@@ -42,10 +47,13 @@ sull'artefatto, non sul Mondo runtime — l'omologo runtime negli adottanti
 code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perform
 è il loro stadio: prescrizioni eseguibili invece che narrative.
 
-- `kb_tools.py` — backend portabile per l'audit della KB. Comandi: `audit`,
+- `kb_tools.py` — nucleo dell'audit della KB. Comandi: `audit`,
   `backlinks <nodo>`, `orphans`, `readme`, `migration`, `terms`, `facets`,
   `tasks`, `inventory` / `coverage`. Il report di `audit` è una diagnosi i1 su
-  stdout.
+  stdout. Con `--root DIR` verifica un altro repo, che dichiara il proprio
+  profilo in `o3/kb_tools.toml` e i controlli di dominio in
+  `o3/kb_domain.py`. Test:
+  `python3 -m unittest discover -s tests -p 'test_kb_tools.py'`.
 - `kb_profile.py --root .` — profilo quantitativo comune e manifest di
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
   1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
