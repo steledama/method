@@ -24,7 +24,7 @@ from sources import (
     register_intro,
 )
 
-# --- CONFIG specifico del repo ------------------------------------------------
+# --- Struttura della home, canone ------------------------------------------------
 
 # Le due colonne del ciclo e le posizioni di slot, nell'ordine fedele a Norman:
 # l'esecuzione scende dal Goal al Mondo (o1->o2->o3), la valutazione risale dal
@@ -44,21 +44,30 @@ TITLES = {
 }
 
 # Per ciascuno slot: (href, descrizione). L'href è l'indice della collezione,
-# reso allo stesso path del repo.
+# reso allo stesso path del repo. La descrizione è quella del canone: il
+# repo la sostituisce in `project.py` (`DESCRIZIONI`), non qui, così questo
+# file resta uguale in ogni repo.
 SLOTS = {
     "o1": ("o1/plan.html", "Task aperti, prioritizzati, con dipendenze."),
     "o2": ("o2/tasks.html", "La specifica concreta dei task del piano."),
-    "o3": (
-        "o3/prescriptions.html",
-        "Prescrizioni ed esecutori deterministici del metodo.",
-    ),
+    "o3": ("o3/prescriptions.html", "Prescrizioni ed esecutori deterministici."),
     "i3": ("i3/verdicts.html", "I verdetti correnti per filo aperto."),
     "i2": ("i2/interpretations.html", "Le sintesi che interpretano i segnali."),
-    "i1": (
-        "i1/perceptions.html",
-        "I segnali catturati dallo stadio Perceive.",
-    ),
+    "i1": ("i1/perceptions.html", "I segnali catturati dallo stadio Perceive."),
 }
+
+
+def slot_description(key: str) -> str:
+    """La descrizione dello slot: quella di `project.py` se c'è, o il canone.
+
+    `getattr` regge un `project.py` scritto prima del campo.
+    """
+    local = getattr(project, "DESCRIZIONI", {})
+    unknown = sorted(set(local) - set(SLOTS))
+    if unknown:
+        raise SystemExit(f"project.py: DESCRIZIONI nomina slot inesistenti: {', '.join(unknown)}")
+    return local.get(key, SLOTS[key][1])
+
 
 # --- Helpers ------------------------------------------------------------------
 
@@ -170,7 +179,8 @@ def proposals_html(root: Path) -> str:
 
 
 def card_html(key: str) -> str:
-    href, desc = SLOTS[key]
+    href = SLOTS[key][0]
+    desc = slot_description(key)
     return f"""          <div class="cycle-card" data-slot="{key}">
             <span class="cycle-key">{html.escape(key)}</span>
             <h3>

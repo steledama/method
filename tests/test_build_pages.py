@@ -122,6 +122,25 @@ class PageTests(unittest.TestCase):
         self.assertIn("<code>arresti</code>", section)
         self.assertIn('href="autonomy.html"', section)
 
+    def test_home_descriptions_come_from_project(self):
+        project = build_system_image.project
+        saved = getattr(project, "DESCRIZIONI", None)
+        try:
+            project.DESCRIZIONI = {"i1": "Catture del dominio."}
+            self.assertIn("<small>Catture del dominio.</small>", build_system_image.card_html("i1"))
+            self.assertIn(build_system_image.SLOTS["o1"][1], build_system_image.card_html("o1"))
+            del project.DESCRIZIONI
+            self.assertIn(build_system_image.SLOTS["i1"][1], build_system_image.card_html("i1"))
+            project.DESCRIZIONI = {"o4": "x"}
+            with self.assertRaises(SystemExit):
+                build_system_image.card_html("o1")
+        finally:
+            if saved is None:
+                if hasattr(project, "DESCRIZIONI"):
+                    del project.DESCRIZIONI
+            else:
+                project.DESCRIZIONI = saved
+
     def test_hierarchy_and_all_sections_survive(self):
         source = """# Indice
 

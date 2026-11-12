@@ -1,7 +1,8 @@
 """Identità del progetto sulle superfici di `view/`.
 
 È l'unico file che il fork parametrizza: sigla e lingua, colore d'accento,
-sorgente del deck, esclusioni dal perimetro. Stile, struttura delle pagine e
+descrizioni degli stadi sulla home, sorgente del deck, esclusioni dal
+perimetro. Stile, struttura delle pagine e
 contratti restano canone, uguali in ogni repo (`kb/view.md`,
 `kb/presentation.md`).
 """
@@ -14,6 +15,13 @@ LINGUA = "en"
 
 # Colore d'accento, unico per progetto: è ciò che distingue le viste.
 ACCENTO = "#4338ca"
+
+# Descrizioni degli stadi sulla home, per slot (`o1`…`o3`, `i1`…`i3`): solo
+# quelle che il repo dice in modo diverso dal canone. Testo semplice o HTML
+# inline; gli slot assenti prendono la descrizione canonica.
+DESCRIZIONI: dict[str, str] = {
+    "o3": "Prescrizioni ed esecutori deterministici del metodo.",
+}
 
 # Sorgente del deck, relativa alla root, oppure None se il repo non ha un
 # deck. Le tavole si citano come `assets/<nome>` e la loro fonte vive accanto

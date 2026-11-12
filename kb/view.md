@@ -180,7 +180,7 @@ producono lo stesso output: il determinismo rende la rigenerazione un gesto
 meccanico invece di una decisione.
 
 Le viste sono uniformi fra i progetti: a distinguerle sono la **sigla** e un
-**colore d'accento** unico per progetto. Sigla, lingua, accento, deck ed
+**colore d'accento** unico per progetto. Sigla, lingua, accento, descrizioni degli stadi sulla home, deck ed
 esclusioni si dichiarano in un solo file, `o3/view/project.py`; la build
 scrive l'accento in `view/assets/theme.css`. La home resta minimale, pura
 affordance di navigazione: i register in sintesi, i sei stadi verso i loro

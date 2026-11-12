@@ -86,7 +86,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     `status.json` con l'ultimo tentativo, lock col PID e richiesta accodata.
     Test: `python3 -m unittest discover -s tests -p 'test_publish.py'`;
   - `project.py` — l'unico file che il fork parametrizza: sigla, lingua,
-    colore d'accento (scritto in `view/assets/theme.css`), sorgente del deck,
+    colore d'accento (scritto in `view/assets/theme.css`), descrizioni degli
+    stadi sulla home, sorgente del deck,
     CSS di dominio ed esclusioni dal perimetro;
   - `sources.py` — libreria condivisa: parsing di plan, task e register,
     contratti plan × o2 e i3 × goal, Pandoc e resa del deck; non si invoca
