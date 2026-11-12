@@ -18,7 +18,7 @@ state lette direttamente le chiusure fuori checkout.
 
 È una capacità mancante nell'interfaccia esposta, non un diniego ricevuto.
 Il lavoro di adattamento è in
-[lanciatore-ciclo-nel-metodo](../o2/lanciatore-ciclo-nel-metodo.md);
+`o2/lanciatore-ciclo-nel-metodo.md` (chiuso il 2026-11-12, in git);
 la cattura si consuma quando una lettura autorizzata di questi soli stati
 è verificata in un giro Codex. Nessuna proposta allarga il perimetro dei dati.
 

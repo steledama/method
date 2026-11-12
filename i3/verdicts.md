@@ -42,9 +42,10 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
   clausola corretta perché gli esiti nulli non lasciavano traccia. Il
   2026-11-02, sui numeri del trailer `Esiti:`, resta così per adesso; la
   clausola vale senza data.
-- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — tre
+- [maturazione-nodi-fondativi.md](maturazione-nodi-fondativi.md) — cinque
   ipotesi del canone attendono il caso che le decide: quarta regione della
-  tipologia, matrice del ciclo, facet estese.
+  tipologia, matrice del ciclo, facet estese, `.agents/skills/` e rinomina
+  unica delle skill.
 - [toolchain-builder-presentazione.md](toolchain-builder-presentazione.md) —
   i builder assumevano il toolchain degli host Linux: codifica, reveal.js
   dalla versione di pandoc, link al disco locale e fine riga sono canone,

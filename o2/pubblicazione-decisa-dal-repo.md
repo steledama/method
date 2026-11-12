@@ -1,5 +1,5 @@
 ---
-sintesi: "Chi serve cosa lo decide oggi nixos (o3/presentations.nix), fuori dai repo serviti. Adottato dal custode il 2026-11-08: il repo dichiara dove si pubblica con un valore solo, una porta per host con uno smistatore davanti a un servitore per repo, un elenco dei checkout ammessi sull'host. Da implementare dopo il lanciatore."
+sintesi: "Chi serve cosa lo decide oggi nixos (o3/presentations.nix), fuori dai repo serviti. Adottato dal custode il 2026-11-08: il repo dichiara dove si pubblica con un valore solo, una porta per host con uno smistatore davanti a un servitore per repo, un elenco dei checkout ammessi sull'host. Il lanciatore da cui dipendeva è in esercizio: da implementare."
 ciclo: dev
 ---
 
@@ -37,8 +37,8 @@ Accendere e spegnere diventa un commit nel repo, senza rebuild.
 
 ## Decisioni del custode (2026-11-08)
 
-Adottata la direzione, da eseguire dopo il
-[lanciatore](lanciatore-ciclo-nel-metodo.md), con queste scelte sui punti
+Adottata la direzione, da eseguire dopo il lanciatore (`o3/lanciatore.py`,
+in esercizio dal 2026-11-09), con queste scelte sui punti
 sotto:
 
 - **Un solo host privilegiato:** `SERVITA_SU` è un valore solo, host o ruolo,
@@ -55,7 +55,7 @@ sotto-percorso delle pagine del ciclo.
 ## Valutazione del 2026-10-31
 
 La direzione è quella che il custode ha già chiesto per il ciclo autonomo
-([lanciatore](lanciatore-ciclo-nel-metodo.md)): il repo decide cosa, il
+(il lanciatore, `o3/lanciatore.py`): il repo decide cosa, il
 metodo fissa un contratto indipendente dal sistema operativo, l'host è un
 adattatore minimo. Le due proposte condividono il confine a tre e la
 domanda sul codice eseguito da un checkout; conviene deciderle con lo
@@ -150,4 +150,3 @@ questo file si rimuovono nello stesso commit.
 Connessioni:
 
 - [view](../kb/view.md)
-- [lanciatore-ciclo-nel-metodo](lanciatore-ciclo-nel-metodo.md)

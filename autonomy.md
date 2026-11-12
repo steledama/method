@@ -129,6 +129,6 @@ ricostruzioni con le fonti, secondo il filo
 `ciclo-delegato` riguarda i cicli avviati dal custode, `ciclo-autonomo` il
 giro senza custode nei limiti sopra. Nessuno dei due copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
-I gradini successivi seguono il
-[percorso del pilota](o2/pilota-ciclo-autonomo.md). Il custode può restringere o
+Il percorso a gradini del pilota è compiuto (storia in git); il verdetto
+vive nel filo [ciclo autonomo](i3/ciclo-autonomo.md). Il custode può restringere o
 revocare la delega; il register e Git ne conservano lo stato e la storia.

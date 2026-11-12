@@ -187,6 +187,12 @@ attrito.
   nessun innesco lo lanciava. Dal 2026-11-02 il giro autonomo lancia la parte
   meccanica alla scadenza (`autonomy.md`). La cella runtime-o1 lascia la D
   se il rapporto di dicembre arriva in tempo;
+- prova dell'audit snellito, al primo audit del 2026-12-01: il resoconto
+  dichiara il tempo speso in sessione e conta i rossi utili e quelli falsi,
+  e il rapporto del giro deve esserci alla scadenza. Dal 2026-11-12 il giro
+  non legge via ssh gli adottanti di lavoro, quindi il suo rapporto li dà
+  assenti: quelli li legge l'audit in sessione con `--ssh` (criterio dal task
+  `snellire-adottanti`, chiuso il 2026-11-12, in git);
 - `baserow`, verifica nell'uso: il fronte backup è chiuso, restano deadlock e
   crescita dello storico, che sono coda di dominio.
 
@@ -197,8 +203,9 @@ attrito.
 - la rigenerazione e `--check` dimostrano la fedeltà delle viste ai builder
   del repo, non quella dei builder al canone: quella è materia dei `/method`
   locali;
-- i `tentativi.jsonl` di `svezia` e di `danea2` non sono leggibili da `deck`:
-  gli arresti prima del commit lì restano invisibili a questo audit;
+- i `tentativi.jsonl` di `svezia` e di `danea2` lo script non li legge: in
+  sessione si leggono via ssh, come il 2026-11-12 per `danea2` (filo
+  [ciclo autonomo](ciclo-autonomo.md));
 - l'innesco dei giri si legge da `Impatto-motivo:`. I commit di sessione
   senza quella riga finiscono in «altro» e non sono separabili da un giro
   avviato a mano con la riga mancante.

@@ -36,8 +36,8 @@ riletto contro le fonti.
   Settimo dal 2026-11-05 `nixos-lavoro`, separato da `nixos` il 04/11:
   gradino 0 e due giri a mano riusciti (`92afebd`, `3438713`), poi gradino 1
   col timer delle 04:30 sullo standby `norvegia` (`1f7c780`), con un commit
-  di registro della production oltre a quello del giro. Andamento in
-  `o2/pilota-ciclo-autonomo.md`. Dall'08/11 cambia il meccanismo di
+  di registro della production oltre a quello del giro. L'andamento per
+  gradini sta nel task del pilota, chiuso il 2026-11-12 (in git). Dall'08/11 cambia il meccanismo di
   `danea-auto`: parte dal lanciatore canonico di `method` (marker del repo,
   giro a mano `0624d2f`, timer dal 09/11). Anche `method` parte dal lanciatore
   dalla stessa data: giro a mano delle 19:37 (`87eac6f5`) riuscito, `chiusura`
@@ -50,7 +50,7 @@ riletto contro le fonti.
   riusciti): la migrazione al solo server tiene sospesi i loro timer, e `bi`
   riferisce un rifiuto per quota settimanale (HTTP 429, nessun tool, costo
   zero). Sono fatti inoltrati dalle sessioni, non riletti qui
-  (`o2/lanciatore-ciclo-nel-metodo.md`, sezioni dell'11/11). Una sospensione
+  (task del lanciatore, sezioni dell'11/11, chiuso il 2026-11-12 e in git). Una sospensione
   dichiarata non è una partenza mancata invisibile; resta da rileggere alla
   ripresa, insieme alla quota settimanale: se l'account è lo stesso, tocca anche i
   giri di `deck`, che l'11/11 sono riusciti (`salute` 09:03, `economia`
@@ -80,8 +80,8 @@ riletto contro le fonti.
   sessione aperta fra il 19 e il 24/10, uno `pull-in-sola-lettura` il 29/10
   (`369d5ea`, rilancio a mano). Il limite è che un arresto o un fallimento
   non si rilancia da solo: `method` è rimasto senza giro il 31/10 e il
-  01/11. Regola provvisoria in `o2/pilota-ciclo-autonomo.md`, disegno in
-  `o2/lanciatore-ciclo-nel-metodo.md`. Il 2026-11-06 `danea-auto` non ha
+  01/11. Regola provvisoria e disegno stavano nei task del pilota e del
+  lanciatore, chiusi il 2026-11-12 (in git). Il 2026-11-06 `danea-auto` non ha
   il commit del giro su `origin`, pur col timer delle 08:10 e la ripresa
   delle 10:10 (`14b1231`): il fetch delle 15:00 è riuscito e `origin/main`
   resta a `0840a4b` del 05/11. Il 07/11 su `origin` arriva solo il giro
@@ -90,14 +90,16 @@ riletto contro le fonti.
   10/11 (`3e26903`, `3cd860f`). L'11/11 su `origin` non c'è un commit del
   giro, né delle 08:10 né della ripresa: fetch delle 15:00:10 riuscito,
   `origin/main` a `8a37364` del 10/11, 17:33. I giorni senza commit del
-  timer sono tre. Da `deck` non si vede se quei giri siano
-  mancati, fermi o senza push, perché i tentativi di Windows non si
-  leggono da qui: la causa va accertata su `danea2`, voce in
-  `o2/pilota-ciclo-autonomo.md`. Ipotesi del giro del 09/11, da quella
-  stessa lettura: il marker di `danea-auto` dice che la ripresa parte solo
-  se il giro delle 08:10 non ha lanciato `claude`, quindi il 07/11 non
-  sarebbe un push mancato; la smentisce una riga delle 08:10 con l'agente
-  avviato. Gli scarti prima del 22/10 hanno
+  timer sono tre. Causa accertata il 2026-11-12 in sessione, sui tentativi
+  di `danea2` letti via ssh: il 06/11, alle 08:10 e alle 10:10, e il 07/11
+  alle 08:10 il giro si ferma con l'arresto 15 per una sessione Claude
+  aperta su `danea2` (`claude.exe`, PID 2860), mentre la ripresa del 07/11
+  riesce (`6ebecfb`). L'11/11 non c'è la partenza delle 08:10 (il giro del
+  12/11 di `danea-auto` registra un blackout quel giorno, `bc28ba6`) e la
+  ripresa delle 10:10 chiude con l'errore 20, uscita non zero di Claude: è
+  il giorno del rifiuto per quota riferito da `bi`, nesso non verificato.
+  Arresti tutti visibili sull'host e nessun push mancato: l'ipotesi del
+  giro del 09/11 regge. Gli scarti prima del 22/10 hanno
   avuto causa trovata e corretta (`nixos` `101e32b`,
   `i1/arresto-economia-fuori-giri-2026-10-21.md`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,7 USD e arriva a
@@ -202,9 +204,15 @@ motiva la riduzione dell'attrito, non prova la fedeltà delle ricostruzioni
   che altera una decisione, arresti o partenze mancate invisibili, oppure
   più lavoro di supervisione senza beneficio dimostrato. Criteri che
   crescono più in fretta dei casi concreti restano un segnale negativo.
-- **Ancora da fissare**: campione da rileggere, misura del costo di
-  supervisione e confronto assistito (`o2/pilota-ciclo-autonomo.md`, «Da
-  fissare alla partenza»).
+- **Ancora da fissare**, dal task del pilota chiuso il 2026-11-12: il
+  campione di decisioni e ricostruzioni da rileggere contro le fonti,
+  verdetti modificati compresi e con i casi della
+  [ricostruzione delegabile](verdetto-piu-sicuro-del-materiale.md),
+  tenendo distinte leggibilità del motivo e fedeltà; la misura degli
+  interventi necessari del custode e del tempo di ricostruzione, con un
+  confronto assistito concordato. Frequenza dei giri e numero dei commit
+  non dimostrano il beneficio, e un pilota senza casi informativi non
+  certifica l'autonomia.
 
 ## Condizione di chiusura
 

@@ -162,7 +162,9 @@ Still open, to verify before relying on the fallback:
 - a fallback from one engine to the other with real engines;
 - Windows (danea-auto): the Codex sandbox there and the hook command quoting;
 - hosted tools that hooks do not cover (web search): today they pass only if
-  the repository allows `WebSearch`; otherwise they are not disabled in Codex.
+  the repository allows `WebSearch`; otherwise they are not disabled in Codex;
+- the time cap on the real unit (`RuntimeMaxSec`, 45 minutes): no run has
+  reached it yet, and this contract must say how the launcher records it.
 
 ## Adoption
 

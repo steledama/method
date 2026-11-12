@@ -138,6 +138,5 @@ rimuovono nello stesso commit.
 
 Connessioni:
 
-- [pilota-ciclo-autonomo](pilota-ciclo-autonomo.md)
 - [agent-as-user](../kb/agent-as-user.md)
 - [ciclo-autonomo](../i3/ciclo-autonomo.md)

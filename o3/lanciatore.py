@@ -5,7 +5,7 @@ Fa solo ciò che l'agente non può fare da sé: lock, `pull --ff-only`, avvio di
 tempo e di costo, righe `partenza` e `chiusura` in `i1/giri/`, scritte anche
 quando l'agente si pianta. Il ciclo vive nell'artefatto (`o3/ciclo/prompt.md`,
 `o3/ciclo/permessi.json`), all'host resta il trigger. Decisione del custode del
-2026-11-08 (`o2/lanciatore-ciclo-nel-metodo.md`).
+2026-11-08 (task del lanciatore, chiuso il 2026-11-12, in git).
 
 Si lancia nella radice del repo, dal checkout del canone:
 `python3 method/../o3/lanciatore.py`. Con `--controlli` esegue i controlli in sola

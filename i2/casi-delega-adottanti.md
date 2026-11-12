@@ -71,7 +71,7 @@ chiedeva il pull d'avvio che prompt e register riservavano al custode, e un
 filtro in pipe è stato negato a pezzi
 ([cattura](../i1/casi-delega-baserow-2026-10-16.md)). Accanto, senza caso
 inoltrato, il primo giro di `method` ha avuto letture motivate dal prompt e
-negate dal perimetro (`o2/pilota-ciclo-autonomo.md`). In ogni caso l'agente
+negate dal perimetro (task del pilota, chiuso il 2026-11-12, in git). In ogni caso l'agente
 ha preso il diniego come confine e l'ha dichiarato; il costo è stato in turni
 e in letture perse, non in atti fuori delega. Le correzioni sono tutte
 locali e a mano: togliere dal prompt, concedere in `ciclo.json`, dichiarare
