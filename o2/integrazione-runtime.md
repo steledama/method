@@ -37,6 +37,24 @@ Hermes su plugin, installazione su Windows e modelli locali non sono state
 lette; nessuno dei due è stato installato. Tutto ciò che segue è letto, non
 provato.
 
+### Licenza e linguaggio
+
+Dati di GitHub del 2026-11-13:
+
+- **Hermes Agent** (`NousResearch/hermes-agent`): licenza MIT; Python 71%,
+  TypeScript 25%; nato a luglio 2025, circa 263.000 stelle, sviluppo attivo.
+  Lo mantiene Nous Research, un'azienda.
+- **OpenClaw** (`openclaw/openclaw`): licenza MIT; TypeScript 89%, più Swift e
+  Kotlin per le app; nato a novembre 2025, circa 394.000 stelle, sviluppo
+  attivo. La documentazione lo dice sviluppato dalla OpenClaw Foundation, un
+  ente senza scopo di lucro.
+
+Lettura: sono entrambi open source con una licenza che permette di usarli,
+modificarli e ridistribuirli, anche dentro un prodotto. Gli strumenti del
+metodo (`o3/`) sono in Python, come il nucleo di Hermes: un plugin o
+un'estensione del cruscotto si scriverebbe nel linguaggio che il repo usa già,
+mentre con OpenClaw servirebbe TypeScript.
+
 ### 1. Dove vive la memoria
 
 - **Hermes**: `MEMORY.md` e `USER.md` in `~/.hermes/memories/`, per profilo e
