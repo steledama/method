@@ -18,13 +18,13 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
 
-| Ciclo | Ob. | Task                                          | Dip. |
-| ----- | --- | --------------------------------------------- | ---- |
-| dev   | S   | Strumenti dal canone                          | —    |
-| dev   | S   | Ricorrenza dei dinieghi                       | —    |
-| dev   | S   | Pubblicazione decisa dal repo                 | —    |
-| dev   | S   | Semplificazione di skill e struttura di `o3/` | —    |
-| dev   | S   | Traduzione in inglese                         | p1   |
+| Ciclo | Ob. | Task                                     | Dip. |
+| ----- | --- | ---------------------------------------- | ---- |
+| dev   | S   | Strumenti dal canone                     | —    |
+| dev   | S   | Ricorrenza dei dinieghi                  | —    |
+| dev   | S   | Pubblicazione decisa dal repo            | —    |
+| dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
+| dev   | S   | Traduzione in inglese                    | p1   |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
 riesame (`kb/plan.md`, «Risveglio»):
