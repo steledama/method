@@ -12,11 +12,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 ## Contenuti
 
-- [Il motore del ciclo lo sceglie il repo](motori-del-ciclo.md) — `motori` nel
-  profilo del lanciatore, fallback nei due versi, esecutore Codex canonico;
-  all'host solo binari, recinto, arresto e trigger, e nessun nixos tiene la
-  politica degli altri repo. Prescritta ai sette il 2026-11-11.
-
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 

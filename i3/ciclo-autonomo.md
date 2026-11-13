@@ -149,7 +149,7 @@ riletto contro le fonti.
   senza barra (BI `39d63da`), più sei regole esatte Docker/SQL negate per
   le virgolette (Baserow). L'esecutore ora giudica ogni parola che può
   essere un path e le regole nella forma scritta
-  ([runbook](../o3/motori-del-ciclo.md)), con regressioni sulle tre
+  (`o3/esecutore_codex.py`), con regressioni sulle tre
   riproduzioni; la ripresa di Codex resta alle verifiche di ciascun
   adottante, e Windows non è collaudato (danea-auto `ce2a2f6`).
   Nella chiusura serale di economia `f9d27165`, `commit: true` attribuisce
