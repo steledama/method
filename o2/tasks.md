@@ -10,4 +10,5 @@ In ordine di esecuzione; stato e decisioni vivono nel file del task.
 - [ricorrenza-dinieghi.md](ricorrenza-dinieghi.md) — contare per classe di grafia i dinieghi che ricorrono nei giri, anche fra repo.
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host tiene una porta sola con uno smistatore.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
+- [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; in pausa `p1`.
