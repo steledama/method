@@ -52,7 +52,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   `tasks`, `inventory` / `coverage`. Il report di `audit` è una diagnosi i1 su
   stdout. Con `--root DIR` verifica un altro repo, che dichiara il proprio
   profilo in `o3/kb_tools.toml` e i controlli di dominio in
-  `o3/kb_domain.py`. Test:
+  `o3/kb_domain.py`. Quello di `method`, `kb_domain.py`, controlla che ogni
+  strumento di `o3/` sia registrato in questo indice. Test:
   `python3 -m unittest discover -s tests -p 'test_kb_tools.py'`.
 - `kb_profile.py --root .` — profilo quantitativo comune e manifest di
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
@@ -78,8 +79,30 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   l'esito sul segnale canonico ([agent-as-user](../kb/agent-as-user.md)). Lo
   lancia il giro di `method`. Test: `python3 -m unittest discover -s tests -p 'test_dinieghi.py'`.
 - `ultimo_giro.py` — l'ultimo giro e l'ultimo `Prossimo:` del repo corrente,
-  senza grafie da quotare ([ultimo giro](ultimo-giro.md)). Test nello stesso file.
-- `view/` — i builder delle viste, con lo stesso path in ogni repo (canone,
+  senza grafie da quotare ([ultimo giro](ultimo-giro.md)). Test in
+  `tests/test_dinieghi.py`, con quelli di `dinieghi.py`.
+- `adottanti.py` — lettura in sola lettura degli adottanti dichiarati in
+  `world.md`, per il giro e per `/adottanti`: storia, marker e `audit`; con
+  `--ssh` legge quelli dichiarati su un altro host. Test:
+  `python3 -m unittest discover -s tests -p 'test_adottanti.py'`.
+- `prescrizioni.py` — `verifica <nome>` dice quali adottanti hanno recepito
+  una prescrizione, `chiudi <nome>` la toglie quando l'hanno recepita tutti:
+  l'unico atto in `o3/` delegato al giro. Test:
+  `python3 -m unittest discover -s tests -p 'test_prescrizioni.py'`.
+- `canone.py` — la storia del canone letta da un adottante al posto di
+  `git -C`, in sola lettura. Test:
+  `python3 -m unittest discover -s tests -p 'test_canone.py'`.
+- `commit_gate.py` — il gate deterministico di `/commit`: `prima` formatta e
+  lancia i controlli del profilo `commit_gate.toml`, `verifica` confronta il
+  working tree prima dello staging, `dopo` controlla i trailer. Test:
+  `python3 -m unittest discover -s tests -p 'test_commit_gate.py'`.
+- `skill_tools.py` — misure e controlli deterministici sulle skill e sui
+  permessi, senza giudizio ([skill](../kb/skill.md)). Test:
+  `python3 -m unittest discover -s tests -p 'test_skill_tools.py'`.
+- `ciclo/` — la configurazione del giro autonomo: `prompt.md`,
+  `permessi.json`, il profilo `lanciatore.toml` e il contratto
+  [engine fallback](ciclo/fallback.md).
+- `view/` — i builder delle viste, lanciati da questo checkout per ogni repo (canone,
   cfr. [view](../kb/view.md)):
   - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i
     contratti fra le fonti, rigenera pagine, deck, home e asset in `../view/`,
@@ -98,7 +121,7 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     per versione, puntatore `current` scambiato solo a build riuscita,
     `status.json` con l'ultimo tentativo, lock col PID e richiesta accodata.
     Test: `python3 -m unittest discover -s tests -p 'test_publish.py'`;
-  - `project.py` — l'unico file che il fork parametrizza: sigla, lingua,
+  - `project.py` — l'unico file che ogni repo tiene in proprio: sigla, lingua,
     colore d'accento (scritto in `view/assets/theme.css`), descrizioni degli
     stadi sulla home, sorgente del deck,
     CSS di dominio ed esclusioni dal perimetro;
@@ -109,6 +132,9 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     collezioni, allo stesso path del repo, con la navigazione comune, i link
     riscritti sul perimetro e le immagini copiate accanto. Regressioni:
     `python3 -m unittest discover -s tests -p 'test_build_pages.py'`;
+  - `ciclo.py` — lo stato dei tentativi del ciclo autonomo letto a
+    richiesta da `serve.py` sotto `/_ciclo/`. Test:
+    `python3 -m unittest discover -s tests -p 'test_ciclo.py'`;
   - `build_system_image.py` — la home statica minimalista: register in
     sintesi, un collegamento primario per stadio, il deck come voce a sé;
   - `serve.py` — serve la sola `../view/` sulle reti private:

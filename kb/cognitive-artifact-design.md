@@ -60,7 +60,7 @@ invece che come archivio di elementi isolati.
 Lo sviluppo del metodo procede per due movimenti complementari in alternanza —
 l'esigenza che sale da un dominio reale e la cornice teorica che scende a darle
 forma — ai quali si affianca, sul lato runtime e con pari dignità, l'**output di
-canone** che `metodo` pianifica e che l'adottante recepisce eseguendolo. La
+canone** che `method` pianifica e che l'adottante recepisce eseguendolo. La
 linea di faglia che li tiene onesti separa il pianificare il proprio canone dal
 gestire la coda altrui. La trattazione, con i fallimenti propri di ciascun
 movimento e il distinguo tra i due top-down, vive in `method-development`.

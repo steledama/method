@@ -109,7 +109,7 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   operative consumate sono candidate alla pulizia. Non scandire genericamente
   il Mondo e non inferire autorità: senza target esatto e autorizzazione proponi
   la rimozione e fermati alla membrana
-- `o1/plan.md` resta povero: il `metodo` non è una backlog board per gli
+- `o1/plan.md` resta povero: `method` non è una backlog board per gli
   adottanti (cfr. `kb/plan.md`), i suoi task sono rari e riguardano solo
   questo repo
 - `## Direzione` si confronta con Goal, fili e coda a ogni giro: si riscrive
@@ -143,7 +143,7 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
 **3. Rivaluta stato, dipendenze e priorità**
 
 Individua eventi che possono spostare priorità o creare/rimuovere dipendenze,
-che nel `metodo` hanno natura propria:
+che nel repo `method` hanno natura propria:
 
 - una generalizzazione si è stabilizzata in un repo adottante -> può diventare
   nodo, skill base, strumento comune o criterio di revisione qui
@@ -170,14 +170,14 @@ lenti — e se una si accende, la mossa può **nascere come `pause`** invece che
 come prossimo task:
 
 - **mandato/canale** — la mossa scavalca un agente o un canale con mandato?
-  Nel `metodo`: scrivere diretto nei file di un adottante invece di lasciare
+  Nel repo `method`: scrivere diretto nei file di un adottante invece di lasciare
   che il suo `method` tiri il canone scavalca la membrana («agisci
   attraverso, ratifica»).
 - **sequenza/informazione** — un uso o una conversazione imminente darebbe un
-  _read_ prima di muoverci? Nel `metodo`: l'uso reale di un adottante darebbe
+  _read_ prima di muoverci? Nel repo `method`: l'uso reale di un adottante darebbe
   l'evidenza prima di incidere il canone («evidenza prima della struttura»).
 - **effetti di secondo ordine** — la mossa rompe un consumatore a valle o
-  cambia gli incentivi di una controparte? Nel `metodo`: un rename o un
+  cambia gli incentivi di una controparte? Nel repo `method`: un rename o un
   refactor di un nodo che rompe un generatore o un link negli adottanti.
 
 È la versione **plan-time** del check i3 che `/commit` fa a commit-time:
@@ -211,7 +211,7 @@ ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
   quali soglie lo dice il fork dell'adottante
 
 Ciò che la finestra larga trova entra nel passo 4 come ogni altro fatto,
-risalendo la catena (`kb/action-cycle.md`). Nel `metodo` la finestra conta
+risalendo la catena (`kb/action-cycle.md`). Nel repo `method` la finestra conta
 soprattutto i giri e le proposte ferme; le tendenze di dominio vivono nei
 fork.
 
@@ -310,7 +310,7 @@ Due piani, secondo autorizzazione:
   riflettono il canone corrente, non uno stadio superato.
 - **L'atto stesso**: quando è locale, reversibile e già autorizzato, si
   compie davvero; quando tocca il Mondo o richiede nuova autorità, si produce
-  o si valida la prescrizione e ci si ferma al confine. In `metodo` il Mondo
+  o si valida la prescrizione e ci si ferma al confine. In `method` il Mondo
   runtime sono gli adottanti: l'atto tipico è la prescrizione, e a compierla
   è il `method` dell'adottante — o3 prescrive, l'adottante ratifica.
   Nel ciclo autonomo l'atto è quello ricorrente del runtime o quello che il
@@ -320,7 +320,7 @@ Due piani, secondo autorizzazione:
 Esito: stato della collezione (prescrizioni vive e loro freschezza, strumenti
 verificati), atti compiuti o predisposti, o la chiusura in una riga.
 
-Minimo: l'indice di `o3/` (in `metodo` `o3/prescriptions.md`) e gli atti che il register di autonomia
+Minimo: l'indice di `o3/` (in `method` `o3/prescriptions.md`) e gli atti che il register di autonomia
 assegna al giro; una procedura ricorrente del dominio, come `/manutenzione`
 di `nixos`, non è il giro: la sua diagnosi è un canale di `perceive`, i suoi
 atti stanno qui, dopo `compare` e `plan` (`cycle`, «Stadi»).

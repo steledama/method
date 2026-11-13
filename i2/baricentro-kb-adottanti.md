@@ -198,12 +198,12 @@ dichiarazioni di terzi.
 
 La terza tensione non viene dallo specimen: `kb/design-principles.md` (`maturo`)
 è della stessa specie. Non era emersa perché **questa sintesi classificò i
-cataloghi dei quattro adottanti e `metodo` si escluse**, mentre i principi di
+cataloghi dei quattro adottanti e `method` si escluse**, mentre i principi di
 dominio degli adottanti vivono nei loro README per prescrizione, non come nodi —
 il disegno del campione teneva la specie fuori inquadratura. La prima verifica da
-fare è quindi interna e mai fatta: applicare la tipologia alla `kb/` di `metodo`.
+fare è quindi interna e mai fatta: applicare la tipologia alla `kb/` di `method`.
 
-## Verifica interna sulla KB di `metodo` (2026-08-16)
+## Verifica interna sulla KB di `method` (2026-08-16)
 
 Unità e criteri sono stati fissati prima della classificazione: i **48 nodi
 unici indicizzati** in `kb/kb.md` al commit `6c17107`, uno per unità; codice

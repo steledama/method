@@ -1,6 +1,6 @@
 ---
 name: cycle
-description: Project skill for the joint cycle in metodo. Use when the user asks for /cycle, a full round eval all → exec all → commit, or when the autonomous cycle unit runs `cycle autonomo` without a custodian.
+description: Project skill for the joint cycle in method. Use when the user asks for /cycle, a full round eval all → exec all → commit, or when the autonomous cycle unit runs `cycle autonomo` without a custodian.
 ---
 
 # cycle

@@ -45,16 +45,16 @@ preservare, e l'ingresso è partito solo quando il marker locale era
 (`f44b6c0`): la scelta di un accento delle viste non confondibile con quelli
 già registrati, nata da un primo colore troppo vicino a quello di `salute`.
 La prima verifica nell'uso, l'audit `/adottanti` del 2026-11-02, la
-conferma: accenti distinti fra loro e da quello di `metodo`, skill conformi
+conferma: accenti distinti fra loro e da quello di `method`, skill conformi
 alla baseline (`baserow` senza `/kb`), revisione servita uguale a `origin`
 ([audit-adottanti](../i3/audit-adottanti.md)).
 
 ## Materiale verificato
 
-- `metodo` commit `b9d01b5`, ingresso di `crm` e relativa cattura i1;
+- `method` commit `b9d01b5`, ingresso di `crm` e relativa cattura i1;
 - `danea-auto` commit `57ef8a6`, marker `i3/allineamento-metodo.md`, register,
   plan e catalogo locali;
-- `metodo` a `c6939d6`, inclusi `world.md`, `goal.md`, `adopter-comparison`,
+- `method` a `c6939d6`, inclusi `world.md`, `goal.md`, `adopter-comparison`,
   `audit-adottanti` e la scadenza dell'audit.
 
 Non sono stati verificati il runtime Windows, Task Scheduler, Danea,

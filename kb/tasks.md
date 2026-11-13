@@ -39,7 +39,7 @@ giorni dopo l'uscita del suo task dal plan). Prima di eliminare copie operative
 nel Mondo si verifica che abbiano perso significato autonomo e che esistano
 target e autorità espliciti.
 
-Nel repository `metodo` entrano solo task di custodia del metodo. Le verifiche
+Nel repository `method` entrano solo task di custodia del metodo. Le verifiche
 puntuali di un adottante nascono nel suo `o2/` e tornano qui soltanto quando
 producono una regola portabile.
 

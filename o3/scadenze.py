@@ -25,7 +25,7 @@ opzionale e riguarda solo la forma delle righe di `## Scadenze`:
 
 La grammatica di `Prossima`, cadenze e legenda coincide con quella di
 `o3/view/sources.py`: lo verifica `tests/test_scadenze.py`, perché lo strumento
-non dipende dalle viste, che gli adottanti forkano.
+non dipende dai builder delle viste.
 """
 
 from __future__ import annotations

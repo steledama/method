@@ -10,7 +10,7 @@ obiettivo: S
 Il segnale viene da `danea-auto` (2026-10-01), il primo adottante che fa
 girare i builder di `presentation/` su Windows. Per farli funzionare ha
 dovuto cambiare due punti del canone. Tutti e due sono verificati nel
-codice di `metodo`, e tutti e due vengono dalla stessa assunzione taciuta: il
+codice di `method`, e tutti e due vengono dalla stessa assunzione taciuta: il
 toolchain è quello degli host Linux di chi li ha scritti.
 
 **Codifica.** `build_lists.py` (oggi assorbito in `o3/view/`) chiamava pandoc con `text=True` e senza
@@ -51,7 +51,7 @@ viste restavano LF solo grazie a Prettier (ora `newline="\n"` e
 
 Il gate di freschezza assumeva lo stesso toolchain: con pandoc diversi tra
 host la stessa fonte dava HTML diversi, e un commit fatto dall'host
-«sbagliato» portava rumore presentato come freschezza. In `metodo` la
+«sbagliato» portava rumore presentato come freschezza. In `method` la
 tensione si è sciolta con l'uscita di `view/` da git (`9b9597f`): il gate
 verifica senza confrontare l'output, e la vista pubblicata dichiara il
 toolchain che l'ha resa. La migrazione di `view/` fuori da git è chiusa per tutti e sette gli

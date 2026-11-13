@@ -112,7 +112,7 @@ L'obbligo di freschezza non scompare: si sposta dove la vista si legge.
 La ricostruzione dopo un aggiornamento la fa il servizio dell'host. Non è
 l'hook host-locale scartato in passato: quello era stato non dichiarato dentro
 il repo, che si rompeva in silenzio dopo un rename; il servizio è
-configurazione dichiarata dove l'host tiene la propria (in `metodo`, il repo
+configurazione dichiarata dove l'host tiene la propria (in `method`, il repo
 `nixos`), con uno stato leggibile, e un suo guasto lascia servita l'ultima
 vista buona invece di una vista falsa.
 

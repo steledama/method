@@ -4,7 +4,7 @@ stato: maturo
 
 # Method observatory
 
-Il repo metodo non è solo una libreria di nodi portabili: è il punto di
+Il repo `method` non è solo una libreria di nodi portabili: è il punto di
 osservazione da cui il metodo viene riletto mentre viene applicato nei progetti
 adottanti. La sua funzione meta-cognitiva è raccogliere differenze, convergenze,
 attriti e drift tra le implementazioni reali, trasformandoli in conoscenza
@@ -31,7 +31,7 @@ agente incaricato dal custode può modificare il canone nei repository mantenuti
 direttamente da lui; un adottante di terzi propone una pull request, il cui diff
 e razionale costituiscono il segnale da valutare. Gli altri adottanti
 recepiscono il canone e le sue eventuali prescrizioni applicando localmente ciò che è
-pertinente; `metodo` non apre né ordina i task delle loro code. Il movimento
+pertinente; `method` non apre né ordina i task delle loro code. Il movimento
 dall'alto — importare una cornice teorica e verificarla contro i domini reali —
 non passa da questo flusso: non genera task negli adottanti, ma rilegge
 l'insieme dei loro componenti per nominare ciò che il confronto fa affiorare.
@@ -67,9 +67,9 @@ Il confronto deve produrre quattro tipi di esito:
   `o1/plan.md`/`o2/` del repo interessato
 - manutenzione propria del metodo: una generalizzazione già emersa richiede
   ristrutturazione, semplificazione, rinomina, documentazione o strumenti
-  portabili nel repo `metodo`
+  portabili nel repo `method`
 
-La distinzione è cruciale. Il repo metodo non deve diventare un contenitore di
+La distinzione è cruciale. Il repo `method` non deve diventare un contenitore di
 problemi altrui né un orchestratore centralizzato che toglie autonomia ai
 progetti. Deve invece funzionare come osservatorio: raccoglie segnali,
 interpreta pattern e custodisce generalizzazioni. Le verifiche operative restano
@@ -105,14 +105,14 @@ La forma ideale è un ciclo leggero:
 1. partire da un problema concreto in un repo adottante
 2. risolvere il problema nel merito, con task, verdict e nodi locali
 3. distinguere cosa è specifico del dominio da cosa è portabile
-4. aggiornare `metodo` solo con la generalizzazione o con uno strumento comune
+4. aggiornare `method` solo con la generalizzazione o con uno strumento comune
    già giustificato dall'uso
-5. propagare agli altri repo tramite lettura dei commit di `metodo`, non tramite
+5. propagare agli altri repo tramite lettura dei commit di `method`, non tramite
    task centrali prescrittivi
 6. ripetere quando nuovi casi reali confermano, correggono o limitano la
    generalizzazione
 
-Questo ciclo rende il repo metodo un meta-strumento di cognizione sulla
+Questo ciclo rende il repo `method` un meta-strumento di cognizione sulla
 cognizione: non solo documenta come pensare con una KB, ma osserva come le KB
 reali evolvono, dove falliscono, dove divergono e quali forme si dimostrano più
 robuste.

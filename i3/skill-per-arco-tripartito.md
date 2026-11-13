@@ -40,7 +40,7 @@ per commit sui sette repository dal 2026-08-01:
   script, col registry `o3/lib/perception.js`. È l'accorpamento degli scope
   che la clausola prevedeva come primo snellimento, fatto spontaneamente e
   senza smettere di distinguere i passi;
-- **il «ha pagato» è documentato solo in `metodo`.** Resta il caso del primo
+- **il «ha pagato» è documentato solo in `method`.** Resta il caso del primo
   giro (`eval compare` che intercetta due fotografie stale di `goal.md`).
   Negli adottanti i giri intercettano problemi reali, come la regressione del
   retry OAuth in `bi`, ma un `eval` monolitico li avrebbe trovati lo stesso:

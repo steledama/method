@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Project skill for creating git commits in metodo following project conventions. Use when the user asks for /commit, to commit changes, or to file back work into history.
+description: Project skill for creating git commits in method following project conventions. Use when the user asks for /commit, to commit changes, or to file back work into history.
 ---
 
 # commit

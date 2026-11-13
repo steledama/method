@@ -31,7 +31,7 @@ superflua la grafia.
 - `eval compare` lo usa per trovare gli eventi dall'ultimo giro, `exec plan`
   per l'ultimo `Prossimo:`. Il cambio arriva con il normale `/method`.
 - Il giro di `method` lancia `o3/dinieghi.py` al passo 4 del perceive: il
-  conteggio fra repo resta a `metodo`, che osserva i giri di tutti, e non
+  conteggio fra repo resta a `method`, che osserva i giri di tutti, e non
   si prescrive.
 
 ## Cosa fa l'adottante

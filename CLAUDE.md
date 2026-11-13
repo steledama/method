@@ -49,7 +49,7 @@ su altri repo o sulla configurazione degli host.
 ## Skill
 
 Il quartetto operativo del metodo, `/cycle` che ne compone il giro e la skill di allineamento vivono versionati anche
-qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
+qui (`method` fa dogfooding ed è la copia canonica di riferimento):
 `.claude/skills/` con wrapper Codex in `.codex/skills/`.
 
 - `/eval [perceive|interpret|compare|all]` — il braccio di valutazione: raccolta del grezzo (i1), sintesi con provenienza e cascata (i2), verdetto dei fili contro `goal.md` e bonifica del plan (i3)
@@ -60,7 +60,7 @@ qui (`metodo` fa dogfooding ed è la copia canonica di riferimento):
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia
 - `/method` — revisione del drift tra un adottante e i commit di `method`
 
-Skill di dominio (il Mondo runtime di `metodo` sono gli adottanti; non si forka):
+Skill di dominio (il Mondo runtime di `method` sono gli adottanti; non si forka):
 
 - `/adottanti` — audit runtime-o1 mensile dei sette adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
 

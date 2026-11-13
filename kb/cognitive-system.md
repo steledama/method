@@ -93,7 +93,7 @@ cancellerebbe la tesi di portabilità, che vive nel distinguere cosa è portabil
 _(B) Discendenza degli artefatti_ — genus → species: il metodo è il genere
 (pattern d'artefatto portabile), i progetti adottanti sono le specie (lo stesso
 pattern applicato a un dominio specifico). Ogni specie è un artefatto cognitivo
-con i propri goal e i propri cicli d'azione. Auto-riferimento: `metodo` è un
+con i propri goal e i propri cicli d'azione. Auto-riferimento: `method` è un
 artefatto cognitivo il cui dominio è "costruire artefatti cognitivi di dominio"
 — di secondo ordine, si applica a sé stesso, ed è insieme il genere e una specie
 su cui si può lavorare.

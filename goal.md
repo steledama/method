@@ -1,6 +1,6 @@
 # Goal
 
-Il motivo di `metodo` è **custodire il metodo portabile e propagarne il canone
+Il motivo di `method` è **custodire il metodo portabile e propagarne il canone
 agli adottanti senza micromanagiarne le code**: la cognizione condivisa
 umano-LLM retta da artefatti portabili, indipendenti dal modello, adattabili,
 capaci di autocorrezione e rigorosi sulle fonti.
@@ -20,7 +20,7 @@ le fonti-mondo.
 ### 2. Propagare il canone e chiudere il loop con gli adottanti
 
 Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
-`method`, senza che `metodo` gestisca le loro code.
+`method`, senza che `method` gestisca le loro code.
 
 - **Canone recepito dagli adottanti** — segnali: marker
   `i3/allineamento-metodo.md` sulle superfici dichiarate in [World](world.md),

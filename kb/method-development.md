@@ -43,7 +43,7 @@ struttura.
 
 Una precisazione contro un equivoco: il «dall'alto» di questo nodo è il top-down
 del **ciclo di sviluppo** del metodo — la cornice teorica importata che dà forma
-alla pratica. È distinto dal top-down del **ciclo runtime**, in cui `metodo`
+alla pratica. È distinto dal top-down del **ciclo runtime**, in cui `method`
 disegna il proprio output di canone (prescrizioni o3-runtime, convergenze) e gli
 adottanti lo recepiscono: quel secondo movimento dall'alto, con pari dignità del
 bottom-up che emerge dagli adottanti, vive in `cognitive-artifact-design` e
@@ -94,7 +94,7 @@ dichiarazione prende vive in `readme`: questo nodo dice _perché_ disaccoppiare,
 Il canale dipende dall'ownership, non dal fatto che `method/` sia un symlink
 scrivibile. Nei repository mantenuti direttamente dal custode, un agente da lui
 incaricato può modificare il canone: la modifica passa dal normale gate di
-review e commit di `metodo`, senza una cerimonia i1 separata. Un adottante
+review e commit di `method`, senza una cerimonia i1 separata. Un adottante
 mantenuto da terzi propone invece una pull request; il diff e il razionale della
 PR costituiscono il segnale persistente da valutare prima del merge.
 

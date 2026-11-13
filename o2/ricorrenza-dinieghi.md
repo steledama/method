@@ -132,7 +132,7 @@ Costruito in sessione col custode:
 
 - `o3/dinieghi.py` coi test (`tests/test_dinieghi.py`), mappa dei segnali
   compresa, concesso nei permessi del giro e lanciato al passo 4 del
-  perceive della skill `eval`, in `metodo` soltanto: il conteggio fra repo
+  perceive della skill `eval`, in `method` soltanto: il conteggio fra repo
   è il lavoro dell'osservatorio, e negli adottanti leggerebbe i dinieghi di
   `salute` ed `economia` da un giro altrui. Per questo non si prescrive.
   `kb/agent-as-user.md` vi rimanda.

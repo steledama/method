@@ -32,7 +32,7 @@ non era misurata dai bracci: spettava al custode; non se ne deduce qui un
 collaudo autonomo. La caduta sui primi criteri basta a respingere il modello.
 
 Fonti persistenti: commit `ef8abb3` per protocollo e preparazione,
-`8deb856` per giudizio e limiti, `da41329` per ratifica, nel Git di `metodo`.
+`8deb856` per giudizio e limiti, `da41329` per ratifica, nel Git di `method`.
 Le fixture e gli otto cloni temporanei sono materiale consumato; questa
 lettura conserva criteri, mappa, risultati e limiti necessari al riesame,
 non i resoconti integrali. Le fonti di dominio restano nei rispettivi repo.
@@ -229,7 +229,7 @@ Testo dell'osservazione come fissato, per la provenienza:
 
 **Presidio in attesa.** Orizzonte dal **2026-10-13**, con osservazione
 valutabile almeno fino al **2026-10-17** per l'assenza del precursore.
-`eval interpret` di `metodo` la raggiunge dalle
+`eval interpret` di `method` la raggiunge dalle
 [Scadenze del plan](../o1/plan.md#scadenze). Il riesame legge i commit
 pubblicati di `danea-auto`: trailer `Esiti:` e diff di
 `i3/rallentamento-libreoffice.md`; il dato di dominio proviene da
@@ -264,7 +264,7 @@ corrente fa emergere la scadenza da sola. Nessuno la ricorda alle sessioni di
   fa emergere l'ipotesi senza un nuovo evento che la nomini. La lettura si
   fa sui commit pubblicati, col trailer `Esiti:` e il diff del filo.
 
-L'ipotesi osservativa di `metodo` è che il presidio corrente faccia emergere
+L'ipotesi osservativa di `method` è che il presidio corrente faccia emergere
 la scadenza da solo. Non ricordarla alle sessioni dell'adottante. Se prima
 del giro la skill locale cambia per recepire la prescrizione, dichiarare
 la contaminazione: il risultato non misurerebbe più la pratica precedente.

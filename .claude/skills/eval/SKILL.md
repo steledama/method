@@ -72,7 +72,7 @@ Valenza-neutro: qui si cattura il segnale. Il confine i1→i2 è l'attribuzione 
 significato; il giudizio rispetto al Goal entra in Compare (i3). Anche
 l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
 
-1. Raccogli ciò che arriva dal Mondo. In `metodo` i canali sono: i marker
+1. Raccogli ciò che arriva dal Mondo. In `method` i canali sono: i marker
    `i3/allineamento-metodo.md` degli adottanti (dai checkout dichiarati nel
    territorio di `world.md`, superfici ssh remote comprese), gli esiti già
    prodotti da `kb` (che resta capacità diagnostica trasversale: la sua diagnosi
@@ -94,7 +94,7 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    orizzonte e fonte del riesame) e questione per il metodo. Un criterio
    suggerito è un'ipotesi, non una regola applicabile. Negli adottanti la
    cattura resta raggiungibile in `i1/`, segnata «da inoltrare» finché
-   `metodo` non la acquisisce; in `metodo` i casi arrivano come segnali i1
+   `method` non la acquisisce; in `method` i casi arrivano come segnali i1
    e si acquisiscono anche dall'audit `/adottanti`. Nessun caso va prodotto
    solo per completare il giro.
 4. Dove il repo ha un ciclo autonomo, leggi l'ultima chiusura con `giro`
@@ -114,7 +114,7 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    costo in turni, la lacuna diventa una proposta nel
    task `o2/` pertinente, da chiudere col custode sul permesso o con uno
    script consentito, mai con un'istruzione che chiede di aggirarla.
-   In `metodo`, che osserva i giri di tutti, lancia poi
+   In `method`, che osserva i giri di tutti, lancia poi
    `python3 o3/dinieghi.py`: le classi di grafia che ricorrono in almeno due
    giri fra gli ultimi dieci dei repo leggibili, con l'esito sul segnale
    canonico. Segnale assente, o recepito e ricorrenza che continua, è una
@@ -283,7 +283,7 @@ stale, la destinazione è vera — non regge sempre: nella potatura di `economia
 potare alla cieca avrebbe distrutto informazione.
 
 Fondere guarda anche ai **lettori**, non solo al contenuto: chiedersi chi altro
-legge la copia che stai rimuovendo, macchine incluse. In `metodo` il footer
+legge la copia che stai rimuovendo, macchine incluse. In `method` il footer
 `## Dettagli task` era un secondo indice per il lettore ma l'unica chiave con cui
 il generatore risolveva una riga del plan al suo `o2/`: potato il footer, la
 vista dei task è rimasta vuota per diciassette giorni senza che nulla rompesse

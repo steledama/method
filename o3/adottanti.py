@@ -202,9 +202,9 @@ def voci(world: Path = ROOT / "world.md") -> dict[str, str]:
 
 
 def di_metodo(world: Path = ROOT / "world.md") -> str:
-    """Il paragrafo di `world.md` che dichiara accento e vista di `metodo`."""
+    """Il paragrafo di `world.md` che dichiara accento e vista di `method`."""
     testo = world.read_text(encoding="utf-8")
-    return next((p for p in testo.split("\n\n") if "Quello di `metodo`" in p), "")
+    return next((p for p in testo.split("\n\n") if "Quello di `method`" in p), "")
 
 
 # Ref e path passano anche per la shell remota (`cmd` su Windows): niente

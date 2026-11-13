@@ -94,7 +94,7 @@ che non hanno cadenza fissa ma si aprono su un evento: un set-and-review di
 configurazione, una decisione a posta alta, il segnale di un adottante.
 
 Riempire la posizione auspicata _di ciascun adottante_ resta lavoro suo:
-`metodo` propone le dimensioni comuni. La posizione desiderata vive nella
+`method` propone le dimensioni comuni. La posizione desiderata vive nella
 sezione «Goal di sviluppo» del register root `goal.md` dell'adottante
 (`goal-register`), coi puntatori ai segnali che permettono il confronto.
 La fotografia attuale vive nelle letture e nei report; il verdetto sullo

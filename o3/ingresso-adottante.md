@@ -5,7 +5,7 @@ ciclo: runtime
 # Ingresso di un adottante nell'osservatorio
 
 Procedura permanente per ammettere un progetto nel territorio osservato da
-`metodo`, eseguita da `/adottanti` a ogni ingresso.
+`method`, eseguita da `/adottanti` a ogni ingresso.
 L'ingresso verifica l'adozione locale, fissa una baseline confrontabile e
 predispone il primo giro di `/adottanti`; non autorizza a governare la coda del
 nuovo repository.

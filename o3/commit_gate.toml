@@ -17,6 +17,12 @@ quando = "kb/*"
 comando = ["python3", "o3/kb_tools.py", "audit"]
 fallisce_se = '^- [1-9]\d* (problemi strutturali|link rotti fuori dai nodi)'
 
+# Uno strumento nuovo in o3/ va registrato in o3/prescriptions.md (o3/kb_domain.py).
+[[controllo]]
+quando = "o3/*"
+comando = ["python3", "o3/kb_tools.py", "audit"]
+fallisce_se = '^- [1-9]\d* (problemi strutturali|link rotti fuori dai nodi)'
+
 [[controllo]]
 quando = "*.py"
 comando = ["python3", "-m", "unittest", "discover", "tests"]

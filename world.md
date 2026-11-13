@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `metodo` ha due facce: i **sette progetti adottanti**, da cui
+Il Mondo runtime di `method` ha due facce: i **sette progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -12,7 +12,7 @@ Adottanti (con la superficie da cui si leggono i marker
 `host:porta` della vista pubblicata). L'accento è
 unico per progetto ([view](kb/view.md)) e vive in `o3/view/project.py` di ogni
 repo: qui ne resta una copia, verificata da `/adottanti`, perché l'unicità è
-una proprietà dell'insieme. Quello di `metodo` è `#4338ca`, con la vista su `deck:8001`. Gli indirizzi
+una proprietà dell'insieme. Quello di `method` è `#4338ca`, con la vista su `deck:8001`. Gli indirizzi
 sono copie del registro `o3/presentations.nix` di `nixos` e, per
 `danea2`, del `world.md` di `danea-auto`: l'audit li verifica
 raggiungendoli.

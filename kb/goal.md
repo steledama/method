@@ -96,7 +96,7 @@ risale nella KB.
 
 Qui il ciclo si chiude e si riapre. Il goal si declina in task — la coda
 operativa che lo realizza — ma i task non vivono in questo nodo: vivono in
-`o1/plan.md` e `o2/` di ciascun artefatto, compreso `metodo` per il proprio
+`o1/plan.md` e `o2/` di ciascun artefatto, compreso `method` per il proprio
 lavoro, perché sono operativi e volatili. Ciò che è stabile, e quindi
 metodologico, è dove avviene il confronto da cui i task nascono: la sintesi
 dello stato corrente che l'i3 mette a paragone con il goal. Il confronto assume

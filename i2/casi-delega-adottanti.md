@@ -7,7 +7,9 @@ ciclo: runtime
 La prima lettura dei casi della delega arrivati dagli adottanti dopo la
 ratifica di `delega-ciclo` (2026-10-09). Il materiale sono le catture `i1/`
 acquisite fino al 2026-10-10: quattro giri di `bi` del 9 ottobre, il primo
-ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. I
+ciclo di `crm` su `svezia` e il terzo giro del backup di `baserow`. Quelle
+sei catture, risalite in questa lettura e nel filo del ciclo autonomo, sono
+uscite da `i1/` e si leggono in git a `64fa0cc`. I
 casi dei primi giri autonomi di `bi` (2026-10-17) e di `baserow`
 (2026-10-16, inoltrati il 2026-10-19) e quello di `danea-auto` del
 2026-10-15, inoltrato il 2026-10-19, sono letti a parte, sotto, e non

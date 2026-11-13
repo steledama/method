@@ -100,8 +100,7 @@ riletto contro le fonti.
   il giorno del rifiuto per quota riferito da `bi`, nesso non verificato.
   Arresti tutti visibili sull'host e nessun push mancato: l'ipotesi del
   giro del 09/11 regge. Gli scarti prima del 22/10 hanno
-  avuto causa trovata e corretta (`nixos` `101e32b`,
-  `i1/arresto-economia-fuori-giri-2026-10-21.md`).
+  avuto causa trovata e corretta (`nixos` `101e32b`; cattura in git a `64fa0cc`).
 - **Costo**: su `deck` un giro ordinario costa fra 0,6 e 2,7 USD e arriva a
   102 turni (`salute` del 09/11, 2,74 USD in 9 minuti e mezzo; `economia`
   lo stesso giorno 2,65 USD e 96 turni, misurati in `tentativi.jsonl`) e 13
@@ -130,7 +129,7 @@ riletto contro le fonti.
   il giudizio si misura sul campione.
 - **Dinieghi**: da zero a tre per giro, su grafie note che `/cycle` segnala
   dal 2026-10-26 (`e88d81f`); le lacune trovate sono chiuse (`911b120`,
-  `7eb86ac`, `i1/giro-method-2026-10-20.md`). La perdita vera resta il gesto
+  `7eb86ac`; cattura in git a `64fa0cc`). La perdita vera resta il gesto
   abbandonato dopo un diniego (`kb/agent-as-user.md`).
   Il primo giro qui con Codex espone una lacuna senza diniego: manca il
   tool Read richiesto per gli stati fuori checkout

@@ -3,7 +3,7 @@
 La home orienta sul Goal runtime, sui sei atti del ciclo e sul Mondo runtime.
 Runtime cycle e development meta-cycle restano nel modello (cfr. `development-meta-cycle`), ma la home non
 li espone come modalità: ogni slot ha un solo collegamento primario.
-Il CSS condiviso tra fork resta il contratto minimale delle classi emesse qui,
+Il CSS condiviso fra i repo resta il contratto minimale delle classi emesse qui,
 non un archivio di componenti previsionali.
 """
 

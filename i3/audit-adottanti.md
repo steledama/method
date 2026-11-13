@@ -10,7 +10,8 @@ ogni giro. Ultimo giro d'insieme: **2026-11-02**, quinto audit, un giorno
 dopo la scadenza: il ciclo autonomo non lancia `/adottanti` e il giro di
 `method` del 01/11 era fallito per un errore di rete. Le letture sono fatte su
 `origin` dopo un `git fetch` da `deck`, con le estrazioni in una cartella
-temporanea. Sono i sei adottanti di `world.md`: `crm` è dismesso dal
+temporanea. Erano i sei adottanti di `world.md` a quella data (oggi sette, con
+`nixos-lavoro` separato il 2026-11-04): `crm` è dismesso dal
 2026-10-22 e `abbinamenti`, atteso al suo posto, non è ancora entrato, quindi
 non c'è una baseline fondativa da dare.
 
@@ -68,7 +69,7 @@ compreso.** La lettura distingue tre controlli:
 
 Gli hash uguali non provano che il rendering sia corretto. Gli accenti di
 `o3/view/project.py` coincidono con la copia in `world.md` e restano distinti
-fra loro e da `#4338ca` di `metodo`.
+fra loro e da `#4338ca` di `method`.
 
 **Skill: niente residui.** I sei hanno il quartetto, `/cycle` e `/method`,
 con i wrapper Codex speculari. `baserow` non ha `/kb`, come dalla baseline.
@@ -79,7 +80,7 @@ Fotografia delle code (`development-goal`, pesata sulla gradualità di
 dominio). **La firma del telos è nuova: tutti e sei girano da soli ogni
 giorno.** Dall'08/10, i giri con `Impatto-motivo: ciclo-autonomo` sono 21 in
 `nixos`, 20 in `bi`, 25 in `economia` e in `salute`, 20 in `danea-auto` e 18
-in `baserow`; in `metodo` sono 17.
+in `baserow`; in `method` sono 17.
 
 - **nixos**: 1 dev e 6 runtime (0 e 8 il 01/10). L'unico dev è la
   ristrutturazione di `/manutenzione`, in attesa dei rami `lavoro` e
@@ -122,7 +123,7 @@ come materia/vuoto:
 - perform 42/79.
 
 Per repository, in giri con `Esiti:`: `economia` 32, `salute` 27, `nixos`
-26, `danea-auto` 23, `baserow` 22, `bi` 21, `metodo` 21. Fra l'80 e il 95
+26, `danea-auto` 23, `baserow` 22, `bi` 21, `method` 21. Fra l'80 e il 95
 per cento di questi giri è schedulato. Integrità: le righe `Esiti:` nel corpo
 coincidono coi trailer riconosciuti; l'unico scarto, `salute` `1d7fe22`
 (11/10), precede il gate `b28957e` ed è contato una volta. Dopo il gate
@@ -135,7 +136,7 @@ Contro i sintomi della clausola nel filo
   giro con materia in ognuno dei sei. Le serie vuote lunghe sono locali e hanno una lettura di dominio:
   `interpret` in `nixos` (11 di fila), `plan` in `bi` (16), cioè la conferma
   ripetuta con runtime sano che il canone del 29/10 chiama equilibrio, e
-  `perform` in `danea-auto`, `baserow`, `salute` e `metodo` (da 13 a 18).
+  `perform` in `danea-auto`, `baserow`, `salute` e `method` (da 13 a 18).
   Dal 29/10 il giro non esegue i task per regola, quindi un `perform=vuoto`
   nel giro schedulato è atteso e non è un indizio di invocazione superflua;
 - **giri tutti vuoti**: da 0 a 5 per repository (`danea-auto` 5, `economia`

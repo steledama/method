@@ -70,8 +70,8 @@ home ricava i poli Goal e World rendendone l'intro.
 ## Orientarsi
 
 La root rende visibile la struttura del progetto
-([project-structure](kb/project-structure.md)). Le sei collezioni portano il
-codice del loro stadio; ogni item dichiara nel frontmatter la facet
+([project-structure](kb/project-structure.md)). Le sei collezioni portano nel
+nome la sigla del loro stadio (`i1`–`i3`, `o1`–`o3`); ogni item dichiara nel frontmatter la facet
 `ciclo: dev|runtime`, letta dal Mondo su cui insiste — artefatto → `dev`,
 adottanti → `runtime` — dentro la relazione tra runtime cycle e development
 meta-cycle ([development-meta-cycle](kb/development-meta-cycle.md)).

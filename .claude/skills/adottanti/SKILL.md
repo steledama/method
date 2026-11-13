@@ -5,10 +5,10 @@ user-invocable: true
 
 # adottanti
 
-Esegui questa skill dalla root di `metodo`. È l'**o1-runtime** del ciclo:
+Esegui questa skill dalla root di `method`. È l'**o1-runtime** del ciclo:
 l'audit periodico top-down sui progetti adottanti dichiarati in `world.md`.
 Risponde a una domanda sola: **che cosa si vede solo guardando i repository
-insieme?** Mai «ecco i tuoi task». È una skill di dominio di `metodo` (il suo
+insieme?** Mai «ecco i tuoi task». È una skill di dominio di `method` (il suo
 Mondo runtime sono gli adottanti): non fa parte del quartetto e gli adottanti
 non la forkano.
 
@@ -56,7 +56,7 @@ sezioni:
 - **canale**: marker, ritardo verso HEAD, canone non recepito oltre la soglia;
 - **prescrizioni aperte**: `prescrizioni.py` contro la voce del marker;
 - **viste**: build `--check` sull'estrazione, `/_stato` contro `origin/main`,
-  porta raggiunta, per i sei e per `metodo`;
+  porta raggiunta, per i sei e per `method`;
 - **accenti**: copia in `world.md` contro `project.py`, unicità sull'insieme;
 - **skill**: quartetto, `/cycle` e `/method`, con i wrapper Codex speculari;
 - **casi della delega** «da inoltrare», con l'età e la presenza in

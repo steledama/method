@@ -5,7 +5,7 @@ ciclo: dev
 # La potatura conserva le regole ma può perdere le verifiche
 
 La rilettura del 2026-10-05 misura separatamente la perdita di conoscenza e
-quella del presidio delle verifiche nella potatura `5ea8204` di `metodo`.
+quella del presidio delle verifiche nella potatura `5ea8204` di `method`.
 È una misura sui file e sulla storia Git, non una verifica del runtime.
 
 ## Misura sui sedici fili
@@ -57,7 +57,7 @@ verifica.
     l'accento delle viste (`f44b6c0`), ma l'esito non era registrato nella
     lettura, ora aggiornata in `i2/ingresso-adottante.md`.
 
-Peso del bisogno nel dominio di `metodo`: la potatura non ha perso
+Peso del bisogno nel dominio di `method`: la potatura non ha perso
 conoscenza stabile, ha perso **verifiche**. Cinque attese su sedici fili
 sono rimaste senza presidio, e in tre l'evento era già arrivato. La misura riguarda il canone; non dimostra lo stesso difetto negli adottanti.
 
@@ -69,6 +69,6 @@ ancora in attesa; chiudere una tensione non dimostra la spiegazione.
 Le due letture recuperate restano nelle loro case, senza duplicarle qui.
 
 La ricostruzione e le destinazioni sono registrate nel commit `da41329` di
-`metodo`; lo stato precedente alla potatura è `5ea8204^`. La misura è distinta
+`method`; lo stato precedente alla potatura è `5ea8204^`. La misura è distinta
 dall'[esito dei bracci](presidio-ipotesi-adottanti.md), che ha portato alla
 regola minima in [interpret](../kb/interpret.md) e [verdict](../kb/verdict.md).

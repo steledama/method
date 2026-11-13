@@ -1,5 +1,5 @@
 ---
-description: Crea un git commit seguendo le convenzioni del repo metodo
+description: Crea un git commit seguendo le convenzioni del repo `method`
 user-invocable: true
 ---
 
@@ -24,7 +24,7 @@ li lancia il gate al passo 2 della procedura. Risolvi entro il mandato ciò che
 segnala; non avviare implicitamente `kb review`, revisione semantica profonda
 separata dal gate ordinario.
 
-**1c. Portabilità del nodo** — Per ogni nodo nuovo in `kb/`: verifica che sia metodologico e applicabile ad almeno due progetti diversi. Un concetto specifico di un singolo dominio non appartiene alla `kb/` del `metodo`.
+**1c. Portabilità del nodo** — Per ogni nodo nuovo in `kb/`: verifica che sia metodologico e applicabile ad almeno due progetti diversi. Un concetto specifico di un singolo dominio non appartiene alla `kb/` del `method`.
 
 **1d. Propagazione** — Se un nodo è stato rinominato o spostato, verifica le connessioni intenzionali effettivamente coinvolte, senza ricostruire inventari dei path canonici. Il recepimento avviene nel repository adottante con il suo `/method`; qui si rende leggibile il cambiamento di canone (`kb/method-development.md`).
 

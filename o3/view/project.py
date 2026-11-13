@@ -1,6 +1,6 @@
 """Identità del progetto sulle superfici di `view/`.
 
-È l'unico file che il fork parametrizza: sigla e lingua, colore d'accento,
+È l'unico file dei builder che ogni repo tiene in proprio: sigla e lingua, colore d'accento,
 descrizioni degli stadi sulla home, sorgente del deck, esclusioni dal
 perimetro. Stile, struttura delle pagine e
 contratti restano canone, uguali in ogni repo (`kb/view.md`,

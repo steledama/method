@@ -1,6 +1,6 @@
 ---
 name: eval
-description: Project skill for the evaluation arc in metodo. Use when the user asks for /eval, eval perceive/interpret/compare, signal intake, i2 synthesis review, verdict review, i3 thread hygiene, goal-to-signal coverage, or plan cleanup from state narrative.
+description: Project skill for the evaluation arc in method. Use when the user asks for /eval, eval perceive/interpret/compare, signal intake, i2 synthesis review, verdict review, i3 thread hygiene, goal-to-signal coverage, or plan cleanup from state narrative.
 ---
 
 # eval

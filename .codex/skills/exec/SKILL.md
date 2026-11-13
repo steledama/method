@@ -1,6 +1,6 @@
 ---
 name: exec
-description: Project skill for the execution arc in metodo. Use when the user asks for /exec, exec plan/specify/perform, task queue review, priorities and dependencies, o2 task quality, o3 prescriptions upkeep, or the next task to work on.
+description: Project skill for the execution arc in method. Use when the user asks for /exec, exec plan/specify/perform, task queue review, priorities and dependencies, o2 task quality, o3 prescriptions upkeep, or the next task to work on.
 ---
 
 # exec
