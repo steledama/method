@@ -28,10 +28,9 @@ secondarie da riallineare).
   NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
   `deck`; accento `#c2410c`; vista `deck:8002`
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
-  dichiarativa NixOS della coppia di server `norvegia`/`svezia`, separata dal
-  repo di casa il 2026-11-04 — checkout `~/nixos` su `svezia`;
-  accento `#a16207`; vista `norvegia:8002`, sullo standby insieme al giro
-  autonomo (il servizio segue il ruolo, dal 2026-11-05 con nixos d88e297)
+  dichiarativa NixOS del server `svezia` e della postazione di sviluppo
+  `norvegia`, separata dal repo di casa il 2026-11-04 — checkout `~/nixos`
+  su `svezia`; accento `#a16207`; vista `svezia:8002`
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
   sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,

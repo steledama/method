@@ -278,9 +278,10 @@ da chiedere al custode: il passo 3 si fa su un repository di prova.
   progetto si presenta da solo o come strato sopra un runtime;
 - [traduzione-inglese](traduzione-inglese.md): un'integrazione pubblica
   richiede l'inglese;
-- gli strumenti lanciati dal canone ([kb-tools](../kb/kb-tools.md)) e
-  [pubblicazione-decisa-dal-repo](pubblicazione-decisa-dal-repo.md): riducono
-  già la dipendenza dallo strato host.
+- gli strumenti lanciati dal canone ([kb-tools](../kb/kb-tools.md)) riducono
+  già la dipendenza dallo strato host;
+- [diffusione-oltre-custode-unico](diffusione-oltre-custode-unico.md): la
+  risposta su pubblicazione e osservazione degli adottanti dipende da qui.
 
 ## Criterio di chiusura
 

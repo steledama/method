@@ -20,10 +20,10 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 | Ciclo | Ob. | Task                                     | Dip. |
 | ----- | --- | ---------------------------------------- | ---- |
-| dev   | S   | Pubblicazione decisa dal repo            | —    |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev   | S   | Nome del progetto                        | —    |
 | dev   | S   | Integrazione con un runtime esistente    | —    |
+| dev   | S   | Diffusione oltre il custode unico        | p2   |
 | dev   | S   | Traduzione in inglese                    | p1   |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
@@ -33,6 +33,9 @@ riesame (`kb/plan.md`, «Risveglio»):
   dell'osservazione del ciclo autonomo, per non mescolare il cambio di
   lingua ai `/method` degli adottanti; si riprende al riesame del filo
   ciclo autonomo, o prima se serve un lettore in inglese; by: 2026-12-01
+- `p2` — custode, 2026-11-13: la diffusione oltre il custode unico si
+  affronta dopo la sedimentazione del canone e insieme all'integrazione con
+  un runtime; si riprende al riesame del filo ciclo autonomo; by: 2026-12-01
 
 ## Ricorrenze
 
