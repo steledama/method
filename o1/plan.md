@@ -22,6 +22,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | ----- | --- | ---------------------------------------- | ---- |
 | dev   | S   | Strumenti dal canone                     | —    |
 | dev   | S   | Ricorrenza dei dinieghi                  | —    |
+| dev   | S   | Fetch del giro di method                 | —    |
 | dev   | S   | Pubblicazione decisa dal repo            | —    |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev   | S   | Nome del progetto                        | —    |

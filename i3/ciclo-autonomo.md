@@ -51,10 +51,16 @@ riletto contro le fonti.
   riferisce un rifiuto per quota settimanale (HTTP 429, nessun tool, costo
   zero). Sono fatti inoltrati dalle sessioni, non riletti qui
   (task del lanciatore, sezioni dell'11/11, chiuso il 2026-11-12 e in git). Una sospensione
-  dichiarata non è una partenza mancata invisibile; resta da rileggere alla
-  ripresa, insieme alla quota settimanale: se l'account è lo stesso, tocca anche i
-  giri di `deck`, che l'11/11 sono riusciti (`salute` 09:03, `economia`
-  14:02, `nixos` 04:33).
+  dichiarata non è una partenza mancata invisibile. La ripresa è letta su
+  `origin` di `svezia` il 2026-11-13: commit del giro schedulato in
+  `nixos-lavoro` (`c53e570`, 04:35), `baserow` (`209b055`, 06:36) e `bi`
+  (`90699f80`, 07:40), dopo due giorni senza. La quota settimanale resta
+  non riletta: i `tentativi.jsonl` di `svezia` non si leggono da `deck`.
+  Dal 12/11 il giro di `method` legge un `fetch.json` fermo all'11/11 e
+  limitato ai repo senza clone su `deck`. Ipotesi: tolti i cloni, l'unità
+  non fa più il fetch; la smentisce un campo `fetch` ancora popolato in
+  `o3/cicli.nix` di `nixos`, da leggere nella prossima sessione
+  ([task](../o2/fetch-del-giro.md)).
   La copertura ora comprende Codex: decisione del custode nei commit
   `201a6eb`, `6d3938f` e `de73101`, con motori scelti dal repo e primo
   collaudo completo in un repository di prova (push locale). Il profilo di

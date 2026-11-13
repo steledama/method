@@ -1,5 +1,5 @@
 ---
-sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Fatto in method e prescritto ai sette; resta il primo recepimento in un adottante."
+sintesi: "Gli adottanti copiano i builder delle viste e forkano kb_tools.py: le copie derivano e perdono il nucleo. Deciso dal custode il 2026-11-12: all'adottante restano solo identità, moduli di dominio e test; builder e nucleo dell'audit si lanciano dal checkout del canone, come già commit_gate.py. Fatto in method e prescritto ai sette. Il 2026-11-13 cinque marker la danno recepita; resta da verificare in sessione nel gate di uno di loro il criterio di chiusura."
 ciclo: dev
 ---
 
@@ -79,10 +79,17 @@ sono stati letti.
 
 ## Resta
 
-Il primo recepimento in un adottante: finché nessuno lancia davvero i
-builder e l'audit dal canone, la prova è su un export di `nixos` e su
-letture di `economia` e `salute`, non sul loro gate di commit né su un
-servizio in esercizio. Non provato su Windows (`danea-auto`).
+La verifica del criterio di chiusura nel gate di un adottante. Il
+2026-11-13 `python3 o3/prescrizioni.py --ssh verifica strumenti-dal-canone`
+dà la prescrizione recepita nei marker di `nixos`, `nixos-lavoro`, `bi`,
+`economia` e `baserow`, non in `salute`; `danea-auto` non era
+raggiungibile. I commit di recepimento sono `6cc99b8` (`nixos`), `9f846af`
+(`nixos-lavoro`), `af5d3b51` (`bi`) e `5e83e16` (`baserow`). Il marker di
+`baserow` dichiara builder e audit dal canone con `--root .` e i controlli
+nel gate, ma certifica il recepimento documentale, non il gate in
+esercizio: il giro non legge il gate degli adottanti. Il passo in sessione è
+aprire il profilo del gate di uno dei cinque e il suo ultimo commit, poi
+chiudere se il criterio regge. Non provato su Windows (`danea-auto`).
 
 ## Criterio di chiusura
 
