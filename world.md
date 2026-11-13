@@ -44,8 +44,8 @@ secondarie da riallineare).
   checkout `~/danea-auto` su `danea2`, dove gira anche il runtime; accento `#7e22ce`; vista `danea2:8001`
 - **[baserow](https://github.com/tt-sviluppo/baserow)** — Custodia
   dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
-  e contratto con `bi` — checkout `~/baserow` su `svezia` (produzione),
-  standby su `norvegia`; accento `#0369a1`; vista `svezia:8003`
+  e contratto con `bi` — checkout `~/baserow` su `svezia`;
+  accento `#0369a1`; vista `svezia:8003`
 
 `crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
 test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e
