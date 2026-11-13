@@ -16,6 +16,12 @@ materializzazione. Per o1 non ne esiste una seconda: il piano è la coda, e
 sdoppiarlo produrrebbe un nodo-atomo senza contenuto proprio. Se un giorno una
 seconda forma del Plan emerge, la separazione diventa dovuta.
 
+Il nodo si legge a strati. «Forma» basta a un plan fatto di soli task pronti
+o in sequenza. «Risveglio» e «Attese a finestra» servono quando una riga
+aspetta qualcosa, `w` o `p`. «Ricorrenze» e «Controllo di scadenze e
+ricorrenze» servono quando una riga torna o porta una data. «Tempo e fonti»
+dice quale data va in quale sezione.
+
 È una coda, non uno storico né un backlog degli adottanti. Contiene solo lavoro
 vivo del repository, ordinato per esecuzione. Un task concluso scompare dal plan
 e da `o2/`; Git e i fili conservano ciò che merita storia.
@@ -142,7 +148,7 @@ Un'attesa che nessun tipo del vocabolario sa interrogare dichiara `arrival:` e
 la riconosce `perceive`: un tipo nuovo entra nello strumento solo quando il caso
 si ripete. La legenda è prosa, e il formatter può andare a capo dentro una
 condizione: chi estrae `probe:` e `by:` unisce prima le righe di continuazione
-della chiosa. Il primo interprete è quello di `nixos` (`0a7cb7c`).
+della chiosa.
 
 ## Attese a finestra
 
@@ -182,7 +188,8 @@ conta. Scrivere il ripiego col suo costo trasforma un'ansia in una decisione: si
 può scegliere di rischiare una finestra, non si può sceglierlo senza sapere cosa
 c'è dopo.
 
-Il controllo delle scadenze (`o3/scadenze.py`, cfr. «Ricorrenze») fa comparire le
+Il controllo delle scadenze (`o3/scadenze.py`, cfr. «Controllo di scadenze e
+ricorrenze») fa comparire le
 righe marcate a ogni esecuzione, senza condizione di distanza, senza contarle
 come scadute.
 
@@ -254,6 +261,20 @@ col suo task, come ogni appuntamento fissato per un'occorrenza. La riga avanza
 all'apertura del task, perché da lì a sorvegliare sono il task e la scadenza.
 Una riga `task` non porta quindi `entro`.
 
+`exec plan` apre i task delle righe `task`, e nel giro senza custode nomina in
+`Attenzione:` le righe `sessione` dovute. Le righe `giro` le compie `exec
+perform`, se il register di autonomia glielo assegna. Una ricorrenza non è
+candidata al `Prossimo:`, che resta dei task. `eval compare` giudica quelle
+saltate più volte e quelle che da molte occorrenze non producono niente,
+candidate a una cadenza più bassa o al taglio: il riesame di pertinenza è
+l'occorrenza stessa, quindi la riga non porta un `by:`.
+
+La sezione è una seconda tabella del plan: il parser di un fork che legge ogni
+tabella come tabella dei task va adeguato prima di aggiungerla. La forma la
+verifica `build.py --check`.
+
+## Controllo di scadenze e ricorrenze
+
 Il controllo è uno strumento del canone, `o3/scadenze.py`, che un adottante
 lancia dal proprio repo col checkout di `method`, come il gate di `/commit`:
 uno strumento per repo finirebbe per leggere la stessa grammatica in modi
@@ -290,19 +311,6 @@ guasto di `economia`, dove 8 righe erano invisibili senza alcun segnale
 (2026-11-08). Una voce di `## Scadenze` comincia con la data, ISO e col giorno o
 il solo mese, eventualmente in grassetto e preceduta da `entro`, e la separa dal
 testo un `—` o un `→`.
-
-`exec plan` apre i task delle righe `task`, e nel giro senza custode nomina in
-`Attenzione:` le righe `sessione` dovute. Le righe `giro` le compie `exec
-perform`, se il register di autonomia glielo assegna. Una ricorrenza non è
-candidata al `Prossimo:`, che resta dei task. `eval compare` giudica quelle
-saltate più volte e quelle che da molte occorrenze non producono niente,
-candidate a una cadenza più bassa o al taglio: il riesame di pertinenza è
-l'occorrenza stessa, quindi la riga non porta un `by:`.
-
-La sezione è una seconda tabella del plan: il parser di un fork che legge ogni
-tabella come tabella dei task va adeguato prima di aggiungerla. La forma la
-verifica `build.py --check`. Decisa dal custode il 2026-11-08, su un caso
-portato da `nixos`.
 
 ## Tempo e fonti
 

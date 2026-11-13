@@ -44,6 +44,12 @@ se serve un lettore in inglese. Così il cambio di lingua non si mescola ai
   esempio `Connessioni:` in `o3/kb_tools.py`, le sezioni delle viste) vanno
   rese bilingui o tradotte insieme al lotto che le tocca, perché l'audit non
   si rompa.
+- **Nomi dei file.** Oggi convivono indici in inglese (`prescriptions.md`,
+  `verdicts.md`) e strumenti in italiano (`prescrizioni.py`, `scadenze.py`,
+  `lanciatore.py`), e item delle collezioni in italiano. Da decidere prima
+  del primo lotto se i nomi passano all'inglese: gli script sono path che
+  host e adottanti lanciano, quindi una rinomina chiede una prescrizione
+  (rilievo della revisione del 2026-11-13).
 - **Adottanti.** Il cambio di lingua del canone si recepisce con il normale
   `/method` di ciascun adottante: la delega di questo repo non li copre.
   Quando i primi nodi passano all'inglese, una prescrizione in `o3/` lo

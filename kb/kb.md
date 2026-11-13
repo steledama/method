@@ -90,10 +90,13 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
 - [compare](compare.md) — Giudizio i3 rispetto al Goal o triage di un Goal nuovo
 - [view](view.md) — Disciplina della derivazione: la vista non è una seconda
   fonte, il generatore verifica il contratto tra le sorgenti, l'output non si
-  versiona e la vista pubblicata deriva da un commit pulito
-- [presentation](presentation.md) — Materializzazione della superficie
-  presentativa: HTML apribile in locale dopo la build, build minima e deterministica,
-  apertura locale, condivisione e servizio permanente sulle reti private
+  versiona; pagine 1:1, perimetro e compartimento stagno
+- [view-publishing](view-publishing.md) — Come le viste raggiungono un
+  lettore: build minima e deterministica, servizio sulle reti private,
+  pubblicazione da commit pulito, stato operativo letto a richiesta
+- [presentation](presentation.md) — Il racconto curato dell'artefatto: un
+  deck scritto e non derivato, distinto da viste e interpretazioni, fedele
+  alle fonti
 - [connection](connection.md) — Strategie di collegamento tra nodi: inline vs
   footer, motivazioni della scelta
 - [pace-layering](pace-layering.md) — Strati a frequenza di cambiamento diversa

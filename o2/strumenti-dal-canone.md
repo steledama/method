@@ -35,7 +35,7 @@ sono stati letti.
 
 - `publish.py` esporta il commit con `git archive` e lancia
   `<export>/o3/view/build.py`: i builder sono quelli del commit, e la
-  provenienza dichiara un solo hash (`kb/view.md`, «Pubblicazione»);
+  provenienza dichiara un solo hash (`kb/view-publishing.md`, «Pubblicazione»);
 - `build.py` e `serve.py` deducono la root da `Path(__file__).parents[2]` e
   importano `project` dalla propria cartella;
 - `DECK_BUILDER` carica un modulo di dominio dalla stessa cartella;

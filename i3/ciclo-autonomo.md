@@ -168,7 +168,7 @@ motiva la riduzione dell'attrito, non prova la fedeltà delle ricostruzioni
 
 - **Primo giro reale**, 2026-10-11, `salute` a gradino 0: riuscito, con la
   visibilità nella home posta dal custode come condizione parallela
-  (`kb/view.md`).
+  (`kb/view-publishing.md`).
 - **Push rifiutato**, 2026-10-08: nessuna forzatura e arresto; il rebase si
   è fermato sul permesso dell'harness. Un giro senza custode incontrerà lo
   stesso caso e non potrà chiedere.

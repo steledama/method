@@ -74,6 +74,7 @@ e non si versiona.
 Connessioni:
 
 - [view](view.md)
+- [view-publishing](view-publishing.md)
 - [output](output.md)
 - [interpret](interpret.md)
 - [verdict](verdict.md)

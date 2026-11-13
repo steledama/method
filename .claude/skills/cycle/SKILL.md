@@ -159,7 +159,7 @@ commit resta locale e lo dichiari.
 
 **Resoconto finale.** È la bozza scritta prima del commit, completata con
 SHA ed esito del push. È l'ultimo messaggio e finisce nel log del tentativo,
-reso nella pagina del giro della vista (`kb/view.md`, «Stato operativo letto
+reso nella pagina del giro della vista (`kb/view-publishing.md`, «Stato operativo letto
 a richiesta»). Contiene:
 
 - esito dell'avvio, SHA del commit ed esito del push, oppure lo stop e il

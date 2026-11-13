@@ -58,29 +58,40 @@ dichiarati dal prompt. Al gradino 1 il timer di `nixos` avvia il giro; un
 avvio a mano dell'unità resta coperto da questo criterio. Tetto per
 giro, 45 minuti e 5 USD, nell'unità.
 
-Il giro tiene vivi catture, letture, fili, plan, task e i nodi di `kb/`. Dei
-task tiene viva la pianificazione, non l'esecuzione (deciso dal custode il
-2026-10-29, `kb/tasks.md`, «Task e giro»): una notizia nuova ne corregge
-informazioni e specifica, ne muove priorità e dipendenze, chiude attese, crea
-o cancella task; i passi del task restano alla sessione col custode, salvo
-gli atti che questo register assegna al giro. Un
-nodo arriva subito agli adottanti via symlink: si corregge solo su una fonte
-verificata e il resoconto dichiara ogni nodo toccato. Una prescrizione che
-tutti i marker danno recepita il giro la chiude da sé con
-`o3/prescrizioni.py chiudi` e corregge i rimandi (deciso dal custode il
-2026-10-26: è l'esecuzione di una regola del canone, non una scelta). Restano
-proposte le altre modifiche alle prescrizioni, gli strumenti in `o3/`, le skill canoniche, `presentation/`,
-`CLAUDE.md`, `AGENTS.md`, questo register e `goal.md`; `/method` non gira
-nel giro. Di `/adottanti` il giro compie solo la parte meccanica (deciso dal
-custode il 2026-11-02): quando la riga di `## Ricorrenze` è
-arrivata e il mese non ha ancora il suo rapporto, lancia
-`o3/adottanti.py audit` e lo versiona in `i1/`. La classificazione dei
-rossi e il campione di decisioni restano alla sessione col custode. Gli adottanti si leggono dai marker nei
-checkout locali di `deck` e, per quelli di lavoro senza clone su `deck`, sul
-loro host con `o3/adottanti.py` e `o3/prescrizioni.py` passati con `--ssh`,
-in sola lettura (deciso dal custode il 2026-11-12); `ssh` diretto resta
-negato; lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti degli adottanti esclusi. Il divieto sta nei deny del solo
-`o3/ciclo/permessi.json`; nelle sessioni col custode restano le regole di sopra.
+Che cosa fa il giro, da solo:
+
+- **tiene vivi** catture, letture, fili, plan, task e i nodi di `kb/`;
+- **dei task** tiene viva la pianificazione, non l'esecuzione (deciso dal
+  custode il 2026-10-29, `kb/tasks.md`, «Task e giro»): una notizia nuova ne
+  corregge informazioni e specifica, ne muove priorità e dipendenze, chiude
+  attese, crea o cancella task; i passi del task restano alla sessione col
+  custode, salvo gli atti che questo register assegna al giro;
+- **un nodo `kb/`** arriva subito agli adottanti via symlink: si corregge
+  solo su una fonte verificata e il resoconto dichiara ogni nodo toccato;
+- **una prescrizione** che tutti i marker danno recepita la chiude da sé con
+  `o3/prescrizioni.py chiudi` e ne corregge i rimandi (deciso dal custode il
+  2026-10-26: è l'esecuzione di una regola del canone, non una scelta);
+- **di `/adottanti`** compie solo la parte meccanica (deciso dal custode il
+  2026-11-02): quando la riga di `## Ricorrenze` è arrivata e il mese non ha
+  ancora il suo rapporto, lancia `o3/adottanti.py audit` e lo versiona in
+  `i1/`. La classificazione dei rossi e il campione di decisioni restano
+  alla sessione col custode.
+
+Che cosa resta proposta: le altre modifiche alle prescrizioni, gli strumenti
+in `o3/`, le skill canoniche, `presentation/`, `CLAUDE.md`, `AGENTS.md`,
+questo register e `goal.md`. `/method` non gira nel giro.
+
+Come legge gli adottanti, sempre in sola lettura:
+
+- dai marker nei checkout locali di `deck`;
+- per quelli di lavoro senza clone su `deck`, sul loro host con
+  `o3/adottanti.py` e `o3/prescrizioni.py` passati con `--ssh` (deciso dal
+  custode il 2026-11-12); `ssh` diretto resta negato;
+- lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti
+  degli adottanti esclusi.
+
+Il divieto sta nei deny del solo `o3/ciclo/permessi.json`; nelle sessioni col
+custode restano le regole di sopra.
 
 Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un
 nodo `kb/` che altera il senso del canone senza fonte o per una ricostruzione

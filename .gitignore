@@ -4,7 +4,7 @@
 cache/
 
 # viste derivate: si generano con python3 o3/view/build.py e l'host
-# privilegiato le pubblica da commit pulito (kb/view.md)
+# privilegiato le pubblica da commit pulito (kb/view-publishing.md)
 /view/
 
 # cache legacy dello strumento di lint/format Python

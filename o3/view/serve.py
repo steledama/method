@@ -4,7 +4,7 @@ Stesso comando in ogni repo: `python3 o3/view/serve.py`, su Windows
 `py o3\\view\\serve.py`, porta 8000, Ctrl-C per chiudere: serve l'anteprima
 generata in `view/` dal working tree. Il servizio permanente dell'host
 privilegiato lancia questo stesso script del checkout con `--port` e
-`--publish-root` (`kb/view.md`, «Pubblicazione»). Solo libreria standard, così gira
+`--publish-root` (`kb/view-publishing.md`, «Pubblicazione»). Solo libreria standard, così gira
 anche sugli host Windows. Pubblica la sola cartella servita, che è chiusa
 su se stessa (`kb/view.md`, «Compartimento stagno»): niente
 dotfile e niente elenchi di cartella. La porta va ammessa dal firewall

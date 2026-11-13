@@ -73,7 +73,7 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   traduce permessi e hook del giro in un hook `PreToolUse` di Codex e
   normalizza i suoi eventi. Test: `python3 -m unittest discover -s tests -p 'test_esecutore_codex.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
-  ([plan](../kb/plan.md), «Ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
+  ([plan](../kb/plan.md), «Controllo di scadenze e ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
 - `dinieghi.py` — la ricorrenza dei dinieghi nei giri autonomi: classi di
   grafia in almeno due giri fra gli ultimi dieci dei repo leggibili, con
   l'esito sul segnale canonico ([agent-as-user](../kb/agent-as-user.md)). Lo

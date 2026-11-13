@@ -14,7 +14,7 @@ senza `--ciclo-unita` vale la prima. Risponde sotto `/_ciclo/`:
 - `/_ciclo/`: tutti i tentativi conservati;
 - `/_ciclo/<id>`: la pagina del giro; `/_ciclo/<id>.jsonl`: lo stream.
 
-Contratto in `kb/view.md` («Stato operativo letto a richiesta»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
+Contratto in `kb/view-publishing.md` («Stato operativo letto a richiesta»). Il semaforo si calcola da campi espliciti e il giudizio dell'agente
 alza, non abbassa. Il prossimo task arriva dal trailer `Prossimo:` del commit
 del giro e si confronta con quello precedente nella storia: un cambio di
 priorità porta il giro a giallo, anche se l'agente lo dichiara confermato.

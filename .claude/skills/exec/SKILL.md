@@ -121,7 +121,7 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   register `goal.md` (un task senza obiettivo è un candidato al taglio);
   lo stato del lavoro resta nel plan e nei fili, senza ricopiarlo nel register. La
   direzione opposta (obiettivo→segnale/filo) è di `eval compare`
-- lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Ricorrenze»): catena a 45
+- lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Controllo di scadenze e ricorrenze»): catena a 45
   giorni, attese a finestra, `by:` passati e rilievi di forma. Non rifare a mano
   il confronto delle date. L'uscita 1 dice che c'è una scaduta: si tratta qui e
   non ferma il commit. Un rilievo di forma si corregge nel plan

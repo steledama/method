@@ -13,7 +13,7 @@ messaggio non porta autorizzazioni nuove.
 
 ## Oggi
 
-`kb/view.md` («Servizio sulle reti private») lascia all'host porte,
+`kb/view-publishing.md` («Servizio sulle reti private») lascia all'host porte,
 configurazione e innesco, e chiede un solo host privilegiato per progetto.
 In esercizio è `nixos` a dirlo, in `o3/presentations.nix`: repo → host →
 porta. Il repo servito non sa di esserlo.
@@ -72,7 +72,7 @@ stesso criterio. Punti da decidere:
   autonomo. Oggi lo è (`Edit(./o3/**)` e `Write(./o3/**)` nei deny di
   `o3/ciclo/permessi.json`, verificato), e la rete in chiusura proposta
   per il lanciatore lo coprirebbe anche da `origin`. Le condizioni
-  «consumatori reali» ed «esposizione dichiarata» di `kb/view.md` restano
+  «consumatori reali» ed «esposizione dichiarata» di `kb/view-publishing.md` restano
   del repo: lo stesso commit che accende dichiara chi legge e cosa vede,
   in `world.md`. Va evitata la doppia rappresentazione: `world.md` cita
   l'interruttore invece di ripeterlo.
@@ -108,7 +108,7 @@ stesso criterio. Punti da decidere:
 Il 2026-11-05, con nixos d88e297, la vista di `nixos-lavoro` passa dalla
 production allo standby, l'host del suo giro autonomo, perché `/_ciclo/` legge
 lo stato del giro sull'host locale. È il ponte deciso nel regime di oggi
-(`kb/view.md`: il servizio segue il ruolo, host e porte sono materia
+(`kb/view-publishing.md`: il servizio segue il ruolo, host e porte sono materia
 dell'host). Va trattato come evidenza e vincolo di compatibilità, non come
 decisione sui punti sopra:
 
@@ -133,7 +133,7 @@ decisione sui punti sopra:
 
 ## Effetti sul canone
 
-Se il custode adotta: `kb/view.md` cambia la frase «Host, porte,
+Se il custode adotta: `kb/view-publishing.md` cambia la frase «Host, porte,
 configurazione del servizio … sono materia dell'host» nel confine a tre;
 `project.py` canonico riceve il campo; `serve.py` o lo smistatore crescono
 nel metodo; una prescrizione porta campo e codice agli adottanti. Poi
@@ -142,11 +142,11 @@ nel metodo; una prescrizione porta campo e codice agli adottanti. Poi
 
 ## Criterio di chiusura
 
-Il contratto è in `kb/view.md`, il campo e
+Il contratto è in `kb/view-publishing.md`, il campo e
 il servitore girano in `method` e in un adottante su un altro sistema
 operativo, la prescrizione è aperta. Riga del plan, voce in `o2/tasks.md` e
 questo file si rimuovono nello stesso commit.
 
 Connessioni:
 
-- [view](../kb/view.md)
+- [view-publishing](../kb/view-publishing.md)

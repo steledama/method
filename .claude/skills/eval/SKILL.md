@@ -271,7 +271,7 @@ operativo di esecuzione. Stessa lente sui task `o2/`: i diari di sessione si
 potano a chiusura. È il gemello del passo «igiene» di `exec plan`, guardato dal
 versante opposto.
 
-Lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Ricorrenze»): una riga `saltata`
+Lancia `python3 o3/scadenze.py` (`kb/plan.md`, «Controllo di scadenze e ricorrenze»): una riga `saltata`
 più volte, o che da molte occorrenze non produce niente, è candidata a una
 cadenza più bassa o al taglio. Il numero fra parentesi dice quante occorrenze ha
 perso; il taglio resta una proposta.

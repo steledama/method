@@ -135,7 +135,8 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
   [`o3/prescriptions.md`](o3/prescriptions.md); capacità e limiti in
   [`kb-tools`](kb/kb-tools.md) e [`skill`](kb/skill.md).
 - **Viste e presentazione** — le viste generate vivono in `view/`, fuori da git,
-  con la disciplina della derivazione in [`view`](kb/view.md); il deck curato
+  con la disciplina della derivazione in [`view`](kb/view.md) e build,
+  servizio e pubblicazione in [`view-publishing`](kb/view-publishing.md); il deck curato
   in [`presentation/`](presentation/), con la sua disciplina in
   [`presentation`](kb/presentation.md).
 
