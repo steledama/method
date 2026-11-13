@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Allineamento delle copie tradotte ai sorgenti canonici (cfr. `kb/translation.md`).
 
 Una copia è il file gemello `nome.<lingua>.md` accanto a `nome.md`. Il suo

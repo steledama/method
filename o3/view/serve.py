@@ -45,7 +45,7 @@ import radice
 
 VIEW = radice.attiva() / "view"
 
-import ciclo  # noqa: E402 — dopo la root: importa `project` del repo servito
+import ciclo
 
 PORT = 8000
 # Uscita per «nessuna versione valida»: un servizio la distingue da un crash.

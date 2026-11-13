@@ -428,7 +428,7 @@ def audit(root: Path) -> str:
             if not spans:
                 continue
 
-            def retto(regole: list[str]) -> bool:
+            def retto(regole: list[str], spans: list[str] = spans) -> bool:
                 return any(
                     negato(t, regole) if eseguibile(t.split()[0]) else any(t in d for d in regole)
                     for t in spans

@@ -21,8 +21,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import adottanti as lettura  # noqa: E402
-from adottanti import adottanti, assenti, git  # noqa: E402
+import adottanti as lettura
+from adottanti import adottanti, assenti, git
 
 ROOT = Path(__file__).resolve().parents[1]
 INDICE = ROOT / "o3" / "prescriptions.md"
@@ -42,7 +42,7 @@ def esiti(nome: str) -> dict[str, bool | None]:
     for adottante, checkout in adottanti().items():
         testi = (git(checkout, "show", f"{ref}:{MARKER}").stdout for ref in ("HEAD", "origin/main"))
         trovati[adottante] = any(recepita(t, nome) for t in testi)
-    return trovati | {adottante: None for adottante in assenti()}
+    return trovati | dict.fromkeys(assenti())
 
 
 def senza_voce(indice: str, nome: str) -> str | None:

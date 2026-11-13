@@ -44,7 +44,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.request
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 from typing import NamedTuple
 
@@ -69,7 +69,7 @@ class Remoto(NamedTuple):
 Checkout = Path | Remoto
 
 
-def ASSENTE() -> str:  # noqa: N802
+def ASSENTE() -> str:
     return "checkout assente su questo host" + (
         " e non raggiungibile" if REMOTI else " (remoti con --ssh)"
     )
@@ -140,7 +140,7 @@ def cloni(home: Path = HOME) -> dict[str, Path]:
     return trovati
 
 
-@lru_cache(maxsize=None)
+@cache
 def raggiungibile(remoto: Remoto) -> bool:
     """Il checkout remoto risponde a `git rev-parse` via ssh; annota se l'host è Windows."""
     try:
@@ -274,11 +274,11 @@ def frontmatter(testo: str) -> dict[str, str]:
     if not testo.startswith("---\n"):
         return {}
     corpo = testo[4:].split("\n---", 1)[0]
-    return dict(
-        (chiave.strip(), valore.strip())
+    return {
+        chiave.strip(): valore.strip()
         for chiave, _, valore in (r.partition(":") for r in corpo.splitlines())
         if valore
-    )
+    }
 
 
 def conteggio_plan(testo: str) -> tuple[int, int]:
@@ -332,8 +332,8 @@ def giorni_fa(checkout: Checkout, ref: str, *path: str) -> int | None:
     esito = git(checkout, "log", "-1", "--format=%ct", ref, "--", *path)
     if esito.returncode or not esito.stdout.strip():
         return None
-    quando = dt.datetime.fromtimestamp(int(esito.stdout), dt.timezone.utc)
-    return (dt.datetime.now(dt.timezone.utc) - quando).days
+    quando = dt.datetime.fromtimestamp(int(esito.stdout), dt.UTC)
+    return (dt.datetime.now(dt.UTC) - quando).days
 
 
 def canale(nome: str, checkout: Checkout) -> list[str]:
@@ -348,7 +348,7 @@ def canale(nome: str, checkout: Checkout) -> list[str]:
     ]
     if stato_m != "aligned":
         righe.append(f"ROSSO {nome}: status {stato_m}")
-    limite = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SOGLIA_CANONE)
+    limite = dt.datetime.now(dt.UTC) - dt.timedelta(days=SOGLIA_CANONE)
     vecchi = git(
         ROOT,
         "log",

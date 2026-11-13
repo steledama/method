@@ -62,7 +62,7 @@ class AdottantiTests(unittest.TestCase):
                 "- **[casa](https://github.com/io/casa)** — checkout `~/casa` su `deck`\n",
                 encoding="utf-8",
             )
-            prova = lambda remoto: remoto.cartella != "spento"  # noqa: E731
+            prova = lambda remoto: remoto.cartella != "spento"
             trovati = MODULE.adottanti(world, home, qui="deck", prova=prova)
             self.assertEqual(trovati, {"lavoro": MODULE.Remoto("svezia", "nixos")})
             self.assertEqual(MODULE.assenti(world, home, "deck", prova), ["spento", "casa"])

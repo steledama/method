@@ -11,5 +11,30 @@ line-length = 100
 target-version = "py312"
 cache-dir = "cache/.ruff_cache"
 
+# Regole fissate qui: senza `select` l'elenco dipende dalla versione di ruff
+# installata sull'host, e lo stesso file passa o no secondo dove lo si controlla.
+[tool.ruff.lint]
+select = [
+    "F",    # pyflakes
+    "E722", # except nudo
+    "E902", # errore di lettura
+    "W605", # sequenza di escape non valida
+    "I",    # ordine degli import
+    "UP",   # sintassi del Python dichiarato
+    "B",    # bugbear
+    "SIM",  # semplificazioni
+    "C4",   # comprehension
+    "RUF",  # regole proprie di ruff
+    "BLE",  # except troppo largo
+    "EXE",  # shebang ed eseguibilità
+]
+ignore = [
+    "RUF001", # caratteri tipografici nelle stringhe: il testo è italiano
+    "RUF002", # idem nei docstring
+    "RUF003", # idem nei commenti
+    "RUF005", # concatenazione di liste: forma lasciata a chi scrive
+    "B905",   # zip senza strict: le coppie del repo hanno lunghezza nota
+]
+
 [tool.pytest.ini_options]
 cache_dir = "cache/.pytest_cache"

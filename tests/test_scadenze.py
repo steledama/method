@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "o3" / "view"))
 
-import sources  # noqa: E402
+import sources
 
 SPEC = importlib.util.spec_from_file_location("scadenze", ROOT / "o3" / "scadenze.py")
 MODULE = importlib.util.module_from_spec(SPEC)

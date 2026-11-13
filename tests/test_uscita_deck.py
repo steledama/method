@@ -9,8 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "o3" / "view"))
 
-import project  # noqa: E402
-import sources  # noqa: E402
+import project
+import sources
 
 URL = "https://cdn.jsdelivr.net/npm/reveal.js@5.1.0"
 

@@ -464,15 +464,24 @@ def giudica_file(
     scritto, vero = percorsi(percorso, base or radice)
     radice_vera = _reale(str(radice))
     for strumento, argomento in regole(impostazioni, "deny"):
-        if strumento in ("Edit", "Write") and argomento:
-            if percorso_in(scritto, argomento, radice) or percorso_in(vero, argomento, radice_vera):
-                return f"scrittura negata da {strumento}({argomento}): {percorso}"
+        if (
+            strumento in ("Edit", "Write")
+            and argomento
+            and (
+                percorso_in(scritto, argomento, radice) or percorso_in(vero, argomento, radice_vera)
+            )
+        ):
+            return f"scrittura negata da {strumento}({argomento}): {percorso}"
     for strumento, argomento in regole(impostazioni, "allow"):
-        if strumento in ("Edit", "Write") and argomento:
-            if percorso_in(vero, argomento, radice_vera) or (
-                vero == scritto and percorso_in(scritto, argomento, radice)
-            ):
-                return None
+        if (
+            strumento in ("Edit", "Write")
+            and argomento
+            and (
+                percorso_in(vero, argomento, radice_vera)
+                or (vero == scritto and percorso_in(scritto, argomento, radice))
+            )
+        ):
+            return None
     return f"scrittura non ammessa dai permessi del giro: {percorso}"
 
 
@@ -844,7 +853,7 @@ def hook(impostazioni_path: Path, dinieghi: Path | None) -> int:
         ingresso = json.loads(sys.stdin.read())
         impostazioni = json.loads(impostazioni_path.read_text(encoding="utf-8"))
         motivo = giudica(ingresso, impostazioni)
-    except Exception as errore:  # un hook rotto non lascia passare
+    except Exception as errore:  # noqa: BLE001 — un hook rotto non lascia passare
         ingresso, motivo = {}, f"esecutore: hook non valutabile ({errore!r})"
     if motivo is None:
         return 0

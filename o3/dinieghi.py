@@ -38,7 +38,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from adottanti import adottanti, dichiarati, frontmatter, mostra  # noqa: E402
+from adottanti import adottanti, dichiarati, frontmatter, mostra
 
 ROOT = Path(__file__).resolve().parents[1]
 STATO = Path.home() / ".local" / "state" / "ciclo"

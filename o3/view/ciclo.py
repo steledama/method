@@ -37,7 +37,7 @@ import radice
 
 REPO = radice.attiva()
 
-import project  # noqa: E402 — dopo la root: l'identità è quella del repo reso
+import project
 from sources import inline_markdown, parse_plan
 
 PREFIX = "_ciclo/"

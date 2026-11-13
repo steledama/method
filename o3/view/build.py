@@ -40,16 +40,16 @@ import radice
 # Prima di `project`: con `--root` l'identità è quella del repo reso.
 ROOT = radice.attiva()
 
-import project  # noqa: E402
-from build_pages import render_all  # noqa: E402
-from build_system_image import render as render_home  # noqa: E402
-from sources import (  # noqa: E402
+import project
+from build_pages import render_all
+from build_system_image import render as render_home
+from sources import (
     check_closed,
+    check_deck_exit,
     check_plan_contract,
     check_verdict_contract,
     label,
     parse_plan,
-    check_deck_exit,
     reveal_page,
 )
 
