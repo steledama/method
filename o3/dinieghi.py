@@ -6,7 +6,7 @@ ciò che un giro solo non vede: la grafia che torna. Legge le chiusure con
 (`method` e gli adottanti di `world.md` con un clone sull'host), assegna a ogni
 comando negato una o più classi di grafia e stampa una riga per classe
 ricorrente: almeno `SOGLIA` giri distinti, anche di repo diversi (decisioni
-del custode del 2026-10-27, `o2/ricorrenza-dinieghi.md`).
+del custode del 2026-10-27; task chiuso il 2026-11-13, in git).
 
 Per ogni classe ricorrente dice se un commit di `method` la segnala
 (`SEGNALI`, la mappa canonica coperta dai test) e, per ogni repo, se il
@@ -56,7 +56,7 @@ SEGNALI: dict[str, str | None] = {
     "fuori-perimetro": "e88d81f",
     "sostituzione": "dd0cfb2",  # cycle: $(…) e cd nel composto, dalla sonda di nixos
     "cd-composto": "dd0cfb2",
-    "parentesi": None,
+    "parentesi": "de3fe56",  # ultimo_giro.py: le letture d'apertura senza grafie da quotare
     "backslash": None,
     "non-concesso": None,
 }

@@ -57,26 +57,17 @@ leggono sul loro host con `--ssh`, ammesso solo per `o3/adottanti.py` e
 `o3/prescrizioni.py`, in sola lettura (custode, 2026-11-12). Del checkout
 remoto `origin/main` è quello dell'ultimo fetch fatto su quell'host: se
 conta, lo dici. Un host che non risponde lo script lo dà assente: dichiari
-il limite senza dedurne lo stato. Il fetch dei checkout locali lo fa l'unità prima del
-giro, fuori dal recinto, dove i loro `.git/` sono scrivibili (campo `fetch` in
-`o3/cicli.nix` di `nixos`): il giro non lo tenta, perché dentro l'unità quei
-checkout sono in sola lettura. L'esito sta in
-`~/.local/state/ciclo/method/fetch.json`, da leggere con il tool Read (in Codex, che non
-l'ha, con `cat` sul solo path, ammesso dal `Read` del giro): per
-ogni checkout `esito`, `ts`, `origin_main` e `ultimo_riuscito`, il momento
-dell'ultimo fetch andato a buon fine (`null` se non ce n'è uno noto).
+il limite senza dedurne lo stato. Dei checkout locali nessuno fa il fetch
+prima del giro, e il giro non lo tenta, perché dentro l'unità sono in sola
+lettura: il loro `origin/main` è quello dell'ultimo giro di ciascuno, di
+norma del giorno. Se conta, lo dici.
 
 Gli adottanti si leggono con `python3 o3/adottanti.py`, di sola lettura:
 `stato` dà per tutti HEAD, `origin/main`, distanza e working tree; `log
 <repo> [-n N] [--ref origin/main]` gli ultimi commit coi trailer; `show <repo>
 <path> [--ref origin/main]` un file dell'interfaccia col canone (marker,
 `CLAUDE.md`, `autonomy.md`, prompt e permessi del ciclo, skill), elencati da
-`--help`. `ssh` diretto non è concesso; passa per lo script con `--ssh`. Se
-un fetch non è
-`riuscito`, o se `fetch.json` manca o porta un `id` diverso da quello
-dell'ultima riga `partenza` di `i1/giri/tentativi.jsonl`, dichiara il limite
-e l'età dell'`origin` letto, presa da `ultimo_riuscito` (ignota se `null`), senza dedurre uno stato che il checkout non
-mostra.
+`--help`. `ssh` diretto non è concesso; passa per lo script con `--ssh`.
 
 Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
 dichiara (campo `giri` in `o3/cicli.nix` di `nixos`, per tutti i repo man mano
@@ -112,7 +103,7 @@ di decisioni, non riscrivi `i3/audit-adottanti.md` e non avanzi la data della
 ricorrenza: sono i passi 2 e 3 di `/adottanti`, in sessione col custode. Nel
 resoconto metti una riga `Attenzione:` col numero dei rossi e il percorso
 del rapporto. Un host che non risponde dà un rosso di assenza, non di
-stato. Per i checkout locali leggi `fetch.json` prima di fidarti di `origin/main`.
+stato.
 
 ## Host e verifiche
 

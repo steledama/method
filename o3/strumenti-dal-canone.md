@@ -7,7 +7,7 @@ target: nixos, nixos-lavoro, bi, economia, salute, baserow, danea-auto
 
 # Builder delle viste e audit KB lanciati dal canone
 
-Prescrizione del 2026-11-12, dal task [strumenti dal canone](../o2/strumenti-dal-canone.md),
+Prescrizione del 2026-11-12, dal task «Strumenti dal canone» (chiuso il 2026-11-13, in git),
 decisa dal custode in sessione con `method` su una domanda della sessione
 `nixos`.
 

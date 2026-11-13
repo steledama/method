@@ -57,10 +57,11 @@ riletto contro le fonti.
   (`90699f80`, 07:40), dopo due giorni senza. La quota settimanale resta
   non riletta: i `tentativi.jsonl` di `svezia` non si leggono da `deck`.
   Dal 12/11 il giro di `method` legge un `fetch.json` fermo all'11/11 e
-  limitato ai repo senza clone su `deck`. Ipotesi: tolti i cloni, l'unità
-  non fa più il fetch; la smentisce un campo `fetch` ancora popolato in
-  `o3/cicli.nix` di `nixos`, da leggere nella prossima sessione
-  ([task](../o2/fetch-del-giro.md)).
+  limitato ai repo senza clone su `deck`. Causa accertata in sessione il
+  2026-11-13: tolti i cloni, l'elenco `fetch` dell'unità è vuoto e l'unità
+  installata non ha più il passo `ciclo-fetch`. Il custode ha scelto lo
+  stesso giorno di togliere la lettura dal prompt del giro: dei checkout
+  locali `origin/main` è quello dell'ultimo giro di ciascuno.
   La copertura ora comprende Codex: decisione del custode nei commit
   `201a6eb`, `6d3938f` e `de73101`, con motori scelti dal repo e primo
   collaudo completo in un repository di prova (push locale). Il profilo di

@@ -7,7 +7,7 @@ quasi a ogni giro, in quattro repo: la grafia `--grep=^docs(ciclo)` o
 La regola c'era già nelle skill, scritta quotata, e l'agente la perdeva
 lo stesso. Il custode ha deciso il 2026-10-27 che una ricorrenza dopo il
 recepimento chiede uno strumento che renda superflua la grafia, non un'altra
-frase (`o2/ricorrenza-dinieghi.md`). Questo è lo strumento: un comando
+frase (task chiuso il 2026-11-13, in git). Questo è lo strumento: un comando
 concesso per nome, senza argomenti da quotare.
 
 Gira nel repo della cartella corrente, in sola lettura. Il giro è l'ultimo

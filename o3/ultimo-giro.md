@@ -7,7 +7,7 @@ target: nixos, nixos-lavoro, bi, economia, salute, baserow, danea-auto
 
 # L'ultimo giro senza `git log` da quotare
 
-Prescrizione del 2026-11-12, dal task [ricorrenza dei dinieghi](../o2/ricorrenza-dinieghi.md),
+Prescrizione del 2026-11-12, dal task «Ricorrenza dei dinieghi» (chiuso il 2026-11-13, in git),
 decisa dal custode in sessione con `method`.
 
 ## Il segnale

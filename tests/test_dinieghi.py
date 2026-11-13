@@ -81,17 +81,20 @@ class Classi(unittest.TestCase):
         for commit in filter(None, D.SEGNALI.values()):
             self.assertIsNotNone(D.data_commit(commit), commit)
 
+    def test_parentesi_ha_per_segnale_lo_strumento(self):
+        self.assertEqual(D.SEGNALI["parentesi"], "de3fe56")
+
 
 class Ricorrenza(unittest.TestCase):
     def test_ricorre_in_due_giri_anche_di_repo_diversi(self):
         giorno = dt.date(2026, 11, 9)
         occorrenze = {
-            "parentesi": [("uno", "g1", giorno), ("due", "g2", giorno)],
+            "non-concesso": [("uno", "g1", giorno), ("due", "g2", giorno)],
             "backslash": [("uno", "g1", giorno), ("uno", "g1", giorno)],
         }
         righe = D.rapporto(occorrenze, [], ["uno", "due"], [], {"uno": CO, "due": CO})
         testo = "\n".join(righe)
-        self.assertIn("- parentesi: 2 giri, due, uno", testo)
+        self.assertIn("- non-concesso: 2 giri, due, uno", testo)
         self.assertIn("segnale assente", testo)
         self.assertNotIn("backslash", testo)
 

@@ -6,9 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
-- [strumenti-dal-canone.md](strumenti-dal-canone.md) — builder delle viste e nucleo dell'audit KB lanciati dal checkout del canone, senza copie negli adottanti.
-- [ricorrenza-dinieghi.md](ricorrenza-dinieghi.md) — contare per classe di grafia i dinieghi che ricorrono nei giri, anche fra repo.
-- [fetch-del-giro.md](fetch-del-giro.md) — `fetch.json` non si rinnova dall'11/11 e porta solo i repo senza clone su `deck`: verificare il campo `fetch` dell'unità e decidere se il prompt del giro tiene la lettura.
 - [pubblicazione-decisa-dal-repo.md](pubblicazione-decisa-dal-repo.md) — il repo dichiara dove si pubblica, l'host tiene una porta sola con uno smistatore.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
