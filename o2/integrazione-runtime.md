@@ -180,6 +180,31 @@ Hermes, un plugin del cruscotto invece di un sito da costruire.
 
 ### 7. Che cosa aggiunge il metodo
 
+Il 2026-11-13 il custode precisa che, nelle sue intenzioni, ciò che
+caratterizza il progetto è il modello di Norman: i sei stadi del ciclo
+d'azione, più Goal e World. Le mancanze elencate sotto ne sono conseguenze,
+non un elenco di funzioni.
+
+Letti con quel modello, i due runtime coprono l'arco di esecuzione (ricevono
+una richiesta, pianificano, agiscono) dentro la sessione, senza lasciarne
+traccia per stadio. L'arco di valutazione è sottile: il ciclo di
+apprendimento di Hermes valuta come l'agente ha lavorato, per salvare memorie
+e skill, non se il Mondo si è avvicinato all'obiettivo. Goal e World non
+esistono come oggetti persistenti.
+
+Il modello sta un livello sopra il runtime: gli stadi sono collezioni del
+repo e due skill, e al runtime si chiede solo di eseguire skill e pianificare
+giri. Per questo l'integrazione è possibile con entrambi. Due attenzioni:
+
+- il ciclo di apprendimento di Hermes è un secondo ciclo, nascosto e fuori dal
+  repo. Corrisponde al meta-ciclo di sviluppo del metodo, ma senza versione:
+  va spento o messo sotto approvazione, perché a migliorare l'artefatto sia il
+  ciclo del metodo;
+- senza un'interfaccia che mostri gli stadi, per chi usa il runtime il metodo
+  si riduce a un pacchetto di skill. Il plugin del cruscotto che mostra Goal,
+  World e i sei stadi non è un accessorio: è ciò che rende visibile il
+  modello.
+
 Nessuno dei due ha: obiettivi scritti contro cui misurare, un braccio di
 valutazione con verdetti e provenienza, una delega dichiarata con il
 resoconto di ciò che l'agente ha deciso da solo, un canone che si propaga fra
