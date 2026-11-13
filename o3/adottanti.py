@@ -408,7 +408,7 @@ def riga_marker(testo: str, nome: str) -> str | None:
 
 
 def costruisci(nome: str, checkout: Checkout, base: Path) -> str | None:
-    """Estrae origin/main in `base/<nome>` e lancia `build.py --check`: None se passa."""
+    """Estrae origin/main in `base/<nome>` e ne verifica la build: None se passa."""
     archivio = git_bytes(checkout, "archive", "origin/main")
     if archivio is None:
         return "git archive fallito"
@@ -420,9 +420,15 @@ def costruisci(nome: str, checkout: Checkout, base: Path) -> str | None:
     )
     if estratto.returncode:
         return "estrazione fallita"
+    # Dopo `strumenti-dal-canone` l'adottante non tiene i builder: si lanciano
+    # quelli del canone sulla sua root. Una copia rimasta vale ancora.
+    if (destinazione / "o3" / "view" / "build.py").exists():
+        comando = [sys.executable, "o3/view/build.py", "--check"]
+    else:
+        comando = [sys.executable, str(ROOT / "o3" / "view" / "build.py"), "--root", ".", "--check"]
     try:
         esito = subprocess.run(
-            [sys.executable, "o3/view/build.py", "--check"],
+            comando,
             cwd=destinazione,
             capture_output=True,
             text=True,

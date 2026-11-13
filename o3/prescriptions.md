@@ -16,15 +16,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
   profilo del lanciatore, fallback nei due versi, esecutore Codex canonico;
   all'host solo binari, recinto, arresto e trigger, e nessun nixos tiene la
   politica degli altri repo. Prescritta ai sette il 2026-11-11.
-- [L'ultimo giro senza `git log` da quotare](ultimo-giro.md) —
-  `o3/ultimo_giro.py` al posto dei `git log` con parentesi che aprono il
-  giro, negati in 13 giri di quattro repo; le skill lo usano, i permessi lo
-  concedono. Prescritta ai sette il 2026-11-12.
-
-- [Builder delle viste e audit KB lanciati dal canone](strumenti-dal-canone.md) —
-  `--root` su `build.py`, `serve.py` e `kb_tools.py`; all'adottante restano
-  `project.py`, profilo e moduli di dominio, senza copie né fork.
-  Prescritta ai sette il 2026-11-12.
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
@@ -79,7 +70,7 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   l'esito sul segnale canonico ([agent-as-user](../kb/agent-as-user.md)). Lo
   lancia il giro di `method`. Test: `python3 -m unittest discover -s tests -p 'test_dinieghi.py'`.
 - `ultimo_giro.py` — l'ultimo giro e l'ultimo `Prossimo:` del repo corrente,
-  senza grafie da quotare ([ultimo giro](ultimo-giro.md)). Test in
+  senza grafie da quotare. Test in
   `tests/test_dinieghi.py`, con quelli di `dinieghi.py`.
 - `adottanti.py` — lettura in sola lettura degli adottanti dichiarati in
   `world.md`, per il giro e per `/adottanti`: storia, marker e `audit`; con

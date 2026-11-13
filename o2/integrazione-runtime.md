@@ -278,7 +278,7 @@ da chiedere al custode: il passo 3 si fa su un repository di prova.
   progetto si presenta da solo o come strato sopra un runtime;
 - [traduzione-inglese](traduzione-inglese.md): un'integrazione pubblica
   richiede l'inglese;
-- la prescrizione [strumenti dal canone](../o3/strumenti-dal-canone.md) e
+- gli strumenti lanciati dal canone ([kb-tools](../kb/kb-tools.md)) e
   [pubblicazione-decisa-dal-repo](pubblicazione-decisa-dal-repo.md): riducono
   già la dipendenza dallo strato host.
 
