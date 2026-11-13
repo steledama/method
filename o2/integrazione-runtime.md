@@ -1,5 +1,5 @@
 ---
-sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che darebbero installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Lo studio obbliga a dire che cosa il metodo aggiunge agli esistenti; se emerge incompatibilità, resta la via di un ingresso proprio con interfaccia web sopra il repo markdown. Si parte da Hermes."
+sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Resta la prova su un repository di prova, poi la scelta del custode."
 ciclo: dev
 ---
 
@@ -14,8 +14,7 @@ in file versionati. Il punto debole è l'ingresso: oggi adottare vuol dire
 symlink, fork delle skill e uno strato host legato a NixOS.
 
 Il custode propone di studiare un'integrazione con uno dei due, con preferenza
-di partenza per Hermes, non ancora approfondita. Due esiti lo interessano
-entrambi:
+di partenza per Hermes. Due esiti lo interessano entrambi:
 
 - se l'integrazione regge, l'adozione passa da un runtime che molti hanno già;
 - se non regge, lo studio ha comunque chiarito che cosa serve a un ingresso
@@ -28,65 +27,172 @@ presentazione. Vale per tutte e due le vie, ed è il criterio con cui si
 giudica un'integrazione: se per girare su un runtime la memoria deve uscire
 dal repo, non è un'integrazione ma una sostituzione.
 
-## Che cosa si sa già
+## Esito della lettura della documentazione
 
-Da una prima ricerca web del 2026-11-13, su documentazione ufficiale e guide
-di terzi; nessuno dei due è stato installato né provato.
+Lettura del 2026-11-13 della documentazione ufficiale
+(`hermes-agent.nousresearch.com/docs`, `docs.openclaw.ai`), fatta da due
+agenti di lettura con citazioni e indirizzi delle pagine. Limiti: alcune
+pagine lunghe sono state lette solo in parte o in riassunto; le pagine di
+Hermes su plugin, installazione su Windows e modelli locali non sono state
+lette; nessuno dei due è stato installato. Tutto ciò che segue è letto, non
+provato.
 
-**Hermes Agent** (Nous Research):
+### 1. Dove vive la memoria
 
-- tutto vive in una cartella personale, `~/.hermes`: `SOUL.md` per la
-  persona, `MEMORY.md` e `USER.md` per la memoria;
-- le skill sono memoria procedurale che l'agente crea e migliora da solo;
-- legge file di contesto del progetto, fra cui `AGENTS.md`; non è chiaro come
-  li trova e con quale precedenza;
-- si installa su Windows in modo nativo, da PowerShell, e ha un installer
-  desktop;
-- non è emerso se ha un cruscotto web.
+- **Hermes**: `MEMORY.md` e `USER.md` in `~/.hermes/memories/`, per profilo e
+  non per progetto, con limiti stretti (2.200 e 1.375 caratteri). Si spengono
+  del tutto con `memory.memory_enabled: false` e
+  `memory.user_profile_enabled: false`; la revisione in background che salva
+  memorie e skill si spegne con `auxiliary.background_review.enabled: false`.
+  Lo storico delle sessioni resta in un database SQLite, senza interruttore
+  documentato. Non c'è modo documentato di portare la memoria in una cartella
+  del repo.
+- **OpenClaw**: la memoria è markdown nello spazio di lavoro, e lo spazio di
+  lavoro si può puntare su un repository git esistente
+  (`agents.entries.<id>.workspace`). Lo scarico automatico prima della
+  compattazione e la promozione automatica in `MEMORY.md` si spengono. Porta
+  però nel repo i propri file: `SOUL.md`, `IDENTITY.md`, `USER.md`,
+  `MEMORY.md`, note giornaliere. L'indice di ricerca sta in un SQLite fuori
+  dallo spazio di lavoro.
 
-**OpenClaw**:
+Lettura: con Hermes vale la stessa mossa già fatta con Claude Code, spegnere
+la memoria del runtime e lasciare il repo come unica memoria. OpenClaw è più
+vicino nella forma, ma mette nella root file suoi che concorrono con bussola,
+`goal.md` e `world.md`.
 
-- lavora in uno spazio di file markdown, `~/.openclaw/workspace`:
-  `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `USER.md`, `MEMORY.md` e note
-  giornaliere;
-- lo spazio di lavoro nasce già come repository git se git è installato, e
-  si sposta clonandolo;
-- le skill si caricano da una cartella dello spazio di lavoro;
-- ha un battito periodico (`HEARTBEAT.md`) e una pianificazione a orario;
-- la sicurezza è il punto più contestato: una fonte conta 138 CVE fra
-  febbraio e aprile 2026;
-- installazione su Windows e interfaccia di controllo non verificate.
+### 2. File di contesto del progetto
 
-Entrambi leggono `AGENTS.md`, che i repo del metodo hanno già per Codex. A una
-prima lettura OpenClaw è più vicino nella forma (spazio di lavoro markdown in
-git), Hermes nell'ingresso (installer per Windows). È una lettura da
-verificare, non un esito.
+- **Hermes**: carica un solo tipo di file, il primo che trova fra
+  `.hermes.md`, `AGENTS.override.md`, `AGENTS.md`, `CLAUDE.md`,
+  `.cursorrules`. In un repo git unisce gli `AGENTS.md` dalla root alla
+  cartella di lavoro. Tetto di almeno 20.000 caratteri. Controlla i file
+  contro l'iniezione di istruzioni e può bloccarne uno. `SOUL.md` è globale,
+  non del progetto.
+- **OpenClaw**: inietta `AGENTS.md` a ogni sessione, con tetto di 20.000
+  caratteri per file e 60.000 in totale. `CLAUDE.md` e `README.md` non
+  risultano caricati.
 
-## Domande dello studio
+Lettura: l'aggancio è `AGENTS.md`, che i repo del metodo hanno già (540
+caratteri, rimanda a bussola e `CLAUDE.md`). Con entrambi `CLAUDE.md` non
+entra da solo: l'agente lo legge perché `AGENTS.md` glielo dice, come oggi con
+Codex.
 
-1. **Dove vive la memoria.** Il runtime può lavorare con il repo del progetto
-   come unica memoria, o ne tiene una propria che entra in concorrenza? Qui il
-   metodo spegne la memoria dell'harness (`CLAUDE.md`, «Memoria»): vale lo
-   stesso vincolo.
-2. **Skill.** Le skill del metodo (`eval`, `exec`, `cycle`, `kb`, `commit`)
-   si caricano così come sono, con un wrapper, o vanno riscritte? Un runtime
-   che modifica le skill da solo è compatibile con skill versionate nel
-   canone?
-3. **Ciclo autonomo.** La pianificazione del runtime può sostituire il
-   lanciatore e le unità di NixOS, mantenendo perimetro, resoconto e riga
-   `Attenzione:`?
-4. **Delega.** Come si traducono `autonomy.md`, i punti riservati al custode
-   e i trailer dei commit in un runtime che ha un proprio modello di permessi?
-5. **Interfaccia.** Che cosa offre già il runtime per configurare e
-   controllare, e che cosa resterebbe da costruire per goal, world, plan e
-   scadenze?
-6. **Che cosa aggiunge il metodo.** Detto in una riga, per chi usa già quel
-   runtime. Se non si riesce a dirlo, è il risultato più importante dello
-   studio.
+### 3. Skill
+
+- **Entrambi** seguono lo standard agentskills.io: una cartella con
+  `SKILL.md`, `name` e `description` obbligatori nel frontmatter, ogni skill
+  disponibile come comando `/nome`.
+- **Hermes**: carica le skill del progetto da `<root>/.hermes/skills/` e
+  `<root>/.agents/skills/`, solo dopo `hermes skills trust`. Le considera del
+  repo: la manutenzione autonoma non le modifica mai e le skill nuove create
+  dall'agente vanno altrove. Si possono aggiungere cartelle esterne
+  (`skills.external_dirs`). La creazione autonoma si può sottoporre ad
+  approvazione (`skills.write_approval: true`); un interruttore che la vieta
+  del tutto non è stato trovato.
+- **OpenClaw**: carica da `<workspace>/skills` e `<workspace>/.agents/skills`
+  con precedenza su tutto il resto. Un'officina delle skill lascia che
+  l'agente salvi e aggiorni le proprie; se tocca anche quelle dello spazio di
+  lavoro non è documentato.
+
+Lettura: le skill canoniche in `.claude/skills/` non hanno `name` nel
+frontmatter, quindi serve un wrapper, come quello che c'è già per Codex in
+`.codex/skills/`. Una sola cartella `.agents/skills/` di wrapper servirebbe
+tutti e due i runtime. Hermes dà la garanzia che serve al canone: le skill del
+repo non vengono riscritte dall'agente.
+
+### 4. Ciclo autonomo
+
+- **Hermes**: i lavori pianificati girano in una sessione nuova, con
+  `--workdir` (la cartella del repo, da cui carica `AGENTS.md`) e `--skill`
+  (la skill da invocare). Il risultato si può lasciare in un file locale.
+  Senza persona presente i comandi pericolosi sono negati
+  (`approvals.cron_mode: deny`). Serve il gateway acceso. Le definizioni
+  stanno in `~/.hermes/cron/jobs.json`, fuori dal repo. Esiste un modo senza
+  interfaccia (`hermes -z`).
+- **OpenClaw**: le automazioni girano nel gateway e stanno nel suo database.
+  Il carico è un messaggio, un comando o uno script; una skill come carico
+  non è documentata. C'è `openclaw agent exec "<prompt>" --cwd ./repo --json`,
+  senza gateway, con codici d'uscita 0, 1 e 2, pensato per pianificatori
+  esterni. Senza una superficie di approvazione collegata le richieste sono
+  negate.
+
+Lettura: il lavoro pianificato di Hermes corrisponde quasi uno a uno al giro
+di oggi (`--workdir <repo> --skill cycle`). Il comando senza gateway di
+OpenClaw si aggancerebbe invece al lanciatore esistente. In entrambi la
+definizione del giro vive fuori dal repo: serve un passo che la ricavi dalle
+ricorrenze del plan, come oggi fanno le unità di NixOS.
+
+### 5. Delega
+
+- **Nessuno dei due** ha un file di permessi per progetto, né una regola sui
+  commit git.
+- **Hermes**: approvazione dei comandi `smart`, `manual` oppure `off`; un
+  elenco di divieti che vale sempre (`approvals.deny`, per esempio
+  `git push --force*`); una radice fuori dalla quale non si scrive
+  (`HERMES_WRITE_SAFE_ROOT`), che però il terminale può aggirare; esecuzione
+  in contenitore.
+- **OpenClaw**: permessi per agente nel file globale `openclaw.json` (strumenti
+  ammessi e vietati, sandbox, scrittura solo nello spazio di lavoro). La
+  sicurezza dell'esecuzione sull'host è `full` per impostazione predefinita.
+  La documentazione dichiara che non è un confine di sicurezza fra utenti
+  ostili.
+
+Lettura: `autonomy.md`, i punti riservati al custode, i trailer dei commit e
+`o3/commit_gate.py` non hanno un equivalente in nessuno dei due. Restano del
+metodo, e sono ciò che il metodo aggiunge. Il runtime applica i permessi
+tecnici; il repo dichiara la delega.
+
+### 6. Interfaccia
+
+- **Hermes**: cruscotto web locale (`hermes dashboard`, porta 9119) con stato,
+  chat, configurazione, sessioni, log, lavori pianificati, skill. L'indice
+  della documentazione dice che i plugin possono aggiungere schede e rotte al
+  cruscotto; la pagina dei plugin non è stata letta. App desktop per Windows,
+  macOS e Linux. Installazione nativa su Windows da PowerShell; la scheda di
+  chat del cruscotto su Windows richiede WSL2. Server compatibile con le API
+  di OpenAI e integrazione con gli editor.
+- **OpenClaw**: interfaccia di controllo web con chat, configurazione,
+  automazioni, approvazioni, skill. App nativa per Windows che installa una
+  propria distribuzione WSL. Plugin per canali, strumenti e comandi; pagine
+  aggiunte all'interfaccia da un plugin non trovate.
+
+Lettura: installer per Windows, chat e gestione dei giri esistono già in
+entrambi. Le pagine per goal, world, plan ed esiti dei cicli sarebbero, con
+Hermes, un plugin del cruscotto invece di un sito da costruire.
+
+### 7. Che cosa aggiunge il metodo
+
+Nessuno dei due ha: obiettivi scritti contro cui misurare, un braccio di
+valutazione con verdetti e provenienza, una delega dichiarata con il
+resoconto di ciò che l'agente ha deciso da solo, un canone che si propaga fra
+più repository. La loro memoria è una nota libera (in Hermes, 2.200
+caratteri).
+
+Prima formulazione, da discutere: «dà all'agente che usi già un obiettivo
+scritto, una memoria strutturata nel repository e il resoconto di ciò che ha
+deciso da solo».
+
+## Valutazione dell'agente
+
+Sulla carta nessuno dei due è incompatibile. Hermes si adatta meglio, per
+quattro motivi letti nella documentazione: tratta le skill del progetto come
+proprietà del repo, pianifica un giro con cartella e skill, la sua memoria si
+spegne, il suo cruscotto si estende. OpenClaw è più vicino nella forma, ma
+porta nel repo i propri file d'identità e memoria e ha il profilo di sicurezza
+più aperto.
+
+Punti che solo la prova può chiarire:
+
+- se il controllo di Hermes contro l'iniezione blocca `AGENTS.md` o le skill;
+- se le skill reggono senza lo strumento Skill di Claude Code, in particolare
+  `/cycle` che compone `eval`, `exec` e `commit`;
+- come si comportano con un modello diverso da Claude;
+- il costo: con Hermes i modelli Anthropic richiedono una chiave API, oppure
+  un piano Max con crediti aggiuntivi; il piano Pro non basta.
 
 ## La via alternativa: ingresso proprio
 
-Idea del custode, da riprendere se lo studio trova incompatibilità o se il
+Idea del custode, da riprendere se la prova trova incompatibilità o se il
 runtime copre solo una parte:
 
 - un installer per Windows;
@@ -97,9 +203,9 @@ runtime copre solo una parte:
 
 Punti da tenere presenti:
 
-- installer, chat e pianificazione sono ciò che Hermes e OpenClaw offrono
-  già: costruirli da capo ha senso solo se lo studio dice che non si possono
-  usare;
+- installer, chat e pianificazione esistono già in Hermes e OpenClaw (cfr.
+  punto 6): costruirli da capo ha senso solo se la prova dice che non si
+  possono usare;
 - le viste di oggi (`view/`) sono generate dal repo e sono di sola lettura.
   Pagine che configurano scrivono nel repo: serve decidere chi fa il commit e
   con quale dichiarazione di autonomia;
@@ -109,17 +215,19 @@ Punti da tenere presenti:
 
 ## Passi
 
-1. leggere la documentazione ufficiale di Hermes sulle sei domande, poi
-   quella di OpenClaw per confronto;
-2. provare Hermes su un repository di prova con la struttura del metodo: un
-   giro di `eval` e uno di `exec`, annotando che cosa si rompe;
-3. scrivere l'esito per domanda, con ciò che è verificato e ciò che è solo
-   letto;
-4. portare al custode la scelta: integrazione, ingresso proprio, o tutte e
+1. ~~leggere la documentazione ufficiale dei due sulle sei domande~~ fatto il
+   2026-11-13;
+2. leggere le pagine di Hermes rimaste: plugin del cruscotto, installazione
+   su Windows, modelli locali;
+3. provare Hermes su un repository di prova con la struttura del metodo:
+   wrapper in `.agents/skills/`, memoria spenta, un giro di `eval` e uno di
+   `exec`, poi un giro pianificato; annotare che cosa si rompe;
+4. scrivere l'esito per domanda, distinguendo il provato dal letto;
+5. portare al custode la scelta: integrazione, ingresso proprio, o tutte e
    due con un ordine.
 
 L'installazione di un runtime su un host e la prova su un adottante sono atti
-da chiedere al custode: il passo 2 si fa su un repository di prova.
+da chiedere al custode: il passo 3 si fa su un repository di prova.
 
 ## Legami
 
@@ -133,13 +241,29 @@ da chiedere al custode: il passo 2 si fa su un repository di prova.
 
 ## Criterio di chiusura
 
-Le sei domande hanno una risposta con la sua provenienza, e il custode ha
-deciso la via; i task che ne seguono sono aperti nel plan.
+Le sei domande hanno una risposta provata, o dichiarata come solo letta, e il
+custode ha deciso la via; i task che ne seguono sono aperti nel plan.
 
 ## Fonti
 
-- [Documentazione di Hermes Agent](https://hermes-agent.nousresearch.com/docs)
-- [Mer.vin, la cartella `.hermes`](https://mer.vin/2026/05/hermes-agent-dot-hermes-folder-layout-soul-secrets-memory-skills/)
-- [Documentazione di OpenClaw, lo spazio di lavoro dell'agente](https://docs.openclaw.ai/concepts/agent-workspace.md)
-- [Stack Junkie, i file dello spazio di lavoro di OpenClaw](https://www.stack-junkie.com/blog/openclaw-workspace-architecture)
-- [Toolradar, OpenClaw e Hermes Agent a confronto](https://toolradar.com/blog/openclaw-vs-hermes-agent)
+Hermes Agent:
+
+- [Memoria](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory)
+- [File di contesto](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files)
+- [Skill](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)
+- [Lavori pianificati](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron)
+- [Sicurezza](https://hermes-agent.nousresearch.com/docs/user-guide/security)
+- [Cruscotto web](https://hermes-agent.nousresearch.com/docs/user-guide/features/web-dashboard)
+- [Fornitori di modelli](https://hermes-agent.nousresearch.com/docs/integrations/providers)
+
+OpenClaw:
+
+- [Spazio di lavoro dell'agente](https://docs.openclaw.ai/concepts/agent-workspace.md)
+- [Memoria](https://docs.openclaw.ai/concepts/memory.md)
+- [Skill](https://docs.openclaw.ai/tools/skills.md)
+- [Automazioni](https://docs.openclaw.ai/automation/cron-jobs/how-it-works.md)
+- [Comando `agent`](https://docs.openclaw.ai/cli/agent.md)
+- [Sicurezza](https://docs.openclaw.ai/gateway/security.md)
+- [Approvazioni dell'esecuzione](https://docs.openclaw.ai/tools/exec-approvals.md)
+- [Interfaccia di controllo](https://docs.openclaw.ai/web/control-ui.md)
+- [Windows](https://docs.openclaw.ai/platforms/windows.md)
