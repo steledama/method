@@ -6,6 +6,7 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
+- [lettura-nixos-lavoro.md](lettura-nixos-lavoro.md) — `adottanti.py` dà assente `nixos-lavoro` per l'a capo nella sua voce di `world.md`: riga riunita o regex tollerante, decide il custode.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, o se serve un ingresso proprio con interfaccia web sul repo markdown.

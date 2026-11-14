@@ -20,6 +20,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 | Ciclo | Ob. | Task                                     | Dip. |
 | ----- | --- | ---------------------------------------- | ---- |
+| dev   | 2   | Lettura di nixos-lavoro                  | —    |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev   | S   | Nome del progetto                        | —    |
 | dev   | S   | Integrazione con un runtime esistente    | —    |
