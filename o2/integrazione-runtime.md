@@ -762,6 +762,9 @@ fuori. Quattro condizioni perché resti un'integrazione, dalla mappa:
 I due esiti non si escludono: la direzione propria può prendere da Buzz il
 modo di pilotare gli harness, e da Hermes l'idea del cruscotto estendibile.
 
+La prova minima della direzione propria ha un task suo:
+[prova-chat-acp](prova-chat-acp.md).
+
 ## Valutazione dell'agente
 
 Sulla carta nessuno dei due è incompatibile. Hermes si adatta meglio, per

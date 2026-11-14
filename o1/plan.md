@@ -22,6 +22,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | ----- | --- | ---------------------------------------- | ---- |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev   | S   | Nome del progetto                        | —    |
+| dev   | S   | Prova di una chat ACP                    | —    |
 | dev   | S   | Integrazione con un runtime esistente    | —    |
 | dev   | S   | Diffusione oltre il custode unico        | p2   |
 | dev   | S   | Traduzione in inglese                    | p1   |
