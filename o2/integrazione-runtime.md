@@ -766,7 +766,8 @@ La prova minima della direzione propria ha un task suo:
 [prova-chat-acp](prova-chat-acp.md). Prima prova del 2026-11-14 in `casa`:
 via ACP Claude Code carica i `CLAUDE.md` del repo e globale, vede e carica le
 skill, rispetta le regole `deny`, non scrive memoria e fa un commit col gate.
-Restano le approvazioni in chat, un `/cycle` intero e Codex.
+In modo `default` le richieste di permesso arrivano al client col diff, e un
+rifiuto è rispettato. Restano un `/cycle` intero e Codex.
 
 ## Valutazione dell'agente
 

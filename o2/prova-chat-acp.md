@@ -1,5 +1,5 @@
 ---
-sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso. Prima prova del 2026-11-14 riuscita su cinque punti su sei; restano le approvazioni in chat, un /cycle intero e Codex."
+sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso. Prove del 2026-11-14 riuscite sui sei punti, approvazioni in chat comprese; restano un /cycle intero e Codex."
 ciclo: dev
 ---
 
@@ -106,10 +106,22 @@ strumenti. Cinque prompt in una sessione (`2dfb3534`), modello Opus 5.5.
 6. **Trascrizioni: dove le lascia il terminale.** Un file per sessione in
    `~/.claude/projects/-home-stele-casa/`.
 
+Seconda prova, lo stesso giorno: le approvazioni. Sessione `1081813b`
+portata in modo `default` con `session/set_mode` dopo l'apertura.
+
+- `git log -1 --oneline` gira senza chiedere: Claude Code tratta i comandi
+  git di sola lettura come sicuri, come nel terminale;
+- la scrittura di `prova-acp.txt` arriva al client come
+  `session/request_permission`, con il nome dello strumento, l'input e il
+  diff, e tre opzioni: `allow-once`, `allow-with-updates` (sempre) e
+  `reject`. Il client rifiuta, l'agente riceve «User refused permission to
+  run tool» e si ferma; il file non esiste.
+
+Il flusso delle approvazioni regge: una chat nel sito può mostrare la
+richiesta col suo diff e rispondere con un pulsante.
+
 Restano da provare:
 
-- il flusso delle approvazioni: una sessione in modo `default`, perché le
-  richieste arrivino al client come `session/request_permission`;
 - un `/cycle` intero, quando le skill di `casa` saranno parametrizzate;
 - la stessa prova con Codex via `codex-acp`.
 
