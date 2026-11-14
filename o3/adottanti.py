@@ -91,7 +91,7 @@ INTERFACCIA = [
 
 VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\(([^)]*)\)\*\*(.*)")
 REPO = re.compile(r"github\.com[:/]([\w.-]+/[\w.-]+?)(?:\.git)?/?$")
-CHECKOUT = re.compile(r"checkout `~/([\w.-]+)`(?: su `([\w.-]+)`)?")
+CHECKOUT = re.compile(r"checkout\s+`~/([\w.-]+)`(?:\s+su\s+`([\w.-]+)`)?")
 ACCENTO = re.compile(r"#[0-9a-fA-F]{6}\b")
 VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)`")
 
@@ -108,16 +108,14 @@ LINK_MD = re.compile(r"\]\(([\w./-]+\.md)\)")
 def dichiarati(world: Path = ROOT / "world.md") -> dict[str, tuple[str | None, str, str | None]]:
     """Nome → (repo GitHub `owner/nome` o None, cartella e host dichiarati), dalle voci col checkout."""
     trovati: dict[str, tuple[str | None, str, str | None]] = {}
-    voce = repo = None
+    repo: dict[str, str | None] = {}
     for riga in world.read_text(encoding="utf-8").splitlines():
         if match := VOCE.match(riga):
-            voce, repo = match.group(1), repo_di(match.group(2))
-            riga = match.group(3)
-        elif not riga.startswith("  "):
-            voce = None
-        if voce and (match := CHECKOUT.search(riga)):
-            trovati[voce] = (repo, match.group(1), match.group(2))
-            voce = None
+            repo[match.group(1)] = repo_di(match.group(2))
+    # Il testo intero della voce: cartella e host possono stare su righe diverse.
+    for nome, testo in voci(world).items():
+        if match := CHECKOUT.search(testo):
+            trovati[nome] = (repo[nome], match.group(1), match.group(2))
     return trovati
 
 

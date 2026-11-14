@@ -28,6 +28,20 @@ class AdottantiTests(unittest.TestCase):
         self.assertEqual(list(trovati), ["uno", "due"])
         self.assertEqual(trovati["due"], MODULE.HOME / "due")
 
+    def test_host_on_the_line_after_the_folder(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            world = Path(tmp) / "world.md"
+            world.write_text(
+                "- **[lavoro](https://github.com/org/lavoro)** — Dominio — checkout `~/nixos`\n"
+                "  su `svezia`; accento `#a16207`\n"
+                "- **[capo](https://github.com/org/capo)** — Dominio — checkout\n"
+                "  `~/capo` su `deck`\n",
+                encoding="utf-8",
+            )
+            dichiarati = MODULE.dichiarati(world)
+        self.assertEqual(dichiarati["lavoro"], ("org/lavoro", "nixos", "svezia"))
+        self.assertEqual(dichiarati["capo"], ("org/capo", "capo", "deck"))
+
     def test_checkout_found_by_origin_not_by_folder_name(self):
         import subprocess
 

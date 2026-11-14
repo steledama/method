@@ -36,11 +36,11 @@ riletto contro le fonti.
   Settimo dal 2026-11-05 `nixos-lavoro`, separato da `nixos` il 04/11:
   gradino 0 e due giri a mano riusciti (`92afebd`, `3438713`), poi gradino 1
   col timer delle 04:30 (`1f7c780`); dal 13/11 il repo vive su `svezia` e
-  le dizioni production e standby non valgono più (`b71e299`). Dal giro del
-  14/11 `o3/adottanti.py` non lo legge: la sua voce di `world.md` va a capo
-  fra cartella e host e la regex non la riconosce
-  ([task](../o2/lettura-nixos-lavoro.md)). Un buco di lettura, non uno
-  stato dell'adottante. L'andamento per
+  le dizioni production e standby non valgono più (`b71e299`). Il giro del
+  14/11 di `method` non lo ha letto: la sua voce di `world.md` va a capo fra
+  cartella e host e `o3/adottanti.py` cercava riga per riga. Un buco di
+  lettura, non uno stato dell'adottante, chiuso lo stesso giorno: il parser
+  legge la voce intera. L'andamento per
   gradini sta nel task del pilota, chiuso il 2026-11-12 (in git). Dall'08/11 cambia il meccanismo di
   `danea-auto`: parte dal lanciatore canonico di `method` (marker del repo,
   giro a mano `0624d2f`, timer dal 09/11). Anche `method` parte dal lanciatore
