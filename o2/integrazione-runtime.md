@@ -653,6 +653,96 @@ il fattore 1 e il 14 dicono quanto costa e quanto è solido. Per Buzz, che
 sta accanto al metodo e non al posto dell'harness, contano soprattutto i
 fattori 9, 10 e 11, con il 2 come condizione.
 
+## Ingresso: viste e chat
+
+Discussione col custode del 2026-11-14, a partire dallo strato 6.
+
+### Oggi nel metodo
+
+Markdown versionato come base, e un motore Python che ne traduce una parte
+in HTML statico e lo serve: `o3/view/build.py` genera le pagine dal commit
+del progetto e da quello di `method`, `o3/view/serve.py` consegna la
+versione pubblicata (presentazione di `nixos`, slide «Le viste: contenuti
+locali, programma condiviso» e «Dalla modifica alla pagina nel browser»;
+[view](../kb/view.md), [view-publishing](../kb/view-publishing.md)). La
+vista è derivata e di sola lettura, e si pubblica da un commit. La chat con
+l'harness è il terminale.
+
+### Nei candidati
+
+- **Hermes**: cruscotto web locale con chat, sessioni, giri pianificati e
+  skill; i plugin aggiungono schede (JavaScript e rotte FastAPI). Non rende
+  il repo: un plugin potrebbe.
+- **OpenClaw**: interfaccia di controllo web con chat, configurazione,
+  automazioni e approvazioni, più i canali di chat esterni. Pagine aggiunte
+  da un plugin non trovate.
+- **Buzz**: app desktop e mobile con canali, un «Canvas» markdown per canale
+  e un sistema di plugin in React che possono possedere pagine intere
+  (`docs/plugin-architecture.md`, tutto in anteprima; agganci agli agenti e
+  kit degli harness dichiarati «likely to break»). Ha visori delle sessioni
+  di Claude Code, Codex e Goose.
+
+Nessuno rende un repo come viste strutturate; tutti hanno la chat. Il
+metodo ha le viste e non la chat: sullo strato 6 le parti sono
+complementari.
+
+Un fatto che vale per entrambi gli esiti: Buzz pilota gli harness con ACP
+(Agent Client Protocol, `agentclientprotocol.com`), un protocollo aperto fra
+un client e un agente, con adattatori per Claude Code (`claude-agent-acp`),
+Codex (`codex-acp`) e Hermes (`hermes-acp`), visti nel codice di `buzz`.
+Una chat che parla ACP non è legata a un harness, come oggi Herdr
+([session-messaging](../kb/session-messaging.md)).
+
+### Due esiti possibili
+
+Il custode ne vede due.
+
+**Integrare l'esistente: Buzz, un harness e il metodo.** Buzz prende
+coordinazione, ingresso e host, Claude Code o Codex l'harness, il metodo
+memoria e governo. È la composizione che la mappa dà per più pulita. Le
+condizioni lette finora:
+
+- la memoria `core` e fredda degli agenti va spenta o tenuta vuota, e non
+  risulta un interruttore;
+- il prompt base di Buzz dà istruzioni che concorrono con quelle del repo:
+  `PLANS/`, `WORK_LOGS/`, `RESEARCH/` nella cartella di lavoro, lezioni in
+  `core`. Il conflitto è nel prompt, non solo nei dati;
+- la cartella del repo per conversazione richiede un plugin
+  (`assignConversationFolder`), su un'interfaccia dichiarata instabile;
+- Claude Code parte in `bypassPermissions`: i permessi del giro vanno
+  riverificati in quel modo;
+- i ponti per Claude Code e Codex non girano su Windows: `danea2` resterebbe
+  fuori;
+- un relay con Postgres, Redis e MinIO per un custode solo, su un progetto
+  che si dichiara non finito;
+- le viste del metodo restano fuori da Buzz, oppure diventano un suo plugin.
+
+**Una direzione propria.** Proposta del custode: un database SQLite, un
+rendering da markdown a HTML più vicino al tempo reale e una chat che
+sostituisce il terminale nelle sessioni dirette con l'harness, con il repo e
+git sempre come base. Prende lo strato 6 e parte del 5, e lascia l'harness
+fuori. Quattro condizioni perché resti un'integrazione, dalla mappa:
+
+- **SQLite derivato, mai fonte.** Può tenere un indice di ricerca, le
+  collezioni già lette (plan, task, fili, giri, scadenze) e il registro delle
+  chat; cancellarlo non deve perdere nulla che il repo non sappia
+  ricostruire, salvo il registro. È la forma dell'indice di OpenClaw, non
+  della memoria di Hermes;
+- **anteprima e pubblicazione restano distinte.** Oggi la vista si pubblica
+  da un commit, per scelta (`view-publishing`). Il tempo reale è
+  un'anteprima del working tree, locale; la versione pubblicata resta quella
+  del commit;
+- **la chat parla con l'harness, non lo sostituisce.** Con ACP la stessa
+  chat serve Claude Code, Codex e Hermes; il ciclo agentico, i permessi del
+  giro e `/commit` restano dove sono;
+- **le scritture passano dall'harness.** Le pagine leggono; una modifica
+  chiesta dalla chat la fa l'agente, col gate e i trailer. Così il governo
+  non cambia, e cade la domanda su chi fa il commit di una pagina che
+  configura (cfr. «La via alternativa: ingresso proprio»).
+
+I due esiti non si escludono: la direzione propria può prendere da Buzz il
+modo di pilotare gli harness, e da Hermes l'idea del cruscotto estendibile.
+
 ## Valutazione dell'agente
 
 Sulla carta nessuno dei due è incompatibile. Hermes si adatta meglio, per
