@@ -371,6 +371,63 @@ metodo e riceve i messaggi da un canale. La domanda che decide è quella
 lasciata aperta: se l'agente di Buzz può lavorare in una cartella scelta,
 con il comportamento nativo dell'harness.
 
+Terza lettura, il 2026-11-14, nel codice: `block/buzz-app` al commit
+`4a87b5c` del 13/11 (`docs/agents.md`, `docs/agent-memories.md`,
+`src/features/agent-harness/base_prompt.md`,
+`src/bundled/claude-code/claude.ts` e `runtime.ts`,
+`src/features/solo/workspace.ts`) e `block/buzz` al `5780bd7`
+(`crates/buzz-acp`).
+
+- **La cartella di lavoro** è per agente e si configura; il valore
+  predefinito è `~/.buzz`, lo stesso per Claude Code, Codex, Goose e Pi,
+  quindi senza scelta tutti gli agenti di un utente condividono una
+  cartella. Il prompt base vi impone una forma: `RESEARCH/`, `PLANS/`,
+  `GUIDES/`, `WORK_LOGS/`, `OUTBOX/`, `REPOS/` per i checkout, `.scratch/`,
+  e un `AGENTS.md` con gli agenti attivi e i loro ruoli. È una cartella di
+  file, non un repo git: i repo stanno dentro `REPOS/`.
+- **Nei repo** l'agente legge i checkout esistenti e modifica in un worktree
+  nuovo; nella modalità «solo» le cartelle di progetto sono di sola lettura e
+  i worktree nascono da `origin/<ramo>`. Prima di pianificare legge
+  `AGENTS.md` del repo, come vincolo di progetto.
+- **La risposta alla domanda che decide è sì, con condizioni.** Un plugin può
+  dare a una conversazione la sua cartella
+  (`ctx.agents.assignConversationFolder`); la sessione parte lì e l'harness
+  carica la configurazione del repo, per Claude Code «`CLAUDE.md`,
+  `.mcp.json`, skill, hook e impostazioni». La cartella si fissa una volta,
+  vale solo sul dispositivo che fa girare l'agente, e solo per Claude Code e
+  Codex. Anche la cartella di lavoro dell'agente si può puntare sul repo.
+- **Permessi**: nel lancio ordinario Claude Code parte con
+  `--permission-mode bypassPermissions`, cioè senza chiedere conferme. Se i
+  divieti del giro reggano in quel modo va provato. Nel modo protetto
+  l'agente gira in un contenimento e non carica la configurazione del repo.
+- **Una memoria propria, fuori da git.** Ogni agente ha una memoria `core`
+  iniettata a inizio sessione e una memoria «fredda» (`mem_get`, `mem_set`),
+  salvate come eventi cifrati sul relay e leggibili dal proprietario. Il
+  prompt base chiede all'agente di tenerci identità, lezioni e obiettivi «fra
+  le sessioni», con la fonte di ogni riga, e di non cambiarla senza il
+  permesso del proprietario. È lo stesso nodo di Hermes, con in più un prompt
+  che la incoraggia; un interruttore non risulta.
+- **Hermes dentro Buzz**: `docs/hermes-agent-research.md` (5/10) classifica
+  Hermes come harness esterno lanciabile da Buzz. Le due soluzioni si
+  compongono anche fra loro.
+
+### Self-hosting e community
+
+Domanda del custode del 2026-11-14: la versione che si installa in proprio
+aggiunge comunque uno strato sui dati? Per Buzz una community è lo spazio di
+lavoro che si raggiunge da un indirizzo: installato in proprio, un relay
+ospita una community; esiste anche un'installazione ospitata per più
+community, con gli stessi confini logici.
+
+Installarlo in proprio decide chi custodisce i dati, non dove stanno.
+Messaggi, flussi, memoria degli agenti e audit restano in Postgres e
+nell'object storage del relay, accanto al repo e non dentro: nessun terzo li
+vede oltre al fornitore del modello, ma non sono versionati col repo. Per il
+principio fermo conta il secondo punto. I messaggi dei canali sono un
+registro, come le trascrizioni di oggi, e non preoccupano; la memoria `core`
+e quella fredda sono memoria, e vanno spente o tenute vuote perché a
+ricordare sia il repo.
+
 ## Confronto fra le quattro soluzioni
 
 Fattori proposti il 2026-11-14 per mettere a confronto `method` (oggi, con
@@ -396,8 +453,9 @@ ingresso. Ogni voce dice com'è oggi, per quanto letto; nulla è provato.
 - **Hermes**: `MEMORY.md` e `USER.md` del profilo, fuori dal repo,
   spegnibili.
 - **OpenClaw**: markdown nello spazio di lavoro, quindi nel repo.
-- **Buzz**: gli eventi del relay in Postgres; per l'harness, il contesto
-  della sessione.
+- **Buzz**: per l'harness, il repo se la cartella è il repo; in più la
+  memoria `core` e fredda dell'agente sul relay, che il prompt base
+  incoraggia.
 
 **2. Richiamo fra sessioni**, l'archivio delle conversazioni e se l'agente
 lo interroga.
@@ -418,7 +476,8 @@ versione.
   il resto solo in approvazione.
 - **OpenClaw**: officina delle skill e «dreaming» accesi di serie, entrambi
   spegnibili; le skill imparate stanno fuori dal repo.
-- **Buzz**: non documentato.
+- **Buzz**: guidato dal prompt: le lezioni da un errore vanno in `core`,
+  previo permesso del proprietario; nessuna officina di skill trovata.
 
 **4. Forma imposta al repo**, file del runtime che entrano nel repo.
 
@@ -426,8 +485,9 @@ versione.
 - **Hermes**: nessuna; legge `AGENTS.md` e le skill del progetto.
 - **OpenClaw**: file d'identità e note giornaliere; la semina si spegne con
   `skipBootstrap: true`, le note giornaliere no.
-- **Buzz**: nessuna nel repo; i repo che ospita stanno nel suo object
-  storage.
+- **Buzz**: nessuna nel repo, una nella cartella di lavoro (`RESEARCH/`,
+  `PLANS/`, `WORK_LOGS/` e le altre); i repo che ospita stanno nel suo
+  object storage.
 
 ### B. Governo
 
@@ -439,7 +499,8 @@ versione.
 - **OpenClaw**: `openclaw.json` globale, strumenti negabili per agente;
   lo spazio di lavoro non è una sandbox.
 - **Buzz**: identità dell'agente, appartenenza ai canali, quattordici
-  ambiti; per la shell vale la fiducia dell'operatore.
+  ambiti; Claude Code parte senza conferme (`bypassPermissions`), oppure in
+  un contenimento senza la configurazione del repo.
 
 **6. Commit e resoconto**, chi fissa le modifiche e con quale
 dichiarazione.
@@ -480,7 +541,8 @@ dichiarazione.
   per repo per separarli.
 - **OpenClaw**: un agente per spazio di lavoro in un solo gateway,
   instradati per canale e interlocutore.
-- **Buzz**: un progetto raggruppa più repo (progettato).
+- **Buzz**: un progetto raggruppa più repo (progettato); una cartella per
+  agente o per conversazione, `REPOS/` per i checkout.
 
 **10. Più persone**.
 
@@ -648,6 +710,10 @@ Buzz:
 - [Git su object storage](https://github.com/block/buzz/blob/main/docs/git-on-object-storage.md)
 - [buzz-acp](https://github.com/block/buzz/blob/main/crates/buzz-acp/README.md)
 - [App desktop](https://github.com/block/buzz-app)
+- [Agenti dell'app](https://github.com/block/buzz-app/blob/main/docs/agents.md)
+- [Memorie degli agenti](https://github.com/block/buzz-app/blob/main/docs/agent-memories.md)
+- [Prompt base degli agenti](https://github.com/block/buzz-app/blob/main/src/features/agent-harness/base_prompt.md)
+- [Ricerca su Hermes](https://github.com/block/buzz-app/blob/main/docs/hermes-agent-research.md)
 
 OpenClaw, seconda lettura del 2026-11-14:
 
