@@ -1,7 +1,6 @@
 ---
-sintesi: "Il metodo diventa un coordinatore di gruppi di artefatti: ogni repo è un artefatto cognitivo, un gruppo (casa, lavoro) si governa da un unico sito che rende il markdown dei suoi repo e permette di lavorare in chat con gli agenti, agnostico rispetto all'harness e al sistema operativo. La memoria si apre con un ricordo SQLite fuori da git ad accesso dichiarato."
+sintesi: "Il metodo diventa un coordinatore di gruppi di artefatti: ogni repo è un artefatto cognitivo, un gruppo (casa, lavoro) si governa da un unico sito che rende il markdown dei suoi repo e permette di lavorare in chat con gli agenti, agnostico rispetto all'harness e al sistema operativo. La memoria si apre con un ricordo SQLite fuori da git ad accesso dichiarato. Goal ratificato e prime due istanze decise il 2026-11-14: casa, che nasce come repository della prova ACP, e tt."
 ciclo: dev
-decidere: "Ratificare la modifica proposta al Goal di sviluppo in goal.md (sezione «Proposta per il Goal»)?"
 ---
 
 # Coordinatore di gruppi
@@ -49,15 +48,18 @@ memoria e governo, dove è forte. L'harness resta esterno, raggiunto via ACP.
 
 ## Punti da chiarire
 
-1. **Canone e coordinatore di gruppo.** «Casa e lavoro condividono
-   strumenti, hanno governi distinti» (presentazione di `nixos`). Se `method`
-   coordinasse anche il gruppo lavoro, lo stato di quel gruppo (membri,
-   verdetti, decisioni) finirebbe nel repo personale del custode. Proposta
-   dell'agente: distinguere il canone, uno e condiviso (nodi e codice), dal
-   coordinatore di gruppo, un'istanza con il proprio stato, una per casa e
-   una per lavoro. È la distinzione di oggi fra `method` e gli adottanti,
-   spostata di un livello. Resta da decidere dove viva lo stato del
-   coordinatore di lavoro.
+1. **Canone e coordinatore di gruppo: deciso il 2026-11-14.** «Casa e
+   lavoro condividono strumenti, hanno governi distinti» (presentazione di
+   `nixos`): se `method` coordinasse anche il gruppo lavoro, lo stato di quel
+   gruppo finirebbe nel repo personale del custode. Il canone resta uno e
+   condiviso (nodi e codice, `method`); ogni gruppo ha un coordinatore, un
+   repository istanza con il proprio stato, che adotta il canone come oggi
+   gli adottanti. È la distinzione fra `method` e gli adottanti, spostata di
+   un livello. Le istanze decise dal custode:
+   - **casa**, su `deck`, coordina `nixos`, `salute` ed `economia`; nasce
+     come repository della [prova ACP](prova-chat-acp.md);
+   - **tt**, per il lavoro, coordina `nixos-lavoro`, `danea-auto`,
+     `baserow`, `bi` e `abbinamenti`; si apre se l'istanza casa regge.
 2. **Il sito di lavoro deve raggiungere `danea2`.** Un sito su `svezia` che
    fa lavorare anche `danea-auto` parla con un harness su Windows. ACP passa
    su standard input e output, quindi in linea di principio anche via ssh;
@@ -107,20 +109,11 @@ Hermes e in Buzz:
 Cambiare la regola di `CLAUDE.md` è una modifica del canone e la decide il
 custode, quando questa sezione sarà matura.
 
-## Proposta per il Goal
+## Goal
 
-Il Goal di sviluppo di `goal.md` dice oggi: «governo operativo delegato
-all'agente, **in direzione di un ciclo autonomo di runtime in ogni repo**».
-Proposta di riformulazione di quel passaggio, da ratificare dal custode:
-
-> governo operativo delegato all'agente, in direzione di **gruppi di
-> artefatti**: ogni repo un artefatto cognitivo con il proprio ciclo
-> autonomo di runtime, ogni gruppo coordinato dal metodo attraverso un unico
-> sito, da cui si leggono i repo del gruppo e si lavora con gli agenti;
-> agnostico rispetto all'harness e al sistema operativo
-
-Il resto del Goal (ambito di autonomia dichiarato, tracciabilità, al
-custode scopi, territorio e deleghe, basso attrito di lettura) resta com'è.
+Ratificato dal custode il 2026-11-14: il Goal di sviluppo di `goal.md` ora
+parla di gruppi di artefatti al posto di «un ciclo autonomo di runtime in
+ogni repo».
 
 ## Dipendenze
 
@@ -133,13 +126,14 @@ custode scopi, territorio e deleghe, basso attrito di lettura) resta com'è.
 
 ## Passi
 
-1. Il custode ratifica, o corregge, la proposta per il Goal.
-2. Decidere il punto 1, canone e coordinatore di gruppo, prima di ogni
-   lavoro sul sito.
-3. Dopo la prova ACP, dividere il task in lavori eseguibili: sito di gruppo,
-   chat, ricordo.
+1. ~~Ratificare il Goal~~ fatto il 2026-11-14.
+2. ~~Decidere canone e coordinatore di gruppo~~ fatto il 2026-11-14: istanze
+   casa e tt.
+3. Creare l'istanza casa, che serve subito come repository della prova ACP.
+4. Dopo la prova, dividere il task in lavori eseguibili: sito di gruppo,
+   chat, ricordo; poi l'istanza tt.
 
 ## Criterio di chiusura
 
-Il Goal è ratificato, i tre punti da chiarire hanno una decisione, e il
+I tre punti da chiarire hanno una decisione, l'istanza casa esiste, e il
 lavoro è diviso in task eseguibili nel plan.

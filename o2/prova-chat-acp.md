@@ -1,7 +1,6 @@
 ---
 sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso."
 ciclo: dev
-decidere: "Su quale host e in quale repository fare la prova, e dove installare l'adattatore ACP di Claude Code?"
 ---
 
 # Prova di una chat ACP
@@ -52,10 +51,11 @@ Se i sei punti tornano, si ripete la prova con Codex via `codex-acp`
 
 ## Passi
 
-1. Il custode sceglie host, repository e modo d'installazione
-   dell'adattatore (campo `decidere:`). La proposta dell'agente: `deck`, un
-   repository di prova con la struttura del metodo, adattatore lanciato con
-   `npx` senza toccare la configurazione di NixOS finché è una prova.
+1. Host e repository decisi dal custode il 2026-11-14: `deck`, e come
+   repository la prima istanza del [coordinatore di gruppi](coordinatore-di-gruppi.md),
+   casa, che coordina `nixos`, `salute` ed `economia`. La prova serve così
+   anche da primo passo dell'istanza. L'adattatore si lancia con `npx`,
+   senza toccare la configurazione di NixOS finché è una prova.
 2. Leggere la specifica di ACP e la documentazione di `claude-agent-acp`:
    avvio, apertura di una sessione con una cartella, prompt, aggiornamenti,
    richieste di permesso, impostazioni caricate.
