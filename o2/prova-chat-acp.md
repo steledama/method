@@ -41,6 +41,40 @@ letto nella documentazione dell'adattatore e poi provato.
 Se i sei punti tornano, si ripete la prova con Codex via `codex-acp`
 (`AGENTS.md`, `.codex/skills/`).
 
+## Letto prima della prova
+
+Lettura del 2026-11-14: la specifica su `agentclientprotocol.com`
+(trasporti, inizializzazione, sessioni, turno di prompt, chiamate di
+strumenti, file system, terminali, autenticazione) e il codice di
+`agentclientprotocol/claude-agent-acp` alla versione 0.107.0 (commit
+`b1c1987` del 14/11). È lettura, non prova.
+
+- **Trasporto**: JSON-RPC 2.0 sullo standard input e output, un messaggio
+  per riga; parla per primo il client, con `initialize` (`protocolVersion:
+1`), poi `session/new` con la cartella assoluta e `session/prompt`. Le
+  risposte arrivano come notifiche `session/update` (testo, chiamate di
+  strumenti, piano); le richieste di permesso come `session/request_permission`,
+  a cui il client risponde con un'opzione (`allow_once`, `reject_once` e le
+  varianti «sempre»).
+- **Punto 1, istruzioni del repo**: l'adattatore apre la sessione con
+  `settingSources: ["user", "project", "local"]` (`src/v1/acp-agent.ts`,
+  `src/v2/agent.ts`), cioè impostazioni dell'utente, del progetto e locali; il
+  prompt di sistema resta quello di Claude Code, e i `CLAUDE.md` caricati da
+  quelle fonti restano anche se il client lo sostituisce
+  (`src/client-system-prompt.ts`). Il dubbio del punto 1 è sciolto sulla
+  carta; resta da provare.
+- **Punto 2, skill**: comandi personalizzati e skill sono supportati
+  (README e CHANGELOG); da provare `/cycle`.
+- **Punto 3, permessi**: la sessione parte in modo `auto` se disponibile,
+  altrimenti `default`, e rispetta il `defaultMode` delle impostazioni, tranne
+  i modi più permissivi dichiarati da file del repo, che filtra
+  (`src/session-mode.ts`, `src/settings.ts`). Se le regole `deny` di
+  `.claude/settings.json` reggano va provato.
+- **Accesso**: riusa il login di Claude Code sull'host, abbonamento o
+  console, senza una chiave API dedicata (`src/auth-methods.ts`).
+- **Avvio**: `npx -y @agentclientprotocol/claude-agent-acp`, Node 22 o
+  superiore. Su `deck` ci sono Node 24.21.0 e Claude Code 2.1.321.
+
 ## Fuori dalla prova
 
 - l'interfaccia: basta un client minimo, senza pagine né stile;
