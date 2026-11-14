@@ -1,5 +1,5 @@
 ---
-sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Resta la prova su un repository di prova, poi la scelta del custode."
+sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Il 2026-11-14 la relazione di ciascuno col repo git, e Buzz di Block, che è uno strato diverso. Resta la prova su un repository di prova, poi la scelta del custode."
 ciclo: dev
 ---
 
@@ -215,6 +215,126 @@ Prima formulazione, da discutere: «dà all'agente che usi già un obiettivo
 scritto, una memoria strutturata nel repository e il resoconto di ciò che ha
 deciso da solo».
 
+## Relazione col repo
+
+Approfondimento del 2026-11-14, chiesto dal custode prima di ogni prova:
+che relazione ha ciascun runtime con un repository git. Mandare il contesto
+a un modello non distingue i tre scenari, è uguale in tutti; li distingue che
+cosa resta fuori dal repo e se torna nelle decisioni dell'agente. Anche oggi
+non tutto sta in git: Claude Code tiene le trascrizioni in
+`~/.claude/projects/` e i giri i tentativi in `~/.local/state/ciclo/`, ma sono
+registri che l'agente non rilegge. Un archivio fuori dal repo è accettabile
+finché resta un registro; diventa una seconda memoria quando l'agente lo
+interroga per decidere.
+
+### I tre scenari
+
+- **Oggi, method con Claude Code o Codex**: il repo è il soggetto, l'harness
+  uno strumento senza memoria propria (memoria automatica spenta). Nel repo
+  vivono memoria, skill, delega e permessi del giro; fuori i registri e il
+  calendario dei giri, versionato però nel repo `nixos`.
+- **Hermes**: il soggetto è l'agente, con la sua casa in `~/.hermes`, e il
+  repo è un luogo dove va a lavorare. Le skill del progetto restano del repo;
+  fuori restano memoria del profilo, storico delle sessioni, skill create
+  dall'agente, giri pianificati, permessi e plugin del cruscotto.
+- **OpenClaw**: l'agente abita il repo, perché lo spazio di lavoro si punta
+  su un repo git. La memoria è markdown nel repo e finirebbe in git, ma con
+  una forma propria che concorre con `i3/`, `kb/` e `o2/`; l'indice SQLite
+  fuori è ricavato dal markdown, una cache e non una fonte. Automazioni e
+  permessi stanno nel gateway e in `openclaw.json`.
+
+Con Hermes il nodo è che cosa resta fuori dal repo, con OpenClaw che cosa
+entra nel repo senza passare dal metodo.
+
+### Hermes: lo storico delle sessioni
+
+Letto nella documentazione, pagine «Sessions», «Memory», «Tools» e
+«Configuration» (questa solo in parte):
+
+- ogni sessione, da riga di comando, interfaccia o gateway, finisce intera in
+  `~/.hermes/state.db`, un SQLite per profilo con ricerca a testo pieno:
+  messaggi, chiamate di strumenti e risultati, prompt di sistema, cartella di
+  lavoro;
+- non risulta un modo per spegnere quella scrittura né per spostare il file
+  in una cartella del progetto; la cartella dipende da `HERMES_HOME`, ma la
+  documentazione lo lascia intendere senza dirlo;
+- l'agente lo interroga con lo strumento `session_search`, a sua scelta e non
+  in automatico; il prompt lo invita a usarlo «prima di chiedere all'utente
+  di ripetersi». Il contenuto entra nel contesto solo come risultato della
+  chiamata;
+- lo strumento è un insieme a sé (`session_search`), e gli insiemi si
+  tolgono con `agent.disabled_toolsets`. Che toglierlo così funzioni è una
+  deduzione: la documentazione non lo dice;
+- la memoria e lo storico sono per profilo, non per progetto: un profilo che
+  lavora su più repo li ricorda tutti insieme, e la cartella di lavoro è solo
+  un filtro.
+
+Lettura: con `session_search` tolto, `state.db` torna un registro come le
+trascrizioni di Claude Code; con lo strumento acceso è una memoria fra
+sessioni, e fra repo, fuori da git. Un profilo per repo terrebbe separati i
+repo, al prezzo di un profilo da configurare per adottante.
+
+### Hermes: il ciclo di apprendimento
+
+Letto nelle pagine «Skills», «Memory» e «Curator»:
+
+- per impostazione predefinita l'agente scrive skill liberamente: durante il
+  turno con `skill_manage`, quando ha trovato un flusso da ripetere o è stato
+  corretto, e in una revisione in background che parte all'incirca ogni dieci
+  turni;
+- la stessa revisione scrive anche in `MEMORY.md` e `USER.md`;
+- le skill nuove vanno in `~/.hermes/skills/`, dove l'agente può modificare
+  o cancellare qualsiasi skill;
+- `auxiliary.background_review.enabled: false` spegne la revisione, per le
+  skill e per la memoria; `skills.write_approval: true` e
+  `memory.write_approval: true` mettono le scritture in attesa di
+  approvazione. Un divieto completo non c'è: il più vicino è bloccare le
+  skill una per una con `hermes curator lock`;
+- le skill del progetto (`.hermes/skills/`, `.agents/skills/`) non le tocca
+  il curatore, e l'elenco di ciò che la revisione può riscrivere non le
+  nomina. Se possa farlo `skill_manage` durante il turno resta aperto.
+
+Lettura: la configurazione minima per il metodo spegne la revisione e mette
+in approvazione le scritture rimaste. Un'approvazione però chiede una persona
+presente: in un giro senza custode le scritture in attesa si accumulano.
+
+### Hermes: i plugin del cruscotto
+
+Letto nella pagina «Extending the dashboard»: un plugin aggiunge schede con
+un manifest, un file JavaScript e, se serve, rotte FastAPI in Python che
+girano dentro il cruscotto. Vive in `~/.hermes/plugins/<nome>/`; i plugin
+nella cartella del progetto non li carica il gateway. Se un plugin possa
+leggere i file di un repo non è documentato. Lettura: il plugin che mostra
+Goal, World e i sei stadi starebbe fuori dagli adottanti, ma potrebbe vivere
+nel canone e arrivare con un symlink, come gli strumenti di `o3/`.
+
+### Buzz
+
+Aggiunto dal custode il 2026-11-14 (`github.com/block/buzz`). Letti il
+README e parte di `ARCHITECTURE.md` e `VISION_AGENT.md`:
+
+- è uno strato diverso dagli altri due: uno spazio di lavoro su un relay
+  Nostr che si installa in proprio, dove persone e agenti stanno negli stessi
+  canali («Agents are members, not bots»). Fa da cornice a Goose, Codex e
+  Claude Code, che restano gli agenti;
+- lo mantiene Block, con licenza Apache-2.0, in Rust; circa 37.000 stelle.
+  Il README lo dichiara non finito;
+- lo stato sta in Postgres: messaggi, canali, flussi, audit, come eventi
+  firmati in un registro unico. Il repo git è una cosa che Buzz ospita
+  (patch e annunci di repo come eventi, un backend git), non la memoria
+  dell'agente;
+- skill `SKILL.md` caricate dal runtime non risultano; ci sono gli strumenti
+  MCP. I flussi YAML partono da messaggi, reazioni, orari o webhook; le
+  approvazioni nei flussi non sono ancora collegate;
+- i permessi seguono l'identità dell'agente e i canali, non il progetto.
+
+Lettura: Buzz non sostituisce Claude Code, lo mette in una stanza con altre
+persone e altri agenti. Come runtime del metodo non si adatta, perché la
+memoria è Postgres e non il repo. Tocca piuttosto
+[diffusione-oltre-custode-unico](diffusione-oltre-custode-unico.md), cioè
+più persone attorno agli stessi repo, e il canale fra sessioni che oggi passa
+da Herdr ([session-messaging](../kb/session-messaging.md)).
+
 ## Valutazione dell'agente
 
 Sulla carta nessuno dei due è incompatibile. Hermes si adatta meglio, per
@@ -260,8 +380,9 @@ Punti da tenere presenti:
 
 1. ~~leggere la documentazione ufficiale dei due sulle sei domande~~ fatto il
    2026-11-13;
-2. leggere le pagine di Hermes rimaste: plugin del cruscotto, installazione
-   su Windows, modelli locali;
+2. leggere le pagine di Hermes rimaste: installazione su Windows, modelli
+   locali; plugin del cruscotto, storico delle sessioni e ciclo di
+   apprendimento letti il 2026-11-14;
 3. provare Hermes su un repository di prova con la struttura del metodo:
    wrapper in `.agents/skills/`, memoria spenta, un giro di `eval` e uno di
    `exec`, poi un giro pianificato; annotare che cosa si rompe;
@@ -299,6 +420,11 @@ Hermes Agent:
 - [Sicurezza](https://hermes-agent.nousresearch.com/docs/user-guide/security)
 - [Cruscotto web](https://hermes-agent.nousresearch.com/docs/user-guide/features/web-dashboard)
 - [Fornitori di modelli](https://hermes-agent.nousresearch.com/docs/integrations/providers)
+- [Sessioni](https://hermes-agent.nousresearch.com/docs/user-guide/sessions)
+- [Strumenti](https://hermes-agent.nousresearch.com/docs/user-guide/features/tools)
+- [Configurazione](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)
+- [Curatore](https://hermes-agent.nousresearch.com/docs/user-guide/features/curator)
+- [Estendere il cruscotto](https://hermes-agent.nousresearch.com/docs/user-guide/features/extending-the-dashboard)
 
 OpenClaw:
 
@@ -311,3 +437,9 @@ OpenClaw:
 - [Approvazioni dell'esecuzione](https://docs.openclaw.ai/tools/exec-approvals.md)
 - [Interfaccia di controllo](https://docs.openclaw.ai/web/control-ui.md)
 - [Windows](https://docs.openclaw.ai/platforms/windows.md)
+
+Buzz:
+
+- [README](https://github.com/block/buzz)
+- [Architettura](https://github.com/block/buzz/blob/main/ARCHITECTURE.md)
+- [Visione dell'agente](https://github.com/block/buzz/blob/main/VISION_AGENT.md)
