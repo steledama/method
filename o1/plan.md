@@ -18,14 +18,15 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
 
-| Ciclo | Ob. | Task                                     | Dip. |
-| ----- | --- | ---------------------------------------- | ---- |
-| dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
-| dev   | S   | Nome del progetto                        | —    |
-| dev   | S   | Prova di una chat ACP                    | —    |
-| dev   | S   | Integrazione con un runtime esistente    | —    |
-| dev   | S   | Diffusione oltre il custode unico        | p2   |
-| dev   | S   | Traduzione in inglese                    | p1   |
+| Ciclo | Ob. | Task                                     | Dip.                    |
+| ----- | --- | ---------------------------------------- | ----------------------- |
+| dev   | S   | Snellimento delle skill `eval` ed `exec` | —                       |
+| dev   | S   | Nome del progetto                        | —                       |
+| dev   | S   | Prova di una chat ACP                    | —                       |
+| dev   | S   | Integrazione con un runtime esistente    | —                       |
+| dev   | S   | Coordinatore di gruppi                   | ↳ Prova di una chat ACP |
+| dev   | S   | Diffusione oltre il custode unico        | p2                      |
+| dev   | S   | Traduzione in inglese                    | p1                      |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
 riesame (`kb/plan.md`, «Risveglio»):

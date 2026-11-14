@@ -61,6 +61,12 @@ possono diventare materia sua. Si lega anche a
 [nome-del-progetto](nome-del-progetto.md) e a
 [traduzione-inglese](traduzione-inglese.md).
 
+Il 2026-11-14 il custode pone la direzione del
+[coordinatore di gruppi](coordinatore-di-gruppi.md): un sito per gruppo di
+artefatti, non per repo. Per la pubblicazione delle viste è una risposta
+parziale, valida finché il custode è uno; la domanda su chi adotta senza
+conoscerlo resta qui.
+
 ## Criterio di chiusura
 
 Il custode decide se la diffusione è uno scopo del progetto. Se sì, il task
