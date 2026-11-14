@@ -1,5 +1,5 @@
 ---
-sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso. Prove del 2026-11-14 riuscite sui sei punti, approvazioni in chat comprese; restano un /cycle intero e Codex."
+sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso. Prove del 2026-11-14 riuscite sui sei punti con Claude Code e con Codex, approvazioni in chat comprese; resta un /cycle intero."
 ciclo: dev
 ---
 
@@ -120,10 +120,45 @@ portata in modo `default` con `session/set_mode` dopo l'apertura.
 Il flusso delle approvazioni regge: una chat nel sito può mostrare la
 richiesta col suo diff e rispondere con un pulsante.
 
+Terza prova, lo stesso giorno: Codex. Adattatore
+`@agentclientprotocol/codex-acp@2.6.0` con `CODEX_PATH` sul Codex di `deck`
+(0.167.1), stesso client, sessione `01a1db9f`, cinque prompt.
+
+1. **Istruzioni del repo: sì, nella forma di Codex.** Ha nel contesto
+   l'`AGENTS.md` di `casa` e lo cita alla lettera; di `CLAUDE.md`, `README.md`
+   e `autonomy.md` ha solo il rimando, e li legge da sé prima di modificare
+   (`cat README.md CLAUDE.md autonomy.md`), come chiede l'`AGENTS.md`.
+   Nessun `AGENTS.md` globale.
+2. **Skill: sì.** Le sei skill compaiono fra i comandi come `$commit`,
+   `$cycle` e le altre; carica il wrapper di `.codex/skills/commit/` e da lì
+   il testo canonico di `.claude/skills/commit/`.
+3. **Permessi: diversi per costruzione.** Codex non legge
+   `.claude/settings.json`, quindi i divieti di `casa` per lui non valgono;
+   lo proteggono sandbox e approvazioni. La sessione parte nel modo `agent`
+   («Auto review», fra `read-only`, `workspace-write`, `agent`,
+   `agent-full-access`). In `read-only` la scrittura di `prova-acp.txt`
+   arriva al client come richiesta di permesso col comando e la cartella, con
+   le opzioni `allow_once`, `accept_execpolicy_amendment` (sempre) e
+   `cancel`; il rifiuto chiude il turno (`stopReason: cancelled`) e il file
+   non esiste.
+4. **Memoria: nessuna scrittura.** `~/.codex/memories/` non è cambiata
+   durante la prova. Contiene però note di aprile e maggio su `nixos`: la
+   memoria di Codex non è spenta in `~/.codex/config.toml`, e vive fuori da
+   git.
+5. **Commit col gate: sì.** `/commit` ha usato la skill: stato, gate
+   `prima`, `verifica` e `dopo`, commit `6821b5b` in `casa` con `Autonomia:
+concordato`, nessun push perché non c'è remote.
+6. **Trascrizioni: dove le lascia Codex.** `~/.codex/sessions/2026/11/14/`.
+
+Il canale regge con tutti e due gli harness: la stessa chat, senza cambiare
+riga, ha lavorato con Claude Code e con Codex nello stesso repo. Due
+differenze restano dell'harness e il sito dovrà mostrarle: i divieti di
+`.claude/settings.json` valgono solo per Claude Code, e i modi di permesso
+hanno nomi e significati diversi.
+
 Restano da provare:
 
 - un `/cycle` intero, quando le skill di `casa` saranno parametrizzate;
-- la stessa prova con Codex via `codex-acp`.
 
 ## Fuori dalla prova
 

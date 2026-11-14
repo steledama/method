@@ -767,7 +767,10 @@ La prova minima della direzione propria ha un task suo:
 via ACP Claude Code carica i `CLAUDE.md` del repo e globale, vede e carica le
 skill, rispetta le regole `deny`, non scrive memoria e fa un commit col gate.
 In modo `default` le richieste di permesso arrivano al client col diff, e un
-rifiuto è rispettato. Restano un `/cycle` intero e Codex.
+rifiuto è rispettato. Lo stesso client ha lavorato anche con Codex via
+`codex-acp`: istruzioni da `AGENTS.md`, skill, commit col gate e approvazioni;
+i divieti di `.claude/settings.json` però valgono solo per Claude Code. Resta
+un `/cycle` intero.
 
 ## Valutazione dell'agente
 
