@@ -82,10 +82,13 @@ oggi.
   modi che l'adattatore dichiara in `session/new` (`availableModes`), senza
   inventare una corrispondenza fra harness.
 
-Si aggiunge un'osservazione fuori dalla chat: la memoria di Codex non è
-spenta in `~/.codex/config.toml` di `deck`, e `~/.codex/memories/` contiene
-note di aprile e maggio su `nixos`. Spegnerla è configurazione dell'host,
-quindi di `nixos`, su decisione del custode.
+Fuori dalla chat, la memoria di Codex su `deck`: trovata attiva il
+2026-11-14 e spenta lo stesso giorno da `nixos` (`ed43f24`, modulo
+`o3/modules/home/codex.nix`), con `features.memories`,
+`memories.generate_memories` e `memories.use_memories` a `false` in
+`~/.codex/config.toml`. Le due note rimaste in `~/.codex/memories/` non
+contengono nulla da portare nella KB di `nixos`; la loro rimozione la decide il
+custode.
 
 ## Passi
 
