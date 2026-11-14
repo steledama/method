@@ -8,6 +8,6 @@ In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
-- [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, o se serve un ingresso proprio con interfaccia web sul repo markdown.
+- [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, accanto a Buzz, o se serve un ingresso proprio: quattordici fattori di confronto fra le quattro soluzioni.
 - [diffusione-oltre-custode-unico.md](diffusione-oltre-custode-unico.md) — che cosa cambia in pubblicazione delle viste e osservazione degli adottanti se il metodo esce dal custode unico; in pausa `p2`.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; in pausa `p1`.

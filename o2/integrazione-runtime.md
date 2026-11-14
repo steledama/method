@@ -1,5 +1,5 @@
 ---
-sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Il 2026-11-14 la relazione di ciascuno col repo git, e Buzz di Block, che è uno strato diverso. Resta la prova su un repository di prova, poi la scelta del custode."
+sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Il 2026-11-14 la relazione di ciascuno col repo git, Buzz di Block fra i candidati e quattordici fattori per confrontare le quattro soluzioni. Resta la prova su un repository di prova, poi la scelta del custode."
 ciclo: dev
 ---
 
@@ -335,6 +335,205 @@ memoria è Postgres e non il repo. Tocca piuttosto
 più persone attorno agli stessi repo, e il canale fra sessioni che oggi passa
 da Herdr ([session-messaging](../kb/session-messaging.md)).
 
+Il custode lo mette fra i candidati il 2026-11-14. Seconda lettura, lo stesso
+giorno: `VISION.md`, `VISION_PROJECTS.md`, i README di `buzz-acp`,
+`buzz-agent` e `buzz-app`, e in `docs/` le pagine su database, agenti
+remoti, git su object storage e menzioni dai flussi.
+
+- **Come fa girare Claude Code**: `buzz-acp` ascolta i messaggi del canale
+  che menzionano l'agente, li raccoglie in un solo prompt per canale e lo
+  passa all'agente; la risposta l'agente la scrive nel canale con la CLI di
+  Buzz. Claude Code gira tramite l'Agent SDK e chiede una chiave API.
+  L'agente lavora in `~/.buzz` per impostazione predefinita; se la cartella
+  si possa fissare per agente o per progetto, e se Claude Code vi legga
+  `CLAUDE.md` e le skill come in un terminale, non è documentato. Risponde
+  solo al proprietario, finché non lo si allarga.
+- **Progetti**: un progetto è un evento che elenca dei repo e un canale («A
+  project points at repos. That's all it does»), oggi solo progettato.
+- **Git**: il relay ospita repo propri, con oggetti in object storage e un
+  hook che applica una politica ai push; i commit degli agenti sono firmati
+  con la loro chiave. Le protezioni dei rami sono progettate, non fatte; uno
+  specchio verso GitHub non risulta.
+- **Flussi**: un flusso a orario non lancia un agente in una cartella, può
+  solo scrivere un messaggio che lo menziona. Le approvazioni nei flussi oggi
+  falliscono.
+- **Persone**: ruoli Owner, Admin, Member, Guest e Bot, e l'appartenenza al
+  canale come unico confine. Un registro di audit a catena di hash per
+  comunità.
+- **Installazione**: Postgres, Redis e MinIO, con un compose; app desktop per
+  macOS, Windows e Linux, ma i ponti per Claude Code e Codex solo su macOS e
+  Linux. Build di anteprima, nessun canale stabile.
+
+Lettura: Buzz sta un livello sopra l'harness, come il metodo, ma su un altro
+asse: il metodo dà forma al repo, Buzz mette in relazione persone e agenti.
+In linea di principio si compongono, con Claude Code che lavora nel repo del
+metodo e riceve i messaggi da un canale. La domanda che decide è quella
+lasciata aperta: se l'agente di Buzz può lavorare in una cartella scelta,
+con il comportamento nativo dell'harness.
+
+## Confronto fra le quattro soluzioni
+
+Fattori proposti il 2026-11-14 per mettere a confronto `method` (oggi, con
+Claude Code o Codex), Hermes, OpenClaw e Buzz. Le quattro non stanno allo
+stesso livello, e il primo fattore lo dice; gli altri seguono il principio
+fermo (memoria, governo) e il modello di Norman (ciclo), poi scala e
+ingresso. Ogni voce dice com'è oggi, per quanto letto; nulla è provato.
+
+### 0. Livello
+
+- **method**: una forma del repo con skill e strumenti; sta sopra un harness
+  esistente.
+- **Hermes**, **OpenClaw**: un agente completo, che prende il posto
+  dell'harness.
+- **Buzz**: uno spazio di lavoro che fa da cornice agli harness (Goose,
+  Codex, Claude Code) e ha anche un agente proprio.
+
+### A. Memoria
+
+**1. Fonte della memoria**, ciò che l'agente rilegge per decidere.
+
+- **method**: il repo markdown, unica memoria.
+- **Hermes**: `MEMORY.md` e `USER.md` del profilo, fuori dal repo,
+  spegnibili.
+- **OpenClaw**: markdown nello spazio di lavoro, quindi nel repo.
+- **Buzz**: gli eventi del relay in Postgres; per l'harness, il contesto
+  della sessione.
+
+**2. Richiamo fra sessioni**, l'archivio delle conversazioni e se l'agente
+lo interroga.
+
+- **method**: trascrizioni dell'harness, non rilette.
+- **Hermes**: `state.db` per profilo, senza interruttore; `session_search` a
+  scelta dell'agente, da togliere come insieme di strumenti (dedotto).
+- **OpenClaw**: SQLite per agente, senza interruttore; `sessions_search`
+  restringibile con `tools.sessions.visibility` o negabile per agente.
+- **Buzz**: ogni messaggio è un evento firmato in Postgres, con ricerca a
+  testo pieno; il canale stesso è l'archivio.
+
+**3. Apprendimento autonomo**, procedure che l'agente cambia da sé fuori
+versione.
+
+- **method**: nessuno; il metodo cambia col proprio ciclo, in git.
+- **Hermes**: acceso di serie (skill e memoria); spegnibile la revisione,
+  il resto solo in approvazione.
+- **OpenClaw**: officina delle skill e «dreaming» accesi di serie, entrambi
+  spegnibili; le skill imparate stanno fuori dal repo.
+- **Buzz**: non documentato.
+
+**4. Forma imposta al repo**, file del runtime che entrano nel repo.
+
+- **method**: la forma è il metodo stesso.
+- **Hermes**: nessuna; legge `AGENTS.md` e le skill del progetto.
+- **OpenClaw**: file d'identità e note giornaliere; la semina si spegne con
+  `skipBootstrap: true`, le note giornaliere no.
+- **Buzz**: nessuna nel repo; i repo che ospita stanno nel suo object
+  storage.
+
+### B. Governo
+
+**5. Delega e permessi**, dove stanno e se viaggiano col repo.
+
+- **method**: `autonomy.md` e `o3/ciclo/permessi.json`, versionati per repo.
+- **Hermes**: configurazione globale del profilo; elenco di divieti,
+  contenitore.
+- **OpenClaw**: `openclaw.json` globale, strumenti negabili per agente;
+  lo spazio di lavoro non è una sandbox.
+- **Buzz**: identità dell'agente, appartenenza ai canali, quattordici
+  ambiti; per la shell vale la fiducia dell'operatore.
+
+**6. Commit e resoconto**, chi fissa le modifiche e con quale
+dichiarazione.
+
+- **method**: `/commit` col gate, trailer di autonomia, impatto ed esiti.
+- **Hermes**: nessuna regola sui commit.
+- **OpenClaw**: nessun commit automatico; «seguono le tue istruzioni».
+- **Buzz**: commit firmati con la chiave dell'agente, politica sui push del
+  relay, audit a catena di hash; nessuna dichiarazione di chi ha deciso.
+
+**7. Ciclo autonomo**, chi lo avvia e dove sta la definizione.
+
+- **method**: unità di NixOS (in `nixos`) e lanciatore canonico.
+- **Hermes**: lavori pianificati con cartella e skill, in
+  `~/.hermes/cron/`.
+- **OpenClaw**: automazioni nel gateway, oppure `agent exec --cwd` da un
+  pianificatore esterno.
+- **Buzz**: flussi a orario che possono solo menzionare un agente in un
+  canale.
+
+### C. Ciclo
+
+**8. Goal, World e arco di valutazione**.
+
+- **method**: oggetti persistenti, i sei stadi come collezioni, verdetti con
+  provenienza.
+- **Hermes**, **OpenClaw**: assenti; la revisione valuta come ha lavorato
+  l'agente, non il Mondo.
+- **Buzz**: assenti; i flussi reagiscono a eventi.
+
+### D. Scala
+
+**9. Più repo**, l'unità di lavoro e la lettura d'insieme.
+
+- **method**: un repo per adottante, canone via symlink, `/adottanti` li
+  legge insieme.
+- **Hermes**: un profilo per tanti repo, con memoria in comune; un profilo
+  per repo per separarli.
+- **OpenClaw**: un agente per spazio di lavoro in un solo gateway,
+  instradati per canale e interlocutore.
+- **Buzz**: un progetto raggruppa più repo (progettato).
+
+**10. Più persone**.
+
+- **method**: un custode; Herdr fra le sessioni.
+- **Hermes**: un utente per profilo.
+- **OpenClaw**: più persone sullo stesso agente via canali; chi lo usa può
+  fargli fare tutto ciò che può fare.
+- **Buzz**: il suo punto di forza: ruoli, canali condivisi, agenti come
+  membri.
+
+### E. Ingresso
+
+**11. Interfaccia**.
+
+- **method**: terminale e viste generate di sola lettura.
+- **Hermes**: cruscotto web estendibile con plugin, app desktop.
+- **OpenClaw**: interfaccia di controllo web, canali di chat.
+- **Buzz**: app desktop e mobile, canali.
+
+**12. Installazione e piattaforme**.
+
+- **method**: symlink, fork delle skill, strato host su NixOS.
+- **Hermes**: installazione nativa anche su Windows; la chat del cruscotto
+  lì chiede WSL2.
+- **OpenClaw**: app per Windows che installa una propria distribuzione WSL.
+- **Buzz**: relay con Postgres, Redis e MinIO; ponti per Claude Code e Codex
+  solo su macOS e Linux.
+
+**13. Modelli e costo**.
+
+- **method**: quello dell'harness; oggi Claude Code in abbonamento e Codex.
+- **Hermes**: chiave API Anthropic o piano Max con crediti aggiuntivi.
+- **OpenClaw**: chiave API, oppure Claude Code (`claude -p`) come motore,
+  indicato come via ammessa; su che cosa si paghi non è detto.
+- **Buzz**: chiave API per l'agente proprio e per il ponte a Claude Code;
+  l'app desktop accede da browser.
+
+**14. Maturità e governo del progetto**.
+
+- **method**: GPL-3.0 per il codice e CC BY-SA 4.0 per i testi, un custode,
+  sperimentale.
+- **Hermes**: MIT, Nous Research, circa 263.000 stelle.
+- **OpenClaw**: MIT, OpenClaw Foundation, circa 394.000 stelle.
+- **Buzz**: Apache-2.0, Block, circa 37.000 stelle; dichiarato non finito.
+
+### Che cosa dice il confronto
+
+I fattori 1–8 sono quelli su cui un'integrazione si gioca: dicono se la
+memoria e il governo restano nel repo. I fattori 9–14 dicono quanto costa
+entrare e quanto lontano si arriva. Hermes e OpenClaw si confrontano col
+metodo come alternativa all'harness; Buzz come strato che gli sta accanto,
+e per lui contano soprattutto i fattori 7, 9 e 10.
+
 ## Valutazione dell'agente
 
 Sulla carta nessuno dei due è incompatibile. Hermes si adatta meglio, per
@@ -443,3 +642,18 @@ Buzz:
 - [README](https://github.com/block/buzz)
 - [Architettura](https://github.com/block/buzz/blob/main/ARCHITECTURE.md)
 - [Visione dell'agente](https://github.com/block/buzz/blob/main/VISION_AGENT.md)
+- [Visione](https://github.com/block/buzz/blob/main/VISION.md)
+- [Progetti](https://github.com/block/buzz/blob/main/VISION_PROJECTS.md)
+- [Agenti remoti](https://github.com/block/buzz/blob/main/docs/remote-agents.md)
+- [Git su object storage](https://github.com/block/buzz/blob/main/docs/git-on-object-storage.md)
+- [buzz-acp](https://github.com/block/buzz/blob/main/crates/buzz-acp/README.md)
+- [App desktop](https://github.com/block/buzz-app)
+
+OpenClaw, seconda lettura del 2026-11-14:
+
+- [Più agenti](https://docs.openclaw.ai/concepts/multi-agent)
+- [Sessioni](https://docs.openclaw.ai/concepts/session)
+- [Ricerca nelle sessioni](https://docs.openclaw.ai/concepts/session-search)
+- [Più utenti](https://docs.openclaw.ai/concepts/multi-user)
+- [Officina delle skill](https://docs.openclaw.ai/tools/skill-workshop)
+- [Fornitori di modelli](https://docs.openclaw.ai/concepts/model-providers)
