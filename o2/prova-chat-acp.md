@@ -1,5 +1,5 @@
 ---
-sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso."
+sintesi: "Provare se una chat che parla ACP con Claude Code, dentro un repo del metodo, si comporta come il terminale: istruzioni del repo, skill, permessi, memoria spenta, commit col gate. È la prova minima che decide la direzione propria dell'ingresso. Prima prova del 2026-11-14 riuscita su cinque punti su sei; restano le approvazioni in chat, un /cycle intero e Codex."
 ciclo: dev
 ---
 
@@ -74,6 +74,44 @@ strumenti, file system, terminali, autenticazione) e il codice di
   console, senza una chiave API dedicata (`src/auth-methods.ts`).
 - **Avvio**: `npx -y @agentclientprotocol/claude-agent-acp`, Node 22 o
   superiore. Su `deck` ci sono Node 24.21.0 e Claude Code 2.1.321.
+
+## Esito della prima prova
+
+Eseguita il 2026-11-14 su `deck`, in `~/casa`. Client minimo in Python, sola
+libreria standard, nella scratchpad della sessione; adattatore
+`@agentclientprotocol/claude-agent-acp@0.107.0` lanciato con `npx`; il client
+non dichiara capacità su file e terminale, così l'agente usa i propri
+strumenti. Cinque prompt in una sessione (`2dfb3534`), modello Opus 5.5.
+
+1. **Istruzioni del repo: sì.** Senza strumenti l'agente cita alla lettera
+   il titolo della seconda sezione del `CLAUDE.md` di `casa` e la prima
+   preferenza del `CLAUDE.md` globale.
+2. **Skill: sì, in parte provato.** Le sei skill di `casa` compaiono fra i
+   comandi (`available_commands_update`), e lo strumento Skill carica `kb`.
+   `/cycle` non è stato eseguito: la composizione è provata solo nel
+   meccanismo, cioè lo strumento Skill, non nel giro intero.
+3. **Permessi: le regole `deny` reggono.** `git stash list` è negato da
+   `.claude/settings.json` con «Permission to use Bash with command git stash
+   list has been denied». La sessione è partita in modo `auto` (fra
+   `default`, `acceptEdits`, `plan`, `auto`, `bypassPermissions`), e nessuna
+   richiesta di permesso è arrivata al client: il passaggio delle approvazioni
+   alla chat non è ancora provato.
+4. **Memoria automatica spenta: sì.** Nessuna cartella di memoria per
+   `casa` in `~/.claude/projects/`.
+5. **Commit col gate: sì.** `/commit` mandato come testo del prompt ha
+   invocato la skill: perimetro controllato, gate `prima`, `verifica` e
+   `dopo` passati, commit `cb682b3` in `casa` con `Autonomia: concordato`; il
+   push non fatto, perché `casa` non ha remote e `autonomy.md` lo riserva al
+   custode.
+6. **Trascrizioni: dove le lascia il terminale.** Un file per sessione in
+   `~/.claude/projects/-home-stele-casa/`.
+
+Restano da provare:
+
+- il flusso delle approvazioni: una sessione in modo `default`, perché le
+  richieste arrivino al client come `session/request_permission`;
+- un `/cycle` intero, quando le skill di `casa` saranno parametrizzate;
+- la stessa prova con Codex via `codex-acp`.
 
 ## Fuori dalla prova
 
