@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 O3 = Path(__file__).resolve().parents[1] / "o3"
 
@@ -97,6 +98,30 @@ class Ricorrenza(unittest.TestCase):
         self.assertIn("- non-concesso: 2 giri, due, uno", testo)
         self.assertIn("segnale assente", testo)
         self.assertNotIn("backslash", testo)
+
+    def test_recepito_dopo_il_diniego_resta_in_osservazione(self):
+        recepito = {"uno": dt.date(2026, 11, 13), "due": dt.date(2026, 11, 10)}
+
+        def stato(classe, nome, checkout, giorno):
+            quando = recepito.get(nome)
+            return "recepito" if quando and giorno >= quando else "non recepito"
+
+        vecchio, nuovo = dt.date(2026, 11, 9), dt.date(2026, 11, 12)
+        occorrenze = {
+            "parentesi": [
+                ("uno", "g1", vecchio),
+                ("due", "g2", vecchio),
+                ("due", "g3", nuovo),
+                ("tre", "g4", nuovo),
+            ]
+        }
+        leggibili = {"uno": CO, "due": CO, "tre": CO}
+        with mock.patch.object(D, "stato_segnale", stato):
+            righe = D.rapporto(occorrenze, [], [], [], leggibili, oggi=dt.date(2026, 11, 14))
+        testo = "\n".join(righe)
+        self.assertIn("recepito e ricorre in due:", testo)
+        self.assertIn("non recepito in tre: /method", testo)
+        self.assertIn("recepito dopo e senza ricorrenze in uno: in osservazione", testo)
 
     def test_finestra_sulle_chiusure_con_giro(self):
         with tempfile.TemporaryDirectory() as tmp:

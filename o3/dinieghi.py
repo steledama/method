@@ -12,9 +12,11 @@ Per ogni classe ricorrente dice se un commit di `method` la segnala
 (`SEGNALI`, la mappa canonica coperta dai test) e, per ogni repo, se il
 segnale c'era quando il diniego è avvenuto: per un adottante, dal cursore
 `method_commit` e dalla data `reviewed_at` del marker; per `method`, dalla data
-del commit. Tre esiti: segnale assente (una proposta), non recepito
+del commit. Quattro esiti: segnale assente (una proposta), non recepito
 (`/method`), recepito e ricorre (serve un permesso o uno strumento che renda
-superflua la grafia, non un'altra frase). Una classe non riconosciuta esce
+superflua la grafia, non un'altra frase), recepito dopo e senza ricorrenze
+(il repo ha il segnale oggi e dal recepimento la grafia non è tornata: in
+osservazione finché i giri vecchi escono dalla finestra, niente da fare). Una classe non riconosciuta esce
 come «altro» col comando, perché una grafia nuova è proprio ciò che il giro
 deve vedere.
 
@@ -265,7 +267,10 @@ def raccogli(leggibili: dict[str, Path], finestra: int = FINESTRA):
     return occorrenze, altri, letti
 
 
-def rapporto(occorrenze, altri, letti, mancanti, leggibili, soglia: int = SOGLIA) -> list[str]:
+def rapporto(
+    occorrenze, altri, letti, mancanti, leggibili, soglia: int = SOGLIA, oggi: dt.date | None = None
+) -> list[str]:
+    oggi = oggi or dt.date.today()
     righe = [f"Letti: {', '.join(letti)}."]
     if mancanti:
         righe.append(f"Non letti da qui: {', '.join(mancanti)} (tentativi sul loro host).")
@@ -285,7 +290,10 @@ def rapporto(occorrenze, altri, letti, mancanti, leggibili, soglia: int = SOGLIA
             esito = "segnale assente: proposta in o2/"
         else:
             dopo = [n for n in repo if "recepito" in stati[n]]
-            prima = [n for n in repo if "non recepito" in stati[n]]
+            # Senza il segnale al diniego: chi oggi lo ha e non ricade è solo in osservazione.
+            senza = [n for n in repo if n not in dopo]
+            poi = [n for n in senza if stato_segnale(classe, n, leggibili[n], oggi) == "recepito"]
+            prima = [n for n in senza if n not in poi]
             parti = []
             if dopo:
                 parti.append(
@@ -293,6 +301,10 @@ def rapporto(occorrenze, altri, letti, mancanti, leggibili, soglia: int = SOGLIA
                 )
             if prima:
                 parti.append(f"non recepito in {', '.join(prima)}: /method")
+            if poi:
+                parti.append(
+                    f"recepito dopo e senza ricorrenze in {', '.join(poi)}: in osservazione"
+                )
             esito = f"segnale {segnale}; " + "; ".join(parti)
         righe.append(
             f"- {classe}: {numero} giri, {', '.join(repo)}, "
