@@ -75,10 +75,19 @@ Non usare il sistema di memoria dell'harness (`auto-memory`, store in
 repo: i fili in `i3/` (le tensioni aperte misurate contro un obiettivo), nodi `kb/` (conoscenza stabile e perché delle decisioni), `o2/`
 (lavoro futuro e contesto).
 
-L'enforcement (spegnere la feature) è invece versionabile: vive in `nixos` — env var
-`CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `modules/home/claude-code.nix`, specchio di
-`DISABLE_AUTOUPDATER`. Su harness che non leggono questi settings (Codex) vale solo
-questa regola.
+L'enforcement (spegnere la feature) è invece versionabile e vive in `nixos`, un
+modulo per harness:
+
+- Claude Code: env var `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in
+  `o3/modules/home/claude-code.nix`, specchio di `DISABLE_AUTOUPDATER`;
+- Codex: `features.memories`, `memories.generate_memories` e
+  `memories.use_memories` a `false` in `~/.codex/config.toml`, scritti da
+  `o3/modules/home/codex.nix` (`nixos` `ed43f24`, 2026-11-14).
+
+Su un harness senza un modulo che la spenga vale solo questa regola. Un ricordo
+fuori da git governato dal metodo, ad accesso dichiarato, è una questione aperta
+nel task [`coordinatore-di-gruppi`](o2/coordinatore-di-gruppi.md), «La memoria»:
+finché il custode non la decide, la regola resta questa.
 
 ## Tabelle vs elenchi
 

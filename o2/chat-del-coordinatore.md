@@ -86,9 +86,9 @@ Fuori dalla chat, la memoria di Codex su `deck`: trovata attiva il
 2026-11-14 e spenta lo stesso giorno da `nixos` (`ed43f24`, modulo
 `o3/modules/home/codex.nix`), con `features.memories`,
 `memories.generate_memories` e `memories.use_memories` a `false` in
-`~/.codex/config.toml`. Le due note rimaste in `~/.codex/memories/` non
-contengono nulla da portare nella KB di `nixos`; la loro rimozione la decide il
-custode.
+`~/.codex/config.toml`. Il custode ha poi rimosso
+`~/.codex/memories/` e `memories_1.sqlite`, che non contenevano nulla di
+durevole.
 
 ## Passi
 
