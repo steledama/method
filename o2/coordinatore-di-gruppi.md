@@ -9,7 +9,7 @@ ciclo: dev
 
 Direzione posta dal custode il 2026-11-14, a valle del confronto fra
 `method`, Hermes, OpenClaw e Buzz ([integrazione-runtime](integrazione-runtime.md))
-e della [prova di una chat ACP](prova-chat-acp.md). Se dopo la prova il
+e della prova di una chat ACP (task chiuso il 2026-11-14, in git). Se dopo la prova il
 metodo ha senso di esistere, prende un nome
 ([nome-del-progetto](nome-del-progetto.md)) e diventa un coordinatore di
 repo:
@@ -57,7 +57,7 @@ memoria e governo, dove è forte. L'harness resta esterno, raggiunto via ACP.
    gli adottanti. È la distinzione fra `method` e gli adottanti, spostata di
    un livello. Le istanze decise dal custode:
    - **casa**, su `deck`, coordina `nixos`, `salute` ed `economia`; nasce
-     come repository della [prova ACP](prova-chat-acp.md);
+     come repository della prova ACP;
    - **tt**, per il lavoro, coordina `nixos-lavoro`, `danea-auto`,
      `baserow`, `bi` e `abbinamenti`; si apre se l'istanza casa regge.
 2. **Il sito di lavoro deve raggiungere `danea2`.** Un sito su `svezia` che
@@ -117,8 +117,8 @@ ogni repo».
 
 ## Dipendenze
 
-- [prova-chat-acp](prova-chat-acp.md): la chat dal sito presuppone che una
-  sessione ACP si comporti come il terminale;
+- [chat-del-coordinatore](chat-del-coordinatore.md): il primo lavoro
+  eseguibile, la chat dal sito, che parte dalla prova ACP riuscita;
 - [nome-del-progetto](nome-del-progetto.md): il coordinatore prende un nome;
 - [integrazione-runtime](integrazione-runtime.md): la scelta della via;
 - [diffusione-oltre-custode-unico](diffusione-oltre-custode-unico.md): la

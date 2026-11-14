@@ -85,6 +85,12 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `skill_tools.py` — misure e controlli deterministici sulle skill e sui
   permessi, senza giudizio ([skill](../kb/skill.md)). Test:
   `python3 -m unittest discover -s tests -p 'test_skill_tools.py'`.
+- `chat/` — la chat del sito di gruppo, in sviluppo
+  ([chat del coordinatore](../o2/chat-del-coordinatore.md)):
+  - `prova_acp.py` — il client ACP della prova del 2026-11-14: lancia
+    `claude-agent-acp` o `codex-acp` in una cartella, manda prompt scritti in
+    anticipo e risponde alle richieste di permesso, con un log JSON Lines.
+    Senza test, perché parla con un adattatore esterno.
 - `ciclo/` — la configurazione del giro autonomo: `prompt.md`,
   `permessi.json`, il profilo `lanciatore.toml` e il contratto
   [engine fallback](ciclo/fallback.md).
