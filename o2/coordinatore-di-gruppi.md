@@ -129,7 +129,10 @@ ogni repo».
 1. ~~Ratificare il Goal~~ fatto il 2026-11-14.
 2. ~~Decidere canone e coordinatore di gruppo~~ fatto il 2026-11-14: istanze
    casa e tt.
-3. Creare l'istanza casa, che serve subito come repository della prova ACP.
+3. ~~Creare l'istanza casa~~ fatto il 2026-11-14: `~/casa` su `deck`,
+   commit `107f89b`, nessun remote. Coordina solo sulla carta finché la prova
+   ACP non è chiusa; non è ancora nel `world.md` di `method`, perché entrarvi
+   la metterebbe sotto `/adottanti` prima che abbia un ciclo.
 4. Dopo la prova, dividere il task in lavori eseguibili: sito di gruppo,
    chat, ricordo; poi l'istanza tt.
 

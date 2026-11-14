@@ -55,7 +55,10 @@ Se i sei punti tornano, si ripete la prova con Codex via `codex-acp`
    repository la prima istanza del [coordinatore di gruppi](coordinatore-di-gruppi.md),
    casa, che coordina `nixos`, `salute` ed `economia`. La prova serve così
    anche da primo passo dell'istanza. L'adattatore si lancia con `npx`,
-   senza toccare la configurazione di NixOS finché è una prova.
+   senza toccare la configurazione di NixOS finché è una prova. Casa creata
+   il 2026-11-14 in `~/casa` (commit `107f89b`, solo locale): struttura del
+   metodo, `CLAUDE.md`, le skill forkate dal canone e il gate di commit, senza
+   giri autonomi né letture dei repo del gruppo.
 2. Leggere la specifica di ACP e la documentazione di `claude-agent-acp`:
    avvio, apertura di una sessione con una cartella, prompt, aggiornamenti,
    richieste di permesso, impostazioni caricate.
