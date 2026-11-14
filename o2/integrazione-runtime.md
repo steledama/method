@@ -1,5 +1,5 @@
 ---
-sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Il 2026-11-14 la relazione di ciascuno col repo git, Buzz di Block fra i candidati e quattordici fattori per confrontare le quattro soluzioni. Resta la prova su un repository di prova, poi la scelta del custode."
+sintesi: "Studiare se il metodo può girare sopra Hermes Agent o OpenClaw, che danno installazione, chat e pianificazione già pronte, invece di costruire un ingresso proprio. Letta il 2026-11-13 la documentazione ufficiale dei due sulle sei domande: nessuna incompatibilità sulla carta, Hermes si adatta meglio. Il 2026-11-14 la relazione di ciascuno col repo git, Buzz di Block fra i candidati, una mappa a sette strati e quattordici fattori per confrontare le quattro soluzioni. Resta la prova su un repository di prova, poi la scelta del custode."
 ciclo: dev
 ---
 
@@ -431,23 +431,84 @@ ricordare sia il repo.
 ## Confronto fra le quattro soluzioni
 
 Fattori proposti il 2026-11-14 per mettere a confronto `method` (oggi, con
-Claude Code o Codex), Hermes, OpenClaw e Buzz. Le quattro non stanno allo
-stesso livello, e il primo fattore lo dice; gli altri seguono il principio
-fermo (memoria, governo) e il modello di Norman (ciclo), poi scala e
-ingresso. Ogni voce dice com'è oggi, per quanto letto; nulla è provato.
+Claude Code o Codex), Hermes, OpenClaw e Buzz. Prima dei fattori viene la
+mappa degli strati, che dice dove ciascuna soluzione si sovrappone alle
+altre; i fattori stanno sotto lo strato a cui appartengono. Ogni voce dice
+com'è oggi, per quanto letto; nulla è provato.
 
-### 0. Livello
+### La mappa degli strati
 
-- **method**: una forma del repo con skill e strumenti; sta sopra un harness
-  esistente.
-- **Hermes**, **OpenClaw**: un agente completo, che prende il posto
-  dell'harness.
-- **Buzz**: uno spazio di lavoro che fa da cornice agli harness (Goose,
-  Codex, Claude Code) e ha anche un agente proprio.
+Ogni soluzione occupa più strati, e i problemi nascono dove due soluzioni
+occupano lo stesso. Mappa proposta dall'agente e accolta dal custode il
+2026-11-14. Gli strati, dal basso:
 
-### A. Memoria
+1. **Modello**: chi riceve il contesto e risponde.
+2. **Harness**: il ciclo agentico di una sessione: prompt, strumenti,
+   permessi tecnici, contesto.
+3. **Memoria**: ciò che l'agente rilegge per decidere, fra una sessione e
+   l'altra.
+4. **Governo**: chi può decidere cosa, e il resoconto di chi ha deciso:
+   delega, commit, provenienza.
+5. **Coordinazione**: calendario dei giri, più repo, più persone, messaggi
+   fra sessioni.
+6. **Ingresso**: installazione, interfaccia, chat.
+7. **Host**: dove gira tutto.
 
-**1. Fonte della memoria**, ciò che l'agente rilegge per decidere.
+Chi occupa che cosa:
+
+- **method**: memoria e governo, con il ciclo di Norman che dà forma a
+  entrambi. Della coordinazione ha pezzi propri (`world.md`, `/adottanti`,
+  i timer di NixOS, Herdr); dipende da un harness esterno e da un host
+  configurato; l'ingresso quasi non c'è.
+- **Hermes**: harness, una memoria propria, coordinazione (gateway e giri
+  pianificati), ingresso (cruscotto, app). Il governo non c'è.
+- **OpenClaw**: come Hermes, con più peso sulla coordinazione (canali, più
+  agenti, più persone) e la memoria dentro lo spazio di lavoro.
+- **Buzz**: coordinazione e ingresso prima di tutto, e l'host, cioè il relay.
+  Ospita gli harness invece di esserlo, salvo il suo agente opzionale; porta
+  però una memoria propria per ogni agente.
+
+Che cosa ne segue:
+
+- il punto di collisione è sempre la memoria: tutti e tre i candidati ne
+  portano una, ed è lì che un'integrazione diventa una sostituzione. È il
+  principio fermo, con un posto preciso nella mappa;
+- sul governo non c'è collisione, perché nessuno dei tre lo occupa: è lo
+  strato che il metodo aggiunge senza concorrenza;
+- su coordinazione e ingresso i candidati sono più forti del metodo, che lì
+  ha costruito il minimo: è dove un'integrazione porta valore;
+- la regola di composizione: un'integrazione regge se l'altro prende strati
+  che il metodo non ha, cioè harness, coordinazione e ingresso, e lascia
+  vuota la propria memoria;
+- Buzz e il metodo sono quasi complementari, sovrapposti solo sulla memoria
+  degli agenti; Hermes e OpenClaw si sovrappongono anche sull'harness,
+  perché prendono il posto di Claude Code.
+
+Per la prova ne segue l'ordine: la prima domanda a ogni candidato è se la
+sua memoria si spegne davvero (per Hermes memoria, `session_search` e
+revisione in background; per OpenClaw note giornaliere, dreaming e officina
+delle skill; per Buzz la memoria `core` e quella fredda). Il resto conta
+solo se la risposta è sì.
+
+### Strato 1: Modello
+
+**1. Modelli e costo**.
+
+- **method**: quello dell'harness; oggi Claude Code in abbonamento e Codex.
+- **Hermes**: chiave API Anthropic o piano Max con crediti aggiuntivi.
+- **OpenClaw**: chiave API, oppure Claude Code (`claude -p`) come motore,
+  indicato come via ammessa; su che cosa si paghi non è detto.
+- **Buzz**: chiave API per l'agente proprio e per il ponte a Claude Code;
+  l'app desktop accede da browser.
+
+### Strato 2: Harness
+
+Nessun fattore proprio: chi lo occupa lo dice la mappa, e i permessi tecnici
+stanno nel fattore 6.
+
+### Strato 3: Memoria
+
+**2. Fonte della memoria**, ciò che l'agente rilegge per decidere.
 
 - **method**: il repo markdown, unica memoria.
 - **Hermes**: `MEMORY.md` e `USER.md` del profilo, fuori dal repo,
@@ -457,7 +518,7 @@ ingresso. Ogni voce dice com'è oggi, per quanto letto; nulla è provato.
   memoria `core` e fredda dell'agente sul relay, che il prompt base
   incoraggia.
 
-**2. Richiamo fra sessioni**, l'archivio delle conversazioni e se l'agente
+**3. Richiamo fra sessioni**, l'archivio delle conversazioni e se l'agente
 lo interroga.
 
 - **method**: trascrizioni dell'harness, non rilette.
@@ -468,7 +529,7 @@ lo interroga.
 - **Buzz**: ogni messaggio è un evento firmato in Postgres, con ricerca a
   testo pieno; il canale stesso è l'archivio.
 
-**3. Apprendimento autonomo**, procedure che l'agente cambia da sé fuori
+**4. Apprendimento autonomo**, procedure che l'agente cambia da sé fuori
 versione.
 
 - **method**: nessuno; il metodo cambia col proprio ciclo, in git.
@@ -479,7 +540,7 @@ versione.
 - **Buzz**: guidato dal prompt: le lezioni da un errore vanno in `core`,
   previo permesso del proprietario; nessuna officina di skill trovata.
 
-**4. Forma imposta al repo**, file del runtime che entrano nel repo.
+**5. Forma imposta al repo**, file del runtime che entrano nel repo.
 
 - **method**: la forma è il metodo stesso.
 - **Hermes**: nessuna; legge `AGENTS.md` e le skill del progetto.
@@ -489,9 +550,9 @@ versione.
   `PLANS/`, `WORK_LOGS/` e le altre); i repo che ospita stanno nel suo
   object storage.
 
-### B. Governo
+### Strato 4: Governo
 
-**5. Delega e permessi**, dove stanno e se viaggiano col repo.
+**6. Delega e permessi**, dove stanno e se viaggiano col repo.
 
 - **method**: `autonomy.md` e `o3/ciclo/permessi.json`, versionati per repo.
 - **Hermes**: configurazione globale del profilo; elenco di divieti,
@@ -502,7 +563,7 @@ versione.
   ambiti; Claude Code parte senza conferme (`bypassPermissions`), oppure in
   un contenimento senza la configurazione del repo.
 
-**6. Commit e resoconto**, chi fissa le modifiche e con quale
+**7. Commit e resoconto**, chi fissa le modifiche e con quale
 dichiarazione.
 
 - **method**: `/commit` col gate, trailer di autonomia, impatto ed esiti.
@@ -510,18 +571,6 @@ dichiarazione.
 - **OpenClaw**: nessun commit automatico; «seguono le tue istruzioni».
 - **Buzz**: commit firmati con la chiave dell'agente, politica sui push del
   relay, audit a catena di hash; nessuna dichiarazione di chi ha deciso.
-
-**7. Ciclo autonomo**, chi lo avvia e dove sta la definizione.
-
-- **method**: unità di NixOS (in `nixos`) e lanciatore canonico.
-- **Hermes**: lavori pianificati con cartella e skill, in
-  `~/.hermes/cron/`.
-- **OpenClaw**: automazioni nel gateway, oppure `agent exec --cwd` da un
-  pianificatore esterno.
-- **Buzz**: flussi a orario che possono solo menzionare un agente in un
-  canale.
-
-### C. Ciclo
 
 **8. Goal, World e arco di valutazione**.
 
@@ -531,9 +580,19 @@ dichiarazione.
   l'agente, non il Mondo.
 - **Buzz**: assenti; i flussi reagiscono a eventi.
 
-### D. Scala
+### Strato 5: Coordinazione
 
-**9. Più repo**, l'unità di lavoro e la lettura d'insieme.
+**9. Ciclo autonomo**, chi lo avvia e dove sta la definizione.
+
+- **method**: unità di NixOS (in `nixos`) e lanciatore canonico.
+- **Hermes**: lavori pianificati con cartella e skill, in
+  `~/.hermes/cron/`.
+- **OpenClaw**: automazioni nel gateway, oppure `agent exec --cwd` da un
+  pianificatore esterno.
+- **Buzz**: flussi a orario che possono solo menzionare un agente in un
+  canale.
+
+**10. Più repo**, l'unità di lavoro e la lettura d'insieme.
 
 - **method**: un repo per adottante, canone via symlink, `/adottanti` li
   legge insieme.
@@ -544,7 +603,7 @@ dichiarazione.
 - **Buzz**: un progetto raggruppa più repo (progettato); una cartella per
   agente o per conversazione, `REPOS/` per i checkout.
 
-**10. Più persone**.
+**11. Più persone**.
 
 - **method**: un custode; Herdr fra le sessioni.
 - **Hermes**: un utente per profilo.
@@ -553,16 +612,16 @@ dichiarazione.
 - **Buzz**: il suo punto di forza: ruoli, canali condivisi, agenti come
   membri.
 
-### E. Ingresso
+### Strato 6: Ingresso
 
-**11. Interfaccia**.
+**12. Interfaccia**.
 
 - **method**: terminale e viste generate di sola lettura.
 - **Hermes**: cruscotto web estendibile con plugin, app desktop.
 - **OpenClaw**: interfaccia di controllo web, canali di chat.
 - **Buzz**: app desktop e mobile, canali.
 
-**12. Installazione e piattaforme**.
+**13. Installazione e piattaforme**.
 
 - **method**: symlink, fork delle skill, strato host su NixOS.
 - **Hermes**: installazione nativa anche su Windows; la chat del cruscotto
@@ -571,14 +630,11 @@ dichiarazione.
 - **Buzz**: relay con Postgres, Redis e MinIO; ponti per Claude Code e Codex
   solo su macOS e Linux.
 
-**13. Modelli e costo**.
+### Strato 7: Host
 
-- **method**: quello dell'harness; oggi Claude Code in abbonamento e Codex.
-- **Hermes**: chiave API Anthropic o piano Max con crediti aggiuntivi.
-- **OpenClaw**: chiave API, oppure Claude Code (`claude -p`) come motore,
-  indicato come via ammessa; su che cosa si paghi non è detto.
-- **Buzz**: chiave API per l'agente proprio e per il ponte a Claude Code;
-  l'app desktop accede da browser.
+Nessun fattore proprio: che cosa chiede l'host sta nel fattore 13.
+
+### Fuori dagli strati
 
 **14. Maturità e governo del progetto**.
 
@@ -590,11 +646,12 @@ dichiarazione.
 
 ### Che cosa dice il confronto
 
-I fattori 1–8 sono quelli su cui un'integrazione si gioca: dicono se la
-memoria e il governo restano nel repo. I fattori 9–14 dicono quanto costa
-entrare e quanto lontano si arriva. Hermes e OpenClaw si confrontano col
-metodo come alternativa all'harness; Buzz come strato che gli sta accanto,
-e per lui contano soprattutto i fattori 7, 9 e 10.
+I fattori 2–8, memoria e governo, sono quelli su cui un'integrazione si
+gioca: dicono se la memoria resta nel repo e chi risponde delle decisioni.
+I fattori 9–13 dicono che cosa il candidato porta dove il metodo è debole;
+il fattore 1 e il 14 dicono quanto costa e quanto è solido. Per Buzz, che
+sta accanto al metodo e non al posto dell'harness, contano soprattutto i
+fattori 9, 10 e 11, con il 2 come condizione.
 
 ## Valutazione dell'agente
 
