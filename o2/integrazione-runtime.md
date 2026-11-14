@@ -690,8 +690,27 @@ Un fatto che vale per entrambi gli esiti: Buzz pilota gli harness con ACP
 (Agent Client Protocol, `agentclientprotocol.com`), un protocollo aperto fra
 un client e un agente, con adattatori per Claude Code (`claude-agent-acp`),
 Codex (`codex-acp`) e Hermes (`hermes-acp`), visti nel codice di `buzz`.
-Una chat che parla ACP non è legata a un harness, come oggi Herdr
-([session-messaging](../kb/session-messaging.md)).
+Una chat che parla ACP non è legata a un harness.
+
+Herdr arriva alla stessa indipendenza per un'altra strada, e non usa ACP
+(verificato su Herdr 0.9.5, `herdr agent explain` e `herdr integration
+status`): lavora al livello del terminale. Riconosce l'agente da ciò che il
+pannello mostra, per esempio il titolo della finestra secondo regole per
+harness, oppure da hook opzionali installati nell'harness; manda il prompt
+come testo digitato e legge la risposta dallo schermo
+([session-messaging](../kb/session-messaging.md)). ACP lavora invece fra
+programmi: prompt, risposte in streaming, chiamate di strumenti e richieste
+di permesso sono messaggi strutturati.
+
+Ne segue un attrito per la direzione propria. Oggi il coordinamento fra
+sessioni del custode passa da Herdr, e funziona: per un custode solo Buzz non
+aggiunge molto sullo strato 5. Ma Herdr vede solo le sessioni che girano nei
+suoi pannelli. Una sessione aperta dalla chat ACP gira come processo del
+server della chat, fuori dai pannelli, e Herdr non la vede. O la chat
+diventa a sua volta il punto di coordinamento, e può farlo meglio perché
+conosce le sue sessioni e parla loro con messaggi strutturati, o le due vie
+convivono: la chat per le sessioni dirette, i pannelli per quelle che vanno
+coordinate.
 
 ### Due esiti possibili
 
