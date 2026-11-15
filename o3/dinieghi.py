@@ -16,7 +16,14 @@ del commit. Quattro esiti: segnale assente (una proposta), non recepito
 (`/method`), recepito e ricorre (serve un permesso o uno strumento che renda
 superflua la grafia, non un'altra frase), recepito dopo e senza ricorrenze
 (il repo ha il segnale oggi e dal recepimento la grafia non è tornata: in
-osservazione finché i giri vecchi escono dalla finestra, niente da fare). Una classe non riconosciuta esce
+osservazione finché i giri vecchi escono dalla finestra, niente da fare).
+
+Due classi hanno la causa nel repo, non nella grafia (decisione del
+custode del 2026-11-15, task chiuso in git): `non-concesso` è
+l'allowlist del repo, e la proposta va in `o2/` di `method` solo per
+`method`, al giro di ciascun adottante per gli altri; `fuori-perimetro` è un
+perimetro voluto, e chi ricorre dopo il segnale chiede una proposta solo se un
+prompt o una skill nomina il path negato, non un permesso. Una classe non riconosciuta esce
 come «altro» col comando, perché una grafia nuova è proprio ciò che il giro
 deve vedere.
 
@@ -286,7 +293,15 @@ def rapporto(
         for nome, _, giorno in voci:
             stati.setdefault(nome, set()).add(stato_segnale(classe, nome, leggibili[nome], giorno))
         segnale = SEGNALI.get(classe)
-        if not segnale:
+        if classe == "non-concesso":
+            parti = []
+            if "method" in repo:
+                parti.append("proposta in o2/ per method")
+            altri_repo = [n for n in repo if n != "method"]
+            if altri_repo:
+                parti.append(f"al giro di {', '.join(altri_repo)}, non qui")
+            esito = "allowlist del repo: " + "; ".join(parti)
+        elif not segnale:
             esito = "segnale assente: proposta in o2/"
         else:
             dopo = [n for n in repo if "recepito" in stati[n]]
@@ -296,9 +311,12 @@ def rapporto(
             prima = [n for n in senza if n not in poi]
             parti = []
             if dopo:
-                parti.append(
-                    f"recepito e ricorre in {', '.join(dopo)}: serve un permesso o uno strumento"
+                bisogno = (
+                    "perimetro voluto, proposta solo se un prompt o una skill nomina il path"
+                    if classe == "fuori-perimetro"
+                    else "serve un permesso o uno strumento"
                 )
+                parti.append(f"recepito e ricorre in {', '.join(dopo)}: {bisogno}")
             if prima:
                 parti.append(f"non recepito in {', '.join(prima)}: /method")
             if poi:

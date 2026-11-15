@@ -96,8 +96,24 @@ class Ricorrenza(unittest.TestCase):
         righe = D.rapporto(occorrenze, [], ["uno", "due"], [], {"uno": CO, "due": CO})
         testo = "\n".join(righe)
         self.assertIn("- non-concesso: 2 giri, due, uno", testo)
-        self.assertIn("segnale assente", testo)
+        self.assertIn("allowlist del repo: al giro di due, uno, non qui", testo)
         self.assertNotIn("backslash", testo)
+
+    def test_non_concesso_di_method_chiede_la_proposta_qui(self):
+        giorno = dt.date(2026, 11, 15)
+        occorrenze = {"non-concesso": [("method", "g1", giorno), ("nixos", "g2", giorno)]}
+        righe = D.rapporto(occorrenze, [], [], [], {"method": CO, "nixos": CO})
+        testo = "\n".join(righe)
+        self.assertIn("proposta in o2/ per method; al giro di nixos, non qui", testo)
+
+    def test_fuori_perimetro_ricorrente_non_chiede_un_permesso(self):
+        giorno = dt.date(2026, 11, 14)
+        occorrenze = {"fuori-perimetro": [("uno", "g1", giorno), ("uno", "g2", giorno)]}
+        with mock.patch.object(D, "stato_segnale", lambda *a: "recepito"):
+            righe = D.rapporto(occorrenze, [], [], [], {"uno": CO})
+        testo = "\n".join(righe)
+        self.assertIn("perimetro voluto, proposta solo se un prompt o una skill nomina", testo)
+        self.assertNotIn("serve un permesso", testo)
 
     def test_recepito_dopo_il_diniego_resta_in_osservazione(self):
         recepito = {"uno": dt.date(2026, 11, 13), "due": dt.date(2026, 11, 10)}

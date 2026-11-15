@@ -69,9 +69,8 @@ Gli adottanti si leggono con `python3 o3/adottanti.py`, di sola lettura:
 `CLAUDE.md`, `autonomy.md`, prompt e permessi del ciclo, skill), elencati da
 `--help`. `ssh` diretto non è concesso; passa per lo script con `--ssh`.
 
-Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il repo lo
-dichiara (campo `giri` in `o3/cicli.nix` di `nixos`, per tutti i repo man mano
-che recepiscono la decisione del 2026-10-19),
+Lo stato dei giri autonomi sta in `i1/giri/` del repo quando il checkout ha
+`i1/giri/tentativi.jsonl` (decisione del 2026-10-19, recepita man mano),
 altrimenti in `~/.local/state/ciclo/<repo>/`: `tentativi.jsonl` e
 `ultimo.json`, da leggere con il tool Read (in Codex con `cat` sul solo path): esito, commit, push e dinieghi. La riga `chiusura` porta
 `oggetto` (prima riga del commit del giro, o null) e `dinieghi` (lista di
