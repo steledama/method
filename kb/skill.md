@@ -51,6 +51,36 @@ deve rompere nulla: la struttura funziona anche con un harness che sa solo
 leggere file. Legare il metodo a un harness è lock-in, e vale anche per i nomi:
 un nome generico può collidere domani con un comando integrato.
 
+## Permessi di invocazione in Claude Code
+
+Le regole allow `Skill(nome)` preautorizzano le invocazioni corrispondenti;
+non costituiscono una lista esclusiva. La documentazione ufficiale distingue
+le restrizioni esplicite dall'aggiunta di allow e indica che Skill può
+chiedere conferma per frontmatter con `allowed-tools`, `disallowed-tools` o
+`hooks`. `dontAsk` nega ciò che richiederebbe conferma; le azioni che non la
+richiedono possono passare anche senza allow specifico.
+
+Riscontro inoltrato da `nixos` il 2026-11-15, cattura locale
+`i1/permessi-skill-claude.md`: nel giro `bb2ee81d21ce4a42ae42b067a6aea815`,
+Claude Code 2.1.321 in `dontAsk` ha accettato `Skill(manutenzione)` senza
+allow specifico e senza quei campi nel frontmatter. La cattura riporta
+`decision: accept`, `source: config`, mentre un `gh api` è negato per la
+modalità. Qui è stata letta la cattura, non la trascrizione integrale:
+il caso è coerente con la documentazione, non prova un bypass.
+
+Per diagnosticare un diniego si confrontano versione, impostazioni effettive,
+frontmatter e decisione della chiamata; l'assenza di allow da sola non basta.
+Il permesso tecnico non concede autorità metodologica: deleghe e obbligo di
+invocare i bracci restano quelli del repository. Questa verifica corregge la
+frase di `cycle` senza modificare i permessi e senza generalizzare il caso
+osservato a tutte le release.
+
+Fonti ufficiali consultate il 2026-11-15:
+
+- [Restrizioni di accesso alle skill](https://code.claude.com/docs/en/skills#restrict-claudes-skill-access)
+- [Tool Skill](https://code.claude.com/docs/en/tools-reference)
+- [Modalità dei permessi](https://code.claude.com/docs/en/permissions#permission-modes)
+
 ## Skill canoniche e stadi
 
 Gli scope-stadio corrispondono agli atomi del ciclo. La procedura completa vive

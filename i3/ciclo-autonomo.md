@@ -163,6 +163,13 @@ riletto contro le fonti.
   giorno, lanciatore precedente): da allora la chiusura conta come commit del
   giro solo le voci del reflog con l'etichetta del lanciatore (`commit_giro`,
   `commit_altri`), e un commit altrui non spegne più l'arresto 15.
+  Il 2026-11-15 la sessione `nixos` segnala un errore nella spiegazione dei
+  permessi di `cycle`: gli allow Skill non sono una lista esclusiva. Letta
+  la cattura `nixos/i1/permessi-skill-claude.md` e verificata la documentazione
+  ufficiale, corretti skill e [lettura stabile](../kb/skill.md#permessi-di-invocazione-in-claude-code).
+  L'accettazione di `Skill(manutenzione)` su Claude Code 2.1.321 senza allow
+  specifico è coerente con la semantica documentata; non prova un bypass.
+  Nessun cambiamento a permessi, deleghe o obbligo di invocare i bracci.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto

@@ -70,10 +70,12 @@ scritture e letture fuori perimetro sono vincoli voluti
 
 **Stadi.** Invoca `eval all` ed `exec all` col tool Skill e segui i loro
 stadi: leggere questa skill o il `SKILL.md` di un braccio non vale come
-invocazione. I permessi del giro concedono `Skill(cycle)`, `Skill(eval)`,
-`Skill(exec)` e `Skill(commit)`: senza, l'invocazione è negata e il giro
-ricade nella lettura (primo giro di `salute` con gli stadi verificati,
-2026-11-07, zero dinieghi). Su un harness senza tool Skill, come Codex, vale
+invocazione. I permessi del giro preautorizzano `Skill(cycle)`, `Skill(eval)`,
+`Skill(exec)` e `Skill(commit)`, ma questi allow non limitano l'accesso alle
+sole skill nominate. `dontAsk` nega le chiamate che richiederebbero conferma,
+non ogni chiamata priva di allow: l'obbligo di invocare i bracci è una regola
+del metodo, non una conseguenza di un diniego presunto (cfr. `kb/skill.md`,
+«Permessi di invocazione in Claude Code»). Su un harness senza tool Skill, come Codex, vale
 la lettura del `SKILL.md` del braccio indicata dal wrapper. Ogni stadio ha un **minimo** di letture che lascia traccia nella
 trascrizione, scritto in fondo alla sua sezione in `eval` ed `exec`; il
 prompt del repo lo adatta col dominio aggiungendo gesti, mai togliendone. Una
