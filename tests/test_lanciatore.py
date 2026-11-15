@@ -433,6 +433,21 @@ class LanciatoreTests(unittest.TestCase):
         impostazioni = json.loads((self.repo / ".git/lanciatore/settings.json").read_text())
         self.assertEqual(impostazioni["env"]["GIT_REFLOG_ACTION"], f"lanciatore {chiusura['id']}")
 
+    def test_l_amend_prima_del_push_lascia_un_solo_commit_del_giro(self):
+        self.imposta_agente(
+            agente(
+                "echo fatto > nota.md\ngit add nota.md\ngit commit -q -m 'docs: giro'\n"
+                "git commit -q --amend -m 'docs: giro corretto'\n"
+                f"git push -q\necho '{RISULTATO}'"
+            )
+        )
+        esito = self.lancia()
+        self.assertEqual(esito.returncode, 0, esito.stderr)
+        chiusura = self.chiusura()
+        self.assertEqual(chiusura["commit_giro"], [chiusura["head_dopo"]])
+        self.assertEqual(chiusura["oggetto"], "docs: giro corretto")
+        self.assertTrue(chiusura["push"])
+
     def test_tree_pulito_senza_commit_non_e_concorrenza(self):
         self.imposta_agente(agente(f"{self.sessione_concorrente()}echo '{RISULTATO}'"))
         self.assertEqual(self.lancia().returncode, 0)

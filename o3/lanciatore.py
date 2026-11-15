@@ -531,7 +531,10 @@ def commit_del_giro(etichetta: str) -> list[str]:
 
     Il cambio di HEAD non basta: una sessione del custode può committare mentre
     il giro gira. Il lanciatore dà all'agente `GIT_REFLOG_ACTION`, che git scrive
-    nel reflog di ogni spostamento di HEAD fatto da lì.
+    nel reflog di ogni spostamento di HEAD fatto da lì. Il reflog tiene anche i
+    commit rimpiazzati da un `--amend` prima del push: restano fuori quelli che
+    HEAD non contiene più, o `commit_gate.py stadi` troverebbe due commit con
+    `Esiti` (giro del 2026-11-15, `925f29c` rimpiazzato da `fbcd776`).
     """
     voci = git_testo("reflog", "show", "--format=%H%x00%gs", "HEAD").splitlines()
     trovati: list[str] = []
@@ -539,7 +542,9 @@ def commit_del_giro(etichetta: str) -> list[str]:
         sha, _, messaggio = voce.partition("\0")
         if messaggio.startswith(f"{etichetta}:") and sha not in trovati:
             trovati.append(sha)
-    return trovati
+    return [
+        sha for sha in trovati if git("merge-base", "--is-ancestor", sha, "HEAD").returncode == 0
+    ]
 
 
 def controlla_concorrenti(tentativo: Tentativo, checkout: Path, dopo: float) -> None:

@@ -492,6 +492,14 @@ def verifica_stadi(root: Path, giro: Path | None = None) -> tuple[list[str], lis
         candidati = chiusura.get("commit_giro") or [ref]
         if isinstance(candidati, str):
             candidati = [candidati]
+        # Le chiusure scritte prima della correzione del lanciatore (2026-11-15)
+        # elencano anche i commit rimpiazzati da un amend: conta solo ciò che
+        # head_dopo contiene ancora.
+        candidati = [
+            c
+            for c in candidati
+            if run(["git", "merge-base", "--is-ancestor", c, ref], root).returncode == 0
+        ] or candidati
         if not chiusura.get("commit"):
             return [f"giro {giro.stem} senza commit: niente Esiti da verificare"], []
     if not giro.exists():
