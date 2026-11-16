@@ -1098,6 +1098,59 @@ class WindowsTests(unittest.TestCase):
         self.assertFalse(MODULE._dentro(r"C:\Users\danea\danea-auto-altro", radice, ntpath))
 
 
+@unittest.skipUnless(os.name == "nt", "job object di Windows")
+class AlberoWindowsTests(unittest.TestCase):
+    """Nessun discendente sopravvive al giro, nemmeno staccato (danea-auto, 2026-11-12)."""
+
+    FIGLI = """
+import json, subprocess, sys, time
+DORMI = [sys.executable, "-c", "import time; time.sleep(120)"]
+pid = [
+    subprocess.Popen(DORMI).pid,
+    subprocess.Popen(DORMI, creationflags=0x8, close_fds=True).pid,
+    subprocess.Popen(DORMI, creationflags=0x200 | 0x08000000).pid,
+]
+nipote = subprocess.run([sys.executable, "-c",
+    "import subprocess,sys;print(subprocess.Popen([sys.executable,'-c',"
+    "'import time; time.sleep(120)'],creationflags=0x8,close_fds=True).pid)"],
+    capture_output=True, text=True)
+pid.append(int(nipote.stdout))
+open(sys.argv[1], "w").write(json.dumps(pid))
+if sys.argv[2] == "appeso":
+    time.sleep(120)
+"""
+
+    @staticmethod
+    def vivo(pid: int) -> bool:
+        import ctypes
+
+        k32 = ctypes.WinDLL("kernel32")
+        handle = k32.OpenProcess(0x1000, False, pid)
+        if not handle:
+            return False
+        codice = ctypes.c_ulong()
+        k32.GetExitCodeProcess(handle, ctypes.byref(codice))
+        k32.CloseHandle(handle)
+        return codice.value == 259
+
+    def lancia(self, modo: str, minuti: float) -> list[int]:
+        base = Path(tempfile.mkdtemp())
+        script, pid = base / "figli.py", base / "pid.json"
+        script.write_text(self.FIGLI, encoding="utf-8")
+        comando = [sys.executable, str(script), str(pid), modo]
+        try:
+            MODULE.lancia_agente(comando, base / "stream", MODULE.Profilo(minuti=minuti))
+        except MODULE.Arresto as arresto:
+            self.assertEqual(arresto.codice, 22)
+        return [p for p in json.loads(pid.read_text()) if self.vivo(p)]
+
+    def test_uscita_normale(self):
+        self.assertEqual(self.lancia("esce", 1), [])
+
+    def test_tetto(self):
+        self.assertEqual(self.lancia("appeso", 0.05), [])
+
+
 class ProtettiTests(unittest.TestCase):
     def test_cio_che_definisce_il_giro_e_protetto(self):
         for percorso in [

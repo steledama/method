@@ -99,7 +99,7 @@ concorrente durante il giro,
 16, 18 e 19 riservati all'aggancio `prima`, 17 pull fermo, 20 agente
 uscito con errore, 21 errore riportato dall'agente, 22 tetto di tempo, 23 percorso
 protetto toccato dal giro, 24 giri fermi dopo un 23 o 25,
-25 arresto del recinto non verificato, 75 lock.
+25 arresto dell'albero dei processi o del recinto non verificato, 75 lock.
 """
 
 from __future__ import annotations
@@ -155,6 +155,7 @@ COMMIT = re.compile(r"(^|[^\w-])git(\s[^;&|]*)?\scommit(\s|$)")
 ATTENZIONE = re.compile(r"^\s*\**Attenzione:?\**:?\s*(.*)$", re.IGNORECASE)
 WINDOWS = os.name == "nt"
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+CREATE_SUSPENDED = 0x4  # l'agente entra nel job prima di poter generare figli
 USCITA_PERCORSI_PROTETTI = 23
 # I motori che il profilo del repo può scegliere e se sanno imporre un tetto in USD.
 # Codex non ne ha uno: il giro procede e la chiusura lo dichiara (custode, 2026-11-11).
@@ -685,15 +686,129 @@ def ferma_recinto(ferma: list[str]) -> None:
         raise Arresto(25, "recinto-arresto-non-verificato", str(esito.returncode))
 
 
-def termina(processo: subprocess.Popen[bytes], ferma: list[str] = ()) -> None:
-    """Chiude l'agente con tutti i suoi figli, e la sandbox se non muore con lui."""
-    if WINDOWS:
-        subprocess.run(
-            ["taskkill", "/T", "/F", "/PID", str(processo.pid)],
-            capture_output=True,
-            creationflags=NO_WINDOW,
-            check=False,
-        )
+class Albero:
+    """Su Windows il job object che contiene l'agente e tutti i suoi discendenti.
+
+    `taskkill /T` segue i soli PID genitore: un figlio staccato (Codex,
+    `DETACHED_PROCESS`, il nipote di un figlio già uscito) sopravviveva al giro,
+    anche a uscita normale (prova di `danea-auto`, 2026-11-12). Il job lo
+    contiene dall'avvio: l'agente parte sospeso, entra nel job e solo allora
+    riprende. Con KILL_ON_JOB_CLOSE, se muore il lanciatore muore l'albero.
+    """
+
+    def __init__(self) -> None:
+        import ctypes
+        from ctypes import wintypes
+
+        self.ctypes = ctypes
+        self.k32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        self.ntdll = ctypes.WinDLL("ntdll")
+        k32 = self.k32
+        k32.CreateJobObjectW.restype = wintypes.HANDLE
+        k32.CreateJobObjectW.argtypes = [ctypes.c_void_p, wintypes.LPCWSTR]
+        k32.SetInformationJobObject.argtypes = [
+            wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p, wintypes.DWORD
+        ]
+        k32.AssignProcessToJobObject.argtypes = [wintypes.HANDLE, wintypes.HANDLE]
+        k32.TerminateJobObject.argtypes = [wintypes.HANDLE, wintypes.UINT]
+        k32.QueryInformationJobObject.argtypes = [
+            wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p, wintypes.DWORD, ctypes.c_void_p
+        ]
+        k32.CloseHandle.argtypes = [wintypes.HANDLE]
+        self.ntdll.NtResumeProcess.argtypes = [wintypes.HANDLE]
+
+        class Base(ctypes.Structure):
+            _fields_ = [
+                ("PerProcessUserTimeLimit", ctypes.c_longlong),
+                ("PerJobUserTimeLimit", ctypes.c_longlong),
+                ("LimitFlags", wintypes.DWORD),
+                ("MinimumWorkingSetSize", ctypes.c_size_t),
+                ("MaximumWorkingSetSize", ctypes.c_size_t),
+                ("ActiveProcessLimit", wintypes.DWORD),
+                ("Affinity", ctypes.c_size_t),
+                ("PriorityClass", wintypes.DWORD),
+                ("SchedulingClass", wintypes.DWORD),
+            ]
+
+        class Estesa(ctypes.Structure):
+            _fields_ = [
+                ("Base", Base),
+                ("Io", ctypes.c_ulonglong * 6),
+                ("ProcessMemoryLimit", ctypes.c_size_t),
+                ("JobMemoryLimit", ctypes.c_size_t),
+                ("PeakProcessMemoryUsed", ctypes.c_size_t),
+                ("PeakJobMemoryUsed", ctypes.c_size_t),
+            ]
+
+        class Contabilita(ctypes.Structure):
+            _fields_ = [
+                *((n, ctypes.c_longlong) for n in ("Utente", "Kernel", "UtenteP", "KernelP")),
+                ("TotalPageFaultCount", wintypes.DWORD),
+                ("TotalProcesses", wintypes.DWORD),
+                ("ActiveProcesses", wintypes.DWORD),
+                ("TotalTerminatedProcesses", wintypes.DWORD),
+            ]
+
+        self.Contabilita = Contabilita
+        self.handle = k32.CreateJobObjectW(None, None)
+        if not self.handle:
+            raise self.errore("CreateJobObject")
+        limiti = Estesa()
+        limiti.Base.LimitFlags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+        if not k32.SetInformationJobObject(
+            self.handle, 9, ctypes.byref(limiti), ctypes.sizeof(limiti)
+        ):
+            errore = self.errore("SetInformationJobObject")
+            self.chiudi()
+            raise errore
+
+    def errore(self, cosa: str) -> OSError:
+        return self.ctypes.WinError(self.ctypes.get_last_error(), cosa)
+
+    def accogli(self, processo: subprocess.Popen[bytes]) -> None:
+        """Il processo, avviato sospeso, entra nel job e riprende."""
+        handle = int(processo._handle)  # type: ignore[attr-defined]
+        if not self.k32.AssignProcessToJobObject(self.handle, handle):
+            errore = self.errore("AssignProcessToJobObject")
+        elif self.ntdll.NtResumeProcess(handle) != 0:
+            errore = OSError("NtResumeProcess")
+        else:
+            return
+        processo.kill()
+        processo.wait()
+        raise errore
+
+    def attivi(self) -> int:
+        info = self.Contabilita()
+        ctypes = self.ctypes
+        if not self.k32.QueryInformationJobObject(
+            self.handle, 1, ctypes.byref(info), ctypes.sizeof(info), None
+        ):
+            raise self.errore("QueryInformationJobObject")
+        return int(info.ActiveProcesses)
+
+    def termina(self) -> None:
+        """Chiude ogni processo del job e verifica che non ne resti nessuno."""
+        try:
+            self.k32.TerminateJobObject(self.handle, 1)
+            fine = time.monotonic() + GRAZIA_SECONDI
+            while (residui := self.attivi()) and time.monotonic() < fine:
+                time.sleep(0.1)
+        except OSError as errore:
+            raise Arresto(25, "albero-arresto-non-verificato", str(errore)) from errore
+        if residui:
+            raise Arresto(25, "albero-arresto-non-verificato", f"{residui} processi vivi")
+
+    def chiudi(self) -> None:
+        if self.handle:
+            self.k32.CloseHandle(self.handle)
+            self.handle = None
+
+
+def termina(processo: subprocess.Popen[bytes], albero: Albero | None = None) -> None:
+    """Chiude l'agente con tutti i suoi discendenti."""
+    if albero is not None:
+        albero.termina()
         processo.wait()
         return
     try:
@@ -716,27 +831,45 @@ def lancia_agente(
     """L'agente col suo tetto di tempo; alla fine l'albero dei processi non resta."""
     stream.parent.mkdir(parents=True, exist_ok=True)
     ambiente = {**os.environ, "GIT_REFLOG_ACTION": etichetta} if etichetta else None
-    with stream.open("wb") as uscita:
-        processo = subprocess.Popen(
-            comando,
-            env=ambiente,
-            stdin=subprocess.DEVNULL,
-            stdout=uscita,
-            stderr=subprocess.STDOUT,  # un'uscita con errore si spiega dallo stream
-            start_new_session=not WINDOWS,
-            creationflags=NO_WINDOW,
-        )
-        try:
-            return processo.wait(timeout=profilo.minuti * 60)
-        except subprocess.TimeoutExpired as errore:
-            termina(processo, ferma)
-            raise Arresto(22, "tetto-di-tempo", f"{profilo.minuti} minuti") from errore
-        except Interrotto:
-            termina(processo, ferma)
-            raise
-        finally:
-            # Also stop on normal exit: the wrapper may have detached children.
-            ferma_recinto(list(ferma))
+    try:
+        albero = Albero() if WINDOWS else None
+    except OSError as errore:
+        raise Arresto(25, "albero-arresto-non-verificato", str(errore)) from errore
+    try:
+        with stream.open("wb") as uscita:
+            try:
+                processo = subprocess.Popen(
+                    comando,
+                    env=ambiente,
+                    stdin=subprocess.DEVNULL,
+                    stdout=uscita,
+                    stderr=subprocess.STDOUT,  # un'uscita con errore si spiega dallo stream
+                    start_new_session=not WINDOWS,
+                    creationflags=NO_WINDOW | (CREATE_SUSPENDED if WINDOWS else 0),
+                )
+                if albero is not None:
+                    try:
+                        albero.accogli(processo)
+                    except OSError as errore:
+                        raise Arresto(25, "albero-arresto-non-verificato", str(errore)) from errore
+                try:
+                    codice = processo.wait(timeout=profilo.minuti * 60)
+                except subprocess.TimeoutExpired as errore:
+                    termina(processo, albero)
+                    raise Arresto(22, "tetto-di-tempo", f"{profilo.minuti} minuti") from errore
+                except Interrotto:
+                    termina(processo, albero)
+                    raise
+                if albero is not None:
+                    # Anche a uscita normale: Codex lascia discendenti staccati.
+                    albero.termina()
+                return codice
+            finally:
+                # Also stop on normal exit: the wrapper may have detached children.
+                ferma_recinto(list(ferma))
+    finally:
+        if albero is not None:
+            albero.chiudi()
 
 
 def osserva(stream: Path) -> dict:
@@ -1164,7 +1297,7 @@ def giro(
         if arresto.codice == 25:
             fermo.write_text(arresto.motivo + "\n", encoding="utf-8")
             tentativo.avvisa(
-                "Sandbox termination unverified; repository state is not final. Custodian must reconcile before removing fermo."
+                "Process tree or sandbox termination unverified; repository state is not final. Custodian must reconcile before removing fermo."
             )
         if lanciato and arresto.codice not in (25, USCITA_PERCORSI_PROTETTI):
             arresto = rete(tentativo, profilo, fermo, arresto.motivo) or arresto
