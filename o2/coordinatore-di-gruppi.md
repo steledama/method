@@ -30,7 +30,7 @@ I gruppi di oggi sono due, separati e distinti:
 
 - **casa**: `nixos`, `salute`, `economia`;
 - **lavoro**: `nixos-lavoro`, `danea-auto` (Windows), `baserow`, `bi`, e
-  presto l'`abbinatore`, in adozione dal 2026-11-16.
+  `abbinatore`, entrato il 2026-11-16.
 
 Nella mappa degli strati del task d'origine, il coordinatore occupa
 coordinazione e ingresso, dove il metodo oggi è debole, e lascia fermi

@@ -10,10 +10,12 @@ ogni giro. Ultimo giro d'insieme: **2026-11-02**, quinto audit, un giorno
 dopo la scadenza: il ciclo autonomo non lancia `/adottanti` e il giro di
 `method` del 01/11 era fallito per un errore di rete. Le letture sono fatte su
 `origin` dopo un `git fetch` da `deck`, con le estrazioni in una cartella
-temporanea. Erano i sei adottanti di `world.md` a quella data (oggi sette, con
+temporanea. Erano i sei adottanti di `world.md` a quella data (oggi otto, con
 `nixos-lavoro` separato il 2026-11-04): `crm` è dismesso dal
-2026-10-22 e `abbinamenti`, atteso al suo posto, non è ancora entrato, quindi
-non c'è una baseline fondativa da dare.
+2026-10-22 e `abbinamenti`, atteso al suo posto, non era ancora entrato.
+È entrato il 2026-11-16 col nome `abbinatore`, fuori giro: le letture qui
+sotto lo precedono, e la sua baseline fondativa è nella fotografia delle
+code.
 
 ## Verdetto
 
@@ -109,6 +111,20 @@ in `baserow`; in `method` sono 17.
   `## Scadenze`: il timer vive in `o3/systemd`. Aperti il fronte deadlock (tre
   notti su cinque) e la crescita di audit log e row history a circa 37 MB al
   giorno.
+- **abbinatore** — baseline fondativa all'ingresso del 2026-11-16, contata
+  a mano con `ls` sul checkout di `svezia` a `9e1d48c`, uguale a `origin`:
+  11 commit dopo lo specimen pre-adozione `ad42082`, adozione integrale in
+  un passaggio con la root ristrutturata (corpo Django in `o3/`). Marker a
+  `9ccdb12`, `aligned`, senza prescrizioni aperte da esitare. Contenuto: 10
+  nodi `kb/`, 5 catture `i1/`, nessuna sintesi `i2/`, 2 fili `i3/` più il
+  marker, 3 task `o2/`: 2 runtime e 1 dev, tutti in attesa o pausa (il
+  trasloco sulle prove del custode, il rullo Konica su Alessio, l'uscita di
+  `legacy/` su `bi`). Skill: il quartetto forkato con `/cycle` e `/method`,
+  senza `/kb` né skill di dominio; strumenti dal canone con `--root .`, senza
+  fork. Nessun ciclo autonomo e nessun deck. Accento `#475569`, vista
+  `svezia:8004`, che esclude le fotografie di AWS (IP e accessi). Audit KB e
+  build delle viste puliti. Runtime ancora su AWS, gestito da Alessio: il
+  checkout non lo vede. Non c'è storia comparabile, quindi niente delta.
 
 **Conteggio degli esiti per stadio**
 (verdetto del custode nel filo [skill per arco](skill-per-arco-tripartito.md)). La fonte è
@@ -195,7 +211,12 @@ attrito.
   sui loro host con `--ssh` (criterio dal task `snellire-adottanti`, chiuso
   il 2026-11-12, in git);
 - `baserow`, verifica nell'uso: il fronte backup è chiuso, restano deadlock e
-  crescita dello storico, che sono coda di dominio.
+  crescita dello storico, che sono coda di dominio;
+- `abbinatore`, prima verifica nell'uso all'audit del 2026-12-01: il segnale
+  è lo stato del trasloco, dal suo task `o2/trasloco-svezia.md` e dal task
+  host `o2/abbinatore-host.md` di `nixos-lavoro`. Un servizio su `svezia`
+  con export uguale alla baseline chiude il primo tempo; senza ciclo
+  autonomo, il canale vive solo nelle sessioni col custode.
 
 ## Limiti
 

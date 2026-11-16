@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `method` ha due facce: i **sette progetti adottanti**, da cui
+Il Mondo runtime di `method` ha due facce: gli **otto progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -20,7 +20,7 @@ raggiungendoli.
 Su `deck` vivono solo i checkout dei repo di casa (`method`, `nixos`,
 `economia`, `salute`). Gli adottanti di lavoro non hanno un clone su
 `deck`: da lì si raggiungono via ssh sul checkout dichiarato, `ssh svezia`
-per `nixos-lavoro`, `bi` e `baserow`, `ssh danea2` (Windows, shell `cmd`)
+per `nixos-lavoro`, `bi`, `baserow` e `abbinatore`, `ssh danea2` (Windows, shell `cmd`)
 per `danea-auto` (decisione del custode del 2026-11-12, per non tenere copie
 secondarie da riallineare).
 
@@ -46,13 +46,16 @@ secondarie da riallineare).
   dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
   e contratto con `bi` — checkout `~/baserow` su `svezia`;
   accento `#0369a1`; vista `svezia:8003`
+- **[abbinatore](https://github.com/tt-sviluppo/abbinatore)** — App Django
+  delle compatibilità fra consumabili e modelli di stampante, con le
+  equivalenze rebrand, che alimenta il sito e `bi`; ereditata da Alessio,
+  in trasloco da AWS a `svezia` — checkout `~/abbinatore` su `svezia`;
+  accento `#475569`; vista `svezia:8004`
 
 `crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
 test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e
-viste compresi. Il repository GitHub resta; l'abbinatore passa a un nuovo
-adottante, l'`abbinatore`, in adozione su `svezia` dal 2026-11-16: entra
-nell'elenco col marker `aligned`, secondo il task
-[ingresso-abbinatore](o2/ingresso-abbinatore.md).
+viste compresi. Il repository GitHub resta; l'abbinatore è passato al nuovo
+adottante `abbinatore`, entrato il 2026-11-16.
 
 ## Superfici della membrana
 

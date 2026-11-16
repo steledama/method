@@ -153,9 +153,9 @@ suo.
 
 ## Costo del cambio
 
-Il nome `method` è nel symlink `method/` dei sette adottanti, nella skill
+Il nome `method` è nel symlink `method/` degli otto adottanti, nella skill
 `/method`, nel repository remoto e nei riferimenti del canone. Il cambio
-richiede una prescrizione ai sette e va fatto una volta sola, dopo la scelta
+richiede una prescrizione agli otto e va fatto una volta sola, dopo la scelta
 definitiva.
 
 ## Passi

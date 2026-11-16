@@ -5,7 +5,8 @@ ciclo: runtime
 # Il bootstrap nei sette adottanti
 
 Sintesi qualitativa del 2026-10-09 sui file di `origin` dei sette adottanti,
-letti dopo `git fetch` dai clone su `deck` al recepimento di `f0c9a9b`. Il
+letti dopo `git fetch` dai clone su `deck` al recepimento di `f0c9a9b`;
+`abbinatore`, entrato il 2026-11-16, è fuori dal suo perimetro. Il
 materiale per ogni repo è `README.md`, `CLAUDE.md`, `goal.md`, `world.md` e
 il nuovo `autonomy.md`. Le lunghezze sono misurate con `wc -l`; i giudizi
 derivano dalla lettura, non da una soglia quantitativa. La sintesi precedente,

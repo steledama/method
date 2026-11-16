@@ -33,7 +33,7 @@ Il 2026-11-13 il custode ha deciso:
 - la struttura di `o3/` resta com'è. Il problema era che gli strumenti non si
   trovavano: ora l'indice li registra tutti e l'audit lo verifica
   (`o3/kb_domain.py`). Spostare script o prescrizioni costerebbe una
-  prescrizione ai sette, perché i path sono lanciati dalle unità degli host,
+  prescrizione agli otto, perché i path sono lanciati dalle unità degli host,
   dai permessi dei giri e dalle skill degli adottanti.
 
 ## Passi

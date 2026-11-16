@@ -6,7 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
-- [ingresso-abbinatore.md](ingresso-abbinatore.md) — ingresso dell'abbinatore, ottavo adottante: specimen `ad42082`, accento `#475569`, baseline fondativa e candidati classificati; attende il marker `aligned` dell'adozione in `~/abbinatore`.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [chat-del-coordinatore.md](chat-del-coordinatore.md) — una chat nel sito di gruppo che apre sessioni ACP con Claude Code o Codex nella cartella di un repo, con approvazioni col diff e governo invariato; parte dal client della prova.

@@ -23,7 +23,7 @@ ogni modifica. La vista resta una, su `deck:8001`, raggiungibile da
 
 ## La domanda
 
-Il metodo oggi presuppone un custode solo, sette repo quasi tutti locali e
+Il metodo oggi presuppone un custode solo, otto repo quasi tutti locali e
 host che lui stesso configura. Che cosa va ripensato se chi lo adotta è
 qualcuno che il custode non conosce, con i propri host e i propri repo?
 
