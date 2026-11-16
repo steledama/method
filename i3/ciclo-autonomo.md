@@ -40,7 +40,10 @@ riletto contro le fonti.
   14/11 di `method` non lo ha letto: la sua voce di `world.md` va a capo fra
   cartella e host e `o3/adottanti.py` cercava riga per riga. Un buco di
   lettura, non uno stato dell'adottante, chiuso lo stesso giorno: il parser
-  legge la voce intera. L'andamento per
+  legge la voce intera. Ottavo dal 2026-11-16 `abbinatore` (`94bb023`), senza
+  ciclo autonomo: il suo `autonomy.md` (`9e1d48c` su
+  `svezia`) lo dichiara non attivo, e il canale vive solo nelle sessioni col
+  custode. L'andamento per
   gradini sta nel task del pilota, chiuso il 2026-11-12 (in git). Dall'08/11 cambia il meccanismo di
   `danea-auto`: parte dal lanciatore canonico di `method` (marker del repo,
   giro a mano `0624d2f`, timer dal 09/11). Anche `method` parte dal lanciatore

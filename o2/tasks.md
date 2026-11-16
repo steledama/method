@@ -11,5 +11,6 @@ In ordine di esecuzione; stato e decisioni vivono nel file del task.
 - [chat-del-coordinatore.md](chat-del-coordinatore.md) — una chat nel sito di gruppo che apre sessioni ACP con Claude Code o Codex nella cartella di un repo, con approvazioni col diff e governo invariato; parte dal client della prova.
 - [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, accanto a Buzz, o se serve un ingresso proprio: mappa degli strati e quattordici fattori di confronto fra le quattro soluzioni.
 - [coordinatore-di-gruppi.md](coordinatore-di-gruppi.md) — il metodo come coordinatore di gruppi di artefatti, un sito per gruppo (casa, lavoro) con viste e chat, e un ricordo SQLite fuori da git ad accesso dichiarato; proposta per il Goal da ratificare.
+- [dinieghi-backslash-e-parentesi.md](dinieghi-backslash-e-parentesi.md) — le classi `backslash`, senza segnale, e `parentesi`, ricorsa in `nixos` dopo il recepimento, chiedono una proposta da `o3/dinieghi.py`: riga in `cycle`, strumento o attrito contato.
 - [diffusione-oltre-custode-unico.md](diffusione-oltre-custode-unico.md) — che cosa cambia in pubblicazione delle viste e osservazione degli adottanti se il metodo esce dal custode unico; in pausa `p2`.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; in pausa `p1`.
