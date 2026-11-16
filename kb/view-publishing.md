@@ -119,7 +119,13 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   esempio un riavvio quando cambia l'impronta del codice di `o3/view/`
   rispetto a quella caricata, compresa quella di `o3/view/` del canone se il
   servitore viene da lì. Senza, una rotta nuova risponde 404 finché un
-  riavvio a mano non la porta in esercizio;
+  riavvio a mano non la porta in esercizio. Il riavvio che il servitore chiede
+  uscendo da sé non va affidato al solo riavvio-su-errore del supervisore
+  dell'host, che può non scattare: lo affianca un innesco periodico che
+  rilancia il servizio se non gira, come il controllo periodico affianca
+  l'innesco a evento. Su `danea2` un'uscita per builder cambiati ha lasciato
+  le viste ferme dal 13 al 16/11/2026 (`danea-auto`,
+  `i2/servizio-viste-fermo-2026-11-13.md`);
 - **verifica distinta dalla freschezza**: un audit controlla separatamente
   build e contratti sulle fonti, revisione servita rispetto al riferimento
   remoto aggiornato, raggiungibilità della porta. Hash uguali non provano un
