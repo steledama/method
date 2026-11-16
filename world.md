@@ -50,7 +50,9 @@ secondarie da riallineare).
 `crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
 test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e
 viste compresi. Il repository GitHub resta; l'abbinatore passa a un nuovo
-adottante atteso, `abbinamenti`.
+adottante, l'`abbinatore`, in adozione su `svezia` dal 2026-11-16: entra
+nell'elenco col marker `aligned`, secondo il task
+[ingresso-abbinatore](o2/ingresso-abbinatore.md).
 
 ## Superfici della membrana
 

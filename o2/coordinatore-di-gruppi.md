@@ -30,7 +30,7 @@ I gruppi di oggi sono due, separati e distinti:
 
 - **casa**: `nixos`, `salute`, `economia`;
 - **lavoro**: `nixos-lavoro`, `danea-auto` (Windows), `baserow`, `bi`, e
-  presto `abbinamenti`.
+  presto l'`abbinatore`, in adozione dal 2026-11-16.
 
 Nella mappa degli strati del task d'origine, il coordinatore occupa
 coordinazione e ingresso, dove il metodo oggi è debole, e lascia fermi
@@ -59,7 +59,7 @@ memoria e governo, dove è forte. L'harness resta esterno, raggiunto via ACP.
    - **casa**, su `deck`, coordina `nixos`, `salute` ed `economia`; nasce
      come repository della prova ACP;
    - **tt**, per il lavoro, coordina `nixos-lavoro`, `danea-auto`,
-     `baserow`, `bi` e `abbinamenti`; si apre se l'istanza casa regge.
+     `baserow`, `bi` e l'`abbinatore`; si apre se l'istanza casa regge.
 2. **Il sito di lavoro deve raggiungere `danea2`.** Un sito su `svezia` che
    fa lavorare anche `danea-auto` parla con un harness su Windows. ACP passa
    su standard input e output, quindi in linea di principio anche via ssh;

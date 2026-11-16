@@ -18,19 +18,23 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
 
-| Ciclo | Ob. | Task                                     | Dip. |
-| ----- | --- | ---------------------------------------- | ---- |
-| dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
-| dev   | S   | Nome del progetto                        | —    |
-| dev   | S   | Chat del coordinatore                    | —    |
-| dev   | S   | Integrazione con un runtime esistente    | —    |
-| dev   | S   | Coordinatore di gruppi                   | —    |
-| dev   | S   | Diffusione oltre il custode unico        | p2   |
-| dev   | S   | Traduzione in inglese                    | p1   |
+| Ciclo   | Ob. | Task                                     | Dip. |
+| ------- | --- | ---------------------------------------- | ---- |
+| runtime | 2   | Ingresso dell'abbinatore                 | w1   |
+| dev     | S   | Snellimento delle skill `eval` ed `exec` | —    |
+| dev     | S   | Nome del progetto                        | —    |
+| dev     | S   | Chat del coordinatore                    | —    |
+| dev     | S   | Integrazione con un runtime esistente    | —    |
+| dev     | S   | Coordinatore di gruppi                   | —    |
+| dev     | S   | Diffusione oltre il custode unico        | p2   |
+| dev     | S   | Traduzione in inglese                    | p1   |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
 riesame (`kb/plan.md`, «Risveglio»):
 
+- `w1` — adozione locale in `~/abbinatore` su `svezia`, condotta da una
+  sessione lì dallo specimen `ad42082`; si sblocca col marker `aligned`.
+  Vedi `o2/ingresso-abbinatore.md`; by: 2026-12-01
 - `p1` — custode, 2026-11-12: la traduzione aspetta la fine
   dell'osservazione del ciclo autonomo, per non mescolare il cambio di
   lingua ai `/method` degli adottanti; si riprende al riesame del filo
