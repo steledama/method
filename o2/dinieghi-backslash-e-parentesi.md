@@ -32,9 +32,10 @@ Letti nelle chiusure di `i1/giri/tentativi.jsonl` di `method` e `nixos`:
 - `parentesi`, `nixos`: `git log --since='7 days ago' --grep=^docs(ciclo)
 --format='%h %ad%n%b' --date=short` nel giro del 16/11, con la parentesi
   fuori dalle virgolette. Il segnale `de3fe56` è uno strumento di `method`,
-  `o3/ultimo_giro.py`; se `nixos` lo usi nel suo prompt non è verificato qui
-  (ipotesi: l'apertura del giro di `nixos` scrive ancora il `git log` a
-  mano).
+  `o3/ultimo_giro.py`, che legge l'ultimo giro e non i corpi della
+  settimana richiesti da `exec plan`. La congettura del 16/11
+  sull'apertura del giro è smentita dal comando stesso; riesame e
+  interpretazione stanno nel filo [ciclo autonomo](../i3/ciclo-autonomo.md).
 
 ## Alternative
 
@@ -43,10 +44,12 @@ Letti nelle chiusure di `i1/giri/tentativi.jsonl` di `method` e `nixos`:
    non quotata, con la forma che passa (argomento fra virgolette). È una
    modifica alla skill canonica, quindi proposta; arriva agli adottanti col
    loro `/method`.
-2. **Uno strumento.** `ultimo_giro.py` copre già l'apertura; si estende a
-   «eventi dall'ultimo giro» con formato fisso, così né `method` né gli
-   adottanti scrivono `git log` con formati da quotare. Per `nixos` serve
-   che il suo prompt lo chiami.
+2. **Uno strumento.** `ultimo_giro.py` copre già l'apertura; per eliminare
+   il comando contato serve una lettura dei corpi dei giri della settimana,
+   non solo degli eventi dall'ultimo giro. Un eventuale strumento deve
+   conservare quella finestra e i corpi, con formato fisso, e avere un
+   comando concesso nel fork dell'adottante. La correzione discende dal
+   riesame nel filo ciclo autonomo, non cambia la priorità della proposta.
 3. **Attrito contato.** Le due classi restano nel conteggio di
    `o3/dinieghi.py` senza proposta: costano un turno e il tentativo seguente
    riesce. Allora `SEGNALI` le marca come attrito noto, perché il giro non

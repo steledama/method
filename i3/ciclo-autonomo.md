@@ -78,8 +78,21 @@ riletto contro le fonti.
   completo disponibile parte da `1c9da16` dell'11/11 e registra il passaggio
   al repo pubblico in `2667016`. Questo spiega il limite di confronto con
   `e707d27`, senza smentire la chiusura già letta dal giro precedente.
-- **Affidabilità**: dal 2026-10-22 ogni giro partito per intero è riuscito
-  con commit e push, tranne uno: `method` il 2026-11-01, errore di rete
+- **Affidabilità**: il giro partito può interrompersi anche dopo gli atti.
+  In `salute` il 2026-11-17 il tentativo `88ccc640` parte alle 09:00:25 CET
+  e chiude alle 09:02:52 con errore di quota settimanale di Claude
+  (`usage_limit_reached`, HTTP 429), nessun commit e tree sporco.
+  La chiusura in `salute/i1/giri/tentativi.jsonl` registra
+  `tools_started: true` e «fallback blocked: partial acts or incomplete
+  evidence»: il secondo motore non ripete gli atti, ma la ripresa richiede
+  una sessione sul checkout. Nessun atto fuori delega è dimostrato da
+  questo errore, quindi non scatta la sospensione di `autonomy.md`.
+  Nello stesso giorno `economia`, tentativo `90a1443f` delle 14:00:25,
+  incontra la stessa quota prima dei tool (`tools_started: false`): passa
+  da Claude a Codex e chiude con `28558ae`, push riuscito e tree pulito.
+  È un fallback reale letto nella chiusura, non solo un collaudo; non
+  certifica il costo di Codex, che il provider non restituisce.
+  Resta il fallimento di `method` del 2026-11-01: errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
   pulito. Il 10/11 `economia` si ferma prima del giro per una sessione Codex
   aperta e ferma dalle 13:34 (`sessione-codex-attiva`, riga in
@@ -173,6 +186,15 @@ riletto contro le fonti.
   L'accettazione di `Skill(manutenzione)` su Claude Code 2.1.321 senza allow
   specifico è coerente con la semantica documentata; non prova un bypass.
   Nessun cambiamento a permessi, deleghe o obbligo di invocare i bracci.
+  Il filtro delle tendenze di `nixos` è negato nel giro del 17/11
+  (`e814da0`, tre tentativi jq nella chiusura `aac4f430`); il custode lo
+  sostituisce con `o3/ciclo/tendenze-giro.sh` in `0a81ffc`. Il prossimo
+  giro ne darà il riscontro. La congettura del giro di method del 16/11,
+  registrata impropriamente nel task dei dinieghi, attribuiva la parentesi
+  all'apertura del giro: è smentita dal comando citato, che legge invece
+  i corpi della settimana. `ultimo_giro.py` non sostituisce quella lettura;
+  la proposta residua è corretta in
+  [Dinieghi: backslash e parentesi](../o2/dinieghi-backslash-e-parentesi.md).
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto
