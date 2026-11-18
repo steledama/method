@@ -57,6 +57,40 @@ perimetro locale: la forma canonica non autorizza atti di dominio da sola.
 La conferma frequente dichiarata dal custode motiva la riduzione dell'attrito;
 la fedeltà delle ricostruzioni resta da verificare sulle fonti e a campione.
 
+## Delega e confine di esecuzione
+
+La delega dice **che cosa** l'agente è autorizzato a fare; il confine di
+esecuzione determina **quali capacità può effettivamente raggiungere**. Prompt,
+permessi e hook comunicano e controllano la delega, ma non dimostrano da soli
+un isolamento fisico. Un controllo a posteriori può rilevare un atto senza
+aver impedito una lettura o un'azione esterna. La sorveglianza degli esiti e
+il confine tecnico sono complementari.
+
+Per ogni esecuzione autonoma l'adottante valuta il rischio e rende espliciti:
+
+- dati, percorsi, servizi, rete e credenziali necessari e quelli esclusi;
+- meccanismo che limita le capacità, ambiente in cui opera, minacce considerate
+  e limiti noti; le istruzioni documentali non si presentano come isolamento;
+- evidenza riferita alla configurazione effettiva: prove di accesso diretto e
+  indiretto, processi esterni, shell, percorsi assoluti e collegamenti, file
+  creati dopo l'avvio, socket, rete e credenziali, secondo il rischio;
+- condizioni di avvio, arresto e riesame quando il confine cambia o una prova
+  fallisce. Un requisito non verificato resta tale, non diventa una garanzia.
+
+L'identità dedicata e uno spazio di lavoro separato sono una possibile
+implementazione, non un requisito universale: contano i dati e le capacità
+effettivamente raggiungibili, comprese quelle offerte da altri servizi.
+Una credenziale disponibile all'agente è una capacità dell'agente e va
+proporzionata alla delega. Isolare un processo senza isolare i servizi che può
+attivare può lasciare una via d'uscita. Il confine non protegge dall'host
+compromesso o da chi lo amministra, salvo garanzie ulteriori dichiarate.
+
+Il contratto è indipendente da sistema operativo e harness; ogni adottante e
+host scelgono e verificano l'attuazione adatta. Non richiede un checkout
+centralizzato di tutti gli adottanti né sempre un secondo checkout: ogni giro
+ha bisogno di uno spazio di lavoro coerente con il proprio confine. La scelta
+non amplia la delega e non abilita da sé un ciclo o un timer.
+
 Un checkout può essere anche una superficie servita: un timer, un cron o uno
 scheduler eseguono o pubblicano i suoi file, e allora commit, pull e push
 diventano rilasci o pubblicazioni. Di regola la delega del ciclo vale anche

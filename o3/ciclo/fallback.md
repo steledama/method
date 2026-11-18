@@ -7,6 +7,31 @@ one repository prompt, `o3/ciclo/prompt.md`, and one permission source,
 repository's existing delegation. Switching engine grants no additional
 authority.
 
+## Execution boundary and portability
+
+The host fence implements the execution-boundary contract in
+[`consent`](../../kb/consent.md); `--recinto` does not itself prove isolation.
+The launcher accepts a command and a stop command; it does not prove their
+isolation or that every externally launched process has stopped. The host
+must verify those properties for the actual configuration. A failed or
+unverified boundary must not be reported as ready for a run that depends on it.
+
+On 2026-11-18 the nixos session reported a test in which a unit sharing the
+operational user's identity started a second user unit outside its mount
+namespace and read a masked dummy file. It also reported that expanding
+`.env.*` at startup misses later files. These are host findings, not a test of
+every deployment. They invalidate the assumption that path masks and policy
+denies alone establish the required boundary in that configuration.
+
+A dedicated service identity, workspace and restricted credentials are one
+candidate; equivalent implementations may differ by OS. Before adopting
+separate identities or checkouts, verify launcher access to Git and protected
+configuration, lock and concurrent-session scope, trace ownership and integrity,
+termination of external processes, and both engines and fallback under the
+same boundary. The current launcher assumes visibility of the checkout and
+session evidence; separate homes or checkouts do not automatically preserve
+that assumption. This contract does not activate a host or timer.
+
 ## The repository chooses the engines (custodian, 2026-11-11)
 
 The method is agnostic about model and operating system, so the engine is a
