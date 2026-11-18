@@ -132,6 +132,43 @@ class WithoutAttempts(StateCase):
 
 
 class Routes(StateCase):
+    def test_fallback_uses_final_engine_for_every_stream_view(self):
+        close = {**OK, "engine": "codex"}
+        self.attempt("a", "2026-10-11T05:30:00+02:00", close, "Claude fallito")
+        events = [
+            {
+                "type": "assistant",
+                "message": {
+                    "content": [
+                        {"type": "tool_use", "name": "Bash", "input": {"command": "codex-action"}}
+                    ]
+                },
+            },
+            {
+                "type": "result",
+                "result": "Codex riuscito\nAttenzione: nessuna",
+                "permission_denials": [{"tool_input": {"command": "codex-denial"}}],
+            },
+        ]
+        stream = "".join(json.dumps(event) + "\n" for event in events)
+        (self.state / "giri" / f"{ident('a')}.codex.jsonl").write_text(stream)
+        self.assertEqual(self.colors(), [("verde", [])])
+        page = ciclo.respond(f"/_ciclo/{ident('a')}", self.state)[1].decode()
+        for value in ("Codex riuscito", "codex-action", "codex-denial", "engine", "codex"):
+            self.assertIn(value, page)
+        self.assertNotIn("Claude fallito", page)
+        self.assertIn(f"/{ciclo.PREFIX}{ident('a')}.jsonl", page)
+        self.assertEqual(
+            ciclo.respond(f"/_ciclo/{ident('a')}.jsonl", self.state)[1], stream.encode()
+        )
+
+    def test_missing_final_stream_does_not_show_failed_fallback(self):
+        self.attempt("a", "2026-10-11T05:30:00+02:00", {**OK, "engine": "codex"}, "Claude fallito")
+        self.assertEqual(self.colors()[0][0], "giallo")
+        page = ciclo.respond(f"/_ciclo/{ident('a')}", self.state)[1].decode()
+        self.assertNotIn("Claude fallito", page)
+        self.assertIsNone(ciclo.respond(f"/_ciclo/{ident('a')}.jsonl", self.state))
+
     def test_latest_and_attempt_page(self):
         self.attempt("a", "2026-10-11T05:30:00+02:00", OK, "# Giro\n\n- uno\n\nAttenzione: nessuna")
         kind, body = ciclo.respond("/_ciclo/ultimi.json", self.state)

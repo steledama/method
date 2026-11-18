@@ -177,8 +177,14 @@ def read_jsonl(path: Path) -> list[dict]:
     return records
 
 
-def stream_result(state: Path, attempt_id: str) -> dict | None:
-    path = state / "giri" / f"{attempt_id}.jsonl"
+def stream_path(state: Path, attempt: Attempt) -> Path:
+    """Lo stream del motore finale; i giri storici senza engine sono Claude."""
+    suffix = ".codex" if (attempt.close or {}).get("engine") == "codex" else ""
+    return state / "giri" / f"{attempt.id}{suffix}.jsonl"
+
+
+def stream_result(state: Path, attempt: Attempt) -> dict | None:
+    path = stream_path(state, attempt)
     if not path.is_file():
         return None
     results = [event for event in read_jsonl(path) if event.get("type") == "result"]
@@ -297,7 +303,7 @@ def judge(attempt: Attempt, state: Path, decision: dict, now: datetime) -> None:
     if close.get("commit") and not close.get("push"):
         attempt.color, attempt.reasons = "rosso", [label("no-push")]
         return
-    attempt.attention = attention_of(close, stream_result(state, attempt.id))
+    attempt.attention = attention_of(close, stream_result(state, attempt))
     reasons = []
     if not close.get("commit"):
         reasons.append(label("no-commit"))
@@ -501,8 +507,8 @@ def report_html(markdown: str) -> str:
     return "\n".join(parts)
 
 
-def actions_of(state: Path, attempt_id: str) -> list[str]:
-    path = state / "giri" / f"{attempt_id}.jsonl"
+def actions_of(state: Path, attempt: Attempt) -> list[str]:
+    path = stream_path(state, attempt)
     if not path.is_file():
         return []
     actions = []
@@ -544,7 +550,7 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
     keys = [
         "ts", "esito", "motivo", "head_prima", "head_dopo", "commit", "push",
         "oggetto", "tree_sporco_dopo", "permission_denials", "costo_usd", "turni",
-        "durata_ms",
+        "durata_ms", "engine",
         "exit_status", "service_result",
     ]  # fmt: skip
     meta = "".join(
@@ -552,7 +558,7 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
         for k in keys
         if k in record
     )
-    result = stream_result(state, attempt_id) or {}
+    result = stream_result(state, attempt) or {}
     sections = [
         (
             f'      <h1><span class="semaforo {attempt.color}" aria-hidden="true"></span>'
@@ -581,7 +587,7 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
     if result.get("result"):
         sections.append(f"      <h2>{label('report')}</h2>\n{report_html(result['result'])}")
     denials = result.get("permission_denials") or []
-    actions = actions_of(state, attempt_id)
+    actions = actions_of(state, attempt)
     if actions:
         items = "".join(f"<li><code>{html.escape(a)}</code></li>" for a in actions)
         sections.append(
@@ -593,7 +599,7 @@ def attempt_page(state: Path | None, attempt_id: str, unit: Path | None = None) 
             for d in denials
         )
         sections.append(f"      <h2>{label('denials')}</h2>\n      <ol>{items}</ol>")
-    if (state / "giri" / f"{attempt_id}.jsonl").is_file():
+    if stream_path(state, attempt).is_file():
         sections.append(f'      <p><a href="/{PREFIX}{attempt_id}.jsonl">{label("stream")}</a></p>')
     return page(f"{label('title')} {attempt.when[:16]}", "\n".join(sections))
 
@@ -606,7 +612,10 @@ def respond(path: str, state: Path | None, unit: Path | None = None) -> tuple[st
     if rest == "":
         return "text/html; charset=utf-8", list_page(state, unit)
     if rest.endswith(".jsonl") and state is not None and ID.match(rest[:-6]):
-        stream = state / "giri" / rest
+        attempt = next((a for a in load(state, unit=unit)["tentativi"] if a.id == rest[:-6]), None)
+        if attempt is None:
+            return None
+        stream = stream_path(state, attempt)
         return ("application/x-ndjson", stream.read_bytes()) if stream.is_file() else None
     body = attempt_page(state, rest, unit)
     return ("text/html; charset=utf-8", body) if body else None
