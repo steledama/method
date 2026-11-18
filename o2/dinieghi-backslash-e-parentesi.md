@@ -37,6 +37,15 @@ Letti nelle chiusure di `i1/giri/tentativi.jsonl` di `method` e `nixos`:
   sull'apertura del giro è smentita dal comando stesso; riesame e
   interpretazione stanno nel filo [ciclo autonomo](../i3/ciclo-autonomo.md).
 
+## Al giro del 18/11
+
+`o3/dinieghi.py` non chiede più una proposta per nessuna delle due:
+`backslash` non compare, perché il giro del 09/11 è uscito dagli ultimi
+dieci di `method` e resta il solo 15/11; `parentesi` è «recepito dopo e
+senza ricorrenze in method, nixos, salute: in osservazione». La decisione
+resta aperta, ma oggi coincide nei fatti con l'alternativa 3; un nuovo caso
+di una delle due classi la riporta allo stato del 16/11.
+
 ## Alternative
 
 1. **Una riga in `cycle`.** «Avvio» elenca già graffe, `for`, `$(…)`,

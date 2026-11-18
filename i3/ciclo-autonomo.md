@@ -86,7 +86,9 @@ riletto contro le fonti.
   `tools_started: true` e «fallback blocked: partial acts or incomplete
   evidence»: il secondo motore non ripete gli atti, ma la ripresa richiede
   una sessione sul checkout. Nessun atto fuori delega è dimostrato da
-  questo errore, quindi non scatta la sospensione di `autonomy.md`.
+  questo errore, quindi non scatta la sospensione di `autonomy.md`. La
+  ripresa c'è stata: il 18/11 il tentativo `f18e5f2b` parte da `566636c`,
+  chiude `riuscito` alle 09:05:26 con `4e23508` e push.
   Nello stesso giorno `economia`, tentativo `90a1443f` delle 14:00:25,
   incontra la stessa quota prima dei tool (`tools_started: false`): passa
   da Claude a Codex e chiude con `28558ae`, push riuscito e tree pulito.
@@ -188,13 +190,26 @@ riletto contro le fonti.
   Nessun cambiamento a permessi, deleghe o obbligo di invocare i bracci.
   Il filtro delle tendenze di `nixos` è negato nel giro del 17/11
   (`e814da0`, tre tentativi jq nella chiusura `aac4f430`); il custode lo
-  sostituisce con `o3/ciclo/tendenze-giro.sh` in `0a81ffc`. Il prossimo
-  giro ne darà il riscontro. La congettura del giro di method del 16/11,
+  sostituisce con `o3/ciclo/tendenze-giro.sh` in `0a81ffc`. Il giro del
+  18/11, con Codex, lo dichiara verificato (`556d689`, chiusura `58343cca`):
+  nessun diniego sul filtro, tre su `readlink` e `jq` di uno stato dell'host,
+  che restano al perceive di `nixos`. La congettura del giro di method del 16/11,
   registrata impropriamente nel task dei dinieghi, attribuiva la parentesi
   all'apertura del giro: è smentita dal comando citato, che legge invece
   i corpi della settimana. `ultimo_giro.py` non sostituisce quella lettura;
   la proposta residua è corretta in
   [Dinieghi: backslash e parentesi](../o2/dinieghi-backslash-e-parentesi.md).
+- **Confine di esecuzione**: permessi e deny dicono la delega, non provano
+  l'isolamento. Il custode lo fissa il 2026-11-18 in `15f4d3f`
+  ([consent](../kb/consent.md), «Delega e confine di esecuzione»;
+  `o3/ciclo/fallback.md`), su due riscontri della sessione `nixos`,
+  dichiarati e non riletti qui: un'unità con l'identità dell'utente ha
+  avviato un'unità utente fuori dal proprio mount namespace e ha letto un
+  file fittizio mascherato; `.env.*` espanso all'avvio non vede i file creati
+  dopo. Nessun atto fuori delega è dimostrato, ma una garanzia che il filo
+  dava per implicita, il recinto di `deck`, è ora un requisito da verificare
+  host per host. Per `method` su `deck` il confine non è ancora dichiarato
+  nella forma del contratto.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto
