@@ -12,6 +12,9 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 Una riga per segnale: lo stato e il seguito vivono nella cattura.
 
+- [Presentazioni annidate, oltre il «solo deck» di
+  presentation](presentazioni-annidate-salute-economia-2026-11-18.md) — da
+  `salute`, riscontrato in `economia`: due casi, due forme.
 - [Una pagina di dominio di primo livello non ha posto sulla home
   canonica](pagina-dominio-home-salute-2026-11-18.md) — da `salute`, un caso
   solo.
