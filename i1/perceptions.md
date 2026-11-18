@@ -12,6 +12,9 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 Una riga per segnale: lo stato e il seguito vivono nella cattura.
 
+- [Una pagina di dominio di primo livello non ha posto sulla home
+  canonica](pagina-dominio-home-salute-2026-11-18.md) — da `salute`, un caso
+  solo.
 - [Il giro Codex non espone Read per gli stati fuori
   checkout](ciclo-codex-read-2026-11-11.md) — da un giro a mano di `method`.
 - [Il minimo degli stadi misura la lettura, non il
