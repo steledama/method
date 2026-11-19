@@ -41,9 +41,12 @@ riletto contro le fonti.
   cartella e host e `o3/adottanti.py` cercava riga per riga. Un buco di
   lettura, non uno stato dell'adottante, chiuso lo stesso giorno: il parser
   legge la voce intera. Ottavo dal 2026-11-16 `abbinatore` (`94bb023`), senza
-  ciclo autonomo: il suo `autonomy.md` (`9e1d48c` su
-  `svezia`) lo dichiara non attivo, e il canale vive solo nelle sessioni col
-  custode. L'andamento per
+  ciclo autonomo attivo: dal 18/11 il suo `autonomy.md` (`9b7fee6` su
+  `svezia`) dichiara `ciclo-autonomo` al gradino 1, concordato col custode
+  e preparato, con Codex primo motore e Claude di fallback. Prima
+  dell'attivazione chiede sonda del recinto, verifica dei dinieghi sui dati e
+  un primo giro col custode; servizio e timer li registra `nixos`. Fino ad
+  allora il canale vive nelle sessioni col custode. L'andamento per
   gradini sta nel task del pilota, chiuso il 2026-11-12 (in git). Dall'08/11 cambia il meccanismo di
   `danea-auto`: parte dal lanciatore canonico di `method` (marker del repo,
   giro a mano `0624d2f`, timer dal 09/11). Anche `method` parte dal lanciatore

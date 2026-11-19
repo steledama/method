@@ -22,6 +22,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | ----- | --- | ---------------------------------------- | ---- |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev   | S   | Confine del giro                         | —    |
+| dev   | S   | Presentazione oltre il deck              | —    |
 | dev   | S   | Nome del progetto                        | —    |
 | dev   | S   | Chat del coordinatore                    | —    |
 | dev   | S   | Integrazione con un runtime esistente    | —    |

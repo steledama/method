@@ -53,3 +53,6 @@ Letti `origin/main` di `nixos`, `economia`, `salute` (locali) e `bi`,
 - Se un aggancio dichiarato in `project.py` è il punto giusto, o se basta
   che la home elenchi le pagine di primo livello che il builder di dominio
   dichiara di scrivere.
+
+Seguito: giro del 2026-11-19, decisione chiesta al custode nel task
+[presentazione oltre il deck](../o2/presentazione-oltre-il-deck.md).

@@ -63,3 +63,6 @@ Le due soluzioni divergono sul punto che un contratto dovrebbe fissare:
   chiedono cosa, oltre al deck, la home e la presentazione possano ospitare.
 
 Sono due casi, in due adottanti.
+
+Seguito: giro del 2026-11-19, decisione chiesta al custode nel task
+[presentazione oltre il deck](../o2/presentazione-oltre-il-deck.md).
