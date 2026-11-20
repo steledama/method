@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `method` ha due facce: gli **otto progetti adottanti**, da cui
+Il Mondo runtime di `method` ha due facce: i **nove progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -17,13 +17,18 @@ sono copie del registro `o3/presentations.nix` di `nixos` e, per
 `danea2`, del `world.md` di `danea-auto`: l'audit li verifica
 raggiungendoli.
 
-Su `deck` vivono solo i checkout dei repo di casa (`method`, `nixos`,
-`economia`, `salute`). Gli adottanti di lavoro non hanno un clone su
+Su `deck` vivono solo i checkout dei repo di casa (`method`, `casa`,
+`nixos`, `economia`, `salute`). Gli adottanti di lavoro non hanno un clone su
 `deck`: da lì si raggiungono via ssh sul checkout dichiarato, `ssh svezia`
 per `nixos-lavoro`, `bi`, `baserow` e `abbinatore`, `ssh danea2` (Windows, shell `cmd`)
 per `danea-auto` (decisione del custode del 2026-11-12, per non tenere copie
 secondarie da riallineare).
 
+- **[casa](https://github.com/steledama/casa)** — Istanza coordinatrice del
+  gruppo di casa (`nixos`, `salute`, `economia`), entrata il 2026-11-20 con la
+  delega minima: legge i membri, non li scrive, nessun ciclo autonomo —
+  checkout `~/casa` su `deck`; accento `#db2777`; vista `deck:8002/casa/`,
+  nel sito del gruppo casa
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
   `deck`; accento `#c2410c`; vista `deck:8002/nixos/`, nel sito del gruppo casa

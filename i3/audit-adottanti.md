@@ -10,7 +10,7 @@ ogni giro. Ultimo giro d'insieme: **2026-11-02**, quinto audit, un giorno
 dopo la scadenza: il ciclo autonomo non lancia `/adottanti` e il giro di
 `method` del 01/11 era fallito per un errore di rete. Le letture sono fatte su
 `origin` dopo un `git fetch` da `deck`, con le estrazioni in una cartella
-temporanea. Erano i sei adottanti di `world.md` a quella data (oggi otto, con
+temporanea. Erano i sei adottanti di `world.md` a quella data (oggi nove, con
 `nixos-lavoro` separato il 2026-11-04): `crm` è dismesso dal
 2026-10-22 e `abbinamenti`, atteso al suo posto, non era ancora entrato.
 È entrato il 2026-11-16 col nome `abbinatore`, fuori giro: le letture qui

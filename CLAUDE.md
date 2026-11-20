@@ -62,7 +62,7 @@ qui (`method` fa dogfooding ed è la copia canonica di riferimento):
 
 Skill di dominio (il Mondo runtime di `method` sono gli adottanti; non si forka):
 
-- `/adottanti` — audit runtime-o1 mensile degli otto adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
+- `/adottanti` — audit runtime-o1 mensile dei nove adottanti: canale del canone e distanza dal telos, esiti nel filo `i3/audit-adottanti.md`
 
 Le skill sono interfacce sugli strumenti versionati, non documentazione: cfr.
 [skill](kb/skill.md). Gli adottanti le forkano e le parametrizzano.
