@@ -12,6 +12,10 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 Una riga per segnale: lo stato e il seguito vivono nella cattura.
 
+- [Casi della delega: il passaggio dell'abbinatore a
+  `svezia`](casi-delega-abbinatore-2026-11-20.md) — da `abbinatore`, due
+  casi: verifica a campione riferita come completa, stallo fra sessioni
+  Herdr.
 - [Presentazioni annidate, oltre il «solo deck» di
   presentation](presentazioni-annidate-salute-economia-2026-11-18.md) — da
   `salute`, riscontrato in `economia`: due casi, due forme.
