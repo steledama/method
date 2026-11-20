@@ -69,7 +69,9 @@ del confine. La divergenza è dichiarata nel marker
   sposterebbe all'host, lasciando all'adottante dati, capacità ed esclusioni.
 - Per `method` su `deck` il confine non è ancora dichiarato nella forma del
   contratto (filo, «Confine di esecuzione»): la proposta 3 tocca anche lui.
-- Copertura del filo: `salute` esce dal ciclo autonomo il 2026-11-20; finché
-  `nixos` non toglie l'unità, il timer delle 9 può ancora partire su un
-  checkout senza `o3/ciclo/`. Non verificato qui.
+- Copertura del filo: `salute` esce dal ciclo autonomo il 2026-11-20.
+  `nixos` ritira l'unità `ciclo-salute` in `9ebc6f7` (su `origin/main`);
+  su `deck` non c'è più un timer del giro di `salute`, verificato con
+  `systemctl list-timers` il 2026-11-20 (resta il timer della
+  pubblicazione della presentazione).
 - Un caso solo, ma con decisione del custode già attuata.
