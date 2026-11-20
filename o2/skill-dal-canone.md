@@ -40,6 +40,14 @@ copie, ora sono canone e il repo tiene solo `o3/view/project.py`
 - gli strumenti che oggi leggono il `world.md` di `method` (`o3/adottanti.py`,
   `o3/dinieghi.py`) accettano una radice, come `build.py --root`.
 
+## Evidenze dagli adottanti
+
+- `casa`, 2026-11-20 (commit `feb28cf`, segnalato via Herdr): la `/commit`
+  forkata chiude col push «autorizzato in `CLAUDE.md`, "Push remoto"», ma
+  l'istanza non ha un remote e il passo non si applica. È un parametro del
+  repo (remote sì o no, push autorizzato o no) che la skill canonica deve
+  leggere, non testo da riscrivere nel fork.
+
 ## Relazioni
 
 - [snellimento-skill](snellimento-skill.md): i tagli a `eval` ed `exec`
