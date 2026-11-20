@@ -130,6 +130,23 @@ d'avvio dove `autonomy.md` lo riserva al custode.
   aperto fino al 27/10 circa; per il canone resta un caso singolo, in
   linea con [consent](../kb/consent.md): chiedere sul confine, poi allargare
   il criterio coi casi.
+- **Una lettura a campione riferita come completa** (`abbinatore`, primo
+  inoltro, [cattura](../i1/casi-delega-abbinatore-2026-11-20.md), caso 1):
+  in sessione, prima di un via libera riservato al custode, l'agente
+  riferisce che 19 righe di un diff «aggiungono solo» un modello, avendone
+  lette le prime; il confronto per articolo di `bi` ne trova 11 con altri
+  modelli. Intercettato da un'altra sessione prima dell'atto, nessun danno.
+  La questione dell'adottante (trattare «solo», «tutte», «nessuna» come i
+  «quindi» di [interpret](../kb/interpret.md)) tocca un riferito in chat,
+  fuori dalla superficie che il nodo controlla. Per il canone resta un caso
+  singolo; è un candidato per il filo
+  [verdetto più sicuro del materiale](../i3/verdetto-piu-sicuro-del-materiale.md).
+- **Due sessioni Herdr che si aspettano a vicenda** (`abbinatore`, stessa
+  cattura, caso 2): ciascuna attende l'inattività dell'altra, stallo sciolto
+  dal custode. [session-messaging](../kb/session-messaging.md) non tratta il
+  destinatario `working`; la proposta dell'adottante (leggere il pannello del
+  destinatario prima di attendere) è un'ipotesi da un caso solo, senza
+  modifica al nodo finché un secondo stallo non la conferma.
 
 ## Ipotesi in attesa
 
@@ -145,5 +162,12 @@ d'avvio dove `autonomy.md` lo riserva al custode.
   `autonomy.md` su `origin`. La smentisce un atto del ciclo su un checkout
   servito che il custode giudica da riservare senza che un'eccezione lo
   nominasse; la rafforza un mese di cicli senza casi di quel tipo.
+  **Riesame** (giro del 2026-11-20, sul riesame scaduto al 01/11): l'audit
+  del 2026-11-02 non ha trovato casi nuovi dal 19/10
+  ([audit-adottanti](../i3/audit-adottanti.md), «Casi della delega»), e i
+  casi arrivati dopo (`abbinatore`, 20/11) non riguardano un checkout
+  servito. Rafforzata sul criterio dei casi; le eccezioni nei sette
+  `autonomy.md` non sono state rilette. Prossimo riesame all'audit del
+  2026-12-01.
 - I temi di un solo adottante si riesaminano allo stesso audit; senza un
   secondo adottante restano adattamenti locali.

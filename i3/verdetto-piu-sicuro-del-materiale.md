@@ -23,7 +23,16 @@ direzione, verso la lettura più raccontabile — è nel nodo e in git.
   che si appoggia a materiale già verificato, e non la sintesi che ne ricava
   una tesi nuova. Un secondo episodio in un altro adottante deciderebbe se è
   una qualificazione da incidere in `goal`/`agent` o una proprietà locale
-  dei domini a bassa delegabilità.
+  dei domini a bassa delegabilità. Candidato, 2026-11-20, in `abbinatore`
+  ([cattura](../i1/casi-delega-abbinatore-2026-11-20.md), caso 1):
+  un confronto letto a campione riferito come completo («le 19 righe
+  aggiungono solo…»), cioè una tesi oltre il materiale letto, nella stessa
+  direzione della storia più pulita. Differisce in due punti: è un riferito
+  in sessione, non una ricostruzione di un giro, e l'ha intercettato il
+  controllo incrociato di un'altra sessione prima dell'atto, non un umano
+  per caso. Se valga come secondo episodio lo decide il custode; lo
+  indebolirebbe una lettura dell'adottante che attribuisca l'errore alla
+  fretta del passaggio e non alla generalizzazione.
 - **Le ritrattazioni.** In `economia` un artefatto locale registra le
   previsioni sbagliate come antidoto alla presunzione. È una sola istanza:
   sale a canone se un secondo adottante la sviluppa da sé.

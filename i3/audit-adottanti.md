@@ -216,7 +216,11 @@ attrito.
   è lo stato del trasloco, dal suo task `o2/trasloco-svezia.md` e dal task
   host `o2/abbinatore-host.md` di `nixos-lavoro`. Un servizio su `svezia`
   con export uguale alla baseline chiude il primo tempo; senza ciclo
-  autonomo, il canale vive solo nelle sessioni col custode.
+  autonomo, il canale vive solo nelle sessioni col custode. Il 2026-11-20
+  i commit dichiarano l'export atomico in esercizio su `svezia` e il task
+  chiuso (`abbinatore` `c886f6e`, `nixos-lavoro` `6cc901a`) e `bi` legge gli
+  abbinamenti da lì (`0c33ae35`): dichiarato, non riletto qui; il confronto
+  con la baseline resta all'audit.
 
 ## Limiti
 

@@ -97,6 +97,11 @@ riletto contro le fonti.
   da Claude a Codex e chiude con `28558ae`, push riuscito e tree pulito.
   È un fallback reale letto nella chiusura, non solo un collaudo; non
   certifica il costo di Codex, che il provider non restituisce.
+  Il 2026-11-20 in `nixos-lavoro` un giro a mano si interrompe alle 12:40
+  e la sessione col custode ne recupera il lavoro documentale, riletto e
+  fatto proprio (`50c3024` su `origin` di `svezia`, `Autonomia: agente`,
+  impatto basso); il giro schedulato delle 04:30 era riuscito (`e272eff`).
+  Causa dell'interruzione non letta: il tentativo sta su `svezia`.
   Resta il fallimento di `method` del 2026-11-01: errore di rete
   dell'API (`EAI_AGAIN`) dopo 15 turni, visibile in `tentativi.jsonl`, tree
   pulito. Il 10/11 `economia` si ferma prima del giro per una sessione Codex
