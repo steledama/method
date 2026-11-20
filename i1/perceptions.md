@@ -12,6 +12,10 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 Una riga per segnale: lo stato e il seguito vivono nella cattura.
 
+- [Ciclo autonomo ritirato in `salute` per il costo del
+  confine](ciclo-autonomo-ritirato-salute-2026-11-20.md) — da `salute`:
+  primo ritiro di un gradino, per scelta del custode; proposte sul Goal di
+  sviluppo e su un contratto del confine neutro rispetto all'host.
 - [Casi della delega: il passaggio dell'abbinatore a
   `svezia`](casi-delega-abbinatore-2026-11-20.md) — da `abbinatore`, due
   casi: verifica a campione riferita come completa, stallo fra sessioni
