@@ -20,9 +20,10 @@ rispetto al valore del giro
 ([cattura](../i1/ciclo-autonomo-ritirato-salute-2026-11-20.md)). Lo stesso
 giorno, per lo stesso motivo, il custode ritira anche i giri di `method` ed
 `economia`: su una postazione di casa privacy e minimalismo prevalgono
-(`nixos` `f2e10a7`, unità tolte; `autonomy.md`, «Niente ciclo autonomo»). Su
-`deck` resta il solo `ciclo-nixos`, che usa il lanciatore canonico dal
-checkout di `method`. La domanda diventa anche _per quali_ repo il gradino
+(`nixos` `f2e10a7`, unità tolte; `autonomy.md`, «Niente ciclo autonomo»), e
+poi quello di `nixos` (`c3c3607`, `o3/cicli.nix` vuoto): a casa non gira più
+alcun giro senza custode. Il ciclo autonomo resta negli adottanti fuori casa,
+con `danea-auto` sul lanciatore canonico di `method`. La domanda diventa anche _per quali_ repo il gradino
 vale: `method` ne custodisce il canone senza esercitarlo.
 
 ## La scommessa

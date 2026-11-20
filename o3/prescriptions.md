@@ -53,8 +53,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
 - `lanciatore.py` — il lanciatore canonico del ciclo autonomo: controlli, pull,
   avvio dell'agente coi tetti, righe di `partenza` e `chiusura` in `i1/giri/`;
   `--controlli` è in sola lettura. Osservabilità e contratto di fallback:
-  [engine fallback](ciclo/fallback.md). In uso dal timer di method dal 09/11
-  e in `danea-auto` su Windows. Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
+  [engine fallback](ciclo/fallback.md). In uso in `danea-auto` su Windows; su
+  `deck` nessuna unità lo esegue dal 2026-11-20 (`nixos` `c3c3607`). Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
 - `esecutore_codex.py` — l'esecutore canonico di Codex per il lanciatore:
   traduce permessi e hook del giro in un hook `PreToolUse` di Codex e
   normalizza i suoi eventi. Test: `python3 -m unittest discover -s tests -p 'test_esecutore_codex.py'`.
