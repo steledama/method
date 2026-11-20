@@ -92,13 +92,20 @@ durevole.
 
 ## Passi
 
-1. Un server minimo per `casa`, su `localhost`: la pagina della chat,
-   gli aggiornamenti della sessione verso il browser e le risposte ai
-   permessi verso l'adattatore.
-2. La scelta del repo fra quelli del `world.md` dell'istanza, e
-   dell'harness.
+1. ~~Un server minimo per `casa`, su `localhost`~~ fatto il 2026-11-20:
+   `o3/chat/serve.py --istanza ~/casa`, porta 8100, con `acp.py` e
+   `chat.html`. Eventi in Server-Sent Events, permessi in attesa del
+   custode col diff, modi dichiarati dall'adattatore, interruzione e
+   chiusura; presidi su `Host` e `Origin` contro le pagine di altri siti.
+   Provato dal vivo con `claude-agent-acp` 0.107.0 in `casa`: sessione,
+   modi, risposta in streaming, `end_turn`.
+2. ~~La scelta del repo e dell'harness~~ fatto il 2026-11-20: l'istanza e i
+   membri di `## Membri` con un checkout accanto all'istanza.
 3. Le due differenze dell'harness.
-4. Il rapporto col sito delle viste: stesso server o due servizi.
+4. Il rapporto col sito delle viste: per ora due servizi, perché le viste
+   stanno sulle reti private senza autenticazione e la chat resta su
+   loopback; si uniscono dopo il passo 5. Il codice sta già accanto, nel
+   canone.
 5. L'accesso: autenticazione, poi l'esposizione sulle reti private.
 6. Un `/cycle` intero da chat, dopo la parametrizzazione delle skill di
    `casa`.

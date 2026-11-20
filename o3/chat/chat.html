@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat del gruppo</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --ink: #1f2937;
+        --muted: #6b7280;
+        --bg: #f9fafb;
+        --card: #ffffff;
+        --line: #e5e7eb;
+        --accent: #db2777;
+        --add: #dcfce7;
+        --del: #fee2e2;
+        --warn: #fef3c7;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #e5e7eb;
+          --muted: #9ca3af;
+          --bg: #111827;
+          --card: #1f2937;
+          --line: #374151;
+          --add: #14532d;
+          --del: #7f1d1d;
+          --warn: #78350f;
+        }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, sans-serif; }
+      header { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .75rem 1rem; border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; z-index: 1; }
+      header h1 { font-size: 1rem; margin: 0 .5rem 0 0; }
+      select, button, textarea { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: .35rem .6rem; }
+      button { cursor: pointer; }
+      button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+      button:disabled { opacity: .5; cursor: default; }
+      .spacer { flex: 1; }
+      .stato { color: var(--muted); font-size: .85rem; }
+      main { max-width: 52rem; margin: 0 auto; padding: 1rem 1rem 9rem; display: grid; gap: .6rem; }
+      .ev { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .8rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+      .utente { border-left: 4px solid var(--accent); }
+      .pensiero { color: var(--muted); font-style: italic; }
+      .strumento summary { cursor: pointer; }
+      .strumento .st { font-size: .8rem; color: var(--muted); margin-left: .4rem; }
+      .strumento pre, .permesso pre { white-space: pre-wrap; font-size: .82rem; margin: .4rem 0 0; max-height: 24rem; overflow: auto; }
+      .permesso { background: var(--warn); }
+      .permesso .opzioni { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+      .diff { font: .82rem/1.4 ui-monospace, monospace; margin-top: .4rem; border: 1px solid var(--line); border-radius: 6px; overflow: auto; max-height: 28rem; }
+      .diff div { white-space: pre; padding: 0 .4rem; }
+      .diff .a { background: var(--add); }
+      .diff .d { background: var(--del); }
+      .diff .p { font-weight: 600; background: var(--line); }
+      .piano ol { margin: .2rem 0 0 1.2rem; padding: 0; }
+      .piano .completed { text-decoration: line-through; color: var(--muted); }
+      .piano .in_progress { font-weight: 600; }
+      .meta { color: var(--muted); font-size: .85rem; white-space: normal; }
+      footer { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); border-top: 1px solid var(--line); padding: .6rem 1rem; }
+      footer form { max-width: 52rem; margin: 0 auto; display: flex; gap: .5rem; align-items: flex-end; }
+      footer textarea { flex: 1; min-height: 2.6rem; max-height: 12rem; resize: vertical; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="titolo">Chat</h1>
+      <select id="repo" aria-label="Repo"></select>
+      <select id="harness" aria-label="Harness"></select>
+      <button id="apri" class="primary">Apri sessione</button>
+      <select id="sessioni" aria-label="Sessioni aperte"></select>
+      <span class="spacer"></span>
+      <select id="modo" aria-label="Modo di permesso" disabled></select>
+      <button id="annulla" disabled>Interrompi</button>
+      <button id="chiudi" disabled>Chiudi</button>
+      <span id="stato" class="stato">nessuna sessione</span>
+    </header>
+    <main id="flusso"></main>
+    <footer>
+      <form id="form">
+        <textarea id="testo" placeholder="Scrivi all'agente… (Ctrl+Invio per inviare)" disabled></textarea>
+        <button id="invia" class="primary" disabled>Invia</button>
+      </form>
+    </footer>
+    <script>
+      "use strict";
+      const $ = (id) => document.getElementById(id);
+      const flusso = $("flusso");
+      let corrente = null; // {id, sorgente, ultimo, inTurno}
+      let ultimoTesto = null; // il blocco a cui si accodano i frammenti dei messaggi
+      const strumenti = new Map();
+
+      function el(tag, classe, testo) {
+        const e = document.createElement(tag);
+        if (classe) e.className = classe;
+        if (testo !== undefined) e.textContent = testo;
+        return e;
+      }
+      function aggiungi(e) {
+        const giu = window.innerHeight + window.scrollY >= document.body.scrollHeight - 80;
+        flusso.append(e);
+        if (giu) window.scrollTo(0, document.body.scrollHeight);
+        return e;
+      }
+      async function chiama(path, dati) {
+        const r = await fetch(path, {
+          method: dati === undefined ? "GET" : "POST",
+          headers: dati === undefined ? {} : { "Content-Type": "application/json" },
+          body: dati === undefined ? undefined : JSON.stringify(dati),
+        });
+        const corpo = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error(corpo.errore || r.statusText);
+        return corpo;
+      }
+      function stato(testo) { $("stato").textContent = testo; }
+      function comandi() {
+        const viva = corrente && !corrente.chiusa;
+        $("testo").disabled = $("invia").disabled = !viva || corrente.inTurno;
+        $("annulla").disabled = !viva || !corrente.inTurno;
+        $("chiudi").disabled = !viva;
+        $("modo").disabled = !viva || $("modo").options.length === 0;
+      }
+
+      // --- diff a righe, per le modifiche proposte -----------------------------
+      function diffRighe(vecchio, nuovo) {
+        const a = (vecchio || "").split("\n"), b = (nuovo || "").split("\n");
+        if (a.length * b.length > 4e6) return [...a.map((r) => ["d", r]), ...b.map((r) => ["a", r])];
+        const m = a.length, n = b.length, t = Array.from({ length: m + 1 }, () => new Uint32Array(n + 1));
+        for (let i = m - 1; i >= 0; i--) for (let j = n - 1; j >= 0; j--)
+          t[i][j] = a[i] === b[j] ? t[i + 1][j + 1] + 1 : Math.max(t[i + 1][j], t[i][j + 1]);
+        const out = [];
+        let i = 0, j = 0;
+        while (i < m && j < n) {
+          if (a[i] === b[j]) { out.push([" ", a[i]]); i++; j++; }
+          else if (t[i + 1][j] >= t[i][j + 1]) out.push(["d", a[i++]]);
+          else out.push(["a", b[j++]]);
+        }
+        while (i < m) out.push(["d", a[i++]]);
+        while (j < n) out.push(["a", b[j++]]);
+        return out;
+      }
+      function blocchiDiff(righe, contesto = 3) {
+        const tieni = righe.map(() => false);
+        righe.forEach(([k], x) => { if (k !== " ") for (let y = Math.max(0, x - contesto); y <= Math.min(righe.length - 1, x + contesto); y++) tieni[y] = true; });
+        const out = [];
+        let salto = false;
+        righe.forEach((r, x) => { if (tieni[x]) { out.push(r); salto = false; } else if (!salto) { out.push(["p", "…"]); salto = true; } });
+        return out;
+      }
+      function rendiContenuto(contenitore, contenuto) {
+        for (const c of contenuto || []) {
+          if (c.type === "diff") {
+            const box = el("div", "diff");
+            box.append(el("div", "p", c.path || ""));
+            for (const [k, r] of blocchiDiff(diffRighe(c.oldText, c.newText)))
+              box.append(el("div", k === "a" ? "a" : k === "d" ? "d" : k === "p" ? "p" : "", (k === "a" ? "+ " : k === "d" ? "- " : k === "p" ? "" : "  ") + r));
+            contenitore.append(box);
+          } else if (c.type === "content" && c.content && c.content.type === "text") {
+            contenitore.append(el("pre", "", c.content.text));
+          } else if (c.type === "terminal") {
+            contenitore.append(el("pre", "", "terminale " + c.terminalId));
+          }
+        }
+      }
+
+      // --- eventi della sessione -------------------------------------------------
+      function testoDi(contenuto) {
+        return contenuto && contenuto.type === "text" ? contenuto.text : "";
+      }
+      function accoda(tipo, testo) {
+        if (!ultimoTesto || ultimoTesto.dataset.tipo !== tipo) {
+          ultimoTesto = aggiungi(el("div", "ev " + (tipo === "pensiero" ? "pensiero" : "agente")));
+          ultimoTesto.dataset.tipo = tipo;
+        }
+        ultimoTesto.textContent += testo;
+      }
+      function strumento(u) {
+        let s = strumenti.get(u.toolCallId);
+        if (!s) {
+          const box = el("details", "ev strumento");
+          const sommario = el("summary");
+          box.append(sommario);
+          s = { box, sommario, corpo: el("div"), dati: {} };
+          box.append(s.corpo);
+          strumenti.set(u.toolCallId, s);
+          aggiungi(box);
+          ultimoTesto = null;
+        }
+        Object.assign(s.dati, Object.fromEntries(Object.entries(u).filter(([, v]) => v !== undefined && v !== null)));
+        s.sommario.textContent = s.dati.title || s.dati.kind || "strumento";
+        s.sommario.append(el("span", "st", s.dati.status || ""));
+        s.corpo.textContent = "";
+        if (s.dati.rawInput) s.corpo.append(el("pre", "", JSON.stringify(s.dati.rawInput, null, 2)));
+        rendiContenuto(s.corpo, s.dati.content);
+      }
+      let ultimoPiano = null;
+      function piano(u) {
+        // Il piano si aggiorna sul posto finché non arriva altro dopo di lui.
+        let box = ultimoPiano;
+        if (!box || box !== flusso.lastElementChild) { box = ultimoPiano = aggiungi(el("div", "ev piano")); ultimoTesto = null; }
+        box.textContent = "";
+        box.append(el("strong", "", "Piano"));
+        const ol = el("ol");
+        for (const voce of u.entries || []) ol.append(el("li", voce.status, voce.content));
+        box.append(ol);
+      }
+      function permesso(e) {
+        ultimoTesto = null;
+        const box = aggiungi(el("div", "ev permesso"));
+        box.id = "permesso-" + e.id;
+        const tc = e.toolCall || {};
+        box.append(el("strong", "", "Permesso richiesto: " + (tc.title || tc.kind || "strumento")));
+        if (tc.rawInput) box.append(el("pre", "", JSON.stringify(tc.rawInput, null, 2)));
+        rendiContenuto(box, tc.content);
+        const opzioni = el("div", "opzioni");
+        for (const o of e.options || []) {
+          const b = el("button", o.kind && o.kind.startsWith("allow") ? "primary" : "", o.name || o.optionId);
+          b.onclick = () => chiama(`/sessioni/${corrente.id}/permesso`, { id: e.id, optionId: o.optionId }).catch((x) => stato(x.message));
+          opzioni.append(b);
+        }
+        box.append(opzioni);
+      }
+      function modi(lista, scelto) {
+        const s = $("modo");
+        s.textContent = "";
+        for (const m of lista) { const o = el("option", "", m.name || m.id); o.value = m.id; o.title = m.description || ""; s.append(o); }
+        if (scelto) s.value = scelto;
+      }
+      function evento(e) {
+        if (e.n <= corrente.ultimo) return;
+        corrente.ultimo = e.n;
+        switch (e.tipo) {
+          case "aperta":
+            modi(e.modi || [], e.modo);
+            aggiungi(el("div", "ev meta", `Sessione ${e.harness} aperta in ${e.repo}.`));
+            stato("pronta");
+            break;
+          case "utente":
+            ultimoTesto = null;
+            aggiungi(el("div", "ev utente", e.testo));
+            corrente.inTurno = true;
+            stato("l'agente lavora…");
+            break;
+          case "update": {
+            const u = e.update || {};
+            switch (u.sessionUpdate) {
+              case "agent_message_chunk": accoda("agente", testoDi(u.content)); break;
+              case "agent_thought_chunk": accoda("pensiero", testoDi(u.content)); break;
+              case "tool_call": case "tool_call_update": strumento(u); break;
+              case "plan": piano(u); break;
+              case "current_mode_update": $("modo").value = u.currentModeId; break;
+            }
+            break;
+          }
+          case "permesso": permesso(e); stato("in attesa di un permesso"); break;
+          case "permesso-chiuso": {
+            const box = $("permesso-" + e.id);
+            if (box) { box.querySelector(".opzioni")?.remove(); box.append(el("div", "meta", e.optionId ? "Risposta: " + e.optionId : "Annullato")); }
+            stato("l'agente lavora…");
+            break;
+          }
+          case "fine-turno":
+            ultimoTesto = null;
+            corrente.inTurno = false;
+            if (e.errore) aggiungi(el("div", "ev meta", "Errore: " + e.errore));
+            stato(e.errore ? "turno fallito" : "pronta (" + (e.stopReason || "fine") + ")");
+            break;
+          case "chiusa":
+            corrente.chiusa = true;
+            aggiungi(el("div", "ev meta", "Sessione chiusa: " + e.motivo));
+            stato("chiusa");
+            corrente.sorgente.close();
+            break;
+        }
+        comandi();
+      }
+      function segui(id) {
+        if (corrente) corrente.sorgente.close();
+        flusso.textContent = "";
+        strumenti.clear();
+        ultimoTesto = null;
+        $("modo").textContent = "";
+        const sorgente = new EventSource(`/sessioni/${id}/eventi?da=0`);
+        corrente = { id, sorgente, ultimo: -1, inTurno: false, chiusa: false };
+        sorgente.onmessage = (m) => evento(JSON.parse(m.data));
+        sorgente.onerror = () => { if (!corrente.chiusa) stato("connessione persa, riprovo…"); };
+        $("sessioni").value = id;
+        comandi();
+      }
+
+      // --- comandi della pagina --------------------------------------------------
+      async function elencoSessioni() {
+        const lista = await chiama("/sessioni");
+        const s = $("sessioni");
+        s.textContent = "";
+        s.append(el("option", "", lista.length ? "sessioni aperte…" : "nessuna sessione aperta"));
+        s.firstChild.value = "";
+        for (const x of lista) { const o = el("option", "", `${x.repo} · ${x.harness}${x.chiusa ? " (chiusa)" : ""}`); o.value = x.id; s.append(o); }
+        if (corrente) s.value = corrente.id;
+      }
+      $("apri").onclick = async () => {
+        $("apri").disabled = true;
+        stato("apro la sessione…");
+        try {
+          const { id } = await chiama("/sessioni", { repo: $("repo").value, harness: $("harness").value });
+          await elencoSessioni();
+          segui(id);
+        } catch (x) { stato(x.message); }
+        $("apri").disabled = false;
+      };
+      $("sessioni").onchange = () => { if ($("sessioni").value) segui($("sessioni").value); };
+      $("modo").onchange = () => chiama(`/sessioni/${corrente.id}/modo`, { modo: $("modo").value }).catch((x) => stato(x.message));
+      $("annulla").onclick = () => chiama(`/sessioni/${corrente.id}/annulla`, {}).catch((x) => stato(x.message));
+      $("chiudi").onclick = () => chiama(`/sessioni/${corrente.id}/chiudi`, {}).then(elencoSessioni).catch((x) => stato(x.message));
+      $("form").onsubmit = async (ev) => {
+        ev.preventDefault();
+        const testo = $("testo").value.trim();
+        if (!testo || !corrente) return;
+        try { await chiama(`/sessioni/${corrente.id}/prompt`, { testo }); $("testo").value = ""; }
+        catch (x) { stato(x.message); }
+      };
+      $("testo").onkeydown = (ev) => { if (ev.key === "Enter" && (ev.ctrlKey || ev.metaKey)) $("form").requestSubmit(); };
+
+      (async () => {
+        const info = await chiama("/repo");
+        $("titolo").textContent = "Chat del gruppo " + info.istanza;
+        document.title = $("titolo").textContent;
+        for (const r of info.repo) { const o = el("option", "", r); o.value = r; $("repo").append(o); }
+        for (const h of info.harness) { const o = el("option", "", h); o.value = h; $("harness").append(o); }
+        await elencoSessioni();
+      })().catch((x) => stato(x.message));
+    </script>
+  </body>
+</html>

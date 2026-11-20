@@ -90,7 +90,19 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   - `prova_acp.py` — il client ACP della prova del 2026-11-14: lancia
     `claude-agent-acp` o `codex-acp` in una cartella, manda prompt scritti in
     anticipo e risponde alle richieste di permesso, con un log JSON Lines.
-    Senza test, perché parla con un adattatore esterno.
+    Senza test, perché parla con un adattatore esterno;
+  - `serve.py` — il server della chat, solo su loopback:
+    `python3 method/../o3/chat/serve.py --istanza <checkout dell'istanza>`,
+    porta 8100. Rende `chat.html`, apre sessioni nei repo del gruppo
+    (l'istanza e i membri di `## Membri` con un checkout accanto) e rifiuta
+    `Host` non di loopback e `Origin` estranee;
+  - `acp.py` — una sessione ACP per la chat: lancia l'adattatore, traduce il
+    protocollo in eventi numerati e tiene in attesa le richieste di permesso
+    finché il custode non sceglie; nessuna risposta automatica;
+  - `chat.html` — la pagina: scelta di repo e harness, messaggi in streaming,
+    chiamate di strumenti, piano, permessi col diff, modi dichiarati
+    dall'adattatore. Test di `serve.py` e `acp.py`, con un adattatore finto:
+    `python3 -m unittest discover -s tests -p 'test_chat.py'`.
 - `ciclo/` — la configurazione del giro autonomo: `prompt.md`,
   `permessi.json`, il profilo `lanciatore.toml` e il contratto
   [engine fallback](ciclo/fallback.md).
