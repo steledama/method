@@ -22,6 +22,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | ----- | --- | ---------------------------------------- | ---- |
 | dev   | S   | Sito di gruppo                           | —    |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
+| dev   | S   | Skill dal canone                         | —    |
 | dev   | S   | Presentazione oltre il deck              | —    |
 | dev   | S   | Nome del progetto                        | —    |
 | dev   | S   | Chat del coordinatore                    | —    |
