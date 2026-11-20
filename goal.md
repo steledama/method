@@ -41,7 +41,7 @@ Posizione auspicata lungo le dimensioni candidate comuni
 ([development-goal](kb/development-goal.md)): ciclo **event-driven** sul segnale
 dell'adottante, **governo operativo delegato all'agente, in direzione di
 gruppi di artefatti**: ogni repo un artefatto cognitivo con il proprio ciclo
-autonomo di runtime, ogni gruppo coordinato dal metodo attraverso un unico
+di runtime, ogni gruppo coordinato dal metodo attraverso un unico
 sito, da cui si leggono i repo del gruppo e si lavora con gli agenti;
 agnostico rispetto all'harness e al sistema operativo
 ([coordinatore di gruppi](o2/coordinatore-di-gruppi.md), ratificato dal

@@ -13,6 +13,13 @@ un giro senza custode, ma _con quali garanzie_ ci arriva ciascun repo e
 quando un gradino va ritirato. La base comune è un giro `eval` → `exec` che
 chiude con commit e push; i loop di dominio si articolano su di essa.
 
+Il 2026-11-20 il custode toglie «autonomo» dal Goal di sviluppo: ogni repo
+ha il proprio ciclo di runtime, e l'autonomia conta in alcuni progetti e va
+tolta in altri. Primo ritiro: `salute`, per scelta sul costo del confine
+rispetto al valore del giro
+([cattura](../i1/ciclo-autonomo-ritirato-salute-2026-11-20.md)). La domanda
+diventa anche _per quali_ repo il gradino vale.
+
 ## La scommessa
 
 L'artefatto è abbastanza esplicito da sostenere l'agente da solo **senza
