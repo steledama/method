@@ -46,6 +46,26 @@ memoria e governo, dove è forte. L'harness resta esterno, raggiunto via ACP.
 - **Il sito è anche il posto dove si lavora.** Oggi la vista è di sola
   lettura e la chat è il terminale.
 
+## Il sito di gruppo
+
+Precisato dal custode il 2026-11-20:
+
+- **i membri si dichiarano nel `world.md` dell'istanza**: è il registro da
+  cui la build del sito ricava quali viste e presentazioni rendere, non solo
+  un elenco da leggere. Oggi `~/casa/world.md` ha la sezione «Repo del
+  gruppo» in prosa: va resa leggibile dalla build;
+- **l'istanza è membro del proprio sito**: la home elenca l'istanza e i
+  membri, ciascuno con la sua vista e la sua presentazione. Nel caso minimo,
+  un'istanza senza membri, il sito rende solo l'istanza stessa;
+- **un servizio per host, non per repo**: su `deck` il sito di casa
+  sostituisce le viste di `nixos`, `salute` ed `economia`
+  (`deck:8002`–`8004`) e aggiunge quella di `casa`. Cambiano il registro
+  `o3/presentations.nix` di `nixos`, il servizio per repo di
+  `kb/view-publishing.md` e gli indirizzi in `world.md`;
+- **il canone resta fuori dal gruppo**: `method` non è membro di casa;
+  la sua vista (`deck:8001`) resta finché un punto successivo non ne decide la
+  sorte.
+
 ## Punti da chiarire
 
 1. **Canone e coordinatore di gruppo: deciso il 2026-11-14.** «Casa e
