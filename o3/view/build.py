@@ -40,6 +40,7 @@ import radice
 # Prima di `project`: con `--root` l'identità è quella del repo reso.
 ROOT = radice.attiva()
 
+import gruppo
 import project
 from build_pages import render_all
 from build_system_image import render as render_home
@@ -210,6 +211,10 @@ def render(out: Path, commit: str | None = None, canon: str | None = None) -> No
 
     for relative, content in texts.items():
         write(out / relative, content)
+    # L'istanza di un gruppo pubblica l'elenco dei membri accanto alle viste.
+    members = gruppo.membri(ROOT)
+    if members is not None:
+        write(out / gruppo.FILE, gruppo.manifest(members, project.LINGUA))
 
     subprocess.run(
         [prettier, "--log-level=warn", "--write", *(str(out / name) for name in texts)],

@@ -133,8 +133,14 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     `python3 o3/view/serve.py`, porta 8000, Ctrl-C per chiudere; il servizio
     permanente dell'host privilegiato lancia lo stesso script con `--port`;
     con `--publish-root DIR` serve la versione pubblicata e `/_stato`, e
-    senza versione valida esce con 3 (`--check` fa solo il controllo).
+    senza versione valida esce con 3 (`--check` fa solo il controllo);
+    con `--gruppo BASE --istanza NOME` serve il sito di gruppo.
     Solo libreria standard, niente dotfile né elenchi di cartella;
+  - `gruppo.py` — il sito di gruppo: legge i membri dalla sezione
+    `## Membri` del `world.md` di un'istanza (la build li rende in
+    `../view/gruppo.json`) e compone a richiesta la home del gruppo dalle
+    viste pubblicate dei membri. Test:
+    `python3 -m unittest discover -s tests -p 'test_gruppo.py'`;
   - `assets/` — i CSS canonici, copiati in `../view/assets/`: `page.css`
     per le pagine, `system-image.css` per la home, `deck.css` per il deck.
 
@@ -147,7 +153,9 @@ contratti fra sorgenti ([view](../kb/view.md)):
   tavole copiate da `../presentation/`;
 - `../view/index.html` ← titolo di `../README.md`, intro dei register
   `../goal.md` e `../world.md`, configurazione degli slot; le collezioni le
-  _collega_, non le rende.
+  _collega_, non le rende;
+- `../view/gruppo.json` ← sezione `## Membri` di `../world.md`, solo in
+  un'istanza di gruppo.
 
 `view/build.py` e `kb_tools.py audit` sono il controllo minimo dopo
 modifiche strutturali.

@@ -153,8 +153,10 @@ ogni repo».
    commit `107f89b`, nessun remote. Coordina solo sulla carta finché la prova
    ACP non è chiusa; non è ancora nel `world.md` di `method`, perché entrarvi
    la metterebbe sotto `/adottanti` prima che abbia un ciclo.
-4. Dopo la prova, dividere il task in lavori eseguibili: sito di gruppo,
-   chat, ricordo; poi l'istanza tt.
+4. Dividere il task in lavori eseguibili: il sito di gruppo è
+   [sito-di-gruppo](sito-di-gruppo.md) (2026-11-20), la chat
+   [chat-del-coordinatore](chat-del-coordinatore.md); restano il ricordo e
+   l'istanza tt.
 
 ## Criterio di chiusura
 

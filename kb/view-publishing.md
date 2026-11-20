@@ -132,6 +132,33 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   rendering corretto; una porta irraggiungibile è «non verificata», non fresca
   per presunzione.
 
+## Sito di gruppo
+
+Un gruppo è un'istanza del metodo più i repo che coordina: si consulta da un
+solo sito, non da una porta per repo. L'istanza dichiara i membri nel
+proprio `world.md`, in una sezione `## Membri` con una voce per repo e il
+nome del checkout in grassetto. La build dell'istanza la rende in
+`view/gruppo.json`, così anche l'elenco servito viene da un commit pulito;
+un `world.md` senza la sezione non è un'istanza di gruppo.
+
+Il sito non ricostruisce nulla. Ogni membro, istanza compresa, pubblica la
+propria vista col contratto della sezione precedente, in una cartella per
+repo sotto una base comune; `serve.py --gruppo BASE --istanza NOME` instrada:
+
+- `/` è la home del gruppo, composta a ogni richiesta dall'elenco pubblicato
+  dell'istanza e dalle viste pubblicate dei membri (titolo, accento,
+  presentazione). Un membro senza versione valida resta in elenco, dichiarato
+  non pubblicato;
+- `/<repo>/` è la versione pubblicata di quel repo, `/<repo>/_stato` il suo
+  stato di pubblicazione. Il compartimento stagno di ogni vista ne permette
+  la resa sotto un prefisso senza ricostruirla;
+- un'istanza senza membri serve sé sola: è il caso minimo da cui il gruppo
+  cresce.
+
+Il servizio di gruppo sostituisce quelli dei repo membri: un repo del
+gruppo non tiene anche una porta propria. Il canone non è membro dei
+gruppi: le istanze lo adottano, e la sua vista resta a sé.
+
 ## Stato operativo letto a richiesta: il ciclo autonomo
 
 Ciò che cambia senza commit non entra nella release: la contraddirebbe,

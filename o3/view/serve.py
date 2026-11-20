@@ -23,6 +23,13 @@ Con `--ciclo-state DIR` serve anche `/_ciclo/`, lo stato dei tentativi
 del ciclo autonomo letto a ogni richiesta (`ciclo.py`); senza, `/_ciclo/`
 dichiara che il repo non ha un ciclo autonomo. `--ciclo-unita DIR` indica la
 cartella dell'unità quando i tentativi stanno nel repo (`i1/giri`).
+
+Con `--gruppo BASE --istanza NOME` serve il sito di un gruppo (`gruppo.py`):
+`BASE/<repo>` è la cartella di pubblicazione di ciascun repo, `/` la home del
+gruppo, `/<repo>/` la versione pubblicata di quel repo con il suo `/_stato`.
+L'elenco dei membri si rilegge a ogni richiesta dalla versione pubblicata
+dell'istanza; senza una versione valida dell'istanza il server non parte,
+come con `--publish-root`.
 """
 
 from __future__ import annotations
@@ -46,6 +53,7 @@ import radice
 VIEW = radice.attiva() / "view"
 
 import ciclo
+import gruppo
 
 PORT = 8000
 # Uscita per «nessuna versione valida»: un servizio la distingue da un crash.
@@ -107,6 +115,61 @@ class PublishedHandler(ViewHandler):
         return super().send_head()
 
 
+class GroupHandler(ViewHandler):
+    """Il sito di gruppo: la home a `/`, ogni repo sotto il proprio nome."""
+
+    base: Path
+    istanza: str
+
+    def send_head(self):
+        parts = urlsplit(self.path)
+        path = unquote(parts.path)
+        if path in {"/", "/index.html"}:
+            return self.send_bytes(
+                "text/html; charset=utf-8", gruppo.home(self.base, self.istanza).encode("utf-8")
+            )
+        name, slash, rest = path.lstrip("/").partition("/")
+        if name not in gruppo.nomi(self.base, self.istanza):
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return None
+        if not slash:
+            # Senza la barra i path relativi della vista uscirebbero dal prefisso.
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", f"/{name}/" + (f"?{parts.query}" if parts.query else ""))
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return None
+        if rest == "_stato":
+            try:
+                data = (self.base / name / "status.json").read_bytes()
+            except FileNotFoundError:
+                self.send_error(HTTPStatus.NOT_FOUND)
+                return None
+            return self.send_bytes("application/json; charset=utf-8", data)
+        folder = gruppo.release(self.base, name)
+        if folder is None:
+            self.send_error(HTTPStatus.NOT_FOUND)
+            return None
+        target = folder / rest
+        if rest and not rest.endswith("/") and target.is_dir():
+            self.send_response(HTTPStatus.MOVED_PERMANENTLY)
+            self.send_header("Location", f"/{name}/{rest}/")
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return None
+        self.directory = str(folder)
+        self.path = "/" + rest + (f"?{parts.query}" if parts.query else "")
+        return super().send_head()
+
+    def send_bytes(self, content_type: str, data: bytes):
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        return io.BytesIO(data)
+
+
 def served_folder(root: Path) -> Path:
     """La versione pubblicata, o l'uscita con la diagnosi se non ce n'è una valida."""
     try:
@@ -158,6 +221,12 @@ def main() -> None:
         "--publish-root", type=Path, help="serve la versione pubblicata da build.py --publish"
     )
     parser.add_argument(
+        "--gruppo",
+        type=Path,
+        help="serve il sito di gruppo: cartella con una pubblicazione per repo (gruppo.py)",
+    )
+    parser.add_argument("--istanza", help="con --gruppo: il repo istanza che dichiara i membri")
+    parser.add_argument(
         "--check",
         action="store_true",
         help=f"con --publish-root: esce con 0 se c'è una versione valida, {NO_VALID_VERSION} se no",
@@ -179,9 +248,21 @@ def main() -> None:
         parser.error("--ciclo-unita richiede --ciclo-state")
     cycle = {"ciclo_state": state, "ciclo_unit": unit}
 
-    if args.check and not args.publish_root:
-        parser.error("--check richiede --publish-root")
-    if args.publish_root:
+    if bool(args.gruppo) != bool(args.istanza):
+        parser.error("--gruppo e --istanza vanno insieme")
+    if args.gruppo and args.publish_root:
+        parser.error("--gruppo e --publish-root sono alternativi")
+    if args.check and not (args.publish_root or args.gruppo):
+        parser.error("--check richiede --publish-root o --gruppo")
+    if args.gruppo:
+        base = args.gruppo.resolve()
+        folder = served_folder(base / args.istanza)
+        if args.check:
+            print(f"serve: versione valida dell'istanza {folder.name}")
+            return
+        folder = base
+        handler = type("Handler", (GroupHandler,), {"base": base, "istanza": args.istanza, **cycle})
+    elif args.publish_root:
         root = args.publish_root.resolve()
         folder = served_folder(root)
         if args.check:
