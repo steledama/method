@@ -1,5 +1,5 @@
 ---
-sintesi: "Il repo è oggi un esperimento per una persona sola che governa più repo propri con un metodo uniforme. Che cosa cambia, nella pubblicazione delle viste e nell'osservazione degli adottanti, se il metodo si diffonde oltre il custode unico? Trasformato il 2026-11-13 dal task sulla pubblicazione decisa dal repo; niente da implementare, in pausa fino al riesame del ciclo autonomo."
+sintesi: "Il repo è oggi un esperimento per una persona sola che governa più repo propri con un metodo uniforme. Che cosa cambia, nella pubblicazione delle viste, nell'osservazione degli adottanti e nella distribuzione del canone, se il metodo si diffonde oltre il custode unico? Trasformato il 2026-11-13 dal task sulla pubblicazione decisa dal repo; niente da implementare, in pausa fino al riesame del ciclo autonomo."
 ciclo: dev
 ---
 
@@ -53,6 +53,40 @@ Due superfici lo mostrano già:
 - L'audit degli adottanti presuppone che il custode possa leggere ogni
   repo. Con adottanti sconosciuti l'osservatorio cambia natura o sparisce.
 
+## Distribuzione
+
+Aggiunta dal custode il 2026-11-20, riflettendo sulla relazione fra
+`method` e l'istanza `casa`. È una terza superficie, accanto a
+pubblicazione e osservazione: come si adotta il metodo senza essere il
+custode. Oggi l'adozione presuppone un checkout `../method` accanto al repo
+sullo stesso host, un symlink che legge sempre l'ultima versione del canone
+e un'istanza montata a mano copiando struttura, skill e `CLAUDE.md`. Per il
+custode, che fa dogfooding, va bene; per un adottante che non conosce la
+storia del canone no.
+
+La forma che emerge, da decidere quando il task si riprende:
+
+1. **canone come dipendenza versionata**: un pacchetto installabile con
+   builder, gate, nodi e skill, più un plugin per harness (marketplace di
+   Claude Code e l'equivalente di Codex). Aggiornare diventa un gesto
+   deliberato sulla versione, non un canone che scorre sotto i piedi;
+2. **un comando di creazione**: qualcosa come `method init` crea lo
+   scheletro dell'istanza (`goal.md`, `world.md`, le collezioni, il file
+   d'identità), cioè la sola parte che l'adottante possiede e mantiene;
+3. **le skill dal canone**: è il prerequisito, perché non si distribuisce
+   ciò che ogni adottante deve poi riscrivere
+   ([skill-dal-canone](skill-dal-canone.md));
+4. **un gruppo che cresce da solo**: si parte con un'istanza sola e si
+   aggiungono membri nel suo `world.md`, il caso minimo che il
+   [sito di gruppo](sito-di-gruppo.md) già regge;
+5. **nome e lingua**: [nome-del-progetto](nome-del-progetto.md) e
+   [traduzione-inglese](traduzione-inglese.md).
+
+Il symlink resta la modalità di sviluppo del custode e di `method` stesso;
+il pacchetto versionato sarebbe la modalità di distribuzione, dalla stessa
+fonte. Un fork git di `method` come base delle istanze è stato scartato
+([skill-dal-canone](skill-dal-canone.md), «Origine»).
+
 ## Dipendenze
 
 La risposta dipende da [integrazione-runtime](integrazione-runtime.md): se
@@ -70,7 +104,7 @@ conoscerlo resta qui.
 ## Criterio di chiusura
 
 Il custode decide se la diffusione è uno scopo del progetto. Se sì, il task
-si divide in lavori eseguibili sulle due superfici; se no, si rimuove con
+si divide in lavori eseguibili sulle tre superfici; se no, si rimuove con
 la riga del plan e la voce in `o2/tasks.md`.
 
 Connessioni:
