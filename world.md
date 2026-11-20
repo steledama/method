@@ -26,7 +26,7 @@ secondarie da riallineare).
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
-  `deck`; accento `#c2410c`; vista `deck:8002`
+  `deck`; accento `#c2410c`; vista `deck:8002/nixos/`, nel sito del gruppo casa
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS del server `svezia` e della postazione di sviluppo
   `norvegia`, separata dal repo di casa il 2026-11-04 — checkout `~/nixos`
@@ -35,10 +35,10 @@ secondarie da riallineare).
   sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,
   patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio
-  salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`; vista `deck:8004`
+  salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`; vista `deck:8002/economia/`, nel sito del gruppo casa
 - **[salute](https://github.com/steledama/salute)** — Benessere, pratica,
   filosofia e salute personale — checkout `~/salute` su `deck` (doppio salto:
-  `ssh norvegia`, poi `ssh deck`); accento `#be123c`; vista `deck:8003`
+  `ssh norvegia`, poi `ssh deck`); accento `#be123c`; vista `deck:8002/salute/`, nel sito del gruppo casa
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
   checkout `~/danea-auto` su `danea2`, dove gira anche il runtime; accento `#7e22ce`; vista `danea2:8001`

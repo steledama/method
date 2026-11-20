@@ -45,10 +45,17 @@ sito instrada verso le cartelle pubblicate.
 1. ~~Canone in `method`~~ fatto il 2026-11-20: `o3/view/gruppo.py`,
    `gruppo.json` in build, `serve.py --gruppo`, `tests/test_gruppo.py`,
    contratto in `kb/view-publishing.md`, «Sito di gruppo».
-2. `casa`: sezione `## Membri` in `world.md`.
-3. `nixos`: servizio di gruppo su `8002` da `~/casa`, `casa` fra i repo
-   pubblicati, ritiro dei servizi per repo di `nixos`, `salute` ed
-   `economia`; indirizzi in `world.md` di `method`.
+2. ~~`casa`~~ fatto il 2026-11-20 via Herdr: sezione `## Membri` in
+   `feb28cf`; `casa` ha ora un remote privato, `steledama/casa`.
+3. `nixos`, via Herdr il 2026-11-20: servizio di gruppo su `deck:8002` e
+   ritiro dei servizi per repo in `09afa78` e `bef768d`, con
+   `home-manager switch`. Verifica: la home e `/casa/`, `/nixos/`,
+   `/salute/`, `/economia/` rispondono 200, `8003` e `8004` non rispondono.
+   Indirizzi in `world.md` di `method` aggiornati, e `o3/adottanti.py` legge
+   lo stato dei membri sotto il prefisso. Resta la chiusura di `8003` e
+   `8004` nel firewall, un cambio di sistema fuori dalla delega della
+   sessione `nixos`: la esegue il custode su `deck` con
+   `cd ~/nixos && o3/scripts/con-identita.sh sudo nixos-rebuild switch --flake .#deck`.
 
 I passi 2 e 3 toccano altri repo: si fanno su autorizzazione esplicita del
 custode o nelle loro sessioni.

@@ -93,7 +93,8 @@ VOCE = re.compile(r"^- \*\*\[([\w-]+)\]\(([^)]*)\)\*\*(.*)")
 REPO = re.compile(r"github\.com[:/]([\w.-]+/[\w.-]+?)(?:\.git)?/?$")
 CHECKOUT = re.compile(r"checkout\s+`~/([\w.-]+)`(?:\s+su\s+`([\w.-]+)`)?")
 ACCENTO = re.compile(r"#[0-9a-fA-F]{6}\b")
-VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)`")
+# Un repo membro di un sito di gruppo dichiara anche il prefisso: `deck:8002/salute/`.
+VISTA = re.compile(r"vista (?:su )?`([\w.-]+):(\d+)(/[\w.-]+/)?`")
 
 # Le skill che ogni adottante porta: il quartetto, la composta e l'allineamento.
 SKILL_COMUNI = {"commit", "cycle", "eval", "exec", "method"}
@@ -450,10 +451,14 @@ def git_bytes(checkout: Checkout, *args: str) -> bytes | None:
     return esito.stdout if esito.returncode == 0 else None
 
 
-def servita(host: str, porta: str) -> tuple[str | None, str]:
-    """(commit servito, nota) da `/_stato`; commit None se la porta non risponde."""
+def servita(host: str, porta: str, prefisso: str | None = None) -> tuple[str | None, str]:
+    """(commit servito, nota) da `/_stato`; commit None se la porta non risponde.
+
+    Nel sito di gruppo lo stato di un membro sta sotto il suo prefisso.
+    """
     try:
-        with urllib.request.urlopen(f"http://{host}:{porta}/_stato", timeout=5) as risposta:
+        url = f"http://{host}:{porta}{prefisso or '/'}_stato"
+        with urllib.request.urlopen(url, timeout=5) as risposta:
             stato_v = json.load(risposta)
     except (OSError, ValueError) as errore:
         return None, f"non raggiunta ({errore.__class__.__name__})"
@@ -481,16 +486,17 @@ def viste(tutti: dict[str, Checkout], testi: dict[str, str], build: bool) -> lis
             if not match:
                 righe.append(f"ROSSO {nome}: nessuna vista `host:porta` in world.md")
                 continue
-            host, porta = match.groups()
-            commit_s, nota = servita(host, porta)
+            host, porta, prefisso = match.groups()
+            dove = f"{host}:{porta}{(prefisso or '').rstrip('/')}"
+            commit_s, nota = servita(host, porta, prefisso)
             if commit_s is None:
-                righe.append(f"ROSSO {nome}: {host}:{porta} {nota}, non verificata")
+                righe.append(f"ROSSO {nome}: {dove} {nota}, non verificata")
             elif commit_s != origine or nota:
                 righe.append(
-                    f"ROSSO {nome}: {host}:{porta} serve {commit_s[:8]}, origin/main {origine[:8]} {nota}".rstrip()
+                    f"ROSSO {nome}: {dove} serve {commit_s[:8]}, origin/main {origine[:8]} {nota}".rstrip()
                 )
             else:
-                righe.append(f"{nome}: {host}:{porta} serve origin/main {origine[:8]}")
+                righe.append(f"{nome}: {dove} serve origin/main {origine[:8]}")
     return righe
 
 
