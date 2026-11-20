@@ -78,7 +78,7 @@ La forma che emerge, da decidere quando il task si riprende:
    ([skill-dal-canone](skill-dal-canone.md));
 4. **un gruppo che cresce da solo**: si parte con un'istanza sola e si
    aggiungono membri nel suo `world.md`, il caso minimo che il
-   [sito di gruppo](sito-di-gruppo.md) già regge;
+   sito di gruppo già regge (`kb/view-publishing.md`, «Sito di gruppo»);
 5. **nome e lingua**: [nome-del-progetto](nome-del-progetto.md) e
    [traduzione-inglese](traduzione-inglese.md).
 

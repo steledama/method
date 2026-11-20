@@ -150,11 +150,12 @@ ogni repo».
 2. ~~Decidere canone e coordinatore di gruppo~~ fatto il 2026-11-14: istanze
    casa e tt.
 3. ~~Creare l'istanza casa~~ fatto il 2026-11-14: `~/casa` su `deck`,
-   commit `107f89b`, nessun remote. Coordina solo sulla carta finché la prova
-   ACP non è chiusa; non è ancora nel `world.md` di `method`, perché entrarvi
-   la metterebbe sotto `/adottanti` prima che abbia un ciclo.
-4. Dividere il task in lavori eseguibili: il sito di gruppo è
-   [sito-di-gruppo](sito-di-gruppo.md) (2026-11-20), la chat
+   commit `107f89b`; dal 2026-11-20 ha il remote privato `steledama/casa`.
+   Non è ancora nel `world.md` di `method`, perché entrarvi la metterebbe
+   sotto `/adottanti` prima che abbia una delega sui repo del gruppo.
+4. Dividere il task in lavori eseguibili: il sito di gruppo è fatto il
+   2026-11-20 (task chiuso, in git: casa su `deck:8002`, contratto in
+   `kb/view-publishing.md`, «Sito di gruppo»), la chat
    [chat-del-coordinatore](chat-del-coordinatore.md); restano il ricordo e
    l'istanza tt.
 

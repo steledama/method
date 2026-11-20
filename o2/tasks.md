@@ -6,7 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
-- [sito-di-gruppo.md](sito-di-gruppo.md) — un sito per gruppo: membri nel `world.md` dell'istanza, viste pubblicate per repo, un servizio per host con la home del gruppo; casa su `deck:8002`.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
 - [skill-dal-canone.md](skill-dal-canone.md) — le skill da copie forkate negli adottanti a canone parametrizzato con un file locale, come i builder delle viste; decisione del custode.
 - [presentazione-oltre-il-deck.md](presentazione-oltre-il-deck.md) — se il canone ammette sotto-deck annidati e pagine di dominio in home, su due segnali di `salute` ed `economia`; decisione del custode.
