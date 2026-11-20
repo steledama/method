@@ -17,8 +17,13 @@ Il 2026-11-20 il custode toglie «autonomo» dal Goal di sviluppo: ogni repo
 ha il proprio ciclo di runtime, e l'autonomia conta in alcuni progetti e va
 tolta in altri. Primo ritiro: `salute`, per scelta sul costo del confine
 rispetto al valore del giro
-([cattura](../i1/ciclo-autonomo-ritirato-salute-2026-11-20.md)). La domanda
-diventa anche _per quali_ repo il gradino vale.
+([cattura](../i1/ciclo-autonomo-ritirato-salute-2026-11-20.md)). Lo stesso
+giorno, per lo stesso motivo, il custode ritira anche i giri di `method` ed
+`economia`: su una postazione di casa privacy e minimalismo prevalgono
+(`nixos` `f2e10a7`, unità tolte; `autonomy.md`, «Niente ciclo autonomo»). Su
+`deck` resta il solo `ciclo-nixos`, che usa il lanciatore canonico dal
+checkout di `method`. La domanda diventa anche _per quali_ repo il gradino
+vale: `method` ne custodisce il canone senza esercitarlo.
 
 ## La scommessa
 
@@ -223,8 +228,10 @@ riletto contro le fonti.
   file fittizio mascherato; `.env.*` espanso all'avvio non vede i file creati
   dopo. Nessun atto fuori delega è dimostrato, ma una garanzia che il filo
   dava per implicita, il recinto di `deck`, è ora un requisito da verificare
-  host per host. Per `method` su `deck` il confine non è ancora dichiarato
-  nella forma del contratto.
+  host per host. Il 2026-11-20 la prova di `nixos` su `ciclo-method`
+  (`i2/confine-dei-cicli.md`, riferita) dà per `deck` nessun confine
+  dichiarabile pronto; il custode ritira i giri di `salute`, `method` ed
+  `economia` invece di chiuderne le uscite.
 - **Quando si aggiorna**: un giorno in cui ogni giro riesce senza fatti
   nuovi è una lettura che non sposta e non riscrive il filo
   (`kb/interpret.md`). Il filo si tocca per un fallimento, un arresto

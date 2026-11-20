@@ -7,7 +7,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
-- [confine-del-giro.md](confine-del-giro.md) — dichiarare il confine di esecuzione del giro di `method` su `deck` nella forma del contratto di `kb/consent.md`, con evidenza sulla configurazione effettiva.
 - [presentazione-oltre-il-deck.md](presentazione-oltre-il-deck.md) — se il canone ammette sotto-deck annidati e pagine di dominio in home, su due segnali di `salute` ed `economia`; decisione del custode.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [chat-del-coordinatore.md](chat-del-coordinatore.md) — una chat nel sito di gruppo che apre sessioni ACP con Claude Code o Codex nella cartella di un repo, con approvazioni col diff e governo invariato; parte dal client della prova.

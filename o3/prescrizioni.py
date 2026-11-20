@@ -1,8 +1,9 @@
 """Chiusura di una prescrizione recepita da tutti gli adottanti.
 
-Il giro non scrive in `o3/` (deny in `o3/ciclo/permessi.json`): questo script è
-il gesto concesso per l'unico atto che lì gli è delegato, chiudere una
-prescrizione che tutti hanno recepito (`autonomy.md`, `ciclo-autonomo`).
+Nato come gesto concesso al giro autonomo di `method`, che non scriveva in
+`o3/`, per l'unico atto che lì gli era delegato: chiudere una prescrizione che
+tutti hanno recepito. Il giro è ritirato dal 2026-11-20 (`autonomy.md`); lo
+script resta il gesto della sessione.
 `verifica <nome>` dice per ogni adottante di `world.md` se il marker
 `i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
 adottante senza clone sull'host è «checkout assente», e la chiusura non passa.

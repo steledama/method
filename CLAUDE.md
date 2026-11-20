@@ -30,8 +30,8 @@ Leggere [`autonomy.md`](autonomy.md) prima di operare: il ciclo avviato dal
 custode prosegue entro la delega fino a verifiche, commit e push autorizzato,
 senza conferme intermedie sugli esiti ordinari. Chiedere sui punti riservati
 e continuare il lavoro indipendente. La presenza in chat non è ratifica
-preventiva delle decisioni dell'agente. Il giro senza custode segue il criterio
-`ciclo-autonomo` di `autonomy.md` (gradino 1 su `deck` dal 2026-10-17).
+preventiva delle decisioni dell'agente. `method` non ha un ciclo autonomo dal
+2026-11-20 (`autonomy.md`, «Niente ciclo autonomo»): il ciclo parte in sessione.
 
 ## Comunicazione fra sessioni con Herdr
 
@@ -54,7 +54,7 @@ qui (`method` fa dogfooding ed è la copia canonica di riferimento):
 
 - `/eval [perceive|interpret|compare|all]` — il braccio di valutazione: raccolta del grezzo (i1), sintesi con provenienza e cascata (i2), verdetto dei fili contro `goal.md` e bonifica del plan (i3)
 - `/exec [plan|specify|perform|all]` — il braccio di esecuzione: coda e priorità (o1), qualità interna dei task (o2), supervisione della collezione e atti autorizzati (o3)
-- `/cycle [autonomo]` — il ciclo congiunto: `eval all` → `exec all` → `/commit`, in sessione o come ciclo autonomo senza custode (resoconto con la riga `Attenzione:`)
+- `/cycle [autonomo]` — il ciclo congiunto: `eval all` → `exec all` → `/commit`, in sessione o, negli adottanti che lo tengono, come ciclo autonomo senza custode (resoconto con la riga `Attenzione:`)
 - `/kb [audit|review]` — audit deterministico o revisione semantica profonda
   della KB (diagnosi, non corregge; capacità trasversale ai due archi)
 - `/commit` — gate di filing back prima di fissare le modifiche nella storia

@@ -12,8 +12,8 @@ pianificazione.
 ## Direzione
 
 Questo repository custodisce il metodo portabile e osserva come gli adottanti
-lo usano. È in sviluppo verso un ciclo di runtime autonomo in ciascun repo,
-con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
+lo usano. È in sviluppo verso un ciclo di runtime in ciascun repo, autonomo
+dove il repo lo regge, con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
 skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
@@ -21,7 +21,6 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | Ciclo | Ob. | Task                                     | Dip. |
 | ----- | --- | ---------------------------------------- | ---- |
 | dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
-| dev   | S   | Confine del giro                         | —    |
 | dev   | S   | Presentazione oltre il deck              | —    |
 | dev   | S   | Nome del progetto                        | —    |
 | dev   | S   | Chat del coordinatore                    | —    |
@@ -44,10 +43,9 @@ riesame (`kb/plan.md`, «Risveglio»):
 
 ## Ricorrenze
 
-| Prossima   | Cadenza    | Esecutore | Ob. | Ricorrenza                                         |
-| ---------- | ---------- | --------- | --- | -------------------------------------------------- |
-| config     | quotidiano | scheduler | S   | [Ciclo autonomo](../o3/ciclo/prompt.md)            |
-| 2026-12-01 | mensile    | sessione  | 2   | [/adottanti](../.claude/skills/adottanti/SKILL.md) |
+| Prossima   | Cadenza | Esecutore | Ob. | Ricorrenza                                         |
+| ---------- | ------- | --------- | --- | -------------------------------------------------- |
+| 2026-12-01 | mensile | sessione  | 2   | [/adottanti](../.claude/skills/adottanti/SKILL.md) |
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).

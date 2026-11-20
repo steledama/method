@@ -42,63 +42,21 @@ può alzarlo. Nel resoconto finale compaiono decisioni, motivazioni, verifiche,
 incertezze e questioni lasciate al custode. La presenza umana in chat non
 trasforma una decisione dell'agente in una decisione concordata.
 
-## Ciclo autonomo senza custode
+## Niente ciclo autonomo
 
-Criterio `ciclo-autonomo`, deciso il 2026-10-16 da Stefano, gradino 0;
-gradino 1 deciso il 2026-10-17: il timer lancia un giro ogni giorno alle 15:00.
+Il custode ha ritirato il 2026-11-20 il ciclo autonomo di `method`, avviato
+col criterio `ciclo-autonomo` del 2026-10-16 (gradino 1 dal 2026-10-17, timer
+delle 15:00 su `deck`). Il confine di esecuzione che un giro senza custode
+richiede ([consent](kb/consent.md), «Delega e confine di esecuzione») costa
+troppo su una postazione di casa: privacy e minimalismo prevalgono. Lato host
+il ritiro è in `nixos` `f2e10a7`. Il ciclo parte solo in sessione, entro
+`ciclo-delegato`; un ritorno è una nuova decisione del custode, col confine
+dichiarato e provato.
 
-Il ciclo autonomo è il ciclo congiunto senza custode, la skill `/cycle
-autonomo`: lo avvia su `deck` l'unità `ciclo-method` del modulo `cicli` di
-`nixos`, con `o3/ciclo/prompt.md` e i permessi di `o3/ciclo/permessi.json`.
-Nessuno risponde durante il giro: una scelta che in sessione si chiederebbe
-diventa proposta nel task `o2/` pertinente, il resto va nel resoconto. Resta fuori da
-`momento-del-commit`: un commit per giro, con `Esiti`, `Autonomia: agente`,
-impatto almeno **medio** e `Impatto-motivo:` col criterio e il gradino
-dichiarati dal prompt. Al gradino 1 il timer di `nixos` avvia il giro; un
-avvio a mano dell'unità resta coperto da questo criterio. Tetto per
-giro, 45 minuti e 5 USD, nell'unità.
-
-Che cosa fa il giro, da solo:
-
-- **tiene vivi** catture, letture, fili, plan, task e i nodi di `kb/`;
-- **dei task** tiene viva la pianificazione, non l'esecuzione (deciso dal
-  custode il 2026-10-29, `kb/tasks.md`, «Task e giro»): una notizia nuova ne
-  corregge informazioni e specifica, ne muove priorità e dipendenze, chiude
-  attese, crea o cancella task; i passi del task restano alla sessione col
-  custode, salvo gli atti che questo register assegna al giro;
-- **un nodo `kb/`** arriva subito agli adottanti via symlink: si corregge
-  solo su una fonte verificata e il resoconto dichiara ogni nodo toccato;
-- **una prescrizione** che tutti i marker danno recepita la chiude da sé con
-  `o3/prescrizioni.py chiudi` e ne corregge i rimandi (deciso dal custode il
-  2026-10-26: è l'esecuzione di una regola del canone, non una scelta);
-- **di `/adottanti`** compie solo la parte meccanica (deciso dal custode il
-  2026-11-02): quando la riga di `## Ricorrenze` è arrivata e il mese non ha
-  ancora il suo rapporto, lancia `o3/adottanti.py audit` e lo versiona in
-  `i1/`. La classificazione dei rossi e il campione di decisioni restano
-  alla sessione col custode.
-
-Che cosa resta proposta: le altre modifiche alle prescrizioni, gli strumenti
-in `o3/`, le skill canoniche, `presentation/`, `CLAUDE.md`, `AGENTS.md`,
-questo register e `goal.md`. `/method` non gira nel giro.
-
-Come legge gli adottanti, sempre in sola lettura:
-
-- dai marker nei checkout locali di `deck`;
-- per quelli di lavoro senza clone su `deck`, sul loro host con
-  `o3/adottanti.py` e `o3/prescrizioni.py` passati con `--ssh` (deciso dal
-  custode il 2026-11-12); `ssh` diretto resta negato;
-- lo stato dei giri da `i1/giri/` o da `~/.local/state/ciclo/`, trascritti
-  degli adottanti esclusi.
-
-Il divieto sta nei deny del solo `o3/ciclo/permessi.json`; nelle sessioni col
-custode restano le regole di sopra.
-
-Sospensione: si torna al manuale dopo un rosso per atto fuori delega, per un
-nodo `kb/` che altera il senso del canone senza fonte o per una ricostruzione
-sbagliata che altera una decisione. Lo stop per sessione concorrente, il
-push rifiutato e il lock occupato sono il sistema che funziona. Una sessione
-aperta e ferma nel checkout non ferma il giro: conta solo quella che ci lavora
-mentre il giro gira, e ne blocca il commit (custode, 2026-11-10).
+`method` resta la copia canonica della modalità `/cycle autonomo`, del
+lanciatore (`o3/lanciatore.py`, `o3/esecutore_codex.py`, contratto in
+`o3/ciclo/fallback.md`) e degli strumenti che i giri degli adottanti usano:
+li custodisce per chi il ciclo autonomo lo tiene, senza eseguirli qui.
 
 ## Decisioni riservate e arresto parziale
 
@@ -139,8 +97,7 @@ dell'attrito, non certifica la qualità. I riesami a campione confrontano le
 ricostruzioni con le fonti, secondo il filo
 [ricostruzione delegabile](i3/verdetto-piu-sicuro-del-materiale.md).
 
-`ciclo-delegato` riguarda i cicli avviati dal custode, `ciclo-autonomo` il
-giro senza custode nei limiti sopra. Nessuno dei due copre `/method`: il
+`ciclo-delegato` riguarda i cicli avviati dal custode e non copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
 Il percorso a gradini del pilota è compiuto (storia in git); il verdetto
 vive nel filo [ciclo autonomo](i3/ciclo-autonomo.md). Il custode può restringere o
