@@ -6,6 +6,7 @@ un harness né un abbonamento. Eseguire con python3 -m unittest discover -s test
 """
 
 import http.client
+import importlib.util
 import json
 import sys
 import tempfile
@@ -20,7 +21,12 @@ CHAT = Path(__file__).resolve().parents[1] / "o3" / "chat"
 sys.path.insert(0, str(CHAT))
 
 import acp
-import serve
+
+# `serve` è anche il servitore delle viste (`o3/view/serve.py`), che altri test
+# importano con quel nome: la chat si carica sotto un nome suo.
+_spec = importlib.util.spec_from_file_location("chat_serve", CHAT / "serve.py")
+serve = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(serve)
 
 ADATTATORE_FINTO = textwrap.dedent(
     """
