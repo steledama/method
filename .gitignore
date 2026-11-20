@@ -25,7 +25,3 @@ gdrive
 .claude/settings.local.json
 .claude/settings.local.json.tmp.*
 
-# grezzo del ciclo autonomo, ritirato il 2026-11-20: tentativi, esiti e
-# trascrizioni dei giri scritti dall'unità ciclo-method; storico locale
-# all'host, mai versionato né pubblicato (kb/perceive.md)
-/i1/giri/
