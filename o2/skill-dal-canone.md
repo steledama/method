@@ -42,11 +42,12 @@ copie, ora sono canone e il repo tiene solo `o3/view/project.py`
 
 ## Evidenze dagli adottanti
 
-- `casa`, 2026-11-20 (commit `feb28cf`, segnalato via Herdr): la `/commit`
-  forkata chiude col push «autorizzato in `CLAUDE.md`, "Push remoto"», ma
-  l'istanza non ha un remote e il passo non si applica. È un parametro del
-  repo (remote sì o no, push autorizzato o no) che la skill canonica deve
-  leggere, non testo da riscrivere nel fork.
+- `casa`, 2026-11-20 (segnalato via Herdr): la `/commit` forkata chiude col
+  push «autorizzato in `CLAUDE.md`, "Push remoto"», che un'istanza senza
+  remote non può fare. Il caso locale si è chiuso lo stesso giorno: `casa`
+  ha aperto un remote privato e autorizzato il push (`5ee6e25`). Resta il
+  punto generale: avere un remote e un push autorizzato è un parametro del
+  repo che la skill canonica deve leggere, non testo da riscrivere nel fork.
 
 ## Relazioni
 
