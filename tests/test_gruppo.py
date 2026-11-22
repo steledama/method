@@ -138,6 +138,12 @@ class Sito(unittest.TestCase):
         self.assertIn("--accent: #c2410c", body)
         self.assertIn("non ancora pubblicato", body)
         self.assertNotIn('href="salute/"', body)
+        self.assertNotIn("<iframe", body)
+
+    def test_home_incorpora_la_chat(self):
+        body = gruppo.home(self.base, "casa", "http://localhost:8100/")
+        self.assertIn('<iframe src="http://localhost:8100/"', body)
+        self.assertIn('href="http://localhost:8100/" target="_blank"', body)
 
     def test_vista_di_un_membro(self):
         self.assertEqual(self.get("/nixos/o1/plan.html"), (200, "piano"))

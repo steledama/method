@@ -105,7 +105,13 @@ durevole.
 4. Il rapporto col sito delle viste: per ora due servizi, perché le viste
    stanno sulle reti private senza autenticazione e la chat resta su
    loopback; si uniscono dopo il passo 5. Il codice sta già accanto, nel
-   canone.
+   canone. Il 2026-11-22, su richiesta del custode che apre la home da
+   `deck` stesso, il sito di gruppo prende `--chat <indirizzo>` e
+   incorpora la chat in un riquadro della home, con un link a tutta
+   pagina: dal browser di `deck` funziona (provato con sessione aperta e
+   chiusa dal riquadro), altrove il riquadro resta vuoto e nulla si
+   espone. La chat diventa un servizio utente in `nixos`, che passa
+   `--chat` al sito di `casa`.
 5. L'accesso: autenticazione, poi l'esposizione sulle reti private.
 6. Un `/cycle` intero da chat, dopo la parametrizzazione delle skill di
    `casa`.

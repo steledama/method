@@ -120,13 +120,15 @@ class GroupHandler(ViewHandler):
 
     base: Path
     istanza: str
+    chat: str | None = None
 
     def send_head(self):
         parts = urlsplit(self.path)
         path = unquote(parts.path)
         if path in {"/", "/index.html"}:
             return self.send_bytes(
-                "text/html; charset=utf-8", gruppo.home(self.base, self.istanza).encode("utf-8")
+                "text/html; charset=utf-8",
+                gruppo.home(self.base, self.istanza, self.chat).encode("utf-8"),
             )
         name, slash, rest = path.lstrip("/").partition("/")
         if name not in gruppo.nomi(self.base, self.istanza):
@@ -227,6 +229,10 @@ def main() -> None:
     )
     parser.add_argument("--istanza", help="con --gruppo: il repo istanza che dichiara i membri")
     parser.add_argument(
+        "--chat",
+        help="con --gruppo: indirizzo della chat del coordinatore da incorporare nella home",
+    )
+    parser.add_argument(
         "--check",
         action="store_true",
         help=f"con --publish-root: esce con 0 se c'è una versione valida, {NO_VALID_VERSION} se no",
@@ -250,6 +256,8 @@ def main() -> None:
 
     if bool(args.gruppo) != bool(args.istanza):
         parser.error("--gruppo e --istanza vanno insieme")
+    if args.chat and not args.gruppo:
+        parser.error("--chat richiede --gruppo")
     if args.gruppo and args.publish_root:
         parser.error("--gruppo e --publish-root sono alternativi")
     if args.check and not (args.publish_root or args.gruppo):
@@ -261,7 +269,11 @@ def main() -> None:
             print(f"serve: versione valida dell'istanza {folder.name}")
             return
         folder = base
-        handler = type("Handler", (GroupHandler,), {"base": base, "istanza": args.istanza, **cycle})
+        handler = type(
+            "Handler",
+            (GroupHandler,),
+            {"base": base, "istanza": args.istanza, "chat": args.chat, **cycle},
+        )
     elif args.publish_root:
         root = args.publish_root.resolve()
         folder = served_folder(root)

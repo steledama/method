@@ -42,6 +42,9 @@ LABELS = {
         "presentation": "Presentazione",
         "unpublished": "non ancora pubblicato",
         "intro": "I repo del gruppo, ciascuno con le sue viste.",
+        "chat": "Chat di coordinamento",
+        "chat_open": "Apri a tutta pagina",
+        "chat_note": "Raggiungibile solo dal PC che la ospita: ascolta su loopback.",
     },
     "en": {
         "title": "Group",
@@ -50,6 +53,9 @@ LABELS = {
         "presentation": "Presentation",
         "unpublished": "not published yet",
         "intro": "The repos of the group, each with its views.",
+        "chat": "Coordination chat",
+        "chat_open": "Open full page",
+        "chat_note": "Reachable only from the host PC: it listens on loopback.",
     },
 }
 
@@ -161,8 +167,13 @@ def _codice(text: str) -> str:
     return re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
 
 
-def home(base: Path, istanza: str) -> str:
-    """La home del gruppo: l'istanza e i membri, ciascuno verso le sue viste."""
+def home(base: Path, istanza: str, chat: str | None = None) -> str:
+    """La home del gruppo: l'istanza e i membri, ciascuno verso le sue viste.
+
+    Con `chat`, l'indirizzo della chat del coordinatore (`o3/chat/serve.py`), la
+    home la incorpora in un riquadro. La chat ascolta solo su loopback: il
+    riquadro funziona dal browser del PC che la ospita, altrove resta vuoto.
+    """
     lingua, members = leggi(base, istanza)
     labels = LABELS[lingua]
     cards = []
@@ -189,6 +200,17 @@ def home(base: Path, istanza: str) -> str:
             "      </li>"
         )
     group_title = f"{labels['title']} {istanza}"
+    chat_section = ""
+    if chat:
+        address = html.escape(chat, quote=True)
+        chat_section = (
+            '      <section class="chat">\n'
+            f"        <h2>{html.escape(labels['chat'])}"
+            f' <a href="{address}" target="_blank" rel="noopener">{html.escape(labels["chat_open"])}</a></h2>\n'
+            f'        <iframe src="{address}" title="{html.escape(labels["chat"], quote=True)}"></iframe>\n'
+            f'        <p class="note">{html.escape(labels["chat_note"])}</p>\n'
+            "      </section>\n"
+        )
     return f"""<!doctype html>
 <html lang="{lingua}">
   <head>
@@ -209,13 +231,18 @@ def home(base: Path, istanza: str) -> str:
       .role {{ font-size: .8rem; font-weight: normal; color: var(--muted); }}
       .missing {{ color: var(--muted); font-style: italic; }}
       a {{ color: var(--accent, inherit); font-weight: 600; }}
+      .chat {{ margin: 0 0 1.5rem; }}
+      .chat h2 {{ font-size: 1.15rem; margin: 0 0 .5rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }}
+      .chat h2 a {{ font-size: .85rem; }}
+      .chat iframe {{ display: block; width: 100%; height: 75vh; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }}
+      .note {{ color: var(--muted); font-size: .85rem; margin: .25rem 0 0; }}
     </style>
   </head>
   <body>
     <main>
       <h1>{html.escape(group_title)}</h1>
       <p class="intro">{html.escape(labels["intro"])}</p>
-      <ul>
+{chat_section}      <ul>
 {chr(10).join(cards)}
       </ul>
     </main>
