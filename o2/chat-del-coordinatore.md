@@ -110,8 +110,10 @@ durevole.
    incorpora la chat in un riquadro della home, con un link a tutta
    pagina: dal browser di `deck` funziona (provato con sessione aperta e
    chiusa dal riquadro), altrove il riquadro resta vuoto e nulla si
-   espone. La chat diventa un servizio utente in `nixos`, che passa
-   `--chat` al sito di `casa`.
+   espone. La chat è un servizio utente in `nixos` (`6f23d99`,
+   `chat-gruppo-casa` su `127.0.0.1:8100`, mai nel firewall), che passa
+   `--chat` al sito di `casa`: provate da lì una sessione `claude` e una
+   `codex`.
 5. L'accesso: autenticazione, poi l'esposizione sulle reti private.
 6. Un `/cycle` intero da chat, dopo la parametrizzazione delle skill di
    `casa`.
