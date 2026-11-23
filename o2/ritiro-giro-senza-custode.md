@@ -32,6 +32,24 @@ skill forkate»):
 Il ciclo in sessione resta: `/cycle` senza argomento, criterio
 `ciclo-delegato`.
 
+## Le potature già fatte negli adottanti
+
+Cinque adottanti hanno già potato le skill forkate, il 2026-11-23:
+`nixos-lavoro` (`cycle`, `eval`, `exec`, `commit`, `manutenzione`, con la
+differenza dichiarata nel suo `kb/cicli.md`), `bi` `7b4a763f`, `baserow`
+`c57cd83`, `abbinatore` `bfc74d8` e `danea-auto`. Quest'ultima è riferita
+senza SHA e non riletta qui; la differenza dal canone è dichiarata nella sua
+skill `/method` e nel marker, come attesa fino al tag che pota le skill
+canoniche. Il confronto del passo 2 parte da questi fork.
+
+`danea-auto` ha tenuto, perché serve anche alla sessione: `/cycle` senza
+argomento con `Esiti:` e `Prossimo:`, il minimo per stadio,
+`o3/ultimo_giro.py`, `o3/scadenze.py`, la visione d'insieme di `exec plan`
+e il gate di `/commit`. Ha lasciato anche le rotte `/_ciclo/` del suo
+servizio delle viste. È un primo riscontro per il censimento del passo 1:
+`ultimo_giro.py` è nell'elenco di ciò che esce, e va verificato se serve
+davvero alla sessione.
+
 ## Passi
 
 1. Censire nel canone ciò che esiste solo per il giro senza custode:
