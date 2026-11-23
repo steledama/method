@@ -28,9 +28,12 @@ secondarie da riallineare).
   gruppo di casa (`nixos`, `salute`, `economia`), entrata il 2026-11-20 con la
   delega minima: legge i membri, non li scrive, nessun ciclo autonomo —
   checkout `~/casa` su `deck`; accento `#db2777`; vista `deck:8002/casa/`,
-  nel sito del gruppo casa
+  nel sito del gruppo casa. In dismissione dal 2026-11-23 (decisione del
+  custode): il coordinamento passa a `nixos` e il repository si archivia
+  (`o2/coordinatore-di-gruppi.md`, punto 1, «Rivisto»)
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
-  NixOS degli host di casa (`deck`, `game`, `neve`) — checkout `~/nixos` su
+  NixOS degli host di casa (`deck`, `game`, `neve`) e, dal 2026-11-23,
+  coordinatore del gruppo casa; torna privato — checkout `~/nixos` su
   `deck`; accento `#c2410c`; vista `deck:8002/nixos/`, nel sito del gruppo casa
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS del server `svezia` e della postazione di sviluppo
