@@ -95,7 +95,7 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    suggerito è un'ipotesi, non una regola applicabile. Negli adottanti la
    cattura resta raggiungibile in `i1/`, segnata «da inoltrare» finché
    `method` non la acquisisce; in `method` i casi arrivano come segnali i1
-   e si acquisiscono anche dall'audit `/adottanti`. Nessun caso va prodotto
+   (dal 2026-11-23 anche da issue e PR, `o2/canale-in-entrata.md`). Nessun caso va prodotto
    solo per completare il giro.
 4. Dove il repo ha un ciclo autonomo, leggi l'ultima chiusura con `giro`
    non nullo in `i1/giri/tentativi.jsonl` (esito, costo, durata,

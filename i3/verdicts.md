@@ -20,9 +20,6 @@ Ogni filo dichiara nel frontmatter `ciclo` e `obiettivo`, verificato contro
 `goal.md` (`kb/verdict.md`, «Che cosa è un filo»). L'indice porta solo la
 domanda del filo: stato, date ed esiti vivono nel file, aggiornato in place.
 
-- [audit-adottanti.md](audit-adottanti.md) — verdetto aggregato dell'audit
-  mensile `/adottanti`: il canone arriva agli adottanti e quanto distano dal
-  telos?
 - [ciclo-autonomo.md](ciclo-autonomo.md) — con quali garanzie ogni repo
   arriva al giro `eval` → `exec` → commit senza custode?
 - [skill-per-arco-tripartito.md](skill-per-arco-tripartito.md) — la

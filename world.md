@@ -11,7 +11,7 @@ Adottanti (con la superficie da cui si leggono i marker
 `i3/allineamento-metodo.md`, il colore d'accento delle viste e l'indirizzo
 `host:porta` della vista pubblicata). L'accento è
 unico per progetto ([view](kb/view.md)) e vive in `o3/view/project.py` di ogni
-repo: qui ne resta una copia, verificata da `/adottanti`, perché l'unicità è
+repo: qui ne resta una copia, perché l'unicità è
 una proprietà dell'insieme. Quello di `method` è `#4338ca`, con la vista su `deck:8001`. Gli indirizzi
 sono copie del registro `o3/presentations.nix` di `nixos` e, per
 `danea2`, del `world.md` di `danea-auto`: l'audit li verifica

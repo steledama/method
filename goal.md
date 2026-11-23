@@ -23,8 +23,10 @@ Il top-down legittimo: prescrizioni o3 che gli adottanti recepiscono col proprio
 `method`, senza che `method` gestisca le loro code.
 
 - **Canone recepito dagli adottanti** — segnali: marker
-  `i3/allineamento-metodo.md` sulle superfici dichiarate in [World](world.md),
-  filo [audit-adottanti](i3/audit-adottanti.md) per il verdetto aggregato.
+  `i3/allineamento-metodo.md` sulle superfici dichiarate in [World](world.md).
+  Il verdetto aggregato dell'audit `/adottanti` è ritirato il 2026-11-23: con
+  adottanti sconosciuti il segnale arriva per il canale in entrata
+  ([canale-in-entrata](o2/canale-in-entrata.md)).
 
 ### 3. Ascoltare il basso
 

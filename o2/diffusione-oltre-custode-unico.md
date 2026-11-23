@@ -1,5 +1,5 @@
 ---
-sintesi: "Il repo è oggi un esperimento per una persona sola che governa più repo propri con un metodo uniforme. Che cosa cambia, nella pubblicazione delle viste, nell'osservazione degli adottanti e nella distribuzione del canone, se il metodo si diffonde oltre il custode unico? Trasformato il 2026-11-13 dal task sulla pubblicazione decisa dal repo; niente da implementare, in pausa fino al riesame del ciclo autonomo."
+sintesi: "Il metodo esce dal custode unico: deciso il 2026-11-23 che la diffusione è uno scopo del progetto. method si distribuisce con versioni e si adotta da persone sconosciute su repo che il custode non controlla; il segnale dal basso arriva per issue e PR, non più per audit. tt-sviluppo è il primo adottante trattato da estraneo. Restano da dividere pubblicazione e pacchetto versionato."
 ciclo: dev
 ---
 
@@ -87,6 +87,32 @@ il pacchetto versionato sarebbe la modalità di distribuzione, dalla stessa
 fonte. Un fork git di `method` come base delle istanze è stato scartato
 ([skill-dal-canone](skill-dal-canone.md), «Origine»).
 
+## Decisione del 2026-11-23
+
+Il custode decide che la diffusione è uno scopo del progetto: `method` deve
+potersi distribuire con un versioning ed essere adottato da persone che non
+conosce, su repo che non controlla. L'impostazione parte subito:
+
+- **`/adottanti` è ritirato**, con la ricorrenza mensile e il filo
+  `i3/audit-adottanti.md` (in git): presupponeva di leggere ogni adottante.
+  Per casa il «guardare i repo insieme» passa al coordinatore `nixos`
+  ([coordinatore-di-gruppi](coordinatore-di-gruppi.md), punto 1,
+  «Rivisto»);
+- **il canale si rovescia**: non è `method` che va a vedere, sono gli
+  adottanti che scrivono, con issue per i segnali e PR per le proposte
+  ([canale-in-entrata](canale-in-entrata.md));
+- **`tt-sviluppo` è il primo estraneo**: il custode gli toglie la scrittura
+  su `method` (fatto il 2026-11-23, resta solo `steledama` fra i
+  collaboratori). Le sessioni di lavoro su `svezia` e `norvegia` non
+  scrivono più nel canone: aprono issue o PR. Il costo è accettato dal
+  custode;
+- **versioni al posto di `main`**: il gruppo lavoro legge una versione
+  fissata del canone, all'inizio un tag git su cui sta il checkout di
+  `method` su `svezia` (atto di `nixos-lavoro`); il pacchetto versionato
+  («Distribuzione», punto 1) viene dopo;
+- **su `deck` niente cambia**: symlink e dogfooding restano la modalità di
+  sviluppo del custode.
+
 ## Dipendenze
 
 La risposta dipende da [integrazione-runtime](integrazione-runtime.md): se
@@ -103,9 +129,10 @@ conoscerlo resta qui.
 
 ## Criterio di chiusura
 
-Il custode decide se la diffusione è uno scopo del progetto. Se sì, il task
-si divide in lavori eseguibili sulle tre superfici; se no, si rimuove con
-la riga del plan e la voce in `o2/tasks.md`.
+Deciso il 2026-11-23 che la diffusione è uno scopo. Il task si chiude quando
+le tre superfici sono divise in lavori eseguibili: l'osservazione nel
+[canale-in-entrata](canale-in-entrata.md); restano la pubblicazione delle
+viste e il pacchetto versionato.
 
 Connessioni:
 

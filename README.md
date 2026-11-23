@@ -129,8 +129,9 @@ L'ordine di bootstrap è `README → CLAUDE → nodo`.
 - **Metodo portabile** — il modello e la ricetta vivono nei nodi indicizzati da
   [`kb/kb.md`](kb/kb.md).
 - **Osservatorio cross-repo** — il protocollo vive in
-  [`method-observatory`](kb/method-observatory.md); il verdetto corrente in
-  [`i3/audit-adottanti.md`](i3/audit-adottanti.md).
+  [`method-observatory`](kb/method-observatory.md); l'audit `/adottanti` è
+  ritirato il 2026-11-23 e il canale si ripensa in entrata, da issue e PR
+  ([canale-in-entrata](o2/canale-in-entrata.md)).
 - **Strumenti comuni** — esecutori e runbook sono registrati in
   [`o3/prescriptions.md`](o3/prescriptions.md); capacità e limiti in
   [`kb-tools`](kb/kb-tools.md) e [`skill`](kb/skill.md).

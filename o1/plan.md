@@ -18,18 +18,19 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
 
-| Ciclo | Ob. | Task                                     | Dip. |
-| ----- | --- | ---------------------------------------- | ---- |
-| dev   | S   | Snellimento delle skill `eval` ed `exec` | —    |
-| dev   | S   | Skill dal canone                         | —    |
-| dev   | S   | Presentazione oltre il deck              | —    |
-| dev   | S   | Nome del progetto                        | —    |
-| dev   | S   | Chat del coordinatore                    | —    |
-| dev   | S   | Integrazione con un runtime esistente    | —    |
-| dev   | S   | Coordinatore di gruppi                   | —    |
-| dev   | S   | Dinieghi: backslash e parentesi          | —    |
-| dev   | S   | Diffusione oltre il custode unico        | p2   |
-| dev   | S   | Traduzione in inglese                    | p1   |
+| Ciclo   | Ob. | Task                                     | Dip. |
+| ------- | --- | ---------------------------------------- | ---- |
+| dev     | S   | Snellimento delle skill `eval` ed `exec` | —    |
+| dev     | S   | Skill dal canone                         | —    |
+| dev     | S   | Presentazione oltre il deck              | —    |
+| dev     | S   | Nome del progetto                        | —    |
+| dev     | S   | Chat del coordinatore                    | —    |
+| dev     | S   | Integrazione con un runtime esistente    | —    |
+| dev     | S   | Coordinatore di gruppi                   | —    |
+| dev     | S   | Dinieghi: backslash e parentesi          | —    |
+| dev     | S   | Diffusione oltre il custode unico        | —    |
+| runtime | S   | Canale in entrata                        | —    |
+| dev     | S   | Traduzione in inglese                    | p1   |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
 riesame (`kb/plan.md`, «Risveglio»):
@@ -38,15 +39,12 @@ riesame (`kb/plan.md`, «Risveglio»):
   dell'osservazione del ciclo autonomo, per non mescolare il cambio di
   lingua ai `/method` degli adottanti; si riprende al riesame del filo
   ciclo autonomo, o prima se serve un lettore in inglese; by: 2026-12-01
-- `p2` — custode, 2026-11-13: la diffusione oltre il custode unico si
-  affronta dopo la sedimentazione del canone e insieme all'integrazione con
-  un runtime; si riprende al riesame del filo ciclo autonomo; by: 2026-12-01
 
 ## Ricorrenze
 
-| Prossima   | Cadenza | Esecutore | Ob. | Ricorrenza                                         |
-| ---------- | ------- | --------- | --- | -------------------------------------------------- |
-| 2026-12-01 | mensile | sessione  | 2   | [/adottanti](../.claude/skills/adottanti/SKILL.md) |
+Nessuna dal 2026-11-23: l'audit mensile `/adottanti` è ritirato
+([diffusione-oltre-custode-unico](../o2/diffusione-oltre-custode-unico.md),
+«Decisione del 2026-11-23»).
 
 I dettagli e il contesto dei task vivono in `o2/`, indicizzati da
 [`o2/tasks.md`](../o2/tasks.md).
