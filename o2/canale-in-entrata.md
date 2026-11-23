@@ -35,19 +35,9 @@ rovescia, da osservazione a ricezione.
 
 ## Residui da sistemare
 
-Il ritiro di `/adottanti` lascia punti che ne parlano ancora, da ripensare
-insieme al canale e non in fretta:
-
-- `o3/adottanti.py`: il sottocomando `audit` e la lettura via `ssh` degli
-  adottanti di lavoro, che da estranei non si leggono più; `stato`, `log` e
-  `show` servono ancora a `/method` e ai giri sugli adottanti di casa;
-- `o3/ingresso-adottante.md` e `o3/prescriptions.md`: l'ingresso di un
-  adottante finiva col primo `/adottanti`; con un estraneo non c'è ingresso
-  da parte di `method`, l'adozione è sua;
-- `kb/method-observatory.md`: l'osservatorio cambia natura, da audit a
-  lettura dei contributi;
-- `world.md`: gli adottanti di lavoro restano nel territorio come voce, ma
-  non come checkout da leggere; casa passa sotto il coordinatore `nixos`.
+Spostati il 2026-11-23 nel task
+[strumenti-del-coordinatore](strumenti-del-coordinatore.md): gli strumenti
+che leggono gli adottanti passano ai coordinatori dei gruppi.
 
 ## Decisione del 2026-11-23
 
@@ -61,12 +51,13 @@ lui, non nei giri autonomi: è un atto verso l'esterno, in un posto pubblico.
    e `proposta`.
 2. ~~Regola delle versioni e prima versione con note~~ fatto il 2026-11-23:
    `kb/method-development.md`, «Versioni», prescrizione
-   prescrizione `versioni-del-canone` (chiusa il 2026-11-23, in git), rilascio
+   `versioni-del-canone` (chiusa il 2026-11-23, in git), rilascio
    `v0.2.0`.
 3. ~~Il gruppo lavoro passa al tag~~ fatto il 2026-11-23: tutti e cinque
    a `v0.2.0`, `danea-auto` compreso (dichiarazione del custode).
 4. Skill di smistamento dei contributi, con la regola dei dati non fidati.
-5. I residui sopra.
+   Si progetta sulla prima issue vera, non a tavolino: la candidata è il
+   segnale sul Goal S di `salute`, scritto con la regola dei repo privati.
 
 ## Criterio di chiusura
 

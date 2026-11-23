@@ -30,6 +30,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | dev     | S   | Dinieghi: backslash e parentesi          | —    |
 | dev     | S   | Diffusione oltre il custode unico        | —    |
 | runtime | S   | Canale in entrata                        | —    |
+| runtime | S   | Strumenti del coordinatore               | —    |
 | dev     | S   | Traduzione in inglese                    | p1   |
 
 Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
