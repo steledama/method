@@ -61,8 +61,10 @@ lui, non nei giri autonomi: è un atto verso l'esterno, in un posto pubblico.
    e `proposta`.
 2. ~~Regola delle versioni e prima versione con note~~ fatto il 2026-11-23:
    `kb/method-development.md`, «Versioni», prescrizione
-   [versioni-del-canone](../o3/versioni-del-canone.md), rilascio `v0.2.0`.
-3. Il gruppo lavoro passa al tag (atto di `nixos-lavoro` e `danea-auto`).
+   prescrizione `versioni-del-canone` (chiusa il 2026-11-23, in git), rilascio
+   `v0.2.0`.
+3. ~~Il gruppo lavoro passa al tag~~ fatto il 2026-11-23: tutti e cinque
+   a `v0.2.0`, `danea-auto` compreso (dichiarazione del custode).
 4. Skill di smistamento dei contributi, con la regola dei dati non fidati.
 5. I residui sopra.
 

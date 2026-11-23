@@ -1,6 +1,6 @@
 # Prescriptions
 
-Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e predisposto sul Mondo runtime. Il significato dello stadio vive nell'atomo [perform](../kb/perform.md). Il Mondo runtime di `method` sono gli adottanti: l'o3 di `method` è il **runbook di propagazione** — la ricetta, per repo, che porta un adottante al canone nuovo. Lo esegue il `method` dell'adottante: o3 prescrive, method compie l'atto ([action-cycle](../kb/action-cycle.md)). Una prescrizione nasce quando un segnale i1 ([perceptions](../i1/perceptions.md)) è stato valutato e ha prodotto un cambio di canone; resta finché tutti gli adottanti non l'hanno recepita. La fetta di skill che mantiene lo stadio è lo scope `perform` di [exec](../.claude/skills/exec/SKILL.md).
+Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e predisposto sul Mondo runtime. Il significato dello stadio vive nell'atomo [perform](../kb/perform.md). Il Mondo runtime di `method` sono gli adottanti: l'o3 di `method` è il **runbook di propagazione** — la ricetta, per repo, che porta un adottante al canone nuovo. Lo esegue il `method` dell'adottante: o3 prescrive, method compie l'atto ([action-cycle](../kb/action-cycle.md)). Una prescrizione nasce quando un segnale i1 ([perceptions](../i1/perceptions.md)) è stato valutato e ha prodotto un cambio di canone; resta finché gli adottanti del custode non l'hanno recepita nei loro marker. Per un adottante mantenuto da altri fa fede la versione che dichiara: adottare un tag vuol dire recepirne le prescrizioni (`kb/method-development.md`, «Versioni»). La fetta di skill che mantiene lo stadio è lo scope `perform` di [exec](../.claude/skills/exec/SKILL.md).
 
 ## Divisione del lavoro
 
@@ -14,10 +14,6 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
-
-- [Versioni del canone](versioni-del-canone.md) — il canone si adotta a un
-  tag con note, `tt-sviluppo` primo estraneo, segnali per issue o PR in
-  sessione, `/adottanti` ritirato, un coordinatore per gruppo fra i suoi repo.
 
 ## Procedure
 

@@ -108,7 +108,10 @@ note; finché il canone è in `0.x`:
 L'adottante mantenuto da altri tiene il checkout di `method` in HEAD staccato
 sul tag che ha rivisto: scarica i tag, rivede con il proprio `/method` dal suo
 marker al tag nuovo e solo allora ci si sposta, registrando la versione nel
-marker (`method_version`). I repository del custode che fanno dogfooding
+marker (`method_version`). Adottare un tag vuol dire recepirne le
+prescrizioni: per un adottante mantenuto da altri una prescrizione si dà
+chiusa sulla versione che dichiara, perché `method` non ne legge il repo. I
+repository del custode che fanno dogfooding
 leggono `main` via symlink: è la modalità di sviluppo, non di distribuzione.
 
 ## Contribuire al canone
