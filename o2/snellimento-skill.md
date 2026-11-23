@@ -1,5 +1,5 @@
 ---
-sintesi: "Dalla revisione del repo del 2026-11-13: snellire le skill eval ed exec con misure e non alla cieca. Fino al riesame del 2026-12-01 del ciclo autonomo si fa solo la misura con o3/skill_tools.py; i tagli si propongono dopo, voce per voce."
+sintesi: "Dalla revisione del repo del 2026-11-13: snellire le skill eval ed exec con misure e non alla cieca. Dal 2026-11-23 aspetta il ritiro del giro senza custode dal canone; poi la misura con o3/skill_tools.py e i tagli voce per voce."
 ciclo: dev
 ---
 
@@ -50,22 +50,17 @@ quattro adottanti, `nixos-lavoro` (`cycle`, `eval`, `exec`, `commit`,
 `kb/cicli.md`), `bi` `7b4a763f`, `baserow` `c57cd83` e `abbinatore`
 `bfc74d8`.
 
-Al riesame del 2026-12-01 il custode decide fra due vie:
-
-- **isolare**: le regole del giro senza custode in un solo posto, caricato
-  da `/cycle autonomo` e dal lanciatore; skill, lanciatore, esecutore,
-  rotte `/_ciclo/` e `dopo --giro` restano come opzione documentata;
-- **togliere**: il giro senza custode esce dal canone e resta in git, con
-  una prescrizione che chiude il criterio `ciclo-autonomo` negli adottanti.
-
-In entrambi i casi le skill canoniche si avvicinano a quelle già potate, e
-il `/method` degli adottanti smette di trovare una differenza attesa.
+Il custode decide il 2026-11-23 di **togliere** il giro senza custode dal
+canone, invece di isolarlo: lo esegue
+[ritiro-giro-senza-custode](ritiro-giro-senza-custode.md). I tagli di
+questo task si misurano sulle skill che ne escono, senza aspettare il
+riesame del 2026-12-01, che non ha più un giro da osservare.
 
 ## Passi
 
 1. misurare con `o3/skill_tools.py` che cosa le skill ripetono dei nodi e
    quali voci non hanno mosso nessun esito negli ultimi giri;
-2. dopo il riesame, proporre al custode i tagli voce per voce, col caso che
+2. dopo il ritiro del giro senza custode, proporre al custode i tagli voce per voce, col caso che
    ciascuna presidia;
 3. applicare, e prescrivere il recepimento solo se cambia il contratto.
 

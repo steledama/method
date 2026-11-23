@@ -20,6 +20,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 | Ciclo   | Ob. | Task                                     | Dip. |
 | ------- | --- | ---------------------------------------- | ---- |
+| dev     | S   | Ritiro del giro senza custode            | —    |
 | dev     | S   | Snellimento delle skill `eval` ed `exec` | —    |
 | dev     | S   | Skill dal canone                         | —    |
 | dev     | S   | Presentazione oltre il deck              | —    |

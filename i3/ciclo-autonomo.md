@@ -32,7 +32,10 @@ decide l'uscita anche di `danea-auto`, l'ultimo adottante noto col giro, sul
 lanciatore canonico di `method` fino al giro del 23/11 (`dea853a`). L'uscita
 la compie la sessione di `danea-auto` su `danea2`; finché non la riferisce,
 il giro delle 08:10 gira ancora. Dopo, nessun adottante noto esercita il
-giro senza custode, e il canone lo custodisce senza uso. La domanda diventa anche _per quali_ repo il gradino
+giro senza custode. Il custode decide lo stesso giorno che esce anche dal
+canone, e resta in git
+([ritiro-giro-senza-custode](../o2/ritiro-giro-senza-custode.md)): il
+filo si chiude con quel task. La domanda diventa anche _per quali_ repo il gradino
 vale: `method` ne custodisce il canone senza esercitarlo.
 
 ## La scommessa
