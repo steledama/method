@@ -17,7 +17,7 @@ collezione.
 
 Una cattura che rimanda la promozione a un andamento dichiara una soglia
 contabile: N casi in M giri o in un intervallo, con la fonte del conteggio
-(trailer dei commit, `tentativi.jsonl`, altre catture). Il perceive la conta a
+(trailer dei commit, log, altre catture). Il perceive la conta a
 ogni giro e, raggiunta la soglia, compie la promozione dichiarata. Una soglia
 che nessuno conta, come «quando mostrano un andamento», è un cartello: la
 promozione non arriva e i casi restano sparsi nei commit (giro di `salute`,

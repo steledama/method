@@ -82,53 +82,6 @@ class ClassificazioneTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
-    def test_giro_from_declared_composition(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            scrivi(
-                root,
-                ".claude/settings.json",
-                json.dumps(
-                    {"permissions": {"deny": ["Bash(git reset*)", "Bash(git push --force*)"]}}
-                ),
-            )
-            scrivi(
-                root,
-                "o3/ciclo/permessi.json",
-                json.dumps({"permissions": {"allow": ["Bash(git status*)"], "deny": []}}),
-            )
-            scrivi(
-                root,
-                ".claude/skills/cycle/SKILL.md",
-                "---\nmetadata:\n  compone: eval commit\n---\n"
-                "Esegui `/eval all`, poi `/commit`; il repo `method` non gira, né `/kb`.\n"
-                "Lancia `/method` quando serve.\n",
-            )
-            scrivi(
-                root,
-                ".claude/skills/eval/SKILL.md",
-                "Lancia `git status --short` e `jq . x.json`.\n"
-                "Non usare `git reset --hard`.\n"
-                "Non usare `git add -A`.\n"
-                "Lavora senza `jq . y.json` e con `git -C <repo> log`.\n"
-                "Poi esegui `/commit`.\n",
-            )
-            scrivi(root, ".claude/skills/commit/SKILL.md", "Committa.\n")
-            scrivi(root, ".claude/skills/kb/SKILL.md", "Lancia `jq . z.json`.\n")
-            scrivi(root, ".claude/skills/method/SKILL.md", "Recepisce.\n")
-            report = MODULE.audit(root)
-        self.assertIn("dalle composizioni dichiarate: commit, cycle, eval.", report)
-        self.assertIn("eval:1 `jq . x.json` — non concesso nel giro", report)
-        self.assertNotIn("kb:1", report)
-        self.assertNotIn("eval:2 `git reset --hard`", report)
-        self.assertNotIn("eval:4 `jq . y.json`", report)
-        self.assertIn("eval:4 `git -C <repo> log` — non concesso nel giro", report)
-        self.assertLess(report.index("### Modelli"), report.index("eval:4 `git -C <repo> log`"))
-        self.assertIn("eval:2 — con deny", report)
-        self.assertIn("eval:3 — deny non trovato nella stessa grafia", report)
-        self.assertIn("cycle: composta che chiama skill non dichiarate → method (riga 6)", report)
-        self.assertIn("eval: base che chiama altre skill → commit (riga 5)", report)
-
     def test_next_task_examples_against_gate(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -140,10 +93,8 @@ class AuditTests(unittest.TestCase):
                 "```\nProssimo: <task> (confermato)\nProssimo: nessuno (<motivo>)\n```\n"
                 "Con `Prossimo: <task> (confermato; <riesame>)` nel commit.\n",
             )
-            scrivi(root, "o3/ciclo/prompt.md", "```\nProssimo: <task>\n```\n")
             report = MODULE.audit(root)
         self.assertIn("exec:5 `Prossimo: <task> (confermato; <riesame>)` — il gate", report)
-        self.assertIn("o3/ciclo/prompt.md:2 `Prossimo: <task>` — il gate", report)
         self.assertNotIn("exec:2", report)
         self.assertNotIn("exec:3", report)
         self.assertNotIn("exec:4", report)
@@ -172,11 +123,6 @@ class AuditTests(unittest.TestCase):
             )
             scrivi(
                 root,
-                "o3/ciclo/permessi.json",
-                json.dumps({"permissions": {"allow": ["Bash(git status*)"], "deny": []}}),
-            )
-            scrivi(
-                root,
                 ".claude/skills/cycle/SKILL.md",
                 "---\nmetadata:\n  compone: exec\n---\nEsegui `/exec all`.\n",
             )
@@ -192,7 +138,6 @@ class AuditTests(unittest.TestCase):
             scrivi(root, ".claude/skills/commit/SKILL.md", "Committa.\n")
             report = MODULE.audit(root)
         self.assertIn("- exec: 1 righe; 6 nei file accanto", report)
-        self.assertIn("exec/plan.md:1 `jq . x.json` — non concesso nel giro", report)
         self.assertIn("exec/plan.md:2 — deny non trovato nella stessa grafia", report)
         self.assertIn("exec: base che chiama altre skill → commit (exec/plan.md:3)", report)
 
@@ -204,11 +149,6 @@ class AuditTests(unittest.TestCase):
                 ".claude/settings.json",
                 json.dumps({"permissions": {"deny": ["Bash(git reset*)"]}}),
             )
-            scrivi(
-                root,
-                "o3/ciclo/permessi.json",
-                json.dumps({"permissions": {"allow": [], "deny": ["Bash(git push --force*)"]}}),
-            )
             scrivi(root, ".claude/skills/exec/SKILL.md", "Coda.\n")
             scrivi(
                 root,
@@ -219,35 +159,10 @@ class AuditTests(unittest.TestCase):
                 "Nuovi task — `/exec plan`.\n",
             )
             scrivi(root, "CLAUDE.md", "Non usare `git push --force` né `git reset --hard`.\n")
-            scrivi(root, "o3/ciclo/prompt.md", "Non usare `git push --force`.\n")
             report = MODULE.audit(root)
         self.assertIn("commit: base che chiama altre skill → exec (riga 1), exec (riga 3)", report)
         self.assertIn("- commit: exec (riga 4)", report)
         self.assertIn("CLAUDE.md:1 — con deny", report)
-        self.assertIn("o3/ciclo/prompt.md:1 — con deny", report)
-
-    def test_session_ban_held_only_by_giro_deny(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            scrivi(root, ".claude/settings.json", json.dumps({"permissions": {"deny": []}}))
-            scrivi(
-                root,
-                "o3/ciclo/permessi.json",
-                json.dumps({"permissions": {"allow": [], "deny": ["Bash(git push --force*)"]}}),
-            )
-            scrivi(root, ".claude/skills/commit/SKILL.md", "Non usare `git push --force`.\n")
-            report = MODULE.audit(root)
-        self.assertIn("commit:1 — deny solo nei permessi del giro: in sessione manca", report)
-
-    def test_undeclared_cycle_checks_only_itself(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            scrivi(root, "o3/ciclo/permessi.json", json.dumps({"permissions": {"allow": []}}))
-            scrivi(root, ".claude/skills/cycle/SKILL.md", "Compone `eval all`.\n")
-            scrivi(root, ".claude/skills/eval/SKILL.md", "Lancia `jq . x.json`.\n")
-            report = MODULE.audit(root)
-        self.assertIn("`cycle` non dichiara `metadata: compone:`", report)
-        self.assertNotIn("eval:1", report)
 
 
 if __name__ == "__main__":

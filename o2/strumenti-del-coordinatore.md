@@ -1,5 +1,5 @@
 ---
-sintesi: "Gli strumenti che leggono gli adottanti (adottanti.py, dinieghi.py, prescrizioni.py) presuppongono che method osservi tutti dal proprio world.md, anche via ssh. Nel modello dei gruppi guardare i membri è compito del coordinatore: gli strumenti prendono --root e leggono il world.md dell'istanza, method perde audit e ssh, ingresso e osservatorio si riscrivono sul coordinatore."
+sintesi: "Gli strumenti che leggono gli adottanti (adottanti.py e prescrizioni.py) presuppongono che method osservi tutti dal proprio world.md, anche via ssh. Nel modello dei gruppi guardare i membri è compito del coordinatore: gli strumenti prendono --root e leggono il world.md dell'istanza, method perde audit e ssh, ingresso e osservatorio si riscrivono sul coordinatore."
 ciclo: runtime
 ---
 
@@ -8,8 +8,7 @@ ciclo: runtime
 ## Origine
 
 Aperto il 2026-11-23 dal custode, sulla domanda di `nixos` dopo che è
-diventato coordinatore del gruppo casa: `adottanti.py` e `dinieghi.py`
-accettano una radice, come `build.py` e `kb_tools.py`, o che cosa ne resta
+diventato coordinatore del gruppo casa: `adottanti.py` accetta una radice, come `build.py` e `kb_tools.py`, o che cosa ne resta
 per i gruppi, ritirato `/adottanti`? Raccoglie i residui del ritiro, prima
 nel task [canale-in-entrata](canale-in-entrata.md).
 
@@ -19,9 +18,6 @@ nel task [canale-in-entrata](canale-in-entrata.md).
   per remote fra i cloni della home o via `ssh`; sottocomandi `stato`, `log`,
   `show` e `audit`, quest'ultimo la parte meccanica del `/adottanti`
   ritirato. `o3/skill_tools.py` lo importa per la classifica delle skill.
-- `o3/dinieghi.py`: ricorrenza dei dinieghi nei giri autonomi di `method` e
-  degli adottanti con un clone sull'host. Oggi gira un solo ciclo autonomo,
-  in `danea-auto`.
 - `o3/prescrizioni.py`: verifica e chiude una prescrizione sui marker di
   tutti gli adottanti, anche via `ssh`. Dal 2026-11-23 per un adottante
   mantenuto da altri fa fede la versione dichiarata
@@ -31,8 +27,7 @@ nel task [canale-in-entrata](canale-in-entrata.md).
 
 ## Proposta
 
-- **`--root` per gli strumenti di gruppo**: `adottanti.py` e `dinieghi.py`
-  leggono i membri dal `world.md` dell'istanza indicata (la sezione
+- **`--root` per gli strumenti di gruppo**: `adottanti.py` legge i membri dal `world.md` dell'istanza indicata (la sezione
   `## Membri`, la stessa del sito di gruppo), così `nixos` li lancia sul
   gruppo casa e `nixos-lavoro` sul gruppo lavoro. Senza `--root` vale
   `method`.
@@ -47,29 +42,14 @@ nel task [canale-in-entrata](canale-in-entrata.md).
 - **`world.md` di `method`**: gli adottanti di lavoro restano come voce del
   territorio, non come checkout da leggere.
 
-## Il ciclo nel sito di gruppo
-
-Riscontro di `nixos-lavoro` su `svezia`, 2026-11-23: `serve.py --gruppo`
-accetta un solo `--ciclo-state` e riscrive `/<repo>/_ciclo/` in `/_ciclo/`,
-quindi ogni membro mostra i tentativi passati al server (`/bi/_ciclo/`
-rendeva quelli dell'istanza). Sotto il prefisso di un membro la pagina porta
-anche la sigla dell'istanza, perché il server rende col profilo del proprio
-checkout. Oggi non tocca nessun gruppo, perché nessun membro di un sito di
-gruppo ha un giro senza custode; va corretto prima che un gruppo ne abbia più
-d'uno: stato del ciclo per membro, oppure `/<repo>/_ciclo/` che dichiara
-«nessun ciclo» per i membri che non lo hanno, e profilo del membro servito.
-
 ## Passi
 
 1. `--root` e lettura di `## Membri` in `adottanti.py`, coi test.
-2. Lo stesso in `dinieghi.py`.
-3. Togliere `audit` e `ssh` da `adottanti.py` e `prescrizioni.py`;
+2. Togliere `audit` e `ssh` da `adottanti.py` e `prescrizioni.py`;
    `prescrizioni.py` sulla regola della versione.
-4. Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
+3. Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
    parte di `world.md` sugli accessi ssh.
-5. Stato del ciclo per membro in `serve.py --gruppo` («Il ciclo nel sito di
-   gruppo»), coi test.
-6. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
+4. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
 
 ## Criterio di chiusura
 

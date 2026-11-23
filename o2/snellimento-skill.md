@@ -18,18 +18,14 @@ sessione.
 Le skill sono circa 340 righe l'una; la sezione `plan` di `exec` ne occupa 200. A una lettura completa sono liste di controllo che rimandano ai nodi, e
 ogni voce nasce da un caso dei giri: la ripetizione col canone è minore di
 quanto il conteggio delle righe suggerisca. Tagliare senza misura rischia di
-togliere un presidio a un ciclo che gira ogni giorno in otto repo, coi fork
-degli adottanti da riallineare.
+togliere un presidio alle skill e ai fork degli adottanti da riallineare.
 
 ## Decisioni
 
 Il 2026-11-13 il custode ha deciso:
 
-- i tagli aspettano il riesame del 2026-12-01 del filo
-  [ciclo autonomo](../i3/ciclo-autonomo.md): cambiare le skill durante
-  l'osservazione mescolerebbe due cause se un giro peggiora, come per la
-  traduzione;
-- prima di allora si fa solo la misura, che non cambia nulla;
+- la pausa dei tagli legata all’osservazione è terminata col ritiro del giro
+  senza custode il 2026-11-23; resta necessaria la misura prima dei tagli;
 - la struttura di `o3/` resta com'è. Il problema era che gli strumenti non si
   trovavano: ora l'indice li registra tutti e l'audit lo verifica
   (`o3/kb_domain.py`). Spostare script o prescrizioni costerebbe una
@@ -40,7 +36,7 @@ Il 2026-11-13 il custode ha deciso:
 
 Segnale di `nixos-lavoro`, 2026-11-23: dopo casa anche il gruppo lavoro
 rinuncia al ciclo senza custode
-([ciclo autonomo](../i3/ciclo-autonomo.md)), ed `eval`, `exec`, `commit`,
+(filo sul ciclo autonomo, conservato nella storia Git), ed `eval`, `exec`, `commit`,
 `cycle` e `plan` portano molti rimandi al giro senza custode che ogni
 adottante deve potare a mano nel fork. Lo stesso giorno il custode decide
 l'uscita anche di `danea-auto`, l'ultimo che lo usava: dopo, nessun

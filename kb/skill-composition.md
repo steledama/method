@@ -88,7 +88,7 @@ L'abilità di un artefatto si misura su quanto riesce a isolare nuclei atomici
 e semplici che si coordinano verso i goal del dominio. Indicatori osservabili:
 
 - nuclei atomici e loro riuso: una base usata da più composte;
-- dinieghi per giro;
+- dinieghi osservati nella sessione;
 - peso medio letto per run;
 - quota di righe che sono rimandi a `kb/` e a `o3/`;
 - crescita delle copie di una skill canonica rispetto al canone.

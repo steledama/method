@@ -12,7 +12,7 @@ rinuncia al ciclo senza custode, e chiede che statuto abbiano nel canone
 prescrizione, lanciatore, esecutore, `/cycle autonomo`, rotte `/_ciclo/` e
 `dopo --giro` se nessuno li usa più. Lo stesso giorno il custode decide
 l'uscita anche di `danea-auto`, l'ultimo adottante noto col giro
-([ciclo autonomo](../i3/ciclo-autonomo.md)).
+(filo sul ciclo autonomo, conservato nella storia Git).
 
 ## Decisione del 2026-11-23
 
@@ -38,10 +38,8 @@ Rimossi il lanciatore, l'esecutore Codex, la modalità senza custode di
 `/cycle`, le rotte e la sezione della vista, e i controlli del gate legati
 alle trascrizioni; `ultimo_giro.py` resta perché serve alle sessioni. La
 prescrizione di recepimento è predisposta in `o3/ritiro-ciclo-senza-custode.md`.
-La pausa della traduzione è tolta. Restano il censimento e la pulizia delle
-superfici residue (inclusi gli strumenti di osservazione), la chiusura del
-filo, la review integrale della KB e il recepimento negli adottanti prima del
-rilascio. Le modifiche locali non sono ancora un rilascio.
+La pausa della traduzione è tolta. Il filo è chiuso, il lettore dei dinieghi e il monitoraggio del giro sono rimossi. Restano il recepimento negli adottanti e il rilascio. La review integrale della KB
+è rinviata a una sessione dedicata. Le modifiche locali non sono ancora un rilascio.
 
 ## Le potature già fatte negli adottanti
 
@@ -51,36 +49,19 @@ differenza dichiarata nel suo `kb/cicli.md`), `bi` `7b4a763f`, `baserow`
 `c57cd83`, `abbinatore` `bfc74d8` e `danea-auto`. Quest'ultima è riferita
 senza SHA e non riletta qui; la differenza dal canone è dichiarata nella sua
 skill `/method` e nel marker, come attesa fino al tag che pota le skill
-canoniche. Il confronto del passo 2 parte da questi fork.
+canoniche. I fork vanno confrontati durante il recepimento.
 
 `danea-auto` ha tenuto, perché serve anche alla sessione: `/cycle` senza
 argomento con `Esiti:` e `Prossimo:`, il minimo per stadio,
 `o3/ultimo_giro.py`, `o3/scadenze.py`, la visione d'insieme di `exec plan`
 e il gate di `/commit`. Ha lasciato anche le rotte `/_ciclo/` del suo
-servizio delle viste. È un primo riscontro per il censimento del passo 1:
-`ultimo_giro.py` è nell'elenco di ciò che esce, e va verificato se serve
-davvero alla sessione.
+servizio delle viste. Il censimento ha confermato che `ultimo_giro.py` serve anche alla sessione.
 
-## Passi
+## Passi rimasti
 
-1. Censire nel canone ciò che esiste solo per il giro senza custode:
-   `o3/lanciatore.py`, `o3/esecutore_codex.py`, `o3/ciclo/`,
-   `o3/ultimo_giro.py`, `o3/view/ciclo.py` e le rotte `/_ciclo/` di
-   `serve.py`, `dopo --giro` e il controllo `stadi` di `commit_gate.py`, i
-   test, la modalità `autonomo` di `/cycle` e i rimandi in `eval`, `exec`,
-   `commit` e nei nodi (`kb/consent.md`, `kb/view-publishing.md`, «Stato
-   operativo letto a richiesta»). Per ciascuno: esce, oppure serve anche alla
-   sessione e resta.
-2. Togliere, coi test e le viste verdi, e potare le skill canoniche
-   confrontandole con quelle già potate di `nixos-lavoro`.
-3. Prescrizione in `o3/` che chiude il criterio `ciclo-autonomo` negli
-   adottanti e allinea i fork; per gli adottanti mantenuti da altri fa fede
-   la versione.
-4. Aggiornare la «Direzione» di `o1/plan.md`, `autonomy.md` e `goal.md` dove
-   parlano del giro senza custode; chiudere il filo `i3/ciclo-autonomo.md`
-   col verdetto; togliere la pausa `p1` della traduzione, che aspettava il
-   riesame del filo.
-5. Rilascio `v0.3.0` con le note: chiede qualcosa agli adottanti.
+1. Verificare e completare il recepimento della prescrizione negli adottanti
+   del custode; per quelli mantenuti da altri fa fede la versione dichiarata.
+2. Preparare il rilascio `v0.3.0` con le note per gli adottanti.
 
 ## Criterio di chiusura
 
@@ -92,4 +73,3 @@ Connessioni:
 
 - [snellimento-skill](snellimento-skill.md)
 - [strumenti-del-coordinatore](strumenti-del-coordinatore.md)
-- [ciclo autonomo](../i3/ciclo-autonomo.md)

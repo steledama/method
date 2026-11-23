@@ -3,7 +3,7 @@
 Le due letture con cui `eval` ed `exec` aprono il giro costavano un diniego
 quasi a ogni giro, in quattro repo: la grafia `--grep=^docs(ciclo)` o
 `--format=%(trailers:…)` senza virgolette ha parentesi che l'harness nega
-(`o3/dinieghi.py`, classe `parentesi`, 13 giri fra il 06 e il 12/11/2026).
+(classe `parentesi`, 13 giri fra il 06 e il 12/11/2026).
 La regola c'era già nelle skill, scritta quotata, e l'agente la perdeva
 lo stesso. Il custode ha deciso il 2026-10-27 che una ricorrenza dopo il
 recepimento chiede uno strumento che renda superflua la grafia, non un'altra

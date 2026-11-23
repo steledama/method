@@ -54,13 +54,9 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   il gate di `/commit`. Test: `python3 -m unittest discover -s tests -p 'test_traduzioni.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
   ([plan](../kb/plan.md), «Controllo di scadenze e ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
-- `dinieghi.py` — la ricorrenza dei dinieghi nei giri autonomi: classi di
-  grafia in almeno due giri fra gli ultimi dieci dei repo leggibili, con
-  l'esito sul segnale canonico ([agent-as-user](../kb/agent-as-user.md)). Lo
-  lancia il giro di `method`. Test: `python3 -m unittest discover -s tests -p 'test_dinieghi.py'`.
 - `ultimo_giro.py` — l'ultimo giro e l'ultimo `Prossimo:` del repo corrente,
   senza grafie da quotare. Test in
-  `tests/test_dinieghi.py`, con quelli di `dinieghi.py`.
+  `tests/test_ultimo_giro.py`.
 - `adottanti.py` — lettura in sola lettura degli adottanti dichiarati in
   `world.md`, per il giro e per `/adottanti`: storia, marker e `audit`; con
   `--ssh` legge quelli dichiarati su un altro host. Test:

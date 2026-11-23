@@ -3,8 +3,7 @@
 Il criterio vive nei nodi `skill`, `skill-composition` e `agent-as-user`; qui
 si producono evidenze. Le skill si leggono da `.claude/skills/*/SKILL.md` (i
 wrapper di altri harness rinviano lì); i permessi da `.claude/settings.json`
-(sessione) e `o3/ciclo/permessi.json` (giro). Comandi e divieti si censiscono
-anche in `CLAUDE.md`, `AGENTS.md` (sessione) e nel prompt del giro. Il canone si trova dal symlink
+(sessione). Comandi e divieti si censiscono anche in `CLAUDE.md` e `AGENTS.md`. Il canone si trova dal symlink
 `method/` dell'adottante; in `method` il canone è il repo stesso.
 
 L'estrazione dei comandi è euristica: legge gli span di codice con almeno un
@@ -27,8 +26,6 @@ from pathlib import Path
 
 SKILLS = Path(".claude/skills")
 SETTINGS = Path(".claude/settings.json")
-PERMESSI_GIRO = Path("o3/ciclo/permessi.json")
-PROMPT_GIRO = Path("o3/ciclo/prompt.md")
 ISTRUZIONI = (Path("CLAUDE.md"), Path("AGENTS.md"))
 GATE = Path("o3/commit_gate.py")
 GIORNI = 30
@@ -183,20 +180,6 @@ def concesso(comando: str, allow: list[str], deny: list[str]) -> bool:
     return all(any(corrisponde(p, s) for s in allow) for p in pezzi) and not negato(comando, deny)
 
 
-def skill_del_giro(skills: list[Skill]) -> set[str]:
-    """`cycle` e, a cascata, ciò che le composte dichiarano di comporre."""
-    per_nome = {s.nome: s for s in skills}
-    giro: set[str] = set()
-    da_visitare = ["cycle"] if "cycle" in per_nome else []
-    while da_visitare:
-        nome = da_visitare.pop()
-        if nome in giro or nome not in per_nome:
-            continue
-        giro.add(nome)
-        da_visitare += per_nome[nome].compone or []
-    return giro
-
-
 def tipo(comando: str, riga: str) -> str:
     """annuncio di un vincolo, modello con segnaposti, oppure comando."""
     prima_del_gesto = riga.split(f"`{comando}`")[0] if f"`{comando}`" in riga else ""
@@ -232,26 +215,12 @@ def chiamate(skill: Skill, nomi: set[str]) -> tuple[list[tuple[str, str]], list[
     return con_verbo, senza
 
 
-def superfici(root: Path, skills: list[Skill], giro: set[str]) -> list[tuple[str, list[str], bool]]:
-    """(etichetta, righe, nel giro): le skill, poi istruzioni di sessione e prompt del giro.
-
-    Le istruzioni del repo si caricano anche nel giro; il prompt vale solo lì.
-    """
-    nel_giro = (root / PERMESSI_GIRO).exists()
-    fonti = [(e, r, s.nome in giro) for s in skills for e, r in s.testi()]
+def superfici(root: Path, skills: list[Skill]) -> list[tuple[str, list[str]]]:
+    """Skill, rami e istruzioni della sessione."""
+    fonti = [(e, r) for skill in skills for e, r in skill.testi()]
     for path in ISTRUZIONI:
         if (root / path).exists() and not (root / path).is_symlink():
-            fonti.append(
-                (path.as_posix(), (root / path).read_text(encoding="utf-8").splitlines(), nel_giro)
-            )
-    if (root / PROMPT_GIRO).exists():
-        fonti.append(
-            (
-                PROMPT_GIRO.as_posix(),
-                (root / PROMPT_GIRO).read_text(encoding="utf-8").splitlines(),
-                True,
-            )
-        )
+            fonti.append((path.as_posix(), (root / path).read_text(encoding="utf-8").splitlines()))
     return fonti
 
 
@@ -353,9 +322,7 @@ def prosa_prossimo(righe: list[str]) -> list[int]:
 def audit(root: Path) -> str:
     skills = leggi_skill(root)
     nomi = {s.nome for s in skills}
-    allow_s, deny_s = regole(root / SETTINGS)
-    allow_g, deny_g = regole(root / PERMESSI_GIRO)
-    giro = skill_del_giro(skills) if (root / PERMESSI_GIRO).exists() else set()
+    _, deny_s = regole(root / SETTINGS)
     canone = canone_di(root)
     out = [f"## Skill di {root.resolve().name}", ""]
 
@@ -378,30 +345,22 @@ def audit(root: Path) -> str:
     out.append("")
 
     out += ["### Comandi contro i permessi", ""]
-    cycle = next((s for s in skills if s.nome == "cycle"), None)
-    if not (root / PERMESSI_GIRO).exists():
-        out.append("Nessun `o3/ciclo/permessi.json`: controllato solo il contesto di sessione.")
-    elif cycle and cycle.compone is None:
-        out.append("`cycle` non dichiara `metadata: compone:`: nel giro si controlla solo `cycle`.")
-    else:
-        out.append(f"Skill del giro, dalle composizioni dichiarate: {', '.join(sorted(giro))}.")
+    out.append("Controllato il contesto di sessione.")
     out.append("")
     sezioni: dict[str, list[str]] = {"comando": [], "modello": [], "annuncio": []}
-    fonti = superfici(root, skills, giro)
-    for etichetta, righe, nel_giro in fonti:
-        solo_giro = etichetta == PROMPT_GIRO.as_posix()
+    fonti = superfici(root, skills)
+    for etichetta, righe in fonti:
         for numero, comando in comandi(righe):
-            vietato_s = not solo_giro and negato(comando, deny_s)
-            fuori_giro = nel_giro and not concesso(comando, allow_g + allow_s, deny_g + deny_s)
+            vietato_s = negato(comando, deny_s)
             classe = tipo(comando, righe[numero - 1])
             voce = f"- {etichetta}:{numero} `{comando}`"
             if classe == "annuncio":
-                if vietato_s or fuori_giro:
+                if vietato_s:
                     continue
-                stato = "gesto concesso" if nel_giro else "nessun deny in sessione"
+                stato = "nessun deny in sessione"
                 sezioni["annuncio"].append(f"{voce} — {stato}: annuncio senza vincolo dietro?")
                 continue
-            note = ["negato in sessione"] * vietato_s + ["non concesso nel giro"] * fuori_giro
+            note = ["negato in sessione"] * vietato_s
             if note:
                 sezioni[classe].append(f"{voce} — {', '.join(note)}")
     out += sezioni["comando"] or ["- nessun comando scritto fuori dai permessi del suo contesto"]
@@ -417,10 +376,8 @@ def audit(root: Path) -> str:
 
     out += ["### Divieti scritti", ""]
     trovati = 0
-    for etichetta, righe, _ in fonti:
-        # Il prompt vale nel giro; skill e istruzioni anche in sessione, dove i
-        # deny del giro non reggono nulla.
-        deny = deny_g + deny_s if etichetta == PROMPT_GIRO.as_posix() else deny_s
+    for etichetta, righe in fonti:
+        deny = deny_s
         for numero, riga in enumerate(righe, 1):
             if not CARTELLO.search(riga):
                 continue
@@ -437,8 +394,6 @@ def audit(root: Path) -> str:
 
             if retto(deny):
                 stato = "con deny"
-            elif retto(deny_g):
-                stato = "deny solo nei permessi del giro: in sessione manca"
             else:
                 stato = "deny non trovato nella stessa grafia: vincolo altrove o lacuna"
             trovati += 1
@@ -454,7 +409,7 @@ def audit(root: Path) -> str:
     else:
         fuori = [
             f"- {nome}:{numero} `Prossimo: {valore}` — il gate lo rifiuta"
-            for nome, righe, _ in fonti
+            for nome, righe in fonti
             for numero, valore in esempi_prossimo(righe)
             if not prossimo.match(valore)
         ]
@@ -462,7 +417,7 @@ def audit(root: Path) -> str:
     prosa = [
         f"- {nome}:{numero} — lega il motivo della conferma al trailer: "
         "il riesame va nel corpo e nel resoconto"
-        for nome, righe, _ in fonti
+        for nome, righe in fonti
         for numero in prosa_prossimo(righe)
     ]
     out += prosa

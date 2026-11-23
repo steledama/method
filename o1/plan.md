@@ -27,7 +27,6 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | dev     | S   | Chat del coordinatore                    | —    |
 | dev     | S   | Integrazione con un runtime esistente    | —    |
 | dev     | S   | Coordinatore di gruppi                   | —    |
-| dev     | S   | Dinieghi: backslash e parentesi          | —    |
 | dev     | S   | Diffusione oltre il custode unico        | —    |
 | runtime | S   | Canale in entrata                        | —    |
 | runtime | S   | Strumenti del coordinatore               | —    |

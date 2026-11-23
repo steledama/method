@@ -7,15 +7,14 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
 - [ritiro-giro-senza-custode.md](ritiro-giro-senza-custode.md) — il giro senza custode esce dal canone, deciso dal custode il 2026-11-23: via skill, strumenti e rotte, prescrizione che chiude `ciclo-autonomo`, rilascio `v0.3.0`.
-- [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il riesame del ciclo autonomo.
+- [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il ritiro del ciclo senza custode.
 - [skill-dal-canone.md](skill-dal-canone.md) — le skill da copie forkate negli adottanti a canone parametrizzato con un file locale, come i builder delle viste; decisione del custode.
 - [presentazione-oltre-il-deck.md](presentazione-oltre-il-deck.md) — se il canone ammette sotto-deck annidati e pagine di dominio in home, su due segnali di `salute` ed `economia`; decisione del custode.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [chat-del-coordinatore.md](chat-del-coordinatore.md) — una chat nel sito di gruppo che apre sessioni ACP con Claude Code o Codex nella cartella di un repo, con approvazioni col diff e governo invariato; parte dal client della prova.
 - [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, accanto a Buzz, o se serve un ingresso proprio: mappa degli strati e quattordici fattori di confronto fra le quattro soluzioni.
 - [coordinatore-di-gruppi.md](coordinatore-di-gruppi.md) — il metodo come coordinatore di gruppi di artefatti, un sito per gruppo (casa, lavoro) con viste e chat, e un ricordo SQLite fuori da git ad accesso dichiarato; proposta per il Goal da ratificare.
-- [dinieghi-backslash-e-parentesi.md](dinieghi-backslash-e-parentesi.md) — le classi `backslash`, senza segnale, e `parentesi`, ricorsa in `nixos` dopo il recepimento, chiedono una proposta da `o3/dinieghi.py`: riga in `cycle`, strumento o attrito contato.
 - [diffusione-oltre-custode-unico.md](diffusione-oltre-custode-unico.md) — il metodo esce dal custode unico, deciso il 2026-11-23: versioni, adottanti sconosciuti, `tt-sviluppo` primo estraneo; restano da dividere pubblicazione delle viste e pacchetto versionato.
-- [strumenti-del-coordinatore.md](strumenti-del-coordinatore.md) — `adottanti.py`, `dinieghi.py` e `prescrizioni.py` con `--root` per i coordinatori dei gruppi; via da `method` l'`audit` e la lettura via ssh; ingresso e osservatorio riscritti sul coordinatore.
+- [strumenti-del-coordinatore.md](strumenti-del-coordinatore.md) — `adottanti.py` e `prescrizioni.py` con `--root` per i coordinatori dei gruppi; via da `method` l'`audit` e la lettura via ssh; ingresso e osservatorio riscritti sul coordinatore.
 - [canale-in-entrata.md](canale-in-entrata.md) — al posto dell'audit `/adottanti`, il segnale dal basso arriva per issue e PR, letti come dati e smistati da una skill; il primo tag di versione per il gruppo lavoro.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; in pausa `p1`.

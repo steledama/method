@@ -1,9 +1,7 @@
-"""Lettura degli adottanti per il giro e per le sessioni: storia e interfaccia col canone.
+"""Lettura degli adottanti: storia e interfaccia col canone.
 
-Il giro non concede `git -C` (aggirerebbe i pattern dei permessi) e fuori dalla
-cartella di lavoro nega anche le letture: questo script è il gesto concesso al
-posto loro (`kb/agent-as-user.md`). È di sola lettura per costruzione: nessun
-sottocomando scrive, e git gira senza lock opzionali.
+Lo script è di sola lettura: nessun sottocomando scrive e git gira senza lock
+opzionali.
 
 Gli adottanti vengono da `world.md`, il register che li dichiara. Il checkout
 si riconosce dal remote `origin`, fra le cartelle della home, perché la
@@ -13,9 +11,7 @@ Un adottante senza clone sull'host, dichiarato `su` un altro host, si legge
 lì via `ssh <host> git -C <cartella>`, solo con `--ssh`: da `deck` gli
 adottanti di lavoro non hanno copie secondarie (decisione del custode del
 2026-11-12). Gli stessi comandi git, di sola lettura, girano sul checkout
-remoto. Il giro autonomo passa `--ssh` a questo script e a `prescrizioni.py`,
-unici gesti ssh che ha (custode, 2026-11-12): `ssh` diretto gli resta negato,
-e ref e path non portano metacaratteri alla shell remota.
+remoto. Ref e path non portano metacaratteri alla shell remota.
 Un adottante che non ha clone e non si raggiunge è assente, non un marker che
 non recepisce.
 `show` legge solo i file con cui un adottante recepisce il canone; il resto del
@@ -80,9 +76,6 @@ INTERFACCIA = [
     "AGENTS.md",
     "autonomy.md",
     "i3/allineamento-metodo.md",
-    "o3/ciclo/prompt.md",
-    "o3/ciclo/permessi.json",
-    ".claude/ciclo-prompt.md",
     ".claude/settings.json",
     ".claude/skills/*/SKILL.md",
     ".codex/skills/*/SKILL.md",
@@ -101,7 +94,6 @@ SKILL_COMUNI = {"commit", "cycle", "eval", "exec", "method"}
 CANONE = ("kb/", "o3/", ".claude/skills/")
 SOGLIA_CANONE = 14  # giorni oltre i quali il canone non recepito è rosso
 SOGLIA_CASI = 7  # giorni oltre i quali una cattura «da inoltrare» è ferma
-FINESTRA_GIRI = 30  # giorni contati per i giri autonomi
 LINK_MD = re.compile(r"\]\(([\w./-]+\.md)\)")
 
 
@@ -553,17 +545,7 @@ def casi(nome: str, checkout: Checkout) -> list[str]:
 
 def numeri(nome: str, checkout: Checkout) -> str:
     dev, runtime = conteggio_plan(mostra(checkout, "o1/plan.md"))
-    motivi = git(
-        checkout,
-        "log",
-        "origin/main",
-        f"--since={FINESTRA_GIRI} days ago",
-        "--format=%(trailers:key=Impatto-motivo,valueonly,separator=%x20)",
-    ).stdout.splitlines()
-    giri = sum("ciclo-autonomo" in m for m in motivi)
-    return (
-        f"{nome}: plan {dev} dev, {runtime} runtime; {giri} giri autonomi in {FINESTRA_GIRI} giorni"
-    )
+    return f"{nome}: plan {dev} dev, {runtime} runtime"
 
 
 def audit(tutti: dict[str, Checkout], build: bool = True) -> list[str]:
@@ -579,7 +561,7 @@ def audit(tutti: dict[str, Checkout], build: bool = True) -> list[str]:
             "Casi della delega da inoltrare",
             [r for n, c in tutti.items() for r in casi(n, c)] or ["nessuno"],
         ),
-        ("Code e giri", [numeri(n, c) for n, c in tutti.items()]),
+        ("Code", [numeri(n, c) for n, c in tutti.items()]),
     ]
     righe = [
         f"# Audit adottanti, {dt.date.today().isoformat()}, metodo a {commit(ROOT, 'HEAD')}",

@@ -118,7 +118,7 @@ frontmatter, quindi serve un wrapper, come quello che c'è già per Codex in
 tutti e due i runtime. Hermes dà la garanzia che serve al canone: le skill del
 repo non vengono riscritte dall'agente.
 
-### 4. Ciclo autonomo
+### 4. Lavori pianificati senza custode (confronto storico)
 
 - **Hermes**: i lavori pianificati girano in una sessione nuova, con
   `--workdir` (la cartella del repo, da cui carica `AGENTS.md`) e `--skill`
@@ -134,11 +134,7 @@ repo non vengono riscritte dall'agente.
   esterni. Senza una superficie di approvazione collegata le richieste sono
   negate.
 
-Lettura: il lavoro pianificato di Hermes corrisponde quasi uno a uno al giro
-di oggi (`--workdir <repo> --skill cycle`). Il comando senza gateway di
-OpenClaw si aggancerebbe invece al lanciatore esistente. In entrambi la
-definizione del giro vive fuori dal repo: serve un passo che la ricavi dalle
-ricorrenze del plan, come oggi fanno le unità di NixOS.
+Lettura storica: Hermes e OpenClaw offrono lavori pianificati. Il giro senza custode e il lanciatore di method sono ritirati; una eventuale nuova progettazione richiede un’utenza dedicata e confini verificati. La definizione dei lavori pianificati vive fuori dal repo; questo dato non autorizza né specifica un nuovo giro.
 
 ### 5. Delega
 
@@ -554,7 +550,7 @@ versione.
 
 **6. Delega e permessi**, dove stanno e se viaggiano col repo.
 
-- **method**: `autonomy.md` e `o3/ciclo/permessi.json`, versionati per repo.
+- **method**: `autonomy.md` e permessi della sessione, versionati per repo.
 - **Hermes**: configurazione globale del profilo; elenco di divieti,
   contenitore.
 - **OpenClaw**: `openclaw.json` globale, strumenti negabili per agente;
@@ -584,7 +580,7 @@ dichiarazione.
 
 **9. Ciclo autonomo**, chi lo avvia e dove sta la definizione.
 
-- **method**: unità di NixOS (in `nixos`) e lanciatore canonico.
+- **method**: il giro senza custode è ritirato dal 2026-11-23.
 - **Hermes**: lavori pianificati con cartella e skill, in
   `~/.hermes/cron/`.
 - **OpenClaw**: automazioni nel gateway, oppure `agent exec --cwd` da un

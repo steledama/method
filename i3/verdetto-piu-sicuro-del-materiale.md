@@ -38,15 +38,11 @@ direzione, verso la lettura più raccontabile — è nel nodo e in git.
   sale a canone se un secondo adottante la sviluppa da sé.
 
 Nessuna delle due ha una data: le porta in superficie lo scope `compare`
-degli adottanti, e l'audit `/adottanti` le cerca nei loro fili `i3/`.
+degli adottanti, e possono emergere dai contributi degli adottanti.
 
-## Rilevanza per il ciclo autonomo
+## Rilevanza per la delega
 
-La delega del ciclo in [autonomy.md](../autonomy.md), già operativa per
-i giri avviati dal custode, incontra questa tensione: riordinare il lavoro su fatti verificati
-e introdurre una tesi nuova non hanno la stessa delegabilità. Il pilota del
-[ciclo autonomo](ciclo-autonomo.md) deve rileggere un campione di
-ricostruzioni contro le fonti, oltre a verificare impatto e motivo. La
-supervisione a posteriori va valutata anche per gli errori che riesce a
-intercettare e il lavoro che richiede; la proposta di autonomia non risolve
-l'ipotesi sulla ricostruzione delegabile.
+La delega dei cicli avviati dal custode incontra questa tensione: riordinare il
+lavoro su fatti verificati e introdurre una tesi nuova non hanno la stessa
+delegabilità. La supervisione a campione deve confrontare ricostruzioni e
+fonti; la presenza del custode non certifica da sola la correttezza.
