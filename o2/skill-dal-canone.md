@@ -50,10 +50,10 @@ copie, ora sono canone e il repo tiene solo `o3/view/project.py`
 
 ## Relazioni
 
-- [snellimento-skill](snellimento-skill.md): i tagli a `eval` ed `exec`
-  aspettano il riesame del 2026-12-01; questo task cambia dove vivono le
-  skill, non quanto sono lunghe, ma tocca gli stessi file e va ordinato con
-  quello;
+- [snellimento-skill](snellimento-skill.md): viene prima. Questo task
+  cambia dove vivono le skill, non quanto sono lunghe, e parametrizza le
+  skill già snellite: gli adottanti passano dal fork al canone in un solo
+  recepimento, che assorbe anche i tagli;
 - [diffusione-oltre-custode-unico](diffusione-oltre-custode-unico.md): un
   adottante che non è il custode non può riallineare fork a mano;
 - in `casa`, `o2/parametrizzare-le-skill.md` è il lato dell'adottante.

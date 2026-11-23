@@ -11,25 +11,42 @@ pianificazione.
 
 ## Direzione
 
-Questo repository custodisce il metodo portabile e osserva come gli adottanti
-lo usano. È in sviluppo verso un ciclo di runtime in ciascun repo, con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
-skill e viste che rendono quel ciclo ricostruibile e governabile.
+Questo repository custodisce il metodo portabile, da distribuire a chi il
+custode non conosce, con i gruppi di repo coordinati da un loro membro. La
+rotta va in tre tempi: prima gli strumenti del coordinatore, così le
+prescrizioni si chiudono anche per gli adottanti estranei; poi le skill,
+snellite e rese canone in una sola tornata per gli adottanti; infine
+identità e distribuzione, cioè via, nome, lingua e pacchetto versionato.
 
 ## Task
 
-| Ciclo   | Ob. | Task                                     | Dip. |
-| ------- | --- | ---------------------------------------- | ---- |
-| dev     | S   | Snellimento delle skill `eval` ed `exec` | —    |
-| dev     | S   | Skill dal canone                         | —    |
-| dev     | S   | Presentazione oltre il deck              | —    |
-| dev     | S   | Nome del progetto                        | —    |
-| dev     | S   | Chat del coordinatore                    | —    |
-| dev     | S   | Integrazione con un runtime esistente    | —    |
-| dev     | S   | Coordinatore di gruppi                   | —    |
-| dev     | S   | Diffusione oltre il custode unico        | —    |
-| runtime | S   | Canale in entrata                        | —    |
-| runtime | S   | Strumenti del coordinatore               | —    |
-| dev     | S   | Traduzione in inglese                    | —    |
+| Ciclo   | Ob. | Task                                     | Dip.                                       |
+| ------- | --- | ---------------------------------------- | ------------------------------------------ |
+| runtime | 2   | Strumenti del coordinatore               | —                                          |
+| dev     | S   | Presentazione oltre il deck              | —                                          |
+| dev     | S   | Snellimento delle skill `eval` ed `exec` | —                                          |
+| dev     | S   | Skill dal canone                         | ↳ Snellimento delle skill `eval` ed `exec` |
+| dev     | S   | Chat del coordinatore                    | ↳ Skill dal canone                         |
+| dev     | S   | Coordinatore di gruppi                   | —                                          |
+| dev     | S   | Integrazione con un runtime esistente    | —                                          |
+| dev     | S   | Nome del progetto                        | —                                          |
+| dev     | S   | Traduzione in inglese                    | ↳ Nome del progetto                        |
+| dev     | S   | Diffusione oltre il custode unico        | ↳ Traduzione in inglese                    |
+| runtime | 3   | Canale in entrata                        | w1                                         |
+
+Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
+riesame (`kb/plan.md`, «Risveglio»):
+
+- `w1` — 2026-11-24: la skill che smista i contributi si progetta sulla
+  prima issue vera, non a tavolino (`o2/canale-in-entrata.md`, passo 4);
+  arrival: la prima issue o PR di un adottante su `steledama/method`, vista
+  in sessione; by: 2026-12-31
+
+Le dipendenze seguono le specifiche: Skill dal canone parametrizza le skill
+già snellite, così gli adottanti recepiscono una volta sola; il `/cycle` da
+chat aspetta le skill canoniche; la rinomina e la lingua vanno fatte una
+volta ciascuna, prima del pacchetto. La decisione su Skill dal canone
+(`decidere:`) può arrivare prima dei tagli.
 
 ## Ricorrenze
 
