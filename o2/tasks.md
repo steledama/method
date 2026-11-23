@@ -6,7 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
-- [ritiro-giro-senza-custode.md](ritiro-giro-senza-custode.md) — il giro senza custode esce dal canone, deciso dal custode il 2026-11-23: via skill, strumenti e rotte, prescrizione che chiude `ciclo-autonomo`, rilascio `v0.3.0`.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, dopo il ritiro del ciclo senza custode.
 - [skill-dal-canone.md](skill-dal-canone.md) — le skill da copie forkate negli adottanti a canone parametrizzato con un file locale, come i builder delle viste; decisione del custode.
 - [presentazione-oltre-il-deck.md](presentazione-oltre-il-deck.md) — se il canone ammette sotto-deck annidati e pagine di dominio in home, su due segnali di `salute` ed `economia`; decisione del custode.

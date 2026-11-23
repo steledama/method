@@ -47,8 +47,8 @@ quattro adottanti, `nixos-lavoro` (`cycle`, `eval`, `exec`, `commit`,
 `bfc74d8`.
 
 Il custode decide il 2026-11-23 di **togliere** il giro senza custode dal
-canone, invece di isolarlo: lo esegue
-[ritiro-giro-senza-custode](ritiro-giro-senza-custode.md). I tagli di
+canone, invece di isolarlo: fatto e rilasciato in `v0.3.0`, recepito dai
+repo di casa il 2026-11-23. I tagli di
 questo task si misurano sulle skill che ne escono, senza aspettare il
 riesame del 2026-12-01, che non ha più un giro da osservare.
 
