@@ -104,6 +104,10 @@ Precisato dal custode il 2026-11-20:
      contenuto dei membri, è stato scartato perché poggia sulla sola
      disciplina dei giri. `nixos-lavoro` è già privato.
 
+   Il gruppo lavoro adotta anche il sito di gruppo (custode, 2026-11-23), in
+   un secondo tempo: `nixos-lavoro` ha già i membri nel proprio `world.md`
+   (`e108c29`), resta il servizio su `svezia`.
+
 2. **Il sito di lavoro deve raggiungere `danea2`.** Un sito su `svezia` che
    fa lavorare anche `danea-auto` parla con un harness su Windows. ACP passa
    su standard input e output, quindi in linea di principio anche via ssh;

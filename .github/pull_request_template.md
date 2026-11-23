@@ -1,3 +1,6 @@
+> `method` è pubblico: nessun dato, nome o contenuto del repo da cui nasce la
+> proposta.
+
 **Adottante e versione** — repository e `method_version` da cui nasce la
 proposta.
 

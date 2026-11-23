@@ -20,7 +20,9 @@ regola vive in [method-development](../kb/method-development.md),
   scrittura su `steledama/method`: un push da quell'utenza è rifiutato.
 - **Il segnale dal basso diventa issue o PR**: issue col modello «segnale da
   adottante» per i segnali, PR per le proposte. Si aprono in sessione col
-  custode, mai in un giro autonomo.
+  custode, mai in un giro autonomo. `method` è pubblico: il segnale parla del
+  metodo e lascia fuori dati, nomi e contenuti del repo, e il custode lo
+  rilegge prima che esca (aggiunto il 2026-11-23, dopo `v0.2.0`).
 - **`/adottanti` è ritirato**: `method` non legge più gli adottanti di lavoro
   via ssh. Il marker `i3/allineamento-metodo.md` resta il modo in cui un
   adottante dichiara cosa ha recepito.
