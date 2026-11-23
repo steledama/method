@@ -42,7 +42,8 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   profilo in `o3/kb_tools.toml` e i controlli di dominio in
   `o3/kb_domain.py`. Quello di `method`, `kb_domain.py`, controlla che ogni
   strumento di `o3/` sia registrato in questo indice. Test:
-  `python3 -m unittest discover -s tests -p 'test_kb_tools.py'`.
+  `python3 -m unittest discover -s tests -p 'test_kb_tools.py'`; il controllo
+  di dominio in `test_kb_domain.py`.
 - `kb_profile.py --root .` — profilo quantitativo comune e manifest di
   `kb/`: dimensioni, maturità, esclusioni e impronte dei nodi; esce con codice
   1 per stati/frontmatter invalidi, 2 per corpus non leggibile. Non verifica
@@ -118,7 +119,10 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     CSS di dominio ed esclusioni dal perimetro;
   - `sources.py` — libreria condivisa: parsing di plan, task e register,
     contratti plan × o2 e i3 × goal, Pandoc e resa del deck; non si invoca
-    direttamente;
+    direttamente. Test dei contratti del plan: `test_direzione.py` (la
+    `## Direzione`), `test_legenda.py` (indici `w`/`p` contro le chiose) e
+    `test_ricorrenze.py` (la sezione `## Ricorrenze`); `test_uscita_deck.py`
+    l'uscita dal deck, frammento comune e controllo della build;
   - `build_pages.py` — le pagine 1:1 di `goal.md`, `world.md` e delle sei
     collezioni, allo stesso path del repo, con la navigazione comune, i link
     riscritti sul perimetro e le immagini copiate accanto. Regressioni:
