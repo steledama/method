@@ -24,8 +24,7 @@ promozione non arriva e i casi restano sparsi nei commit (giro di `salute`,
 2026-10-28, sulle anomalie dell'orologio).
 
 Il grezzo che serve alla percezione ma non va versionato può stare in `i1/`,
-ignorato da git: snapshot di feed, code di elaborazione, log, trascrizioni dei
-giri del ciclo autonomo. È locale all'host che lo produce, tenuto con una
+ignorato da git: snapshot di feed, code di elaborazione, log e trascrizioni delle sessioni. È locale all'host che lo produce, tenuto con una
 retention, e non si pubblica: la vista serve solo i `.md` versionati. Versionata
 resta la cattura filtrata, scritta on-demand quando il grezzo porta un segnale
 che deve durare. La regola `.gitignore` precede la prima scrittura, perché un

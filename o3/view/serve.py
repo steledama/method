@@ -19,11 +19,6 @@ versione valida il server non parte, dice perché ed esce con il codice 3,
 distinto dagli altri errori; `--check` fa solo questo controllo (0 o 3), per
 esempio come `ExecCondition` di un servizio.
 
-Con `--ciclo-state DIR` serve anche `/_ciclo/`, lo stato dei tentativi
-del ciclo autonomo letto a ogni richiesta (`ciclo.py`); senza, `/_ciclo/`
-dichiara che il repo non ha un ciclo autonomo. `--ciclo-unita DIR` indica la
-cartella dell'unità quando i tentativi stanno nel repo (`i1/giri`).
-
 Con `--gruppo BASE --istanza NOME` serve il sito di un gruppo (`gruppo.py`):
 `BASE/<repo>` è la cartella di pubblicazione di ciascun repo, `/` la home del
 gruppo, `/<repo>/` la versione pubblicata di quel repo con il suo `/_stato`.
@@ -45,14 +40,13 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 # Lanciato con `runpy` (il servizio di `danea-auto` su Windows) la cartella
-# dello script non è in `sys.path`, e `ciclo` non si troverebbe.
+# dello script non è in `sys.path`.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import radice
 
 VIEW = radice.attiva() / "view"
 
-import ciclo
 import gruppo
 
 PORT = 8000
@@ -61,30 +55,12 @@ NO_VALID_VERSION = 3
 
 
 class ViewHandler(SimpleHTTPRequestHandler):
-    ciclo_state: Path | None = None
-    ciclo_unit: Path | None = None
-
     def send_head(self):
         path = unquote(urlsplit(self.path).path)
         if any(part.startswith(".") for part in path.split("/") if part):
             self.send_error(HTTPStatus.NOT_FOUND)
             return None
-        if path.startswith("/" + ciclo.PREFIX):
-            return self.send_ciclo(path)
         return super().send_head()
-
-    def send_ciclo(self, path: str):
-        answer = ciclo.respond(path, self.ciclo_state, self.ciclo_unit)
-        if answer is None:
-            self.send_error(HTTPStatus.NOT_FOUND)
-            return None
-        content_type, data = answer
-        self.send_response(HTTPStatus.OK)
-        self.send_header("Content-Type", content_type)
-        self.send_header("Content-Length", str(len(data)))
-        self.send_header("Cache-Control", "no-store")
-        self.end_headers()
-        return io.BytesIO(data)
 
     def list_directory(self, path):
         self.send_error(HTTPStatus.NOT_FOUND)
@@ -237,22 +213,7 @@ def main() -> None:
         action="store_true",
         help=f"con --publish-root: esce con 0 se c'è una versione valida, {NO_VALID_VERSION} se no",
     )
-    parser.add_argument(
-        "--ciclo-state",
-        type=Path,
-        help="cartella dei tentativi del ciclo autonomo (i1/giri del repo, o lo stato dell'unità)",
-    )
-    parser.add_argument(
-        "--ciclo-unita",
-        type=Path,
-        help="cartella di stato dell'unità (~/.local/state/ciclo/<repo>), se diversa da --ciclo-state",
-    )
     args = parser.parse_args()
-    state = args.ciclo_state.expanduser().resolve() if args.ciclo_state else None
-    unit = args.ciclo_unita.expanduser().resolve() if args.ciclo_unita else None
-    if unit and not state:
-        parser.error("--ciclo-unita richiede --ciclo-state")
-    cycle = {"ciclo_state": state, "ciclo_unit": unit}
 
     if bool(args.gruppo) != bool(args.istanza):
         parser.error("--gruppo e --istanza vanno insieme")
@@ -272,7 +233,7 @@ def main() -> None:
         handler = type(
             "Handler",
             (GroupHandler,),
-            {"base": base, "istanza": args.istanza, "chat": args.chat, **cycle},
+            {"base": base, "istanza": args.istanza, "chat": args.chat},
         )
     elif args.publish_root:
         root = args.publish_root.resolve()
@@ -280,12 +241,12 @@ def main() -> None:
         if args.check:
             print(f"serve: versione valida {folder.name}")
             return
-        handler = type("Handler", (PublishedHandler,), {"root": root, **cycle})
+        handler = type("Handler", (PublishedHandler,), {"root": root})
     else:
         folder = VIEW
         if not (VIEW / "index.html").exists():
             raise SystemExit("serve: view/index.html assente, esegui prima build.py")
-        handler = partial(type("Handler", (ViewHandler,), cycle), directory=str(VIEW))
+        handler = partial(ViewHandler, directory=str(VIEW))
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         hosts = ["localhost"]
         if args.bind in {"0.0.0.0", ""}:

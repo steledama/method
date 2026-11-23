@@ -254,8 +254,7 @@ Il trailer `Prossimo:` va nel commit che chiude il giro. `commit_gate.py
 dopo` avvisa se scavalca la prima riga pronta: prima del push, un corpo che
 non nomina la riga scavalcata e il motivo si corregge. Applica a
 `o1/plan.md` e `o2/` entro la delega del gate comune; chiedi solo sui punti
-che ne superano il confine. Nel ciclo autonomo il plan si muove sulle
-notizie del giro, senza eseguire i task (`kb/tasks.md`, «Task e giro»).
+che ne superano il confine.
 
 **5. Chiudi con l'handoff inverso «verdetti da rivalutare»**
 
@@ -266,7 +265,7 @@ prima, non un fallimento. Se non è vuoto, segnalalo al custode: il movimento
 di ritorno è l'eccezione che va giustificata, non un secondo giro automatico.
 
 Minimo: `o1/plan.md`, `goal.md`, l'ultimo trailer `Prossimo:`, i corpi dei
-giri della settimana del passo 3c, verificati da `commit_gate.py stadi`, e
+giri della settimana del passo 3c e
 `python3 o3/view/build.py --check`, dove il repo ha il generatore.
 
 ## `specify` — la qualità interna dei task
@@ -287,10 +286,6 @@ dei file `o2/` — la corrispondenza non si verifica due volte. Per ogni file
   fare (visibilità), dichiara come si saprà che ha funzionato (feedback),
   mappa i concetti del task sulle risorse reali (mapping), e scrive i vincoli
   che impediscono l'atto sbagliato (constraint)
-
-Nel ciclo autonomo `specify` porta nella specifica le notizie del giro
-(informazioni corrette, risultato atteso, vincoli, verifica) e ne cura la
-forma. Non esegue i passi del task (`kb/tasks.md`, «Task e giro»).
 
 Esito: quali file sono a posto, quali hanno un difetto e quale, o la chiusura
 in una riga.
@@ -313,9 +308,6 @@ Due piani, secondo autorizzazione:
   o si valida la prescrizione e ci si ferma al confine. In `method` il Mondo
   runtime sono gli adottanti: l'atto tipico è la prescrizione, e a compierla
   è il `method` dell'adottante — o3 prescrive, l'adottante ratifica.
-  Nel ciclo autonomo l'atto è quello ricorrente del runtime o quello che il
-  register di autonomia assegna al giro; i passi di un task restano alla
-  sessione col custode.
 
 Esito: stato della collezione (prescrizioni vive e loro freschezza, strumenti
 verificati), atti compiuti o predisposti, o la chiusura in una riga.

@@ -7,23 +7,15 @@ qualunque harness, da terminale o da un hook git (`kb/skill-composition.md`).
 - `prima [--perimetro FILE...]`: formatta i file cambiati e lancia i
   controlli del profilo. Col perimetro (i file della sessione, anche come glob)
   confronta prima di scrivere: un file cambiato fuori dal perimetro esce con 3
-  senza formattare nulla, perché è di un'altra sessione. Dentro un giro del
-  lanciatore (`GIT_REFLOG_ACTION=lanciatore <id>`) il perimetro è obbligatorio:
-  senza esce con 4, senza scrivere. Alla fine registra l'impronta del working
+  senza formattare nulla, perché è di un'altra sessione. Alla fine registra l'impronta del working
   tree in `.git/commit-gate-impronta`;
 - `verifica`: subito prima dello staging confronta il working tree con
   l'impronta di `prima`; un file cambiato o comparso nel frattempo esce con 3.
   Proposta di economia (giro dell'11/11/2026, prettier su file di una sessione
   concorrente), recepita il 2026-11-11;
-- `dopo [--giro]`: verifica i trailer dell'ultimo commit; `--giro` aggiunge
-  quelli che `/cycle` richiede. Avvisa, senza fallire, se il `Prossimo:`
+- `dopo`: verifica i trailer dell'ultimo commit. Avvisa, senza fallire, se il `Prossimo:`
   scavalca la prima riga pronta di `o1/plan.md` o se `nessuno (…)` mescola
   le forme;
-- `stadi [--giro FILE]`: confronta ex post gli stadi che il trailer
-  `Esiti:` di un giro dichiara con le tracce nella sua trascrizione, l'ultima
-  chiusura di `i1/giri/tentativi.jsonl` se il file non è dato. Legge solo i
-  nomi dei tool, le skill invocate e i path toccati, mai il contenuto.
-
 Il profilo è locale, `o3/commit_gate.toml` del repo: formatter per glob e
 controlli, sempre o quando cambia un glob, con l'uscita che li fa fallire.
 Un adottante lancia lo script dal checkout del canone col proprio profilo.
@@ -35,7 +27,6 @@ import argparse
 import fnmatch
 import hashlib
 import json
-import os
 import re
 import shutil
 import subprocess
@@ -53,38 +44,7 @@ CONFERMA_MOTIVATA = re.compile(r"\(confermato[^)]")
 NESSUNO_MISTO = re.compile(r"nessuno \((?:confermato|cambiato)\b")
 LINK = re.compile(r"\[([^\]]*)\]\([^)]*\)")
 COAUTORIA = re.compile(r"^(co-authored-by|generated-by|assisted-by)$", re.IGNORECASE)
-TENTATIVI = Path("i1/giri/tentativi.jsonl")
-# Le tracce minime di ogni stadio nella trascrizione: la skill del braccio
-# invocata col tool Skill e i path che il minimo dello stadio legge
-# (cfr. le skill `eval` ed `exec`, «Minimo»).
-BRACCIO = {
-    "perceive": "eval",
-    "interpret": "eval",
-    "compare": "eval",
-    "plan": "exec",
-    "specify": "exec",
-    "perform": "exec",
-}
-PATH_MINIMI = {
-    "interpret": ["i2/"],
-    "compare": ["goal.md", "i3/"],
-    "plan": ["o1/plan.md"],
-    "specify": ["o2/"],
-}
-# Comandi che il minimo vuole interi: tutti i pezzi nello stesso input di un
-# tool. Il passo 3c di `exec plan` legge i corpi dei giri, non gli oggetti. Il
-# tipo del commit lo sceglie il fork (`docs(ciclo)`, `chore(ciclo)`): conta lo scope.
-COMANDI_MINIMI = {
-    "plan": [
-        (
-            ("git log", "(ciclo)", "%b"),
-            "corpi dei giri della settimana non letti (passo 3c)",
-        ),
-    ],
-}
-OBIETTIVO = re.compile(r"^### (\d+)\.", re.MULTILINE)
 FUORI_PERIMETRO = 3
-GIRO_SENZA_PERIMETRO = 4
 IMPRONTA = "commit-gate-impronta"
 
 
@@ -128,11 +88,6 @@ def normalizza_perimetro(perimetro: list[str]) -> list[str]:
     return voci
 
 
-def in_giro() -> bool:
-    """Il lanciatore marca l'agente con `GIT_REFLOG_ACTION=lanciatore <id>`."""
-    return os.environ.get("GIT_REFLOG_ACTION", "").startswith("lanciatore ")
-
-
 def impronta(root: Path) -> dict[str, str]:
     """Path e hash del contenuto dei file cambiati: ciò che lo staging prenderà."""
     voci = {}
@@ -171,9 +126,6 @@ def profilo(root: Path) -> dict:
 def prima(root: Path, perimetro: list[str] | None = None) -> int:
     conf = profilo(root)
     files = cambiati(root)
-    if perimetro is None and in_giro():
-        print("giro senza perimetro: passa a `prima --perimetro` i file toccati nel giro")
-        return GIRO_SENZA_PERIMETRO
     if perimetro is not None:
         perimetro = normalizza_perimetro(perimetro)
         fuori = [f for f in files if not nel_perimetro(f, perimetro)]
@@ -228,7 +180,7 @@ def trailer(root: Path, ref: str = "HEAD") -> list[tuple[str, str]]:
     return coppie
 
 
-def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[str]:
+def errori_trailer(coppie: list[tuple[str, str]]) -> list[str]:
     valori: dict[str, list[str]] = {}
     for chiave, valore in coppie:
         valori.setdefault(chiave, []).append(valore)
@@ -262,14 +214,6 @@ def errori_trailer(coppie: list[tuple[str, str]], giro: bool = False) -> list[st
             errori.append(
                 f"Prossimo senza (confermato), (cambiato, era …; …) o nessuno (…): {prossimo}"
             )
-    if giro:
-        for richiesto in ("Esiti", "Prossimo", "Impatto-motivo"):
-            if not valori.get(richiesto):
-                errori.append(f"giro: {richiesto} assente")
-        if not agente:
-            errori.append("giro: Autonomia deve essere agente")
-        if impatto and impatto[0] == "basso":
-            errori.append("giro: Impatto almeno medio")
     return errori
 
 
@@ -333,9 +277,9 @@ def avvisi_prossimo(coppie: list[tuple[str, str]], root: Path) -> list[str]:
     return avvisi
 
 
-def dopo(root: Path, giro: bool) -> int:
+def dopo(root: Path) -> int:
     coppie = trailer(root)
-    errori = errori_trailer(coppie, giro)
+    errori = errori_trailer(coppie)
     for errore in errori:
         print(errore)
     for avviso in avvisi_prossimo(coppie, root):
@@ -351,187 +295,6 @@ def dopo(root: Path, giro: bool) -> int:
     return 0
 
 
-def normalizza_separatori(dati: object) -> object:
-    """Rende confrontabili i path Windows e POSIX prima degli escape JSON."""
-    if isinstance(dati, str):
-        return dati.replace("\\", "/")
-    if isinstance(dati, dict):
-        return {chiave: normalizza_separatori(valore) for chiave, valore in dati.items()}
-    if isinstance(dati, list):
-        return [normalizza_separatori(valore) for valore in dati]
-    return dati
-
-
-def tracce(trascrizione: Path) -> tuple[set[str], str]:
-    """Skill invocate e testo degli input dei tool della trascrizione di un
-    giro, dove si cercano i path minimi. Su un harness senza tool Skill (la
-    riga `init` non lo elenca, come in Codex) vale come invocazione la
-    lettura del `SKILL.md` del braccio."""
-    skill: set[str] = set()
-    letture: set[str] = set()
-    senza_skill = False
-    input_tool: list[str] = []
-    for riga in trascrizione.read_text(encoding="utf-8", errors="replace").splitlines():
-        try:
-            evento = json.loads(riga)
-        except json.JSONDecodeError:
-            continue
-        if evento.get("type") == "system" and evento.get("subtype") == "init":
-            senza_skill = "Skill" not in evento.get("tools", [])
-        if evento.get("type") != "assistant":
-            continue
-        for parte in evento.get("message", {}).get("content", []):
-            if not isinstance(parte, dict) or parte.get("type") != "tool_use":
-                continue
-            dati = parte.get("input", {})
-            if parte.get("name") == "Skill":
-                nome = str(dati.get("skill", "")).split(":")[-1].strip()
-                if nome:
-                    skill.add(nome)
-            else:
-                testo = json.dumps(normalizza_separatori(dati), ensure_ascii=False)
-                input_tool.append(testo)
-                letture.update(re.findall(r"skills/(\w+)/SKILL\.md", testo))
-    if senza_skill:
-        skill |= letture
-    return skill, "\n".join(input_tool)
-
-
-def stadi_esiti(valori: list[str]) -> list[str]:
-    return [voce.partition("=")[0] for esiti in valori for voce in esiti.split()]
-
-
-def lacune(dichiarati: list[str], skill: set[str], testo: str) -> list[str]:
-    """Gli stadi dichiarati senza la loro traccia minima."""
-    righe = []
-    for stadio in dichiarati:
-        mancano = []
-        braccio = BRACCIO.get(stadio)
-        if braccio and braccio not in skill:
-            mancano.append(f"skill {braccio} non invocata")
-        mancano += [f"{p} non toccato" for p in PATH_MINIMI.get(stadio, []) if p not in testo]
-        input_tool = testo.splitlines()
-        for pezzi, messaggio in COMANDI_MINIMI.get(stadio, []):
-            if not any(all(p in riga for p in pezzi) for riga in input_tool):
-                mancano.append(messaggio)
-        if mancano:
-            righe.append(f"{stadio} dichiarato senza traccia: {', '.join(mancano)}")
-    return righe
-
-
-def resoconto(trascrizione: Path) -> str:
-    """L'ultimo testo dell'agente nella trascrizione: il resoconto del giro."""
-    ultimo = ""
-    for riga in trascrizione.read_text(encoding="utf-8", errors="replace").splitlines():
-        try:
-            evento = json.loads(riga)
-        except json.JSONDecodeError:
-            continue
-        if evento.get("type") != "assistant":
-            continue
-        contenuto = evento.get("message", {}).get("content", [])
-        if not isinstance(contenuto, list):
-            continue
-        testi = [
-            p.get("text", "") for p in contenuto if isinstance(p, dict) and p.get("type") == "text"
-        ]
-        if any(testi):
-            ultimo = "\n".join(testi)
-    return ultimo
-
-
-def fili_e_obiettivi(root: Path, ref: str) -> tuple[list[str], list[str]]:
-    """I fili con `obiettivo:` e i numeri degli obiettivi del register a `ref`."""
-    uscita = run(["git", "grep", "-l", "^obiettivo:", ref, "--", "i3/*.md"], root).stdout
-    fili = sorted(Path(riga.partition(":")[2]).stem for riga in uscita.splitlines())
-    goal = run(["git", "show", f"{ref}:goal.md"], root).stdout
-    return fili, OBIETTIVO.findall(goal)
-
-
-def avviso_copertura(fili: list[str], obiettivi: list[str], testo: str) -> list[str]:
-    """Fili e obiettivi che il resoconto non nomina: un avviso, non una lacuna,
-    perché nominarli non prova il giudizio e un giro può abbreviare il nome."""
-    fili_assenti = [f for f in fili if f not in testo]
-    obiettivi_assenti = [
-        n for n in obiettivi if not re.search(rf"\bobiettivo {n}\b", testo, re.IGNORECASE)
-    ]
-    assenti = []
-    if fili_assenti:
-        assenti.append(f"fili {', '.join(fili_assenti)}")
-    if obiettivi_assenti:
-        assenti.append(f"obiettivi {', '.join(obiettivi_assenti)}")
-    return [f"avviso: compare, non nominati nel resoconto: {'; '.join(assenti)}"] if assenti else []
-
-
-def ultima_chiusura(root: Path) -> dict | None:
-    path = root / TENTATIVI
-    if not path.exists():
-        return None
-    ultima = None
-    for riga in path.read_text(encoding="utf-8").splitlines():
-        try:
-            evento = json.loads(riga)
-        except json.JSONDecodeError:
-            continue
-        if evento.get("evento") == "chiusura" and evento.get("giro"):
-            ultima = evento
-    return ultima
-
-
-def verifica_stadi(root: Path, giro: Path | None = None) -> tuple[list[str], list[str]]:
-    """(righe, lacune) degli stadi di un giro: con `giro` dato, il commit
-    è HEAD; altrimenti quelli dell'ultima chiusura."""
-    ref = "HEAD"
-    candidati = [ref]
-    if giro is None:
-        chiusura = ultima_chiusura(root)
-        if chiusura is None:
-            return [f"nessuna chiusura con trascrizione in {TENTATIVI}"], []
-        giro = Path(chiusura["giro"])
-        ref = chiusura.get("head_dopo") or ref
-        candidati = chiusura.get("commit_giro") or [ref]
-        if isinstance(candidati, str):
-            candidati = [candidati]
-        # Le chiusure scritte prima della correzione del lanciatore (2026-11-15)
-        # elencano anche i commit rimpiazzati da un amend: conta solo ciò che
-        # head_dopo contiene ancora.
-        candidati = [
-            c
-            for c in candidati
-            if run(["git", "merge-base", "--is-ancestor", c, ref], root).returncode == 0
-        ] or candidati
-        if not chiusura.get("commit"):
-            return [f"giro {giro.stem} senza commit: niente Esiti da verificare"], []
-    if not giro.exists():
-        return [], [f"trascrizione assente: {giro}"]
-    con_esiti = [
-        (candidato, [v for k, v in trailer(root, candidato) if k == "Esiti"])
-        for candidato in candidati
-    ]
-    con_esiti = [(candidato, valori) for candidato, valori in con_esiti if valori]
-    if len(con_esiti) != 1:
-        return [], [f"giro {giro.stem}: atteso un solo commit con Esiti, trovati {len(con_esiti)}"]
-    ref, valori = con_esiti[0]
-    dichiarati = stadi_esiti(valori)
-    skill, testo = tracce(giro)
-    trovate = lacune(dichiarati, skill, testo)
-    righe = [f"giro {giro.stem}, commit {ref[:7]}: dichiarati {' '.join(dichiarati)}"]
-    if "compare" in dichiarati:
-        righe += avviso_copertura(*fili_e_obiettivi(root, ref), resoconto(giro))
-    return righe, trovate
-
-
-def stadi(root: Path, giro: Path | None) -> int:
-    righe, trovate = verifica_stadi(root, giro)
-    for riga in righe + trovate:
-        print(riga)
-    if trovate:
-        print("stadi dichiarati senza traccia, da riportare in Attenzione")
-        return 1
-    print("stadi ok")
-    return 0
-
-
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--root", type=Path, default=Path("."))
@@ -543,18 +306,11 @@ def main(argv: list[str] | None = None) -> int:
         help="i file della sessione; fuori perimetro esce con 3",
     )
     sub.add_parser("verifica", help="prima dello staging: working tree uguale all'impronta")
-    p_dopo = sub.add_parser("dopo", help="trailer dell'ultimo commit")
-    p_dopo.add_argument("--giro", action="store_true", help="trailer richiesti da /cycle")
-    p_cop = sub.add_parser("stadi", help="stadi di Esiti contro la trascrizione del giro")
-    p_cop.add_argument("--giro", type=Path, help="trascrizione; l'ultima chiusura se omessa")
+    sub.add_parser("dopo", help="trailer dell’ultimo commit")
     args = parser.parse_args(argv)
-    if args.comando == "stadi":
-        return stadi(args.root, args.giro)
     if args.comando == "verifica":
         return verifica(args.root)
-    return (
-        prima(args.root, args.perimetro) if args.comando == "prima" else dopo(args.root, args.giro)
-    )
+    return prima(args.root, args.perimetro) if args.comando == "prima" else dopo(args.root)
 
 
 if __name__ == "__main__":

@@ -28,11 +28,7 @@ deterministico è `o3/traduzioni.py check`, lanciato dal gate di `/commit`.
 
 ## Da fare, su indicazione del custode
 
-In pausa dal 2026-11-12 (`p1` nel plan), su decisione del custode: si
-riprende al riesame
-del 2026-12-01 del filo [ciclo autonomo](../i3/ciclo-autonomo.md), o prima
-se serve un lettore in inglese. Così il cambio di lingua non si mescola ai
-`/method` degli adottanti mentre il ciclo autonomo è in osservazione.
+La pausa legata all’osservazione del ciclo senza custode è conclusa il 2026-11-23 con il suo ritiro.
 
 - **Lotti.** Ogni lotto riscrive in inglese il sorgente e ne deriva il
   gemello italiano con `fonte:`. Si comincia da `README.md` e dall'hub

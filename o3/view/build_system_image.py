@@ -14,7 +14,6 @@ import re
 from pathlib import Path
 
 import project
-from ciclo import home_section
 from sources import (
     goal_anchor,
     goal_titles,
@@ -254,7 +253,6 @@ def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> 
     </header>
 
     <main>
-{home_section()}
 {proposals_html(root)}
 {goal_pole_html(root)}
 {cycle_html()}

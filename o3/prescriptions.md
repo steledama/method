@@ -15,6 +15,8 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 
+- [Ritiro del ciclo senza custode](ritiro-ciclo-senza-custode.md) — recepimento del ritiro negli adottanti.
+
 ## Procedure
 
 Runbook permanenti che `method` esegue su se stesso come osservatorio, non
@@ -50,14 +52,6 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   copia senza sorgente o senza `fonte:`, segnala senza fermare quelle
   indietro; `fonte <file>` stampa la riga da scrivere nella copia. Lo lancia
   il gate di `/commit`. Test: `python3 -m unittest discover -s tests -p 'test_traduzioni.py'`.
-- `lanciatore.py` — il lanciatore canonico del ciclo autonomo: controlli, pull,
-  avvio dell'agente coi tetti, righe di `partenza` e `chiusura` in `i1/giri/`;
-  `--controlli` è in sola lettura. Osservabilità e contratto di fallback:
-  [engine fallback](ciclo/fallback.md). In uso in `danea-auto` su Windows; su
-  `deck` nessuna unità lo esegue dal 2026-11-20 (`nixos` `c3c3607`). Test: `python3 -m unittest discover -s tests -p 'test_lanciatore.py'`.
-- `esecutore_codex.py` — l'esecutore canonico di Codex per il lanciatore:
-  traduce permessi e hook del giro in un hook `PreToolUse` di Codex e
-  normalizza i suoi eventi. Test: `python3 -m unittest discover -s tests -p 'test_esecutore_codex.py'`.
 - `scadenze.py` — il controllo di scadenze e ricorrenze del plan
   ([plan](../kb/plan.md), «Controllo di scadenze e ricorrenze»). Test: `python3 -m unittest discover -s tests -p 'test_scadenze.py'`.
 - `dinieghi.py` — la ricorrenza dei dinieghi nei giri autonomi: classi di
@@ -103,9 +97,6 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     chiamate di strumenti, piano, permessi col diff, modi dichiarati
     dall'adattatore. Test di `serve.py` e `acp.py`, con un adattatore finto:
     `python3 -m unittest discover -s tests -p 'test_chat.py'`.
-- `ciclo/` — la configurazione del giro autonomo: `prompt.md`,
-  `permessi.json`, il profilo `lanciatore.toml` e il contratto
-  [engine fallback](ciclo/fallback.md).
 - `view/` — i builder delle viste, lanciati da questo checkout per ogni repo (canone,
   cfr. [view](../kb/view.md)):
   - `build.py` — **unico entrypoint**: `python3 o3/view/build.py` verifica i
@@ -136,9 +127,6 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
     collezioni, allo stesso path del repo, con la navigazione comune, i link
     riscritti sul perimetro e le immagini copiate accanto. Regressioni:
     `python3 -m unittest discover -s tests -p 'test_build_pages.py'`;
-  - `ciclo.py` — lo stato dei tentativi del ciclo autonomo letto a
-    richiesta da `serve.py` sotto `/_ciclo/`. Test:
-    `python3 -m unittest discover -s tests -p 'test_ciclo.py'`;
   - `build_system_image.py` — la home statica minimalista: register in
     sintesi, un collegamento primario per stadio, il deck come voce a sé;
   - `serve.py` — serve la sola `../view/` sulle reti private:

@@ -30,17 +30,14 @@ autonomo.
 ## File dell'harness
 
 I file che l'harness cerca in `.claude/` sono binding, non sede del contenuto.
-Prompt e permessi del ciclo autonomo sono prescrizioni dell'atto e vivono in
-`o3/ciclo/`, versionati e leggibili da ogni harness; `.claude/settings.json`
+`.claude/settings.json`
 resta dov'è perché l'harness della sessione lo legge solo da lì. Un'opzione
 propria di un harness si usa solo come ottimizzazione: la sua assenza non deve
 rompere nulla (`skill`, «Indipendenza dall'harness»).
 
 `.claude/settings.local.json` è un'area di transito, non versionata e legata
 all'host. Periodicamente ciò che è durevole si promuove in `settings.json` e il
-resto si scarta. Il giro autonomo eredita gli allow di `settings.json`: una
-promozione allarga anche il perimetro senza custode, quindi si promuove solo ciò
-che il giro può fare da solo.
+resto si scarta.
 
 In auto mode il classificatore di Claude Code nega all'agente la modifica dei
 propri permessi in `settings.json`, anche quando la regola che li motiva è già

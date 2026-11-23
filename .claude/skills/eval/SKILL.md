@@ -97,47 +97,13 @@ l'interpretazione sospende la valenza, distinguendo spiegazione e verdetto.
    `method` non la acquisisce; in `method` i casi arrivano come segnali i1
    (dal 2026-11-23 anche da issue e PR, `o2/canale-in-entrata.md`). Nessun caso va prodotto
    solo per completare il giro.
-4. Dove il repo ha un ciclo autonomo, leggi l'ultima chiusura con `giro`
-   non nullo in `i1/giri/tentativi.jsonl` (esito, costo, durata,
-   `dinieghi`): un arresto chiude senza trascrizione né dinieghi e non copre
-   il giro che lo precede. Apri la trascrizione solo per il dettaglio. Ogni
-   diniego si classifica, per il contesto del giro, come vincolo voluto,
-   lacuna o attrito dell'harness (`kb/agent-as-user.md`), dopo averne accertato la causa: il comando
-   negato si confronta col tentativo riuscito che lo segue nella
-   trascrizione, e la differenza fra i due è la causa; senza un tentativo
-   riuscito la causa resta un'ipotesi dichiarata. Un gesto legittimo
-   abbandonato dopo il diniego vale come lacuna probabile finché una prova
-   isolata, coi pezzi del comando lanciati uno per volta, non ne accerta la
-   causa. La classe scritta nel resoconto del giro è un'ipotesi da
-   rileggere sulla trascrizione, non un fatto. In ogni caso:
-   il vincolo voluto è un fatto del giro, l'attrito si registra col suo
-   costo in turni, la lacuna diventa una proposta nel
-   task `o2/` pertinente, da chiudere col custode sul permesso o con uno
-   script consentito, mai con un'istruzione che chiede di aggirarla.
-   In `method`, che osserva i giri di tutti, lancia poi
-   `python3 o3/dinieghi.py`: le classi di grafia che ricorrono in almeno due
-   giri fra gli ultimi dieci dei repo leggibili, con l'esito sul segnale
-   canonico. Segnale assente, o recepito e ricorrenza che continua, è una
-   proposta nel task `o2/` pertinente, da chiudere col custode con un
-   permesso o uno strumento, non con un'altra frase; non recepito è un
-   `/method` dell'adottante, da segnalare. Le righe «Altro» sono grafie
-   nuove: si classificano come i dinieghi dell'ultimo giro. Il giro non
-   scrive né skill né permessi.
-   Sulla stessa chiusura lancia `python3 o3/commit_gate.py stadi`: gli
-   stadi che l'`Esiti:` del giro precedente dichiara senza la traccia del
-   loro minimo vanno nella riga `Attenzione:` di questo giro; un suo
-   `avviso` su fili e obiettivi non nominati va nell'autovalutazione. Poi riprendi
-   la riga `Attenzione:` del resoconto precedente voce per voce: risolta,
-   invariata o cambiata; una voce lasciata «non indagata» si indaga qui
-   (cfr. `cycle`, «Resoconto finale»).
-5. Per ogni cattura in `i1/` con una soglia di promozione, conta i casi
+4. Per ogni cattura in `i1/` con una soglia di promozione, conta i casi
    dalla fonte che dichiara e, raggiunta la soglia, compi la promozione
    dichiarata. Una soglia non contabile si riscrive con N, M e la fonte se
    i casi la danno; altrimenti diventa una proposta (`kb/perceive.md`).
-6. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
+5. Esito: cosa è entrato, cosa è stato catturato e perché, cosa resta fuori.
 
-Minimo: i canali del passo 1; nel ciclo autonomo anche il passo 4, con la
-verifica degli stadi del giro precedente e la sua riga `Attenzione:`.
+Minimo: i canali del passo 1.
 
 ## `interpret` — distillare in sintesi
 
@@ -324,7 +290,7 @@ nulla da passare, dillo esplicitamente.
 Minimo: `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`, ciascuno almeno
 alla domanda «è ancora vero?» contro i segnali del giro. Il minimo misura la
 lettura: la traccia del passo 6 rende controllabile il giudizio, e
-`commit_gate.py stadi` avvisa se un filo o un obiettivo non è nominato.
+
 Nominarli non prova che il giudizio regga: quello resta ai riesami a campione
 (`autonomy.md`, «Supervisione»).
 

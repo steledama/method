@@ -42,22 +42,6 @@ può alzarlo. Nel resoconto finale compaiono decisioni, motivazioni, verifiche,
 incertezze e questioni lasciate al custode. La presenza umana in chat non
 trasforma una decisione dell'agente in una decisione concordata.
 
-## Niente ciclo autonomo
-
-Il custode ha ritirato il 2026-11-20 il ciclo autonomo di `method`, avviato
-col criterio `ciclo-autonomo` del 2026-10-16 (gradino 1 dal 2026-10-17, timer
-delle 15:00 su `deck`). Il confine di esecuzione che un giro senza custode
-richiede ([consent](kb/consent.md), «Delega e confine di esecuzione») costa
-troppo su una postazione di casa: privacy e minimalismo prevalgono. Lato host
-il ritiro è in `nixos` `f2e10a7`. Il ciclo parte solo in sessione, entro
-`ciclo-delegato`; un ritorno è una nuova decisione del custode, col confine
-dichiarato e provato.
-
-`method` resta la copia canonica della modalità `/cycle autonomo`, del
-lanciatore (`o3/lanciatore.py`, `o3/esecutore_codex.py`, contratto in
-`o3/ciclo/fallback.md`) e degli strumenti che i giri degli adottanti usano:
-li custodisce per chi il ciclo autonomo lo tiene, senza eseguirli qui.
-
 ## Decisioni riservate e arresto parziale
 
 Criterio `confine-delega`: restano in proposta cambi di scopi, territorio o
@@ -99,6 +83,5 @@ ricostruzioni con le fonti, secondo il filo
 
 `ciclo-delegato` riguarda i cicli avviati dal custode e non copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
-Il percorso a gradini del pilota è compiuto (storia in git); il verdetto
-vive nel filo [ciclo autonomo](i3/ciclo-autonomo.md). Il custode può restringere o
+Il ciclo senza custode è stato ritirato il 2026-11-23: un eventuale nuovo progetto richiede un’utenza dedicata e confini di esecuzione definiti e verificati fin dalla progettazione. La storia resta in Git. Il custode può restringere o
 revocare la delega; il register e Git ne conservano lo stato e la storia.

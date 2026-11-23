@@ -54,8 +54,7 @@ decisione su scopi, territorio e deleghe ([autonomia](autonomy.md)); **basso att
 snella, viste facilmente consultabili e riproducibili dalle fonti), KB riflessiva coerente, loop di
 propagazione che si chiude.
 
-Segnali: [ciclo autonomo](i3/ciclo-autonomo.md),
-[ricostruzione delegabile](i3/verdetto-piu-sicuro-del-materiale.md),
+Segnali: [ricostruzione delegabile](i3/verdetto-piu-sicuro-del-materiale.md),
 [toolchain delle viste](i3/toolchain-builder-presentazione.md), audit e build
 `o3/view/build.py --check`. Il lavoro è raggiungibile dalla colonna `Ob. S`
 del [plan](o1/plan.md).

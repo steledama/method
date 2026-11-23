@@ -44,8 +44,7 @@ significato fuori dal ciclo resta invece in `i1/`, gitignorato (cfr. `perceive`)
 I file che un harness legge da un path suo (`.claude/`, `.codex/`) sono binding,
 non sede: il contenuto vive nello stadio che gli spetta e il file dell'harness
 vi punta o scompare. Le skill hanno la sorgente in `.claude/skills/` e i wrapper
-in `.codex/skills/`; prompt e permessi del ciclo autonomo vivono in
-`o3/ciclo/`.
+in `.codex/skills/`; le regole della sessione vivono nei register e nelle skill.
 
 ## Criterio di collocazione
 

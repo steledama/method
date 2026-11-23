@@ -16,9 +16,8 @@ Le skill canoniche del metodo sono:
 - `kb [audit|review]`, diagnosi strutturale rapida o revisione semantica
   profonda della conoscenza;
 - `commit`, gate prima del filing back nella storia;
-- `cycle [autonomo]`, il ciclo congiunto `eval all` → `exec all` → `commit`:
-  compone gli archi senza fonderli, in sessione o come ciclo autonomo senza
-  custode;
+- `cycle`, il ciclo congiunto `eval all` → `exec all` → `commit`:
+  compone gli archi senza fonderli, in sessione;
 - `method`, allineamento degli adottanti al canone.
 
 ## Atomicità: un atto, un contratto

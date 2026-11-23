@@ -32,6 +32,17 @@ skill forkate»):
 Il ciclo in sessione resta: `/cycle` senza argomento, criterio
 `ciclo-delegato`.
 
+## Stato del lavoro nel canone — 2026-11-23
+
+Rimossi il lanciatore, l'esecutore Codex, la modalità senza custode di
+`/cycle`, le rotte e la sezione della vista, e i controlli del gate legati
+alle trascrizioni; `ultimo_giro.py` resta perché serve alle sessioni. La
+prescrizione di recepimento è predisposta in `o3/ritiro-ciclo-senza-custode.md`.
+La pausa della traduzione è tolta. Restano il censimento e la pulizia delle
+superfici residue (inclusi gli strumenti di osservazione), la chiusura del
+filo, la review integrale della KB e il recepimento negli adottanti prima del
+rilascio. Le modifiche locali non sono ancora un rilascio.
+
 ## Le potature già fatte negli adottanti
 
 Cinque adottanti hanno già potato le skill forkate, il 2026-11-23:

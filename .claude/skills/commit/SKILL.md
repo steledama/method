@@ -56,8 +56,7 @@ modifica>`: rifà il confronto prima di scrivere (uscita 3 se trova file
    fuori perimetro, senza formattare nulla), formatta i file e lancia i
    controlli del profilo, ciascuno solo quando è dovuto. Un controllo fallito
    ferma il commit finché non è corretto; un formatter assente è segnalato e
-   saltato. Senza `--perimetro` il gate prende tutto il working tree: in
-   sessione è ammesso, in un giro del lanciatore esce con 4. Subito prima
+   saltato. Senza `--perimetro` il gate prende tutto il working tree: è ammesso. Subito prima
    dello staging lancia `python3 o3/commit_gate.py verifica`: con 3 un file è
    cambiato o comparso dopo il gate, e il commit si ferma. Poi fai lo staging,
    anche intero (`git add -A`).
@@ -108,8 +107,7 @@ modifica>`: rifà il confronto prima di scrivere (uscita 3 se trova file
    Impatto-motivo: ciclo-delegato (autonomy.md, verdetto corretto su fonte verificata)"
    ```
 
-6. Lancia `python3 o3/commit_gate.py dopo` (`dopo --giro` nel ciclo
-   autonomo): verifica i trailer dell'ultimo commit, compresi quelli di
+6. Lancia `python3 o3/commit_gate.py dopo`: verifica i trailer dell'ultimo commit, compresi quelli di
    coautoria che non vanno aggiunti. Se segnala un errore, correggi con
    `git commit --amend` finché il commit non è pubblicato; dopo il push non
    si riscrive la storia, si dichiara l'errore.

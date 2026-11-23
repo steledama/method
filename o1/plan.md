@@ -12,8 +12,7 @@ pianificazione.
 ## Direzione
 
 Questo repository custodisce il metodo portabile e osserva come gli adottanti
-lo usano. È in sviluppo verso un ciclo di runtime in ciascun repo, autonomo
-dove il repo lo regge, con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
+lo usano. È in sviluppo verso un ciclo di runtime in ciascun repo, con deleghe e controlli espliciti; qui il lavoro aperto consolida strumenti,
 skill e viste che rendono quel ciclo ricostruibile e governabile.
 
 ## Task
@@ -32,15 +31,7 @@ skill e viste che rendono quel ciclo ricostruibile e governabile.
 | dev     | S   | Diffusione oltre il custode unico        | —    |
 | runtime | S   | Canale in entrata                        | —    |
 | runtime | S   | Strumenti del coordinatore               | —    |
-| dev     | S   | Traduzione in inglese                    | p1   |
-
-Legenda delle attese (`w`) e delle pause (`p`), con risveglio e termine di
-riesame (`kb/plan.md`, «Risveglio»):
-
-- `p1` — custode, 2026-11-12: la traduzione aspetta la fine
-  dell'osservazione del ciclo autonomo, per non mescolare il cambio di
-  lingua ai `/method` degli adottanti; si riprende al riesame del filo
-  ciclo autonomo, o prima se serve un lettore in inglese; by: 2026-12-01
+| dev     | S   | Traduzione in inglese                    | —    |
 
 ## Ricorrenze
 
