@@ -47,7 +47,7 @@ già registrati, nata da un primo colore troppo vicino a quello di `salute`.
 La prima verifica nell'uso, l'audit `/adottanti` del 2026-11-02, la
 conferma: accenti distinti fra loro e da quello di `method`, skill conformi
 alla baseline (`baserow` senza `/kb`), revisione servita uguale a `origin`
-([audit-adottanti](../i3/audit-adottanti.md)).
+(filo `audit-adottanti`, ritirato il 2026-11-23, in git).
 
 ## Materiale verificato
 

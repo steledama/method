@@ -1,6 +1,6 @@
 """La chat del coordinatore: sessioni ACP nei repo del gruppo, da browser.
 
-    python3 method/../o3/chat/serve.py --istanza ~/casa [--port 8100]
+    python3 method/../o3/chat/serve.py --istanza ~/nixos [--port 8100]
 
 `--istanza` è il checkout dell'istanza del gruppo: i repo tra cui scegliere
 sono l'istanza stessa e i membri della sezione `## Membri` del suo

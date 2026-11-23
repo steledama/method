@@ -164,7 +164,7 @@ d'avvio dove `autonomy.md` lo riserva al custode.
   nominasse; la rafforza un mese di cicli senza casi di quel tipo.
   **Riesame** (giro del 2026-11-20, sul riesame scaduto al 01/11): l'audit
   del 2026-11-02 non ha trovato casi nuovi dal 19/10
-  ([audit-adottanti](../i3/audit-adottanti.md), «Casi della delega»), e i
+  (filo `audit-adottanti`, «Casi della delega», ritirato il 2026-11-23, in git), e i
   casi arrivati dopo (`abbinatore`, 20/11) non riguardano un checkout
   servito. Rafforzata sul criterio dei casi; le eccezioni nei sette
   `autonomy.md` non sono state rilette. Prossimo riesame all'audit del

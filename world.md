@@ -1,6 +1,6 @@
 # World
 
-Il Mondo runtime di `method` ha due facce: i **nove progetti adottanti**, da cui
+Il Mondo runtime di `method` ha due facce: gli **otto progetti adottanti**, da cui
 emerge l'esigenza dal basso e a cui torna la propagazione, e le **fonti teoriche
 su `gdrive/`**, da cui il canone trae il proprio pavimento. Il Mondo di sviluppo
 è l'artefatto che custodisce il canone, con i nodi `kb/` e la loro coerenza al
@@ -24,18 +24,13 @@ per `nixos-lavoro`, `bi`, `baserow` e `abbinatore`, `ssh danea2` (Windows, shell
 per `danea-auto` (decisione del custode del 2026-11-12, per non tenere copie
 secondarie da riallineare).
 
-- **[casa](https://github.com/steledama/casa)** — Istanza coordinatrice del
-  gruppo di casa (`nixos`, `salute`, `economia`), entrata il 2026-11-20 con la
-  delega minima: legge i membri, non li scrive, nessun ciclo autonomo —
-  checkout `~/casa` su `deck`; accento `#db2777`; vista `deck:8002/casa/`,
-  nel sito del gruppo casa. In dismissione dal 2026-11-23 (decisione del
-  custode): il coordinamento passa a `nixos`; il repository GitHub è cancellato e il
-  checkout resta finché il sito non legge i membri da `nixos`
-  (`o2/coordinatore-di-gruppi.md`, punto 1, «Rivisto»)
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) e, dal 2026-11-23,
-  coordinatore del gruppo casa; torna privato — checkout `~/nixos` su
-  `deck`; accento `#c2410c`; vista `deck:8002/nixos/`, nel sito del gruppo casa
+  coordinatore del gruppo casa (`salute`, `economia`), al posto
+  dell'istanza `casa`, cancellata lo stesso giorno; privato dal 2026-11-23,
+  perché il coordinatore scrive sui membri — checkout `~/nixos` su `deck`;
+  accento `#c2410c`; vista `deck:8002/nixos/`; il sito del gruppo casa su
+  `deck:8002` e la chat girano da `~/nixos` (`nixos` `afd5e8d`)
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS del server `svezia` e della postazione di sviluppo
   `norvegia`, separata dal repo di casa il 2026-11-04 — checkout `~/nixos`

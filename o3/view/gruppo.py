@@ -6,8 +6,8 @@ repo e il nome del checkout in grassetto:
 
     ## Membri
 
-    - **[nixos](https://github.com/...)** — Configurazione degli host di casa
-    - **salute** — Benessere e salute personale
+    - **[salute](https://github.com/...)** — Benessere e salute personale
+    - **economia** — Gestione finanziaria
 
 La build dell'istanza rende l'elenco in `view/gruppo.json` (`membri`): anche
 l'elenco servito viene da un commit pulito. Un `world.md` senza la sezione

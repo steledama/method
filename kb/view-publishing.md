@@ -140,6 +140,10 @@ proprio `world.md`, in una sezione `## Membri` con una voce per repo e il
 nome del checkout in grassetto. La build dell'istanza la rende in
 `view/gruppo.json`, così anche l'elenco servito viene da un commit pulito;
 un `world.md` senza la sezione non è un'istanza di gruppo.
+L'istanza non è un repo apposito: è uno dei repo del gruppo, eletto a
+coordinarlo, perché un repo che tiene solo l'elenco dei membri costa più di
+quanto rende. Se scrive sui membri, la sua visibilità non deve essere più
+aperta della loro.
 
 Il sito non ricostruisce nulla. Ogni membro, istanza compresa, pubblica la
 propria vista col contratto della sezione precedente, in una cartella per

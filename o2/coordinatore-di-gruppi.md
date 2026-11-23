@@ -178,12 +178,13 @@ ogni repo».
    Non è ancora nel `world.md` di `method`, perché entrarvi la metterebbe
    sotto `/adottanti` prima che abbia una delega sui repo del gruppo.
    Superato il 2026-11-23 (punto 1, «Rivisto»): `casa` si cancella.
-4. Passare il coordinamento a `nixos`, dopo la revisione del 2026-11-23:
+4. ~~Passare il coordinamento a `nixos`~~, dopo la revisione del 2026-11-23:
    `nixos` reso privato; in `nixos` la sezione dei membri nel `world.md`, la
    delega di lettura su `salute` ed `economia` e il task delle skill di
    `casa`; il sito su `deck:8002` senza la pagina di `casa`; in `method`
-   `world.md` e `kb/view-publishing.md`; `steledama/casa` cancellato (fatto il
-   2026-11-23) e il checkout `~/casa` tolto quando il sito legge da `nixos`. I passi in `nixos` e su `casa` sono atti di quei
+   `world.md` e `kb/view-publishing.md`; `steledama/casa` cancellato e il checkout
+   `~/casa` tolto. Fatto tutto il 2026-11-23: `nixos` `afd5e8d` (membri,
+   delega `gruppo-in-lettura`, task delle skill, sito e chat da `~/nixos`). I passi in `nixos` e su `casa` sono atti di quei
    repo o di un'autorizzazione esplicita del custode.
 5. Dividere il task in lavori eseguibili: il sito di gruppo è fatto il
    2026-11-20 (task chiuso, in git: casa su `deck:8002`, contratto in
