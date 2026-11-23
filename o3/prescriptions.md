@@ -15,6 +15,10 @@ Indice della collezione `o3/`: lo **stadio o3** del ciclo, l'atto versionato e p
 Le prescrizioni recepite da tutti gli adottanti escono dall'indice: la
 loro storia è in git.
 
+- [Versioni del canone](versioni-del-canone.md) — il canone si adotta a un
+  tag con note, `tt-sviluppo` primo estraneo, segnali per issue o PR in
+  sessione, `/adottanti` ritirato, un coordinatore per gruppo fra i suoi repo.
+
 ## Procedure
 
 Runbook permanenti che `method` esegue su se stesso come osservatorio, non

@@ -49,13 +49,22 @@ insieme al canale e non in fretta:
 - `world.md`: gli adottanti di lavoro restano nel territorio come voce, ma
   non come checkout da leggere; casa passa sotto il coordinatore `nixos`.
 
+## Decisione del 2026-11-23
+
+Il custode decide che gli adottanti aprono issue e PR solo in sessione con
+lui, non nei giri autonomi: è un atto verso l'esterno, in un posto pubblico.
+
 ## Passi
 
-1. Template di issue «segnale da adottante» su `steledama/method`.
-2. Skill di smistamento dei contributi, con la regola dei dati non fidati.
-3. Primo tag di versione e changelog; il checkout di `svezia` lo segue
-   (atto di `nixos-lavoro`).
-4. I residui sopra.
+1. ~~Template di issue «segnale da adottante»~~ fatto il 2026-11-23:
+   `.github/ISSUE_TEMPLATE/segnale.md`, modello di PR, etichette `segnale`
+   e `proposta`.
+2. ~~Regola delle versioni e prima versione con note~~ fatto il 2026-11-23:
+   `kb/method-development.md`, «Versioni», prescrizione
+   [versioni-del-canone](../o3/versioni-del-canone.md), rilascio `v0.2.0`.
+3. Il gruppo lavoro passa al tag (atto di `nixos-lavoro` e `danea-auto`).
+4. Skill di smistamento dei contributi, con la regola dei dati non fidati.
+5. I residui sopra.
 
 ## Criterio di chiusura
 
