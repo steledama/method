@@ -40,8 +40,8 @@ alle trascrizioni; `ultimo_giro.py` resta perché serve alle sessioni. La
 prescrizione di recepimento è predisposta in `o3/ritiro-ciclo-senza-custode.md`.
 La pausa della traduzione è tolta. Il filo è chiuso, il lettore dei dinieghi
 e il monitoraggio del giro sono rimossi. Restano il recepimento negli
-adottanti e il rilascio. La review integrale della KB è rinviata a una
-sessione dedicata. Le modifiche locali non sono ancora un rilascio.
+adottanti e il rilascio. La review integrale della KB è fatta il
+2026-11-23: residui tolti da sedici nodi, verdetto del filo in `consent`. Le modifiche locali non sono ancora un rilascio.
 
 Verdetto del filo, chiuso il 2026-11-23: alla domanda «con quali garanzie
 ogni repo arriva al giro senza custode?» la risposta è che, con la stessa

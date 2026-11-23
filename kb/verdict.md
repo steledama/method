@@ -51,7 +51,8 @@ Ciò che non ha le tre cose non è un verdetto, e va dove il suo genere vive:
 - un'ipotesi incisa che attende l'uso può restare nel nodo o nella lettura
   pertinente, con orizzonte, riscontro con fonte e raggiungibilità da `eval`:
   il solo `stato: bozza` non ne presidia il riesame;
-- il seguito di una prescrizione negli adottanti lo misura l'audit periodico;
+- il seguito di una prescrizione negli adottanti lo misurano il marker di
+  allineamento e la versione dichiarata (`method-development`, «Versioni»);
 - una decisione ancora da prendere è un task.
 
 La **provenienza** del segnale da cui un filo nasce non è il suo obiettivo: un

@@ -44,8 +44,8 @@ segnale per fermarsi a chiederlo.
 
 Se un anello manca, il lavoro è proprio quello: rendere esplicita
 l'interpretazione o la valutazione che il salto darebbe per scontata. È il
-contributo più alto dell'agente, e nel giro senza custode lo esercita in piena
-autonomia, perché una lettura dichiarata con la sua smentita è reversibile e
+contributo più alto dell'agente, ed entro la delega del ciclo lo esercita da
+sé, perché una lettura dichiarata con la sua smentita è reversibile e
 ispezionabile. L'interpretazione formalizzata porta provenienza, cosa la
 smentirebbe e orizzonte: serve a capire la notizia, non a giustificare una
 modifica già decisa. Sul Goal l'agente propone soltanto.

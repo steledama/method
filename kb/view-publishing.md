@@ -6,7 +6,7 @@ stato: bozza
 
 Come le viste derivate raggiungono un lettore: la build che le produce, il
 servizio che le espone sulle reti private, la pubblicazione da un commit pulito
-e lo stato operativo che si legge a richiesta. La disciplina a cui una vista
+e il sito che raccoglie le viste di un gruppo. La disciplina a cui una vista
 risponde — derivata, verificata, non più vecchia delle sue fonti — vive in
 `view`; qui sta il contratto operativo che la realizza, portabile fra host e
 sistemi diversi.
@@ -42,8 +42,15 @@ Le viste sono uniformi fra i progetti: a distinguerle sono la **sigla** e un
 **colore d'accento** unico per progetto. Sigla, lingua, accento, descrizioni degli stadi sulla home, deck ed
 esclusioni si dichiarano in un solo file, `o3/view/project.py`; la build
 scrive l'accento in `view/assets/theme.css`. La home resta minimale, pura
-affordance di navigazione: i register in sintesi, i sei stadi verso i loro
-indici, il deck come voce a sé.
+affordance di navigazione: i register in sintesi, le proposte che aspettano
+il custode, i sei stadi verso i loro indici, il deck come voce a sé. Le
+proposte sono i task `o2/` col campo `decidere:`, letti dalla release perché
+versionati e raggiungibili finché restano aperti. Accanto a `goal.md` e
+`world.md` la home rende `autonomy.md`, il register della delega, come pagina
+senza polo: non è uno stadio del ciclo. È visibilità e feedback nel senso del
+ciclo d'azione (`action-cycle`): un ambito di autonomia senza uno strumento
+che lo renda valutabile apre il golfo di valutazione che l'artefatto dovrebbe
+chiudere.
 
 ## Servizio sulle reti private
 
@@ -114,7 +121,7 @@ Il contratto è portabile, indipendente dal sistema dell'host:
   versione c'è, continua a servirla e rende consultabile l'errore (`/_stato`);
 - **lo scambio ricarica le viste, non il server**: il processo che serve tiene
   il codice caricato all'avvio. Un commit che cambia `serve.py` o i moduli
-  locali che importa (oggi `ciclo`, `project`, `sources`) arriva in
+  locali che importa (oggi `radice` e `gruppo`) arriva in
   esercizio solo dopo un riavvio, e l'innesco dell'host deve prevederlo: per
   esempio un riavvio quando cambia l'impronta del codice di `o3/view/`
   rispetto a quella caricata, compresa quella di `o3/view/` del canone se il
@@ -172,16 +179,6 @@ attivando, lui tira di nuovo i publisher già conclusi, e il gestore dei
 servizi lo ferma per troppi avvii (riscontro di `nixos-lavoro` su `svezia`,
 2026-11-23). Il canone non è membro dei
 gruppi: le istanze lo adottano, e la sua vista resta a sé.
-
-La home elenca le proposte da decidere: i task `o2/`
-col campo `decidere:`, letti dalla release perché versionati, raggiungibili
-finché restano aperti. Da lì si apre `autonomy.md`, il
-register della delega, reso come pagina accanto a `goal.md` e `world.md` ma
-senza un polo: non è uno stadio del ciclo. Una proposta che aspetta il custode resta raggiungibile dalla sezione fissa.
-
-È visibilità e feedback nel senso del ciclo d'azione (`action-cycle`): un
-ambito di autonomia senza uno strumento che lo renda valutabile apre il
-golfo di valutazione che l'artefatto dovrebbe chiudere.
 
 Connessioni:
 

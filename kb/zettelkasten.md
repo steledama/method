@@ -54,18 +54,8 @@ Adattamento operativo:
 - i fili `i3/` non sono nodi: registrano il verdetto attuale per filo aperto,
   non un concetto stabile
 
-Regola pratica:
-
-- se il contenuto serve a capire un concetto, va in kb/
-- se serve a fare una cosa futura, va in `o1/plan.md` o in `o2/`
-- se conserva il giudizio corrente su una tensione aperta, va in un filo `i3/`;
-  se la decisione è stabilizzata e cambia il comportamento futuro, risale nella
-  KB
-- se istruisce un agente, va in CLAUDE.md o in una skill
-- se orienta il lettore, va in README.md
-- se è una sintesi interpretativa multi-nodo, va in `i2/`; se prepara una
-  decisione o un'azione, svolge la funzione o2; una vista derivata vive in
-  `view/`
+Dove va ciò che non è un nodo lo dice il criterio di collocazione di
+`project-structure`.
 
 La distinzione è operativa: un nodo può sintetizzare più fonti mantenendo una
 responsabilità autonoma. Dashboard, backlog e panoramiche trasversali hanno
@@ -94,3 +84,4 @@ Connessioni:
 - [connection](connection.md)
 - [output](output.md)
 - [action-cycle](action-cycle.md)
+- [project-structure](project-structure.md)

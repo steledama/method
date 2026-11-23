@@ -55,15 +55,16 @@ appartiene al giro, non a un task, e nel plan sta nella sezione `## Ricorrenze`
 l'artefatto o porta a termine un affare del dominio, e chiede decisioni,
 approfondimenti o chiarimenti che si prendono col custode.
 
-Il giro senza custode pianifica i task ma non li esegue. Una notizia nuova, come
+Il giro pianifica i task ma non li esegue: una riga del plan non autorizza
+da sola un atto di dominio. Una notizia nuova, come
 una risposta, un dato o un verdetto, si traduce nella pianificazione: il giro
 corregge un'informazione del task, ne aggiorna la specifica, ne cambia priorità
 e dipendenze, chiude un'attesa o un task consumato, ne crea uno nuovo o ne
 cancella uno superato. Se arriva per mail la risposta del notaio sulla vendita
 di un immobile, il giro aggiorna la specifica del task di vendita e chiude
 l'attesa, ma non risponde al notaio. L'implementazione, lo sviluppo e gli atti
-sul Mondo che il task prepara restano alla sessione col custode, salvo quelli
-che il register di autonomia assegna al giro.
+sul Mondo che il task prepara si compiono quando il custode chiede il task,
+salvo quelli che il register di autonomia assegna al giro.
 
 A muovere la pianificazione è un verdetto che una notizia ha mosso
 (`action-cycle`, «Risalire prima di scendere»). Un plan fermo senza notizie nuove è
@@ -80,7 +81,7 @@ rilegge anche una finestra più ampia del delta:
 
 - i resoconti dei giri recenti, perché un rilievo che torna identico in più
   giri senza esito è un rinvio rituale: diventa un passo di task, una regola
-  o una voce di `Attenzione:`;
+  o una segnalazione al custode nel resoconto;
 - le decisioni del custode ferme da giorni;
 - la catena delle scadenze vicine, letta come sequenza;
 - la serie dei segnali che un obiettivo dichiara, contro la soglia, invece
@@ -89,8 +90,8 @@ rilegge anche una finestra più ampia del delta:
 Un `Prossimo:` confermato con esiti sani resta l'equilibrio; un rilievo
 ripetuto senza esito non lo è. Il caso che lo ha mostrato: in `salute`, su
 otto giri consecutivi, un prelievo dato per prenotato non lo era, una
-decisione del custode è rimasta ferma sei giorni senza salire in
-`Attenzione:` e i giorni senza pratica sono stati visti uno alla volta (fork
+decisione del custode è rimasta ferma sei giorni senza essere segnalata
+e i giorni senza pratica sono stati visti uno alla volta (fork
 di `exec`, `dc60e47`).
 
 Connessioni:

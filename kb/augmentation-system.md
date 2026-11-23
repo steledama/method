@@ -35,15 +35,17 @@ scelta interpretativa del metodo, non una tassonomia formulata da Engelbart.
 
 ## Il bootstrap: l'antenato del 1962
 
-La mossa più profonda di Engelbart è il **bootstrap** — «Tools Developed vs
-Tools Used» (§IV-E): il sistema di augmentation applica i propri means a
-migliorare sé stesso, sollevandosi «by its own bootstraps». È l'antenato del
+La mossa più profonda di Engelbart è il **bootstrap**: il sistema di
+augmentation applica i propri means a migliorare sé stesso (§IV-D, «Basic
+Regenerative Feature»), e nelle raccomandazioni di ricerca l'attività che
+lo sviluppa va «lifting itself by the bootstraps». È l'antenato del
 1962 di due strutture del metodo: il **dogfooding** (il metodo si sviluppa con
 il metodo) e il **development meta-cycle** (`development-meta-cycle`: il Mondo
 di sviluppo, una volta costruito, diventa la macchina che esegue il runtime). La
 stessa distinzione e lo stesso avvertimento sulla confusione terminologica
-«Developed vs Used» riecheggiano nell'avvertimento di `development-meta-cycle`
-contro l'affiancamento tra runtime e dev.
+della §IV-E, «Tools Developed and Tools Used», riecheggiano
+nell'avvertimento di `development-meta-cycle` contro l'affiancamento tra
+runtime e dev.
 
 ## Pratiche descritte e possibilità progettate
 
@@ -66,7 +68,8 @@ realizzati nel sistema di schede.
   SRI Summary Report AFOSR-3223 (Stanford Research Institute, ottobre 1962),
   Sez. I-IV. Provenienza e qualità OCR nella sezione fonti del register
   `world.md`; citare per **sezione**, non per pagina. La cornice H-LAM/T è in
-  Sez. II; il bootstrap «Tools Developed vs Tools Used» in §IV-E; le schede
+  Sez. II; il bootstrap in §IV-D, con la terminologia «Tools Developed and
+  Tools Used» in §IV-E; le schede
   edge-notched, la mossa «orange rind» e la cooperazione collaborativa in Sez.
   III.
 

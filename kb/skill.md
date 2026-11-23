@@ -59,20 +59,15 @@ chiedere conferma per frontmatter con `allowed-tools`, `disallowed-tools` o
 `hooks`. `dontAsk` nega ciò che richiederebbe conferma; le azioni che non la
 richiedono possono passare anche senza allow specifico.
 
-Riscontro inoltrato da `nixos` il 2026-11-15, cattura locale
-`i1/permessi-skill-claude.md`: nel giro `bb2ee81d21ce4a42ae42b067a6aea815`,
-Claude Code 2.1.321 in `dontAsk` ha accettato `Skill(manutenzione)` senza
-allow specifico e senza quei campi nel frontmatter. La cattura riporta
-`decision: accept`, `source: config`, mentre un `gh api` è negato per la
-modalità. Qui è stata letta la cattura, non la trascrizione integrale:
-il caso è coerente con la documentazione, non prova un bypass.
+Un caso di `nixos` (2026-11-15, Claude Code 2.1.321 in `dontAsk`) ha visto
+accettare `Skill(manutenzione)` senza allow specifico e senza quei campi nel
+frontmatter: è coerente con la documentazione, non prova un bypass.
 
 Per diagnosticare un diniego si confrontano versione, impostazioni effettive,
 frontmatter e decisione della chiamata; l'assenza di allow da sola non basta.
 Il permesso tecnico non concede autorità metodologica: deleghe e obbligo di
-invocare i bracci restano quelli del repository. Questa verifica corregge la
-frase di `cycle` senza modificare i permessi e senza generalizzare il caso
-osservato a tutte le release.
+invocare i bracci restano quelli del repository. Il caso non si generalizza
+a tutte le release.
 
 Fonti ufficiali consultate il 2026-11-15:
 
@@ -85,8 +80,9 @@ Fonti ufficiali consultate il 2026-11-15:
 Gli scope-stadio corrispondono agli atomi del ciclo. La procedura completa vive
 nelle rispettive `SKILL.md`; il nodo conserva soltanto il modello e i confini.
 Dopo un evento del Mondo l'ordine è `eval` → `exec`: prima si aggiorna ciò che è
-vero, poi ciò che va fatto. Le supervisioni propongono modifiche a collezioni e
-register e attendono conferma del custode.
+vero, poi ciò che va fatto. Entro `ciclo-delegato` gli esiti ordinari si
+applicano senza conferme intermedie; i punti riservati dal register di
+autonomia restano proposte per il custode.
 
 Ogni stadio di un arco chiude con un esito esplicito, e la chiusura vuota è
 legittima. L'esito resta però nella storia: il giro si chiude con un commit che

@@ -24,20 +24,19 @@ promozione non arriva e i casi restano sparsi nei commit (giro di `salute`,
 2026-10-28, sulle anomalie dell'orologio).
 
 Il grezzo che serve alla percezione ma non va versionato può stare in `i1/`,
-ignorato da git: snapshot di feed, code di elaborazione, log e trascrizioni delle sessioni. È locale all'host che lo produce, tenuto con una
+ignorato da git: snapshot di feed, code di elaborazione, log e trascrizioni
+delle sessioni. È locale all'host che lo produce, tenuto con una
 retention, e non si pubblica: la vista serve solo i `.md` versionati. Versionata
 resta la cattura filtrata, scritta on-demand quando il grezzo porta un segnale
 che deve durare. La regola `.gitignore` precede la prima scrittura, perché un
-file non ignorato sporca il working tree e ferma il giro successivo. Il grezzo
-già persistente e raggiungibile altrove non si sposta: si sposta in `i1/` quando
-lì lo raggiunge chi percepisce, per esempio il giro, che fuori dalla cartella di
-lavoro non legge.
+file non ignorato sporca il working tree e confonde il perimetro del commit.
+Il grezzo già persistente e raggiungibile altrove non si sposta: si sposta in
+`i1/` solo quando lì lo raggiunge chi percepisce.
 
-Fra il grezzo dei giri ci sono i dinieghi dei permessi. Sono il feedback dello
-strumento all'agente e quindi percezioni come le altre: il perceive li legge e
-ciascuno si classifica come vincolo voluto, lacuna o attrito dell'harness,
-senza assorbirli come
-incidenti del giro (`agent-as-user`).
+Fra le percezioni ci sono anche i dinieghi dei permessi. Sono il feedback
+dello strumento all'agente: ciascuno si classifica come vincolo voluto,
+lacuna o attrito dell'harness, senza assorbirlo come incidente della
+sessione (`agent-as-user`).
 
 Connessioni:
 

@@ -46,8 +46,7 @@ discute, e un commit a ogni passaggio fissa fotografie che cambieranno: a
 storia pubblicata ogni ritocco diventa un altro commit. Lì il momento si
 concorda: l'agente lo propone quando un punto si è fermato, o lo prende
 dichiarandolo quando un lettore fuori dalla sessione ne ha bisogno. Il
-ciclo chiesto fino al commit lo include, e il giro senza custode chiude col
-proprio commit. Il push resta una conseguenza del commit, non una seconda
+ciclo chiesto fino al commit lo include. Il push resta una conseguenza del commit, non una seconda
 decisione.
 
 Il consenso può precedere il giro e vivere nel register anche quando il
@@ -91,6 +90,15 @@ centralizzato di tutti gli adottanti né sempre un secondo checkout: ogni giro
 ha bisogno di uno spazio di lavoro coerente con il proprio confine. La scelta
 non amplia la delega e non abilita da sé un ciclo o un timer.
 
+Il canone non ha un ciclo senza custode: l'ha ritirato il 2026-11-23, quando
+nessun adottante noto lo esercitava più. Sulle postazioni degli adottanti il
+giro girava con la stessa utenza delle sessioni, e lì il confine non reggeva
+per costruzione: permessi e prompt comunicavano la delega senza limitare le
+capacità raggiungibili, e renderlo vero chiedeva un'utenza per ciclo e accessi
+ridisegnati, troppa manutenzione per un giro che in sessione costa poco. Un
+ritorno è un progetto nuovo che parte da questo contratto, col confine
+provato prima del primo giro; la storia del pilota è in Git.
+
 Un checkout può essere anche una superficie servita: un timer, un cron o uno
 scheduler eseguono o pubblicano i suoi file, e allora commit, pull e push
 diventano rilasci o pubblicazioni. Di regola la delega del ciclo vale anche
@@ -128,9 +136,7 @@ Lo stesso vale per ogni errore dell'agente: la delega si regge sulla
 tracciabilità, non sull'assenza di errori. L'agente dichiara nel resoconto
 l'errore che scopre e lo corregge con un atto che lascia traccia, senza
 riscrivere la storia pubblicata. Un errore nascosto consuma la fiducia su
-cui la delega si regge; uno dichiarato la rende verificabile. Impatto è una proprietà del commit; il
-semaforo che lo veste nelle viste è presentazione, riusabile per altre
-proprietà a tre gradi.
+cui la delega si regge; uno dichiarato la rende verificabile.
 
 Caratteristiche:
 

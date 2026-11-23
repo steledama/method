@@ -80,8 +80,8 @@ questo ogni `w` nomina il **segnale** che lo riapre e come lo si riconosce
 riga risale fra le pronte e il `Prossimo:` cambia con quel segnale per causa.
 
 Il «noi» delle `p` è il custode con l'agente: un'attesa tenuta dal custode,
-dall'agente o da entrambi è una `p`, perché la cognizione è condivisa. Nel giro
-senza custode una `p` non è pronta. L'agente chiede un ripensamento quando una
+dall'agente o da entrambi è una `p`, perché la cognizione è condivisa.
+L'agente chiede un ripensamento quando una
 `p` non gli torna, altrimenti sta fermo. Un'attesa composita prende la lettera
 della prima mossa attesa, e il risveglio alternativo resta nella chiosa.
 
@@ -108,8 +108,8 @@ risposta a una nostra richiesta, chi riconosce l'arrivo ne confronta il
 contenuto con ciò che la richiesta chiedeva, letto dal messaggio inviato o
 dalla chiosa, che per questo lo tiene raggiungibile. Ogni parte non coperta
 esce in modo esplicito: resta nell'`arrival:` della `w`, diventa una mossa
-nostra (una `p` o un `decidere:`) oppure cade col motivo scritto. Nel giro
-senza custode l'arrivo parziale va anche nella riga `Attenzione:`. Una
+nostra (una `p` o un `decidere:`) oppure cade col motivo scritto, e
+l'arrivo parziale si segnala al custode nel resoconto. Una
 risposta che scioglie l'attesa senza questo confronto toglie dal radar
 proprio le domande rimaste aperte, spesso le sostanziali (giro di
 `economia`, 2026-11-06: a una richiesta in tre punti il notaio risponde col
@@ -125,9 +125,9 @@ se la teniamo ancora, e la domanda può investire il task intero.
 
 Scaduto il termine gli esiti sono tre: sollecitare (per una `p`, riprendere),
 riclassificare, oppure rinnovare il `by:` col motivo nella chiosa. Il rinnovo
-senza motivo è il rinvio rituale che il termine serve a impedire. Nel giro senza
-custode il sollecito è un atto verso l'esterno e la ripresa di una `p` spetta
-alla sessione: il giro nomina la riga scaduta nella riga `Attenzione:`.
+senza motivo è il rinvio rituale che il termine serve a impedire. Il
+sollecito è un atto verso l'esterno e chiede l'autorità per quell'atto: la
+delega del ciclo da sola non la dà.
 
 I termini non sono scadenze: non stanno in `## Scadenze` e non contano come
 scadute, ma entrano nel controllo delle scadenze come righe di riesame. Il `!`
@@ -140,8 +140,8 @@ vocabolario chiuso dello strumento che la valuta: i tipi che conosce, come una
 issue, una versione in un repository di pacchetti, una riga di log.
 L'interprete vive in `o3/`, la cadenza nella config dell'adottante. Così la
 sonda nasce e muore con la sua attesa, e una riga del plan non diventa mai un
-comando: lo strumento esegue solo i tipi che conosce, e il giro autonomo resta
-col permesso dello strumento. Uno strumento che controlla le attese prende solo
+comando: lo strumento esegue solo i tipi che conosce, e il ciclo resta col
+permesso dello strumento. Uno strumento che controlla le attese prende solo
 le `w` con `probe:` e fa comparire le righe col `by:` passato.
 
 Un'attesa che nessun tipo del vocabolario sa interrogare dichiara `arrival:` e
@@ -215,7 +215,8 @@ nel plan di `economia` non restava niente che ricordasse il successivo).
 | entro 2027-08-10 | annuale    | sessione  | 1   | [RC auto](procedura)        |
 ```
 
-Una ricorrenza schedulata rinvia alla configurazione, fonte dell'orario, senza duplicarlo nel plan. L'esecuzione effettiva si verifica nei log.
+Una ricorrenza schedulata rinvia alla configurazione, fonte dell'orario,
+senza duplicarlo nel plan. L'esecuzione effettiva si verifica nei log.
 
 - `Prossima` è la prossima mossa, non l'evento: un giorno o il solo mese, che
   vale come il suo ultimo giorno. La data nuda è un orologio nostro, `entro` un
@@ -258,9 +259,9 @@ col suo task, come ogni appuntamento fissato per un'occorrenza. La riga avanza
 all'apertura del task, perché da lì a sorvegliare sono il task e la scadenza.
 Una riga `task` non porta quindi `entro`.
 
-`exec plan` apre i task delle righe `task`, e nel giro senza custode nomina in
-`Attenzione:` le righe `sessione` dovute. Le righe `giro` le compie `exec
-perform`, se il register di autonomia glielo assegna. Una ricorrenza non è
+`exec plan` apre i task delle righe `task` e segnala al custode nel resoconto
+le righe `sessione` dovute. Le righe `giro` le compie `exec perform`, se il
+register di autonomia glielo assegna. Una ricorrenza non è
 candidata al `Prossimo:`, che resta dei task. `eval compare` giudica quelle
 saltate più volte e quelle che da molte occorrenze non producono niente,
 candidate a una cadenza più bassa o al taglio: il riesame di pertinenza è

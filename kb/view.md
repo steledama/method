@@ -150,8 +150,7 @@ la barra va in orizzontale e le tabelle scorrono da sole.
 
 ## Compartimento stagno
 
-`view/` si apre e si serve da sola: nessun URL emesso esce dalla cartella,
-con le eventuali rotte servite dichiarate dal servizio (`view-publishing`).
+`view/` si apre e si serve da sola: nessun URL emesso esce dalla cartella.
 Restano link le ancore, i file della cartella e gli URL web o mail; `file:` e i
 path di un disco locale non sono esterni e restano etichetta. La cartella è
 tutta generata: ciò che la build non produce più si rimuove, così una fonte

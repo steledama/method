@@ -56,16 +56,15 @@ attestare che la lettura sia avvenuta.
 
 `o3/skill_tools.py` è il guardiano quantitativo delle skill, indipendente
 dall'harness come gli altri strumenti: `audit` misura dimensioni, crescita e
-quota di rimandi, confronta i comandi scritti con i permessi di sessione e
-giro, trova i divieti scritti con o senza deny e le chiamate fra skill,
-prova gli esempi di trailer `Prossimo:` di skill e prompt del giro contro
+quota di rimandi, confronta i comandi scritti con i permessi di sessione,
+trova i divieti scritti con o senza deny e le chiamate fra skill,
+prova gli esempi di trailer `Prossimo:` delle skill contro
 il gate di `commit_gate.py`, segnala la prosa che lega il motivo di una
 conferma al trailer invece che al corpo, e misura la divergenza delle copie dal canone.
 Comandi, divieti, chiamate e trailer si leggono anche nei file accanto a
 `SKILL.md`: un ramo estratto porta procedura, e fuori dal controllo la
-misura migliorerebbe nascondendo i gesti. Comandi e divieti si censiscono anche in
-`CLAUDE.md`, `AGENTS.md` e nel prompt del giro, e un divieto di sessione
-retto solo dai deny del giro si segnala come lacuna. Le chiamate fra skill si
+misura migliorerebbe nascondendo i gesti. Comandi e divieti si censiscono
+anche in `CLAUDE.md` e `AGENTS.md`. Le chiamate fra skill si
 cercano con un verbo nella riga o nella precedente; le menzioni senza verbo
 escono come candidati, perché un rinvio imperativo può non averne. `classifica` ordina le skill di
 `method` e degli adottanti. Non dipende dal dominio, quindi un adottante lo

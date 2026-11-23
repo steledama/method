@@ -14,7 +14,7 @@ cui l'agente agisce, con la stessa cura e con criteri di revisione propri.
 
 ## Le specificità dell'agente
 
-L'agente non è un lettore umano più veloce. Quattro tratti cambiano il design:
+L'agente non è un lettore umano più veloce. Tre tratti cambiano il design:
 
 - rilegge tutto a ogni run: ogni riga di una skill o di un prompt si paga a
   ogni invocazione, non una volta sola. Una skill lunga è un costo ricorrente;
@@ -27,9 +27,7 @@ L'agente non è un lettore umano più veloce. Quattro tratti cambiano il design:
   sempre e funziona solo se viene letta e seguita ogni volta;
 - paga ogni diniego in turni: un comando negato costa almeno un giro di
   tentativo e ripiego, e un comando composto con un solo pezzo non concesso è
-  negato per intero;
-- nel giro senza custode nessuno risponde: i segnali devono bastare senza
-  chiedere, e un'ambiguità si risolve con un'inferenza o con una rinuncia.
+  negato per intero.
 
 Un segnale reso solo per l'occhio umano è muto per l'agente che legge testo.
 Il colore, il grigio attenuato di un suggerimento, la posizione su uno schermo
@@ -55,7 +53,9 @@ classifica in uno di tre modi:
 - attrito dell'harness: il gesto era legittimo, ma il deny viene dalla
   grammatica dei permessi dell'harness, non da una regola del repository, e
   nessun allow lo apre. Il caso è la brace expansion, che Claude Code in
-  modalità `dontAsk` nega anche quando il comando è negli allow. Non è un
+  modalità `dontAsk` negava anche col comando negli allow (2.1.303); su
+  2.1.311 una graffa fra virgolette passa (`nixos` `91f6ef2`): l'attrito
+  segue la versione, e la classe si riverifica quando cambia. Non è un
   vincolo voluto, perché non protegge niente, né una lacuna chiudibile sul
   permesso. Si registra col suo costo in turni: se il rilancio riesce al
   primo tentativo il feedback del diniego basta; se ricorre, un segnale nel
@@ -68,10 +68,10 @@ classifica in uno di tre modi:
 
 La classe dipende dal contesto, non dal comando. L'affordance è una relazione
 tra agente e artefatto, e lo stesso deny può essere vincolo in un contesto e
-lacuna in un altro. Un atto sul Mondo negato nel giro, dove nessuno lo vede
-prima che accada, può essere il gesto legittimo di una sessione col custode.
-La classificazione si fa quindi per contesto d'uso: sessione col custode,
-giro autonomo, agente esecutore.
+lacuna in un altro. Un atto sul Mondo negato a un agente esecutore può
+essere il gesto legittimo di una sessione col custode. La classificazione si
+fa quindi per contesto d'uso: sessione col custode, ciclo delegato, agente
+esecutore.
 
 La classe poggia su una causa accertata, non intuita. Il deny scatta su una
 grafia, e la grafia che l'agente crede di aver usato non è sempre quella che
@@ -144,8 +144,8 @@ Per skill, prompt, permessi e script:
   che chiede di convertire.
 
 La revisione appartiene a chi progetta l'artefatto, in sessione col custode
-quando tocca permessi o prescrizioni del giro. Il giro senza custode percepisce
-e propone; non allarga da sé il proprio perimetro.
+quando tocca permessi o prescrizioni. L'agente percepisce e propone; non
+allarga da sé il proprio perimetro.
 
 ## Riferimenti
 

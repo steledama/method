@@ -93,7 +93,7 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   versiona; pagine 1:1, perimetro e compartimento stagno
 - [view-publishing](view-publishing.md) — Come le viste raggiungono un
   lettore: build minima e deterministica, servizio sulle reti private,
-  pubblicazione da commit pulito, stato operativo letto a richiesta
+  pubblicazione da commit pulito, sito di gruppo
 - [presentation](presentation.md) — Il racconto curato dell'artefatto: un
   deck scritto e non derivato, distinto da viste e interpretazioni, fedele
   alle fonti

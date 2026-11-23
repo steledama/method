@@ -36,9 +36,12 @@ L'agente verifica le fonti, esplicita provenienza e incertezza e conserva il
 presidio delle ipotesi. Una tesi nuova può essere registrata come ipotesi;
 non diventa un fatto certo per rendere eseguibile una decisione.
 
-Impatto minimo **medio** per le decisioni autonome del ciclo: il motivo del
-commit cita `ciclo-delegato` e i fatti che lo rendono applicabile. Il giudizio
-può alzarlo. Nel resoconto finale compaiono decisioni, motivazioni, verifiche,
+Impatto minimo **basso** per le decisioni dell'agente nel ciclo delegato,
+**medio** quando il ciclo cambia un verdetto, una priorità o il `Prossimo:`,
+o riscrive una specifica: è la decisione che chiede uno sguardo dopo (criterio
+rivisto il 2026-11-23 da Stefano, col ritiro del giro senza custode). Il
+motivo del commit cita `ciclo-delegato` e i fatti che lo rendono applicabile.
+Il giudizio può alzarlo. Nel resoconto finale compaiono decisioni, motivazioni, verifiche,
 incertezze e questioni lasciate al custode. La presenza umana in chat non
 trasforma una decisione dell'agente in una decisione concordata.
 
@@ -86,4 +89,5 @@ recepimento del canone negli adottanti conserva il proprio gate di conferma.
 Il ciclo senza custode è ritirato dal 2026-11-23 e la sua storia resta in
 git: un eventuale ritorno è un progetto nuovo, con un'utenza dedicata e
 confini di esecuzione dichiarati e provati fin dall'inizio. Il custode può
-restringere o revocare la delega; il register e Git ne conservano lo stato e la storia.
+restringere o revocare la delega; il register e Git ne conservano lo stato e
+la storia.

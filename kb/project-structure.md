@@ -59,6 +59,8 @@ da sola la destinazione (`pace-layering`):
 - supervisione del lavoro → `o1/plan.md`;
 - dettaglio di un task aperto → `o2/`;
 - prescrizione, runbook o esecutore → `o3/`;
+- istruzione per l'agente → `CLAUDE.md` o una skill;
+- orientamento del lettore → `README.md`;
 - racconto curato dell'artefatto → `presentation/`;
 - rappresentazione derivata → `view/`, generata da `o3/view/`;
 - asset con significato autonomo nel dominio runtime → superficie dichiarata in

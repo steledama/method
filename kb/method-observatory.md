@@ -76,9 +76,10 @@ interpreta pattern e custodisce generalizzazioni. Le verifiche operative restano
 nei repo dove nascono, perché lì vivono fonti, priorità, dipendenze e criteri di
 chiusura.
 
-Analisi periodiche:
+Analisi comparative, avviate da un segnale in entrata o dal coordinatore di un
+gruppo che legge i propri membri:
 
-- inventario componenti: presenza e forma di README, CLAUDE, AGENTS, map,
+- inventario componenti: presenza e forma di README, CLAUDE, AGENTS,
   `o1/plan.md`, fili `i3/`, `o2/`, strumenti, skill, nodi metodo e nodi dominio
 - confronto strumenti: sottocomandi comuni, comandi locali, dipendenze, output,
   compatibilità della superficie base
@@ -96,7 +97,8 @@ Analisi periodiche:
 Ammettere un progetto nel territorio è un'operazione dell'osservatorio, non la
 sola aggiunta di una voce a `world.md`. Richiede di verificare l'adozione
 locale, fissare una baseline con provenienza, aggiornare soltanto le
-rappresentazioni correnti e predisporre il primo giro periodico. La procedura
+rappresentazioni correnti e predisporre il primo giro, senza governarne la
+coda. La procedura
 eseguibile vive in `o3/ingresso-adottante.md`; questo nodo ne conserva funzione
 e confine.
 
@@ -107,7 +109,7 @@ La forma ideale è un ciclo leggero:
 3. distinguere cosa è specifico del dominio da cosa è portabile
 4. aggiornare `method` solo con la generalizzazione o con uno strumento comune
    già giustificato dall'uso
-5. propagare agli altri repo tramite lettura dei commit di `method`, non tramite
+5. propagare agli altri repo tramite le versioni di `method`, non tramite
    task centrali prescrittivi
 6. ripetere quando nuovi casi reali confermano, correggono o limitano la
    generalizzazione
