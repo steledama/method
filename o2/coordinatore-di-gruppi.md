@@ -87,8 +87,9 @@ Precisato dal custode il 2026-11-20:
    canone e il servizio in `nixos`. Il coordinatore non è più un repo
    apposito ma un membro del gruppo eletto a coordinarlo:
    - **casa** è coordinata da `nixos`, che dichiara i membri nel proprio
-     `world.md`; il repository `casa` si archivia, non si cancella, e la
-     sua storia (la prova ACP) resta leggibile;
+     `world.md`; il repository `casa` si cancella del tutto, cancellato su
+     GitHub il 2026-11-23: il custode non vuole repo morti per poche righe
+     di storia, e la prova ACP resta raccontata nei task di `method`;
    - **lavoro** è coordinato da `nixos-lavoro`, con lo stesso schema:
      l'istanza `tt` non si crea;
    - **il codice di sito e chat resta nel canone** (`o3/view/`,
@@ -176,13 +177,13 @@ ogni repo».
    commit `107f89b`; dal 2026-11-20 ha il remote privato `steledama/casa`.
    Non è ancora nel `world.md` di `method`, perché entrarvi la metterebbe
    sotto `/adottanti` prima che abbia una delega sui repo del gruppo.
-   Superato il 2026-11-23 (punto 1, «Rivisto»): `casa` si archivia.
+   Superato il 2026-11-23 (punto 1, «Rivisto»): `casa` si cancella.
 4. Passare il coordinamento a `nixos`, dopo la revisione del 2026-11-23:
    `nixos` reso privato; in `nixos` la sezione dei membri nel `world.md`, la
    delega di lettura su `salute` ed `economia` e il task delle skill di
    `casa`; il sito su `deck:8002` senza la pagina di `casa`; in `method`
-   `world.md` e `kb/view-publishing.md`; `steledama/casa` archiviato e il
-   checkout `~/casa` tolto. I passi in `nixos` e su `casa` sono atti di quei
+   `world.md` e `kb/view-publishing.md`; `steledama/casa` cancellato (fatto il
+   2026-11-23) e il checkout `~/casa` tolto quando il sito legge da `nixos`. I passi in `nixos` e su `casa` sono atti di quei
    repo o di un'autorizzazione esplicita del custode.
 5. Dividere il task in lavori eseguibili: il sito di gruppo è fatto il
    2026-11-20 (task chiuso, in git: casa su `deck:8002`, contratto in

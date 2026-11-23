@@ -29,7 +29,8 @@ secondarie da riallineare).
   delega minima: legge i membri, non li scrive, nessun ciclo autonomo —
   checkout `~/casa` su `deck`; accento `#db2777`; vista `deck:8002/casa/`,
   nel sito del gruppo casa. In dismissione dal 2026-11-23 (decisione del
-  custode): il coordinamento passa a `nixos` e il repository si archivia
+  custode): il coordinamento passa a `nixos`; il repository GitHub è cancellato e il
+  checkout resta finché il sito non legge i membri da `nixos`
   (`o2/coordinatore-di-gruppi.md`, punto 1, «Rivisto»)
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) e, dal 2026-11-23,
