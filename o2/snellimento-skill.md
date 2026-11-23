@@ -42,12 +42,24 @@ Segnale di `nixos-lavoro`, 2026-11-23: dopo casa anche il gruppo lavoro
 rinuncia al ciclo senza custode
 ([ciclo autonomo](../i3/ciclo-autonomo.md)), ed `eval`, `exec`, `commit`,
 `cycle` e `plan` portano molti rimandi al giro senza custode che ogni
-adottante deve potare a mano nel fork. La macchina non esce dal canone:
-`danea-auto` la usa ogni giorno, lanciatore ed esecutore compresi. La
-proposta da portare al riesame del 2026-12-01 è isolarla: le regole del giro
-senza custode in un solo posto, caricato da `/cycle autonomo` e dal
-lanciatore, così le skill di chi lavora solo in sessione non le portano.
-Rotte `/_ciclo/` e `dopo --giro` restano come opzione documentata.
+adottante deve potare a mano nel fork. Lo stesso giorno il custode decide
+l'uscita anche di `danea-auto`, l'ultimo che lo usava: dopo, nessun
+adottante noto esercita il giro senza custode. La potatura è già fatta in
+quattro adottanti, `nixos-lavoro` (`cycle`, `eval`, `exec`, `commit`,
+`manutenzione`, con la differenza dal canone dichiarata nel suo
+`kb/cicli.md`), `bi` `7b4a763f`, `baserow` `c57cd83` e `abbinatore`
+`bfc74d8`.
+
+Al riesame del 2026-12-01 il custode decide fra due vie:
+
+- **isolare**: le regole del giro senza custode in un solo posto, caricato
+  da `/cycle autonomo` e dal lanciatore; skill, lanciatore, esecutore,
+  rotte `/_ciclo/` e `dopo --giro` restano come opzione documentata;
+- **togliere**: il giro senza custode esce dal canone e resta in git, con
+  una prescrizione che chiude il criterio `ciclo-autonomo` negli adottanti.
+
+In entrambi i casi le skill canoniche si avvicinano a quelle già potate, e
+il `/method` degli adottanti smette di trovare una differenza attesa.
 
 ## Passi
 

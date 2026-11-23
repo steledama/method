@@ -27,10 +27,12 @@ gruppo lavoro (`nixos-lavoro` `ca20603`, `bi` `7b4a763f`, `baserow`
 `c57cd83`, `abbinatore` `bfc74d8`, riferito dalla sessione di `svezia`): il
 recinto con lo stesso utente delle sessioni non è sicuro per costruzione, e
 renderlo tale chiederebbe un utente per ciclo e accessi ridisegnati, troppa
-manutenzione per un giro che in sessione costa poco. Resta un solo adottante
-noto col giro senza custode, `danea-auto` su `danea2`, sul lanciatore
-canonico di `method` (giro del 23/11, `dea853a`, e lanciatore verde sulla
-`v0.2.0`, `1a3363c`). La domanda diventa anche _per quali_ repo il gradino
+manutenzione per un giro che in sessione costa poco. Lo stesso giorno il custode
+decide l'uscita anche di `danea-auto`, l'ultimo adottante noto col giro, sul
+lanciatore canonico di `method` fino al giro del 23/11 (`dea853a`). L'uscita
+la compie la sessione di `danea-auto` su `danea2`; finché non la riferisce,
+il giro delle 08:10 gira ancora. Dopo, nessun adottante noto esercita il
+giro senza custode, e il canone lo custodisce senza uso. La domanda diventa anche _per quali_ repo il gradino
 vale: `method` ne custodisce il canone senza esercitarlo.
 
 ## La scommessa
