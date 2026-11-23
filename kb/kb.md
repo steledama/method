@@ -20,8 +20,8 @@ I conteggi e i segnali si rigenerano con `o3/kb_tools.py audit`.
   collocazione, convenzioni e bootstrap
 - [kb-tools](kb-tools.md) — Controlli deterministici portabili e confine con il
   giudizio interpretativo
-- [method-observatory](method-observatory.md) — Meta-analisi periodica dei
-  progetti adottanti: componenti, strumenti, skill, nodi, salute e task locali
+- [method-observatory](method-observatory.md) — Meta-analisi dei
+  progetti adottanti, da contributi e coordinatori: componenti, strumenti, skill, nodi, salute e task locali
 - [cognitive-fidelity](cognitive-fidelity.md) — Verifica strutturale, fattuale e
   semantica dell'aderenza al progetto reale
 - [translation](translation.md) — Lingua canonica e copia gemella derivata:

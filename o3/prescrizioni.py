@@ -5,12 +5,15 @@ Nato come gesto concesso al giro autonomo di `method`, che non scriveva in
 tutti hanno recepito. Il giro è uscito dal canone il 2026-11-23; lo script
 resta il gesto della sessione.
 `verifica <nome>` dice per ogni adottante di `world.md` se il marker
-`i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
-adottante senza clone sull'host è «checkout assente», e la chiusura non passa.
-Con `--ssh`, in sessione, legge via ssh gli adottanti dichiarati su altri host
-(`o3/adottanti.py`).
-`chiudi <nome>` ripete la verifica e solo se passa per tutti toglie file e voce
-da `o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
+`i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`. Un
+adottante dichiarato su un altro host non si legge: per lui fa fede la
+versione del canone che dichiara (`kb/method-development.md`, «Versioni»), e
+non ferma la chiusura. La ferma invece chi è dichiarato su questo host senza
+un clone. Con `--root DIR` il coordinatore di un gruppo verifica i propri
+membri e l'istanza (`o3/adottanti.py`), senza chiudere: la chiusura è un atto
+di `method`.
+`chiudi <nome>` ripete la verifica e solo se passa toglie file e voce da
+`o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
 """
 
 from __future__ import annotations
@@ -22,8 +25,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import adottanti as lettura
-from adottanti import adottanti, assenti, git
+from adottanti import FUORI, adottanti, git, mancanti
 
 ROOT = Path(__file__).resolve().parents[1]
 INDICE = ROOT / "o3" / "prescriptions.md"
@@ -61,13 +63,19 @@ def recepita(testo: str, nome: str) -> bool:
     )
 
 
-def esiti(nome: str) -> dict[str, bool | None]:
-    """Adottante → recepita sì o no; None se il checkout manca su questo host."""
-    trovati: dict[str, bool | None] = {}
-    for adottante, checkout in adottanti().items():
+def esiti(nome: str, istanza: Path | None = None) -> dict[str, bool | str]:
+    """Adottante → recepita sì o no, oppure il motivo per cui non si legge da qui."""
+    world = (istanza or ROOT) / "world.md"
+    trovati: dict[str, bool | str] = {}
+    for adottante, checkout in adottanti(world, istanza=istanza).items():
         testi = (git(checkout, "show", f"{ref}:{MARKER}").stdout for ref in ("HEAD", "origin/main"))
         trovati[adottante] = any(recepita(t, nome) for t in testi)
-    return trovati | dict.fromkeys(assenti())
+    return trovati | mancanti(world)
+
+
+def passa(trovati: dict[str, bool | str]) -> bool:
+    """Recepita da chi si legge; chi è fuori host segue la versione, l'assente ferma."""
+    return all(ok is True or ok == FUORI for ok in trovati.values())
 
 
 def senza_voce(indice: str, nome: str) -> str | None:
@@ -90,22 +98,23 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("comando", choices=["verifica", "chiudi"])
     parser.add_argument("nome", help="nome del file in o3/, senza .md")
     parser.add_argument(
-        "--ssh", action="store_true", help="legge via ssh gli adottanti su altri host"
+        "--root",
+        type=Path,
+        help="istanza di un gruppo: verifica i membri della sua sezione `## Membri`",
     )
     args = parser.parse_args(argv)
-    lettura.REMOTI = args.ssh
+    istanza = args.root.expanduser().resolve() if args.root else None
+    if istanza and args.comando == "chiudi":
+        print("chiudi è un atto di method: con --root si verifica soltanto")
+        return 2
     if not NOME.match(args.nome) or not (ROOT / "o3" / f"{args.nome}.md").exists():
         print(f"prescrizione sconosciuta: o3/{args.nome}.md")
         return 2
-    trovati = esiti(args.nome)
-    etichetta = {
-        True: "recepita",
-        False: "non risulta recepita",
-        None: "checkout assente su questo host",
-    }
+    trovati = esiti(args.nome, istanza)
+    etichetta = {True: "recepita", False: "non risulta recepita"}
     for adottante, ok in trovati.items():
-        print(f"{adottante}: {etichetta[ok]}")
-    if not all(trovati.values()):
+        print(f"{adottante}: {etichetta.get(ok, ok)}")
+    if not passa(trovati):
         return 1
     if args.comando == "verifica":
         return 0

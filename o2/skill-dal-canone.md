@@ -37,7 +37,8 @@ copie, ora sono canone e il repo tiene solo `o3/view/project.py`
   copia canonica, per ogni harness (`.claude/skills/`, `.codex/skills/`);
 - le skill che restano di dominio (`/adottanti` qui, gli eventuali
   equivalenti di gruppo in `casa`) restano locali;
-- gli strumenti che oggi leggono il `world.md` di `method` (`o3/adottanti.py`) accettano una radice, come `build.py --root`.
+- gli strumenti che leggono gli adottanti accettano già una radice
+  (`o3/adottanti.py --root`, dal 2026-11-24), come `build.py --root`.
 
 ## Evidenze dagli adottanti
 

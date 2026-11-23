@@ -44,11 +44,14 @@ nel task [canale-in-entrata](canale-in-entrata.md).
 
 ## Passi
 
-1. `--root` e lettura di `## Membri` in `adottanti.py`, coi test.
-2. Togliere `audit` e `ssh` da `adottanti.py` e `prescrizioni.py`;
-   `prescrizioni.py` sulla regola della versione.
-3. Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
-   parte di `world.md` sugli accessi ssh.
+1. ~~`--root` e lettura di `## Membri` in `adottanti.py`, coi test~~ fatto
+   il 2026-11-24: l'istanza e i suoi membri, gli altri restano fuori.
+2. ~~Togliere `audit` e `ssh` da `adottanti.py` e `prescrizioni.py`~~ fatto
+   il 2026-11-24: chi è dichiarato su un altro host è «fuori host», fa fede
+   la versione e non ferma la chiusura; la ferma chi è dichiarato qui senza
+   clone. `prescrizioni.py --root` verifica i membri e non chiude.
+3. ~~Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
+   parte di `world.md` sugli accessi ssh~~ fatto il 2026-11-24.
 4. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
 
 ## Criterio di chiusura

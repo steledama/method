@@ -2,62 +2,48 @@
 ciclo: runtime
 ---
 
-# Ingresso di un adottante nell'osservatorio
+# Ingresso di un adottante
 
-Procedura permanente per ammettere un progetto nel territorio osservato da
-`method`, eseguita da `/adottanti` a ogni ingresso.
-L'ingresso verifica l'adozione locale, fissa una baseline confrontabile e
-predispone il primo giro di `/adottanti`; non autorizza a governare la coda del
-nuovo repository.
+Procedura permanente per un progetto che adotta il metodo. Il lavoro sul
+nuovo repo lo fa il coordinatore del suo gruppo, nel proprio repository e col
+proprio custode; `method` registra soltanto la voce di territorio. L'ingresso
+non autorizza nessuno a governare la coda del nuovo repository
+(`kb/method-observatory.md`, «Ingresso di un adottante»).
 
-## Verifica l'adozione locale
+## Nel coordinatore del gruppo
 
-- identifica il commit esatto dell'adottante e conserva l'eventuale specimen
-  pre-adozione;
-- verifica il symlink `method/`, i register `goal.md` e `world.md`, la sezione
-  README canonica e il marker `i3/allineamento-metodo.md`;
-- leggi dal marker adattamenti intenzionali, limiti di verifica e commit di
-  `method` recepito: `aligned` certifica l'allineamento documentale dichiarato,
-  non il runtime esterno;
+- verifica l'adozione locale: commit esatto, canone letto (symlink `method/`
+  per i repo del custode, checkout a un tag per chi è mantenuto da altri),
+  register `goal.md` e `world.md`, sezione README canonica e marker
+  `i3/allineamento-metodo.md` con la versione o il commit recepito;
+- leggi dal marker adattamenti intenzionali e limiti di verifica: `aligned`
+  certifica l'allineamento documentale dichiarato, non il runtime esterno;
 - rileggi insieme il quartetto README, CLAUDE, Goal e World contro i nodi
-  `readme`, `claude`, `goal` e `world`, con la comparazione corrente in
-  `i2/bootstrap-adottanti.md`;
+  `readme`, `claude`, `goal` e `world`;
+- aggiungi il repo alla sezione `## Membri` del tuo `world.md`, col checkout e
+  l'host (`kb/view-publishing.md`, «Sito di gruppo»), e verifica che si legga:
+  `python3 <canone>/o3/adottanti.py --root . stato <nome>`;
+- scegli con l'adottante un accento per le viste che non sia già in uso né
+  confondibile a colpo d'occhio con quelli del `world.md` di `method` (stessa
+  tinta in tonalità vicina non basta a distinguere);
+- pubblica la vista del nuovo membro e verifica `/<repo>/_stato` nel sito del
+  gruppo;
+- se il gruppo confronta i propri membri, fissa una baseline con provenienza
+  nel tuo `i2/`: conta solo ciò che la superficie permette di misurare e
+  dichiara come; l'assenza di accesso a host, scheduler o servizi resta
+  esplicita e non diventa una certificazione negativa;
 - non correggere la coda locale: task, gradualità e priorità restano
   giurisdizione dell'adottante.
 
-## Fissa una baseline con provenienza
+## In `method`
 
-- conta soltanto ciò che la superficie permette di misurare e dichiara il
-  metodo: audit, query o conteggio manuale;
-- registra almeno nodi KB, sintesi i2, fili i3, task e skill locali quando
-  esistono; una quantità manuale non si somma retroattivamente a serie prodotte
-  da un audit diverso;
-- separa i limiti del checkout dai limiti del sistema vivo: assenza di accesso
-  a host, scheduler, servizi o backup resta esplicita e non diventa una
-  certificazione negativa;
-- se manca storia comparabile, usa la baseline fondativa al posto del delta e
-  demanda al primo `/adottanti` la verifica della tenuta nell'uso reale.
-
-## Aggiorna solo le rappresentazioni correnti
-
-- registra nome, profilo e superficie nel register `world.md`;
-- scegli con l'adottante un accento per le viste che non sia già in uso né
-  confondibile a colpo d'occhio con quelli registrati in `world.md` (stessa
-  tinta in tonalità vicina non basta a distinguere), e registralo accanto alla
-  sua voce;
-- cerca nel repository enumerazioni e conteggi correnti degli adottanti: `rg`
-  propone candidati, non decide;
-- classifica ogni occorrenza come inventario corrente da aggiornare, baseline
-  locale da aggiungere con provenienza o fotografia storica da preservare;
-- non riscrivere una fotografia vera perché il territorio è cresciuto: annota
-  invece che il nuovo ingresso è fuori dal suo perimetro originario.
-
-## Predisponi il primo giro
-
-- aggiungi l'adottante alla prossima finestra `/adottanti` e dichiara quale
-  segnale costituirà la sua prima verifica;
-- aggiorna `i3/audit-adottanti.md` senza anticipare il cursore mensile:
-  l'ingresso è un evento fuori giro, non un audit aggiuntivo;
-- rigenera le viste con `python3 o3/view/build.py`;
-- chiudi con `o3/kb_tools.py audit`, `git diff --check` e una ricerca finale dei
-  candidati classificati, dichiarando quelli storici lasciati invariati.
+- registra nome, profilo, checkout con l'host, accento e vista nel register
+  `world.md`, come voce di territorio: `method` non legge i membri dei gruppi
+  che non coordina;
+- cerca nel repository enumerazioni e conteggi correnti degli adottanti, come
+  «otto adottanti» in README e `world.md`: `rg` propone candidati, non decide;
+- classifica ogni occorrenza come inventario corrente da aggiornare o
+  fotografia storica da preservare, e non riscrivere una fotografia vera
+  perché il territorio è cresciuto;
+- rigenera le viste con `python3 o3/view/build.py` e chiudi con
+  `o3/kb_tools.py audit` e `git diff --check`.

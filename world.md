@@ -14,15 +14,15 @@ unico per progetto ([view](kb/view.md)) e vive in `o3/view/project.py` di ogni
 repo: qui ne resta una copia, perché l'unicità è
 una proprietà dell'insieme. Quello di `method` è `#4338ca`, con la vista su `deck:8001`. Gli indirizzi
 sono copie del registro `o3/presentations.nix` di `nixos` e, per
-`danea2`, del `world.md` di `danea-auto`: l'audit li verifica
-raggiungendoli.
+`danea2`, del `world.md` di `danea-auto`: lo stato servito lo verifica il
+coordinatore di ciascun gruppo.
 
-Su `deck` vivono solo i checkout dei repo di casa (`method`, `casa`,
-`nixos`, `economia`, `salute`). Gli adottanti di lavoro non hanno un clone su
-`deck`: da lì si raggiungono via ssh sul checkout dichiarato, `ssh svezia`
-per `nixos-lavoro`, `bi`, `baserow` e `abbinatore`, `ssh danea2` (Windows, shell `cmd`)
-per `danea-auto` (decisione del custode del 2026-11-12, per non tenere copie
-secondarie da riallineare).
+Su `deck` vivono solo i checkout dei repo di casa (`method`, `nixos`,
+`economia`, `salute`): sono gli unici che `method` legge dal vivo. Gli
+adottanti di lavoro sono territorio, non checkout da leggere: sono mantenuti
+da altri, li legge il loro coordinatore `nixos-lavoro` e per loro fa fede la
+versione del canone che dichiarano (`kb/method-development.md`,
+«Versioni»).
 
 - **[nixos](https://github.com/steledama/nixos)** — Configurazione dichiarativa
   NixOS degli host di casa (`deck`, `game`, `neve`) e, dal 2026-11-23,

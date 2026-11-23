@@ -20,11 +20,10 @@ loro storia è in git.
 Runbook permanenti che `method` esegue su se stesso come osservatorio, non
 ricette da far recepire agli adottanti: restano finché servono.
 
-- [Ingresso di un adottante nell'osservatorio](ingresso-adottante.md) —
-  verificare l'adozione locale, fissare una baseline con provenienza,
-  aggiornare le rappresentazioni correnti e predisporre il primo giro senza
-  governare la coda del nuovo repository. Si esegue da `/adottanti` quando
-  un progetto entra nel territorio.
+- [Ingresso di un adottante](ingresso-adottante.md) — il coordinatore del
+  gruppo verifica l'adozione locale e aggiunge il nuovo repo ai membri;
+  `method` registra la voce di territorio. Nessuno dei due governa la coda
+  del nuovo repository.
 
 ## Strumenti
 
@@ -57,12 +56,16 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   senza grafie da quotare. Test in
   `tests/test_ultimo_giro.py`.
 - `adottanti.py` — lettura in sola lettura degli adottanti dichiarati in
-  `world.md`, per le sessioni: storia, marker e `audit`; con
-  `--ssh` legge quelli dichiarati su un altro host. Test:
+  `world.md`: `stato`, `log` e `show` dell'interfaccia col canone. Con
+  `--root DIR` legge i membri dell'istanza di un gruppo, per il suo
+  coordinatore; chi è dichiarato su un altro host non si legge, e per lui fa
+  fede la versione. Test:
   `python3 -m unittest discover -s tests -p 'test_adottanti.py'`.
 - `prescrizioni.py` — `verifica <nome>` dice quali adottanti hanno recepito
-  una prescrizione, `chiudi <nome>` la toglie quando l'hanno recepita tutti:
-  l'unico atto in `o3/` delegato al ciclo. Test:
+  una prescrizione, `chiudi <nome>` la toglie quando l'hanno recepita quelli
+  leggibili da qui, mentre per chi è fuori host fa fede la versione: l'unico
+  atto in `o3/` delegato al ciclo. Con `--root DIR` un coordinatore verifica
+  i propri membri, senza chiudere. Test:
   `python3 -m unittest discover -s tests -p 'test_prescrizioni.py'`.
 - `canone.py` — la storia del canone letta da un adottante al posto di
   `git -C`, in sola lettura. Test:

@@ -57,6 +57,15 @@ class PrescrizioniTests(unittest.TestCase):
         self.assertEqual(MODULE.senza_voce(indice, "seconda"), atteso)
         self.assertIsNone(MODULE.senza_voce(indice, "quarta"))
 
+    def test_outside_host_follows_the_version_absent_stops(self):
+        fuori = MODULE.FUORI
+        self.assertTrue(MODULE.passa({"casa": True, "lavoro": fuori}))
+        self.assertFalse(MODULE.passa({"casa": True, "lavoro": fuori, "salute": False}))
+        self.assertFalse(MODULE.passa({"casa": True, "spento": "dichiarato qui, senza clone"}))
+
+    def test_coordinator_verifies_but_never_closes(self):
+        self.assertEqual(MODULE.main(["chiudi", "x", "--root", "."]), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
