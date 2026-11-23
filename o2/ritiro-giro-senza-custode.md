@@ -68,9 +68,10 @@ serve anche alla sessione.
 
 ## Passi rimasti
 
+`v0.3.0` è pubblicata il 2026-11-23 con le note per gli adottanti.
+
 1. Verificare e completare il recepimento della prescrizione negli adottanti
    del custode; per quelli mantenuti da altri fa fede la versione dichiarata.
-2. Preparare il rilascio `v0.3.0` con le note per gli adottanti.
 
 ## Criterio di chiusura
 
