@@ -21,7 +21,7 @@ Il ciclo avviato in sessione e la delega interattiva restano. La storia è in Gi
 
 ## Criterio di recepimento
 
-La prescrizione è recepita quando `i3/allineamento-metodo.md` ha una riga
+La prescrizione è recepita quando `i3/allineamento-metodo.md` ha una voce
 che nomina `ritiro-ciclo-senza-custode` come recepita, con lo SHA del commit
 di recepimento, e nell'adottante non restano unità o timer del giro, il
 criterio `ciclo-autonomo` né la modalità `cycle autonomo`. La verifica la fa

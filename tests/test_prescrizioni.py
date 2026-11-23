@@ -21,6 +21,28 @@ class PrescrizioniTests(unittest.TestCase):
         self.assertFalse(MODULE.recepita("- `uno-due`: recepita\n", "uno"))
         self.assertFalse(MODULE.recepita("- `uno` in lettura\n- `due` recepita\n", "uno"))
 
+    def test_name_as_path_file_or_link(self):
+        self.assertTrue(
+            MODULE.recepita("`o3/uno.md` (v0.3.0) è recepita: host verificato\n", "uno")
+        )
+        self.assertTrue(MODULE.recepita("- `uno.md`: recepita\n", "uno"))
+        self.assertTrue(MODULE.recepita("- [Uno](../method/o3/uno.md): recepita\n", "uno"))
+        self.assertFalse(MODULE.recepita("- `o3/uno-due.md`: recepita\n", "uno"))
+        self.assertFalse(MODULE.recepita("- [Due](o3/due-uno.md): recepita\n", "uno"))
+
+    def test_wrapped_entry_is_read_whole(self):
+        self.assertTrue(
+            MODULE.recepita("La prescrizione `uno` (v0.3.0) è\nrecepita in `abc1234`.\n", "uno")
+        )
+        self.assertTrue(MODULE.recepita("- `uno`, letta con\n  `/method`: recepita\n", "uno"))
+        self.assertFalse(MODULE.recepita("La prescrizione `uno` è\n\nrecepita altrove.\n", "uno"))
+
+    def test_negations_across_words_and_lines(self):
+        self.assertFalse(MODULE.recepita("- `uno`: non\n  recepita\n", "uno"))
+        self.assertFalse(MODULE.recepita("- `uno` non risulta recepita\n", "uno"))
+        self.assertFalse(MODULE.recepita("- `uno`: non ancora recepita\n", "uno"))
+        self.assertTrue(MODULE.recepita("- `uno`: non era chiara, ora recepita\n", "uno"))
+
     def test_index_entry_removed_across_wrapped_lines(self):
         indice = (
             "## Contenuti\n\n"

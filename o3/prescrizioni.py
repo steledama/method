@@ -29,12 +29,36 @@ ROOT = Path(__file__).resolve().parents[1]
 INDICE = ROOT / "o3" / "prescriptions.md"
 MARKER = "i3/allineamento-metodo.md"
 NOME = re.compile(r"^[a-z0-9-]+$")
-RECEPITA = re.compile(r"(?<!non )recepit", re.IGNORECASE)
+RECEPITA = re.compile(r"(\bnon\s+(?:(?:è|ancora|risulta)\s+)?)?recepit", re.IGNORECASE)
+INIZIO_VOCE = re.compile(r"^\s*(?:[-*+]|\d+[.)]|#+)\s")
+
+
+def voci(testo: str) -> list[str]:
+    """Le voci del marker: paragrafi ed elementi di lista, con le righe a capo unite."""
+    voci: list[list[str]] = []
+    for riga in testo.splitlines():
+        if not riga.strip():
+            voci.append([])
+        elif INIZIO_VOCE.match(riga) or not voci:
+            voci.append([riga.strip()])
+        else:
+            voci[-1].append(riga.strip())
+    return [" ".join(v) for v in voci if v]
+
+
+def nomina(voce: str, nome: str) -> bool:
+    """Il nome fra backtick, anche come path o file, oppure come destinazione di un link."""
+    n = re.escape(nome)
+    forme = rf"`(?:[^`\s]*/)?{n}(?:\.md)?`|\]\((?:[^)\s]*/)?{n}\.md\)"
+    return re.search(forme, voce) is not None
 
 
 def recepita(testo: str, nome: str) -> bool:
-    """Una riga del marker nomina la prescrizione e la dà recepita."""
-    return any(f"`{nome}`" in r and RECEPITA.search(r) for r in testo.splitlines())
+    """Una voce del marker nomina la prescrizione e la dà recepita, senza negarlo."""
+    return any(
+        nomina(v, nome) and any(m.group(1) is None for m in RECEPITA.finditer(v))
+        for v in voci(testo)
+    )
 
 
 def esiti(nome: str) -> dict[str, bool | None]:
