@@ -12,17 +12,16 @@ pianificazione.
 ## Direzione
 
 Questo repository custodisce il metodo portabile, da distribuire a chi il
-custode non conosce, con i gruppi di repo coordinati da un loro membro. La
-rotta va in tre tempi: prima gli strumenti del coordinatore, così le
-prescrizioni si chiudono anche per gli adottanti estranei; poi le skill,
-snellite e rese canone in una sola tornata per gli adottanti; infine
-identità e distribuzione, cioè via, nome, lingua e pacchetto versionato.
+custode non conosce, con i gruppi di repo coordinati da un loro membro. Gli
+strumenti del coordinatore sono passati ai gruppi con `v0.4.0`, e la via è
+decisa: un ingresso proprio, sito di gruppo e chat. Ora le skill, snellite e
+rese canone in una sola tornata per gli adottanti; poi identità e
+distribuzione, cioè nome, lingua e pacchetto versionato.
 
 ## Task
 
 | Ciclo   | Ob. | Task                                     | Dip.                                       |
 | ------- | --- | ---------------------------------------- | ------------------------------------------ |
-| runtime | 2   | Strumenti del coordinatore               | —                                          |
 | dev     | S   | Presentazione oltre il deck              | —                                          |
 | dev     | S   | Snellimento delle skill `eval` ed `exec` | —                                          |
 | dev     | S   | Skill dal canone                         | ↳ Snellimento delle skill `eval` ed `exec` |

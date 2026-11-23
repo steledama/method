@@ -6,7 +6,6 @@ Indice della collezione `o2/`: lo stadio **Specify** — i dettagli operativi e 
 
 In ordine di esecuzione; stato e decisioni vivono nel file del task.
 
-- [strumenti-del-coordinatore.md](strumenti-del-coordinatore.md) — `adottanti.py` e `prescrizioni.py` con `--root` per i coordinatori dei gruppi; via da `method` l'`audit` e la lettura via ssh; ingresso e osservatorio riscritti sul coordinatore.
 - [presentazione-oltre-il-deck.md](presentazione-oltre-il-deck.md) — se il canone ammette sotto-deck annidati e pagine di dominio in home, su due segnali di `salute` ed `economia`; decisione del custode.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, prima di renderle canone.
 - [skill-dal-canone.md](skill-dal-canone.md) — le skill da copie forkate negli adottanti a canone parametrizzato con un file locale, come i builder delle viste; decisione del custode.

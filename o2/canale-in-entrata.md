@@ -35,9 +35,9 @@ rovescia, da osservazione a ricezione.
 
 ## Residui da sistemare
 
-Spostati il 2026-11-23 nel task
-[strumenti-del-coordinatore](strumenti-del-coordinatore.md): gli strumenti
-che leggono gli adottanti passano ai coordinatori dei gruppi.
+Fatti nel task `strumenti-del-coordinatore` (chiuso il 2026-11-24, in git):
+gli strumenti che leggono gli adottanti sono passati ai coordinatori dei
+gruppi con `--root`, in `v0.4.0`.
 
 ## Decisione del 2026-11-23
 
