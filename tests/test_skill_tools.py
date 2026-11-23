@@ -29,20 +29,18 @@ class PermessiTests(unittest.TestCase):
         self.assertTrue(MODULE.corrisponde("npm run test", "npm run:*"))
         self.assertFalse(MODULE.corrisponde("git push --force", "git push"))
 
-    def test_composite_needs_every_part(self):
-        allow, deny = ["git status*", "ls *"], ["git reset*"]
-        self.assertTrue(MODULE.concesso("git status && ls i1/", allow, deny))
-        self.assertFalse(MODULE.concesso("git status; echo rc=$?", allow, deny))
-        self.assertFalse(MODULE.concesso("git status && git reset --hard", allow + ["git *"], deny))
+    def test_composite_denied_by_any_part(self):
+        deny = ["git reset*"]
+        self.assertFalse(MODULE.negato("git status && ls i1/", deny))
+        self.assertTrue(MODULE.negato("git status && git reset --hard", deny))
 
     def test_placeholders_and_scripts_without_interpreter(self):
         self.assertEqual(MODULE.parti("git -C <repo> log … | head"), ["git -C X log X", "head"])
         self.assertEqual(MODULE.parti("o3/kb_tools.py audit"), ["python3 o3/kb_tools.py audit"])
 
     def test_usage_forms_are_models_not_pipes(self):
-        forma = "python3 o3/commit_gate.py prima|dopo [--giro]"
+        forma = "python3 o3/commit_gate.py prima|dopo [--perimetro]"
         self.assertEqual(MODULE.parti(forma), ["python3 o3/commit_gate.py primaXdopo X"])
-        self.assertTrue(MODULE.concesso(forma, ["python3 o3/commit_gate.py *"], []))
         self.assertEqual(MODULE.tipo(forma, f"`{forma}`"), "modello")
         self.assertEqual(MODULE.parti("git log | head"), ["git log", "head"])
 

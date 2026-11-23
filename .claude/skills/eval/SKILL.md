@@ -289,8 +289,7 @@ nulla da passare, dillo esplicitamente.
 
 Minimo: `goal.md`, `i3/verdicts.md` e ogni filo `i3/*.md`, ciascuno almeno
 alla domanda «è ancora vero?» contro i segnali del giro. Il minimo misura la
-lettura: la traccia del passo 6 rende controllabile il giudizio, e
-
+lettura: la traccia del passo 6 rende controllabile il giudizio.
 Nominarli non prova che il giudizio regga: quello resta ai riesami a campione
 (`autonomy.md`, «Supervisione»).
 

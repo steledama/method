@@ -58,12 +58,12 @@ code-based sono gli `scripts/` di dominio. Vivono qui in `o3/` perché il Perfor
   senza grafie da quotare. Test in
   `tests/test_ultimo_giro.py`.
 - `adottanti.py` — lettura in sola lettura degli adottanti dichiarati in
-  `world.md`, per il giro e per `/adottanti`: storia, marker e `audit`; con
+  `world.md`, per le sessioni: storia, marker e `audit`; con
   `--ssh` legge quelli dichiarati su un altro host. Test:
   `python3 -m unittest discover -s tests -p 'test_adottanti.py'`.
 - `prescrizioni.py` — `verifica <nome>` dice quali adottanti hanno recepito
   una prescrizione, `chiudi <nome>` la toglie quando l'hanno recepita tutti:
-  l'unico atto in `o3/` delegato al giro. Test:
+  l'unico atto in `o3/` delegato al ciclo. Test:
   `python3 -m unittest discover -s tests -p 'test_prescrizioni.py'`.
 - `canone.py` — la storia del canone letta da un adottante al posto di
   `git -C`, in sola lettura. Test:

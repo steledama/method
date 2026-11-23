@@ -134,7 +134,10 @@ repo non vengono riscritte dall'agente.
   esterni. Senza una superficie di approvazione collegata le richieste sono
   negate.
 
-Lettura storica: Hermes e OpenClaw offrono lavori pianificati. Il giro senza custode e il lanciatore di method sono ritirati; una eventuale nuova progettazione richiede un’utenza dedicata e confini verificati. La definizione dei lavori pianificati vive fuori dal repo; questo dato non autorizza né specifica un nuovo giro.
+Lettura storica: Hermes e OpenClaw offrono lavori pianificati, con la
+definizione fuori dal repo. Il giro senza custode e il lanciatore di `method`
+sono ritirati dal 2026-11-23: il confronto non autorizza né specifica un
+nuovo giro, che chiederebbe un'utenza dedicata e confini verificati.
 
 ### 5. Delega
 
@@ -218,8 +221,9 @@ che relazione ha ciascun runtime con un repository git. Mandare il contesto
 a un modello non distingue i tre scenari, è uguale in tutti; li distingue che
 cosa resta fuori dal repo e se torna nelle decisioni dell'agente. Anche oggi
 non tutto sta in git: Claude Code tiene le trascrizioni in
-`~/.claude/projects/` e i giri i tentativi in `~/.local/state/ciclo/`, ma sono
-registri che l'agente non rilegge. Un archivio fuori dal repo è accettabile
+`~/.claude/projects/` (e, fino al ritiro del 2026-11-23, i giri senza custode
+i tentativi in `~/.local/state/ciclo/`), ma sono registri che l'agente non
+rilegge. Un archivio fuori dal repo è accettabile
 finché resta un registro; diventa una seconda memoria quando l'agente lo
 interroga per decidere.
 
@@ -292,7 +296,7 @@ Letto nelle pagine «Skills», «Memory» e «Curator»:
 
 Lettura: la configurazione minima per il metodo spegne la revisione e mette
 in approvazione le scritture rimaste. Un'approvazione però chiede una persona
-presente: in un giro senza custode le scritture in attesa si accumulano.
+presente: in un lavoro pianificato le scritture in attesa si accumulano.
 
 ### Hermes: i plugin del cruscotto
 

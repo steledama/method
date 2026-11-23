@@ -23,7 +23,7 @@ repo:
 - ogni artefatto è agnostico rispetto all'harness e al sistema operativo;
 - non un sito per artefatto ma uno per gruppo. Dal sito si legge in HTML il
   markdown dei repo e si lavora in chat con gli agenti; le pagine seguono sia
-  le modifiche fatte in chat col custode sia le azioni dei giri autonomi
+  le modifiche fatte in chat col custode sia i cicli avviati in sessione
   sul markdown.
 
 I gruppi di oggi sono due, separati e distinti:
@@ -134,23 +134,22 @@ dell'harness: opaca, legata all'host, senza governo. Un SQLite del metodo è
 un'altra cosa, se resta governato.
 
 Proposta del custode: un SQLite fuori da git, a cui si decide se si può
-accedere in autonomia nel ciclo autonomo, nel ciclo interattivo, o in
-nessuno dei due.
+accedere nel ciclo interattivo o in nessun ciclo. Il terzo modo della
+proposta, il ciclo autonomo, è uscito dal canone il 2026-11-23.
 
 Distinzione proposta dall'agente:
 
 - **memoria**: conoscenza, decisioni, verdetti. Resta nel repo, versionata;
 - **ricordo**: gli episodi, cioè conversazioni, giri, tentativi, dinieghi.
   Va nell'SQLite. In parte esiste già, sparso fra le trascrizioni degli
-  harness e i `tentativi.jsonl` dei giri.
+  harness.
 
 Condizioni perché il ricordo non diventi la seconda memoria criticata in
 Hermes e in Buzz:
 
-- **l'accesso si dichiara nella delega**: i tre modi stanno in
+- **l'accesso si dichiara nella delega**: i modi stanno in
   `autonomy.md`, versionati; il contenuto no;
-- **si parte da «nessuno» e si sale per gradini**, come ogni delega del
-  giro;
+- **si parte da «nessuno» e si sale per gradini**, come ogni delega;
 - **ciò che conta risale nel repo**: il ricordo non è mai l'unico posto di
   una decisione, e il gate di `/commit` è il punto in cui risale, come nel
   filing back;

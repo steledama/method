@@ -668,7 +668,6 @@ def close_links(value: object, folder: Path, source: str) -> object:
     return {key: close_links(child, folder, source) for key, child in value.items()}
 
 
-LIVE_ROUTES = ()
 _URL_ATTR = re.compile(r'(?:href|src|data-background-image)="([^"]*)"|url\(([^)]*)\)')
 
 
@@ -683,10 +682,6 @@ def check_closed(folder: Path) -> None:
             if not target or is_external(target):
                 continue
             path = urlsplit(target).path
-            # Eventuali rotte servite a richiesta
-            # non sono file della cartella: la home le nomina dalla root.
-            if page.parent == folder and path.startswith(LIVE_ROUTES):
-                continue
             resolved = (base / path).resolve()
             if folder.resolve() not in resolved.parents and resolved != folder.resolve():
                 errors.append(f"{page.relative_to(folder)}: esce dalla cartella — «{target}»")

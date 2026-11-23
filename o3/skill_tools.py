@@ -146,15 +146,12 @@ def comandi(righe: list[str]) -> list[tuple[int, str]]:
     return trovati
 
 
-def regole(path: Path) -> tuple[list[str], list[str]]:
+def negati_in(path: Path) -> list[str]:
+    """I deny `Bash(…)` dei permessi di sessione."""
     if not path.exists():
-        return [], []
+        return []
     dati = json.loads(path.read_text(encoding="utf-8")).get("permissions", {})
-
-    def bash(voci: list[str]) -> list[str]:
-        return [v[5:-1] for v in voci if v.startswith("Bash(") and v.endswith(")")]
-
-    return bash(dati.get("allow", [])), bash(dati.get("deny", []))
+    return [v[5:-1] for v in dati.get("deny", []) if v.startswith("Bash(") and v.endswith(")")]
 
 
 def corrisponde(comando: str, schema: str) -> bool:
@@ -173,11 +170,6 @@ def parti(comando: str) -> list[str]:
 
 def negato(comando: str, deny: list[str]) -> bool:
     return any(corrisponde(p, s) for p in parti(comando) for s in deny)
-
-
-def concesso(comando: str, allow: list[str], deny: list[str]) -> bool:
-    pezzi = parti(comando)
-    return all(any(corrisponde(p, s) for s in allow) for p in pezzi) and not negato(comando, deny)
 
 
 def tipo(comando: str, riga: str) -> str:
@@ -322,7 +314,7 @@ def prosa_prossimo(righe: list[str]) -> list[int]:
 def audit(root: Path) -> str:
     skills = leggi_skill(root)
     nomi = {s.nome for s in skills}
-    _, deny_s = regole(root / SETTINGS)
+    deny_s = negati_in(root / SETTINGS)
     canone = canone_di(root)
     out = [f"## Skill di {root.resolve().name}", ""]
 
@@ -345,8 +337,6 @@ def audit(root: Path) -> str:
     out.append("")
 
     out += ["### Comandi contro i permessi", ""]
-    out.append("Controllato il contesto di sessione.")
-    out.append("")
     sezioni: dict[str, list[str]] = {"comando": [], "modello": [], "annuncio": []}
     fonti = superfici(root, skills)
     for etichetta, righe in fonti:
@@ -377,7 +367,6 @@ def audit(root: Path) -> str:
     out += ["### Divieti scritti", ""]
     trovati = 0
     for etichetta, righe in fonti:
-        deny = deny_s
         for numero, riga in enumerate(righe, 1):
             if not CARTELLO.search(riga):
                 continue
@@ -392,7 +381,7 @@ def audit(root: Path) -> str:
                     if t.split()
                 )
 
-            if retto(deny):
+            if retto(deny_s):
                 stato = "con deny"
             else:
                 stato = "deny non trovato nella stessa grafia: vincolo altrove o lacuna"

@@ -42,7 +42,7 @@ che leggono gli adottanti passano ai coordinatori dei gruppi.
 ## Decisione del 2026-11-23
 
 Il custode decide che gli adottanti aprono issue e PR solo in sessione con
-lui, non nei giri autonomi: è un atto verso l'esterno, in un posto pubblico.
+lui: è un atto verso l'esterno, in un posto pubblico.
 
 ## Passi
 

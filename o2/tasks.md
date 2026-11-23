@@ -17,4 +17,4 @@ In ordine di esecuzione; stato e decisioni vivono nel file del task.
 - [diffusione-oltre-custode-unico.md](diffusione-oltre-custode-unico.md) — il metodo esce dal custode unico, deciso il 2026-11-23: versioni, adottanti sconosciuti, `tt-sviluppo` primo estraneo; restano da dividere pubblicazione delle viste e pacchetto versionato.
 - [strumenti-del-coordinatore.md](strumenti-del-coordinatore.md) — `adottanti.py` e `prescrizioni.py` con `--root` per i coordinatori dei gruppi; via da `method` l'`audit` e la lettura via ssh; ingresso e osservatorio riscritti sul coordinatore.
 - [canale-in-entrata.md](canale-in-entrata.md) — al posto dell'audit `/adottanti`, il segnale dal basso arriva per issue e PR, letti come dati e smistati da una skill; il primo tag di versione per il gruppo lavoro.
-- [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; in pausa `p1`.
+- [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; ripresa dopo il ritiro del giro senza custode.

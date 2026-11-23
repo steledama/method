@@ -126,8 +126,8 @@ matching a mano. Resta al giudizio ciò che il generatore non copre:
   il confronto delle date. L'uscita 1 dice che c'è una scaduta: si tratta qui e
   non ferma il commit. Un rilievo di forma si corregge nel plan
 - `## Ricorrenze` (`kb/plan.md`, «Ricorrenze»): una riga `task` arrivata alla
-  data apre il task ordinario e avanza; una riga `sessione` dovuta va in
-  `Attenzione:` nel giro senza custode; una riga senza procedura è un rilievo.
+  data apre il task ordinario e avanza; una riga `sessione` dovuta si segnala
+  al custode nel resoconto; una riga senza procedura è un rilievo.
   Non sono candidate al `Prossimo:`
 - `## Scadenze` e finestre tattiche: righe scadute o
   consumate. Una scadenza che chiede una mossa nostra prima della data ha il
@@ -160,7 +160,7 @@ che nel repo `method` hanno natura propria:
   segnale (`kb/plan.md`)
 - il `by:` di una `w` o di una `p` è passato -> sollecitare (per la `p`,
   riprendere), riclassificare o rinnovare il termine col motivo nella
-  chiosa; nel giro senza custode la riga va in `Attenzione:`
+  chiosa; la riga si segnala al custode nel resoconto
 
 **3b. Lettura strategica delle mosse**
 
@@ -195,12 +195,13 @@ ciò che è fermo e ciò che scade fra settimane gli sfugge (`kb/tasks.md`,
   giorni (`git log --since="7 days ago" --grep="^docs(ciclo)" --format="%h %ad%n%b" --date=short`).
   Servono i corpi: con `%s` restano gli oggetti e le voci da contare non si
   vedono (4 giri su 10 in quattro repo, novembre 2026). Una voce per il custode, un'anomalia, un'ipotesi o un'esclusione fatta a
-  mano che torna in tre giri senza esito sale in `Attenzione:`, oppure
+  mano che torna in tre giri senza esito si segnala al custode nel resoconto, oppure
   diventa un passo di task o una regola: non si ripete identica un altro
   giorno. La conferma del `Prossimo:` con esiti sani non conta: è
   l'equilibrio
 - **decisioni ferme**: un task con `decidere:`, o con un passo che aspetta il
-  custode, fermo da più di 7 giorni va in `Attenzione:` coi giorni di attesa
+  custode, fermo da più di 7 giorni si segnala al custode nel resoconto, coi
+  giorni di attesa
 - **catena delle scadenze** a 45 giorni, dall'uscita di `o3/scadenze.py` del passo 2, letta come sequenza: un anello senza
   task o senza data è un rilievo del passo 2
 - **canali delle attese**: un `arrival:` da un canale che il giro non legge

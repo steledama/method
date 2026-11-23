@@ -2,13 +2,13 @@
 
 Nato come gesto concesso al giro autonomo di `method`, che non scriveva in
 `o3/`, per l'unico atto che lì gli era delegato: chiudere una prescrizione che
-tutti hanno recepito. Il giro è ritirato dal 2026-11-20 (`autonomy.md`); lo
-script resta il gesto della sessione.
+tutti hanno recepito. Il giro è uscito dal canone il 2026-11-23; lo script
+resta il gesto della sessione.
 `verifica <nome>` dice per ogni adottante di `world.md` se il marker
 `i3/allineamento-metodo.md` la dà recepita, su HEAD o su `origin/main`; un
 adottante senza clone sull'host è «checkout assente», e la chiusura non passa.
 Con `--ssh`, in sessione, legge via ssh gli adottanti dichiarati su altri host
-(`o3/adottanti.py`); il giro lo passa, come per `adottanti.py`.
+(`o3/adottanti.py`).
 `chiudi <nome>` ripete la verifica e solo se passa per tutti toglie file e voce
 da `o3/prescriptions.md`, in stage. I rimandi altrove restano al chiamante.
 """

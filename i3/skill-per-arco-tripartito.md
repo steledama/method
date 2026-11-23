@@ -98,14 +98,12 @@ averla promessa:
 - **cosa si snellisce per primo**, se si snellisce: gli scope, non gli stadi —
   si accorpa l'invocazione, non si smette di distinguere i passi.
 
-## Lettura della misura con un ciclo autonomo programmato
+## Lettura della misura
 
 Senza una data (verdetto del 2026-11-02), la lettura vale a ogni riapertura.
-Con i giri periodici, il loro
-innesco va distinto, quando documentabile, dai giri richiesti da eventi o
-dal custode: aumentare la frequenza può aumentare gli esiti vuoti senza
-provare che gli stadi siano superflui. Dove la fonte non discrimina,
-dichiarare il limite. L'integrità del conteggio si controlla confrontando
-trailer riconosciuti e righe nel corpo, recuperando senza duplicazioni il
-caso noto di `baserow`. Un tentativo interrotto prima del commit resta fuori
-da questa misura e richiede la fonte dell'esecutore del ciclo autonomo.
+I giri contati fino al 2026-11-23 comprendono quelli senza custode, ora
+ritirati: la loro frequenza fissa può aver gonfiato gli esiti vuoti senza
+provare che gli stadi siano superflui, e dove la fonte non li distingue dai
+giri in sessione il limite si dichiara. L'integrità del conteggio si
+controlla confrontando trailer riconosciuti e righe nel corpo, recuperando
+senza duplicazioni il caso noto di `baserow`.

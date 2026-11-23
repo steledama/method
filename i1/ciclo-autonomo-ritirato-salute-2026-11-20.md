@@ -37,7 +37,7 @@ del confine. La divergenza è dichiarata nel marker
 ## Le tre questioni per il metodo
 
 1. **Quando un gradino va ritirato.** Il filo
-   filo sul ciclo autonomo, conservato nella storia Git lo chiede; `salute` è il primo
+   `i3/ciclo-autonomo.md` (in git fino a `2988d7d`) lo chiede; `salute` è il primo
    ritiro, per scelta del custode sul rapporto costo/valore e non per un
    rosso (nessun atto fuori delega, nessun fallimento a motivarlo).
 2. **Il Goal di sviluppo.** Il custode propone di passare da «ogni repo un

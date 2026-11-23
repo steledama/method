@@ -83,5 +83,7 @@ ricostruzioni con le fonti, secondo il filo
 
 `ciclo-delegato` riguarda i cicli avviati dal custode e non copre `/method`: il
 recepimento del canone negli adottanti conserva il proprio gate di conferma.
-Il ciclo senza custode è stato ritirato il 2026-11-23: un eventuale nuovo progetto richiede un’utenza dedicata e confini di esecuzione definiti e verificati fin dalla progettazione. La storia resta in Git. Il custode può restringere o
-revocare la delega; il register e Git ne conservano lo stato e la storia.
+Il ciclo senza custode è ritirato dal 2026-11-23 e la sua storia resta in
+git: un eventuale ritorno è un progetto nuovo, con un'utenza dedicata e
+confini di esecuzione dichiarati e provati fin dall'inizio. Il custode può
+restringere o revocare la delega; il register e Git ne conservano lo stato e la storia.

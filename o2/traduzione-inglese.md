@@ -28,7 +28,8 @@ deterministico è `o3/traduzioni.py check`, lanciato dal gate di `/commit`.
 
 ## Da fare, su indicazione del custode
 
-La pausa legata all’osservazione del ciclo senza custode è conclusa il 2026-11-23 con il suo ritiro.
+La pausa legata all'osservazione del ciclo senza custode è finita il
+2026-11-23, col suo ritiro.
 
 - **Lotti.** Ogni lotto riscrive in inglese il sorgente e ne deriva il
   gemello italiano con `fonte:`. Si comincia da `README.md` e dall'hub

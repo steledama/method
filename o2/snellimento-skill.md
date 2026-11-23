@@ -1,5 +1,5 @@
 ---
-sintesi: "Dalla revisione del repo del 2026-11-13: snellire le skill eval ed exec con misure e non alla cieca. Dal 2026-11-23 aspetta il ritiro del giro senza custode dal canone; poi la misura con o3/skill_tools.py e i tagli voce per voce."
+sintesi: "Dalla revisione del repo del 2026-11-13: snellire le skill eval ed exec con misure e non alla cieca. Il giro senza custode è uscito dal canone il 2026-11-23: ora la misura con o3/skill_tools.py e i tagli voce per voce."
 ciclo: dev
 ---
 
@@ -24,7 +24,7 @@ togliere un presidio alle skill e ai fork degli adottanti da riallineare.
 
 Il 2026-11-13 il custode ha deciso:
 
-- la pausa dei tagli legata all’osservazione è terminata col ritiro del giro
+- la pausa dei tagli legata all'osservazione è finita col ritiro del giro
   senza custode il 2026-11-23; resta necessaria la misura prima dei tagli;
 - la struttura di `o3/` resta com'è. Il problema era che gli strumenti non si
   trovavano: ora l'indice li registra tutti e l'audit lo verifica
@@ -36,7 +36,7 @@ Il 2026-11-13 il custode ha deciso:
 
 Segnale di `nixos-lavoro`, 2026-11-23: dopo casa anche il gruppo lavoro
 rinuncia al ciclo senza custode
-(filo sul ciclo autonomo, conservato nella storia Git), ed `eval`, `exec`, `commit`,
+(il filo `i3/ciclo-autonomo.md`, in git fino a `2988d7d`), ed `eval`, `exec`, `commit`,
 `cycle` e `plan` portano molti rimandi al giro senza custode che ogni
 adottante deve potare a mano nel fork. Lo stesso giorno il custode decide
 l'uscita anche di `danea-auto`, l'ultimo che lo usava: dopo, nessun
@@ -56,8 +56,8 @@ riesame del 2026-12-01, che non ha più un giro da osservare.
 
 1. misurare con `o3/skill_tools.py` che cosa le skill ripetono dei nodi e
    quali voci non hanno mosso nessun esito negli ultimi giri;
-2. dopo il ritiro del giro senza custode, proporre al custode i tagli voce per voce, col caso che
-   ciascuna presidia;
+2. proporre al custode i tagli voce per voce, col caso che ciascuna
+   presidia;
 3. applicare, e prescrivere il recepimento solo se cambia il contratto.
 
 ## Criterio di chiusura

@@ -12,7 +12,7 @@ rinuncia al ciclo senza custode, e chiede che statuto abbiano nel canone
 prescrizione, lanciatore, esecutore, `/cycle autonomo`, rotte `/_ciclo/` e
 `dopo --giro` se nessuno li usa più. Lo stesso giorno il custode decide
 l'uscita anche di `danea-auto`, l'ultimo adottante noto col giro
-(filo sul ciclo autonomo, conservato nella storia Git).
+(il filo `i3/ciclo-autonomo.md`, in git fino a `2988d7d`).
 
 ## Decisione del 2026-11-23
 
@@ -38,8 +38,16 @@ Rimossi il lanciatore, l'esecutore Codex, la modalità senza custode di
 `/cycle`, le rotte e la sezione della vista, e i controlli del gate legati
 alle trascrizioni; `ultimo_giro.py` resta perché serve alle sessioni. La
 prescrizione di recepimento è predisposta in `o3/ritiro-ciclo-senza-custode.md`.
-La pausa della traduzione è tolta. Il filo è chiuso, il lettore dei dinieghi e il monitoraggio del giro sono rimossi. Restano il recepimento negli adottanti e il rilascio. La review integrale della KB
-è rinviata a una sessione dedicata. Le modifiche locali non sono ancora un rilascio.
+La pausa della traduzione è tolta. Il filo è chiuso, il lettore dei dinieghi
+e il monitoraggio del giro sono rimossi. Restano il recepimento negli
+adottanti e il rilascio. La review integrale della KB è rinviata a una
+sessione dedicata. Le modifiche locali non sono ancora un rilascio.
+
+Verdetto del filo, chiuso il 2026-11-23: alla domanda «con quali garanzie
+ogni repo arriva al giro senza custode?» la risposta è che, con la stessa
+utenza delle sessioni, nessuna garanzia regge per costruzione. Il giro è
+uscito da tutti gli adottanti noti e dal canone; un ritorno è un progetto
+nuovo sul confine di esecuzione.
 
 ## Le potature già fatte negli adottanti
 
@@ -55,7 +63,8 @@ canoniche. I fork vanno confrontati durante il recepimento.
 argomento con `Esiti:` e `Prossimo:`, il minimo per stadio,
 `o3/ultimo_giro.py`, `o3/scadenze.py`, la visione d'insieme di `exec plan`
 e il gate di `/commit`. Ha lasciato anche le rotte `/_ciclo/` del suo
-servizio delle viste. Il censimento ha confermato che `ultimo_giro.py` serve anche alla sessione.
+servizio delle viste. Il censimento ha confermato che `ultimo_giro.py`
+serve anche alla sessione.
 
 ## Passi rimasti
 
