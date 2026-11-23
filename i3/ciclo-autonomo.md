@@ -29,10 +29,13 @@ recinto con lo stesso utente delle sessioni non è sicuro per costruzione, e
 renderlo tale chiederebbe un utente per ciclo e accessi ridisegnati, troppa
 manutenzione per un giro che in sessione costa poco. Lo stesso giorno il custode
 decide l'uscita anche di `danea-auto`, l'ultimo adottante noto col giro, sul
-lanciatore canonico di `method` fino al giro del 23/11 (`dea853a`). L'uscita
-la compie la sessione di `danea-auto` su `danea2`; finché non la riferisce,
-il giro delle 08:10 gira ancora. Dopo, nessun adottante noto esercita il
-giro senza custode. Il custode decide lo stesso giorno che esce anche dal
+lanciatore canonico di `method` fino al giro del 23/11 (`dea853a`). L'uscita è
+fatta la sera stessa dalla sessione di `danea-auto` su `danea2`, riferita e
+non riletta qui: attività pianificata delle 08:10, con ripresa alle 10:10,
+tolta e salvata in `i1/task-scheduler-backup/`, nessuna attività lancia più
+`o3/lanciatore.py` (verifica delle 22:34), job di runtime invariati;
+criterio ritirato in `autonomy.md` (`c1782bf`, `7e3ac85`). Da allora nessun
+adottante noto esercita il giro senza custode. Il custode decide lo stesso giorno che esce anche dal
 canone, e resta in git
 ([ritiro-giro-senza-custode](../o2/ritiro-giro-senza-custode.md)): il
 filo si chiude con quel task. La domanda diventa anche _per quali_ repo il gradino
