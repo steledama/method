@@ -9,10 +9,16 @@ ciclo: dev
 
 Aperto dal custode il 2026-11-14, dopo la prova di una chat ACP in `casa`
 (task chiuso lo stesso giorno, in git). È il primo lavoro eseguibile del
-[coordinatore di gruppi](coordinatore-di-gruppi.md): dal sito del gruppo si
+coordinatore di gruppi (task chiuso il 2026-11-24, in git): dal sito del gruppo si
 lavora in chat con gli agenti, al posto del terminale, e il repo resta la
-base. Il quadro, cioè la mappa degli strati e i due esiti possibili, sta in
-[integrazione-runtime](integrazione-runtime.md), «Ingresso: viste e chat».
+base. Il 2026-11-24 il custode decide la via propria: il metodo non gira
+sopra Hermes, OpenClaw o Buzz, ma tiene l'ingresso (sito e chat) e lascia
+fuori l'harness, raggiunto via ACP. Lo studio di confronto, con la mappa a
+sette strati, è chiuso lo stesso giorno (task `integrazione-runtime`, in
+git). Due esigenze dichiarate dallo studio restano qui: raggiungere
+`danea2`, cioè un harness su Windows, per ACP via ssh; e l'installazione per
+chi non è il custode, che passa a
+[diffusione-oltre-custode-unico](diffusione-oltre-custode-unico.md).
 
 ## Punto di partenza
 
@@ -129,9 +135,7 @@ che si è imparato su ACP risale in un nodo `kb/`.
 
 ## Legami
 
-- [coordinatore-di-gruppi](coordinatore-di-gruppi.md): il quadro e le
-  istanze;
-- [integrazione-runtime](integrazione-runtime.md): mappa degli strati e
-  confronto;
+- [ricordo-del-gruppo](ricordo-del-gruppo.md): il registro della chat
+  fra gli episodi del ricordo;
 - [view-publishing](../kb/view-publishing.md): come si servono le viste,
   e il confine delle reti private.

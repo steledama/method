@@ -46,8 +46,8 @@ gruppi di artefatti**: ogni repo un artefatto cognitivo con il proprio ciclo
 di runtime, ogni gruppo coordinato dal metodo attraverso un unico
 sito, da cui si leggono i repo del gruppo e si lavora con gli agenti;
 agnostico rispetto all'harness e al sistema operativo
-([coordinatore di gruppi](o2/coordinatore-di-gruppi.md), ratificato dal
-custode il 2026-11-14). Un ambito di autonomia dichiarato,
+(ratificato dal custode il 2026-11-14; forma del sito di gruppo in
+[view-publishing](kb/view-publishing.md)). Un ambito di autonomia dichiarato,
 con strumenti rigorosi di tracciabilità, controllo e verifica, esteso in modo
 graduale e misurato. Restano al custode la supervisione degli esiti e la
 decisione su scopi, territorio e deleghe ([autonomia](autonomy.md)); **basso attrito di lettura** (bussola

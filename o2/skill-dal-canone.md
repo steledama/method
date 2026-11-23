@@ -9,7 +9,7 @@ decidere: "Le skill restano fork parametrizzati negli adottanti (kb/skill.md) o 
 ## Origine
 
 Aperto dal custode il 2026-11-20, riflettendo sulla relazione fra `method` e
-l'istanza `casa` ([coordinatore-di-gruppi](coordinatore-di-gruppi.md)).
+l'istanza `casa` (task `coordinatore-di-gruppi`, chiuso, in git).
 `casa` adotta il canone come gli altri repo: nodi e strumenti li legge dal
 vivo (`method/` è un symlink, builder e gate si lanciano dal checkout del
 canone), lo stato è suo. Le skill invece sono copie: circa 1460 righe forkate

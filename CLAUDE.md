@@ -85,7 +85,7 @@ modulo per harness:
 
 Su un harness senza un modulo che la spenga vale solo questa regola. Un ricordo
 fuori da git governato dal metodo, ad accesso dichiarato, è una questione aperta
-nel task [`coordinatore-di-gruppi`](o2/coordinatore-di-gruppi.md), «La memoria»:
+nel task [`ricordo-del-gruppo`](o2/ricordo-del-gruppo.md):
 finché il custode non la decide, la regola resta questa.
 
 ## Tabelle vs elenchi

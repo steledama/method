@@ -60,5 +60,4 @@ coordinatore.
 Connessioni:
 
 - [canale-in-entrata](canale-in-entrata.md)
-- [coordinatore-di-gruppi](coordinatore-di-gruppi.md)
 - [method-observatory](../kb/method-observatory.md)

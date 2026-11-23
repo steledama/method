@@ -96,8 +96,7 @@ conosce, su repo che non controlla. L'impostazione parte subito:
 - **`/adottanti` è ritirato**, con la ricorrenza mensile e il filo
   `i3/audit-adottanti.md` (in git): presupponeva di leggere ogni adottante.
   Per casa il «guardare i repo insieme» passa al coordinatore `nixos`
-  ([coordinatore-di-gruppi](coordinatore-di-gruppi.md), punto 1,
-  «Rivisto»);
+  (task `coordinatore-di-gruppi`, chiuso il 2026-11-24, in git);
 - **il canale si rovescia**: non è `method` che va a vedere, sono gli
   adottanti che scrivono, con issue per i segnali e PR per le proposte
   ([canale-in-entrata](canale-in-entrata.md));
@@ -115,14 +114,15 @@ conosce, su repo che non controlla. L'impostazione parte subito:
 
 ## Dipendenze
 
-La risposta dipende da [integrazione-runtime](integrazione-runtime.md): se
-il metodo gira sopra un runtime esistente, pubblicazione e osservazione
-possono diventare materia sua. Si lega anche a
+La via è decisa il 2026-11-24: il metodo tiene un ingresso proprio, sito di
+gruppo e chat, invece di girare sopra un runtime esistente
+([chat-del-coordinatore](chat-del-coordinatore.md)); pubblicazione e
+installazione restano quindi materia di questo task. Si lega anche a
 [nome-del-progetto](nome-del-progetto.md) e a
 [traduzione-inglese](traduzione-inglese.md).
 
-Il 2026-11-14 il custode pone la direzione del
-[coordinatore di gruppi](coordinatore-di-gruppi.md): un sito per gruppo di
+Il 2026-11-14 il custode pone la direzione del coordinatore di gruppi: un
+sito per gruppo di
 artefatti, non per repo. Per la pubblicazione delle viste è una risposta
 parziale, valida finché il custode è uno; la domanda su chi adotta senza
 conoscerlo resta qui.

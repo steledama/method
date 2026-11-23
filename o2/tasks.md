@@ -11,8 +11,7 @@ In ordine di esecuzione; stato e decisioni vivono nel file del task.
 - [snellimento-skill.md](snellimento-skill.md) — snellire `eval` ed `exec` con misure, voce per voce, prima di renderle canone.
 - [skill-dal-canone.md](skill-dal-canone.md) — le skill da copie forkate negli adottanti a canone parametrizzato con un file locale, come i builder delle viste; decisione del custode.
 - [chat-del-coordinatore.md](chat-del-coordinatore.md) — una chat nel sito di gruppo che apre sessioni ACP con Claude Code o Codex nella cartella di un repo, con approvazioni col diff e governo invariato; parte dal client della prova.
-- [coordinatore-di-gruppi.md](coordinatore-di-gruppi.md) — il metodo come coordinatore di gruppi di artefatti, un sito per gruppo (casa, lavoro) con viste e chat, e un ricordo SQLite fuori da git ad accesso dichiarato; proposta per il Goal da ratificare.
-- [integrazione-runtime.md](integrazione-runtime.md) — studiare se il metodo gira sopra Hermes Agent o OpenClaw, accanto a Buzz, o se serve un ingresso proprio: mappa degli strati e quattordici fattori di confronto fra le quattro soluzioni.
+- [ricordo-del-gruppo.md](ricordo-del-gruppo.md) — gli episodi del gruppo in un SQLite fuori da git, derivato e ad accesso dichiarato nella delega; la regola «Memoria» di `CLAUDE.md` la decide il custode.
 - [nome-del-progetto.md](nome-del-progetto.md) — un nome proprio in pali al posto di `method`: candidati verificati, scelta del custode e ricerca sui marchi da fare.
 - [traduzione-inglese.md](traduzione-inglese.md) — inglese canonico e italiano in copia gemella; dopo il nome, una rinomina sola.
 - [diffusione-oltre-custode-unico.md](diffusione-oltre-custode-unico.md) — il metodo esce dal custode unico, deciso il 2026-11-23: versioni, adottanti sconosciuti, `tt-sviluppo` primo estraneo; restano da dividere pubblicazione delle viste e pacchetto versionato.

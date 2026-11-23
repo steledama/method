@@ -27,8 +27,7 @@ identità e distribuzione, cioè via, nome, lingua e pacchetto versionato.
 | dev     | S   | Snellimento delle skill `eval` ed `exec` | —                                          |
 | dev     | S   | Skill dal canone                         | ↳ Snellimento delle skill `eval` ed `exec` |
 | dev     | S   | Chat del coordinatore                    | ↳ Skill dal canone                         |
-| dev     | S   | Coordinatore di gruppi                   | —                                          |
-| dev     | S   | Integrazione con un runtime esistente    | —                                          |
+| dev     | S   | Ricordo del gruppo                       | ↳ Chat del coordinatore                    |
 | dev     | S   | Nome del progetto                        | —                                          |
 | dev     | S   | Traduzione in inglese                    | ↳ Nome del progetto                        |
 | dev     | S   | Diffusione oltre il custode unico        | ↳ Traduzione in inglese                    |
@@ -44,7 +43,7 @@ riesame (`kb/plan.md`, «Risveglio»):
 
 Le dipendenze seguono le specifiche: Skill dal canone parametrizza le skill
 già snellite, così gli adottanti recepiscono una volta sola; il `/cycle` da
-chat aspetta le skill canoniche; la rinomina e la lingua vanno fatte una
+chat aspetta le skill canoniche, e il ricordo parte dai suoi episodi; la rinomina e la lingua vanno fatte una
 volta ciascuna, prima del pacchetto. La decisione su Skill dal canone
 (`decidere:`) può arrivare prima dei tagli.
 
