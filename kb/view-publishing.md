@@ -160,7 +160,17 @@ repo sotto una base comune; `serve.py --gruppo BASE --istanza NOME` instrada:
   cresce.
 
 Il servizio di gruppo sostituisce quelli dei repo membri: un repo del
-gruppo non tiene anche una porta propria. Il canone non è membro dei
+gruppo non tiene anche una porta propria. La porta è una sola e la dichiara
+l'host, nel registro del gruppo, al posto di una porta per repo.
+
+Il server di gruppo dipende solo dalla pubblicazione dell'istanza, che porta
+l'elenco dei membri; i membri pubblicano per conto proprio. Portare al gruppo
+lo schema per repo, un server che aspetta il proprio publisher e un publisher
+che a fine corsa riavvia il server, dà un server che aspetta tutti i
+publisher: ogni fine pubblicazione lo riavvia mentre si sta ancora
+attivando, lui tira di nuovo i publisher già conclusi, e il gestore dei
+servizi lo ferma per troppi avvii (riscontro di `nixos-lavoro` su `svezia`,
+2026-11-23). Il canone non è membro dei
 gruppi: le istanze lo adottano, e la sua vista resta a sé.
 
 ## Stato operativo letto a richiesta: il ciclo autonomo

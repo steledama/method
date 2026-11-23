@@ -34,9 +34,10 @@ secondarie da riallineare).
 - **[nixos-lavoro](https://github.com/tt-sviluppo/nixos)** — Configurazione
   dichiarativa NixOS del server `svezia` e della postazione di sviluppo
   `norvegia`, separata dal repo di casa il 2026-11-04 — checkout `~/nixos`
-  su `svezia`; accento `#a16207`; vista `svezia:8002`
+  su `svezia`; accento `#a16207`; coordinatore del gruppo lavoro: il sito del
+  gruppo su `svezia:8002`, istanza `nixos` (`nixos-lavoro` `86d23a5`)
 - **[bi](https://github.com/tt-sviluppo/bi)** — Business intelligence e
-  sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8001`
+  sincronizzazione dati — checkout `~/bi` su `svezia`; accento `#0f766e`; vista `svezia:8002/bi/`, nel sito del gruppo lavoro
 - **[economia](https://github.com/steledama/economia)** — Gestione finanziaria,
   patrimoniale e legale personale — checkout `~/economia` su `deck` (doppio
   salto: `ssh norvegia`, poi `ssh deck`); accento `#15803d`; vista `deck:8002/economia/`, nel sito del gruppo casa
@@ -45,16 +46,17 @@ secondarie da riallineare).
   `ssh norvegia`, poi `ssh deck`); accento `#be123c`; vista `deck:8002/salute/`, nel sito del gruppo casa
 - **[danea-auto](https://github.com/tt-sviluppo/danea-auto)** — Automazioni
   AHK/PowerShell di Danea Easyfatt su una postazione Windows produttiva —
-  checkout `~/danea-auto` su `danea2`, dove gira anche il runtime; accento `#7e22ce`; vista `danea2:8001`
+  checkout `~/danea-auto` su `danea2`, dove gira anche il runtime; accento `#7e22ce`; vista `danea2:8001`, in elenco nel sito del gruppo lavoro
+  come non pubblicata
 - **[baserow](https://github.com/tt-sviluppo/baserow)** — Custodia
   dell'istanza Baserow aziendale: backup, aggiornamenti, migrazione fra server
   e contratto con `bi` — checkout `~/baserow` su `svezia`;
-  accento `#0369a1`; vista `svezia:8003`
+  accento `#0369a1`; vista `svezia:8002/baserow/`, nel sito del gruppo lavoro
 - **[abbinatore](https://github.com/tt-sviluppo/abbinatore)** — App Django
   delle compatibilità fra consumabili e modelli di stampante, con le
   equivalenze rebrand, che alimenta il sito e `bi`; ereditata da Alessio,
   in trasloco da AWS a `svezia` — checkout `~/abbinatore` su `svezia`;
-  accento `#475569`; vista `svezia:8004`
+  accento `#475569`; vista `svezia:8002/abbinatore/`, nel sito del gruppo lavoro
 
 `crm` è stato dismesso il 2026-10-22 (decisione del custode): era in fase di
 test, senza dati da conservare, e viene rimosso da tutti gli host, servizi e

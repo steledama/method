@@ -36,6 +36,19 @@ Il 2026-11-13 il custode ha deciso:
   prescrizione agli otto, perché i path sono lanciati dalle unità degli host,
   dai permessi dei giri e dalle skill degli adottanti.
 
+## Il giro senza custode nelle skill forkate
+
+Segnale di `nixos-lavoro`, 2026-11-23: dopo casa anche il gruppo lavoro
+rinuncia al ciclo senza custode
+([ciclo autonomo](../i3/ciclo-autonomo.md)), ed `eval`, `exec`, `commit`,
+`cycle` e `plan` portano molti rimandi al giro senza custode che ogni
+adottante deve potare a mano nel fork. La macchina non esce dal canone:
+`danea-auto` la usa ogni giorno, lanciatore ed esecutore compresi. La
+proposta da portare al riesame del 2026-12-01 è isolarla: le regole del giro
+senza custode in un solo posto, caricato da `/cycle autonomo` e dal
+lanciatore, così le skill di chi lavora solo in sessione non le portano.
+Rotte `/_ciclo/` e `dopo --giro` restano come opzione documentata.
+
 ## Passi
 
 1. misurare con `o3/skill_tools.py` che cosa le skill ripetono dei nodi e

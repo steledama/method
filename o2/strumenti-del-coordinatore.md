@@ -47,6 +47,18 @@ nel task [canale-in-entrata](canale-in-entrata.md).
 - **`world.md` di `method`**: gli adottanti di lavoro restano come voce del
   territorio, non come checkout da leggere.
 
+## Il ciclo nel sito di gruppo
+
+Riscontro di `nixos-lavoro` su `svezia`, 2026-11-23: `serve.py --gruppo`
+accetta un solo `--ciclo-state` e riscrive `/<repo>/_ciclo/` in `/_ciclo/`,
+quindi ogni membro mostra i tentativi passati al server (`/bi/_ciclo/`
+rendeva quelli dell'istanza). Sotto il prefisso di un membro la pagina porta
+anche la sigla dell'istanza, perché il server rende col profilo del proprio
+checkout. Oggi non tocca nessun gruppo, perché nessun membro di un sito di
+gruppo ha un giro senza custode; va corretto prima che un gruppo ne abbia più
+d'uno: stato del ciclo per membro, oppure `/<repo>/_ciclo/` che dichiara
+«nessun ciclo» per i membri che non lo hanno, e profilo del membro servito.
+
 ## Passi
 
 1. `--root` e lettura di `## Membri` in `adottanti.py`, coi test.
@@ -55,7 +67,9 @@ nel task [canale-in-entrata](canale-in-entrata.md).
    `prescrizioni.py` sulla regola della versione.
 4. Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
    parte di `world.md` sugli accessi ssh.
-5. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
+5. Stato del ciclo per membro in `serve.py --gruppo` («Il ciclo nel sito di
+   gruppo»), coi test.
+6. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
 
 ## Criterio di chiusura
 

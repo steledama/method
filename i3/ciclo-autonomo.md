@@ -22,8 +22,15 @@ giorno, per lo stesso motivo, il custode ritira anche i giri di `method` ed
 `economia`: su una postazione di casa privacy e minimalismo prevalgono
 (`nixos` `f2e10a7`, unità tolte; `autonomy.md`, «Niente ciclo autonomo»), e
 poi quello di `nixos` (`c3c3607`, `o3/cicli.nix` vuoto): a casa non gira più
-alcun giro senza custode. Il ciclo autonomo resta negli adottanti fuori casa,
-con `danea-auto` sul lanciatore canonico di `method`. La domanda diventa anche _per quali_ repo il gradino
+alcun giro senza custode. Il 2026-11-23 il custode lo toglie anche dal
+gruppo lavoro (`nixos-lavoro` `ca20603`, `bi` `7b4a763f`, `baserow`
+`c57cd83`, `abbinatore` `bfc74d8`, riferito dalla sessione di `svezia`): il
+recinto con lo stesso utente delle sessioni non è sicuro per costruzione, e
+renderlo tale chiederebbe un utente per ciclo e accessi ridisegnati, troppa
+manutenzione per un giro che in sessione costa poco. Resta un solo adottante
+noto col giro senza custode, `danea-auto` su `danea2`, sul lanciatore
+canonico di `method` (giro del 23/11, `dea853a`, e lanciatore verde sulla
+`v0.2.0`, `1a3363c`). La domanda diventa anche _per quali_ repo il gradino
 vale: `method` ne custodisce il canone senza esercitarlo.
 
 ## La scommessa
