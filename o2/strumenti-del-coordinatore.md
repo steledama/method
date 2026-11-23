@@ -52,7 +52,9 @@ nel task [canale-in-entrata](canale-in-entrata.md).
    clone. `prescrizioni.py --root` verifica i membri e non chiude.
 3. ~~Riscrivere `o3/ingresso-adottante.md`, `kb/method-observatory.md` e la
    parte di `world.md` sugli accessi ssh~~ fatto il 2026-11-24.
-4. Rilascio con le note: chiede qualcosa ai coordinatori, quindi una minor.
+4. ~~Rilascio con le note~~ fatto il 2026-11-24: `v0.4.0`, minor.
+5. `nixos` adotta `v0.4.0` e lancia gli strumenti sul gruppo casa con
+   `--root`: è il riscontro che chiude il task.
 
 ## Criterio di chiusura
 
