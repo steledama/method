@@ -73,6 +73,8 @@ class Membri(unittest.TestCase):
         members = gruppo.membri(self.root)
         self.assertEqual([m.nome for m in members], ["nixos", "salute"])
         self.assertEqual(members[0].descrizione, "Configurazione degli host")
+        self.assertEqual(members[0].repo, "https://example.org/nixos")
+        self.assertIsNone(members[1].repo)
 
     def test_voce_a_capo(self):
         (self.root / "world.md").write_text(
@@ -95,7 +97,7 @@ class Membri(unittest.TestCase):
 
     def test_campi_annidati_e_titolo(self):
         (self.root / "world.md").write_text(
-            "# W\n\n## Membri\n\nTitolo: TT Artefatti\n\n"
+            "# W\n\n## Membri\n\nTitolo: TT Artefatti\nIntroduzione: Elenco degli artefatti.\n\n"
             "- **bi** — Business Intelligence — checkout `~/bi`\n"
             "  - descrizione: Raccoglie i dati di vendita e li\n"
             "    rende consultabili.\n"
@@ -106,6 +108,7 @@ class Membri(unittest.TestCase):
         )
         group = gruppo.gruppo(self.root)
         self.assertEqual(group.titolo, "TT Artefatti")
+        self.assertEqual(group.intro, "Elenco degli artefatti.")
         bi, danea, gestionale = group.membri
         self.assertEqual(bi.descrizione, "Business Intelligence")
         self.assertEqual(bi.testo, "Raccoglie i dati di vendita e li rende consultabili.")
@@ -114,6 +117,7 @@ class Membri(unittest.TestCase):
         self.assertTrue(gestionale.fuori)
         data = json.loads(gruppo.manifest(group, "it"))
         self.assertEqual(data["titolo"], "TT Artefatti")
+        self.assertEqual(data["introduzione"], "Elenco degli artefatti.")
         self.assertEqual(
             data["membri"][2],
             {"nome": "gestionale", "descrizione": "Danea Easyfatt", "fuori_metodo": True},
@@ -260,13 +264,19 @@ class Schede(unittest.TestCase):
             "#a16207",
             members=[
                 {"nome": "nixos", "descrizione": "Host", "testo": "Coordina il gruppo."},
-                {"nome": "bi", "descrizione": "BI", "testo": "Raccoglie i dati di vendita."},
+                {
+                    "nome": "bi",
+                    "descrizione": "BI",
+                    "testo": "Raccoglie i dati di vendita.",
+                    "repo": "https://github.com/x/bi",
+                },
                 {"nome": "danea-auto", "descrizione": "Automazioni", "indirizzo": address},
                 {
                     "nome": "gestionale",
                     "descrizione": "Danea Easyfatt",
                     "testo": "Il gestionale.",
                     "fuori_metodo": True,
+                    "repo": "https://github.com/x/gestionale",
                 },
                 {"nome": "spento", "descrizione": "Giù", "indirizzo": "http://127.0.0.1:9/"},
             ],
@@ -277,6 +287,7 @@ class Schede(unittest.TestCase):
                 {
                     "lingua": "it",
                     "titolo": "TT Artefatti",
+                    "introduzione": "Elenco degli artefatti del gruppo.",
                     "membri": json.loads(
                         (self.base / "nixos" / "releases" / "r1" / gruppo.FILE).read_text()
                     )["membri"],
@@ -299,6 +310,11 @@ class Schede(unittest.TestCase):
         )
         body = gruppo.home(self.base, "nixos")
         self.assertIn("<title>TT Artefatti</title>", body)
+        self.assertIn('<p class="intro">Elenco degli artefatti del gruppo.</p>', body)
+        self.assertIn(
+            '<a href="bi/">Artefatto</a> · <a href="https://github.com/x/bi">Repository</a>', body
+        )
+        self.assertIn('<p><a href="https://github.com/x/gestionale">Repository</a></p>', body)
         self.assertIn('<span class="badge">coordinatore del gruppo</span>', body)
         self.assertEqual(body.count("Coordina il gruppo."), 1)
         self.assertLess(body.index("Coordina il gruppo."), body.index("Incipit del README"))
@@ -306,14 +322,14 @@ class Schede(unittest.TestCase):
         self.assertIn("Incipit del README di bi.", body)
         self.assertNotIn("Raccoglie i dati di vendita.", body)
         self.assertIn("Automatizza Easyfatt &amp; altro.", body)
-        self.assertIn("canone <code>v0.4.0</code>", body)
-        self.assertIn("commit servito <code>bbbbbbb</code> · 2026-11-25", body)
-        self.assertIn("richiesto ddddddd, non ancora servito", body)
+        self.assertIn("method <code>v0.4.0</code>", body)
+        self.assertIn("commit pubblicato <code>bbbbbbb</code> · 2026-11-25", body)
+        self.assertIn("richiesto ddddddd, non ancora pubblicato", body)
         # Il membro remoto: link, deck e stato letti dal suo host.
         self.assertIn(f'href="{address}"', body)
         self.assertIn(f'href="{address}presentation.html"', body)
         self.assertIn("--accent: #7e22ce", body)
-        self.assertIn("commit servito <code>ccccccc</code> · 2026-11-20", body)
+        self.assertIn("commit pubblicato <code>ccccccc</code> · 2026-11-20", body)
         # Il membro fuori metodo: riquadro statico, nessun link.
         self.assertIn('<li class="member static">', body)
         self.assertIn('Danea Easyfatt <span class="outside">fuori metodo</span>', body)

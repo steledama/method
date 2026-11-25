@@ -7,6 +7,7 @@ repo e il nome del checkout in grassetto:
     ## Membri
 
     Titolo: Casa
+    Introduzione: Gli artefatti e i repository di casa.
 
     - **[salute](https://github.com/...)** — Benessere e salute personale
     - **economia** — Gestione finanziaria
@@ -16,7 +17,10 @@ repo e il nome del checkout in grassetto:
       - descrizione: Tre o quattro righe su cosa fa, mandate a capo
         liberamente.
 
-La riga `Titolo:` dà il nome del sito (senza, «Gruppo <istanza>»). Il testo
+La riga `Titolo:` dà il nome del sito (senza, «Gruppo <istanza>»),
+`Introduzione:` la frase sotto il titolo. Il link sul nome in grassetto è
+l'URL del repo, che il riquadro offre come «Repository». La lingua delle
+etichette è `LINGUA` del `project.py` dell'istanza. Il testo
 del riquadro di un membro del metodo è l'incipit del suo README, che la sua
 vista pubblica (`build_system_image.readme_incipit`). Sotto ogni voce, campi
 facoltativi in un elenco annidato: `descrizione` (il testo dei membri fuori
@@ -50,8 +54,12 @@ from pathlib import Path
 FILE = "gruppo.json"
 
 _SECTION = re.compile(r"^## Membri[ \t]*\n(?P<body>.*?)(?=^## |\Z)", re.MULTILINE | re.DOTALL)
-_ENTRY = re.compile(r"^- \*\*(?:\[(?P<link>[^\]]+)\]\([^)]*\)|(?P<plain>[^*]+))\*\*(?P<rest>.*)$")
-_TITOLO = re.compile(r"^Titolo:[ \t]*(?P<titolo>\S.*?)[ \t]*$")
+_ENTRY = re.compile(
+    r"^- \*\*(?:\[(?P<link>[^\]]+)\]\((?P<url>[^)]*)\)|(?P<plain>[^*]+))\*\*(?P<rest>.*)$"
+)
+# Righe della sezione che valgono per tutto il sito, fuori dalle voci.
+_INTESTAZIONE = re.compile(r"^(?P<key>Titolo|Introduzione):[ \t]*(?P<value>\S.*?)[ \t]*$")
+_URL = re.compile(r"https?://\S+")
 _FIELD = re.compile(r"^(?P<key>[a-z][a-z ]*?)(?::[ \t]*(?P<value>.*))?$")
 FIELDS = {"descrizione", "indirizzo", "fuori metodo"}
 # Una vista remota che non risponde non deve fermare la home.
@@ -63,15 +71,16 @@ LABELS = {
         "title": "Gruppo",
         "instance": "coordinatore del gruppo",
         "outside": "fuori metodo",
-        "canon": "canone",
-        "commit": "commit servito",
-        "pending": "richiesto {sha}, non ancora servito",
+        "canon": "method",
+        "commit": "commit pubblicato",
+        "repo": "Repository",
+        "pending": "richiesto {sha}, non ancora pubblicato",
         "failed": "ultima pubblicazione fallita",
         "unreachable": "stato non raggiungibile",
-        "views": "Viste",
+        "views": "Artefatto",
         "presentation": "Presentazione",
         "unpublished": "non ancora pubblicato",
-        "intro": "I repo del gruppo, ciascuno con le sue viste.",
+        "intro": "Gli artefatti e i repository del gruppo.",
         "chat": "Chat di coordinamento",
         "chat_open": "Apri a tutta pagina",
         "chat_note": "Raggiungibile solo dal PC che la ospita: ascolta su loopback.",
@@ -80,15 +89,16 @@ LABELS = {
         "title": "Group",
         "instance": "group coordinator",
         "outside": "outside the method",
-        "canon": "canon",
-        "commit": "served commit",
-        "pending": "requested {sha}, not served yet",
+        "canon": "method",
+        "commit": "published commit",
+        "repo": "Repository",
+        "pending": "requested {sha}, not published yet",
         "failed": "last publication failed",
         "unreachable": "status unreachable",
-        "views": "Views",
+        "views": "Artifact",
         "presentation": "Presentation",
         "unpublished": "not published yet",
-        "intro": "The repos of the group, each with its views.",
+        "intro": "The artifacts and repositories of the group.",
         "chat": "Coordination chat",
         "chat_open": "Open full page",
         "chat_note": "Reachable only from the host PC: it listens on loopback.",
@@ -103,6 +113,7 @@ class Membro:
     testo: str = ""
     indirizzo: str | None = None
     fuori: bool = False
+    repo: str | None = None
 
     @property
     def locale(self) -> bool:
@@ -117,6 +128,8 @@ class Membro:
             data["indirizzo"] = self.indirizzo
         if self.fuori:
             data["fuori_metodo"] = True
+        if self.repo:
+            data["repo"] = self.repo
         return data
 
 
@@ -124,6 +137,7 @@ class Membro:
 class Gruppo:
     titolo: str | None
     membri: list[Membro]
+    intro: str | None = None
 
 
 def _errore(text: str) -> SystemExit:
@@ -138,7 +152,7 @@ def gruppo(root: Path) -> Gruppo | None:
     match = _SECTION.search(world.read_text(encoding="utf-8"))
     if not match:
         return None
-    titolo = None
+    titolo = intro = None
     # Voci: [riga della voce, {campo: valore}]. Il formatter manda a capo le
     # righe lunghe: quelle rientrate continuano la voce o il campo aperto.
     entries: list[tuple[list[str], dict[str, str]]] = []
@@ -170,9 +184,11 @@ def gruppo(root: Path) -> Gruppo | None:
         else:
             # Una riga vuota o la prosa della sezione chiudono la voce.
             current, field = None, None
-            title = _TITOLO.match(stripped)
-            if title:
-                titolo = title.group("titolo")
+            header = _INTESTAZIONE.match(stripped)
+            if header and header.group("key") == "Titolo":
+                titolo = header.group("value")
+            elif header:
+                intro = header.group("value")
     found: list[Membro] = []
     for (line,), fields in entries:
         entry = _ENTRY.match(line)
@@ -195,8 +211,13 @@ def gruppo(root: Path) -> Gruppo | None:
             raise _errore(f"«{name}»: un membro fuori metodo non ha un indirizzo di vista")
         if "descrizione" in fields and not fields["descrizione"]:
             raise _errore(f"«{name}»: descrizione vuota")
-        found.append(Membro(name, description, fields.get("descrizione", ""), indirizzo, fuori))
-    return Gruppo(titolo, found)
+        # Il link sul nome è l'URL del repo; uno che non è http non si offre.
+        url = (entry.group("url") or "").strip()
+        url = url if _URL.fullmatch(url) else ""
+        found.append(
+            Membro(name, description, fields.get("descrizione", ""), indirizzo, fuori, url or None)
+        )
+    return Gruppo(titolo, found, intro)
 
 
 def membri(root: Path) -> list[Membro] | None:
@@ -212,6 +233,8 @@ def manifest(group: Gruppo | list[Membro], lingua: str) -> str:
     data: dict = {"lingua": lingua}
     if group.titolo:
         data["titolo"] = group.titolo
+    if group.intro:
+        data["introduzione"] = group.intro
     data["membri"] = [m.dati() for m in group.membri]
     return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
 
@@ -243,8 +266,11 @@ def leggi(base: Path, istanza: str) -> tuple[str, Gruppo]:
         if not NAME.fullmatch(m.get("nome", "")):
             continue
         indirizzo = m.get("indirizzo")
-        if indirizzo and not re.fullmatch(r"https?://\S+", indirizzo):
+        if indirizzo and not _URL.fullmatch(indirizzo):
             indirizzo = None
+        repo = m.get("repo")
+        if repo and not _URL.fullmatch(repo):
+            repo = None
         members.append(
             Membro(
                 m["nome"],
@@ -252,11 +278,13 @@ def leggi(base: Path, istanza: str) -> tuple[str, Gruppo]:
                 m.get("testo", ""),
                 indirizzo,
                 bool(m.get("fuori_metodo")),
+                repo,
             )
         )
     lingua = data.get("lingua", "it")
     titolo = data.get("titolo") or None
-    return (lingua if lingua in LABELS else "it"), Gruppo(titolo, members)
+    intro = data.get("introduzione") or None
+    return (lingua if lingua in LABELS else "it"), Gruppo(titolo, members, intro)
 
 
 def nomi(base: Path, istanza: str) -> set[str]:
@@ -387,13 +415,23 @@ def home(base: Path, istanza: str, chat: str | None = None) -> str:
     # L'istanza può dichiarare anche sé stessa, per la descrizione: resta in
     # testa e servita qui, qualunque campo porti la voce.
     own = next((m for m in group.membri if m.nome == istanza), None)
-    coordinatore = Membro(istanza, own.descrizione if own else "", own.testo if own else "")
+    coordinatore = Membro(
+        istanza,
+        own.descrizione if own else "",
+        own.testo if own else "",
+        repo=own.repo if own else None,
+    )
     others = [m for m in group.membri if m.nome != istanza]
     for member in [coordinatore, *others]:
         name = html.escape(member.nome)
         tags = []
         if member is coordinatore:
             tags.append(f'<span class="badge">{html.escape(labels["instance"])}</span>')
+        repo = (
+            f'<a href="{html.escape(member.repo, quote=True)}">{html.escape(labels["repo"])}</a>'
+            if member.repo
+            else ""
+        )
         text = member.testo or member.descrizione
         description = f"<p>{_codice(html.escape(text))}</p>" if text else ""
         if member.fuori:
@@ -408,7 +446,7 @@ def home(base: Path, istanza: str, chat: str | None = None) -> str:
             cards.append(
                 '      <li class="member static">\n'
                 f"        <h2>{heading} {' '.join(tags)}</h2>\n"
-                f"        {description}\n"
+                f"        {description}{f'<p>{repo}</p>' if repo else ''}\n"
                 "      </li>"
             )
             continue
@@ -425,15 +463,18 @@ def home(base: Path, istanza: str, chat: str | None = None) -> str:
             description = f"<p>{html.escape(scheda.incipit)}</p>"
         style = f' style="--accent: {scheda.accento}"' if scheda.accento else ""
         heading = html.escape(scheda.titolo) if scheda.titolo else f"<code>{name}</code>"
+        anchors = []
+        if scheda.titolo is not None or not scheda.raggiunto:
+            anchors.append(f'<a href="{href}">{html.escape(labels["views"])}</a>')
+        if scheda.titolo is not None and scheda.deck:
+            anchors.append(
+                f'<a href="{href}presentation.html">{html.escape(labels["presentation"])}</a>'
+            )
+        if repo:
+            anchors.append(repo)
+        links = f"<p>{' · '.join(anchors)}</p>" if anchors else ""
         if scheda.titolo is None and scheda.raggiunto:
-            links = f'<p class="missing">{html.escape(labels["unpublished"])}</p>'
-        elif scheda.titolo is None:
-            links = f'<p><a href="{href}">{html.escape(labels["views"])}</a></p>'
-        else:
-            links = f'<a href="{href}">{html.escape(labels["views"])}</a>'
-            if scheda.deck:
-                links += f' · <a href="{href}presentation.html">{html.escape(labels["presentation"])}</a>'
-            links = f"<p>{links}</p>"
+            links = f'<p class="missing">{html.escape(labels["unpublished"])}</p>' + links
         tag = f" {' '.join(tags)}" if tags else ""
         cards.append(
             f'      <li class="member"{style}>\n'
@@ -487,7 +528,7 @@ def home(base: Path, istanza: str, chat: str | None = None) -> str:
   <body>
     <main>
       <h1>{html.escape(group_title)}</h1>
-      <p class="intro">{html.escape(labels["intro"])}</p>
+      <p class="intro">{html.escape(group.intro or labels["intro"])}</p>
 {chat_section}      <ul>
 {chr(10).join(cards)}
       </ul>

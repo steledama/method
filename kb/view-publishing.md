@@ -178,14 +178,17 @@ accanto al titolo e all'accento da cui la home del gruppo legge già il resto:
 cambia col README, senza toccare l'istanza.
 
 La sezione `## Membri` dichiara solo ciò che il sito non può dedurre: una
-riga `Titolo:` per il nome del sito e, sotto ogni voce, un elenco annidato
-di campi facoltativi. `indirizzo` porta a una vista servita da un altro
+riga `Titolo:` per il nome del sito, una riga `Introduzione:` per la frase
+che lo presenta, il link sul nome di ogni voce come URL del repo, offerto in
+ogni riquadro a chi vuole saperne di più, e sotto ogni voce un elenco
+annidato di campi facoltativi. `indirizzo` porta a una vista servita da un altro
 host, di cui la home legge titolo, incipit e stato a ogni richiesta; `fuori
 metodo` segna un membro del gruppo che non adotta il metodo, reso come
 riquadro statico, senza link né versione; `descrizione` è il testo di chi
 non pubblica una vista, i membri fuori metodo, e il ripiego di un membro
 che non pubblica ancora. L'istanza resta in testa, dichiarata coordinatore.
-Il contratto di dettaglio sta in `o3/view/gruppo.py`.
+Le etichette seguono la lingua dell'istanza, `LINGUA` del suo
+`project.py`. Il contratto di dettaglio sta in `o3/view/gruppo.py`.
 
 Il servizio di gruppo sostituisce quelli dei repo membri: un repo del
 gruppo non tiene anche una porta propria. La porta è una sola e la dichiara
