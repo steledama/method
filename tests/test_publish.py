@@ -85,6 +85,23 @@ class PublishTest(unittest.TestCase):
         self.assertIn("contratto violato", status["error"])
         self.assertFalse([name for name in self.releases() if name.endswith(".partial")])
 
+    def test_stato_porta_data_e_marker(self) -> None:
+        (self.repo / "i3").mkdir()
+        (self.repo / "i3" / "allineamento-metodo.md").write_text(
+            "---\nciclo: dev\nmethod_version: v0.4.0\nmethod_commit: "
+            + "a" * 40
+            + "\n---\n\n# M\n",
+            encoding="utf-8",
+        )
+        sha = commit(self.repo, "uno")
+        self.assertEqual(self.run_publish(), 0)
+        status = json.loads((self.dest / "status.json").read_text(encoding="utf-8"))
+        self.assertEqual(status["served_commit"], sha)
+        self.assertEqual(status["served_date"], git(self.repo, "show", "-s", "--format=%cI", sha))
+        self.assertEqual(
+            status["served_marker"], {"method_version": "v0.4.0", "method_commit": "a" * 40}
+        )
+
     def test_tiene_corrente_e_precedente(self) -> None:
         for text in ("uno", "due", "tre"):
             commit(self.repo, text)

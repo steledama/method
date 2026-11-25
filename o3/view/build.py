@@ -212,9 +212,9 @@ def render(out: Path, commit: str | None = None, canon: str | None = None) -> No
     for relative, content in texts.items():
         write(out / relative, content)
     # L'istanza di un gruppo pubblica l'elenco dei membri accanto alle viste.
-    members = gruppo.membri(ROOT)
-    if members is not None:
-        write(out / gruppo.FILE, gruppo.manifest(members, project.LINGUA))
+    group = gruppo.gruppo(ROOT)
+    if group is not None:
+        write(out / gruppo.FILE, gruppo.manifest(group, project.LINGUA))
 
     subprocess.run(
         [prettier, "--log-level=warn", "--write", *(str(out / name) for name in texts)],

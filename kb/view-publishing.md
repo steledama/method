@@ -159,12 +159,26 @@ repo sotto una base comune; `serve.py --gruppo BASE --istanza NOME` instrada:
 - `/` è la home del gruppo, composta a ogni richiesta dall'elenco pubblicato
   dell'istanza e dalle viste pubblicate dei membri (titolo, accento,
   presentazione). Un membro senza versione valida resta in elenco, dichiarato
-  non pubblicato;
+  non pubblicato. Ogni riquadro porta la versione davvero servita, letta
+  dallo stato di pubblicazione: il marker del canone dell'adottante, il commit
+  servito e la sua data, e in evidenza un commit richiesto e non ancora
+  servito o una pubblicazione fallita. È ciò che la home deve far vedere: un
+  membro indietro, non un membro dichiarato a posto;
 - `/<repo>/` è la versione pubblicata di quel repo, `/<repo>/_stato` il suo
   stato di pubblicazione. Il compartimento stagno di ogni vista ne permette
   la resa sotto un prefisso senza ricostruirla;
 - un'istanza senza membri serve sé sola: è il caso minimo da cui il gruppo
   cresce.
+
+La sezione `## Membri` dichiara anche ciò che il sito non può dedurre: una
+riga `Titolo:` per il nome del sito e, sotto ogni voce, un elenco annidato
+di campi facoltativi. `descrizione` è il testo del riquadro, tre o quattro
+righe su cosa fa l'artefatto; `indirizzo` porta a una vista servita da un
+altro host, di cui la home legge titolo e stato a ogni richiesta; `fuori
+metodo` segna un membro del gruppo che non adotta il metodo, reso come
+riquadro statico, senza link né versione. L'istanza può avere una voce
+propria per la descrizione e resta comunque in testa, dichiarata
+coordinatore. Il contratto di dettaglio sta in `o3/view/gruppo.py`.
 
 Il servizio di gruppo sostituisce quelli dei repo membri: un repo del
 gruppo non tiene anche una porta propria. La porta è una sola e la dichiara

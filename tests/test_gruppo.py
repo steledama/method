@@ -41,6 +41,7 @@ def publish(
     accent: str = "#123456",
     deck: bool = False,
     members: list[dict] | None = None,
+    status: dict | None = None,
 ) -> None:
     folder = base / name / "releases" / "r1"
     (folder / "assets").mkdir(parents=True)
@@ -53,7 +54,7 @@ def publish(
     if members is not None:
         (folder / gruppo.FILE).write_text(json.dumps({"lingua": "it", "membri": members}))
     (base / name / "current").write_text("r1\n")
-    (base / name / "status.json").write_text('{"ok": true}')
+    (base / name / "status.json").write_text(json.dumps(status or {"ok": True}))
 
 
 class Membri(unittest.TestCase):
@@ -88,6 +89,44 @@ class Membri(unittest.TestCase):
         (self.root / "world.md").write_text("# W\n\n## Membri\n\n- **a** — x\n- **a** — y\n")
         with self.assertRaises(SystemExit):
             gruppo.membri(self.root)
+
+    def test_campi_annidati_e_titolo(self):
+        (self.root / "world.md").write_text(
+            "# W\n\n## Membri\n\nTitolo: TT Artefatti\n\n"
+            "- **bi** — Business Intelligence — checkout `~/bi`\n"
+            "  - descrizione: Raccoglie i dati di vendita e li\n"
+            "    rende consultabili.\n"
+            "- **danea-auto** — Automazioni\n"
+            "  - indirizzo: http://10.0.0.4:8001/\n"
+            "- **gestionale** — Danea Easyfatt\n"
+            "  - fuori metodo\n"
+        )
+        group = gruppo.gruppo(self.root)
+        self.assertEqual(group.titolo, "TT Artefatti")
+        bi, danea, gestionale = group.membri
+        self.assertEqual(bi.descrizione, "Business Intelligence")
+        self.assertEqual(bi.testo, "Raccoglie i dati di vendita e li rende consultabili.")
+        self.assertEqual(danea.indirizzo, "http://10.0.0.4:8001/")
+        self.assertFalse(danea.locale)
+        self.assertTrue(gestionale.fuori)
+        data = json.loads(gruppo.manifest(group, "it"))
+        self.assertEqual(data["titolo"], "TT Artefatti")
+        self.assertEqual(
+            data["membri"][2],
+            {"nome": "gestionale", "descrizione": "Danea Easyfatt", "fuori_metodo": True},
+        )
+
+    def test_campi_non_validi_rifiutati(self):
+        for body in (
+            "- **a** — x\n  - colore: rosso\n",
+            "- **a** — x\n  - indirizzo: danea2:8001\n",
+            "- **a** — x\n  - fuori metodo\n  - indirizzo: http://10.0.0.1/\n",
+            "- **a** — x\n  - descrizione: uno\n  - descrizione: due\n",
+            "- **a** — x\n\n  - descrizione: staccata\n",
+        ):
+            (self.root / "world.md").write_text("# W\n\n## Membri\n\n" + body)
+            with self.subTest(body=body), self.assertRaises(SystemExit):
+                gruppo.gruppo(self.root)
 
     def test_voce_senza_grassetto_rifiutata(self):
         (self.root / "world.md").write_text("# W\n\n## Membri\n\n- a — x\n")
@@ -147,7 +186,7 @@ class Sito(unittest.TestCase):
 
     def test_vista_di_un_membro(self):
         self.assertEqual(self.get("/nixos/o1/plan.html"), (200, "piano"))
-        self.assertEqual(self.get("/nixos/_stato"), (200, '{"ok": true}'))
+        self.assertEqual(json.loads(self.get("/nixos/_stato")[1]), {"ok": True})
 
     def test_rotte_fuori_dal_gruppo(self):
         self.assertEqual(self.get("/altro/")[0], 404)
@@ -169,6 +208,110 @@ class Sito(unittest.TestCase):
         self.assertIn('href="casa/"', body)
         self.assertNotIn("nixos", body)
         self.assertEqual(self.get("/nixos/")[0], 404)
+
+
+class Schede(unittest.TestCase):
+    """Titolo, coordinatore, versione servita, membri fuori metodo e remoti."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.base = Path(self.tmp.name)
+        self.servers = []
+
+    def tearDown(self):
+        for server in self.servers:
+            server.shutdown()
+            server.server_close()
+        self.tmp.cleanup()
+
+    def remote(self) -> str:
+        """Un altro host che serve la propria vista pubblicata, come danea2."""
+        other = self.base / "altrove"
+        publish(
+            other,
+            "danea-auto",
+            "Danea Auto",
+            "#7e22ce",
+            deck=True,
+            status={
+                "ok": True,
+                "served_commit": "c" * 40,
+                "requested": "c" * 40,
+                "served_date": "2026-11-20T09:00:00+01:00",
+            },
+        )
+        handler = type("H", (serve.PublishedHandler,), {"root": other / "danea-auto"})
+        handler.log_message = lambda *args: None
+        server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        self.servers.append(server)
+        return f"http://127.0.0.1:{server.server_address[1]}/"
+
+    def test_home_completa(self):
+        address = self.remote()
+        publish(
+            self.base,
+            "nixos",
+            "NixOS",
+            "#a16207",
+            members=[
+                {"nome": "nixos", "descrizione": "Host", "testo": "Coordina il gruppo."},
+                {"nome": "bi", "descrizione": "BI", "testo": "Raccoglie i dati di vendita."},
+                {"nome": "danea-auto", "descrizione": "Automazioni", "indirizzo": address},
+                {
+                    "nome": "gestionale",
+                    "descrizione": "Danea Easyfatt",
+                    "testo": "Il gestionale.",
+                    "fuori_metodo": True,
+                },
+                {"nome": "spento", "descrizione": "Giù", "indirizzo": "http://127.0.0.1:9/"},
+            ],
+            status={"ok": True, "served_commit": "a" * 40, "requested": "a" * 40},
+        )
+        (self.base / "nixos" / "releases" / "r1" / gruppo.FILE).write_text(
+            json.dumps(
+                {
+                    "lingua": "it",
+                    "titolo": "TT Artefatti",
+                    "membri": json.loads(
+                        (self.base / "nixos" / "releases" / "r1" / gruppo.FILE).read_text()
+                    )["membri"],
+                }
+            )
+        )
+        publish(
+            self.base,
+            "bi",
+            "BI",
+            "#0f766e",
+            status={
+                "ok": True,
+                "served_commit": "b" * 40,
+                "requested": "d" * 40,
+                "served_date": "2026-11-25T10:08:17+01:00",
+                "served_marker": {"method_version": "v0.4.0", "method_commit": "e" * 40},
+            },
+        )
+        body = gruppo.home(self.base, "nixos")
+        self.assertIn("<title>TT Artefatti</title>", body)
+        self.assertIn('<span class="badge">coordinatore del gruppo</span>', body)
+        self.assertEqual(body.count("Coordina il gruppo."), 1)
+        self.assertLess(body.index("Coordina il gruppo."), body.index("Raccoglie i dati"))
+        self.assertIn("Raccoglie i dati di vendita.", body)
+        self.assertIn("canone <code>v0.4.0</code>", body)
+        self.assertIn("commit servito <code>bbbbbbb</code> · 2026-11-25", body)
+        self.assertIn("richiesto ddddddd, non ancora servito", body)
+        # Il membro remoto: link, deck e stato letti dal suo host.
+        self.assertIn(f'href="{address}"', body)
+        self.assertIn(f'href="{address}presentation.html"', body)
+        self.assertIn("--accent: #7e22ce", body)
+        self.assertIn("commit servito <code>ccccccc</code> · 2026-11-20", body)
+        # Il membro fuori metodo: riquadro statico, nessun link.
+        self.assertIn('<li class="member static">', body)
+        self.assertIn('Danea Easyfatt <span class="outside">fuori metodo</span>', body)
+        self.assertNotIn('href="gestionale/"', body)
+        self.assertIn("stato non raggiungibile", body)
+        self.assertEqual(gruppo.nomi(self.base, "nixos"), {"nixos", "bi"})
 
 
 if __name__ == "__main__":

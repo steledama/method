@@ -33,6 +33,7 @@ from __future__ import annotations
 import io
 import json
 import os
+import re
 import shutil
 import signal
 import subprocess
@@ -173,6 +174,36 @@ def served_identity(dest: Path) -> tuple[str | None, str | None]:
     return data.get("commit"), data.get("canon")
 
 
+# Il marker dell'adottante: l'ultimo commit (o tag) del canone recepito.
+MARKER = Path("i3") / "allineamento-metodo.md"
+_MARKER_FIELD = re.compile(r"^(method_version|method_commit):[ \t]*(\S+)[ \t]*$", re.MULTILINE)
+
+
+def marker(source: Path) -> dict[str, str]:
+    """`method_version` e `method_commit` dal frontmatter del marker, se ci sono."""
+    try:
+        text = (source / MARKER).read_text(encoding="utf-8")
+    except (FileNotFoundError, NotADirectoryError):
+        return {}
+    if not text.startswith("---"):
+        return {}
+    head = text[3:].split("\n---", 1)[0]
+    return dict(_MARKER_FIELD.findall(head))
+
+
+def stamp(out: Path, repo: Path, commit: str, source: Path) -> None:
+    """Aggiunge alla provenienza data del commit e marker: la home di gruppo li mostra."""
+    path = out / "provenance.json"
+    if not path.is_file():
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    data["commit_date"] = git(repo, "show", "-s", "--format=%cI", commit)
+    found = marker(source)
+    if found:
+        data["marker"] = found
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
 def write_atomic(path: Path, text: str) -> None:
     tmp = path.with_name(f"{path.name}.tmp")
     tmp.write_bytes(text.encode("utf-8"))
@@ -180,7 +211,13 @@ def write_atomic(path: Path, text: str) -> None:
 
 
 def write_status(dest: Path, **fields: object) -> None:
-    status = {"served": current(dest), "served_commit": served_commit(dest), **fields}
+    served = served_provenance(dest)
+    status = {"served": current(dest), "served_commit": served.get("commit")}
+    if served.get("commit_date"):
+        status["served_date"] = served["commit_date"]
+    if served.get("marker"):
+        status["served_marker"] = served["marker"]
+    status |= fields
     status["time"] = datetime.now(UTC).isoformat(timespec="seconds")
     write_atomic(dest / STATUS, json.dumps(status, indent=2, ensure_ascii=False) + "\n")
 
@@ -254,6 +291,7 @@ def publish_once(repo: Path, dest: Path, commit: str, canon: str | None, builder
         export(repo, commit, source)
         try:
             builder(source, partial, commit, canon)
+            stamp(partial, repo, commit, source)
         except BaseException:
             shutil.rmtree(partial, ignore_errors=True)
             raise
