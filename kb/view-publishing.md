@@ -170,15 +170,22 @@ repo sotto una base comune; `serve.py --gruppo BASE --istanza NOME` instrada:
 - un'istanza senza membri serve sé sola: è il caso minimo da cui il gruppo
   cresce.
 
-La sezione `## Membri` dichiara anche ciò che il sito non può dedurre: una
+Cosa fa un membro lo dice il suo README, non l'istanza: l'incipit, il primo
+paragrafo di prosa sotto l'H1 o il blocco fra `<!-- incipit -->` e
+`<!-- /incipit -->`, tre o quattro righe. La build lo mostra sotto il titolo
+della home della vista e lo pubblica nel suo `<meta name="description">`,
+accanto al titolo e all'accento da cui la home del gruppo legge già il resto:
+cambia col README, senza toccare l'istanza.
+
+La sezione `## Membri` dichiara solo ciò che il sito non può dedurre: una
 riga `Titolo:` per il nome del sito e, sotto ogni voce, un elenco annidato
-di campi facoltativi. `descrizione` è il testo del riquadro, tre o quattro
-righe su cosa fa l'artefatto; `indirizzo` porta a una vista servita da un
-altro host, di cui la home legge titolo e stato a ogni richiesta; `fuori
+di campi facoltativi. `indirizzo` porta a una vista servita da un altro
+host, di cui la home legge titolo, incipit e stato a ogni richiesta; `fuori
 metodo` segna un membro del gruppo che non adotta il metodo, reso come
-riquadro statico, senza link né versione. L'istanza può avere una voce
-propria per la descrizione e resta comunque in testa, dichiarata
-coordinatore. Il contratto di dettaglio sta in `o3/view/gruppo.py`.
+riquadro statico, senza link né versione; `descrizione` è il testo di chi
+non pubblica una vista, i membri fuori metodo, e il ripiego di un membro
+che non pubblica ancora. L'istanza resta in testa, dichiarata coordinatore.
+Il contratto di dettaglio sta in `o3/view/gruppo.py`.
 
 Il servizio di gruppo sostituisce quelli dei repo membri: un repo del
 gruppo non tiene anche una porta propria. La porta è una sola e la dichiara

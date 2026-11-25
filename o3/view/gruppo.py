@@ -9,16 +9,18 @@ repo e il nome del checkout in grassetto:
     Titolo: Casa
 
     - **[salute](https://github.com/...)** — Benessere e salute personale
-      - descrizione: Tre o quattro righe su cosa fa l'artefatto, mandate a
-        capo liberamente.
     - **economia** — Gestione finanziaria
       - indirizzo: http://10.0.0.4:8001/
     - **gestionale** — Danea Easyfatt
       - fuori metodo
+      - descrizione: Tre o quattro righe su cosa fa, mandate a capo
+        liberamente.
 
-La riga `Titolo:` dà il nome del sito (senza, «Gruppo <istanza>»). Sotto
-ogni voce, campi facoltativi in un elenco annidato: `descrizione` (il testo
-del riquadro, al posto del sottotitolo), `indirizzo` (la vista è servita da
+La riga `Titolo:` dà il nome del sito (senza, «Gruppo <istanza>»). Il testo
+del riquadro di un membro del metodo è l'incipit del suo README, che la sua
+vista pubblica (`build_system_image.readme_incipit`). Sotto ogni voce, campi
+facoltativi in un elenco annidato: `descrizione` (il testo dei membri fuori
+metodo, e il ripiego di chi non pubblica ancora), `indirizzo` (la vista è servita da
 un altro host: il riquadro la collega lì e ne legge `/_stato`), `fuori
 metodo` (un membro del gruppo che non adotta il metodo: riquadro statico,
 senza link né versione). Gli indirizzi dei servizi interni sono IP, non
@@ -264,6 +266,7 @@ def nomi(base: Path, istanza: str) -> set[str]:
 
 _TITLE = re.compile(r"<title>(.*?)</title>", re.DOTALL)
 _ACCENT = re.compile(r"--accent:\s*(#[0-9a-fA-F]{6})")
+_INCIPIT = re.compile(r'<meta\s+name="description"\s+content="([^"]*)"')
 
 
 @dataclass(frozen=True)
@@ -272,17 +275,21 @@ class Scheda:
 
     titolo: str | None = None
     accento: str | None = None
+    incipit: str | None = None
     deck: bool = False
     stato: dict | None = None
     raggiunto: bool = True
 
 
-def _da_testi(index: str | None, theme: str | None) -> tuple[str | None, str | None]:
+def _da_testi(index: str | None, theme: str | None) -> tuple[str | None, str | None, str | None]:
+    """Titolo, accento e incipit del README, come la vista li pubblica."""
     title = _TITLE.search(index) if index else None
     accent = _ACCENT.search(theme) if theme else None
+    incipit = _INCIPIT.search(index) if index else None
     return (
         html.unescape(title.group(1).strip()) if title else None,
         accent.group(1) if accent else None,
+        html.unescape(incipit.group(1)).strip() or None if incipit else None,
     )
 
 
@@ -296,11 +303,11 @@ def _scheda(base: Path, name: str) -> Scheda:
     if folder is None:
         return Scheda(stato=stato)
     theme = folder / "assets" / "theme.css"
-    title, accent = _da_testi(
+    title, accent, incipit = _da_testi(
         (folder / "index.html").read_text(encoding="utf-8"),
         theme.read_text(encoding="utf-8") if theme.is_file() else None,
     )
-    return Scheda(title, accent, (folder / "presentation.html").is_file(), stato)
+    return Scheda(title, accent, incipit, (folder / "presentation.html").is_file(), stato)
 
 
 def _get(url: str, method: str = "GET") -> str | None:
@@ -323,9 +330,9 @@ def _remota(indirizzo: str) -> Scheda:
         stato = json.loads(raw) if raw else None
     except json.JSONDecodeError:
         stato = None
-    title, accent = _da_testi(index, _get(root + "assets/theme.css"))
+    title, accent, incipit = _da_testi(index, _get(root + "assets/theme.css"))
     deck = _get(root + "presentation.html", "HEAD") is not None
-    return Scheda(title, accent, deck, stato if isinstance(stato, dict) else None)
+    return Scheda(title, accent, incipit, deck, stato if isinstance(stato, dict) else None)
 
 
 def _breve(sha: object) -> str | None:
@@ -412,6 +419,10 @@ def home(base: Path, istanza: str, chat: str | None = None) -> str:
             scheda = _scheda(base, member.nome)
             href = f"{member.nome}/"
         href = html.escape(href, quote=True)
+        # L'incipit del README, pubblicato dalla vista, vince sul testo
+        # dichiarato nell'istanza: quello resta il ripiego di chi non pubblica.
+        if scheda.incipit:
+            description = f"<p>{html.escape(scheda.incipit)}</p>"
         style = f' style="--accent: {scheda.accento}"' if scheda.accento else ""
         heading = html.escape(scheda.titolo) if scheda.titolo else f"<code>{name}</code>"
         if scheda.titolo is None and scheda.raggiunto:

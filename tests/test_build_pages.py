@@ -219,5 +219,33 @@ Conclusione.
         self.assertIn(("a", "href", "../goal.html#ob-1"), Elements(markup).targets)
 
 
+class Incipit(unittest.TestCase):
+    """L'incipit del README: paragrafo sotto l'H1 o blocco marcato."""
+
+    def incipit(self, text: str) -> str | None:
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "README.md").write_text(text, encoding="utf-8")
+            return build_system_image.readme_incipit(Path(tmp))
+
+    def test_paragrafo_sotto_h1(self):
+        self.assertEqual(
+            self.incipit("# T\n\nFa questo\ne quello.\n\nAltro.\n"), "Fa questo e quello."
+        )
+
+    def test_blocco_marcato_vince(self):
+        text = "# T\n\nPrimo.\n\n## S\n\n<!-- incipit -->\nScelto\nqui.\n<!-- /incipit -->\n"
+        self.assertEqual(self.incipit(text), "Scelto qui.")
+
+    def test_senza_prosa_sotto_h1(self):
+        self.assertIsNone(self.incipit("# T\n\n## Sezione\n\nTesto.\n"))
+        self.assertIsNone(self.incipit("# T\n\n- voce\n"))
+
+    def test_testo_semplice_per_il_meta(self):
+        self.assertEqual(
+            build_system_image.plain_text("`salute` è _mens sana_ e [link](u) **forte**"),
+            "salute è mens sana e link forte",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

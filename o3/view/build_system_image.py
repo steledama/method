@@ -78,6 +78,53 @@ def readme_title(root: Path) -> str:
     raise SystemExit("README.md: H1 mancante")
 
 
+_INCIPIT = re.compile(r"<!--\s*incipit\s*-->(?P<body>.*?)<!--\s*/incipit\s*-->", re.DOTALL)
+# Righe che non aprono un paragrafo di prosa: titoli, liste, codice, HTML, immagini, tabelle.
+_NOT_PROSE = re.compile(r"^(#|[-*+] |\d+[.)] |```|~~~|<|!\[|\||>)")
+
+
+def readme_incipit(root: Path) -> str | None:
+    """L'incipit del README, in Markdown: cosa fa l'artefatto, in tre o quattro righe.
+
+    È il blocco fra `<!-- incipit -->` e `<!-- /incipit -->`, se c'è, oppure
+    il primo paragrafo di prosa subito sotto l'H1. La home della vista lo
+    mostra sotto il titolo e lo pubblica in `<meta name="description">`, da
+    cui lo legge la home del gruppo.
+    """
+    text = (root / "README.md").read_text(encoding="utf-8")
+    marked = _INCIPIT.search(text)
+    if marked:
+        body = " ".join(line.strip() for line in marked.group("body").splitlines() if line.strip())
+        return body or None
+    lines = text.splitlines()
+    start = next((i for i, line in enumerate(lines) if line.startswith("# ")), None)
+    if start is None:
+        return None
+    para: list[str] = []
+    for line in lines[start + 1 :]:
+        stripped = line.strip()
+        if not stripped:
+            if para:
+                break
+            continue
+        if not para and _NOT_PROSE.match(stripped):
+            return None
+        para.append(stripped)
+    return " ".join(para) or None
+
+
+def emphasis(rendered: str) -> str:
+    """Il corsivo `_x_` o `*x*`, che `inline_markdown` lascia com'è."""
+    return re.sub(r"(?<![\w*])([_*])(?=\S)([^_*<]+?)(?<=\S)\1(?![\w*])", r"<em>\2</em>", rendered)
+
+
+def plain_text(markdown: str) -> str:
+    """Il Markdown inline ridotto a testo: link al loro testo, marcatori tolti."""
+    text = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", markdown)
+    text = re.sub(r"(\*\*|__|\*|_|`)(?=\S)(.+?)(?<=\S)\1", r"\2", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def render_block(block: str) -> str:
     """Rende un blocco markdown fedele: prosa in <p>, liste puntate in <ul>,
     e il misto lead-in + lista dentro lo stesso blocco."""
@@ -230,6 +277,13 @@ def provenance_html(provenance: dict[str, str] | None) -> str:
 
 def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> str:
     title = readme_title(root)
+    incipit = readme_incipit(root)
+    meta = (
+        f'\n    <meta name="description" content="{html.escape(plain_text(incipit), quote=True)}" />'
+        if incipit
+        else ""
+    )
+    lead = f'\n      <p class="lead">{emphasis(inline_markdown(incipit))}</p>' if incipit else ""
     # Il deck è il racconto curato dell'artefatto, non uno stadio: la home lo
     # linka come voce a sé.
     deck_link = (
@@ -241,7 +295,7 @@ def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> 
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />{meta}
     <title>{html.escape(project.SIGLA)} · {html.escape(title)}</title>
     <link rel="stylesheet" href="assets/system-image.css" />
     <link rel="stylesheet" href="assets/theme.css" />
@@ -249,7 +303,7 @@ def render(root: Path, deck: bool, provenance: dict[str, str] | None = None) -> 
   <body>
     <header class="hero">
       <p class="kicker">Artefatto · Artifact</p>
-      <h1>{html.escape(title)}</h1>{deck_link}
+      <h1>{html.escape(title)}</h1>{lead}{deck_link}
     </header>
 
     <main>

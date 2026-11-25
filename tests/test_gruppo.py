@@ -42,10 +42,13 @@ def publish(
     deck: bool = False,
     members: list[dict] | None = None,
     status: dict | None = None,
+    incipit: str | None = None,
 ) -> None:
     folder = base / name / "releases" / "r1"
     (folder / "assets").mkdir(parents=True)
-    (folder / "index.html").write_text(f'<title>{title}</title><a href="o1/plan.html">p</a>')
+    # Come prettier lo rende: il meta va a capo fra gli attributi.
+    meta = f'<meta\n      name="description"\n      content="{incipit}"\n    />' if incipit else ""
+    (folder / "index.html").write_text(f'{meta}<title>{title}</title><a href="o1/plan.html">p</a>')
     (folder / "assets" / "theme.css").write_text(f":root {{\n  --accent: {accent};\n}}\n")
     (folder / "o1").mkdir()
     (folder / "o1" / "plan.html").write_text("piano")
@@ -233,6 +236,7 @@ class Schede(unittest.TestCase):
             "Danea Auto",
             "#7e22ce",
             deck=True,
+            incipit="Automatizza Easyfatt &amp; altro.",
             status={
                 "ok": True,
                 "served_commit": "c" * 40,
@@ -284,6 +288,7 @@ class Schede(unittest.TestCase):
             "bi",
             "BI",
             "#0f766e",
+            incipit="Incipit del README di bi.",
             status={
                 "ok": True,
                 "served_commit": "b" * 40,
@@ -296,8 +301,11 @@ class Schede(unittest.TestCase):
         self.assertIn("<title>TT Artefatti</title>", body)
         self.assertIn('<span class="badge">coordinatore del gruppo</span>', body)
         self.assertEqual(body.count("Coordina il gruppo."), 1)
-        self.assertLess(body.index("Coordina il gruppo."), body.index("Raccoglie i dati"))
-        self.assertIn("Raccoglie i dati di vendita.", body)
+        self.assertLess(body.index("Coordina il gruppo."), body.index("Incipit del README"))
+        # L'incipit pubblicato dalla vista vince sul testo dichiarato.
+        self.assertIn("Incipit del README di bi.", body)
+        self.assertNotIn("Raccoglie i dati di vendita.", body)
+        self.assertIn("Automatizza Easyfatt &amp; altro.", body)
         self.assertIn("canone <code>v0.4.0</code>", body)
         self.assertIn("commit servito <code>bbbbbbb</code> · 2026-11-25", body)
         self.assertIn("richiesto ddddddd, non ancora servito", body)
