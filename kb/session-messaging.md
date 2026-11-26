@@ -99,6 +99,15 @@ pannello, e il protocollo vale con queste sostituzioni:
   turno con `herdr pane wait-output --match <testo>`, che richiede un testo
   o un'espressione da attendere. Se non trova il testo nel tempo concesso,
   lo stato si ricava rileggendo il pannello, non reinviando;
+- il testo attraversa SSH a blocchi, e un messaggio lungo può fermarsi a
+  metà: il 2026-11-26, da deck a Codex CLI 0.171.0 su svezia, di 3663
+  caratteri ne sono arrivati circa 3060, come segnaposti `[Pasted Content
+N chars]` da circa 1000 l'uno. Il messaggio resta quindi sotto i 1000
+  caratteri e rimanda al contenuto versionato (nodi, file, commit) invece
+  di trascriverlo. Prima dell'`Enter` si rilegge il campo finché non
+  compare la fine del testo; su un testo incompleto non si invia. Svuotare
+  il campo resta al custode, perché il tasto che lo fa (Ctrl+C in Codex e
+  Claude Code) a campo vuoto chiude l'agente;
 - gli stati dell'agente non ci sono: non esistono `working`, `blocked` né
   `--wait`. Un dialogo di approvazione dall'altra parte non è segnalato e si
   vede solo leggendo il pannello, prima dell'invio e prima di considerare
