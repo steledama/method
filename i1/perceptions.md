@@ -12,6 +12,11 @@ verdetto si elimina insieme alla sua riga qui — la storia resta in git
 
 Una riga per segnale: lo stato e il seguito vivono nella cattura.
 
+- [Casi della delega: un messaggio lungo fra host e una pubblicazione
+  contro il register](casi-delega-nixos-2026-11-27.md) — da `nixos`, due
+  casi: parti numerate e sha256 fra host, atto esterno autorizzato contro
+  un obiettivo di `goal.md`.
+
 - [Ciclo autonomo ritirato in `salute` per il costo del
   confine](ciclo-autonomo-ritirato-salute-2026-11-20.md) — da `salute`:
   primo ritiro di un gradino, per scelta del custode; proposte sul Goal di
